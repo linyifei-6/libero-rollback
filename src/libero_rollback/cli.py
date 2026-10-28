@@ -166,6 +166,22 @@ def build_parser() -> argparse.ArgumentParser:
     run_parser.add_argument("--max-steps", type=int, default=600)
     run_parser.add_argument("--replan-steps", type=int, default=10)
     run_parser.add_argument(
+        "--success-delay",
+        type=int,
+        default=0,
+        help=(
+            "stable-success hold window: after the first success, require the "
+            "task predicate to stay true for this many additional control "
+            "steps; 0 keeps the legacy immediate stop"
+        ),
+    )
+    run_parser.add_argument(
+        "--success-check-interval",
+        type=int,
+        default=1,
+        help="sample the predicate every N steps inside the hold window (1 = strict)",
+    )
+    run_parser.add_argument(
         "--output",
         type=Path,
         help="run directory (default: runs/<UTC timestamp>/<case_id>)",
@@ -231,6 +247,8 @@ def main(argv: list[str] | None = None) -> int:
                         seed=args.seed,
                         max_steps=args.max_steps,
                         replan_steps=args.replan_steps,
+                        success_delay=args.success_delay,
+                        success_check_interval=args.success_check_interval,
                         output_root=case_output,
                         suite=args.suite,
                         dimension=args.dimension,
@@ -270,6 +288,8 @@ def main(argv: list[str] | None = None) -> int:
                             "dimension": args.dimension,
                             "severity": args.severity,
                             "max_steps": args.max_steps,
+                            "success_delay": args.success_delay,
+                            "success_check_interval": args.success_check_interval,
                             "video": args.video,
                             "cases": summaries,
                         },

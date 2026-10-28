@@ -161,6 +161,18 @@ def main() -> int:
     ap.add_argument("--seed-ids", required=True)
     ap.add_argument("--max-steps", type=int, default=600)
     ap.add_argument("--replan-steps", type=int, default=10)
+    ap.add_argument(
+        "--success-delay",
+        type=int,
+        default=0,
+        help="hold window after the first success (0 = legacy immediate stop)",
+    )
+    ap.add_argument(
+        "--success-check-interval",
+        type=int,
+        default=1,
+        help="sample the success predicate every N steps inside the hold window",
+    )
     ap.add_argument("--video", action="store_true")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
@@ -168,6 +180,16 @@ def main() -> int:
     runtime_root = args.runtime_root.resolve()
     if not (runtime_root / "tools/run_benchmark.py").is_file():
         raise SystemExit(f"not a libero-runtime checkout: {runtime_root}")
+    if args.success_delay:
+        capability_path = runtime_root / "rollback-capabilities.json"
+        capabilities: list[str] = []
+        if capability_path.is_file():
+            capabilities = json.loads(capability_path.read_text()).get("capabilities", [])
+        if "success_window" not in capabilities:
+            raise SystemExit(
+                "the selected runtime overlay does not support --success-delay; "
+                "build one with scripts/prepare_success_delay_runtime.py"
+            )
 
     # Resolve every user-supplied path BEFORE chdir, otherwise a relative --output
     # would silently land inside the runtime checkout.
@@ -204,6 +226,13 @@ def main() -> int:
         "--output",
         str(output),
     ]
+    if args.success_delay:
+        argv += [
+            "--success-delay",
+            str(args.success_delay),
+            "--success-check-interval",
+            str(args.success_check_interval),
+        ]
     if args.video:
         argv.append("--video")
     if args.dry_run:

@@ -115,6 +115,22 @@ def check_runtime_capabilities(case: Mapping[str, Any], runtime_root: Path) -> N
             )
 
 
+def runtime_capabilities(runtime_root: Path) -> set[str]:
+    """Capabilities advertised by an isolated evaluator overlay."""
+
+    path = runtime_root / "rollback-capabilities.json"
+    if not path.is_file():
+        return set()
+    try:
+        document = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return set()
+    capabilities = document.get("capabilities", [])
+    if not isinstance(capabilities, list):
+        return set()
+    return {str(item) for item in capabilities}
+
+
 # Historical label -> runtime severity variant, kept for the 1.0.0/1.1.0 cases.
 _SEVERITY_VARIANTS = {
     "d0": "l1_t0",
@@ -697,6 +713,8 @@ def _normalize_result(
     runner_result_path: Path | None,
     runner_document: Mapping[str, Any] | None,
     error: str | None = None,
+    success_delay: int = 0,
+    success_check_interval: int = 1,
 ) -> dict[str, Any]:
     perturbation, baseline = _select_episode(runner_document or {}, seed)
     report = perturbation.get("report") if perturbation else None
@@ -743,6 +761,14 @@ def _normalize_result(
         "pre_relation": pre_relation,
         "post_relation": post_relation,
         "episode_success": perturbation.get("success") if perturbation else None,
+        "first_hit_success": (
+            perturbation.get("first_hit_success") if perturbation else None
+        ),
+        "success_window": (
+            _json_safe(perturbation.get("success_window")) if perturbation else None
+        ),
+        "success_delay": success_delay,
+        "success_check_interval": success_check_interval,
         "baseline_success": baseline.get("success") if baseline else None,
         "injection_valid": report.get("injection_valid"),
         "runner_returncode": returncode,
@@ -764,6 +790,8 @@ def run_case(
     seed: int = 0,
     max_steps: int = 600,
     replan_steps: int = 10,
+    success_delay: int = 0,
+    success_check_interval: int = 1,
     output_root: Path | None = None,
     suite: str = "LIBERO_10",
     dimension: str = "rollback",
@@ -814,8 +842,29 @@ def run_case(
     )
     if not profile.is_file():
         raise RuntimeBridgeError(f"runtime task profile not found: {profile}")
+    post_success_window = (
+        case.get("stage", {}).get("name") == "completion_boundary"
+        or case.get("trigger", {}).get("time_point") == "all_done"
+    )
+    if success_delay > 0 and post_success_window:
+        raise RuntimeBridgeError(
+            "success_delay cannot be combined with the post-success observation "
+            "window used by completion-boundary/all_done cases"
+        )
+    if success_delay > 0 and "success_window" not in runtime_capabilities(runtime_root):
+        raise RuntimeBridgeError(
+            "runtime overlay does not advertise 'success_window'; build one with "
+            "`python scripts/prepare_success_delay_runtime.py --base <overlay> "
+            "--output <overlay>`"
+        )
     if max_steps <= 0 or replan_steps <= 0 or seed < 0:
         raise RuntimeBridgeError("seed must be non-negative and step limits must be positive")
+    if success_delay < 0:
+        raise RuntimeBridgeError("success_delay must be nonnegative")
+    if success_check_interval < 1:
+        raise RuntimeBridgeError("success_check_interval must be positive")
+    if success_delay == 0 and success_check_interval != 1:
+        raise RuntimeBridgeError("success_check_interval requires success_delay > 0")
 
     timestamp = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
     output_dir = output_root or Path("runs") / timestamp / str(case["case_id"])
@@ -866,11 +915,11 @@ def run_case(
         command.extend(["--checkpoint", str(checkpoint)])
     if video:
         command.append("--video")
-    if (
-        case.get("stage", {}).get("name") == "completion_boundary"
-        or case.get("trigger", {}).get("time_point") == "all_done"
-    ):
+    if post_success_window:
         command.append("--post-success-window")
+    if success_delay > 0:
+        command.extend(["--success-delay", str(success_delay)])
+        command.extend(["--success-check-interval", str(success_check_interval)])
     binding = yaml.safe_load(binding_path.read_text())
     (output_dir / "binding.yaml").write_text(yaml.safe_dump(binding, sort_keys=False))
     runtime_files = {
@@ -889,6 +938,8 @@ def run_case(
         "command": command,
         "seed": seed,
         "max_steps": max_steps,
+        "success_delay": success_delay,
+        "success_check_interval": success_check_interval,
         "video": video,
         "mode": mode,
     }
@@ -912,9 +963,11 @@ def run_case(
                 "suite": suite,
                 "dimension": dimension,
                 "severity": severity or case["severity"],
+                "success_delay": success_delay,
+                "success_check_interval": success_check_interval,
                 "video": video,
                 "mode": mode,
-                "post_success_window": "--post-success-window" in command,
+                "post_success_window": post_success_window,
             },
             indent=2,
             ensure_ascii=False,
@@ -953,6 +1006,8 @@ def run_case(
         runner_result_path=result_path,
         runner_document=document,
         error=error,
+        success_delay=success_delay,
+        success_check_interval=success_check_interval,
     )
     if returncode != 0 and normalized["error"] is None:
         normalized["error"] = f"external runtime exited with code {returncode}"

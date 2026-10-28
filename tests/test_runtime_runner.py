@@ -73,8 +73,11 @@ def fake_runtime(tmp_path):
     (runtime / "configs/task_profiles/libero_10_t276.yaml").write_text(
         "task_profile:\n  milestones:\n    next_subgoal_completed: {}\n"
     )
+    (runtime / "configs/task_profiles/libero_10_t33.yaml").write_text(
+        "task_profile:\n  milestones:\n    next_subgoal_completed: {}\n"
+    )
     (runtime / "rollback-capabilities.json").write_text(
-        json.dumps({"capabilities": ["completion_precondition"]})
+        json.dumps({"capabilities": ["completion_precondition", "success_window"]})
     )
     (runtime / "rollback_preflight.py").write_text("# fake capability for command testing\n")
     (runtime / "tools/run_benchmark.py").write_text(
@@ -150,3 +153,70 @@ def test_grid_only_passes_paired_flags_in_both_mode(tmp_path, monkeypatch, basel
     assert ("--strict-paired-baseline" in command) is (not baseline_only)
     assert ("--require-successful-baseline" in command) is (not baseline_only)
     assert command[command.index("--mode") + 1] == ("baseline" if baseline_only else "both")
+
+
+T01_CASE = (
+    ROOT
+    / "dataset/two-subtask/cases"
+    / "libero-10-01-rollback-mid-d0-bowl-offset-xn5yp5-upright-restore.yaml"
+)
+
+
+def test_run_case_threads_success_delay_and_records_it(tmp_path):
+    runtime = fake_runtime(tmp_path)
+    output = tmp_path / "delay"
+    run_case(
+        T01_CASE,
+        python_executable=Path(sys.executable),
+        libero_root=tmp_path,
+        runtime_root=runtime,
+        adapter="pi05",
+        checkpoint=None,
+        output_root=output,
+        success_delay=50,
+        success_check_interval=10,
+    )
+    plan = json.loads((output / "execution-plan.json").read_text())
+    assert plan["success_delay"] == 50
+    assert plan["success_check_interval"] == 10
+    command = plan["command"]
+    assert command[command.index("--success-delay") + 1] == "50"
+    assert command[command.index("--success-check-interval") + 1] == "10"
+    assert "--post-success-window" not in command
+    manifest = json.loads((output / "manifest.json").read_text())
+    assert manifest["success_delay"] == 50
+    assert manifest["success_check_interval"] == 10
+    assert manifest["post_success_window"] is False
+
+
+def test_run_case_requires_success_window_capability(tmp_path):
+    runtime = fake_runtime(tmp_path)
+    (runtime / "rollback-capabilities.json").write_text(
+        json.dumps({"capabilities": ["completion_precondition"]})
+    )
+    with pytest.raises(RuntimeBridgeError, match="success_window"):
+        run_case(
+            T01_CASE,
+            python_executable=Path(sys.executable),
+            libero_root=tmp_path,
+            runtime_root=runtime,
+            adapter="pi05",
+            checkpoint=None,
+            output_root=tmp_path / "no-capability",
+            success_delay=50,
+        )
+
+
+def test_run_case_rejects_success_delay_with_completion_window(tmp_path):
+    runtime = fake_runtime(tmp_path)
+    with pytest.raises(RuntimeBridgeError, match="post-success"):
+        run_case(
+            CASE,
+            python_executable=Path(sys.executable),
+            libero_root=tmp_path,
+            runtime_root=runtime,
+            adapter="pi05",
+            checkpoint=None,
+            output_root=tmp_path / "conflict",
+            success_delay=50,
+        )

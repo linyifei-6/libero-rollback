@@ -45,8 +45,9 @@ selection accepts one or more YAML paths, repeatable `--case-id` or `--task`
 filters, or `--all-cases`. Batch runs execute cases independently and write an
 `evaluation-summary.json` alongside per-case result directories.
 The command exposes model, suite, perturbation dimension, severity override,
-maximum steps, seed, replanning interval, execution mode, output path, and
-optional video recording. Dataset v1 accepts only suite `LIBERO_10` and
+maximum steps, seed, replanning interval, success-delay hold window, execution
+mode, output path, and optional video recording. Dataset v1 accepts only suite
+`LIBERO_10` and
 dimension `rollback`; unsupported suites or dimensions fail before launching
 the evaluator. Severity selects one of the source-defined variants while the
 case's concrete state-change parameters remain the scenario definition.
@@ -57,14 +58,20 @@ contains the dataset version, immutable case ID, adapter/checkpoint, seed,
 trigger and intervention fields when the runner reports them, the observed
 pre/post relation booleans when available, validity, and a copy of the raw
 perturbation record. A missing trigger or an unsuccessful episode is recorded
-as a runtime outcome; it does not alter the case YAML.
+as a runtime outcome; it does not alter the case YAML. With `--success-delay N`
+(available only in an overlay built by `scripts/prepare_success_delay_runtime.py`)
+the runner appends an N-step verification tail after the first success and
+reports `first_hit_success`, `first_hit_step`, `success_window` (checks and a
+per-step trace) and `episode_success` = stable success; the bridge records the
+same fields in `case_result.json` and refuses an overlay that does not advertise
+the `success_window` capability.
 The command exits successfully when the external result was written and the
 intervention was valid. A model failure remains visible in
 `episode_success`, `baseline_success`, and the original `runner_returncode`;
 it is a valid negative evaluation outcome rather than a bridge crash. Missing
 results or invalid injection evidence still produce a non-zero exit status.
 
-The bridge maps state-change kinds and labels currently present in the catalog. New handlers require explicit mapping, capability negotiation, schema/template review and negative tests. The optional isolated overlay advertises `completed_pose`, `native_boundary`, `functional_boundary`, `recovery_gate`, `completion_precondition`, `articulation_delay` and `atomic_relation_set`; unsupported evaluators fail before model loading.
+The bridge maps state-change kinds and labels currently present in the catalog. New handlers require explicit mapping, capability negotiation, schema/template review and negative tests. The optional isolated overlay advertises `completed_pose`, `native_boundary`, `functional_boundary`, `recovery_gate`, `completion_precondition`, `articulation_delay`, `atomic_relation_set` and `success_window`; unsupported evaluators fail before model loading.
 
 Output directories containing results or completion records cannot be overwritten. Report selection prioritizes matching provenance, then latest attempt, without choosing successful outcomes. Stale definition/binding records, missing baselines, invalid injections, controls, relation-preserving probes, external restorations and incomplete protocols are excluded from the model rollback recovery denominator. A multi-relation recovery additionally requires exact predicate identity and all final target truths.
 

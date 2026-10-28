@@ -41,6 +41,8 @@
 | `--dimension` | `rollback` | 评测维度 |
 | `--max-steps` | `600` | 每 episode 最大步数 |
 | `--replan-steps` | `10` | 每多少控制步查询一次策略 |
+| `--success-delay` | `0` | 稳定成功窗口：首次成功后追加 K 步验证；0 = 保持旧的即时终止。需要 `success_window` overlay（见下文“稳定成功”） |
+| `--success-check-interval` | `1` | 窗口内每 S 步抽查一次谓词；1 = 严格连续 |
 | `--cam` | runtime 默认 256 | 相机分辨率；未指定时不传该参数 |
 | `--video` | 关 | 录制视频 |
 | `--dry-run` | 关 | 只列选用例，不执行 |
@@ -204,13 +206,30 @@
 .venv/bin/python scripts/run_batched_eval.py --dry-run --limit 5 ...
 ```
 
+### 稳定成功（success-delay）
+
+参考 runtime 不带该参数；先用本仓库脚本把补丁打到一份 overlay 拷贝上，再把 `--runtime-root`
+指向它（参考 runtime 不被修改）：
+
+```bash
+uv run python scripts/prepare_success_delay_runtime.py \
+  --base runs/validation-runtime-20261019-v19 \
+  --output runs/validation-runtime-20261020-v20-success-delay
+```
+
+```bash
+# 稳定成功：首次成功后要求再保持 100 个控制步，每 20 步抽查一次
+--runtime-root runs/validation-runtime-20261020-v20-success-delay \
+--forward="--success-delay 100 --success-check-interval 20"
+```
+
+判据、预算与结果字段见[稳定成功协议](success-delay.md)。
+
 ### 转发 runtime 参数
 
 ```bash
 # 任务成功之后继续观察（用于完成边界组）
 --forward=--post-success-window
-# Oracle PFCR 对照
---forward=--pfcr-config --forward=/path/to/pfcr.yaml
 ```
 
 ## 四、输出结构

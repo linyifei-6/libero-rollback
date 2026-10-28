@@ -40,6 +40,7 @@ include = [
   "scripts/build_current_catalog.py", "scripts/generate_progress_failure_cases.py",
   "scripts/runtime_extensions.py", "scripts/runtime_preflight.py",
   "scripts/prepare_validation_runtime.py", "scripts/run_grid_cases.py",
+  "scripts/prepare_success_delay_runtime.py",
   "scripts/build_current_report.py", "scripts/build_case_matrix_doc.py",
   "scripts/audit_report_videos.py",
   "scripts/compile_catalog.py",
@@ -62,3 +63,4 @@ select = ["E", "F", "I", "UP"]
 "scripts/build_eval_report.py" = ["E501"]
 "scripts/build_case_matrix_doc.py" = ["E501"]
 "scripts/prepare_validation_runtime.py" = ["E501"]
+"scripts/prepare_success_delay_runtime.py" = ["E501"]
