@@ -1,0 +1,2901 @@
+{
+  "suite": "LIBERO_GOAL",
+  "status": "FULLY RECOVERED — regenerated after the incident and verified (45/45 static validation, checksums 137 lines)",
+  "artifact_location": "docs/experiments-20261019/recovered-artifacts/goal-pairs/",
+  "classification_counts": {
+    "compatible": 33,
+    "conflict": 7,
+    "hard": 5
+  },
+  "benchmark_order": "official benchmark order (task_order_index=0)",
+  "pairs": [
+    {
+      "pair_id": "00_01",
+      "i": 0,
+      "j": 1,
+      "pair_label": "open_the_middle_drawer_of_the_cabinet + put_the_bowl_on_the_stove",
+      "tasks": [
+        "open_the_middle_drawer_of_the_cabinet",
+        "put_the_bowl_on_the_stove"
+      ],
+      "language": "open the middle drawer of the cabinet and put the bowl on the stove",
+      "goal_atoms": [
+        "(Open wooden_cabinet_1_middle_region)",
+        "(On akita_black_bowl_1 flat_stove_1_cook_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "open",
+          "wooden_cabinet_1_middle_region"
+        ],
+        [
+          "on",
+          "akita_black_bowl_1",
+          "flat_stove_1_cook_region"
+        ]
+      ],
+      "obj_of_interest": [
+        "wooden_cabinet_1_middle_region",
+        "akita_black_bowl_1",
+        "flat_stove_1_cook_region"
+      ],
+      "template": {
+        "task_idx": 0,
+        "name": "open_the_middle_drawer_of_the_cabinet",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/open_the_middle_drawer_of_the_cabinet.bddl"
+      },
+      "init_source": {
+        "task_idx": 0,
+        "name": "open_the_middle_drawer_of_the_cabinet",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/open_the_middle_drawer_of_the_cabinet.pruned_init",
+        "filename": "open_the_middle_drawer_of_the_cabinet.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_00_01.bddl",
+        "init": "init/goal_pair_00_01.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_00_01.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_00_01.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_00_01.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_00_01.pruned_init"
+      },
+      "classification": "compatible",
+      "reason": "t0(open_the_middle_drawer_of_the_cabinet) = 打开 wooden_cabinet_1 的中抽屉 (middle_region); t1(put_the_bowl_on_the_stove) = 把 akita_black_bowl_1 放到 flat_stove_1 的 cook_region (炉灶烹饪区)。两者作用于不同被操作物体 (wooden_cabinet_1 vs akita_black_bowl_1), 不存在同一物体的异位要求, 目标原子可同时成立, 归为 compatible。 次序提示: 用户示例组合: 先开中抽屉再放碗到炉灶区 (或反之), 互不冲突。",
+      "tags": [
+        "distinct_objects"
+      ],
+      "pilot_group": "primary",
+      "sha256": {
+        "bddl": "ca12bb944b1b38341d4345c2985ee93f37dd154c66af046771b17e1fa4e2250c",
+        "init": "977efe1216bee72bb4e9fa9ec4be1bcfe37fb00ece815eac117feba019b34b9f",
+        "init_source": "977efe1216bee72bb4e9fa9ec4be1bcfe37fb00ece815eac117feba019b34b9f"
+      }
+    },
+    {
+      "pair_id": "00_02",
+      "i": 0,
+      "j": 2,
+      "pair_label": "open_the_middle_drawer_of_the_cabinet + put_the_wine_bottle_on_top_of_the_cabinet",
+      "tasks": [
+        "open_the_middle_drawer_of_the_cabinet",
+        "put_the_wine_bottle_on_top_of_the_cabinet"
+      ],
+      "language": "open the middle drawer of the cabinet and put the wine bottle on top of the cabinet",
+      "goal_atoms": [
+        "(Open wooden_cabinet_1_middle_region)",
+        "(On wine_bottle_1 wooden_cabinet_1_top_side)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "open",
+          "wooden_cabinet_1_middle_region"
+        ],
+        [
+          "on",
+          "wine_bottle_1",
+          "wooden_cabinet_1_top_side"
+        ]
+      ],
+      "obj_of_interest": [
+        "wooden_cabinet_1_middle_region",
+        "wine_bottle_1",
+        "wooden_cabinet_1_top_side"
+      ],
+      "template": {
+        "task_idx": 0,
+        "name": "open_the_middle_drawer_of_the_cabinet",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/open_the_middle_drawer_of_the_cabinet.bddl"
+      },
+      "init_source": {
+        "task_idx": 0,
+        "name": "open_the_middle_drawer_of_the_cabinet",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/open_the_middle_drawer_of_the_cabinet.pruned_init",
+        "filename": "open_the_middle_drawer_of_the_cabinet.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_00_02.bddl",
+        "init": "init/goal_pair_00_02.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_00_02.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_00_02.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_00_02.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_00_02.pruned_init"
+      },
+      "classification": "compatible",
+      "reason": "t0(open_the_middle_drawer_of_the_cabinet) = 打开 wooden_cabinet_1 的中抽屉 (middle_region); t2(put_the_wine_bottle_on_top_of_the_cabinet) = 把 wine_bottle_1 放到 wooden_cabinet_1 的 top_side (柜顶)。两者作用于不同被操作物体 (wooden_cabinet_1 vs wine_bottle_1), 不存在同一物体的异位要求, 目标原子可同时成立, 归为 compatible。 次序提示: 放酒瓶到柜顶与打开中抽屉可共容; 同一柜体, 建议先放瓶再开抽屉避免碰撞。",
+      "tags": [
+        "distinct_objects"
+      ],
+      "pilot_group": "compatible_arm",
+      "sha256": {
+        "bddl": "da230c6b5851d7edfbf939590e2f636543f2e839945432d06e637cc76aef1ce9",
+        "init": "977efe1216bee72bb4e9fa9ec4be1bcfe37fb00ece815eac117feba019b34b9f",
+        "init_source": "977efe1216bee72bb4e9fa9ec4be1bcfe37fb00ece815eac117feba019b34b9f"
+      }
+    },
+    {
+      "pair_id": "00_03",
+      "i": 0,
+      "j": 3,
+      "pair_label": "open_the_middle_drawer_of_the_cabinet + open_the_top_drawer_and_put_the_bowl_inside",
+      "tasks": [
+        "open_the_middle_drawer_of_the_cabinet",
+        "open_the_top_drawer_and_put_the_bowl_inside"
+      ],
+      "language": "open the middle drawer of the cabinet and open the top drawer and put the bowl inside",
+      "goal_atoms": [
+        "(Open wooden_cabinet_1_middle_region)",
+        "(In akita_black_bowl_1 wooden_cabinet_1_top_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "open",
+          "wooden_cabinet_1_middle_region"
+        ],
+        [
+          "in",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_region"
+        ]
+      ],
+      "obj_of_interest": [
+        "wooden_cabinet_1_middle_region",
+        "akita_black_bowl_1",
+        "wooden_cabinet_1_top_region"
+      ],
+      "template": {
+        "task_idx": 0,
+        "name": "open_the_middle_drawer_of_the_cabinet",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/open_the_middle_drawer_of_the_cabinet.bddl"
+      },
+      "init_source": {
+        "task_idx": 0,
+        "name": "open_the_middle_drawer_of_the_cabinet",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/open_the_middle_drawer_of_the_cabinet.pruned_init",
+        "filename": "open_the_middle_drawer_of_the_cabinet.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_00_03.bddl",
+        "init": "init/goal_pair_00_03.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_00_03.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_00_03.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_00_03.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_00_03.pruned_init"
+      },
+      "classification": "compatible",
+      "reason": "t0(open_the_middle_drawer_of_the_cabinet) = 打开 wooden_cabinet_1 的中抽屉 (middle_region); t3(open_the_top_drawer_and_put_the_bowl_inside) = 把 akita_black_bowl_1 放入 wooden_cabinet_1 的 top_region (上抽屉内)。两者作用于不同被操作物体 (wooden_cabinet_1 vs akita_black_bowl_1), 不存在同一物体的异位要求, 目标原子可同时成立, 归为 compatible。 次序提示: 两个目标都涉及木质柜抽屉; 建议先开上抽屉放碗、再开中抽屉, 避免中抽屉伸出遮挡上抽屉取放路径。",
+      "tags": [
+        "distinct_objects"
+      ],
+      "pilot_group": "compatible_arm",
+      "sha256": {
+        "bddl": "e2bb60644d3bb4c69883106c3efc5e2a7e5faca09fcf1b0644d55e3d90704dfa",
+        "init": "977efe1216bee72bb4e9fa9ec4be1bcfe37fb00ece815eac117feba019b34b9f",
+        "init_source": "977efe1216bee72bb4e9fa9ec4be1bcfe37fb00ece815eac117feba019b34b9f"
+      }
+    },
+    {
+      "pair_id": "00_04",
+      "i": 0,
+      "j": 4,
+      "pair_label": "open_the_middle_drawer_of_the_cabinet + put_the_bowl_on_top_of_the_cabinet",
+      "tasks": [
+        "open_the_middle_drawer_of_the_cabinet",
+        "put_the_bowl_on_top_of_the_cabinet"
+      ],
+      "language": "open the middle drawer of the cabinet and put the bowl on top of the cabinet",
+      "goal_atoms": [
+        "(Open wooden_cabinet_1_middle_region)",
+        "(On akita_black_bowl_1 wooden_cabinet_1_top_side)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "open",
+          "wooden_cabinet_1_middle_region"
+        ],
+        [
+          "on",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_side"
+        ]
+      ],
+      "obj_of_interest": [
+        "wooden_cabinet_1_middle_region",
+        "akita_black_bowl_1",
+        "wooden_cabinet_1_top_side"
+      ],
+      "template": {
+        "task_idx": 0,
+        "name": "open_the_middle_drawer_of_the_cabinet",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/open_the_middle_drawer_of_the_cabinet.bddl"
+      },
+      "init_source": {
+        "task_idx": 0,
+        "name": "open_the_middle_drawer_of_the_cabinet",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/open_the_middle_drawer_of_the_cabinet.pruned_init",
+        "filename": "open_the_middle_drawer_of_the_cabinet.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_00_04.bddl",
+        "init": "init/goal_pair_00_04.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_00_04.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_00_04.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_00_04.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_00_04.pruned_init"
+      },
+      "classification": "compatible",
+      "reason": "t0(open_the_middle_drawer_of_the_cabinet) = 打开 wooden_cabinet_1 的中抽屉 (middle_region); t4(put_the_bowl_on_top_of_the_cabinet) = 把 akita_black_bowl_1 放到 wooden_cabinet_1 的 top_side (柜顶)。两者作用于不同被操作物体 (wooden_cabinet_1 vs akita_black_bowl_1), 不存在同一物体的异位要求, 目标原子可同时成立, 归为 compatible。 次序提示: 先开中抽屉或先放碗到柜顶均可, 互不冲突。",
+      "tags": [
+        "distinct_objects"
+      ],
+      "pilot_group": "compatible_arm",
+      "sha256": {
+        "bddl": "b02ef9162289c6ad3263e000514385f5655af7759950ba731cb8fc99ddd1623a",
+        "init": "977efe1216bee72bb4e9fa9ec4be1bcfe37fb00ece815eac117feba019b34b9f",
+        "init_source": "977efe1216bee72bb4e9fa9ec4be1bcfe37fb00ece815eac117feba019b34b9f"
+      }
+    },
+    {
+      "pair_id": "00_05",
+      "i": 0,
+      "j": 5,
+      "pair_label": "open_the_middle_drawer_of_the_cabinet + push_the_plate_to_the_front_of_the_stove",
+      "tasks": [
+        "open_the_middle_drawer_of_the_cabinet",
+        "push_the_plate_to_the_front_of_the_stove"
+      ],
+      "language": "open the middle drawer of the cabinet and push the plate to the front of the stove",
+      "goal_atoms": [
+        "(Open wooden_cabinet_1_middle_region)",
+        "(On plate_1 main_table_stove_front_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "open",
+          "wooden_cabinet_1_middle_region"
+        ],
+        [
+          "on",
+          "plate_1",
+          "main_table_stove_front_region"
+        ]
+      ],
+      "obj_of_interest": [
+        "wooden_cabinet_1_middle_region",
+        "plate_1",
+        "main_table_stove_front_region"
+      ],
+      "template": {
+        "task_idx": 0,
+        "name": "open_the_middle_drawer_of_the_cabinet",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/open_the_middle_drawer_of_the_cabinet.bddl"
+      },
+      "init_source": {
+        "task_idx": 0,
+        "name": "open_the_middle_drawer_of_the_cabinet",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/open_the_middle_drawer_of_the_cabinet.pruned_init",
+        "filename": "open_the_middle_drawer_of_the_cabinet.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_00_05.bddl",
+        "init": "init/goal_pair_00_05.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_00_05.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_00_05.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_00_05.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_00_05.pruned_init"
+      },
+      "classification": "compatible",
+      "reason": "t0(open_the_middle_drawer_of_the_cabinet) = 打开 wooden_cabinet_1 的中抽屉 (middle_region); t5(push_the_plate_to_the_front_of_the_stove) = 把 plate_1 推到 main_table 的 stove_front_region (炉前区)。两者作用于不同被操作物体 (wooden_cabinet_1 vs plate_1), 不存在同一物体的异位要求, 目标原子可同时成立, 归为 compatible。",
+      "tags": [
+        "distinct_objects"
+      ],
+      "pilot_group": "compatible_arm",
+      "sha256": {
+        "bddl": "d3644dd5bb6d8b432d3d2317f3b09c96390a4ba8c9731392764ceaeaf52dacc4",
+        "init": "977efe1216bee72bb4e9fa9ec4be1bcfe37fb00ece815eac117feba019b34b9f",
+        "init_source": "977efe1216bee72bb4e9fa9ec4be1bcfe37fb00ece815eac117feba019b34b9f"
+      }
+    },
+    {
+      "pair_id": "00_06",
+      "i": 0,
+      "j": 6,
+      "pair_label": "open_the_middle_drawer_of_the_cabinet + put_the_cream_cheese_in_the_bowl",
+      "tasks": [
+        "open_the_middle_drawer_of_the_cabinet",
+        "put_the_cream_cheese_in_the_bowl"
+      ],
+      "language": "open the middle drawer of the cabinet and put the cream cheese in the bowl",
+      "goal_atoms": [
+        "(Open wooden_cabinet_1_middle_region)",
+        "(On cream_cheese_1 akita_black_bowl_1)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "open",
+          "wooden_cabinet_1_middle_region"
+        ],
+        [
+          "on",
+          "cream_cheese_1",
+          "akita_black_bowl_1"
+        ]
+      ],
+      "obj_of_interest": [
+        "wooden_cabinet_1_middle_region",
+        "cream_cheese_1",
+        "akita_black_bowl_1"
+      ],
+      "template": {
+        "task_idx": 0,
+        "name": "open_the_middle_drawer_of_the_cabinet",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/open_the_middle_drawer_of_the_cabinet.bddl"
+      },
+      "init_source": {
+        "task_idx": 0,
+        "name": "open_the_middle_drawer_of_the_cabinet",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/open_the_middle_drawer_of_the_cabinet.pruned_init",
+        "filename": "open_the_middle_drawer_of_the_cabinet.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_00_06.bddl",
+        "init": "init/goal_pair_00_06.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_00_06.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_00_06.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_00_06.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_00_06.pruned_init"
+      },
+      "classification": "compatible",
+      "reason": "t0(open_the_middle_drawer_of_the_cabinet) = 打开 wooden_cabinet_1 的中抽屉 (middle_region); t6(put_the_cream_cheese_in_the_bowl) = 把 cream_cheese_1 放到 akita_black_bowl_1 上。两者作用于不同被操作物体 (wooden_cabinet_1 vs cream_cheese_1), 不存在同一物体的异位要求, 目标原子可同时成立, 归为 compatible。",
+      "tags": [
+        "distinct_objects"
+      ],
+      "pilot_group": "compatible_arm",
+      "sha256": {
+        "bddl": "62f61c4f5de0f6eaa0beeac90f4ef1612ee3fceda93b7b9d05ee469cbecf5114",
+        "init": "977efe1216bee72bb4e9fa9ec4be1bcfe37fb00ece815eac117feba019b34b9f",
+        "init_source": "977efe1216bee72bb4e9fa9ec4be1bcfe37fb00ece815eac117feba019b34b9f"
+      }
+    },
+    {
+      "pair_id": "00_07",
+      "i": 0,
+      "j": 7,
+      "pair_label": "open_the_middle_drawer_of_the_cabinet + turn_on_the_stove",
+      "tasks": [
+        "open_the_middle_drawer_of_the_cabinet",
+        "turn_on_the_stove"
+      ],
+      "language": "open the middle drawer of the cabinet and turn on the stove",
+      "goal_atoms": [
+        "(Open wooden_cabinet_1_middle_region)",
+        "(Turnon flat_stove_1)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "open",
+          "wooden_cabinet_1_middle_region"
+        ],
+        [
+          "turnon",
+          "flat_stove_1"
+        ]
+      ],
+      "obj_of_interest": [
+        "wooden_cabinet_1_middle_region",
+        "flat_stove_1"
+      ],
+      "template": {
+        "task_idx": 0,
+        "name": "open_the_middle_drawer_of_the_cabinet",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/open_the_middle_drawer_of_the_cabinet.bddl"
+      },
+      "init_source": {
+        "task_idx": 0,
+        "name": "open_the_middle_drawer_of_the_cabinet",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/open_the_middle_drawer_of_the_cabinet.pruned_init",
+        "filename": "open_the_middle_drawer_of_the_cabinet.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_00_07.bddl",
+        "init": "init/goal_pair_00_07.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_00_07.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_00_07.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_00_07.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_00_07.pruned_init"
+      },
+      "classification": "compatible",
+      "reason": "t0(open_the_middle_drawer_of_the_cabinet) = 打开 wooden_cabinet_1 的中抽屉 (middle_region); t7(turn_on_the_stove) = 打开 flat_stove_1 (Turnon)。两者作用于不同被操作物体 (wooden_cabinet_1 vs flat_stove_1), 不存在同一物体的异位要求, 目标原子可同时成立, 归为 compatible。",
+      "tags": [
+        "distinct_objects"
+      ],
+      "pilot_group": "compatible_arm",
+      "sha256": {
+        "bddl": "6882d63827cbc570a58884991a5e42b15920b18e11609a53a1742dbfd37e64e4",
+        "init": "977efe1216bee72bb4e9fa9ec4be1bcfe37fb00ece815eac117feba019b34b9f",
+        "init_source": "977efe1216bee72bb4e9fa9ec4be1bcfe37fb00ece815eac117feba019b34b9f"
+      }
+    },
+    {
+      "pair_id": "00_08",
+      "i": 0,
+      "j": 8,
+      "pair_label": "open_the_middle_drawer_of_the_cabinet + put_the_bowl_on_the_plate",
+      "tasks": [
+        "open_the_middle_drawer_of_the_cabinet",
+        "put_the_bowl_on_the_plate"
+      ],
+      "language": "open the middle drawer of the cabinet and put the bowl on the plate",
+      "goal_atoms": [
+        "(Open wooden_cabinet_1_middle_region)",
+        "(On akita_black_bowl_1 plate_1)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "open",
+          "wooden_cabinet_1_middle_region"
+        ],
+        [
+          "on",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "obj_of_interest": [
+        "wooden_cabinet_1_middle_region",
+        "akita_black_bowl_1",
+        "plate_1"
+      ],
+      "template": {
+        "task_idx": 0,
+        "name": "open_the_middle_drawer_of_the_cabinet",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/open_the_middle_drawer_of_the_cabinet.bddl"
+      },
+      "init_source": {
+        "task_idx": 0,
+        "name": "open_the_middle_drawer_of_the_cabinet",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/open_the_middle_drawer_of_the_cabinet.pruned_init",
+        "filename": "open_the_middle_drawer_of_the_cabinet.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_00_08.bddl",
+        "init": "init/goal_pair_00_08.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_00_08.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_00_08.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_00_08.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_00_08.pruned_init"
+      },
+      "classification": "compatible",
+      "reason": "t0(open_the_middle_drawer_of_the_cabinet) = 打开 wooden_cabinet_1 的中抽屉 (middle_region); t8(put_the_bowl_on_the_plate) = 把 akita_black_bowl_1 放到 plate_1 上。两者作用于不同被操作物体 (wooden_cabinet_1 vs akita_black_bowl_1), 不存在同一物体的异位要求, 目标原子可同时成立, 归为 compatible。",
+      "tags": [
+        "distinct_objects"
+      ],
+      "pilot_group": "compatible_arm",
+      "sha256": {
+        "bddl": "4a0eaac0d05767745996a3e6b964a0003fbf2631c057ad3bdc3582f908bc4a46",
+        "init": "977efe1216bee72bb4e9fa9ec4be1bcfe37fb00ece815eac117feba019b34b9f",
+        "init_source": "977efe1216bee72bb4e9fa9ec4be1bcfe37fb00ece815eac117feba019b34b9f"
+      }
+    },
+    {
+      "pair_id": "00_09",
+      "i": 0,
+      "j": 9,
+      "pair_label": "open_the_middle_drawer_of_the_cabinet + put_the_wine_bottle_on_the_rack",
+      "tasks": [
+        "open_the_middle_drawer_of_the_cabinet",
+        "put_the_wine_bottle_on_the_rack"
+      ],
+      "language": "open the middle drawer of the cabinet and put the wine bottle on the rack",
+      "goal_atoms": [
+        "(Open wooden_cabinet_1_middle_region)",
+        "(On wine_bottle_1 wine_rack_1_top_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "open",
+          "wooden_cabinet_1_middle_region"
+        ],
+        [
+          "on",
+          "wine_bottle_1",
+          "wine_rack_1_top_region"
+        ]
+      ],
+      "obj_of_interest": [
+        "wooden_cabinet_1_middle_region",
+        "wine_bottle_1",
+        "wine_rack_1_top_region"
+      ],
+      "template": {
+        "task_idx": 0,
+        "name": "open_the_middle_drawer_of_the_cabinet",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/open_the_middle_drawer_of_the_cabinet.bddl"
+      },
+      "init_source": {
+        "task_idx": 0,
+        "name": "open_the_middle_drawer_of_the_cabinet",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/open_the_middle_drawer_of_the_cabinet.pruned_init",
+        "filename": "open_the_middle_drawer_of_the_cabinet.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_00_09.bddl",
+        "init": "init/goal_pair_00_09.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_00_09.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_00_09.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_00_09.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_00_09.pruned_init"
+      },
+      "classification": "compatible",
+      "reason": "t0(open_the_middle_drawer_of_the_cabinet) = 打开 wooden_cabinet_1 的中抽屉 (middle_region); t9(put_the_wine_bottle_on_the_rack) = 把 wine_bottle_1 放到 wine_rack_1 的 top_region (酒架顶)。两者作用于不同被操作物体 (wooden_cabinet_1 vs wine_bottle_1), 不存在同一物体的异位要求, 目标原子可同时成立, 归为 compatible。",
+      "tags": [
+        "distinct_objects"
+      ],
+      "pilot_group": "compatible_arm",
+      "sha256": {
+        "bddl": "116820254a163e8e9e3fbf756080bda41080e0649e93447e2cf82cffe1d50680",
+        "init": "977efe1216bee72bb4e9fa9ec4be1bcfe37fb00ece815eac117feba019b34b9f",
+        "init_source": "977efe1216bee72bb4e9fa9ec4be1bcfe37fb00ece815eac117feba019b34b9f"
+      }
+    },
+    {
+      "pair_id": "01_02",
+      "i": 1,
+      "j": 2,
+      "pair_label": "put_the_bowl_on_the_stove + put_the_wine_bottle_on_top_of_the_cabinet",
+      "tasks": [
+        "put_the_bowl_on_the_stove",
+        "put_the_wine_bottle_on_top_of_the_cabinet"
+      ],
+      "language": "put the bowl on the stove and put the wine bottle on top of the cabinet",
+      "goal_atoms": [
+        "(On akita_black_bowl_1 flat_stove_1_cook_region)",
+        "(On wine_bottle_1 wooden_cabinet_1_top_side)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "on",
+          "akita_black_bowl_1",
+          "flat_stove_1_cook_region"
+        ],
+        [
+          "on",
+          "wine_bottle_1",
+          "wooden_cabinet_1_top_side"
+        ]
+      ],
+      "obj_of_interest": [
+        "akita_black_bowl_1",
+        "flat_stove_1_cook_region",
+        "wine_bottle_1",
+        "wooden_cabinet_1_top_side"
+      ],
+      "template": {
+        "task_idx": 1,
+        "name": "put_the_bowl_on_the_stove",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/put_the_bowl_on_the_stove.bddl"
+      },
+      "init_source": {
+        "task_idx": 1,
+        "name": "put_the_bowl_on_the_stove",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/put_the_bowl_on_the_stove.pruned_init",
+        "filename": "put_the_bowl_on_the_stove.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_01_02.bddl",
+        "init": "init/goal_pair_01_02.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_01_02.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_01_02.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_01_02.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_01_02.pruned_init"
+      },
+      "classification": "compatible",
+      "reason": "t1(put_the_bowl_on_the_stove) = 把 akita_black_bowl_1 放到 flat_stove_1 的 cook_region (炉灶烹饪区); t2(put_the_wine_bottle_on_top_of_the_cabinet) = 把 wine_bottle_1 放到 wooden_cabinet_1 的 top_side (柜顶)。两者作用于不同被操作物体 (akita_black_bowl_1 vs wine_bottle_1), 不存在同一物体的异位要求, 目标原子可同时成立, 归为 compatible。",
+      "tags": [
+        "distinct_objects"
+      ],
+      "pilot_group": "compatible_arm",
+      "sha256": {
+        "bddl": "83886078bf3891150ad23148db5353dac4216bbfb81af2ed2fa65a4bbf2c242c",
+        "init": "7c1819725af8d08988078d6efb98ddb6dbefadb2e6d20df4ed23a2074f4d9ed1",
+        "init_source": "7c1819725af8d08988078d6efb98ddb6dbefadb2e6d20df4ed23a2074f4d9ed1"
+      }
+    },
+    {
+      "pair_id": "01_03",
+      "i": 1,
+      "j": 3,
+      "pair_label": "put_the_bowl_on_the_stove + open_the_top_drawer_and_put_the_bowl_inside",
+      "tasks": [
+        "put_the_bowl_on_the_stove",
+        "open_the_top_drawer_and_put_the_bowl_inside"
+      ],
+      "language": "put the bowl on the stove and open the top drawer and put the bowl inside",
+      "goal_atoms": [
+        "(On akita_black_bowl_1 flat_stove_1_cook_region)",
+        "(In akita_black_bowl_1 wooden_cabinet_1_top_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "on",
+          "akita_black_bowl_1",
+          "flat_stove_1_cook_region"
+        ],
+        [
+          "in",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_region"
+        ]
+      ],
+      "obj_of_interest": [
+        "akita_black_bowl_1",
+        "flat_stove_1_cook_region",
+        "wooden_cabinet_1_top_region"
+      ],
+      "template": {
+        "task_idx": 1,
+        "name": "put_the_bowl_on_the_stove",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/put_the_bowl_on_the_stove.bddl"
+      },
+      "init_source": {
+        "task_idx": 1,
+        "name": "put_the_bowl_on_the_stove",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/put_the_bowl_on_the_stove.pruned_init",
+        "filename": "put_the_bowl_on_the_stove.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_01_03.bddl",
+        "init": "init/goal_pair_01_03.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_01_03.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_01_03.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_01_03.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_01_03.pruned_init"
+      },
+      "classification": "conflict",
+      "reason": "t1(put_the_bowl_on_the_stove) 与 t3(open_the_top_drawer_and_put_the_bowl_inside) 都要求 akita_black_bowl_1 处于不同目标位置: (On akita_black_bowl_1 flat_stove_1_cook_region) vs (In akita_black_bowl_1 wooden_cabinet_1_top_region)。同一刚体不可能同时满足两个互斥的位置谓词, 合并目标在逻辑上不可能同时成立, 归为 conflict。",
+      "tags": [
+        "same_object_two_targets",
+        "akita_black_bowl_1"
+      ],
+      "pilot_group": "excluded_conflict",
+      "sha256": {
+        "bddl": "5d882cac6301b80332992db370a05eee3d94363089c29914492cee48f9c1f792",
+        "init": "7c1819725af8d08988078d6efb98ddb6dbefadb2e6d20df4ed23a2074f4d9ed1",
+        "init_source": "7c1819725af8d08988078d6efb98ddb6dbefadb2e6d20df4ed23a2074f4d9ed1"
+      }
+    },
+    {
+      "pair_id": "01_04",
+      "i": 1,
+      "j": 4,
+      "pair_label": "put_the_bowl_on_the_stove + put_the_bowl_on_top_of_the_cabinet",
+      "tasks": [
+        "put_the_bowl_on_the_stove",
+        "put_the_bowl_on_top_of_the_cabinet"
+      ],
+      "language": "put the bowl on the stove and put the bowl on top of the cabinet",
+      "goal_atoms": [
+        "(On akita_black_bowl_1 flat_stove_1_cook_region)",
+        "(On akita_black_bowl_1 wooden_cabinet_1_top_side)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "on",
+          "akita_black_bowl_1",
+          "flat_stove_1_cook_region"
+        ],
+        [
+          "on",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_side"
+        ]
+      ],
+      "obj_of_interest": [
+        "akita_black_bowl_1",
+        "flat_stove_1_cook_region",
+        "wooden_cabinet_1_top_side"
+      ],
+      "template": {
+        "task_idx": 1,
+        "name": "put_the_bowl_on_the_stove",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/put_the_bowl_on_the_stove.bddl"
+      },
+      "init_source": {
+        "task_idx": 1,
+        "name": "put_the_bowl_on_the_stove",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/put_the_bowl_on_the_stove.pruned_init",
+        "filename": "put_the_bowl_on_the_stove.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_01_04.bddl",
+        "init": "init/goal_pair_01_04.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_01_04.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_01_04.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_01_04.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_01_04.pruned_init"
+      },
+      "classification": "conflict",
+      "reason": "t1(put_the_bowl_on_the_stove) 与 t4(put_the_bowl_on_top_of_the_cabinet) 都要求 akita_black_bowl_1 处于不同目标位置: (On akita_black_bowl_1 flat_stove_1_cook_region) vs (On akita_black_bowl_1 wooden_cabinet_1_top_side)。同一刚体不可能同时满足两个互斥的位置谓词, 合并目标在逻辑上不可能同时成立, 归为 conflict。",
+      "tags": [
+        "same_object_two_targets",
+        "akita_black_bowl_1"
+      ],
+      "pilot_group": "excluded_conflict",
+      "sha256": {
+        "bddl": "86ca7e02d9cffb48c0c2704926928f6f7cb5c18b51fff7f553bd52113d3308f6",
+        "init": "7c1819725af8d08988078d6efb98ddb6dbefadb2e6d20df4ed23a2074f4d9ed1",
+        "init_source": "7c1819725af8d08988078d6efb98ddb6dbefadb2e6d20df4ed23a2074f4d9ed1"
+      }
+    },
+    {
+      "pair_id": "01_05",
+      "i": 1,
+      "j": 5,
+      "pair_label": "put_the_bowl_on_the_stove + push_the_plate_to_the_front_of_the_stove",
+      "tasks": [
+        "put_the_bowl_on_the_stove",
+        "push_the_plate_to_the_front_of_the_stove"
+      ],
+      "language": "put the bowl on the stove and push the plate to the front of the stove",
+      "goal_atoms": [
+        "(On akita_black_bowl_1 flat_stove_1_cook_region)",
+        "(On plate_1 main_table_stove_front_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "on",
+          "akita_black_bowl_1",
+          "flat_stove_1_cook_region"
+        ],
+        [
+          "on",
+          "plate_1",
+          "main_table_stove_front_region"
+        ]
+      ],
+      "obj_of_interest": [
+        "akita_black_bowl_1",
+        "flat_stove_1_cook_region",
+        "plate_1",
+        "main_table_stove_front_region"
+      ],
+      "template": {
+        "task_idx": 1,
+        "name": "put_the_bowl_on_the_stove",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/put_the_bowl_on_the_stove.bddl"
+      },
+      "init_source": {
+        "task_idx": 1,
+        "name": "put_the_bowl_on_the_stove",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/put_the_bowl_on_the_stove.pruned_init",
+        "filename": "put_the_bowl_on_the_stove.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_01_05.bddl",
+        "init": "init/goal_pair_01_05.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_01_05.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_01_05.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_01_05.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_01_05.pruned_init"
+      },
+      "classification": "hard",
+      "reason": "t5 要求把 plate_1 推到 main_table_stove_front_region, t1 要求把 akita_black_bowl_1 放到 flat_stove_1_cook_region; 两目标区域空间相邻, 推盘路径与炉体/炉上碗存在碰撞与遮挡风险, 需要精细的次序与间隙, 归为 hard。",
+      "tags": [
+        "spatial_adjacency",
+        "collision_risk"
+      ],
+      "pilot_group": "hard_control",
+      "sha256": {
+        "bddl": "db692845e1ccb12578bb8f99e649bd4929217fd0ea58a33ceddfa19d3decee2a",
+        "init": "7c1819725af8d08988078d6efb98ddb6dbefadb2e6d20df4ed23a2074f4d9ed1",
+        "init_source": "7c1819725af8d08988078d6efb98ddb6dbefadb2e6d20df4ed23a2074f4d9ed1"
+      }
+    },
+    {
+      "pair_id": "01_06",
+      "i": 1,
+      "j": 6,
+      "pair_label": "put_the_bowl_on_the_stove + put_the_cream_cheese_in_the_bowl",
+      "tasks": [
+        "put_the_bowl_on_the_stove",
+        "put_the_cream_cheese_in_the_bowl"
+      ],
+      "language": "put the bowl on the stove and put the cream cheese in the bowl",
+      "goal_atoms": [
+        "(On akita_black_bowl_1 flat_stove_1_cook_region)",
+        "(On cream_cheese_1 akita_black_bowl_1)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "on",
+          "akita_black_bowl_1",
+          "flat_stove_1_cook_region"
+        ],
+        [
+          "on",
+          "cream_cheese_1",
+          "akita_black_bowl_1"
+        ]
+      ],
+      "obj_of_interest": [
+        "akita_black_bowl_1",
+        "flat_stove_1_cook_region",
+        "cream_cheese_1"
+      ],
+      "template": {
+        "task_idx": 1,
+        "name": "put_the_bowl_on_the_stove",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/put_the_bowl_on_the_stove.bddl"
+      },
+      "init_source": {
+        "task_idx": 1,
+        "name": "put_the_bowl_on_the_stove",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/put_the_bowl_on_the_stove.pruned_init",
+        "filename": "put_the_bowl_on_the_stove.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_01_06.bddl",
+        "init": "init/goal_pair_01_06.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_01_06.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_01_06.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_01_06.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_01_06.pruned_init"
+      },
+      "classification": "hard",
+      "reason": "t6 要求 cream_cheese_1 最终置于 akita_black_bowl_1 上, 而 t1(put_the_bowl_on_the_stove) 又要求把碗移动到 (On akita_black_bowl_1 flat_stove_1_cook_region); 两者可共存, 但必须先完成碗的最终摆放再把奶酪放上去 (或搬运带奶酪的碗, 奶酪在碗面上易滑落), 次序受限、接触脆弱, 归为 hard。",
+      "tags": [
+        "order_constrained",
+        "cheese_on_moving_bowl"
+      ],
+      "pilot_group": "hard_control",
+      "sha256": {
+        "bddl": "5752ee78d72dd2c1992640f48c75250bf917c0163e6fb57ebed8829bc07b0aa4",
+        "init": "7c1819725af8d08988078d6efb98ddb6dbefadb2e6d20df4ed23a2074f4d9ed1",
+        "init_source": "7c1819725af8d08988078d6efb98ddb6dbefadb2e6d20df4ed23a2074f4d9ed1"
+      }
+    },
+    {
+      "pair_id": "01_07",
+      "i": 1,
+      "j": 7,
+      "pair_label": "put_the_bowl_on_the_stove + turn_on_the_stove",
+      "tasks": [
+        "put_the_bowl_on_the_stove",
+        "turn_on_the_stove"
+      ],
+      "language": "put the bowl on the stove and turn on the stove",
+      "goal_atoms": [
+        "(On akita_black_bowl_1 flat_stove_1_cook_region)",
+        "(Turnon flat_stove_1)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "on",
+          "akita_black_bowl_1",
+          "flat_stove_1_cook_region"
+        ],
+        [
+          "turnon",
+          "flat_stove_1"
+        ]
+      ],
+      "obj_of_interest": [
+        "akita_black_bowl_1",
+        "flat_stove_1_cook_region",
+        "flat_stove_1"
+      ],
+      "template": {
+        "task_idx": 1,
+        "name": "put_the_bowl_on_the_stove",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/put_the_bowl_on_the_stove.bddl"
+      },
+      "init_source": {
+        "task_idx": 1,
+        "name": "put_the_bowl_on_the_stove",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/put_the_bowl_on_the_stove.pruned_init",
+        "filename": "put_the_bowl_on_the_stove.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_01_07.bddl",
+        "init": "init/goal_pair_01_07.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_01_07.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_01_07.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_01_07.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_01_07.pruned_init"
+      },
+      "classification": "compatible",
+      "reason": "t1(put_the_bowl_on_the_stove) = 把 akita_black_bowl_1 放到 flat_stove_1 的 cook_region (炉灶烹饪区); t7(turn_on_the_stove) = 打开 flat_stove_1 (Turnon)。两者作用于不同被操作物体 (akita_black_bowl_1 vs flat_stove_1), 不存在同一物体的异位要求, 目标原子可同时成立, 归为 compatible。 次序提示: 先放碗到炉灶区再开炉 (或先开炉) 均可; 仿真中炉子开启不改变碗的放置判定。",
+      "tags": [
+        "distinct_objects"
+      ],
+      "pilot_group": "compatible_arm",
+      "sha256": {
+        "bddl": "ce2f6e0ff9d358927dd5d5210e18fc37c681031426ed2603e2477cdde5640436",
+        "init": "7c1819725af8d08988078d6efb98ddb6dbefadb2e6d20df4ed23a2074f4d9ed1",
+        "init_source": "7c1819725af8d08988078d6efb98ddb6dbefadb2e6d20df4ed23a2074f4d9ed1"
+      }
+    },
+    {
+      "pair_id": "01_08",
+      "i": 1,
+      "j": 8,
+      "pair_label": "put_the_bowl_on_the_stove + put_the_bowl_on_the_plate",
+      "tasks": [
+        "put_the_bowl_on_the_stove",
+        "put_the_bowl_on_the_plate"
+      ],
+      "language": "put the bowl on the stove and put the bowl on the plate",
+      "goal_atoms": [
+        "(On akita_black_bowl_1 flat_stove_1_cook_region)",
+        "(On akita_black_bowl_1 plate_1)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "on",
+          "akita_black_bowl_1",
+          "flat_stove_1_cook_region"
+        ],
+        [
+          "on",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "obj_of_interest": [
+        "akita_black_bowl_1",
+        "flat_stove_1_cook_region",
+        "plate_1"
+      ],
+      "template": {
+        "task_idx": 1,
+        "name": "put_the_bowl_on_the_stove",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/put_the_bowl_on_the_stove.bddl"
+      },
+      "init_source": {
+        "task_idx": 1,
+        "name": "put_the_bowl_on_the_stove",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/put_the_bowl_on_the_stove.pruned_init",
+        "filename": "put_the_bowl_on_the_stove.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_01_08.bddl",
+        "init": "init/goal_pair_01_08.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_01_08.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_01_08.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_01_08.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_01_08.pruned_init"
+      },
+      "classification": "conflict",
+      "reason": "t1(put_the_bowl_on_the_stove) 与 t8(put_the_bowl_on_the_plate) 都要求 akita_black_bowl_1 处于不同目标位置: (On akita_black_bowl_1 flat_stove_1_cook_region) vs (On akita_black_bowl_1 plate_1)。同一刚体不可能同时满足两个互斥的位置谓词, 合并目标在逻辑上不可能同时成立, 归为 conflict。",
+      "tags": [
+        "same_object_two_targets",
+        "akita_black_bowl_1"
+      ],
+      "pilot_group": "excluded_conflict",
+      "sha256": {
+        "bddl": "b3ee28858c51bb6359f23c87a3e91b40ada1c072f81986c85d00e8857b48984a",
+        "init": "7c1819725af8d08988078d6efb98ddb6dbefadb2e6d20df4ed23a2074f4d9ed1",
+        "init_source": "7c1819725af8d08988078d6efb98ddb6dbefadb2e6d20df4ed23a2074f4d9ed1"
+      }
+    },
+    {
+      "pair_id": "01_09",
+      "i": 1,
+      "j": 9,
+      "pair_label": "put_the_bowl_on_the_stove + put_the_wine_bottle_on_the_rack",
+      "tasks": [
+        "put_the_bowl_on_the_stove",
+        "put_the_wine_bottle_on_the_rack"
+      ],
+      "language": "put the bowl on the stove and put the wine bottle on the rack",
+      "goal_atoms": [
+        "(On akita_black_bowl_1 flat_stove_1_cook_region)",
+        "(On wine_bottle_1 wine_rack_1_top_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "on",
+          "akita_black_bowl_1",
+          "flat_stove_1_cook_region"
+        ],
+        [
+          "on",
+          "wine_bottle_1",
+          "wine_rack_1_top_region"
+        ]
+      ],
+      "obj_of_interest": [
+        "akita_black_bowl_1",
+        "flat_stove_1_cook_region",
+        "wine_bottle_1",
+        "wine_rack_1_top_region"
+      ],
+      "template": {
+        "task_idx": 1,
+        "name": "put_the_bowl_on_the_stove",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/put_the_bowl_on_the_stove.bddl"
+      },
+      "init_source": {
+        "task_idx": 1,
+        "name": "put_the_bowl_on_the_stove",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/put_the_bowl_on_the_stove.pruned_init",
+        "filename": "put_the_bowl_on_the_stove.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_01_09.bddl",
+        "init": "init/goal_pair_01_09.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_01_09.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_01_09.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_01_09.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_01_09.pruned_init"
+      },
+      "classification": "compatible",
+      "reason": "t1(put_the_bowl_on_the_stove) = 把 akita_black_bowl_1 放到 flat_stove_1 的 cook_region (炉灶烹饪区); t9(put_the_wine_bottle_on_the_rack) = 把 wine_bottle_1 放到 wine_rack_1 的 top_region (酒架顶)。两者作用于不同被操作物体 (akita_black_bowl_1 vs wine_bottle_1), 不存在同一物体的异位要求, 目标原子可同时成立, 归为 compatible。",
+      "tags": [
+        "distinct_objects"
+      ],
+      "pilot_group": "compatible_arm",
+      "sha256": {
+        "bddl": "a97404c30101f72f8b46c81f70ad5556bd9d40d01e5f19dfbfa1fc6e64a63c18",
+        "init": "7c1819725af8d08988078d6efb98ddb6dbefadb2e6d20df4ed23a2074f4d9ed1",
+        "init_source": "7c1819725af8d08988078d6efb98ddb6dbefadb2e6d20df4ed23a2074f4d9ed1"
+      }
+    },
+    {
+      "pair_id": "02_03",
+      "i": 2,
+      "j": 3,
+      "pair_label": "put_the_wine_bottle_on_top_of_the_cabinet + open_the_top_drawer_and_put_the_bowl_inside",
+      "tasks": [
+        "put_the_wine_bottle_on_top_of_the_cabinet",
+        "open_the_top_drawer_and_put_the_bowl_inside"
+      ],
+      "language": "put the wine bottle on top of the cabinet and open the top drawer and put the bowl inside",
+      "goal_atoms": [
+        "(On wine_bottle_1 wooden_cabinet_1_top_side)",
+        "(In akita_black_bowl_1 wooden_cabinet_1_top_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "on",
+          "wine_bottle_1",
+          "wooden_cabinet_1_top_side"
+        ],
+        [
+          "in",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_region"
+        ]
+      ],
+      "obj_of_interest": [
+        "wine_bottle_1",
+        "wooden_cabinet_1_top_side",
+        "akita_black_bowl_1",
+        "wooden_cabinet_1_top_region"
+      ],
+      "template": {
+        "task_idx": 2,
+        "name": "put_the_wine_bottle_on_top_of_the_cabinet",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/put_the_wine_bottle_on_top_of_the_cabinet.bddl"
+      },
+      "init_source": {
+        "task_idx": 2,
+        "name": "put_the_wine_bottle_on_top_of_the_cabinet",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/put_the_wine_bottle_on_top_of_the_cabinet.pruned_init",
+        "filename": "put_the_wine_bottle_on_top_of_the_cabinet.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_02_03.bddl",
+        "init": "init/goal_pair_02_03.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_02_03.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_02_03.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_02_03.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_02_03.pruned_init"
+      },
+      "classification": "compatible",
+      "reason": "t2(put_the_wine_bottle_on_top_of_the_cabinet) = 把 wine_bottle_1 放到 wooden_cabinet_1 的 top_side (柜顶); t3(open_the_top_drawer_and_put_the_bowl_inside) = 把 akita_black_bowl_1 放入 wooden_cabinet_1 的 top_region (上抽屉内)。两者作用于不同被操作物体 (wine_bottle_1 vs akita_black_bowl_1), 不存在同一物体的异位要求, 目标原子可同时成立, 归为 compatible。",
+      "tags": [
+        "distinct_objects"
+      ],
+      "pilot_group": "compatible_arm",
+      "sha256": {
+        "bddl": "ee5bf21077efeae4a89e34f483951f4838e6bbd1bda5d9620185f3c252de2537",
+        "init": "b8c659d17c722bf848065bec6b4d088ab8e90f48b5ae991b2f118b0f2b5bbe4b",
+        "init_source": "b8c659d17c722bf848065bec6b4d088ab8e90f48b5ae991b2f118b0f2b5bbe4b"
+      }
+    },
+    {
+      "pair_id": "02_04",
+      "i": 2,
+      "j": 4,
+      "pair_label": "put_the_wine_bottle_on_top_of_the_cabinet + put_the_bowl_on_top_of_the_cabinet",
+      "tasks": [
+        "put_the_wine_bottle_on_top_of_the_cabinet",
+        "put_the_bowl_on_top_of_the_cabinet"
+      ],
+      "language": "put the wine bottle on top of the cabinet and put the bowl on top of the cabinet",
+      "goal_atoms": [
+        "(On wine_bottle_1 wooden_cabinet_1_top_side)",
+        "(On akita_black_bowl_1 wooden_cabinet_1_top_side)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "on",
+          "wine_bottle_1",
+          "wooden_cabinet_1_top_side"
+        ],
+        [
+          "on",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_side"
+        ]
+      ],
+      "obj_of_interest": [
+        "wine_bottle_1",
+        "wooden_cabinet_1_top_side",
+        "akita_black_bowl_1"
+      ],
+      "template": {
+        "task_idx": 2,
+        "name": "put_the_wine_bottle_on_top_of_the_cabinet",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/put_the_wine_bottle_on_top_of_the_cabinet.bddl"
+      },
+      "init_source": {
+        "task_idx": 2,
+        "name": "put_the_wine_bottle_on_top_of_the_cabinet",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/put_the_wine_bottle_on_top_of_the_cabinet.pruned_init",
+        "filename": "put_the_wine_bottle_on_top_of_the_cabinet.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_02_04.bddl",
+        "init": "init/goal_pair_02_04.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_02_04.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_02_04.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_02_04.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_02_04.pruned_init"
+      },
+      "classification": "compatible",
+      "reason": "t2(put_the_wine_bottle_on_top_of_the_cabinet) = 把 wine_bottle_1 放到 wooden_cabinet_1 的 top_side (柜顶); t4(put_the_bowl_on_top_of_the_cabinet) = 把 akita_black_bowl_1 放到 wooden_cabinet_1 的 top_side (柜顶)。两者作用于不同被操作物体 (wine_bottle_1 vs akita_black_bowl_1), 不存在同一物体的异位要求, 目标原子可同时成立, 归为 compatible。 次序提示: 酒瓶与碗都放到 wooden_cabinet_1 的 top_side, 被操作物体不同; 柜顶面足够容纳两者, 注意摆放间距。",
+      "tags": [
+        "distinct_objects"
+      ],
+      "pilot_group": "compatible_arm",
+      "sha256": {
+        "bddl": "c5536362c6ae3b9ed9cee07ccc8130aa21d71be16d861bda91552894562dbc27",
+        "init": "b8c659d17c722bf848065bec6b4d088ab8e90f48b5ae991b2f118b0f2b5bbe4b",
+        "init_source": "b8c659d17c722bf848065bec6b4d088ab8e90f48b5ae991b2f118b0f2b5bbe4b"
+      }
+    },
+    {
+      "pair_id": "02_05",
+      "i": 2,
+      "j": 5,
+      "pair_label": "put_the_wine_bottle_on_top_of_the_cabinet + push_the_plate_to_the_front_of_the_stove",
+      "tasks": [
+        "put_the_wine_bottle_on_top_of_the_cabinet",
+        "push_the_plate_to_the_front_of_the_stove"
+      ],
+      "language": "put the wine bottle on top of the cabinet and push the plate to the front of the stove",
+      "goal_atoms": [
+        "(On wine_bottle_1 wooden_cabinet_1_top_side)",
+        "(On plate_1 main_table_stove_front_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "on",
+          "wine_bottle_1",
+          "wooden_cabinet_1_top_side"
+        ],
+        [
+          "on",
+          "plate_1",
+          "main_table_stove_front_region"
+        ]
+      ],
+      "obj_of_interest": [
+        "wine_bottle_1",
+        "wooden_cabinet_1_top_side",
+        "plate_1",
+        "main_table_stove_front_region"
+      ],
+      "template": {
+        "task_idx": 2,
+        "name": "put_the_wine_bottle_on_top_of_the_cabinet",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/put_the_wine_bottle_on_top_of_the_cabinet.bddl"
+      },
+      "init_source": {
+        "task_idx": 2,
+        "name": "put_the_wine_bottle_on_top_of_the_cabinet",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/put_the_wine_bottle_on_top_of_the_cabinet.pruned_init",
+        "filename": "put_the_wine_bottle_on_top_of_the_cabinet.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_02_05.bddl",
+        "init": "init/goal_pair_02_05.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_02_05.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_02_05.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_02_05.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_02_05.pruned_init"
+      },
+      "classification": "compatible",
+      "reason": "t2(put_the_wine_bottle_on_top_of_the_cabinet) = 把 wine_bottle_1 放到 wooden_cabinet_1 的 top_side (柜顶); t5(push_the_plate_to_the_front_of_the_stove) = 把 plate_1 推到 main_table 的 stove_front_region (炉前区)。两者作用于不同被操作物体 (wine_bottle_1 vs plate_1), 不存在同一物体的异位要求, 目标原子可同时成立, 归为 compatible。",
+      "tags": [
+        "distinct_objects"
+      ],
+      "pilot_group": "compatible_arm",
+      "sha256": {
+        "bddl": "dd39d8b3e6f03eb12840414078239b7ff1d80be5c0689255eb7a2c23242a09e5",
+        "init": "b8c659d17c722bf848065bec6b4d088ab8e90f48b5ae991b2f118b0f2b5bbe4b",
+        "init_source": "b8c659d17c722bf848065bec6b4d088ab8e90f48b5ae991b2f118b0f2b5bbe4b"
+      }
+    },
+    {
+      "pair_id": "02_06",
+      "i": 2,
+      "j": 6,
+      "pair_label": "put_the_wine_bottle_on_top_of_the_cabinet + put_the_cream_cheese_in_the_bowl",
+      "tasks": [
+        "put_the_wine_bottle_on_top_of_the_cabinet",
+        "put_the_cream_cheese_in_the_bowl"
+      ],
+      "language": "put the wine bottle on top of the cabinet and put the cream cheese in the bowl",
+      "goal_atoms": [
+        "(On wine_bottle_1 wooden_cabinet_1_top_side)",
+        "(On cream_cheese_1 akita_black_bowl_1)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "on",
+          "wine_bottle_1",
+          "wooden_cabinet_1_top_side"
+        ],
+        [
+          "on",
+          "cream_cheese_1",
+          "akita_black_bowl_1"
+        ]
+      ],
+      "obj_of_interest": [
+        "wine_bottle_1",
+        "wooden_cabinet_1_top_side",
+        "cream_cheese_1",
+        "akita_black_bowl_1"
+      ],
+      "template": {
+        "task_idx": 2,
+        "name": "put_the_wine_bottle_on_top_of_the_cabinet",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/put_the_wine_bottle_on_top_of_the_cabinet.bddl"
+      },
+      "init_source": {
+        "task_idx": 2,
+        "name": "put_the_wine_bottle_on_top_of_the_cabinet",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/put_the_wine_bottle_on_top_of_the_cabinet.pruned_init",
+        "filename": "put_the_wine_bottle_on_top_of_the_cabinet.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_02_06.bddl",
+        "init": "init/goal_pair_02_06.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_02_06.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_02_06.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_02_06.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_02_06.pruned_init"
+      },
+      "classification": "compatible",
+      "reason": "t2(put_the_wine_bottle_on_top_of_the_cabinet) = 把 wine_bottle_1 放到 wooden_cabinet_1 的 top_side (柜顶); t6(put_the_cream_cheese_in_the_bowl) = 把 cream_cheese_1 放到 akita_black_bowl_1 上。两者作用于不同被操作物体 (wine_bottle_1 vs cream_cheese_1), 不存在同一物体的异位要求, 目标原子可同时成立, 归为 compatible。",
+      "tags": [
+        "distinct_objects"
+      ],
+      "pilot_group": "compatible_arm",
+      "sha256": {
+        "bddl": "16c625ee0c32f97ce1200a5fd048221cee9b8761efdaf6dd8cc7a1e81010a7e4",
+        "init": "b8c659d17c722bf848065bec6b4d088ab8e90f48b5ae991b2f118b0f2b5bbe4b",
+        "init_source": "b8c659d17c722bf848065bec6b4d088ab8e90f48b5ae991b2f118b0f2b5bbe4b"
+      }
+    },
+    {
+      "pair_id": "02_07",
+      "i": 2,
+      "j": 7,
+      "pair_label": "put_the_wine_bottle_on_top_of_the_cabinet + turn_on_the_stove",
+      "tasks": [
+        "put_the_wine_bottle_on_top_of_the_cabinet",
+        "turn_on_the_stove"
+      ],
+      "language": "put the wine bottle on top of the cabinet and turn on the stove",
+      "goal_atoms": [
+        "(On wine_bottle_1 wooden_cabinet_1_top_side)",
+        "(Turnon flat_stove_1)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "on",
+          "wine_bottle_1",
+          "wooden_cabinet_1_top_side"
+        ],
+        [
+          "turnon",
+          "flat_stove_1"
+        ]
+      ],
+      "obj_of_interest": [
+        "wine_bottle_1",
+        "wooden_cabinet_1_top_side",
+        "flat_stove_1"
+      ],
+      "template": {
+        "task_idx": 2,
+        "name": "put_the_wine_bottle_on_top_of_the_cabinet",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/put_the_wine_bottle_on_top_of_the_cabinet.bddl"
+      },
+      "init_source": {
+        "task_idx": 2,
+        "name": "put_the_wine_bottle_on_top_of_the_cabinet",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/put_the_wine_bottle_on_top_of_the_cabinet.pruned_init",
+        "filename": "put_the_wine_bottle_on_top_of_the_cabinet.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_02_07.bddl",
+        "init": "init/goal_pair_02_07.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_02_07.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_02_07.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_02_07.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_02_07.pruned_init"
+      },
+      "classification": "compatible",
+      "reason": "t2(put_the_wine_bottle_on_top_of_the_cabinet) = 把 wine_bottle_1 放到 wooden_cabinet_1 的 top_side (柜顶); t7(turn_on_the_stove) = 打开 flat_stove_1 (Turnon)。两者作用于不同被操作物体 (wine_bottle_1 vs flat_stove_1), 不存在同一物体的异位要求, 目标原子可同时成立, 归为 compatible。",
+      "tags": [
+        "distinct_objects"
+      ],
+      "pilot_group": "compatible_arm",
+      "sha256": {
+        "bddl": "d1b579d63976e94f9db09138b92989232ede9bbfc6885a49b518a9de3988946c",
+        "init": "b8c659d17c722bf848065bec6b4d088ab8e90f48b5ae991b2f118b0f2b5bbe4b",
+        "init_source": "b8c659d17c722bf848065bec6b4d088ab8e90f48b5ae991b2f118b0f2b5bbe4b"
+      }
+    },
+    {
+      "pair_id": "02_08",
+      "i": 2,
+      "j": 8,
+      "pair_label": "put_the_wine_bottle_on_top_of_the_cabinet + put_the_bowl_on_the_plate",
+      "tasks": [
+        "put_the_wine_bottle_on_top_of_the_cabinet",
+        "put_the_bowl_on_the_plate"
+      ],
+      "language": "put the wine bottle on top of the cabinet and put the bowl on the plate",
+      "goal_atoms": [
+        "(On wine_bottle_1 wooden_cabinet_1_top_side)",
+        "(On akita_black_bowl_1 plate_1)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "on",
+          "wine_bottle_1",
+          "wooden_cabinet_1_top_side"
+        ],
+        [
+          "on",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "obj_of_interest": [
+        "wine_bottle_1",
+        "wooden_cabinet_1_top_side",
+        "akita_black_bowl_1",
+        "plate_1"
+      ],
+      "template": {
+        "task_idx": 2,
+        "name": "put_the_wine_bottle_on_top_of_the_cabinet",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/put_the_wine_bottle_on_top_of_the_cabinet.bddl"
+      },
+      "init_source": {
+        "task_idx": 2,
+        "name": "put_the_wine_bottle_on_top_of_the_cabinet",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/put_the_wine_bottle_on_top_of_the_cabinet.pruned_init",
+        "filename": "put_the_wine_bottle_on_top_of_the_cabinet.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_02_08.bddl",
+        "init": "init/goal_pair_02_08.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_02_08.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_02_08.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_02_08.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_02_08.pruned_init"
+      },
+      "classification": "compatible",
+      "reason": "t2(put_the_wine_bottle_on_top_of_the_cabinet) = 把 wine_bottle_1 放到 wooden_cabinet_1 的 top_side (柜顶); t8(put_the_bowl_on_the_plate) = 把 akita_black_bowl_1 放到 plate_1 上。两者作用于不同被操作物体 (wine_bottle_1 vs akita_black_bowl_1), 不存在同一物体的异位要求, 目标原子可同时成立, 归为 compatible。",
+      "tags": [
+        "distinct_objects"
+      ],
+      "pilot_group": "compatible_arm",
+      "sha256": {
+        "bddl": "61d12efc99d24222bef5b3922381f06cfac392e96e6bdbe11b99397053a44273",
+        "init": "b8c659d17c722bf848065bec6b4d088ab8e90f48b5ae991b2f118b0f2b5bbe4b",
+        "init_source": "b8c659d17c722bf848065bec6b4d088ab8e90f48b5ae991b2f118b0f2b5bbe4b"
+      }
+    },
+    {
+      "pair_id": "02_09",
+      "i": 2,
+      "j": 9,
+      "pair_label": "put_the_wine_bottle_on_top_of_the_cabinet + put_the_wine_bottle_on_the_rack",
+      "tasks": [
+        "put_the_wine_bottle_on_top_of_the_cabinet",
+        "put_the_wine_bottle_on_the_rack"
+      ],
+      "language": "put the wine bottle on top of the cabinet and put the wine bottle on the rack",
+      "goal_atoms": [
+        "(On wine_bottle_1 wooden_cabinet_1_top_side)",
+        "(On wine_bottle_1 wine_rack_1_top_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "on",
+          "wine_bottle_1",
+          "wooden_cabinet_1_top_side"
+        ],
+        [
+          "on",
+          "wine_bottle_1",
+          "wine_rack_1_top_region"
+        ]
+      ],
+      "obj_of_interest": [
+        "wine_bottle_1",
+        "wooden_cabinet_1_top_side",
+        "wine_rack_1_top_region"
+      ],
+      "template": {
+        "task_idx": 2,
+        "name": "put_the_wine_bottle_on_top_of_the_cabinet",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/put_the_wine_bottle_on_top_of_the_cabinet.bddl"
+      },
+      "init_source": {
+        "task_idx": 2,
+        "name": "put_the_wine_bottle_on_top_of_the_cabinet",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/put_the_wine_bottle_on_top_of_the_cabinet.pruned_init",
+        "filename": "put_the_wine_bottle_on_top_of_the_cabinet.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_02_09.bddl",
+        "init": "init/goal_pair_02_09.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_02_09.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_02_09.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_02_09.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_02_09.pruned_init"
+      },
+      "classification": "conflict",
+      "reason": "t2(put_the_wine_bottle_on_top_of_the_cabinet) 与 t9(put_the_wine_bottle_on_the_rack) 都要求 wine_bottle_1 处于不同目标位置: (On wine_bottle_1 wooden_cabinet_1_top_side) vs (On wine_bottle_1 wine_rack_1_top_region)。单一酒瓶不能同时在柜顶与酒架顶, 合并目标逻辑冲突。",
+      "tags": [
+        "same_object_two_targets",
+        "wine_bottle_1"
+      ],
+      "pilot_group": "excluded_conflict",
+      "sha256": {
+        "bddl": "a94c690e4099970c8be30a12e432d3683a47701782421c135065433812feb911",
+        "init": "b8c659d17c722bf848065bec6b4d088ab8e90f48b5ae991b2f118b0f2b5bbe4b",
+        "init_source": "b8c659d17c722bf848065bec6b4d088ab8e90f48b5ae991b2f118b0f2b5bbe4b"
+      }
+    },
+    {
+      "pair_id": "03_04",
+      "i": 3,
+      "j": 4,
+      "pair_label": "open_the_top_drawer_and_put_the_bowl_inside + put_the_bowl_on_top_of_the_cabinet",
+      "tasks": [
+        "open_the_top_drawer_and_put_the_bowl_inside",
+        "put_the_bowl_on_top_of_the_cabinet"
+      ],
+      "language": "open the top drawer and put the bowl inside and put the bowl on top of the cabinet",
+      "goal_atoms": [
+        "(In akita_black_bowl_1 wooden_cabinet_1_top_region)",
+        "(On akita_black_bowl_1 wooden_cabinet_1_top_side)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "in",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_region"
+        ],
+        [
+          "on",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_side"
+        ]
+      ],
+      "obj_of_interest": [
+        "akita_black_bowl_1",
+        "wooden_cabinet_1_top_region",
+        "wooden_cabinet_1_top_side"
+      ],
+      "template": {
+        "task_idx": 3,
+        "name": "open_the_top_drawer_and_put_the_bowl_inside",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/open_the_top_drawer_and_put_the_bowl_inside.bddl"
+      },
+      "init_source": {
+        "task_idx": 3,
+        "name": "open_the_top_drawer_and_put_the_bowl_inside",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/open_the_top_drawer_and_put_the_bowl_inside.pruned_init",
+        "filename": "open_the_top_drawer_and_put_the_bowl_inside.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_03_04.bddl",
+        "init": "init/goal_pair_03_04.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_03_04.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_03_04.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_03_04.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_03_04.pruned_init"
+      },
+      "classification": "conflict",
+      "reason": "t3(open_the_top_drawer_and_put_the_bowl_inside) 与 t4(put_the_bowl_on_top_of_the_cabinet) 都要求 akita_black_bowl_1 处于不同目标位置: (In akita_black_bowl_1 wooden_cabinet_1_top_region) vs (On akita_black_bowl_1 wooden_cabinet_1_top_side)。同一刚体不可能同时满足两个互斥的位置谓词, 合并目标在逻辑上不可能同时成立, 归为 conflict。",
+      "tags": [
+        "same_object_two_targets",
+        "akita_black_bowl_1"
+      ],
+      "pilot_group": "excluded_conflict",
+      "sha256": {
+        "bddl": "0ab84f012cf06d7c1b65b9bd06b452b54144d5d7ae66dcd1034c2d4b49ad026f",
+        "init": "1cd5354ade9ab9f323a518515f961df96123b7daeca017df1f62d3e9ff18794f",
+        "init_source": "1cd5354ade9ab9f323a518515f961df96123b7daeca017df1f62d3e9ff18794f"
+      }
+    },
+    {
+      "pair_id": "03_05",
+      "i": 3,
+      "j": 5,
+      "pair_label": "open_the_top_drawer_and_put_the_bowl_inside + push_the_plate_to_the_front_of_the_stove",
+      "tasks": [
+        "open_the_top_drawer_and_put_the_bowl_inside",
+        "push_the_plate_to_the_front_of_the_stove"
+      ],
+      "language": "open the top drawer and put the bowl inside and push the plate to the front of the stove",
+      "goal_atoms": [
+        "(In akita_black_bowl_1 wooden_cabinet_1_top_region)",
+        "(On plate_1 main_table_stove_front_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "in",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_region"
+        ],
+        [
+          "on",
+          "plate_1",
+          "main_table_stove_front_region"
+        ]
+      ],
+      "obj_of_interest": [
+        "akita_black_bowl_1",
+        "wooden_cabinet_1_top_region",
+        "plate_1",
+        "main_table_stove_front_region"
+      ],
+      "template": {
+        "task_idx": 3,
+        "name": "open_the_top_drawer_and_put_the_bowl_inside",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/open_the_top_drawer_and_put_the_bowl_inside.bddl"
+      },
+      "init_source": {
+        "task_idx": 3,
+        "name": "open_the_top_drawer_and_put_the_bowl_inside",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/open_the_top_drawer_and_put_the_bowl_inside.pruned_init",
+        "filename": "open_the_top_drawer_and_put_the_bowl_inside.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_03_05.bddl",
+        "init": "init/goal_pair_03_05.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_03_05.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_03_05.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_03_05.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_03_05.pruned_init"
+      },
+      "classification": "compatible",
+      "reason": "t3(open_the_top_drawer_and_put_the_bowl_inside) = 把 akita_black_bowl_1 放入 wooden_cabinet_1 的 top_region (上抽屉内); t5(push_the_plate_to_the_front_of_the_stove) = 把 plate_1 推到 main_table 的 stove_front_region (炉前区)。两者作用于不同被操作物体 (akita_black_bowl_1 vs plate_1), 不存在同一物体的异位要求, 目标原子可同时成立, 归为 compatible。 次序提示: 碗入上抽屉与推盘到炉前区分属不同区域, 互不冲突。",
+      "tags": [
+        "distinct_objects"
+      ],
+      "pilot_group": "compatible_arm",
+      "sha256": {
+        "bddl": "06ccb1f82c58e108f978e7118d6d8cc9895b0c37f842dddc29fed0f373210711",
+        "init": "1cd5354ade9ab9f323a518515f961df96123b7daeca017df1f62d3e9ff18794f",
+        "init_source": "1cd5354ade9ab9f323a518515f961df96123b7daeca017df1f62d3e9ff18794f"
+      }
+    },
+    {
+      "pair_id": "03_06",
+      "i": 3,
+      "j": 6,
+      "pair_label": "open_the_top_drawer_and_put_the_bowl_inside + put_the_cream_cheese_in_the_bowl",
+      "tasks": [
+        "open_the_top_drawer_and_put_the_bowl_inside",
+        "put_the_cream_cheese_in_the_bowl"
+      ],
+      "language": "open the top drawer and put the bowl inside and put the cream cheese in the bowl",
+      "goal_atoms": [
+        "(In akita_black_bowl_1 wooden_cabinet_1_top_region)",
+        "(On cream_cheese_1 akita_black_bowl_1)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "in",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_region"
+        ],
+        [
+          "on",
+          "cream_cheese_1",
+          "akita_black_bowl_1"
+        ]
+      ],
+      "obj_of_interest": [
+        "akita_black_bowl_1",
+        "wooden_cabinet_1_top_region",
+        "cream_cheese_1"
+      ],
+      "template": {
+        "task_idx": 3,
+        "name": "open_the_top_drawer_and_put_the_bowl_inside",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/open_the_top_drawer_and_put_the_bowl_inside.bddl"
+      },
+      "init_source": {
+        "task_idx": 3,
+        "name": "open_the_top_drawer_and_put_the_bowl_inside",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/open_the_top_drawer_and_put_the_bowl_inside.pruned_init",
+        "filename": "open_the_top_drawer_and_put_the_bowl_inside.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_03_06.bddl",
+        "init": "init/goal_pair_03_06.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_03_06.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_03_06.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_03_06.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_03_06.pruned_init"
+      },
+      "classification": "hard",
+      "reason": "t6 要求 cream_cheese_1 最终置于 akita_black_bowl_1 上, 而 t3(open_the_top_drawer_and_put_the_bowl_inside) 又要求把碗移动到 (In akita_black_bowl_1 wooden_cabinet_1_top_region); 两者可共存, 但必须先完成碗的最终摆放再把奶酪放上去 (或搬运带奶酪的碗, 奶酪在碗面上易滑落), 次序受限、接触脆弱, 归为 hard。",
+      "tags": [
+        "order_constrained",
+        "cheese_on_moving_bowl"
+      ],
+      "pilot_group": "excluded_conflict",
+      "sha256": {
+        "bddl": "0bf4836b8753968d6a9c5d6fd0f81d766e780bc376a9ece377c9e041b0e4c596",
+        "init": "1cd5354ade9ab9f323a518515f961df96123b7daeca017df1f62d3e9ff18794f",
+        "init_source": "1cd5354ade9ab9f323a518515f961df96123b7daeca017df1f62d3e9ff18794f"
+      }
+    },
+    {
+      "pair_id": "03_07",
+      "i": 3,
+      "j": 7,
+      "pair_label": "open_the_top_drawer_and_put_the_bowl_inside + turn_on_the_stove",
+      "tasks": [
+        "open_the_top_drawer_and_put_the_bowl_inside",
+        "turn_on_the_stove"
+      ],
+      "language": "open the top drawer and put the bowl inside and turn on the stove",
+      "goal_atoms": [
+        "(In akita_black_bowl_1 wooden_cabinet_1_top_region)",
+        "(Turnon flat_stove_1)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "in",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_region"
+        ],
+        [
+          "turnon",
+          "flat_stove_1"
+        ]
+      ],
+      "obj_of_interest": [
+        "akita_black_bowl_1",
+        "wooden_cabinet_1_top_region",
+        "flat_stove_1"
+      ],
+      "template": {
+        "task_idx": 3,
+        "name": "open_the_top_drawer_and_put_the_bowl_inside",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/open_the_top_drawer_and_put_the_bowl_inside.bddl"
+      },
+      "init_source": {
+        "task_idx": 3,
+        "name": "open_the_top_drawer_and_put_the_bowl_inside",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/open_the_top_drawer_and_put_the_bowl_inside.pruned_init",
+        "filename": "open_the_top_drawer_and_put_the_bowl_inside.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_03_07.bddl",
+        "init": "init/goal_pair_03_07.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_03_07.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_03_07.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_03_07.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_03_07.pruned_init"
+      },
+      "classification": "compatible",
+      "reason": "t3(open_the_top_drawer_and_put_the_bowl_inside) = 把 akita_black_bowl_1 放入 wooden_cabinet_1 的 top_region (上抽屉内); t7(turn_on_the_stove) = 打开 flat_stove_1 (Turnon)。两者作用于不同被操作物体 (akita_black_bowl_1 vs flat_stove_1), 不存在同一物体的异位要求, 目标原子可同时成立, 归为 compatible。",
+      "tags": [
+        "distinct_objects"
+      ],
+      "pilot_group": "compatible_arm",
+      "sha256": {
+        "bddl": "836eee2be8309a9bebcbe1506e11a7fa4b23a3828176e16ef0c8cf85c2ddfd39",
+        "init": "1cd5354ade9ab9f323a518515f961df96123b7daeca017df1f62d3e9ff18794f",
+        "init_source": "1cd5354ade9ab9f323a518515f961df96123b7daeca017df1f62d3e9ff18794f"
+      }
+    },
+    {
+      "pair_id": "03_08",
+      "i": 3,
+      "j": 8,
+      "pair_label": "open_the_top_drawer_and_put_the_bowl_inside + put_the_bowl_on_the_plate",
+      "tasks": [
+        "open_the_top_drawer_and_put_the_bowl_inside",
+        "put_the_bowl_on_the_plate"
+      ],
+      "language": "open the top drawer and put the bowl inside and put the bowl on the plate",
+      "goal_atoms": [
+        "(In akita_black_bowl_1 wooden_cabinet_1_top_region)",
+        "(On akita_black_bowl_1 plate_1)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "in",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_region"
+        ],
+        [
+          "on",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "obj_of_interest": [
+        "akita_black_bowl_1",
+        "wooden_cabinet_1_top_region",
+        "plate_1"
+      ],
+      "template": {
+        "task_idx": 3,
+        "name": "open_the_top_drawer_and_put_the_bowl_inside",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/open_the_top_drawer_and_put_the_bowl_inside.bddl"
+      },
+      "init_source": {
+        "task_idx": 3,
+        "name": "open_the_top_drawer_and_put_the_bowl_inside",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/open_the_top_drawer_and_put_the_bowl_inside.pruned_init",
+        "filename": "open_the_top_drawer_and_put_the_bowl_inside.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_03_08.bddl",
+        "init": "init/goal_pair_03_08.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_03_08.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_03_08.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_03_08.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_03_08.pruned_init"
+      },
+      "classification": "conflict",
+      "reason": "t3(open_the_top_drawer_and_put_the_bowl_inside) 与 t8(put_the_bowl_on_the_plate) 都要求 akita_black_bowl_1 处于不同目标位置: (In akita_black_bowl_1 wooden_cabinet_1_top_region) vs (On akita_black_bowl_1 plate_1)。同一刚体不可能同时满足两个互斥的位置谓词, 合并目标在逻辑上不可能同时成立, 归为 conflict。",
+      "tags": [
+        "same_object_two_targets",
+        "akita_black_bowl_1"
+      ],
+      "pilot_group": "excluded_conflict",
+      "sha256": {
+        "bddl": "62efb3430e6eeb228b899e48b1cffe08707b5e80aed6fc267c2e7af996172096",
+        "init": "1cd5354ade9ab9f323a518515f961df96123b7daeca017df1f62d3e9ff18794f",
+        "init_source": "1cd5354ade9ab9f323a518515f961df96123b7daeca017df1f62d3e9ff18794f"
+      }
+    },
+    {
+      "pair_id": "03_09",
+      "i": 3,
+      "j": 9,
+      "pair_label": "open_the_top_drawer_and_put_the_bowl_inside + put_the_wine_bottle_on_the_rack",
+      "tasks": [
+        "open_the_top_drawer_and_put_the_bowl_inside",
+        "put_the_wine_bottle_on_the_rack"
+      ],
+      "language": "open the top drawer and put the bowl inside and put the wine bottle on the rack",
+      "goal_atoms": [
+        "(In akita_black_bowl_1 wooden_cabinet_1_top_region)",
+        "(On wine_bottle_1 wine_rack_1_top_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "in",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_region"
+        ],
+        [
+          "on",
+          "wine_bottle_1",
+          "wine_rack_1_top_region"
+        ]
+      ],
+      "obj_of_interest": [
+        "akita_black_bowl_1",
+        "wooden_cabinet_1_top_region",
+        "wine_bottle_1",
+        "wine_rack_1_top_region"
+      ],
+      "template": {
+        "task_idx": 3,
+        "name": "open_the_top_drawer_and_put_the_bowl_inside",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/open_the_top_drawer_and_put_the_bowl_inside.bddl"
+      },
+      "init_source": {
+        "task_idx": 3,
+        "name": "open_the_top_drawer_and_put_the_bowl_inside",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/open_the_top_drawer_and_put_the_bowl_inside.pruned_init",
+        "filename": "open_the_top_drawer_and_put_the_bowl_inside.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_03_09.bddl",
+        "init": "init/goal_pair_03_09.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_03_09.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_03_09.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_03_09.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_03_09.pruned_init"
+      },
+      "classification": "compatible",
+      "reason": "t3(open_the_top_drawer_and_put_the_bowl_inside) = 把 akita_black_bowl_1 放入 wooden_cabinet_1 的 top_region (上抽屉内); t9(put_the_wine_bottle_on_the_rack) = 把 wine_bottle_1 放到 wine_rack_1 的 top_region (酒架顶)。两者作用于不同被操作物体 (akita_black_bowl_1 vs wine_bottle_1), 不存在同一物体的异位要求, 目标原子可同时成立, 归为 compatible。",
+      "tags": [
+        "distinct_objects"
+      ],
+      "pilot_group": "compatible_arm",
+      "sha256": {
+        "bddl": "dc708a91558cef7a4ea4e30053c0341577075ba62215cd0f85b0d7fae49c4350",
+        "init": "1cd5354ade9ab9f323a518515f961df96123b7daeca017df1f62d3e9ff18794f",
+        "init_source": "1cd5354ade9ab9f323a518515f961df96123b7daeca017df1f62d3e9ff18794f"
+      }
+    },
+    {
+      "pair_id": "04_05",
+      "i": 4,
+      "j": 5,
+      "pair_label": "put_the_bowl_on_top_of_the_cabinet + push_the_plate_to_the_front_of_the_stove",
+      "tasks": [
+        "put_the_bowl_on_top_of_the_cabinet",
+        "push_the_plate_to_the_front_of_the_stove"
+      ],
+      "language": "put the bowl on top of the cabinet and push the plate to the front of the stove",
+      "goal_atoms": [
+        "(On akita_black_bowl_1 wooden_cabinet_1_top_side)",
+        "(On plate_1 main_table_stove_front_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "on",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_side"
+        ],
+        [
+          "on",
+          "plate_1",
+          "main_table_stove_front_region"
+        ]
+      ],
+      "obj_of_interest": [
+        "akita_black_bowl_1",
+        "wooden_cabinet_1_top_side",
+        "plate_1",
+        "main_table_stove_front_region"
+      ],
+      "template": {
+        "task_idx": 4,
+        "name": "put_the_bowl_on_top_of_the_cabinet",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/put_the_bowl_on_top_of_the_cabinet.bddl"
+      },
+      "init_source": {
+        "task_idx": 4,
+        "name": "put_the_bowl_on_top_of_the_cabinet",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/put_the_bowl_on_top_of_the_cabinet.pruned_init",
+        "filename": "put_the_bowl_on_top_of_the_cabinet.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_04_05.bddl",
+        "init": "init/goal_pair_04_05.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_04_05.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_04_05.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_04_05.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_04_05.pruned_init"
+      },
+      "classification": "compatible",
+      "reason": "t4(put_the_bowl_on_top_of_the_cabinet) = 把 akita_black_bowl_1 放到 wooden_cabinet_1 的 top_side (柜顶); t5(push_the_plate_to_the_front_of_the_stove) = 把 plate_1 推到 main_table 的 stove_front_region (炉前区)。两者作用于不同被操作物体 (akita_black_bowl_1 vs plate_1), 不存在同一物体的异位要求, 目标原子可同时成立, 归为 compatible。",
+      "tags": [
+        "distinct_objects"
+      ],
+      "pilot_group": "compatible_arm",
+      "sha256": {
+        "bddl": "de5eb12c27387c6ac35ac5628ec7092f42f098689e5a503bb76145da8e582226",
+        "init": "c0b7baf82f36f5304488bac91d788800a1c93d0a9fd19a73f448992d5366e145",
+        "init_source": "c0b7baf82f36f5304488bac91d788800a1c93d0a9fd19a73f448992d5366e145"
+      }
+    },
+    {
+      "pair_id": "04_06",
+      "i": 4,
+      "j": 6,
+      "pair_label": "put_the_bowl_on_top_of_the_cabinet + put_the_cream_cheese_in_the_bowl",
+      "tasks": [
+        "put_the_bowl_on_top_of_the_cabinet",
+        "put_the_cream_cheese_in_the_bowl"
+      ],
+      "language": "put the bowl on top of the cabinet and put the cream cheese in the bowl",
+      "goal_atoms": [
+        "(On akita_black_bowl_1 wooden_cabinet_1_top_side)",
+        "(On cream_cheese_1 akita_black_bowl_1)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "on",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_side"
+        ],
+        [
+          "on",
+          "cream_cheese_1",
+          "akita_black_bowl_1"
+        ]
+      ],
+      "obj_of_interest": [
+        "akita_black_bowl_1",
+        "wooden_cabinet_1_top_side",
+        "cream_cheese_1"
+      ],
+      "template": {
+        "task_idx": 4,
+        "name": "put_the_bowl_on_top_of_the_cabinet",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/put_the_bowl_on_top_of_the_cabinet.bddl"
+      },
+      "init_source": {
+        "task_idx": 4,
+        "name": "put_the_bowl_on_top_of_the_cabinet",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/put_the_bowl_on_top_of_the_cabinet.pruned_init",
+        "filename": "put_the_bowl_on_top_of_the_cabinet.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_04_06.bddl",
+        "init": "init/goal_pair_04_06.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_04_06.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_04_06.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_04_06.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_04_06.pruned_init"
+      },
+      "classification": "hard",
+      "reason": "t6 要求 cream_cheese_1 最终置于 akita_black_bowl_1 上, 而 t4(put_the_bowl_on_top_of_the_cabinet) 又要求把碗移动到 (On akita_black_bowl_1 wooden_cabinet_1_top_side); 两者可共存, 但必须先完成碗的最终摆放再把奶酪放上去 (或搬运带奶酪的碗, 奶酪在碗面上易滑落), 次序受限、接触脆弱, 归为 hard。",
+      "tags": [
+        "order_constrained",
+        "cheese_on_moving_bowl"
+      ],
+      "pilot_group": "excluded_conflict",
+      "sha256": {
+        "bddl": "c15d03571e9de5973277164b48f96ef2a7eea1656a18c2843f374fa6f1364007",
+        "init": "c0b7baf82f36f5304488bac91d788800a1c93d0a9fd19a73f448992d5366e145",
+        "init_source": "c0b7baf82f36f5304488bac91d788800a1c93d0a9fd19a73f448992d5366e145"
+      }
+    },
+    {
+      "pair_id": "04_07",
+      "i": 4,
+      "j": 7,
+      "pair_label": "put_the_bowl_on_top_of_the_cabinet + turn_on_the_stove",
+      "tasks": [
+        "put_the_bowl_on_top_of_the_cabinet",
+        "turn_on_the_stove"
+      ],
+      "language": "put the bowl on top of the cabinet and turn on the stove",
+      "goal_atoms": [
+        "(On akita_black_bowl_1 wooden_cabinet_1_top_side)",
+        "(Turnon flat_stove_1)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "on",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_side"
+        ],
+        [
+          "turnon",
+          "flat_stove_1"
+        ]
+      ],
+      "obj_of_interest": [
+        "akita_black_bowl_1",
+        "wooden_cabinet_1_top_side",
+        "flat_stove_1"
+      ],
+      "template": {
+        "task_idx": 4,
+        "name": "put_the_bowl_on_top_of_the_cabinet",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/put_the_bowl_on_top_of_the_cabinet.bddl"
+      },
+      "init_source": {
+        "task_idx": 4,
+        "name": "put_the_bowl_on_top_of_the_cabinet",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/put_the_bowl_on_top_of_the_cabinet.pruned_init",
+        "filename": "put_the_bowl_on_top_of_the_cabinet.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_04_07.bddl",
+        "init": "init/goal_pair_04_07.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_04_07.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_04_07.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_04_07.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_04_07.pruned_init"
+      },
+      "classification": "compatible",
+      "reason": "t4(put_the_bowl_on_top_of_the_cabinet) = 把 akita_black_bowl_1 放到 wooden_cabinet_1 的 top_side (柜顶); t7(turn_on_the_stove) = 打开 flat_stove_1 (Turnon)。两者作用于不同被操作物体 (akita_black_bowl_1 vs flat_stove_1), 不存在同一物体的异位要求, 目标原子可同时成立, 归为 compatible。",
+      "tags": [
+        "distinct_objects"
+      ],
+      "pilot_group": "compatible_arm",
+      "sha256": {
+        "bddl": "dcea1b7d71be7240c77f9169293c9770b64bad550c47ac510a46bd56b0e0861f",
+        "init": "c0b7baf82f36f5304488bac91d788800a1c93d0a9fd19a73f448992d5366e145",
+        "init_source": "c0b7baf82f36f5304488bac91d788800a1c93d0a9fd19a73f448992d5366e145"
+      }
+    },
+    {
+      "pair_id": "04_08",
+      "i": 4,
+      "j": 8,
+      "pair_label": "put_the_bowl_on_top_of_the_cabinet + put_the_bowl_on_the_plate",
+      "tasks": [
+        "put_the_bowl_on_top_of_the_cabinet",
+        "put_the_bowl_on_the_plate"
+      ],
+      "language": "put the bowl on top of the cabinet and put the bowl on the plate",
+      "goal_atoms": [
+        "(On akita_black_bowl_1 wooden_cabinet_1_top_side)",
+        "(On akita_black_bowl_1 plate_1)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "on",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_side"
+        ],
+        [
+          "on",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "obj_of_interest": [
+        "akita_black_bowl_1",
+        "wooden_cabinet_1_top_side",
+        "plate_1"
+      ],
+      "template": {
+        "task_idx": 4,
+        "name": "put_the_bowl_on_top_of_the_cabinet",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/put_the_bowl_on_top_of_the_cabinet.bddl"
+      },
+      "init_source": {
+        "task_idx": 4,
+        "name": "put_the_bowl_on_top_of_the_cabinet",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/put_the_bowl_on_top_of_the_cabinet.pruned_init",
+        "filename": "put_the_bowl_on_top_of_the_cabinet.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_04_08.bddl",
+        "init": "init/goal_pair_04_08.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_04_08.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_04_08.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_04_08.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_04_08.pruned_init"
+      },
+      "classification": "conflict",
+      "reason": "t4(put_the_bowl_on_top_of_the_cabinet) 与 t8(put_the_bowl_on_the_plate) 都要求 akita_black_bowl_1 处于不同目标位置: (On akita_black_bowl_1 wooden_cabinet_1_top_side) vs (On akita_black_bowl_1 plate_1)。同一刚体不可能同时满足两个互斥的位置谓词, 合并目标在逻辑上不可能同时成立, 归为 conflict。",
+      "tags": [
+        "same_object_two_targets",
+        "akita_black_bowl_1"
+      ],
+      "pilot_group": "excluded_conflict",
+      "sha256": {
+        "bddl": "02cba75fddf095d6b6ab0a8cdd3eaba69a3e52b9bc6d4aa2e28c5927bdb4a477",
+        "init": "c0b7baf82f36f5304488bac91d788800a1c93d0a9fd19a73f448992d5366e145",
+        "init_source": "c0b7baf82f36f5304488bac91d788800a1c93d0a9fd19a73f448992d5366e145"
+      }
+    },
+    {
+      "pair_id": "04_09",
+      "i": 4,
+      "j": 9,
+      "pair_label": "put_the_bowl_on_top_of_the_cabinet + put_the_wine_bottle_on_the_rack",
+      "tasks": [
+        "put_the_bowl_on_top_of_the_cabinet",
+        "put_the_wine_bottle_on_the_rack"
+      ],
+      "language": "put the bowl on top of the cabinet and put the wine bottle on the rack",
+      "goal_atoms": [
+        "(On akita_black_bowl_1 wooden_cabinet_1_top_side)",
+        "(On wine_bottle_1 wine_rack_1_top_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "on",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_side"
+        ],
+        [
+          "on",
+          "wine_bottle_1",
+          "wine_rack_1_top_region"
+        ]
+      ],
+      "obj_of_interest": [
+        "akita_black_bowl_1",
+        "wooden_cabinet_1_top_side",
+        "wine_bottle_1",
+        "wine_rack_1_top_region"
+      ],
+      "template": {
+        "task_idx": 4,
+        "name": "put_the_bowl_on_top_of_the_cabinet",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/put_the_bowl_on_top_of_the_cabinet.bddl"
+      },
+      "init_source": {
+        "task_idx": 4,
+        "name": "put_the_bowl_on_top_of_the_cabinet",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/put_the_bowl_on_top_of_the_cabinet.pruned_init",
+        "filename": "put_the_bowl_on_top_of_the_cabinet.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_04_09.bddl",
+        "init": "init/goal_pair_04_09.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_04_09.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_04_09.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_04_09.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_04_09.pruned_init"
+      },
+      "classification": "compatible",
+      "reason": "t4(put_the_bowl_on_top_of_the_cabinet) = 把 akita_black_bowl_1 放到 wooden_cabinet_1 的 top_side (柜顶); t9(put_the_wine_bottle_on_the_rack) = 把 wine_bottle_1 放到 wine_rack_1 的 top_region (酒架顶)。两者作用于不同被操作物体 (akita_black_bowl_1 vs wine_bottle_1), 不存在同一物体的异位要求, 目标原子可同时成立, 归为 compatible。",
+      "tags": [
+        "distinct_objects"
+      ],
+      "pilot_group": "compatible_arm",
+      "sha256": {
+        "bddl": "107ee635ea7f5ba6c1b28df0a7292babdc2d7640109323db7d6d2ab06f7cd6e5",
+        "init": "c0b7baf82f36f5304488bac91d788800a1c93d0a9fd19a73f448992d5366e145",
+        "init_source": "c0b7baf82f36f5304488bac91d788800a1c93d0a9fd19a73f448992d5366e145"
+      }
+    },
+    {
+      "pair_id": "05_06",
+      "i": 5,
+      "j": 6,
+      "pair_label": "push_the_plate_to_the_front_of_the_stove + put_the_cream_cheese_in_the_bowl",
+      "tasks": [
+        "push_the_plate_to_the_front_of_the_stove",
+        "put_the_cream_cheese_in_the_bowl"
+      ],
+      "language": "push the plate to the front of the stove and put the cream cheese in the bowl",
+      "goal_atoms": [
+        "(On plate_1 main_table_stove_front_region)",
+        "(On cream_cheese_1 akita_black_bowl_1)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "on",
+          "plate_1",
+          "main_table_stove_front_region"
+        ],
+        [
+          "on",
+          "cream_cheese_1",
+          "akita_black_bowl_1"
+        ]
+      ],
+      "obj_of_interest": [
+        "plate_1",
+        "main_table_stove_front_region",
+        "cream_cheese_1",
+        "akita_black_bowl_1"
+      ],
+      "template": {
+        "task_idx": 5,
+        "name": "push_the_plate_to_the_front_of_the_stove",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/push_the_plate_to_the_front_of_the_stove.bddl"
+      },
+      "init_source": {
+        "task_idx": 5,
+        "name": "push_the_plate_to_the_front_of_the_stove",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/push_the_plate_to_the_front_of_the_stove.pruned_init",
+        "filename": "push_the_plate_to_the_front_of_the_stove.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_05_06.bddl",
+        "init": "init/goal_pair_05_06.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_05_06.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_05_06.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_05_06.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_05_06.pruned_init"
+      },
+      "classification": "compatible",
+      "reason": "t5(push_the_plate_to_the_front_of_the_stove) = 把 plate_1 推到 main_table 的 stove_front_region (炉前区); t6(put_the_cream_cheese_in_the_bowl) = 把 cream_cheese_1 放到 akita_black_bowl_1 上。两者作用于不同被操作物体 (plate_1 vs cream_cheese_1), 不存在同一物体的异位要求, 目标原子可同时成立, 归为 compatible。",
+      "tags": [
+        "distinct_objects"
+      ],
+      "pilot_group": "compatible_arm",
+      "sha256": {
+        "bddl": "1ad52d5cb5a8028aeabbc7027806416239a55d3142620e714d52064f4556b60e",
+        "init": "794beed679b18bbd7d9fb851c81877a974915ad63addff2d5ac5af0607fafac9",
+        "init_source": "794beed679b18bbd7d9fb851c81877a974915ad63addff2d5ac5af0607fafac9"
+      }
+    },
+    {
+      "pair_id": "05_07",
+      "i": 5,
+      "j": 7,
+      "pair_label": "push_the_plate_to_the_front_of_the_stove + turn_on_the_stove",
+      "tasks": [
+        "push_the_plate_to_the_front_of_the_stove",
+        "turn_on_the_stove"
+      ],
+      "language": "push the plate to the front of the stove and turn on the stove",
+      "goal_atoms": [
+        "(On plate_1 main_table_stove_front_region)",
+        "(Turnon flat_stove_1)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "on",
+          "plate_1",
+          "main_table_stove_front_region"
+        ],
+        [
+          "turnon",
+          "flat_stove_1"
+        ]
+      ],
+      "obj_of_interest": [
+        "plate_1",
+        "main_table_stove_front_region",
+        "flat_stove_1"
+      ],
+      "template": {
+        "task_idx": 5,
+        "name": "push_the_plate_to_the_front_of_the_stove",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/push_the_plate_to_the_front_of_the_stove.bddl"
+      },
+      "init_source": {
+        "task_idx": 5,
+        "name": "push_the_plate_to_the_front_of_the_stove",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/push_the_plate_to_the_front_of_the_stove.pruned_init",
+        "filename": "push_the_plate_to_the_front_of_the_stove.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_05_07.bddl",
+        "init": "init/goal_pair_05_07.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_05_07.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_05_07.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_05_07.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_05_07.pruned_init"
+      },
+      "classification": "compatible",
+      "reason": "t5(push_the_plate_to_the_front_of_the_stove) = 把 plate_1 推到 main_table 的 stove_front_region (炉前区); t7(turn_on_the_stove) = 打开 flat_stove_1 (Turnon)。两者作用于不同被操作物体 (plate_1 vs flat_stove_1), 不存在同一物体的异位要求, 目标原子可同时成立, 归为 compatible。",
+      "tags": [
+        "distinct_objects"
+      ],
+      "pilot_group": "compatible_arm",
+      "sha256": {
+        "bddl": "ac067303fdbff4e7754dc57bcea28864a5e412ec0a6992eab9ba0694d15f4002",
+        "init": "794beed679b18bbd7d9fb851c81877a974915ad63addff2d5ac5af0607fafac9",
+        "init_source": "794beed679b18bbd7d9fb851c81877a974915ad63addff2d5ac5af0607fafac9"
+      }
+    },
+    {
+      "pair_id": "05_08",
+      "i": 5,
+      "j": 8,
+      "pair_label": "push_the_plate_to_the_front_of_the_stove + put_the_bowl_on_the_plate",
+      "tasks": [
+        "push_the_plate_to_the_front_of_the_stove",
+        "put_the_bowl_on_the_plate"
+      ],
+      "language": "push the plate to the front of the stove and put the bowl on the plate",
+      "goal_atoms": [
+        "(On plate_1 main_table_stove_front_region)",
+        "(On akita_black_bowl_1 plate_1)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "on",
+          "plate_1",
+          "main_table_stove_front_region"
+        ],
+        [
+          "on",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "obj_of_interest": [
+        "plate_1",
+        "main_table_stove_front_region",
+        "akita_black_bowl_1"
+      ],
+      "template": {
+        "task_idx": 5,
+        "name": "push_the_plate_to_the_front_of_the_stove",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/push_the_plate_to_the_front_of_the_stove.bddl"
+      },
+      "init_source": {
+        "task_idx": 5,
+        "name": "push_the_plate_to_the_front_of_the_stove",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/push_the_plate_to_the_front_of_the_stove.pruned_init",
+        "filename": "push_the_plate_to_the_front_of_the_stove.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_05_08.bddl",
+        "init": "init/goal_pair_05_08.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_05_08.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_05_08.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_05_08.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_05_08.pruned_init"
+      },
+      "classification": "compatible",
+      "reason": "t5(push_the_plate_to_the_front_of_the_stove) = 把 plate_1 推到 main_table 的 stove_front_region (炉前区); t8(put_the_bowl_on_the_plate) = 把 akita_black_bowl_1 放到 plate_1 上。两者作用于不同被操作物体 (plate_1 vs akita_black_bowl_1), 不存在同一物体的异位要求, 目标原子可同时成立, 归为 compatible。 次序提示: 先推盘到炉前区再把碗放到盘上更稳 (反之亦可, 但推带碗的盘子更脆弱)。",
+      "tags": [
+        "distinct_objects"
+      ],
+      "pilot_group": "compatible_arm",
+      "sha256": {
+        "bddl": "4ea257839dc5e9d86d89ac4b02ca6a3c5d1e9b62cc0856fc4f9b6809a8af8c4a",
+        "init": "794beed679b18bbd7d9fb851c81877a974915ad63addff2d5ac5af0607fafac9",
+        "init_source": "794beed679b18bbd7d9fb851c81877a974915ad63addff2d5ac5af0607fafac9"
+      }
+    },
+    {
+      "pair_id": "05_09",
+      "i": 5,
+      "j": 9,
+      "pair_label": "push_the_plate_to_the_front_of_the_stove + put_the_wine_bottle_on_the_rack",
+      "tasks": [
+        "push_the_plate_to_the_front_of_the_stove",
+        "put_the_wine_bottle_on_the_rack"
+      ],
+      "language": "push the plate to the front of the stove and put the wine bottle on the rack",
+      "goal_atoms": [
+        "(On plate_1 main_table_stove_front_region)",
+        "(On wine_bottle_1 wine_rack_1_top_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "on",
+          "plate_1",
+          "main_table_stove_front_region"
+        ],
+        [
+          "on",
+          "wine_bottle_1",
+          "wine_rack_1_top_region"
+        ]
+      ],
+      "obj_of_interest": [
+        "plate_1",
+        "main_table_stove_front_region",
+        "wine_bottle_1",
+        "wine_rack_1_top_region"
+      ],
+      "template": {
+        "task_idx": 5,
+        "name": "push_the_plate_to_the_front_of_the_stove",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/push_the_plate_to_the_front_of_the_stove.bddl"
+      },
+      "init_source": {
+        "task_idx": 5,
+        "name": "push_the_plate_to_the_front_of_the_stove",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/push_the_plate_to_the_front_of_the_stove.pruned_init",
+        "filename": "push_the_plate_to_the_front_of_the_stove.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_05_09.bddl",
+        "init": "init/goal_pair_05_09.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_05_09.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_05_09.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_05_09.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_05_09.pruned_init"
+      },
+      "classification": "compatible",
+      "reason": "t5(push_the_plate_to_the_front_of_the_stove) = 把 plate_1 推到 main_table 的 stove_front_region (炉前区); t9(put_the_wine_bottle_on_the_rack) = 把 wine_bottle_1 放到 wine_rack_1 的 top_region (酒架顶)。两者作用于不同被操作物体 (plate_1 vs wine_bottle_1), 不存在同一物体的异位要求, 目标原子可同时成立, 归为 compatible。",
+      "tags": [
+        "distinct_objects"
+      ],
+      "pilot_group": "compatible_arm",
+      "sha256": {
+        "bddl": "705faafd8ddb4decb1743e8926f1928e5006ec42bd0607dbbb8023710bbce772",
+        "init": "794beed679b18bbd7d9fb851c81877a974915ad63addff2d5ac5af0607fafac9",
+        "init_source": "794beed679b18bbd7d9fb851c81877a974915ad63addff2d5ac5af0607fafac9"
+      }
+    },
+    {
+      "pair_id": "06_07",
+      "i": 6,
+      "j": 7,
+      "pair_label": "put_the_cream_cheese_in_the_bowl + turn_on_the_stove",
+      "tasks": [
+        "put_the_cream_cheese_in_the_bowl",
+        "turn_on_the_stove"
+      ],
+      "language": "put the cream cheese in the bowl and turn on the stove",
+      "goal_atoms": [
+        "(On cream_cheese_1 akita_black_bowl_1)",
+        "(Turnon flat_stove_1)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "on",
+          "cream_cheese_1",
+          "akita_black_bowl_1"
+        ],
+        [
+          "turnon",
+          "flat_stove_1"
+        ]
+      ],
+      "obj_of_interest": [
+        "cream_cheese_1",
+        "akita_black_bowl_1",
+        "flat_stove_1"
+      ],
+      "template": {
+        "task_idx": 6,
+        "name": "put_the_cream_cheese_in_the_bowl",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/put_the_cream_cheese_in_the_bowl.bddl"
+      },
+      "init_source": {
+        "task_idx": 6,
+        "name": "put_the_cream_cheese_in_the_bowl",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/put_the_cream_cheese_in_the_bowl.pruned_init",
+        "filename": "put_the_cream_cheese_in_the_bowl.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_06_07.bddl",
+        "init": "init/goal_pair_06_07.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_06_07.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_06_07.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_06_07.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_06_07.pruned_init"
+      },
+      "classification": "compatible",
+      "reason": "t6(put_the_cream_cheese_in_the_bowl) = 把 cream_cheese_1 放到 akita_black_bowl_1 上; t7(turn_on_the_stove) = 打开 flat_stove_1 (Turnon)。两者作用于不同被操作物体 (cream_cheese_1 vs flat_stove_1), 不存在同一物体的异位要求, 目标原子可同时成立, 归为 compatible。",
+      "tags": [
+        "distinct_objects"
+      ],
+      "pilot_group": "compatible_arm",
+      "sha256": {
+        "bddl": "80825591e9cb09e3d4630efda51d59405672b4b59dc2f83f8763fd5767e8f31a",
+        "init": "524de11d240f33b93d5218b1779a1ded1037950fcf865f07d0c0029cc48cf3f5",
+        "init_source": "524de11d240f33b93d5218b1779a1ded1037950fcf865f07d0c0029cc48cf3f5"
+      }
+    },
+    {
+      "pair_id": "06_08",
+      "i": 6,
+      "j": 8,
+      "pair_label": "put_the_cream_cheese_in_the_bowl + put_the_bowl_on_the_plate",
+      "tasks": [
+        "put_the_cream_cheese_in_the_bowl",
+        "put_the_bowl_on_the_plate"
+      ],
+      "language": "put the cream cheese in the bowl and put the bowl on the plate",
+      "goal_atoms": [
+        "(On cream_cheese_1 akita_black_bowl_1)",
+        "(On akita_black_bowl_1 plate_1)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "on",
+          "cream_cheese_1",
+          "akita_black_bowl_1"
+        ],
+        [
+          "on",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "obj_of_interest": [
+        "cream_cheese_1",
+        "akita_black_bowl_1",
+        "plate_1"
+      ],
+      "template": {
+        "task_idx": 6,
+        "name": "put_the_cream_cheese_in_the_bowl",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/put_the_cream_cheese_in_the_bowl.bddl"
+      },
+      "init_source": {
+        "task_idx": 6,
+        "name": "put_the_cream_cheese_in_the_bowl",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/put_the_cream_cheese_in_the_bowl.pruned_init",
+        "filename": "put_the_cream_cheese_in_the_bowl.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_06_08.bddl",
+        "init": "init/goal_pair_06_08.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_06_08.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_06_08.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_06_08.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_06_08.pruned_init"
+      },
+      "classification": "hard",
+      "reason": "t6 要求 cream_cheese_1 最终置于 akita_black_bowl_1 上, 而 t8(put_the_bowl_on_the_plate) 又要求把碗移动到 (On akita_black_bowl_1 plate_1); 两者可共存, 但必须先完成碗的最终摆放再把奶酪放上去 (或搬运带奶酪的碗, 奶酪在碗面上易滑落), 次序受限、接触脆弱, 归为 hard。",
+      "tags": [
+        "order_constrained",
+        "cheese_on_moving_bowl"
+      ],
+      "pilot_group": "excluded_conflict",
+      "sha256": {
+        "bddl": "1eb2268e6617fda52dba404d4728d024ab45a495e27e316c963e38e6c6065b96",
+        "init": "524de11d240f33b93d5218b1779a1ded1037950fcf865f07d0c0029cc48cf3f5",
+        "init_source": "524de11d240f33b93d5218b1779a1ded1037950fcf865f07d0c0029cc48cf3f5"
+      }
+    },
+    {
+      "pair_id": "06_09",
+      "i": 6,
+      "j": 9,
+      "pair_label": "put_the_cream_cheese_in_the_bowl + put_the_wine_bottle_on_the_rack",
+      "tasks": [
+        "put_the_cream_cheese_in_the_bowl",
+        "put_the_wine_bottle_on_the_rack"
+      ],
+      "language": "put the cream cheese in the bowl and put the wine bottle on the rack",
+      "goal_atoms": [
+        "(On cream_cheese_1 akita_black_bowl_1)",
+        "(On wine_bottle_1 wine_rack_1_top_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "on",
+          "cream_cheese_1",
+          "akita_black_bowl_1"
+        ],
+        [
+          "on",
+          "wine_bottle_1",
+          "wine_rack_1_top_region"
+        ]
+      ],
+      "obj_of_interest": [
+        "cream_cheese_1",
+        "akita_black_bowl_1",
+        "wine_bottle_1",
+        "wine_rack_1_top_region"
+      ],
+      "template": {
+        "task_idx": 6,
+        "name": "put_the_cream_cheese_in_the_bowl",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/put_the_cream_cheese_in_the_bowl.bddl"
+      },
+      "init_source": {
+        "task_idx": 6,
+        "name": "put_the_cream_cheese_in_the_bowl",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/put_the_cream_cheese_in_the_bowl.pruned_init",
+        "filename": "put_the_cream_cheese_in_the_bowl.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_06_09.bddl",
+        "init": "init/goal_pair_06_09.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_06_09.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_06_09.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_06_09.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_06_09.pruned_init"
+      },
+      "classification": "compatible",
+      "reason": "t6(put_the_cream_cheese_in_the_bowl) = 把 cream_cheese_1 放到 akita_black_bowl_1 上; t9(put_the_wine_bottle_on_the_rack) = 把 wine_bottle_1 放到 wine_rack_1 的 top_region (酒架顶)。两者作用于不同被操作物体 (cream_cheese_1 vs wine_bottle_1), 不存在同一物体的异位要求, 目标原子可同时成立, 归为 compatible。",
+      "tags": [
+        "distinct_objects"
+      ],
+      "pilot_group": "compatible_arm",
+      "sha256": {
+        "bddl": "f57cbc565df8d3ae5cd87673dccac2accd23535867afd4b02011bd89635d0686",
+        "init": "524de11d240f33b93d5218b1779a1ded1037950fcf865f07d0c0029cc48cf3f5",
+        "init_source": "524de11d240f33b93d5218b1779a1ded1037950fcf865f07d0c0029cc48cf3f5"
+      }
+    },
+    {
+      "pair_id": "07_08",
+      "i": 7,
+      "j": 8,
+      "pair_label": "turn_on_the_stove + put_the_bowl_on_the_plate",
+      "tasks": [
+        "turn_on_the_stove",
+        "put_the_bowl_on_the_plate"
+      ],
+      "language": "turn on the stove and put the bowl on the plate",
+      "goal_atoms": [
+        "(Turnon flat_stove_1)",
+        "(On akita_black_bowl_1 plate_1)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "turnon",
+          "flat_stove_1"
+        ],
+        [
+          "on",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "obj_of_interest": [
+        "flat_stove_1",
+        "akita_black_bowl_1",
+        "plate_1"
+      ],
+      "template": {
+        "task_idx": 7,
+        "name": "turn_on_the_stove",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/turn_on_the_stove.bddl"
+      },
+      "init_source": {
+        "task_idx": 7,
+        "name": "turn_on_the_stove",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/turn_on_the_stove.pruned_init",
+        "filename": "turn_on_the_stove.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_07_08.bddl",
+        "init": "init/goal_pair_07_08.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_07_08.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_07_08.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_07_08.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_07_08.pruned_init"
+      },
+      "classification": "compatible",
+      "reason": "t7(turn_on_the_stove) = 打开 flat_stove_1 (Turnon); t8(put_the_bowl_on_the_plate) = 把 akita_black_bowl_1 放到 plate_1 上。两者作用于不同被操作物体 (flat_stove_1 vs akita_black_bowl_1), 不存在同一物体的异位要求, 目标原子可同时成立, 归为 compatible。",
+      "tags": [
+        "distinct_objects"
+      ],
+      "pilot_group": "compatible_arm",
+      "sha256": {
+        "bddl": "44bfe289fd77ebefc0bad6e28aa06b1aeb8f0b8416825b2174020d7d69f52fb6",
+        "init": "ed121db31d749647d70741c4c4ef0bd8e0876663986578795968e962d9b91340",
+        "init_source": "ed121db31d749647d70741c4c4ef0bd8e0876663986578795968e962d9b91340"
+      }
+    },
+    {
+      "pair_id": "07_09",
+      "i": 7,
+      "j": 9,
+      "pair_label": "turn_on_the_stove + put_the_wine_bottle_on_the_rack",
+      "tasks": [
+        "turn_on_the_stove",
+        "put_the_wine_bottle_on_the_rack"
+      ],
+      "language": "turn on the stove and put the wine bottle on the rack",
+      "goal_atoms": [
+        "(Turnon flat_stove_1)",
+        "(On wine_bottle_1 wine_rack_1_top_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "turnon",
+          "flat_stove_1"
+        ],
+        [
+          "on",
+          "wine_bottle_1",
+          "wine_rack_1_top_region"
+        ]
+      ],
+      "obj_of_interest": [
+        "flat_stove_1",
+        "wine_bottle_1",
+        "wine_rack_1_top_region"
+      ],
+      "template": {
+        "task_idx": 7,
+        "name": "turn_on_the_stove",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/turn_on_the_stove.bddl"
+      },
+      "init_source": {
+        "task_idx": 7,
+        "name": "turn_on_the_stove",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/turn_on_the_stove.pruned_init",
+        "filename": "turn_on_the_stove.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_07_09.bddl",
+        "init": "init/goal_pair_07_09.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_07_09.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_07_09.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_07_09.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_07_09.pruned_init"
+      },
+      "classification": "compatible",
+      "reason": "t7(turn_on_the_stove) = 打开 flat_stove_1 (Turnon); t9(put_the_wine_bottle_on_the_rack) = 把 wine_bottle_1 放到 wine_rack_1 的 top_region (酒架顶)。两者作用于不同被操作物体 (flat_stove_1 vs wine_bottle_1), 不存在同一物体的异位要求, 目标原子可同时成立, 归为 compatible。",
+      "tags": [
+        "distinct_objects"
+      ],
+      "pilot_group": "compatible_arm",
+      "sha256": {
+        "bddl": "202c8069e377a1efdfaf618324ea0f27f26fd7c98a7b2c43ffe8e4114454390b",
+        "init": "ed121db31d749647d70741c4c4ef0bd8e0876663986578795968e962d9b91340",
+        "init_source": "ed121db31d749647d70741c4c4ef0bd8e0876663986578795968e962d9b91340"
+      }
+    },
+    {
+      "pair_id": "08_09",
+      "i": 8,
+      "j": 9,
+      "pair_label": "put_the_bowl_on_the_plate + put_the_wine_bottle_on_the_rack",
+      "tasks": [
+        "put_the_bowl_on_the_plate",
+        "put_the_wine_bottle_on_the_rack"
+      ],
+      "language": "put the bowl on the plate and put the wine bottle on the rack",
+      "goal_atoms": [
+        "(On akita_black_bowl_1 plate_1)",
+        "(On wine_bottle_1 wine_rack_1_top_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "on",
+          "akita_black_bowl_1",
+          "plate_1"
+        ],
+        [
+          "on",
+          "wine_bottle_1",
+          "wine_rack_1_top_region"
+        ]
+      ],
+      "obj_of_interest": [
+        "akita_black_bowl_1",
+        "plate_1",
+        "wine_bottle_1",
+        "wine_rack_1_top_region"
+      ],
+      "template": {
+        "task_idx": 8,
+        "name": "put_the_bowl_on_the_plate",
+        "bddl_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_goal/put_the_bowl_on_the_plate.bddl"
+      },
+      "init_source": {
+        "task_idx": 8,
+        "name": "put_the_bowl_on_the_plate",
+        "path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_goal/put_the_bowl_on_the_plate.pruned_init",
+        "filename": "put_the_bowl_on_the_plate.pruned_init"
+      },
+      "artifacts": {
+        "bddl": "bddl/goal_pair_08_09.bddl",
+        "init": "init/goal_pair_08_09.pruned_init",
+        "runner_sibling_init": "bddl/goal_pair_08_09.pruned_init"
+      },
+      "abs": {
+        "bddl": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_08_09.bddl",
+        "init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/init/goal_pair_08_09.pruned_init",
+        "runner_sibling_init": "/home/tarowang/workspace/roboot/libero-rollback/runs/combined-tasks-20261019/artifacts/goal-pairs/bddl/goal_pair_08_09.pruned_init"
+      },
+      "classification": "compatible",
+      "reason": "t8(put_the_bowl_on_the_plate) = 把 akita_black_bowl_1 放到 plate_1 上; t9(put_the_wine_bottle_on_the_rack) = 把 wine_bottle_1 放到 wine_rack_1 的 top_region (酒架顶)。两者作用于不同被操作物体 (akita_black_bowl_1 vs wine_bottle_1), 不存在同一物体的异位要求, 目标原子可同时成立, 归为 compatible。",
+      "tags": [
+        "distinct_objects"
+      ],
+      "pilot_group": "compatible_arm",
+      "sha256": {
+        "bddl": "6206cf3b508c886b3a94dd2d8d3788cc2e258da717234d0e0ec26bc24e2504bc",
+        "init": "ef3466ffad734754dc40eba1f6f5712e37aa46b9692c595e0da34f16d3a0c668",
+        "init_source": "ef3466ffad734754dc40eba1f6f5712e37aa46b9692c595e0da34f16d3a0c668"
+      }
+    }
+  ]
+}

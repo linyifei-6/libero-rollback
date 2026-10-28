@@ -1,0 +1,1622 @@
+[
+  {
+    "idx": 0,
+    "name": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+    "language": "pick up the alphabet soup and place it in the basket",
+    "objects": [
+      [
+        "alphabet_soup_1",
+        "alphabet_soup"
+      ],
+      [
+        "basket_1",
+        "basket"
+      ],
+      [
+        "salad_dressing_1",
+        "salad_dressing"
+      ],
+      [
+        "cream_cheese_1",
+        "cream_cheese"
+      ],
+      [
+        "milk_1",
+        "milk"
+      ],
+      [
+        "tomato_sauce_1",
+        "tomato_sauce"
+      ],
+      [
+        "butter_1",
+        "butter"
+      ]
+    ],
+    "goal": [
+      [
+        "In",
+        "alphabet_soup_1",
+        "basket_1_contain_region"
+      ]
+    ],
+    "targets": [
+      "alphabet_soup_1"
+    ],
+    "placement": {
+      "alphabet_soup_1": [
+        "On",
+        "floor_target_object_region"
+      ],
+      "salad_dressing_1": [
+        "On",
+        "floor_other_object_region_0"
+      ],
+      "cream_cheese_1": [
+        "On",
+        "floor_other_object_region_1"
+      ],
+      "milk_1": [
+        "On",
+        "floor_other_object_region_2"
+      ],
+      "tomato_sauce_1": [
+        "On",
+        "floor_other_object_region_3"
+      ],
+      "butter_1": [
+        "On",
+        "floor_other_object_region_4"
+      ],
+      "basket_1": [
+        "On",
+        "floor_bin_region"
+      ]
+    },
+    "n_objects": 7,
+    "basket": [
+      [
+        "basket_1",
+        "basket"
+      ]
+    ],
+    "non_basket": [
+      [
+        "alphabet_soup_1",
+        "alphabet_soup"
+      ],
+      [
+        "salad_dressing_1",
+        "salad_dressing"
+      ],
+      [
+        "cream_cheese_1",
+        "cream_cheese"
+      ],
+      [
+        "milk_1",
+        "milk"
+      ],
+      [
+        "tomato_sauce_1",
+        "tomato_sauce"
+      ],
+      [
+        "butter_1",
+        "butter"
+      ]
+    ],
+    "target_types": [
+      "alphabet_soup"
+    ],
+    "distractors": [
+      [
+        "salad_dressing_1",
+        "salad_dressing"
+      ],
+      [
+        "cream_cheese_1",
+        "cream_cheese"
+      ],
+      [
+        "milk_1",
+        "milk"
+      ],
+      [
+        "tomato_sauce_1",
+        "tomato_sauce"
+      ],
+      [
+        "butter_1",
+        "butter"
+      ]
+    ],
+    "target_slot": "floor_target_object_region",
+    "basket_slot": "floor_bin_region",
+    "distractor_slots": [
+      [
+        "salad_dressing_1",
+        "salad_dressing",
+        "floor_other_object_region_0"
+      ],
+      [
+        "cream_cheese_1",
+        "cream_cheese",
+        "floor_other_object_region_1"
+      ],
+      [
+        "milk_1",
+        "milk",
+        "floor_other_object_region_2"
+      ],
+      [
+        "tomato_sauce_1",
+        "tomato_sauce",
+        "floor_other_object_region_3"
+      ],
+      [
+        "butter_1",
+        "butter",
+        "floor_other_object_region_4"
+      ]
+    ]
+  },
+  {
+    "idx": 1,
+    "name": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+    "language": "pick up the cream cheese and place it in the basket",
+    "objects": [
+      [
+        "cream_cheese_1",
+        "cream_cheese"
+      ],
+      [
+        "basket_1",
+        "basket"
+      ],
+      [
+        "alphabet_soup_1",
+        "alphabet_soup"
+      ],
+      [
+        "milk_1",
+        "milk"
+      ],
+      [
+        "tomato_sauce_1",
+        "tomato_sauce"
+      ],
+      [
+        "butter_1",
+        "butter"
+      ],
+      [
+        "orange_juice_1",
+        "orange_juice"
+      ]
+    ],
+    "goal": [
+      [
+        "In",
+        "cream_cheese_1",
+        "basket_1_contain_region"
+      ]
+    ],
+    "targets": [
+      "cream_cheese_1"
+    ],
+    "placement": {
+      "cream_cheese_1": [
+        "On",
+        "floor_target_object_region"
+      ],
+      "alphabet_soup_1": [
+        "On",
+        "floor_other_object_region_0"
+      ],
+      "milk_1": [
+        "On",
+        "floor_other_object_region_1"
+      ],
+      "tomato_sauce_1": [
+        "On",
+        "floor_other_object_region_2"
+      ],
+      "butter_1": [
+        "On",
+        "floor_other_object_region_3"
+      ],
+      "orange_juice_1": [
+        "On",
+        "floor_other_object_region_4"
+      ],
+      "basket_1": [
+        "On",
+        "floor_bin_region"
+      ]
+    },
+    "n_objects": 7,
+    "basket": [
+      [
+        "basket_1",
+        "basket"
+      ]
+    ],
+    "non_basket": [
+      [
+        "cream_cheese_1",
+        "cream_cheese"
+      ],
+      [
+        "alphabet_soup_1",
+        "alphabet_soup"
+      ],
+      [
+        "milk_1",
+        "milk"
+      ],
+      [
+        "tomato_sauce_1",
+        "tomato_sauce"
+      ],
+      [
+        "butter_1",
+        "butter"
+      ],
+      [
+        "orange_juice_1",
+        "orange_juice"
+      ]
+    ],
+    "target_types": [
+      "cream_cheese"
+    ],
+    "distractors": [
+      [
+        "alphabet_soup_1",
+        "alphabet_soup"
+      ],
+      [
+        "milk_1",
+        "milk"
+      ],
+      [
+        "tomato_sauce_1",
+        "tomato_sauce"
+      ],
+      [
+        "butter_1",
+        "butter"
+      ],
+      [
+        "orange_juice_1",
+        "orange_juice"
+      ]
+    ],
+    "target_slot": "floor_target_object_region",
+    "basket_slot": "floor_bin_region",
+    "distractor_slots": [
+      [
+        "alphabet_soup_1",
+        "alphabet_soup",
+        "floor_other_object_region_0"
+      ],
+      [
+        "milk_1",
+        "milk",
+        "floor_other_object_region_1"
+      ],
+      [
+        "tomato_sauce_1",
+        "tomato_sauce",
+        "floor_other_object_region_2"
+      ],
+      [
+        "butter_1",
+        "butter",
+        "floor_other_object_region_3"
+      ],
+      [
+        "orange_juice_1",
+        "orange_juice",
+        "floor_other_object_region_4"
+      ]
+    ]
+  },
+  {
+    "idx": 2,
+    "name": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+    "language": "pick up the salad dressing and place it in the basket",
+    "objects": [
+      [
+        "salad_dressing_1",
+        "salad_dressing"
+      ],
+      [
+        "basket_1",
+        "basket"
+      ],
+      [
+        "ketchup_1",
+        "ketchup"
+      ],
+      [
+        "alphabet_soup_1",
+        "alphabet_soup"
+      ],
+      [
+        "cream_cheese_1",
+        "cream_cheese"
+      ],
+      [
+        "milk_1",
+        "milk"
+      ],
+      [
+        "tomato_sauce_1",
+        "tomato_sauce"
+      ]
+    ],
+    "goal": [
+      [
+        "In",
+        "salad_dressing_1",
+        "basket_1_contain_region"
+      ]
+    ],
+    "targets": [
+      "salad_dressing_1"
+    ],
+    "placement": {
+      "salad_dressing_1": [
+        "On",
+        "floor_target_object_region"
+      ],
+      "ketchup_1": [
+        "On",
+        "floor_other_object_region_0"
+      ],
+      "alphabet_soup_1": [
+        "On",
+        "floor_other_object_region_1"
+      ],
+      "cream_cheese_1": [
+        "On",
+        "floor_other_object_region_2"
+      ],
+      "milk_1": [
+        "On",
+        "floor_other_object_region_3"
+      ],
+      "tomato_sauce_1": [
+        "On",
+        "floor_other_object_region_4"
+      ],
+      "basket_1": [
+        "On",
+        "floor_bin_region"
+      ]
+    },
+    "n_objects": 7,
+    "basket": [
+      [
+        "basket_1",
+        "basket"
+      ]
+    ],
+    "non_basket": [
+      [
+        "salad_dressing_1",
+        "salad_dressing"
+      ],
+      [
+        "ketchup_1",
+        "ketchup"
+      ],
+      [
+        "alphabet_soup_1",
+        "alphabet_soup"
+      ],
+      [
+        "cream_cheese_1",
+        "cream_cheese"
+      ],
+      [
+        "milk_1",
+        "milk"
+      ],
+      [
+        "tomato_sauce_1",
+        "tomato_sauce"
+      ]
+    ],
+    "target_types": [
+      "salad_dressing"
+    ],
+    "distractors": [
+      [
+        "ketchup_1",
+        "ketchup"
+      ],
+      [
+        "alphabet_soup_1",
+        "alphabet_soup"
+      ],
+      [
+        "cream_cheese_1",
+        "cream_cheese"
+      ],
+      [
+        "milk_1",
+        "milk"
+      ],
+      [
+        "tomato_sauce_1",
+        "tomato_sauce"
+      ]
+    ],
+    "target_slot": "floor_target_object_region",
+    "basket_slot": "floor_bin_region",
+    "distractor_slots": [
+      [
+        "ketchup_1",
+        "ketchup",
+        "floor_other_object_region_0"
+      ],
+      [
+        "alphabet_soup_1",
+        "alphabet_soup",
+        "floor_other_object_region_1"
+      ],
+      [
+        "cream_cheese_1",
+        "cream_cheese",
+        "floor_other_object_region_2"
+      ],
+      [
+        "milk_1",
+        "milk",
+        "floor_other_object_region_3"
+      ],
+      [
+        "tomato_sauce_1",
+        "tomato_sauce",
+        "floor_other_object_region_4"
+      ]
+    ]
+  },
+  {
+    "idx": 3,
+    "name": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+    "language": "pick up the bbq sauce and place it in the basket",
+    "objects": [
+      [
+        "bbq_sauce_1",
+        "bbq_sauce"
+      ],
+      [
+        "basket_1",
+        "basket"
+      ],
+      [
+        "chocolate_pudding_1",
+        "chocolate_pudding"
+      ],
+      [
+        "ketchup_1",
+        "ketchup"
+      ],
+      [
+        "salad_dressing_1",
+        "salad_dressing"
+      ],
+      [
+        "alphabet_soup_1",
+        "alphabet_soup"
+      ],
+      [
+        "cream_cheese_1",
+        "cream_cheese"
+      ]
+    ],
+    "goal": [
+      [
+        "In",
+        "bbq_sauce_1",
+        "basket_1_contain_region"
+      ]
+    ],
+    "targets": [
+      "bbq_sauce_1"
+    ],
+    "placement": {
+      "bbq_sauce_1": [
+        "On",
+        "floor_target_object_region"
+      ],
+      "chocolate_pudding_1": [
+        "On",
+        "floor_other_object_region_0"
+      ],
+      "ketchup_1": [
+        "On",
+        "floor_other_object_region_1"
+      ],
+      "salad_dressing_1": [
+        "On",
+        "floor_other_object_region_2"
+      ],
+      "alphabet_soup_1": [
+        "On",
+        "floor_other_object_region_3"
+      ],
+      "cream_cheese_1": [
+        "On",
+        "floor_other_object_region_4"
+      ],
+      "basket_1": [
+        "On",
+        "floor_bin_region"
+      ]
+    },
+    "n_objects": 7,
+    "basket": [
+      [
+        "basket_1",
+        "basket"
+      ]
+    ],
+    "non_basket": [
+      [
+        "bbq_sauce_1",
+        "bbq_sauce"
+      ],
+      [
+        "chocolate_pudding_1",
+        "chocolate_pudding"
+      ],
+      [
+        "ketchup_1",
+        "ketchup"
+      ],
+      [
+        "salad_dressing_1",
+        "salad_dressing"
+      ],
+      [
+        "alphabet_soup_1",
+        "alphabet_soup"
+      ],
+      [
+        "cream_cheese_1",
+        "cream_cheese"
+      ]
+    ],
+    "target_types": [
+      "bbq_sauce"
+    ],
+    "distractors": [
+      [
+        "chocolate_pudding_1",
+        "chocolate_pudding"
+      ],
+      [
+        "ketchup_1",
+        "ketchup"
+      ],
+      [
+        "salad_dressing_1",
+        "salad_dressing"
+      ],
+      [
+        "alphabet_soup_1",
+        "alphabet_soup"
+      ],
+      [
+        "cream_cheese_1",
+        "cream_cheese"
+      ]
+    ],
+    "target_slot": "floor_target_object_region",
+    "basket_slot": "floor_bin_region",
+    "distractor_slots": [
+      [
+        "chocolate_pudding_1",
+        "chocolate_pudding",
+        "floor_other_object_region_0"
+      ],
+      [
+        "ketchup_1",
+        "ketchup",
+        "floor_other_object_region_1"
+      ],
+      [
+        "salad_dressing_1",
+        "salad_dressing",
+        "floor_other_object_region_2"
+      ],
+      [
+        "alphabet_soup_1",
+        "alphabet_soup",
+        "floor_other_object_region_3"
+      ],
+      [
+        "cream_cheese_1",
+        "cream_cheese",
+        "floor_other_object_region_4"
+      ]
+    ]
+  },
+  {
+    "idx": 4,
+    "name": "pick_up_the_ketchup_and_place_it_in_the_basket",
+    "language": "pick up the ketchup and place it in the basket",
+    "objects": [
+      [
+        "ketchup_1",
+        "ketchup"
+      ],
+      [
+        "basket_1",
+        "basket"
+      ],
+      [
+        "bbq_sauce_1",
+        "bbq_sauce"
+      ],
+      [
+        "salad_dressing_1",
+        "salad_dressing"
+      ],
+      [
+        "alphabet_soup_1",
+        "alphabet_soup"
+      ],
+      [
+        "cream_cheese_1",
+        "cream_cheese"
+      ],
+      [
+        "milk_1",
+        "milk"
+      ]
+    ],
+    "goal": [
+      [
+        "In",
+        "ketchup_1",
+        "basket_1_contain_region"
+      ]
+    ],
+    "targets": [
+      "ketchup_1"
+    ],
+    "placement": {
+      "ketchup_1": [
+        "On",
+        "floor_target_object_region"
+      ],
+      "bbq_sauce_1": [
+        "On",
+        "floor_other_object_region_0"
+      ],
+      "salad_dressing_1": [
+        "On",
+        "floor_other_object_region_1"
+      ],
+      "alphabet_soup_1": [
+        "On",
+        "floor_other_object_region_2"
+      ],
+      "cream_cheese_1": [
+        "On",
+        "floor_other_object_region_3"
+      ],
+      "milk_1": [
+        "On",
+        "floor_other_object_region_4"
+      ],
+      "basket_1": [
+        "On",
+        "floor_bin_region"
+      ]
+    },
+    "n_objects": 7,
+    "basket": [
+      [
+        "basket_1",
+        "basket"
+      ]
+    ],
+    "non_basket": [
+      [
+        "ketchup_1",
+        "ketchup"
+      ],
+      [
+        "bbq_sauce_1",
+        "bbq_sauce"
+      ],
+      [
+        "salad_dressing_1",
+        "salad_dressing"
+      ],
+      [
+        "alphabet_soup_1",
+        "alphabet_soup"
+      ],
+      [
+        "cream_cheese_1",
+        "cream_cheese"
+      ],
+      [
+        "milk_1",
+        "milk"
+      ]
+    ],
+    "target_types": [
+      "ketchup"
+    ],
+    "distractors": [
+      [
+        "bbq_sauce_1",
+        "bbq_sauce"
+      ],
+      [
+        "salad_dressing_1",
+        "salad_dressing"
+      ],
+      [
+        "alphabet_soup_1",
+        "alphabet_soup"
+      ],
+      [
+        "cream_cheese_1",
+        "cream_cheese"
+      ],
+      [
+        "milk_1",
+        "milk"
+      ]
+    ],
+    "target_slot": "floor_target_object_region",
+    "basket_slot": "floor_bin_region",
+    "distractor_slots": [
+      [
+        "bbq_sauce_1",
+        "bbq_sauce",
+        "floor_other_object_region_0"
+      ],
+      [
+        "salad_dressing_1",
+        "salad_dressing",
+        "floor_other_object_region_1"
+      ],
+      [
+        "alphabet_soup_1",
+        "alphabet_soup",
+        "floor_other_object_region_2"
+      ],
+      [
+        "cream_cheese_1",
+        "cream_cheese",
+        "floor_other_object_region_3"
+      ],
+      [
+        "milk_1",
+        "milk",
+        "floor_other_object_region_4"
+      ]
+    ]
+  },
+  {
+    "idx": 5,
+    "name": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+    "language": "pick up the tomato sauce and place it in the basket",
+    "objects": [
+      [
+        "tomato_sauce_1",
+        "tomato_sauce"
+      ],
+      [
+        "basket_1",
+        "basket"
+      ],
+      [
+        "milk_1",
+        "milk"
+      ],
+      [
+        "butter_1",
+        "butter"
+      ],
+      [
+        "orange_juice_1",
+        "orange_juice"
+      ],
+      [
+        "chocolate_pudding_1",
+        "chocolate_pudding"
+      ],
+      [
+        "bbq_sauce_1",
+        "bbq_sauce"
+      ]
+    ],
+    "goal": [
+      [
+        "In",
+        "tomato_sauce_1",
+        "basket_1_contain_region"
+      ]
+    ],
+    "targets": [
+      "tomato_sauce_1"
+    ],
+    "placement": {
+      "tomato_sauce_1": [
+        "On",
+        "floor_target_object_region"
+      ],
+      "milk_1": [
+        "On",
+        "floor_other_object_region_0"
+      ],
+      "butter_1": [
+        "On",
+        "floor_other_object_region_1"
+      ],
+      "orange_juice_1": [
+        "On",
+        "floor_other_object_region_2"
+      ],
+      "chocolate_pudding_1": [
+        "On",
+        "floor_other_object_region_3"
+      ],
+      "bbq_sauce_1": [
+        "On",
+        "floor_other_object_region_4"
+      ],
+      "basket_1": [
+        "On",
+        "floor_bin_region"
+      ]
+    },
+    "n_objects": 7,
+    "basket": [
+      [
+        "basket_1",
+        "basket"
+      ]
+    ],
+    "non_basket": [
+      [
+        "tomato_sauce_1",
+        "tomato_sauce"
+      ],
+      [
+        "milk_1",
+        "milk"
+      ],
+      [
+        "butter_1",
+        "butter"
+      ],
+      [
+        "orange_juice_1",
+        "orange_juice"
+      ],
+      [
+        "chocolate_pudding_1",
+        "chocolate_pudding"
+      ],
+      [
+        "bbq_sauce_1",
+        "bbq_sauce"
+      ]
+    ],
+    "target_types": [
+      "tomato_sauce"
+    ],
+    "distractors": [
+      [
+        "milk_1",
+        "milk"
+      ],
+      [
+        "butter_1",
+        "butter"
+      ],
+      [
+        "orange_juice_1",
+        "orange_juice"
+      ],
+      [
+        "chocolate_pudding_1",
+        "chocolate_pudding"
+      ],
+      [
+        "bbq_sauce_1",
+        "bbq_sauce"
+      ]
+    ],
+    "target_slot": "floor_target_object_region",
+    "basket_slot": "floor_bin_region",
+    "distractor_slots": [
+      [
+        "milk_1",
+        "milk",
+        "floor_other_object_region_0"
+      ],
+      [
+        "butter_1",
+        "butter",
+        "floor_other_object_region_1"
+      ],
+      [
+        "orange_juice_1",
+        "orange_juice",
+        "floor_other_object_region_2"
+      ],
+      [
+        "chocolate_pudding_1",
+        "chocolate_pudding",
+        "floor_other_object_region_3"
+      ],
+      [
+        "bbq_sauce_1",
+        "bbq_sauce",
+        "floor_other_object_region_4"
+      ]
+    ]
+  },
+  {
+    "idx": 6,
+    "name": "pick_up_the_butter_and_place_it_in_the_basket",
+    "language": "pick up the butter and place it in the basket",
+    "objects": [
+      [
+        "butter_1",
+        "butter"
+      ],
+      [
+        "basket_1",
+        "basket"
+      ],
+      [
+        "tomato_sauce_1",
+        "tomato_sauce"
+      ],
+      [
+        "orange_juice_1",
+        "orange_juice"
+      ],
+      [
+        "chocolate_pudding_1",
+        "chocolate_pudding"
+      ],
+      [
+        "bbq_sauce_1",
+        "bbq_sauce"
+      ],
+      [
+        "ketchup_1",
+        "ketchup"
+      ]
+    ],
+    "goal": [
+      [
+        "In",
+        "butter_1",
+        "basket_1_contain_region"
+      ]
+    ],
+    "targets": [
+      "butter_1"
+    ],
+    "placement": {
+      "butter_1": [
+        "On",
+        "floor_target_object_region"
+      ],
+      "tomato_sauce_1": [
+        "On",
+        "floor_other_object_region_0"
+      ],
+      "orange_juice_1": [
+        "On",
+        "floor_other_object_region_1"
+      ],
+      "chocolate_pudding_1": [
+        "On",
+        "floor_other_object_region_2"
+      ],
+      "bbq_sauce_1": [
+        "On",
+        "floor_other_object_region_3"
+      ],
+      "ketchup_1": [
+        "On",
+        "floor_other_object_region_4"
+      ],
+      "basket_1": [
+        "On",
+        "floor_bin_region"
+      ]
+    },
+    "n_objects": 7,
+    "basket": [
+      [
+        "basket_1",
+        "basket"
+      ]
+    ],
+    "non_basket": [
+      [
+        "butter_1",
+        "butter"
+      ],
+      [
+        "tomato_sauce_1",
+        "tomato_sauce"
+      ],
+      [
+        "orange_juice_1",
+        "orange_juice"
+      ],
+      [
+        "chocolate_pudding_1",
+        "chocolate_pudding"
+      ],
+      [
+        "bbq_sauce_1",
+        "bbq_sauce"
+      ],
+      [
+        "ketchup_1",
+        "ketchup"
+      ]
+    ],
+    "target_types": [
+      "butter"
+    ],
+    "distractors": [
+      [
+        "tomato_sauce_1",
+        "tomato_sauce"
+      ],
+      [
+        "orange_juice_1",
+        "orange_juice"
+      ],
+      [
+        "chocolate_pudding_1",
+        "chocolate_pudding"
+      ],
+      [
+        "bbq_sauce_1",
+        "bbq_sauce"
+      ],
+      [
+        "ketchup_1",
+        "ketchup"
+      ]
+    ],
+    "target_slot": "floor_target_object_region",
+    "basket_slot": "floor_bin_region",
+    "distractor_slots": [
+      [
+        "tomato_sauce_1",
+        "tomato_sauce",
+        "floor_other_object_region_0"
+      ],
+      [
+        "orange_juice_1",
+        "orange_juice",
+        "floor_other_object_region_1"
+      ],
+      [
+        "chocolate_pudding_1",
+        "chocolate_pudding",
+        "floor_other_object_region_2"
+      ],
+      [
+        "bbq_sauce_1",
+        "bbq_sauce",
+        "floor_other_object_region_3"
+      ],
+      [
+        "ketchup_1",
+        "ketchup",
+        "floor_other_object_region_4"
+      ]
+    ]
+  },
+  {
+    "idx": 7,
+    "name": "pick_up_the_milk_and_place_it_in_the_basket",
+    "language": "pick up the milk and place it in the basket",
+    "objects": [
+      [
+        "milk_1",
+        "milk"
+      ],
+      [
+        "basket_1",
+        "basket"
+      ],
+      [
+        "cream_cheese_1",
+        "cream_cheese"
+      ],
+      [
+        "tomato_sauce_1",
+        "tomato_sauce"
+      ],
+      [
+        "butter_1",
+        "butter"
+      ],
+      [
+        "orange_juice_1",
+        "orange_juice"
+      ],
+      [
+        "chocolate_pudding_1",
+        "chocolate_pudding"
+      ]
+    ],
+    "goal": [
+      [
+        "In",
+        "milk_1",
+        "basket_1_contain_region"
+      ]
+    ],
+    "targets": [
+      "milk_1"
+    ],
+    "placement": {
+      "milk_1": [
+        "On",
+        "floor_target_object_region"
+      ],
+      "cream_cheese_1": [
+        "On",
+        "floor_other_object_region_0"
+      ],
+      "tomato_sauce_1": [
+        "On",
+        "floor_other_object_region_1"
+      ],
+      "butter_1": [
+        "On",
+        "floor_other_object_region_2"
+      ],
+      "orange_juice_1": [
+        "On",
+        "floor_other_object_region_3"
+      ],
+      "chocolate_pudding_1": [
+        "On",
+        "floor_other_object_region_4"
+      ],
+      "basket_1": [
+        "On",
+        "floor_bin_region"
+      ]
+    },
+    "n_objects": 7,
+    "basket": [
+      [
+        "basket_1",
+        "basket"
+      ]
+    ],
+    "non_basket": [
+      [
+        "milk_1",
+        "milk"
+      ],
+      [
+        "cream_cheese_1",
+        "cream_cheese"
+      ],
+      [
+        "tomato_sauce_1",
+        "tomato_sauce"
+      ],
+      [
+        "butter_1",
+        "butter"
+      ],
+      [
+        "orange_juice_1",
+        "orange_juice"
+      ],
+      [
+        "chocolate_pudding_1",
+        "chocolate_pudding"
+      ]
+    ],
+    "target_types": [
+      "milk"
+    ],
+    "distractors": [
+      [
+        "cream_cheese_1",
+        "cream_cheese"
+      ],
+      [
+        "tomato_sauce_1",
+        "tomato_sauce"
+      ],
+      [
+        "butter_1",
+        "butter"
+      ],
+      [
+        "orange_juice_1",
+        "orange_juice"
+      ],
+      [
+        "chocolate_pudding_1",
+        "chocolate_pudding"
+      ]
+    ],
+    "target_slot": "floor_target_object_region",
+    "basket_slot": "floor_bin_region",
+    "distractor_slots": [
+      [
+        "cream_cheese_1",
+        "cream_cheese",
+        "floor_other_object_region_0"
+      ],
+      [
+        "tomato_sauce_1",
+        "tomato_sauce",
+        "floor_other_object_region_1"
+      ],
+      [
+        "butter_1",
+        "butter",
+        "floor_other_object_region_2"
+      ],
+      [
+        "orange_juice_1",
+        "orange_juice",
+        "floor_other_object_region_3"
+      ],
+      [
+        "chocolate_pudding_1",
+        "chocolate_pudding",
+        "floor_other_object_region_4"
+      ]
+    ]
+  },
+  {
+    "idx": 8,
+    "name": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+    "language": "pick up the chocolate pudding and place it in the basket",
+    "objects": [
+      [
+        "chocolate_pudding_1",
+        "chocolate_pudding"
+      ],
+      [
+        "basket_1",
+        "basket"
+      ],
+      [
+        "orange_juice_1",
+        "orange_juice"
+      ],
+      [
+        "bbq_sauce_1",
+        "bbq_sauce"
+      ],
+      [
+        "ketchup_1",
+        "ketchup"
+      ],
+      [
+        "salad_dressing_1",
+        "salad_dressing"
+      ],
+      [
+        "alphabet_soup_1",
+        "alphabet_soup"
+      ]
+    ],
+    "goal": [
+      [
+        "In",
+        "chocolate_pudding_1",
+        "basket_1_contain_region"
+      ]
+    ],
+    "targets": [
+      "chocolate_pudding_1"
+    ],
+    "placement": {
+      "chocolate_pudding_1": [
+        "On",
+        "floor_target_object_region"
+      ],
+      "orange_juice_1": [
+        "On",
+        "floor_other_object_region_0"
+      ],
+      "bbq_sauce_1": [
+        "On",
+        "floor_other_object_region_1"
+      ],
+      "ketchup_1": [
+        "On",
+        "floor_other_object_region_2"
+      ],
+      "salad_dressing_1": [
+        "On",
+        "floor_other_object_region_3"
+      ],
+      "alphabet_soup_1": [
+        "On",
+        "floor_other_object_region_4"
+      ],
+      "basket_1": [
+        "On",
+        "floor_bin_region"
+      ]
+    },
+    "n_objects": 7,
+    "basket": [
+      [
+        "basket_1",
+        "basket"
+      ]
+    ],
+    "non_basket": [
+      [
+        "chocolate_pudding_1",
+        "chocolate_pudding"
+      ],
+      [
+        "orange_juice_1",
+        "orange_juice"
+      ],
+      [
+        "bbq_sauce_1",
+        "bbq_sauce"
+      ],
+      [
+        "ketchup_1",
+        "ketchup"
+      ],
+      [
+        "salad_dressing_1",
+        "salad_dressing"
+      ],
+      [
+        "alphabet_soup_1",
+        "alphabet_soup"
+      ]
+    ],
+    "target_types": [
+      "chocolate_pudding"
+    ],
+    "distractors": [
+      [
+        "orange_juice_1",
+        "orange_juice"
+      ],
+      [
+        "bbq_sauce_1",
+        "bbq_sauce"
+      ],
+      [
+        "ketchup_1",
+        "ketchup"
+      ],
+      [
+        "salad_dressing_1",
+        "salad_dressing"
+      ],
+      [
+        "alphabet_soup_1",
+        "alphabet_soup"
+      ]
+    ],
+    "target_slot": "floor_target_object_region",
+    "basket_slot": "floor_bin_region",
+    "distractor_slots": [
+      [
+        "orange_juice_1",
+        "orange_juice",
+        "floor_other_object_region_0"
+      ],
+      [
+        "bbq_sauce_1",
+        "bbq_sauce",
+        "floor_other_object_region_1"
+      ],
+      [
+        "ketchup_1",
+        "ketchup",
+        "floor_other_object_region_2"
+      ],
+      [
+        "salad_dressing_1",
+        "salad_dressing",
+        "floor_other_object_region_3"
+      ],
+      [
+        "alphabet_soup_1",
+        "alphabet_soup",
+        "floor_other_object_region_4"
+      ]
+    ]
+  },
+  {
+    "idx": 9,
+    "name": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+    "language": "pick up the orange juice and place it in the basket",
+    "objects": [
+      [
+        "orange_juice_1",
+        "orange_juice"
+      ],
+      [
+        "basket_1",
+        "basket"
+      ],
+      [
+        "butter_1",
+        "butter"
+      ],
+      [
+        "chocolate_pudding_1",
+        "chocolate_pudding"
+      ],
+      [
+        "bbq_sauce_1",
+        "bbq_sauce"
+      ],
+      [
+        "ketchup_1",
+        "ketchup"
+      ],
+      [
+        "salad_dressing_1",
+        "salad_dressing"
+      ]
+    ],
+    "goal": [
+      [
+        "In",
+        "orange_juice_1",
+        "basket_1_contain_region"
+      ]
+    ],
+    "targets": [
+      "orange_juice_1"
+    ],
+    "placement": {
+      "orange_juice_1": [
+        "On",
+        "floor_target_object_region"
+      ],
+      "butter_1": [
+        "On",
+        "floor_other_object_region_0"
+      ],
+      "chocolate_pudding_1": [
+        "On",
+        "floor_other_object_region_1"
+      ],
+      "bbq_sauce_1": [
+        "On",
+        "floor_other_object_region_2"
+      ],
+      "ketchup_1": [
+        "On",
+        "floor_other_object_region_3"
+      ],
+      "salad_dressing_1": [
+        "On",
+        "floor_other_object_region_4"
+      ],
+      "basket_1": [
+        "On",
+        "floor_bin_region"
+      ]
+    },
+    "n_objects": 7,
+    "basket": [
+      [
+        "basket_1",
+        "basket"
+      ]
+    ],
+    "non_basket": [
+      [
+        "orange_juice_1",
+        "orange_juice"
+      ],
+      [
+        "butter_1",
+        "butter"
+      ],
+      [
+        "chocolate_pudding_1",
+        "chocolate_pudding"
+      ],
+      [
+        "bbq_sauce_1",
+        "bbq_sauce"
+      ],
+      [
+        "ketchup_1",
+        "ketchup"
+      ],
+      [
+        "salad_dressing_1",
+        "salad_dressing"
+      ]
+    ],
+    "target_types": [
+      "orange_juice"
+    ],
+    "distractors": [
+      [
+        "butter_1",
+        "butter"
+      ],
+      [
+        "chocolate_pudding_1",
+        "chocolate_pudding"
+      ],
+      [
+        "bbq_sauce_1",
+        "bbq_sauce"
+      ],
+      [
+        "ketchup_1",
+        "ketchup"
+      ],
+      [
+        "salad_dressing_1",
+        "salad_dressing"
+      ]
+    ],
+    "target_slot": "floor_target_object_region",
+    "basket_slot": "floor_bin_region",
+    "distractor_slots": [
+      [
+        "butter_1",
+        "butter",
+        "floor_other_object_region_0"
+      ],
+      [
+        "chocolate_pudding_1",
+        "chocolate_pudding",
+        "floor_other_object_region_1"
+      ],
+      [
+        "bbq_sauce_1",
+        "bbq_sauce",
+        "floor_other_object_region_2"
+      ],
+      [
+        "ketchup_1",
+        "ketchup",
+        "floor_other_object_region_3"
+      ],
+      [
+        "salad_dressing_1",
+        "salad_dressing",
+        "floor_other_object_region_4"
+      ]
+    ]
+  }
+]

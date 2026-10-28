@@ -1,0 +1,60 @@
+sources_version: '1'
+sources:
+  articulation-position-grid-20261016:
+    kind: project_authored_scenario_collection
+    description: 'Position grid for articulation setbacks: quarter- and three-quarter-range
+      stove-knob setbacks around the calibrated half-range value; unreleased proposals
+      require runtime validation.'
+    location: docs/libero-10用例整改与扩充.md
+  full-suite-runtime-crosswalk-20261009:
+    kind: runtime_crosswalk
+    description: Persistent snapshots of the local evaluator profiles. Canonical LIBERO-10
+      identities and installed BDDL variants are distinct; T256 uses runtime T276.
+    location: dataset/runtime-profiles
+    origin: runs/full-coverage/runtime/configs/task_profiles
+  libero-plus-task-definitions-v1:
+    kind: task_definition
+    description: LIBERO-plus LIBERO-10 tasks_info.txt and corresponding BDDL files.
+    location: ../libero-plus/LIBERO-plus/libero/libero/bddl_files/libero_10/tasks_info.txt
+  matrix-p2-reference-object-20261013:
+    kind: scenario_collection
+    description: Reference-object perturbation cases from the P2 matrix extension.
+    location: dataset/reference-object/cases
+  progress-failure-expansion-20261014:
+    kind: project_authored_scenario_collection
+    description: Native boundary pairs, completed-pose probes, temporal and atomic
+      native relation-set protocols; unreleased proposals require runtime validation.
+    location: docs/expansion-plan.md
+  rollback-battery-20261012:
+    kind: scenario_collection
+    description: Rollback battery collection covering timing and perturbation grids.
+    location: dataset/rollback-battery/cases
+  runtime-grid-expansion-20261009:
+    kind: scenario_collection
+    description: Runtime grid expansion cases produced during task profile validation.
+    location: dataset/two-subtask/cases
+  runtime-grid-expansion-20261010:
+    kind: scenario_collection
+    description: Runtime grid expansion cases for the living-room task variants.
+    location: dataset/two-subtask/cases
+  runtime-pfcr-rb4-above-20261003:
+    kind: referenced_source
+    description: Referenced by one or more case definitions.
+  runtime-validated-above-20261012:
+    kind: scenario_collection
+    description: Container-above cases retained with their separate physical-validation
+      provenance.
+    location: dataset/two-subtask/cases
+  scenario-timing-position-matrix-20260926:
+    kind: design_guidance
+    description: Timing-window and signed-position guidance used by scenario definitions.
+    location: ../libero-plus/libero-runtime/docs/PFCR_ROLLBACK_BENCHMARK_CASE_MATRIX_V2_GRID_20260926.md
+  scenario-validity-severity-guidance-20260922:
+    kind: design_guidance
+    description: Validity and perturbation-label guidance used by scenario definitions.
+    location: ../libero-plus/libero-runtime/docs/PFCR_ROLLBACK_BENCHMARK_PLAN_20260922.md
+  two-subtask-expansion-20261012:
+    kind: scenario_collection
+    description: Two-subtask rollback expansion collection retained as individual
+      cases.
+    location: dataset/two-subtask/cases

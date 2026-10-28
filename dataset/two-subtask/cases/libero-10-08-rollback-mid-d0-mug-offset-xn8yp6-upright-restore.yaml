@@ -1,0 +1,65 @@
+assumptions:
+- The rollback target is the first subgoal completed in execution order.
+- The relation must hold and the object must be released before mutation.
+case_id: libero-10-08-rollback-mid-d0-mug-offset-xn8yp6-upright-restore
+completed_relations:
+- selection_id: first_completed_plate_placement
+  selection_strategy: first_completed_subgoal_in_execution_order
+  candidates:
+  - predicate: (On porcelain_mug_1 plate_1)
+    actor: porcelain_mug_1
+    source_task_goal: true
+  - predicate: (On chocolate_pudding_1 living_room_table_plate_right_region)
+    actor: chocolate_pudding_1
+    source_task_goal: true
+dataset_version: 1.6.0
+expected_evaluation_semantics: relation_then_resume
+intervention_description: Revoke the completed s1 relation (On porcelain_mug_1 plate_1) by restoring porcelain_mug_1
+  to its initial offset n8 while s2 is being executed.
+open_questions:
+- Verify collision-free support and release.
+rollback_target:
+  selection_id: first_completed_plate_placement
+  actor: selected_relation_actor
+  state_change:
+    kind: apply_episode_initial_offset
+    offset_frame: world
+    offset_m:
+    - -0.08
+    - 0.06
+    - 0.0
+    velocity: zero
+scenario_type: completed_relation_rollback
+schema_version: libero-rollback.case.v1
+severity: n8
+severity_rationale: Grid severity label; the signed offset is in state_change.
+source:
+  case_reference: two-subtask / task 08 / revoke s1 to offset n8 during s2 / mid
+  case_source_id: two-subtask-expansion-20261012
+  supporting_source_ids:
+  - scenario-timing-position-matrix-20260926
+  task_locator_source_id: full-suite-runtime-crosswalk-20261009
+  task_source_id: libero-plus-task-definitions-v1
+stage:
+  description: s2 is being executed; revoke s1 at the mid window.
+  name: next_subgoal_approach
+task:
+  source_bddl: LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate_table_1.bddl
+  source_task_locator: T237
+  suite: LIBERO-10
+  task_id: libero_10/08
+  task_index: 8
+template_id: completed-relation-rollback/support-surface-offset/v1
+trigger:
+  delay_steps: 0
+  event: enter_next_subgoal_approach
+  time_point: mid
+  window: offset n8, mid
+validity_constraints:
+- completed_relation_true_before_intervention
+- target_relation_false_after_intervention
+- object_released_before_intervention
+- zero_velocity_after_intervention
+- no_object_penetration
+- task_remains_solvable
+- baseline_task_solvable

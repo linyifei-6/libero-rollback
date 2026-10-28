@@ -1,0 +1,232 @@
+{
+  "episodes": 18,
+  "success": 12,
+  "control": {
+    "episodes": 12,
+    "success": 6,
+    "rows": [
+      {
+        "task_key": "CUSTOM_T0",
+        "bddl": "ctrl_k3_frypan",
+        "kind": "control",
+        "source_task": null,
+        "scene": null,
+        "instruction": "put the frying pan on the stove",
+        "success": false,
+        "steps": 600,
+        "time_s": 153.0,
+        "goal_atoms": null
+      },
+      {
+        "task_key": "CUSTOM_T1",
+        "bddl": "ctrl_k3_moka",
+        "kind": "control",
+        "source_task": null,
+        "scene": null,
+        "instruction": "put the moka pot on the stove",
+        "success": true,
+        "steps": 230,
+        "time_s": 63.0,
+        "goal_atoms": null
+      },
+      {
+        "task_key": "CUSTOM_T2",
+        "bddl": "ctrl_k4_wine_bottom",
+        "kind": "control",
+        "source_task": null,
+        "scene": null,
+        "instruction": "put the wine bottle in the bottom drawer of the cabinet and close it",
+        "success": true,
+        "steps": 175,
+        "time_s": 27.0,
+        "goal_atoms": null
+      },
+      {
+        "task_key": "CUSTOM_T3",
+        "bddl": "ctrl_lr1_cheese",
+        "kind": "control",
+        "source_task": null,
+        "scene": null,
+        "instruction": "put the cream cheese box in the basket",
+        "success": true,
+        "steps": 237,
+        "time_s": 29.0,
+        "goal_atoms": null
+      },
+      {
+        "task_key": "CUSTOM_T4",
+        "bddl": "ctrl_lr1_ketchup",
+        "kind": "control",
+        "source_task": null,
+        "scene": null,
+        "instruction": "put the ketchup in the basket",
+        "success": false,
+        "steps": 600,
+        "time_s": 79.0,
+        "goal_atoms": null
+      },
+      {
+        "task_key": "CUSTOM_T5",
+        "bddl": "ctrl_lr1_soup",
+        "kind": "control",
+        "source_task": null,
+        "scene": null,
+        "instruction": "put the alphabet soup in the basket",
+        "success": true,
+        "steps": 129,
+        "time_s": 16.0,
+        "goal_atoms": null
+      },
+      {
+        "task_key": "CUSTOM_T6",
+        "bddl": "ctrl_lr1_tomato",
+        "kind": "control",
+        "source_task": null,
+        "scene": null,
+        "instruction": "put the tomato sauce in the basket",
+        "success": false,
+        "steps": 600,
+        "time_s": 79.0,
+        "goal_atoms": null
+      },
+      {
+        "task_key": "CUSTOM_T7",
+        "bddl": "ctrl_lr2_butter",
+        "kind": "control",
+        "source_task": null,
+        "scene": null,
+        "instruction": "put the butter in the basket",
+        "success": true,
+        "steps": 244,
+        "time_s": 31.0,
+        "goal_atoms": null
+      },
+      {
+        "task_key": "CUSTOM_T8",
+        "bddl": "ctrl_lr2_juice",
+        "kind": "control",
+        "source_task": null,
+        "scene": null,
+        "instruction": "put the orange juice in the basket",
+        "success": true,
+        "steps": 178,
+        "time_s": 22.0,
+        "goal_atoms": null
+      },
+      {
+        "task_key": "CUSTOM_T9",
+        "bddl": "ctrl_lr2_ketchup",
+        "kind": "control",
+        "source_task": null,
+        "scene": null,
+        "instruction": "put the ketchup in the basket",
+        "success": false,
+        "steps": 600,
+        "time_s": 79.0,
+        "goal_atoms": null
+      },
+      {
+        "task_key": "CUSTOM_T10",
+        "bddl": "ctrl_lr2_milk",
+        "kind": "control",
+        "source_task": null,
+        "scene": null,
+        "instruction": "put the milk in the basket",
+        "success": false,
+        "steps": 600,
+        "time_s": 78.0,
+        "goal_atoms": null
+      },
+      {
+        "task_key": "CUSTOM_T11",
+        "bddl": "ctrl_study_mug_back",
+        "kind": "control",
+        "source_task": null,
+        "scene": null,
+        "instruction": "put the yellow and white mug in the back compartment of the caddy",
+        "success": false,
+        "steps": 600,
+        "time_s": 76.0,
+        "goal_atoms": null
+      }
+    ]
+  },
+  "order": {
+    "episodes": 6,
+    "success": 6,
+    "rows": [
+      {
+        "task_key": "CUSTOM_T12",
+        "bddl": "ord_k3_pot_then_on",
+        "kind": "order",
+        "source_task": null,
+        "scene": null,
+        "instruction": "put the moka pot on the stove and then turn it on",
+        "success": true,
+        "steps": 217,
+        "time_s": 58.0,
+        "goal_atoms": null
+      },
+      {
+        "task_key": "CUSTOM_T13",
+        "bddl": "ord_lr1_cheese_soup",
+        "kind": "order",
+        "source_task": null,
+        "scene": null,
+        "instruction": "put both the cream cheese box and the alphabet soup in the basket",
+        "success": true,
+        "steps": 245,
+        "time_s": 30.0,
+        "goal_atoms": null
+      },
+      {
+        "task_key": "CUSTOM_T14",
+        "bddl": "ord_lr2_butter_cheese",
+        "kind": "order",
+        "source_task": null,
+        "scene": null,
+        "instruction": "put both the butter and the cream cheese box in the basket",
+        "success": true,
+        "steps": 244,
+        "time_s": 29.0,
+        "goal_atoms": null
+      },
+      {
+        "task_key": "CUSTOM_T15",
+        "bddl": "ord_lr2_tomato_soup",
+        "kind": "order",
+        "source_task": null,
+        "scene": null,
+        "instruction": "put both the tomato sauce and the alphabet soup in the basket",
+        "success": true,
+        "steps": 258,
+        "time_s": 35.0,
+        "goal_atoms": null
+      },
+      {
+        "task_key": "CUSTOM_T16",
+        "bddl": "ord_lr5_yellow_porcelain",
+        "kind": "order",
+        "source_task": null,
+        "scene": null,
+        "instruction": "put the yellow and white mug on the right plate and put the white mug on the left plate",
+        "success": true,
+        "steps": 226,
+        "time_s": 29.0,
+        "goal_atoms": null
+      },
+      {
+        "task_key": "CUSTOM_T17",
+        "bddl": "ord_lr6_pudding_mug",
+        "kind": "order",
+        "source_task": null,
+        "scene": null,
+        "instruction": "put the chocolate pudding to the right of the plate and put the white mug on the plate",
+        "success": true,
+        "steps": 224,
+        "time_s": 28.0,
+        "goal_atoms": null
+      }
+    ]
+  }
+}

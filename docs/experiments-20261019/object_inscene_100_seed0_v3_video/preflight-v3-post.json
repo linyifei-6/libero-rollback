@@ -1,0 +1,41 @@
+{
+  "results_doc": "/home/tarowang/workspace/roboot/libero-rollback/runs/object-inscene-100-20261023/run/preflight-v3/pi05_20261024_111416/results.json",
+  "episodes": {
+    "t00_b_butter_ab": {
+      "candidate_id": "t00_b_butter_ab",
+      "task_key": "CUSTOM_T0",
+      "instruction": "put both the alphabet soup and the butter in the basket",
+      "instruction_matches_design": true,
+      "episode_seed": 0,
+      "stabilized_sim_state_sha256": "de04dced84b4fc59fea2b29cccaa3bd78267023b408f35b4204cf550a5e64a9f",
+      "expected_stabilized_sim_state_sha256": "de04dced84b4fc59fea2b29cccaa3bd78267023b408f35b4204cf550a5e64a9f",
+      "steps": 20,
+      "success": false
+    },
+    "t03_b_chocolate_pudding_ba": {
+      "candidate_id": "t03_b_chocolate_pudding_ba",
+      "task_key": "CUSTOM_T1",
+      "instruction": "put both the chocolate pudding and the bbq sauce in the basket",
+      "instruction_matches_design": true,
+      "episode_seed": 0,
+      "stabilized_sim_state_sha256": "80bb981e272412e26f2c45bed687e85446d1a4d785f1d2701192ddcdcdc43232",
+      "expected_stabilized_sim_state_sha256": "80bb981e272412e26f2c45bed687e85446d1a4d785f1d2701192ddcdcdc43232",
+      "steps": 20,
+      "success": false
+    }
+  },
+  "traces": [
+    {
+      "bddl": "t00_b_butter_ab",
+      "seed": 0,
+      "atoms_match": true
+    },
+    {
+      "bddl": "t03_b_chocolate_pudding_ba",
+      "seed": 0,
+      "atoms_match": true
+    }
+  ],
+  "failed": [],
+  "passed": true
+}

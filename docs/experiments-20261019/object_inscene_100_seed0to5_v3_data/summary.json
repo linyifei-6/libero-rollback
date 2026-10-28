@@ -1,0 +1,341 @@
+{
+  "episodes": 600,
+  "success": 29,
+  "success_rate": 0.04833333333333333,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "steps_distribution": {
+    "600": 571,
+    "267": 1,
+    "316": 1,
+    "408": 1,
+    "412": 1,
+    "318": 1,
+    "331": 2,
+    "262": 1,
+    "597": 1,
+    "351": 1,
+    "465": 1,
+    "553": 1,
+    "272": 1,
+    "375": 1,
+    "255": 1,
+    "263": 1,
+    "502": 1,
+    "271": 1,
+    "352": 1,
+    "349": 1,
+    "279": 1,
+    "372": 1,
+    "320": 1,
+    "386": 1,
+    "444": 1,
+    "387": 1,
+    "516": 1,
+    "472": 1,
+    "486": 1
+  },
+  "subtasks_distribution": {
+    "1": 536,
+    "2": 29,
+    "0": 35
+  },
+  "first_completed_class": {
+    "A": 499,
+    "B": 66,
+    "none": 35
+  },
+  "by_order": {
+    "ab": {
+      "episodes": 300,
+      "success": 18,
+      "success_rate": 0.06,
+      "first_completed": {
+        "A": 281,
+        "none": 7,
+        "B": 12
+      }
+    },
+    "ba": {
+      "episodes": 300,
+      "success": 11,
+      "success_rate": 0.03666666666666667,
+      "first_completed": {
+        "A": 218,
+        "B": 54,
+        "none": 28
+      }
+    }
+  },
+  "by_scene": {
+    "0": {
+      "episodes": 60,
+      "success": 15,
+      "success_rate": 0.25,
+      "first_completed": {
+        "A": 49,
+        "B": 7,
+        "none": 4
+      }
+    },
+    "1": {
+      "episodes": 60,
+      "success": 8,
+      "success_rate": 0.13333333333333333,
+      "first_completed": {
+        "A": 49,
+        "B": 10,
+        "none": 1
+      }
+    },
+    "2": {
+      "episodes": 60,
+      "success": 1,
+      "success_rate": 0.016666666666666666,
+      "first_completed": {
+        "A": 49,
+        "B": 8,
+        "none": 3
+      }
+    },
+    "3": {
+      "episodes": 60,
+      "success": 0,
+      "success_rate": 0.0,
+      "first_completed": {
+        "A": 51,
+        "B": 9
+      }
+    },
+    "4": {
+      "episodes": 60,
+      "success": 0,
+      "success_rate": 0.0,
+      "first_completed": {
+        "A": 51,
+        "none": 6,
+        "B": 3
+      }
+    },
+    "5": {
+      "episodes": 60,
+      "success": 5,
+      "success_rate": 0.08333333333333333,
+      "first_completed": {
+        "A": 57,
+        "B": 3
+      }
+    },
+    "6": {
+      "episodes": 60,
+      "success": 0,
+      "success_rate": 0.0,
+      "first_completed": {
+        "A": 50,
+        "none": 5,
+        "B": 5
+      }
+    },
+    "7": {
+      "episodes": 60,
+      "success": 0,
+      "success_rate": 0.0,
+      "first_completed": {
+        "A": 48,
+        "B": 9,
+        "none": 3
+      }
+    },
+    "8": {
+      "episodes": 60,
+      "success": 0,
+      "success_rate": 0.0,
+      "first_completed": {
+        "A": 51,
+        "B": 7,
+        "none": 2
+      }
+    },
+    "9": {
+      "episodes": 60,
+      "success": 0,
+      "success_rate": 0.0,
+      "first_completed": {
+        "A": 44,
+        "B": 5,
+        "none": 11
+      }
+    }
+  },
+  "by_B": {
+    "alphabet_soup": {
+      "episodes": 60,
+      "success": 1,
+      "success_rate": 0.016666666666666666,
+      "first_completed": {
+        "A": 54,
+        "B": 6
+      }
+    },
+    "bbq_sauce": {
+      "episodes": 60,
+      "success": 0,
+      "success_rate": 0.0,
+      "first_completed": {
+        "A": 52,
+        "B": 4,
+        "none": 4
+      }
+    },
+    "butter": {
+      "episodes": 60,
+      "success": 13,
+      "success_rate": 0.21666666666666667,
+      "first_completed": {
+        "A": 48,
+        "B": 10,
+        "none": 2
+      }
+    },
+    "chocolate_pudding": {
+      "episodes": 60,
+      "success": 0,
+      "success_rate": 0.0,
+      "first_completed": {
+        "A": 47,
+        "B": 8,
+        "none": 5
+      }
+    },
+    "cream_cheese": {
+      "episodes": 60,
+      "success": 11,
+      "success_rate": 0.18333333333333332,
+      "first_completed": {
+        "A": 41,
+        "B": 18,
+        "none": 1
+      }
+    },
+    "ketchup": {
+      "episodes": 60,
+      "success": 0,
+      "success_rate": 0.0,
+      "first_completed": {
+        "A": 51,
+        "B": 5,
+        "none": 4
+      }
+    },
+    "milk": {
+      "episodes": 60,
+      "success": 0,
+      "success_rate": 0.0,
+      "first_completed": {
+        "A": 57,
+        "none": 3
+      }
+    },
+    "orange_juice": {
+      "episodes": 60,
+      "success": 0,
+      "success_rate": 0.0,
+      "first_completed": {
+        "A": 47,
+        "B": 8,
+        "none": 5
+      }
+    },
+    "salad_dressing": {
+      "episodes": 60,
+      "success": 0,
+      "success_rate": 0.0,
+      "first_completed": {
+        "A": 52,
+        "none": 6,
+        "B": 2
+      }
+    },
+    "tomato_sauce": {
+      "episodes": 60,
+      "success": 4,
+      "success_rate": 0.06666666666666667,
+      "first_completed": {
+        "A": 50,
+        "none": 5,
+        "B": 5
+      }
+    }
+  },
+  "by_seed": {
+    "0": {
+      "episodes": 100,
+      "success": 5,
+      "success_rate": 0.05,
+      "first_completed": {
+        "A": 83,
+        "B": 10,
+        "none": 7
+      }
+    },
+    "1": {
+      "episodes": 100,
+      "success": 2,
+      "success_rate": 0.02,
+      "first_completed": {
+        "A": 84,
+        "B": 9,
+        "none": 7
+      }
+    },
+    "2": {
+      "episodes": 100,
+      "success": 5,
+      "success_rate": 0.05,
+      "first_completed": {
+        "A": 85,
+        "B": 12,
+        "none": 3
+      }
+    },
+    "3": {
+      "episodes": 100,
+      "success": 8,
+      "success_rate": 0.08,
+      "first_completed": {
+        "A": 77,
+        "B": 15,
+        "none": 8
+      }
+    },
+    "4": {
+      "episodes": 100,
+      "success": 4,
+      "success_rate": 0.04,
+      "first_completed": {
+        "A": 85,
+        "B": 9,
+        "none": 6
+      }
+    },
+    "5": {
+      "episodes": 100,
+      "success": 5,
+      "success_rate": 0.05,
+      "first_completed": {
+        "A": 85,
+        "B": 11,
+        "none": 4
+      }
+    }
+  },
+  "candidates_any_success": 8,
+  "candidates_multi_seed_success": 7,
+  "candidates_all_seeds_success": 2
+}

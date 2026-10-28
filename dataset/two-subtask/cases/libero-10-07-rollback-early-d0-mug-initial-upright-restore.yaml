@@ -1,0 +1,70 @@
+assumptions:
+- 'Runtime-dimension expansion: offsets, clearance and setback magnitudes are explicit design parameters
+  and need episode-specific physical preflight.'
+- The affected relation must hold and the object must be released before mutation.
+- The rollback target is the first subgoal completed in execution order; the runtime binds the completed-subgoal
+  alias to that subgoal at run time.
+case_id: libero-10-07-rollback-early-d0-mug-initial-upright-restore
+completed_relations:
+- selection_id: first_completed_plate_placement
+  selection_strategy: first_completed_subgoal_in_execution_order
+  candidates:
+  - predicate: (On porcelain_mug_1 plate_1)
+    actor: porcelain_mug_1
+    source_task_goal: true
+  - predicate: (On white_yellow_mug_1 plate_2)
+    actor: white_yellow_mug_1
+    source_task_goal: true
+dataset_version: 1.3.0
+expected_evaluation_semantics: relation_then_resume
+intervention_description: Revoke the completed placement at the early time point using pose; retain the
+  instruction and every other goal.
+open_questions:
+- Verify collision-free support, no penetration, release, and task solvability for the selected episode.
+rollback_target:
+  selection_id: first_completed_plate_placement
+  actor: selected_relation_actor
+  state_change:
+    kind: restore_episode_initial_pose
+    target: episode_initial_pose
+    velocity: zero
+scenario_type: completed_relation_rollback
+schema_version: libero-rollback.case.v1
+severity: d0
+severity_rationale: Runtime-dimension label; the concrete signed offset, clearance or joint setback is
+  recorded in state_change. No claim of comparable model difficulty.
+source:
+  case_reference: Runtime grid expansion / task 07 / first completed placement / early / t0
+  case_source_id: runtime-grid-expansion-20261009
+  supporting_source_ids:
+  - scenario-timing-position-matrix-20260926
+  - scenario-validity-severity-guidance-20260922
+  task_locator_source_id: full-suite-runtime-crosswalk-20261009
+  task_source_id: libero-plus-task-definitions-v1
+stage:
+  description: 'early: first placement has just been confirmed and released.'
+  name: first_completed_subgoal
+task:
+  source_bddl: LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.bddl
+  source_task_locator: T193
+  suite: LIBERO-10
+  task_id: libero_10/07
+  task_index: 7
+template_id: completed-relation-rollback/episode-initial-pose/v1
+trigger:
+  delay_steps: 0
+  event: enter_first_subgoal_completed
+  time_point: early
+  window: first placement has just been confirmed and released
+validity_constraints:
+- completed_relation_true_before_intervention
+- target_relation_false_after_intervention
+- object_released_before_intervention
+- zero_velocity_after_intervention
+- target_pose_within_workspace
+- target_pose_collision_free
+- no_object_penetration
+- task_remains_solvable
+- baseline_task_solvable
+- target_pose_on_support_surface
+- orientation_preserved

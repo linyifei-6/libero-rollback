@@ -1,0 +1,3021 @@
+{
+  "design": "in-scene promoted-target double-grasp tasks, 2 instruction orders (A->B / B->A)",
+  "description": "50 in-scene candidates x 2 order variants = 100. Scene, objects and init unchanged (reuse source task .pruned_init); only :goal/:obj_of_interest/:language differ. Order swap changes the instruction order (and :obj_of_interest order); goal atoms are the same set (And is commutative).",
+  "candidates_total": 100,
+  "unique_goal_atom_sets": 40,
+  "unique_goal_set_plus_order": 80,
+  "per_scene": {
+    "0": 10,
+    "1": 10,
+    "2": 10,
+    "3": 10,
+    "4": 10,
+    "5": 10,
+    "6": 10,
+    "7": 10,
+    "8": 10,
+    "9": 10
+  },
+  "candidates": [
+    {
+      "candidate_id": "t00_b_salad_dressing_ab",
+      "base_id": "t00_b_salad_dressing",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 0,
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "A": "alphabet_soup",
+      "B": "salad_dressing",
+      "first_target": "alphabet_soup",
+      "second_target": "salad_dressing",
+      "first_instance": "alphabet_soup_1",
+      "second_instance": "salad_dressing_1",
+      "B_init_slot": "R0",
+      "B_home_task_idx": 2,
+      "remaining_distractors": [
+        "cream_cheese",
+        "milk",
+        "tomato_sauce",
+        "butter"
+      ],
+      "goal_atoms": [
+        "(In alphabet_soup_1 basket_1_contain_region)",
+        "(In salad_dressing_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the alphabet soup and place it in the basket and pick up the salad dressing and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 0 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t00_b_salad_dressing_ba",
+      "base_id": "t00_b_salad_dressing",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 0,
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "A": "alphabet_soup",
+      "B": "salad_dressing",
+      "first_target": "salad_dressing",
+      "second_target": "alphabet_soup",
+      "first_instance": "salad_dressing_1",
+      "second_instance": "alphabet_soup_1",
+      "B_init_slot": "R0",
+      "B_home_task_idx": 2,
+      "remaining_distractors": [
+        "cream_cheese",
+        "milk",
+        "tomato_sauce",
+        "butter"
+      ],
+      "goal_atoms": [
+        "(In salad_dressing_1 basket_1_contain_region)",
+        "(In alphabet_soup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the salad dressing and place it in the basket and pick up the alphabet soup and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 0 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t00_b_cream_cheese_ab",
+      "base_id": "t00_b_cream_cheese",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 0,
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "A": "alphabet_soup",
+      "B": "cream_cheese",
+      "first_target": "alphabet_soup",
+      "second_target": "cream_cheese",
+      "first_instance": "alphabet_soup_1",
+      "second_instance": "cream_cheese_1",
+      "B_init_slot": "R1",
+      "B_home_task_idx": 1,
+      "remaining_distractors": [
+        "salad_dressing",
+        "milk",
+        "tomato_sauce",
+        "butter"
+      ],
+      "goal_atoms": [
+        "(In alphabet_soup_1 basket_1_contain_region)",
+        "(In cream_cheese_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the alphabet soup and place it in the basket and pick up the cream cheese and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 0 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t00_b_cream_cheese_ba",
+      "base_id": "t00_b_cream_cheese",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 0,
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "A": "alphabet_soup",
+      "B": "cream_cheese",
+      "first_target": "cream_cheese",
+      "second_target": "alphabet_soup",
+      "first_instance": "cream_cheese_1",
+      "second_instance": "alphabet_soup_1",
+      "B_init_slot": "R1",
+      "B_home_task_idx": 1,
+      "remaining_distractors": [
+        "salad_dressing",
+        "milk",
+        "tomato_sauce",
+        "butter"
+      ],
+      "goal_atoms": [
+        "(In cream_cheese_1 basket_1_contain_region)",
+        "(In alphabet_soup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the cream cheese and place it in the basket and pick up the alphabet soup and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 0 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t00_b_milk_ab",
+      "base_id": "t00_b_milk",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 0,
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "A": "alphabet_soup",
+      "B": "milk",
+      "first_target": "alphabet_soup",
+      "second_target": "milk",
+      "first_instance": "alphabet_soup_1",
+      "second_instance": "milk_1",
+      "B_init_slot": "R2",
+      "B_home_task_idx": 7,
+      "remaining_distractors": [
+        "salad_dressing",
+        "cream_cheese",
+        "tomato_sauce",
+        "butter"
+      ],
+      "goal_atoms": [
+        "(In alphabet_soup_1 basket_1_contain_region)",
+        "(In milk_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the alphabet soup and place it in the basket and pick up the milk and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 0 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t00_b_milk_ba",
+      "base_id": "t00_b_milk",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 0,
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "A": "alphabet_soup",
+      "B": "milk",
+      "first_target": "milk",
+      "second_target": "alphabet_soup",
+      "first_instance": "milk_1",
+      "second_instance": "alphabet_soup_1",
+      "B_init_slot": "R2",
+      "B_home_task_idx": 7,
+      "remaining_distractors": [
+        "salad_dressing",
+        "cream_cheese",
+        "tomato_sauce",
+        "butter"
+      ],
+      "goal_atoms": [
+        "(In milk_1 basket_1_contain_region)",
+        "(In alphabet_soup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the milk and place it in the basket and pick up the alphabet soup and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 0 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t00_b_tomato_sauce_ab",
+      "base_id": "t00_b_tomato_sauce",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 0,
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "A": "alphabet_soup",
+      "B": "tomato_sauce",
+      "first_target": "alphabet_soup",
+      "second_target": "tomato_sauce",
+      "first_instance": "alphabet_soup_1",
+      "second_instance": "tomato_sauce_1",
+      "B_init_slot": "R3",
+      "B_home_task_idx": 5,
+      "remaining_distractors": [
+        "salad_dressing",
+        "cream_cheese",
+        "milk",
+        "butter"
+      ],
+      "goal_atoms": [
+        "(In alphabet_soup_1 basket_1_contain_region)",
+        "(In tomato_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the alphabet soup and place it in the basket and pick up the tomato sauce and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 0 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t00_b_tomato_sauce_ba",
+      "base_id": "t00_b_tomato_sauce",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 0,
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "A": "alphabet_soup",
+      "B": "tomato_sauce",
+      "first_target": "tomato_sauce",
+      "second_target": "alphabet_soup",
+      "first_instance": "tomato_sauce_1",
+      "second_instance": "alphabet_soup_1",
+      "B_init_slot": "R3",
+      "B_home_task_idx": 5,
+      "remaining_distractors": [
+        "salad_dressing",
+        "cream_cheese",
+        "milk",
+        "butter"
+      ],
+      "goal_atoms": [
+        "(In tomato_sauce_1 basket_1_contain_region)",
+        "(In alphabet_soup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the tomato sauce and place it in the basket and pick up the alphabet soup and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 0 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t00_b_butter_ab",
+      "base_id": "t00_b_butter",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 0,
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "A": "alphabet_soup",
+      "B": "butter",
+      "first_target": "alphabet_soup",
+      "second_target": "butter",
+      "first_instance": "alphabet_soup_1",
+      "second_instance": "butter_1",
+      "B_init_slot": "R4",
+      "B_home_task_idx": 6,
+      "remaining_distractors": [
+        "salad_dressing",
+        "cream_cheese",
+        "milk",
+        "tomato_sauce"
+      ],
+      "goal_atoms": [
+        "(In alphabet_soup_1 basket_1_contain_region)",
+        "(In butter_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the alphabet soup and place it in the basket and pick up the butter and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 0 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t00_b_butter_ba",
+      "base_id": "t00_b_butter",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 0,
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "A": "alphabet_soup",
+      "B": "butter",
+      "first_target": "butter",
+      "second_target": "alphabet_soup",
+      "first_instance": "butter_1",
+      "second_instance": "alphabet_soup_1",
+      "B_init_slot": "R4",
+      "B_home_task_idx": 6,
+      "remaining_distractors": [
+        "salad_dressing",
+        "cream_cheese",
+        "milk",
+        "tomato_sauce"
+      ],
+      "goal_atoms": [
+        "(In butter_1 basket_1_contain_region)",
+        "(In alphabet_soup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the butter and place it in the basket and pick up the alphabet soup and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 0 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t01_b_alphabet_soup_ab",
+      "base_id": "t01_b_alphabet_soup",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 1,
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "A": "cream_cheese",
+      "B": "alphabet_soup",
+      "first_target": "cream_cheese",
+      "second_target": "alphabet_soup",
+      "first_instance": "cream_cheese_1",
+      "second_instance": "alphabet_soup_1",
+      "B_init_slot": "R0",
+      "B_home_task_idx": 0,
+      "remaining_distractors": [
+        "milk",
+        "tomato_sauce",
+        "butter",
+        "orange_juice"
+      ],
+      "goal_atoms": [
+        "(In cream_cheese_1 basket_1_contain_region)",
+        "(In alphabet_soup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the cream cheese and place it in the basket and pick up the alphabet soup and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 1 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t01_b_alphabet_soup_ba",
+      "base_id": "t01_b_alphabet_soup",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 1,
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "A": "cream_cheese",
+      "B": "alphabet_soup",
+      "first_target": "alphabet_soup",
+      "second_target": "cream_cheese",
+      "first_instance": "alphabet_soup_1",
+      "second_instance": "cream_cheese_1",
+      "B_init_slot": "R0",
+      "B_home_task_idx": 0,
+      "remaining_distractors": [
+        "milk",
+        "tomato_sauce",
+        "butter",
+        "orange_juice"
+      ],
+      "goal_atoms": [
+        "(In alphabet_soup_1 basket_1_contain_region)",
+        "(In cream_cheese_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the alphabet soup and place it in the basket and pick up the cream cheese and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 1 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t01_b_milk_ab",
+      "base_id": "t01_b_milk",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 1,
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "A": "cream_cheese",
+      "B": "milk",
+      "first_target": "cream_cheese",
+      "second_target": "milk",
+      "first_instance": "cream_cheese_1",
+      "second_instance": "milk_1",
+      "B_init_slot": "R1",
+      "B_home_task_idx": 7,
+      "remaining_distractors": [
+        "alphabet_soup",
+        "tomato_sauce",
+        "butter",
+        "orange_juice"
+      ],
+      "goal_atoms": [
+        "(In cream_cheese_1 basket_1_contain_region)",
+        "(In milk_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the cream cheese and place it in the basket and pick up the milk and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 1 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t01_b_milk_ba",
+      "base_id": "t01_b_milk",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 1,
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "A": "cream_cheese",
+      "B": "milk",
+      "first_target": "milk",
+      "second_target": "cream_cheese",
+      "first_instance": "milk_1",
+      "second_instance": "cream_cheese_1",
+      "B_init_slot": "R1",
+      "B_home_task_idx": 7,
+      "remaining_distractors": [
+        "alphabet_soup",
+        "tomato_sauce",
+        "butter",
+        "orange_juice"
+      ],
+      "goal_atoms": [
+        "(In milk_1 basket_1_contain_region)",
+        "(In cream_cheese_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the milk and place it in the basket and pick up the cream cheese and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 1 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t01_b_tomato_sauce_ab",
+      "base_id": "t01_b_tomato_sauce",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 1,
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "A": "cream_cheese",
+      "B": "tomato_sauce",
+      "first_target": "cream_cheese",
+      "second_target": "tomato_sauce",
+      "first_instance": "cream_cheese_1",
+      "second_instance": "tomato_sauce_1",
+      "B_init_slot": "R2",
+      "B_home_task_idx": 5,
+      "remaining_distractors": [
+        "alphabet_soup",
+        "milk",
+        "butter",
+        "orange_juice"
+      ],
+      "goal_atoms": [
+        "(In cream_cheese_1 basket_1_contain_region)",
+        "(In tomato_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the cream cheese and place it in the basket and pick up the tomato sauce and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 1 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t01_b_tomato_sauce_ba",
+      "base_id": "t01_b_tomato_sauce",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 1,
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "A": "cream_cheese",
+      "B": "tomato_sauce",
+      "first_target": "tomato_sauce",
+      "second_target": "cream_cheese",
+      "first_instance": "tomato_sauce_1",
+      "second_instance": "cream_cheese_1",
+      "B_init_slot": "R2",
+      "B_home_task_idx": 5,
+      "remaining_distractors": [
+        "alphabet_soup",
+        "milk",
+        "butter",
+        "orange_juice"
+      ],
+      "goal_atoms": [
+        "(In tomato_sauce_1 basket_1_contain_region)",
+        "(In cream_cheese_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the tomato sauce and place it in the basket and pick up the cream cheese and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 1 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t01_b_butter_ab",
+      "base_id": "t01_b_butter",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 1,
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "A": "cream_cheese",
+      "B": "butter",
+      "first_target": "cream_cheese",
+      "second_target": "butter",
+      "first_instance": "cream_cheese_1",
+      "second_instance": "butter_1",
+      "B_init_slot": "R3",
+      "B_home_task_idx": 6,
+      "remaining_distractors": [
+        "alphabet_soup",
+        "milk",
+        "tomato_sauce",
+        "orange_juice"
+      ],
+      "goal_atoms": [
+        "(In cream_cheese_1 basket_1_contain_region)",
+        "(In butter_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the cream cheese and place it in the basket and pick up the butter and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 1 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t01_b_butter_ba",
+      "base_id": "t01_b_butter",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 1,
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "A": "cream_cheese",
+      "B": "butter",
+      "first_target": "butter",
+      "second_target": "cream_cheese",
+      "first_instance": "butter_1",
+      "second_instance": "cream_cheese_1",
+      "B_init_slot": "R3",
+      "B_home_task_idx": 6,
+      "remaining_distractors": [
+        "alphabet_soup",
+        "milk",
+        "tomato_sauce",
+        "orange_juice"
+      ],
+      "goal_atoms": [
+        "(In butter_1 basket_1_contain_region)",
+        "(In cream_cheese_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the butter and place it in the basket and pick up the cream cheese and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 1 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t01_b_orange_juice_ab",
+      "base_id": "t01_b_orange_juice",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 1,
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "A": "cream_cheese",
+      "B": "orange_juice",
+      "first_target": "cream_cheese",
+      "second_target": "orange_juice",
+      "first_instance": "cream_cheese_1",
+      "second_instance": "orange_juice_1",
+      "B_init_slot": "R4",
+      "B_home_task_idx": 9,
+      "remaining_distractors": [
+        "alphabet_soup",
+        "milk",
+        "tomato_sauce",
+        "butter"
+      ],
+      "goal_atoms": [
+        "(In cream_cheese_1 basket_1_contain_region)",
+        "(In orange_juice_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the cream cheese and place it in the basket and pick up the orange juice and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 1 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t01_b_orange_juice_ba",
+      "base_id": "t01_b_orange_juice",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 1,
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "A": "cream_cheese",
+      "B": "orange_juice",
+      "first_target": "orange_juice",
+      "second_target": "cream_cheese",
+      "first_instance": "orange_juice_1",
+      "second_instance": "cream_cheese_1",
+      "B_init_slot": "R4",
+      "B_home_task_idx": 9,
+      "remaining_distractors": [
+        "alphabet_soup",
+        "milk",
+        "tomato_sauce",
+        "butter"
+      ],
+      "goal_atoms": [
+        "(In orange_juice_1 basket_1_contain_region)",
+        "(In cream_cheese_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the orange juice and place it in the basket and pick up the cream cheese and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 1 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t02_b_ketchup_ab",
+      "base_id": "t02_b_ketchup",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 2,
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "A": "salad_dressing",
+      "B": "ketchup",
+      "first_target": "salad_dressing",
+      "second_target": "ketchup",
+      "first_instance": "salad_dressing_1",
+      "second_instance": "ketchup_1",
+      "B_init_slot": "R0",
+      "B_home_task_idx": 4,
+      "remaining_distractors": [
+        "alphabet_soup",
+        "cream_cheese",
+        "milk",
+        "tomato_sauce"
+      ],
+      "goal_atoms": [
+        "(In salad_dressing_1 basket_1_contain_region)",
+        "(In ketchup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the salad dressing and place it in the basket and pick up the ketchup and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 2 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t02_b_ketchup_ba",
+      "base_id": "t02_b_ketchup",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 2,
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "A": "salad_dressing",
+      "B": "ketchup",
+      "first_target": "ketchup",
+      "second_target": "salad_dressing",
+      "first_instance": "ketchup_1",
+      "second_instance": "salad_dressing_1",
+      "B_init_slot": "R0",
+      "B_home_task_idx": 4,
+      "remaining_distractors": [
+        "alphabet_soup",
+        "cream_cheese",
+        "milk",
+        "tomato_sauce"
+      ],
+      "goal_atoms": [
+        "(In ketchup_1 basket_1_contain_region)",
+        "(In salad_dressing_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the ketchup and place it in the basket and pick up the salad dressing and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 2 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t02_b_alphabet_soup_ab",
+      "base_id": "t02_b_alphabet_soup",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 2,
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "A": "salad_dressing",
+      "B": "alphabet_soup",
+      "first_target": "salad_dressing",
+      "second_target": "alphabet_soup",
+      "first_instance": "salad_dressing_1",
+      "second_instance": "alphabet_soup_1",
+      "B_init_slot": "R1",
+      "B_home_task_idx": 0,
+      "remaining_distractors": [
+        "ketchup",
+        "cream_cheese",
+        "milk",
+        "tomato_sauce"
+      ],
+      "goal_atoms": [
+        "(In salad_dressing_1 basket_1_contain_region)",
+        "(In alphabet_soup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the salad dressing and place it in the basket and pick up the alphabet soup and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 2 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t02_b_alphabet_soup_ba",
+      "base_id": "t02_b_alphabet_soup",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 2,
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "A": "salad_dressing",
+      "B": "alphabet_soup",
+      "first_target": "alphabet_soup",
+      "second_target": "salad_dressing",
+      "first_instance": "alphabet_soup_1",
+      "second_instance": "salad_dressing_1",
+      "B_init_slot": "R1",
+      "B_home_task_idx": 0,
+      "remaining_distractors": [
+        "ketchup",
+        "cream_cheese",
+        "milk",
+        "tomato_sauce"
+      ],
+      "goal_atoms": [
+        "(In alphabet_soup_1 basket_1_contain_region)",
+        "(In salad_dressing_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the alphabet soup and place it in the basket and pick up the salad dressing and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 2 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t02_b_cream_cheese_ab",
+      "base_id": "t02_b_cream_cheese",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 2,
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "A": "salad_dressing",
+      "B": "cream_cheese",
+      "first_target": "salad_dressing",
+      "second_target": "cream_cheese",
+      "first_instance": "salad_dressing_1",
+      "second_instance": "cream_cheese_1",
+      "B_init_slot": "R2",
+      "B_home_task_idx": 1,
+      "remaining_distractors": [
+        "ketchup",
+        "alphabet_soup",
+        "milk",
+        "tomato_sauce"
+      ],
+      "goal_atoms": [
+        "(In salad_dressing_1 basket_1_contain_region)",
+        "(In cream_cheese_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the salad dressing and place it in the basket and pick up the cream cheese and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 2 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t02_b_cream_cheese_ba",
+      "base_id": "t02_b_cream_cheese",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 2,
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "A": "salad_dressing",
+      "B": "cream_cheese",
+      "first_target": "cream_cheese",
+      "second_target": "salad_dressing",
+      "first_instance": "cream_cheese_1",
+      "second_instance": "salad_dressing_1",
+      "B_init_slot": "R2",
+      "B_home_task_idx": 1,
+      "remaining_distractors": [
+        "ketchup",
+        "alphabet_soup",
+        "milk",
+        "tomato_sauce"
+      ],
+      "goal_atoms": [
+        "(In cream_cheese_1 basket_1_contain_region)",
+        "(In salad_dressing_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the cream cheese and place it in the basket and pick up the salad dressing and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 2 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t02_b_milk_ab",
+      "base_id": "t02_b_milk",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 2,
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "A": "salad_dressing",
+      "B": "milk",
+      "first_target": "salad_dressing",
+      "second_target": "milk",
+      "first_instance": "salad_dressing_1",
+      "second_instance": "milk_1",
+      "B_init_slot": "R3",
+      "B_home_task_idx": 7,
+      "remaining_distractors": [
+        "ketchup",
+        "alphabet_soup",
+        "cream_cheese",
+        "tomato_sauce"
+      ],
+      "goal_atoms": [
+        "(In salad_dressing_1 basket_1_contain_region)",
+        "(In milk_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the salad dressing and place it in the basket and pick up the milk and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 2 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t02_b_milk_ba",
+      "base_id": "t02_b_milk",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 2,
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "A": "salad_dressing",
+      "B": "milk",
+      "first_target": "milk",
+      "second_target": "salad_dressing",
+      "first_instance": "milk_1",
+      "second_instance": "salad_dressing_1",
+      "B_init_slot": "R3",
+      "B_home_task_idx": 7,
+      "remaining_distractors": [
+        "ketchup",
+        "alphabet_soup",
+        "cream_cheese",
+        "tomato_sauce"
+      ],
+      "goal_atoms": [
+        "(In milk_1 basket_1_contain_region)",
+        "(In salad_dressing_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the milk and place it in the basket and pick up the salad dressing and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 2 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t02_b_tomato_sauce_ab",
+      "base_id": "t02_b_tomato_sauce",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 2,
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "A": "salad_dressing",
+      "B": "tomato_sauce",
+      "first_target": "salad_dressing",
+      "second_target": "tomato_sauce",
+      "first_instance": "salad_dressing_1",
+      "second_instance": "tomato_sauce_1",
+      "B_init_slot": "R4",
+      "B_home_task_idx": 5,
+      "remaining_distractors": [
+        "ketchup",
+        "alphabet_soup",
+        "cream_cheese",
+        "milk"
+      ],
+      "goal_atoms": [
+        "(In salad_dressing_1 basket_1_contain_region)",
+        "(In tomato_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the salad dressing and place it in the basket and pick up the tomato sauce and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 2 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t02_b_tomato_sauce_ba",
+      "base_id": "t02_b_tomato_sauce",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 2,
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "A": "salad_dressing",
+      "B": "tomato_sauce",
+      "first_target": "tomato_sauce",
+      "second_target": "salad_dressing",
+      "first_instance": "tomato_sauce_1",
+      "second_instance": "salad_dressing_1",
+      "B_init_slot": "R4",
+      "B_home_task_idx": 5,
+      "remaining_distractors": [
+        "ketchup",
+        "alphabet_soup",
+        "cream_cheese",
+        "milk"
+      ],
+      "goal_atoms": [
+        "(In tomato_sauce_1 basket_1_contain_region)",
+        "(In salad_dressing_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the tomato sauce and place it in the basket and pick up the salad dressing and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 2 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t03_b_chocolate_pudding_ab",
+      "base_id": "t03_b_chocolate_pudding",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 3,
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "A": "bbq_sauce",
+      "B": "chocolate_pudding",
+      "first_target": "bbq_sauce",
+      "second_target": "chocolate_pudding",
+      "first_instance": "bbq_sauce_1",
+      "second_instance": "chocolate_pudding_1",
+      "B_init_slot": "R0",
+      "B_home_task_idx": 8,
+      "remaining_distractors": [
+        "ketchup",
+        "salad_dressing",
+        "alphabet_soup",
+        "cream_cheese"
+      ],
+      "goal_atoms": [
+        "(In bbq_sauce_1 basket_1_contain_region)",
+        "(In chocolate_pudding_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the bbq sauce and place it in the basket and pick up the chocolate pudding and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 3 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t03_b_chocolate_pudding_ba",
+      "base_id": "t03_b_chocolate_pudding",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 3,
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "A": "bbq_sauce",
+      "B": "chocolate_pudding",
+      "first_target": "chocolate_pudding",
+      "second_target": "bbq_sauce",
+      "first_instance": "chocolate_pudding_1",
+      "second_instance": "bbq_sauce_1",
+      "B_init_slot": "R0",
+      "B_home_task_idx": 8,
+      "remaining_distractors": [
+        "ketchup",
+        "salad_dressing",
+        "alphabet_soup",
+        "cream_cheese"
+      ],
+      "goal_atoms": [
+        "(In chocolate_pudding_1 basket_1_contain_region)",
+        "(In bbq_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the chocolate pudding and place it in the basket and pick up the bbq sauce and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 3 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t03_b_ketchup_ab",
+      "base_id": "t03_b_ketchup",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 3,
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "A": "bbq_sauce",
+      "B": "ketchup",
+      "first_target": "bbq_sauce",
+      "second_target": "ketchup",
+      "first_instance": "bbq_sauce_1",
+      "second_instance": "ketchup_1",
+      "B_init_slot": "R1",
+      "B_home_task_idx": 4,
+      "remaining_distractors": [
+        "chocolate_pudding",
+        "salad_dressing",
+        "alphabet_soup",
+        "cream_cheese"
+      ],
+      "goal_atoms": [
+        "(In bbq_sauce_1 basket_1_contain_region)",
+        "(In ketchup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the bbq sauce and place it in the basket and pick up the ketchup and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 3 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t03_b_ketchup_ba",
+      "base_id": "t03_b_ketchup",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 3,
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "A": "bbq_sauce",
+      "B": "ketchup",
+      "first_target": "ketchup",
+      "second_target": "bbq_sauce",
+      "first_instance": "ketchup_1",
+      "second_instance": "bbq_sauce_1",
+      "B_init_slot": "R1",
+      "B_home_task_idx": 4,
+      "remaining_distractors": [
+        "chocolate_pudding",
+        "salad_dressing",
+        "alphabet_soup",
+        "cream_cheese"
+      ],
+      "goal_atoms": [
+        "(In ketchup_1 basket_1_contain_region)",
+        "(In bbq_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the ketchup and place it in the basket and pick up the bbq sauce and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 3 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t03_b_salad_dressing_ab",
+      "base_id": "t03_b_salad_dressing",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 3,
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "A": "bbq_sauce",
+      "B": "salad_dressing",
+      "first_target": "bbq_sauce",
+      "second_target": "salad_dressing",
+      "first_instance": "bbq_sauce_1",
+      "second_instance": "salad_dressing_1",
+      "B_init_slot": "R2",
+      "B_home_task_idx": 2,
+      "remaining_distractors": [
+        "chocolate_pudding",
+        "ketchup",
+        "alphabet_soup",
+        "cream_cheese"
+      ],
+      "goal_atoms": [
+        "(In bbq_sauce_1 basket_1_contain_region)",
+        "(In salad_dressing_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the bbq sauce and place it in the basket and pick up the salad dressing and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 3 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t03_b_salad_dressing_ba",
+      "base_id": "t03_b_salad_dressing",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 3,
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "A": "bbq_sauce",
+      "B": "salad_dressing",
+      "first_target": "salad_dressing",
+      "second_target": "bbq_sauce",
+      "first_instance": "salad_dressing_1",
+      "second_instance": "bbq_sauce_1",
+      "B_init_slot": "R2",
+      "B_home_task_idx": 2,
+      "remaining_distractors": [
+        "chocolate_pudding",
+        "ketchup",
+        "alphabet_soup",
+        "cream_cheese"
+      ],
+      "goal_atoms": [
+        "(In salad_dressing_1 basket_1_contain_region)",
+        "(In bbq_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the salad dressing and place it in the basket and pick up the bbq sauce and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 3 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t03_b_alphabet_soup_ab",
+      "base_id": "t03_b_alphabet_soup",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 3,
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "A": "bbq_sauce",
+      "B": "alphabet_soup",
+      "first_target": "bbq_sauce",
+      "second_target": "alphabet_soup",
+      "first_instance": "bbq_sauce_1",
+      "second_instance": "alphabet_soup_1",
+      "B_init_slot": "R3",
+      "B_home_task_idx": 0,
+      "remaining_distractors": [
+        "chocolate_pudding",
+        "ketchup",
+        "salad_dressing",
+        "cream_cheese"
+      ],
+      "goal_atoms": [
+        "(In bbq_sauce_1 basket_1_contain_region)",
+        "(In alphabet_soup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the bbq sauce and place it in the basket and pick up the alphabet soup and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 3 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t03_b_alphabet_soup_ba",
+      "base_id": "t03_b_alphabet_soup",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 3,
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "A": "bbq_sauce",
+      "B": "alphabet_soup",
+      "first_target": "alphabet_soup",
+      "second_target": "bbq_sauce",
+      "first_instance": "alphabet_soup_1",
+      "second_instance": "bbq_sauce_1",
+      "B_init_slot": "R3",
+      "B_home_task_idx": 0,
+      "remaining_distractors": [
+        "chocolate_pudding",
+        "ketchup",
+        "salad_dressing",
+        "cream_cheese"
+      ],
+      "goal_atoms": [
+        "(In alphabet_soup_1 basket_1_contain_region)",
+        "(In bbq_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the alphabet soup and place it in the basket and pick up the bbq sauce and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 3 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t03_b_cream_cheese_ab",
+      "base_id": "t03_b_cream_cheese",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 3,
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "A": "bbq_sauce",
+      "B": "cream_cheese",
+      "first_target": "bbq_sauce",
+      "second_target": "cream_cheese",
+      "first_instance": "bbq_sauce_1",
+      "second_instance": "cream_cheese_1",
+      "B_init_slot": "R4",
+      "B_home_task_idx": 1,
+      "remaining_distractors": [
+        "chocolate_pudding",
+        "ketchup",
+        "salad_dressing",
+        "alphabet_soup"
+      ],
+      "goal_atoms": [
+        "(In bbq_sauce_1 basket_1_contain_region)",
+        "(In cream_cheese_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the bbq sauce and place it in the basket and pick up the cream cheese and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 3 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t03_b_cream_cheese_ba",
+      "base_id": "t03_b_cream_cheese",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 3,
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "A": "bbq_sauce",
+      "B": "cream_cheese",
+      "first_target": "cream_cheese",
+      "second_target": "bbq_sauce",
+      "first_instance": "cream_cheese_1",
+      "second_instance": "bbq_sauce_1",
+      "B_init_slot": "R4",
+      "B_home_task_idx": 1,
+      "remaining_distractors": [
+        "chocolate_pudding",
+        "ketchup",
+        "salad_dressing",
+        "alphabet_soup"
+      ],
+      "goal_atoms": [
+        "(In cream_cheese_1 basket_1_contain_region)",
+        "(In bbq_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the cream cheese and place it in the basket and pick up the bbq sauce and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 3 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t04_b_bbq_sauce_ab",
+      "base_id": "t04_b_bbq_sauce",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 4,
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "A": "ketchup",
+      "B": "bbq_sauce",
+      "first_target": "ketchup",
+      "second_target": "bbq_sauce",
+      "first_instance": "ketchup_1",
+      "second_instance": "bbq_sauce_1",
+      "B_init_slot": "R0",
+      "B_home_task_idx": 3,
+      "remaining_distractors": [
+        "salad_dressing",
+        "alphabet_soup",
+        "cream_cheese",
+        "milk"
+      ],
+      "goal_atoms": [
+        "(In ketchup_1 basket_1_contain_region)",
+        "(In bbq_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the ketchup and place it in the basket and pick up the bbq sauce and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 4 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t04_b_bbq_sauce_ba",
+      "base_id": "t04_b_bbq_sauce",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 4,
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "A": "ketchup",
+      "B": "bbq_sauce",
+      "first_target": "bbq_sauce",
+      "second_target": "ketchup",
+      "first_instance": "bbq_sauce_1",
+      "second_instance": "ketchup_1",
+      "B_init_slot": "R0",
+      "B_home_task_idx": 3,
+      "remaining_distractors": [
+        "salad_dressing",
+        "alphabet_soup",
+        "cream_cheese",
+        "milk"
+      ],
+      "goal_atoms": [
+        "(In bbq_sauce_1 basket_1_contain_region)",
+        "(In ketchup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the bbq sauce and place it in the basket and pick up the ketchup and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 4 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t04_b_salad_dressing_ab",
+      "base_id": "t04_b_salad_dressing",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 4,
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "A": "ketchup",
+      "B": "salad_dressing",
+      "first_target": "ketchup",
+      "second_target": "salad_dressing",
+      "first_instance": "ketchup_1",
+      "second_instance": "salad_dressing_1",
+      "B_init_slot": "R1",
+      "B_home_task_idx": 2,
+      "remaining_distractors": [
+        "bbq_sauce",
+        "alphabet_soup",
+        "cream_cheese",
+        "milk"
+      ],
+      "goal_atoms": [
+        "(In ketchup_1 basket_1_contain_region)",
+        "(In salad_dressing_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the ketchup and place it in the basket and pick up the salad dressing and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 4 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t04_b_salad_dressing_ba",
+      "base_id": "t04_b_salad_dressing",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 4,
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "A": "ketchup",
+      "B": "salad_dressing",
+      "first_target": "salad_dressing",
+      "second_target": "ketchup",
+      "first_instance": "salad_dressing_1",
+      "second_instance": "ketchup_1",
+      "B_init_slot": "R1",
+      "B_home_task_idx": 2,
+      "remaining_distractors": [
+        "bbq_sauce",
+        "alphabet_soup",
+        "cream_cheese",
+        "milk"
+      ],
+      "goal_atoms": [
+        "(In salad_dressing_1 basket_1_contain_region)",
+        "(In ketchup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the salad dressing and place it in the basket and pick up the ketchup and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 4 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t04_b_alphabet_soup_ab",
+      "base_id": "t04_b_alphabet_soup",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 4,
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "A": "ketchup",
+      "B": "alphabet_soup",
+      "first_target": "ketchup",
+      "second_target": "alphabet_soup",
+      "first_instance": "ketchup_1",
+      "second_instance": "alphabet_soup_1",
+      "B_init_slot": "R2",
+      "B_home_task_idx": 0,
+      "remaining_distractors": [
+        "bbq_sauce",
+        "salad_dressing",
+        "cream_cheese",
+        "milk"
+      ],
+      "goal_atoms": [
+        "(In ketchup_1 basket_1_contain_region)",
+        "(In alphabet_soup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the ketchup and place it in the basket and pick up the alphabet soup and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 4 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t04_b_alphabet_soup_ba",
+      "base_id": "t04_b_alphabet_soup",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 4,
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "A": "ketchup",
+      "B": "alphabet_soup",
+      "first_target": "alphabet_soup",
+      "second_target": "ketchup",
+      "first_instance": "alphabet_soup_1",
+      "second_instance": "ketchup_1",
+      "B_init_slot": "R2",
+      "B_home_task_idx": 0,
+      "remaining_distractors": [
+        "bbq_sauce",
+        "salad_dressing",
+        "cream_cheese",
+        "milk"
+      ],
+      "goal_atoms": [
+        "(In alphabet_soup_1 basket_1_contain_region)",
+        "(In ketchup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the alphabet soup and place it in the basket and pick up the ketchup and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 4 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t04_b_cream_cheese_ab",
+      "base_id": "t04_b_cream_cheese",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 4,
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "A": "ketchup",
+      "B": "cream_cheese",
+      "first_target": "ketchup",
+      "second_target": "cream_cheese",
+      "first_instance": "ketchup_1",
+      "second_instance": "cream_cheese_1",
+      "B_init_slot": "R3",
+      "B_home_task_idx": 1,
+      "remaining_distractors": [
+        "bbq_sauce",
+        "salad_dressing",
+        "alphabet_soup",
+        "milk"
+      ],
+      "goal_atoms": [
+        "(In ketchup_1 basket_1_contain_region)",
+        "(In cream_cheese_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the ketchup and place it in the basket and pick up the cream cheese and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 4 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t04_b_cream_cheese_ba",
+      "base_id": "t04_b_cream_cheese",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 4,
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "A": "ketchup",
+      "B": "cream_cheese",
+      "first_target": "cream_cheese",
+      "second_target": "ketchup",
+      "first_instance": "cream_cheese_1",
+      "second_instance": "ketchup_1",
+      "B_init_slot": "R3",
+      "B_home_task_idx": 1,
+      "remaining_distractors": [
+        "bbq_sauce",
+        "salad_dressing",
+        "alphabet_soup",
+        "milk"
+      ],
+      "goal_atoms": [
+        "(In cream_cheese_1 basket_1_contain_region)",
+        "(In ketchup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the cream cheese and place it in the basket and pick up the ketchup and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 4 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t04_b_milk_ab",
+      "base_id": "t04_b_milk",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 4,
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "A": "ketchup",
+      "B": "milk",
+      "first_target": "ketchup",
+      "second_target": "milk",
+      "first_instance": "ketchup_1",
+      "second_instance": "milk_1",
+      "B_init_slot": "R4",
+      "B_home_task_idx": 7,
+      "remaining_distractors": [
+        "bbq_sauce",
+        "salad_dressing",
+        "alphabet_soup",
+        "cream_cheese"
+      ],
+      "goal_atoms": [
+        "(In ketchup_1 basket_1_contain_region)",
+        "(In milk_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the ketchup and place it in the basket and pick up the milk and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 4 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t04_b_milk_ba",
+      "base_id": "t04_b_milk",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 4,
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "A": "ketchup",
+      "B": "milk",
+      "first_target": "milk",
+      "second_target": "ketchup",
+      "first_instance": "milk_1",
+      "second_instance": "ketchup_1",
+      "B_init_slot": "R4",
+      "B_home_task_idx": 7,
+      "remaining_distractors": [
+        "bbq_sauce",
+        "salad_dressing",
+        "alphabet_soup",
+        "cream_cheese"
+      ],
+      "goal_atoms": [
+        "(In milk_1 basket_1_contain_region)",
+        "(In ketchup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the milk and place it in the basket and pick up the ketchup and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 4 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t05_b_milk_ab",
+      "base_id": "t05_b_milk",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 5,
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "A": "tomato_sauce",
+      "B": "milk",
+      "first_target": "tomato_sauce",
+      "second_target": "milk",
+      "first_instance": "tomato_sauce_1",
+      "second_instance": "milk_1",
+      "B_init_slot": "R0",
+      "B_home_task_idx": 7,
+      "remaining_distractors": [
+        "butter",
+        "orange_juice",
+        "chocolate_pudding",
+        "bbq_sauce"
+      ],
+      "goal_atoms": [
+        "(In tomato_sauce_1 basket_1_contain_region)",
+        "(In milk_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the tomato sauce and place it in the basket and pick up the milk and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 5 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t05_b_milk_ba",
+      "base_id": "t05_b_milk",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 5,
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "A": "tomato_sauce",
+      "B": "milk",
+      "first_target": "milk",
+      "second_target": "tomato_sauce",
+      "first_instance": "milk_1",
+      "second_instance": "tomato_sauce_1",
+      "B_init_slot": "R0",
+      "B_home_task_idx": 7,
+      "remaining_distractors": [
+        "butter",
+        "orange_juice",
+        "chocolate_pudding",
+        "bbq_sauce"
+      ],
+      "goal_atoms": [
+        "(In milk_1 basket_1_contain_region)",
+        "(In tomato_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the milk and place it in the basket and pick up the tomato sauce and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 5 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t05_b_butter_ab",
+      "base_id": "t05_b_butter",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 5,
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "A": "tomato_sauce",
+      "B": "butter",
+      "first_target": "tomato_sauce",
+      "second_target": "butter",
+      "first_instance": "tomato_sauce_1",
+      "second_instance": "butter_1",
+      "B_init_slot": "R1",
+      "B_home_task_idx": 6,
+      "remaining_distractors": [
+        "milk",
+        "orange_juice",
+        "chocolate_pudding",
+        "bbq_sauce"
+      ],
+      "goal_atoms": [
+        "(In tomato_sauce_1 basket_1_contain_region)",
+        "(In butter_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the tomato sauce and place it in the basket and pick up the butter and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 5 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t05_b_butter_ba",
+      "base_id": "t05_b_butter",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 5,
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "A": "tomato_sauce",
+      "B": "butter",
+      "first_target": "butter",
+      "second_target": "tomato_sauce",
+      "first_instance": "butter_1",
+      "second_instance": "tomato_sauce_1",
+      "B_init_slot": "R1",
+      "B_home_task_idx": 6,
+      "remaining_distractors": [
+        "milk",
+        "orange_juice",
+        "chocolate_pudding",
+        "bbq_sauce"
+      ],
+      "goal_atoms": [
+        "(In butter_1 basket_1_contain_region)",
+        "(In tomato_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the butter and place it in the basket and pick up the tomato sauce and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 5 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t05_b_orange_juice_ab",
+      "base_id": "t05_b_orange_juice",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 5,
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "A": "tomato_sauce",
+      "B": "orange_juice",
+      "first_target": "tomato_sauce",
+      "second_target": "orange_juice",
+      "first_instance": "tomato_sauce_1",
+      "second_instance": "orange_juice_1",
+      "B_init_slot": "R2",
+      "B_home_task_idx": 9,
+      "remaining_distractors": [
+        "milk",
+        "butter",
+        "chocolate_pudding",
+        "bbq_sauce"
+      ],
+      "goal_atoms": [
+        "(In tomato_sauce_1 basket_1_contain_region)",
+        "(In orange_juice_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the tomato sauce and place it in the basket and pick up the orange juice and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 5 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t05_b_orange_juice_ba",
+      "base_id": "t05_b_orange_juice",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 5,
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "A": "tomato_sauce",
+      "B": "orange_juice",
+      "first_target": "orange_juice",
+      "second_target": "tomato_sauce",
+      "first_instance": "orange_juice_1",
+      "second_instance": "tomato_sauce_1",
+      "B_init_slot": "R2",
+      "B_home_task_idx": 9,
+      "remaining_distractors": [
+        "milk",
+        "butter",
+        "chocolate_pudding",
+        "bbq_sauce"
+      ],
+      "goal_atoms": [
+        "(In orange_juice_1 basket_1_contain_region)",
+        "(In tomato_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the orange juice and place it in the basket and pick up the tomato sauce and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 5 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t05_b_chocolate_pudding_ab",
+      "base_id": "t05_b_chocolate_pudding",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 5,
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "A": "tomato_sauce",
+      "B": "chocolate_pudding",
+      "first_target": "tomato_sauce",
+      "second_target": "chocolate_pudding",
+      "first_instance": "tomato_sauce_1",
+      "second_instance": "chocolate_pudding_1",
+      "B_init_slot": "R3",
+      "B_home_task_idx": 8,
+      "remaining_distractors": [
+        "milk",
+        "butter",
+        "orange_juice",
+        "bbq_sauce"
+      ],
+      "goal_atoms": [
+        "(In tomato_sauce_1 basket_1_contain_region)",
+        "(In chocolate_pudding_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the tomato sauce and place it in the basket and pick up the chocolate pudding and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 5 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t05_b_chocolate_pudding_ba",
+      "base_id": "t05_b_chocolate_pudding",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 5,
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "A": "tomato_sauce",
+      "B": "chocolate_pudding",
+      "first_target": "chocolate_pudding",
+      "second_target": "tomato_sauce",
+      "first_instance": "chocolate_pudding_1",
+      "second_instance": "tomato_sauce_1",
+      "B_init_slot": "R3",
+      "B_home_task_idx": 8,
+      "remaining_distractors": [
+        "milk",
+        "butter",
+        "orange_juice",
+        "bbq_sauce"
+      ],
+      "goal_atoms": [
+        "(In chocolate_pudding_1 basket_1_contain_region)",
+        "(In tomato_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the chocolate pudding and place it in the basket and pick up the tomato sauce and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 5 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t05_b_bbq_sauce_ab",
+      "base_id": "t05_b_bbq_sauce",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 5,
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "A": "tomato_sauce",
+      "B": "bbq_sauce",
+      "first_target": "tomato_sauce",
+      "second_target": "bbq_sauce",
+      "first_instance": "tomato_sauce_1",
+      "second_instance": "bbq_sauce_1",
+      "B_init_slot": "R4",
+      "B_home_task_idx": 3,
+      "remaining_distractors": [
+        "milk",
+        "butter",
+        "orange_juice",
+        "chocolate_pudding"
+      ],
+      "goal_atoms": [
+        "(In tomato_sauce_1 basket_1_contain_region)",
+        "(In bbq_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the tomato sauce and place it in the basket and pick up the bbq sauce and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 5 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t05_b_bbq_sauce_ba",
+      "base_id": "t05_b_bbq_sauce",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 5,
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "A": "tomato_sauce",
+      "B": "bbq_sauce",
+      "first_target": "bbq_sauce",
+      "second_target": "tomato_sauce",
+      "first_instance": "bbq_sauce_1",
+      "second_instance": "tomato_sauce_1",
+      "B_init_slot": "R4",
+      "B_home_task_idx": 3,
+      "remaining_distractors": [
+        "milk",
+        "butter",
+        "orange_juice",
+        "chocolate_pudding"
+      ],
+      "goal_atoms": [
+        "(In bbq_sauce_1 basket_1_contain_region)",
+        "(In tomato_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the bbq sauce and place it in the basket and pick up the tomato sauce and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 5 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t06_b_tomato_sauce_ab",
+      "base_id": "t06_b_tomato_sauce",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 6,
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "A": "butter",
+      "B": "tomato_sauce",
+      "first_target": "butter",
+      "second_target": "tomato_sauce",
+      "first_instance": "butter_1",
+      "second_instance": "tomato_sauce_1",
+      "B_init_slot": "R0",
+      "B_home_task_idx": 5,
+      "remaining_distractors": [
+        "orange_juice",
+        "chocolate_pudding",
+        "bbq_sauce",
+        "ketchup"
+      ],
+      "goal_atoms": [
+        "(In butter_1 basket_1_contain_region)",
+        "(In tomato_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the butter and place it in the basket and pick up the tomato sauce and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 6 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t06_b_tomato_sauce_ba",
+      "base_id": "t06_b_tomato_sauce",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 6,
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "A": "butter",
+      "B": "tomato_sauce",
+      "first_target": "tomato_sauce",
+      "second_target": "butter",
+      "first_instance": "tomato_sauce_1",
+      "second_instance": "butter_1",
+      "B_init_slot": "R0",
+      "B_home_task_idx": 5,
+      "remaining_distractors": [
+        "orange_juice",
+        "chocolate_pudding",
+        "bbq_sauce",
+        "ketchup"
+      ],
+      "goal_atoms": [
+        "(In tomato_sauce_1 basket_1_contain_region)",
+        "(In butter_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the tomato sauce and place it in the basket and pick up the butter and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 6 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t06_b_orange_juice_ab",
+      "base_id": "t06_b_orange_juice",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 6,
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "A": "butter",
+      "B": "orange_juice",
+      "first_target": "butter",
+      "second_target": "orange_juice",
+      "first_instance": "butter_1",
+      "second_instance": "orange_juice_1",
+      "B_init_slot": "R1",
+      "B_home_task_idx": 9,
+      "remaining_distractors": [
+        "tomato_sauce",
+        "chocolate_pudding",
+        "bbq_sauce",
+        "ketchup"
+      ],
+      "goal_atoms": [
+        "(In butter_1 basket_1_contain_region)",
+        "(In orange_juice_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the butter and place it in the basket and pick up the orange juice and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 6 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t06_b_orange_juice_ba",
+      "base_id": "t06_b_orange_juice",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 6,
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "A": "butter",
+      "B": "orange_juice",
+      "first_target": "orange_juice",
+      "second_target": "butter",
+      "first_instance": "orange_juice_1",
+      "second_instance": "butter_1",
+      "B_init_slot": "R1",
+      "B_home_task_idx": 9,
+      "remaining_distractors": [
+        "tomato_sauce",
+        "chocolate_pudding",
+        "bbq_sauce",
+        "ketchup"
+      ],
+      "goal_atoms": [
+        "(In orange_juice_1 basket_1_contain_region)",
+        "(In butter_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the orange juice and place it in the basket and pick up the butter and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 6 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t06_b_chocolate_pudding_ab",
+      "base_id": "t06_b_chocolate_pudding",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 6,
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "A": "butter",
+      "B": "chocolate_pudding",
+      "first_target": "butter",
+      "second_target": "chocolate_pudding",
+      "first_instance": "butter_1",
+      "second_instance": "chocolate_pudding_1",
+      "B_init_slot": "R2",
+      "B_home_task_idx": 8,
+      "remaining_distractors": [
+        "tomato_sauce",
+        "orange_juice",
+        "bbq_sauce",
+        "ketchup"
+      ],
+      "goal_atoms": [
+        "(In butter_1 basket_1_contain_region)",
+        "(In chocolate_pudding_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the butter and place it in the basket and pick up the chocolate pudding and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 6 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t06_b_chocolate_pudding_ba",
+      "base_id": "t06_b_chocolate_pudding",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 6,
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "A": "butter",
+      "B": "chocolate_pudding",
+      "first_target": "chocolate_pudding",
+      "second_target": "butter",
+      "first_instance": "chocolate_pudding_1",
+      "second_instance": "butter_1",
+      "B_init_slot": "R2",
+      "B_home_task_idx": 8,
+      "remaining_distractors": [
+        "tomato_sauce",
+        "orange_juice",
+        "bbq_sauce",
+        "ketchup"
+      ],
+      "goal_atoms": [
+        "(In chocolate_pudding_1 basket_1_contain_region)",
+        "(In butter_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the chocolate pudding and place it in the basket and pick up the butter and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 6 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t06_b_bbq_sauce_ab",
+      "base_id": "t06_b_bbq_sauce",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 6,
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "A": "butter",
+      "B": "bbq_sauce",
+      "first_target": "butter",
+      "second_target": "bbq_sauce",
+      "first_instance": "butter_1",
+      "second_instance": "bbq_sauce_1",
+      "B_init_slot": "R3",
+      "B_home_task_idx": 3,
+      "remaining_distractors": [
+        "tomato_sauce",
+        "orange_juice",
+        "chocolate_pudding",
+        "ketchup"
+      ],
+      "goal_atoms": [
+        "(In butter_1 basket_1_contain_region)",
+        "(In bbq_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the butter and place it in the basket and pick up the bbq sauce and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 6 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t06_b_bbq_sauce_ba",
+      "base_id": "t06_b_bbq_sauce",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 6,
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "A": "butter",
+      "B": "bbq_sauce",
+      "first_target": "bbq_sauce",
+      "second_target": "butter",
+      "first_instance": "bbq_sauce_1",
+      "second_instance": "butter_1",
+      "B_init_slot": "R3",
+      "B_home_task_idx": 3,
+      "remaining_distractors": [
+        "tomato_sauce",
+        "orange_juice",
+        "chocolate_pudding",
+        "ketchup"
+      ],
+      "goal_atoms": [
+        "(In bbq_sauce_1 basket_1_contain_region)",
+        "(In butter_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the bbq sauce and place it in the basket and pick up the butter and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 6 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t06_b_ketchup_ab",
+      "base_id": "t06_b_ketchup",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 6,
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "A": "butter",
+      "B": "ketchup",
+      "first_target": "butter",
+      "second_target": "ketchup",
+      "first_instance": "butter_1",
+      "second_instance": "ketchup_1",
+      "B_init_slot": "R4",
+      "B_home_task_idx": 4,
+      "remaining_distractors": [
+        "tomato_sauce",
+        "orange_juice",
+        "chocolate_pudding",
+        "bbq_sauce"
+      ],
+      "goal_atoms": [
+        "(In butter_1 basket_1_contain_region)",
+        "(In ketchup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the butter and place it in the basket and pick up the ketchup and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 6 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t06_b_ketchup_ba",
+      "base_id": "t06_b_ketchup",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 6,
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "A": "butter",
+      "B": "ketchup",
+      "first_target": "ketchup",
+      "second_target": "butter",
+      "first_instance": "ketchup_1",
+      "second_instance": "butter_1",
+      "B_init_slot": "R4",
+      "B_home_task_idx": 4,
+      "remaining_distractors": [
+        "tomato_sauce",
+        "orange_juice",
+        "chocolate_pudding",
+        "bbq_sauce"
+      ],
+      "goal_atoms": [
+        "(In ketchup_1 basket_1_contain_region)",
+        "(In butter_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the ketchup and place it in the basket and pick up the butter and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 6 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t07_b_cream_cheese_ab",
+      "base_id": "t07_b_cream_cheese",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 7,
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "A": "milk",
+      "B": "cream_cheese",
+      "first_target": "milk",
+      "second_target": "cream_cheese",
+      "first_instance": "milk_1",
+      "second_instance": "cream_cheese_1",
+      "B_init_slot": "R0",
+      "B_home_task_idx": 1,
+      "remaining_distractors": [
+        "tomato_sauce",
+        "butter",
+        "orange_juice",
+        "chocolate_pudding"
+      ],
+      "goal_atoms": [
+        "(In milk_1 basket_1_contain_region)",
+        "(In cream_cheese_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the milk and place it in the basket and pick up the cream cheese and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 7 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t07_b_cream_cheese_ba",
+      "base_id": "t07_b_cream_cheese",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 7,
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "A": "milk",
+      "B": "cream_cheese",
+      "first_target": "cream_cheese",
+      "second_target": "milk",
+      "first_instance": "cream_cheese_1",
+      "second_instance": "milk_1",
+      "B_init_slot": "R0",
+      "B_home_task_idx": 1,
+      "remaining_distractors": [
+        "tomato_sauce",
+        "butter",
+        "orange_juice",
+        "chocolate_pudding"
+      ],
+      "goal_atoms": [
+        "(In cream_cheese_1 basket_1_contain_region)",
+        "(In milk_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the cream cheese and place it in the basket and pick up the milk and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 7 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t07_b_tomato_sauce_ab",
+      "base_id": "t07_b_tomato_sauce",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 7,
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "A": "milk",
+      "B": "tomato_sauce",
+      "first_target": "milk",
+      "second_target": "tomato_sauce",
+      "first_instance": "milk_1",
+      "second_instance": "tomato_sauce_1",
+      "B_init_slot": "R1",
+      "B_home_task_idx": 5,
+      "remaining_distractors": [
+        "cream_cheese",
+        "butter",
+        "orange_juice",
+        "chocolate_pudding"
+      ],
+      "goal_atoms": [
+        "(In milk_1 basket_1_contain_region)",
+        "(In tomato_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the milk and place it in the basket and pick up the tomato sauce and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 7 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t07_b_tomato_sauce_ba",
+      "base_id": "t07_b_tomato_sauce",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 7,
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "A": "milk",
+      "B": "tomato_sauce",
+      "first_target": "tomato_sauce",
+      "second_target": "milk",
+      "first_instance": "tomato_sauce_1",
+      "second_instance": "milk_1",
+      "B_init_slot": "R1",
+      "B_home_task_idx": 5,
+      "remaining_distractors": [
+        "cream_cheese",
+        "butter",
+        "orange_juice",
+        "chocolate_pudding"
+      ],
+      "goal_atoms": [
+        "(In tomato_sauce_1 basket_1_contain_region)",
+        "(In milk_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the tomato sauce and place it in the basket and pick up the milk and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 7 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t07_b_butter_ab",
+      "base_id": "t07_b_butter",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 7,
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "A": "milk",
+      "B": "butter",
+      "first_target": "milk",
+      "second_target": "butter",
+      "first_instance": "milk_1",
+      "second_instance": "butter_1",
+      "B_init_slot": "R2",
+      "B_home_task_idx": 6,
+      "remaining_distractors": [
+        "cream_cheese",
+        "tomato_sauce",
+        "orange_juice",
+        "chocolate_pudding"
+      ],
+      "goal_atoms": [
+        "(In milk_1 basket_1_contain_region)",
+        "(In butter_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the milk and place it in the basket and pick up the butter and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 7 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t07_b_butter_ba",
+      "base_id": "t07_b_butter",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 7,
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "A": "milk",
+      "B": "butter",
+      "first_target": "butter",
+      "second_target": "milk",
+      "first_instance": "butter_1",
+      "second_instance": "milk_1",
+      "B_init_slot": "R2",
+      "B_home_task_idx": 6,
+      "remaining_distractors": [
+        "cream_cheese",
+        "tomato_sauce",
+        "orange_juice",
+        "chocolate_pudding"
+      ],
+      "goal_atoms": [
+        "(In butter_1 basket_1_contain_region)",
+        "(In milk_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the butter and place it in the basket and pick up the milk and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 7 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t07_b_orange_juice_ab",
+      "base_id": "t07_b_orange_juice",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 7,
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "A": "milk",
+      "B": "orange_juice",
+      "first_target": "milk",
+      "second_target": "orange_juice",
+      "first_instance": "milk_1",
+      "second_instance": "orange_juice_1",
+      "B_init_slot": "R3",
+      "B_home_task_idx": 9,
+      "remaining_distractors": [
+        "cream_cheese",
+        "tomato_sauce",
+        "butter",
+        "chocolate_pudding"
+      ],
+      "goal_atoms": [
+        "(In milk_1 basket_1_contain_region)",
+        "(In orange_juice_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the milk and place it in the basket and pick up the orange juice and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 7 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t07_b_orange_juice_ba",
+      "base_id": "t07_b_orange_juice",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 7,
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "A": "milk",
+      "B": "orange_juice",
+      "first_target": "orange_juice",
+      "second_target": "milk",
+      "first_instance": "orange_juice_1",
+      "second_instance": "milk_1",
+      "B_init_slot": "R3",
+      "B_home_task_idx": 9,
+      "remaining_distractors": [
+        "cream_cheese",
+        "tomato_sauce",
+        "butter",
+        "chocolate_pudding"
+      ],
+      "goal_atoms": [
+        "(In orange_juice_1 basket_1_contain_region)",
+        "(In milk_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the orange juice and place it in the basket and pick up the milk and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 7 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t07_b_chocolate_pudding_ab",
+      "base_id": "t07_b_chocolate_pudding",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 7,
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "A": "milk",
+      "B": "chocolate_pudding",
+      "first_target": "milk",
+      "second_target": "chocolate_pudding",
+      "first_instance": "milk_1",
+      "second_instance": "chocolate_pudding_1",
+      "B_init_slot": "R4",
+      "B_home_task_idx": 8,
+      "remaining_distractors": [
+        "cream_cheese",
+        "tomato_sauce",
+        "butter",
+        "orange_juice"
+      ],
+      "goal_atoms": [
+        "(In milk_1 basket_1_contain_region)",
+        "(In chocolate_pudding_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the milk and place it in the basket and pick up the chocolate pudding and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 7 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t07_b_chocolate_pudding_ba",
+      "base_id": "t07_b_chocolate_pudding",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 7,
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "A": "milk",
+      "B": "chocolate_pudding",
+      "first_target": "chocolate_pudding",
+      "second_target": "milk",
+      "first_instance": "chocolate_pudding_1",
+      "second_instance": "milk_1",
+      "B_init_slot": "R4",
+      "B_home_task_idx": 8,
+      "remaining_distractors": [
+        "cream_cheese",
+        "tomato_sauce",
+        "butter",
+        "orange_juice"
+      ],
+      "goal_atoms": [
+        "(In chocolate_pudding_1 basket_1_contain_region)",
+        "(In milk_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the chocolate pudding and place it in the basket and pick up the milk and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 7 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t08_b_orange_juice_ab",
+      "base_id": "t08_b_orange_juice",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 8,
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "A": "chocolate_pudding",
+      "B": "orange_juice",
+      "first_target": "chocolate_pudding",
+      "second_target": "orange_juice",
+      "first_instance": "chocolate_pudding_1",
+      "second_instance": "orange_juice_1",
+      "B_init_slot": "R0",
+      "B_home_task_idx": 9,
+      "remaining_distractors": [
+        "bbq_sauce",
+        "ketchup",
+        "salad_dressing",
+        "alphabet_soup"
+      ],
+      "goal_atoms": [
+        "(In chocolate_pudding_1 basket_1_contain_region)",
+        "(In orange_juice_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the chocolate pudding and place it in the basket and pick up the orange juice and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 8 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t08_b_orange_juice_ba",
+      "base_id": "t08_b_orange_juice",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 8,
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "A": "chocolate_pudding",
+      "B": "orange_juice",
+      "first_target": "orange_juice",
+      "second_target": "chocolate_pudding",
+      "first_instance": "orange_juice_1",
+      "second_instance": "chocolate_pudding_1",
+      "B_init_slot": "R0",
+      "B_home_task_idx": 9,
+      "remaining_distractors": [
+        "bbq_sauce",
+        "ketchup",
+        "salad_dressing",
+        "alphabet_soup"
+      ],
+      "goal_atoms": [
+        "(In orange_juice_1 basket_1_contain_region)",
+        "(In chocolate_pudding_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the orange juice and place it in the basket and pick up the chocolate pudding and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 8 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t08_b_bbq_sauce_ab",
+      "base_id": "t08_b_bbq_sauce",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 8,
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "A": "chocolate_pudding",
+      "B": "bbq_sauce",
+      "first_target": "chocolate_pudding",
+      "second_target": "bbq_sauce",
+      "first_instance": "chocolate_pudding_1",
+      "second_instance": "bbq_sauce_1",
+      "B_init_slot": "R1",
+      "B_home_task_idx": 3,
+      "remaining_distractors": [
+        "orange_juice",
+        "ketchup",
+        "salad_dressing",
+        "alphabet_soup"
+      ],
+      "goal_atoms": [
+        "(In chocolate_pudding_1 basket_1_contain_region)",
+        "(In bbq_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the chocolate pudding and place it in the basket and pick up the bbq sauce and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 8 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t08_b_bbq_sauce_ba",
+      "base_id": "t08_b_bbq_sauce",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 8,
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "A": "chocolate_pudding",
+      "B": "bbq_sauce",
+      "first_target": "bbq_sauce",
+      "second_target": "chocolate_pudding",
+      "first_instance": "bbq_sauce_1",
+      "second_instance": "chocolate_pudding_1",
+      "B_init_slot": "R1",
+      "B_home_task_idx": 3,
+      "remaining_distractors": [
+        "orange_juice",
+        "ketchup",
+        "salad_dressing",
+        "alphabet_soup"
+      ],
+      "goal_atoms": [
+        "(In bbq_sauce_1 basket_1_contain_region)",
+        "(In chocolate_pudding_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the bbq sauce and place it in the basket and pick up the chocolate pudding and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 8 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t08_b_ketchup_ab",
+      "base_id": "t08_b_ketchup",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 8,
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "A": "chocolate_pudding",
+      "B": "ketchup",
+      "first_target": "chocolate_pudding",
+      "second_target": "ketchup",
+      "first_instance": "chocolate_pudding_1",
+      "second_instance": "ketchup_1",
+      "B_init_slot": "R2",
+      "B_home_task_idx": 4,
+      "remaining_distractors": [
+        "orange_juice",
+        "bbq_sauce",
+        "salad_dressing",
+        "alphabet_soup"
+      ],
+      "goal_atoms": [
+        "(In chocolate_pudding_1 basket_1_contain_region)",
+        "(In ketchup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the chocolate pudding and place it in the basket and pick up the ketchup and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 8 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t08_b_ketchup_ba",
+      "base_id": "t08_b_ketchup",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 8,
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "A": "chocolate_pudding",
+      "B": "ketchup",
+      "first_target": "ketchup",
+      "second_target": "chocolate_pudding",
+      "first_instance": "ketchup_1",
+      "second_instance": "chocolate_pudding_1",
+      "B_init_slot": "R2",
+      "B_home_task_idx": 4,
+      "remaining_distractors": [
+        "orange_juice",
+        "bbq_sauce",
+        "salad_dressing",
+        "alphabet_soup"
+      ],
+      "goal_atoms": [
+        "(In ketchup_1 basket_1_contain_region)",
+        "(In chocolate_pudding_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the ketchup and place it in the basket and pick up the chocolate pudding and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 8 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t08_b_salad_dressing_ab",
+      "base_id": "t08_b_salad_dressing",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 8,
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "A": "chocolate_pudding",
+      "B": "salad_dressing",
+      "first_target": "chocolate_pudding",
+      "second_target": "salad_dressing",
+      "first_instance": "chocolate_pudding_1",
+      "second_instance": "salad_dressing_1",
+      "B_init_slot": "R3",
+      "B_home_task_idx": 2,
+      "remaining_distractors": [
+        "orange_juice",
+        "bbq_sauce",
+        "ketchup",
+        "alphabet_soup"
+      ],
+      "goal_atoms": [
+        "(In chocolate_pudding_1 basket_1_contain_region)",
+        "(In salad_dressing_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the chocolate pudding and place it in the basket and pick up the salad dressing and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 8 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t08_b_salad_dressing_ba",
+      "base_id": "t08_b_salad_dressing",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 8,
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "A": "chocolate_pudding",
+      "B": "salad_dressing",
+      "first_target": "salad_dressing",
+      "second_target": "chocolate_pudding",
+      "first_instance": "salad_dressing_1",
+      "second_instance": "chocolate_pudding_1",
+      "B_init_slot": "R3",
+      "B_home_task_idx": 2,
+      "remaining_distractors": [
+        "orange_juice",
+        "bbq_sauce",
+        "ketchup",
+        "alphabet_soup"
+      ],
+      "goal_atoms": [
+        "(In salad_dressing_1 basket_1_contain_region)",
+        "(In chocolate_pudding_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the salad dressing and place it in the basket and pick up the chocolate pudding and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 8 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t08_b_alphabet_soup_ab",
+      "base_id": "t08_b_alphabet_soup",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 8,
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "A": "chocolate_pudding",
+      "B": "alphabet_soup",
+      "first_target": "chocolate_pudding",
+      "second_target": "alphabet_soup",
+      "first_instance": "chocolate_pudding_1",
+      "second_instance": "alphabet_soup_1",
+      "B_init_slot": "R4",
+      "B_home_task_idx": 0,
+      "remaining_distractors": [
+        "orange_juice",
+        "bbq_sauce",
+        "ketchup",
+        "salad_dressing"
+      ],
+      "goal_atoms": [
+        "(In chocolate_pudding_1 basket_1_contain_region)",
+        "(In alphabet_soup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the chocolate pudding and place it in the basket and pick up the alphabet soup and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 8 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t08_b_alphabet_soup_ba",
+      "base_id": "t08_b_alphabet_soup",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 8,
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "A": "chocolate_pudding",
+      "B": "alphabet_soup",
+      "first_target": "alphabet_soup",
+      "second_target": "chocolate_pudding",
+      "first_instance": "alphabet_soup_1",
+      "second_instance": "chocolate_pudding_1",
+      "B_init_slot": "R4",
+      "B_home_task_idx": 0,
+      "remaining_distractors": [
+        "orange_juice",
+        "bbq_sauce",
+        "ketchup",
+        "salad_dressing"
+      ],
+      "goal_atoms": [
+        "(In alphabet_soup_1 basket_1_contain_region)",
+        "(In chocolate_pudding_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the alphabet soup and place it in the basket and pick up the chocolate pudding and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 8 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t09_b_butter_ab",
+      "base_id": "t09_b_butter",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 9,
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "A": "orange_juice",
+      "B": "butter",
+      "first_target": "orange_juice",
+      "second_target": "butter",
+      "first_instance": "orange_juice_1",
+      "second_instance": "butter_1",
+      "B_init_slot": "R0",
+      "B_home_task_idx": 6,
+      "remaining_distractors": [
+        "chocolate_pudding",
+        "bbq_sauce",
+        "ketchup",
+        "salad_dressing"
+      ],
+      "goal_atoms": [
+        "(In orange_juice_1 basket_1_contain_region)",
+        "(In butter_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the orange juice and place it in the basket and pick up the butter and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 9 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t09_b_butter_ba",
+      "base_id": "t09_b_butter",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 9,
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "A": "orange_juice",
+      "B": "butter",
+      "first_target": "butter",
+      "second_target": "orange_juice",
+      "first_instance": "butter_1",
+      "second_instance": "orange_juice_1",
+      "B_init_slot": "R0",
+      "B_home_task_idx": 6,
+      "remaining_distractors": [
+        "chocolate_pudding",
+        "bbq_sauce",
+        "ketchup",
+        "salad_dressing"
+      ],
+      "goal_atoms": [
+        "(In butter_1 basket_1_contain_region)",
+        "(In orange_juice_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the butter and place it in the basket and pick up the orange juice and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 9 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t09_b_chocolate_pudding_ab",
+      "base_id": "t09_b_chocolate_pudding",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 9,
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "A": "orange_juice",
+      "B": "chocolate_pudding",
+      "first_target": "orange_juice",
+      "second_target": "chocolate_pudding",
+      "first_instance": "orange_juice_1",
+      "second_instance": "chocolate_pudding_1",
+      "B_init_slot": "R1",
+      "B_home_task_idx": 8,
+      "remaining_distractors": [
+        "butter",
+        "bbq_sauce",
+        "ketchup",
+        "salad_dressing"
+      ],
+      "goal_atoms": [
+        "(In orange_juice_1 basket_1_contain_region)",
+        "(In chocolate_pudding_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the orange juice and place it in the basket and pick up the chocolate pudding and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 9 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t09_b_chocolate_pudding_ba",
+      "base_id": "t09_b_chocolate_pudding",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 9,
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "A": "orange_juice",
+      "B": "chocolate_pudding",
+      "first_target": "chocolate_pudding",
+      "second_target": "orange_juice",
+      "first_instance": "chocolate_pudding_1",
+      "second_instance": "orange_juice_1",
+      "B_init_slot": "R1",
+      "B_home_task_idx": 8,
+      "remaining_distractors": [
+        "butter",
+        "bbq_sauce",
+        "ketchup",
+        "salad_dressing"
+      ],
+      "goal_atoms": [
+        "(In chocolate_pudding_1 basket_1_contain_region)",
+        "(In orange_juice_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the chocolate pudding and place it in the basket and pick up the orange juice and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 9 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t09_b_bbq_sauce_ab",
+      "base_id": "t09_b_bbq_sauce",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 9,
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "A": "orange_juice",
+      "B": "bbq_sauce",
+      "first_target": "orange_juice",
+      "second_target": "bbq_sauce",
+      "first_instance": "orange_juice_1",
+      "second_instance": "bbq_sauce_1",
+      "B_init_slot": "R2",
+      "B_home_task_idx": 3,
+      "remaining_distractors": [
+        "butter",
+        "chocolate_pudding",
+        "ketchup",
+        "salad_dressing"
+      ],
+      "goal_atoms": [
+        "(In orange_juice_1 basket_1_contain_region)",
+        "(In bbq_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the orange juice and place it in the basket and pick up the bbq sauce and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 9 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t09_b_bbq_sauce_ba",
+      "base_id": "t09_b_bbq_sauce",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 9,
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "A": "orange_juice",
+      "B": "bbq_sauce",
+      "first_target": "bbq_sauce",
+      "second_target": "orange_juice",
+      "first_instance": "bbq_sauce_1",
+      "second_instance": "orange_juice_1",
+      "B_init_slot": "R2",
+      "B_home_task_idx": 3,
+      "remaining_distractors": [
+        "butter",
+        "chocolate_pudding",
+        "ketchup",
+        "salad_dressing"
+      ],
+      "goal_atoms": [
+        "(In bbq_sauce_1 basket_1_contain_region)",
+        "(In orange_juice_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the bbq sauce and place it in the basket and pick up the orange juice and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 9 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t09_b_ketchup_ab",
+      "base_id": "t09_b_ketchup",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 9,
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "A": "orange_juice",
+      "B": "ketchup",
+      "first_target": "orange_juice",
+      "second_target": "ketchup",
+      "first_instance": "orange_juice_1",
+      "second_instance": "ketchup_1",
+      "B_init_slot": "R3",
+      "B_home_task_idx": 4,
+      "remaining_distractors": [
+        "butter",
+        "chocolate_pudding",
+        "bbq_sauce",
+        "salad_dressing"
+      ],
+      "goal_atoms": [
+        "(In orange_juice_1 basket_1_contain_region)",
+        "(In ketchup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the orange juice and place it in the basket and pick up the ketchup and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 9 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t09_b_ketchup_ba",
+      "base_id": "t09_b_ketchup",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 9,
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "A": "orange_juice",
+      "B": "ketchup",
+      "first_target": "ketchup",
+      "second_target": "orange_juice",
+      "first_instance": "ketchup_1",
+      "second_instance": "orange_juice_1",
+      "B_init_slot": "R3",
+      "B_home_task_idx": 4,
+      "remaining_distractors": [
+        "butter",
+        "chocolate_pudding",
+        "bbq_sauce",
+        "salad_dressing"
+      ],
+      "goal_atoms": [
+        "(In ketchup_1 basket_1_contain_region)",
+        "(In orange_juice_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the ketchup and place it in the basket and pick up the orange juice and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 9 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t09_b_salad_dressing_ab",
+      "base_id": "t09_b_salad_dressing",
+      "order": "ab",
+      "order_desc": "A->B（原目标先）",
+      "scene_task_idx": 9,
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "A": "orange_juice",
+      "B": "salad_dressing",
+      "first_target": "orange_juice",
+      "second_target": "salad_dressing",
+      "first_instance": "orange_juice_1",
+      "second_instance": "salad_dressing_1",
+      "B_init_slot": "R4",
+      "B_home_task_idx": 2,
+      "remaining_distractors": [
+        "butter",
+        "chocolate_pudding",
+        "bbq_sauce",
+        "ketchup"
+      ],
+      "goal_atoms": [
+        "(In orange_juice_1 basket_1_contain_region)",
+        "(In salad_dressing_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the orange juice and place it in the basket and pick up the salad dressing and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 9 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    },
+    {
+      "candidate_id": "t09_b_salad_dressing_ba",
+      "base_id": "t09_b_salad_dressing",
+      "order": "ba",
+      "order_desc": "B->A（提升目标先）",
+      "scene_task_idx": 9,
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "A": "orange_juice",
+      "B": "salad_dressing",
+      "first_target": "salad_dressing",
+      "second_target": "orange_juice",
+      "first_instance": "salad_dressing_1",
+      "second_instance": "orange_juice_1",
+      "B_init_slot": "R4",
+      "B_home_task_idx": 2,
+      "remaining_distractors": [
+        "butter",
+        "chocolate_pudding",
+        "bbq_sauce",
+        "ketchup"
+      ],
+      "goal_atoms": [
+        "(In salad_dressing_1 basket_1_contain_region)",
+        "(In orange_juice_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the salad dressing and place it in the basket and pick up the orange juice and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 9 .pruned_init (same scene / same 7 rigid bodies)",
+      "note": "swapping order changes language/instruction order and :obj_of_interest order; the goal conjunction is logically identical (And commutative)"
+    }
+  ]
+}

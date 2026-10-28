@@ -1,0 +1,20 @@
+{
+  "ids": [
+    "t00_b_butter_ab",
+    "t03_b_chocolate_pudding_ba"
+  ],
+  "expected": {
+    "t00_b_butter_ab": {
+      "3": "ae27b5f030e3b0c304621c8b70e1d0899e35d64bd8d4689e490674f41b4d0c1f",
+      "4": "092c8f537d35d56456028ca287b2734a17e3ec4471e339d7fb8c1a09de4f995e",
+      "5": "6ea9f57038558c867de74cda49f253c25f67658ac9a3c9cae022a120023c3a8b",
+      "6": "45c4cdda107b30d7be3857345e42607b27a0cd2b3ecd239d83dbef8ef8b58041"
+    },
+    "t03_b_chocolate_pudding_ba": {
+      "3": "6bc6d01baa3fc16bbfed4eb640a16f80aba963f5f74b6a4d252d26ad3963961b",
+      "4": "78c41891bf37cb8fd4ab79fed40e65ad9eb228393d7f98f7f94587043e9e28b3",
+      "5": "6daaff1693741fa2ee4f1094b6830a5809a867d76b6546a6dc09543edb2fb609",
+      "6": "28502ca4985aa3b7257f53ee03dd7825ebbc78428c75e35d53c3fdea1f928fcc"
+    }
+  }
+}

@@ -1,0 +1,5508 @@
+{
+  "experiment": "pi05 zero-shot single-instruction validation of 100 in-scene promoted-target double-grasp candidates",
+  "generated": "2026-10-24T10:14:29",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "max_steps": 600,
+  "replan_steps": 10,
+  "episodes_total": 300,
+  "candidates_with_episodes": 100,
+  "success_total": 0,
+  "success_rate": 0.0,
+  "candidates_any_success": 0,
+  "candidates_all_seeds_success": 0,
+  "failure_subtask_distribution": {
+    "0": 10,
+    "1": 290
+  },
+  "first_completed_class_distribution": {
+    "A": 273,
+    "B": 17
+  },
+  "failure_first_completed_class": {
+    "A": 273,
+    "B": 17
+  },
+  "by_order": {
+    "ab": {
+      "episodes": 150,
+      "success": 0,
+      "success_rate": 0.0
+    },
+    "ba": {
+      "episodes": 150,
+      "success": 0,
+      "success_rate": 0.0
+    }
+  },
+  "by_scene": {
+    "0": {
+      "episodes": 30,
+      "success": 0,
+      "success_rate": 0.0
+    },
+    "1": {
+      "episodes": 30,
+      "success": 0,
+      "success_rate": 0.0
+    },
+    "2": {
+      "episodes": 30,
+      "success": 0,
+      "success_rate": 0.0
+    },
+    "3": {
+      "episodes": 30,
+      "success": 0,
+      "success_rate": 0.0
+    },
+    "4": {
+      "episodes": 30,
+      "success": 0,
+      "success_rate": 0.0
+    },
+    "5": {
+      "episodes": 30,
+      "success": 0,
+      "success_rate": 0.0
+    },
+    "6": {
+      "episodes": 30,
+      "success": 0,
+      "success_rate": 0.0
+    },
+    "7": {
+      "episodes": 30,
+      "success": 0,
+      "success_rate": 0.0
+    },
+    "8": {
+      "episodes": 30,
+      "success": 0,
+      "success_rate": 0.0
+    },
+    "9": {
+      "episodes": 30,
+      "success": 0,
+      "success_rate": 0.0
+    }
+  },
+  "by_B": {
+    "alphabet_soup": {
+      "episodes": 30,
+      "success": 0,
+      "success_rate": 0.0
+    },
+    "bbq_sauce": {
+      "episodes": 30,
+      "success": 0,
+      "success_rate": 0.0
+    },
+    "butter": {
+      "episodes": 30,
+      "success": 0,
+      "success_rate": 0.0
+    },
+    "chocolate_pudding": {
+      "episodes": 30,
+      "success": 0,
+      "success_rate": 0.0
+    },
+    "cream_cheese": {
+      "episodes": 30,
+      "success": 0,
+      "success_rate": 0.0
+    },
+    "ketchup": {
+      "episodes": 30,
+      "success": 0,
+      "success_rate": 0.0
+    },
+    "milk": {
+      "episodes": 30,
+      "success": 0,
+      "success_rate": 0.0
+    },
+    "orange_juice": {
+      "episodes": 30,
+      "success": 0,
+      "success_rate": 0.0
+    },
+    "salad_dressing": {
+      "episodes": 30,
+      "success": 0,
+      "success_rate": 0.0
+    },
+    "tomato_sauce": {
+      "episodes": 30,
+      "success": 0,
+      "success_rate": 0.0
+    }
+  },
+  "warnings": [],
+  "rows": [
+    {
+      "candidate_id": "t00_b_salad_dressing_ab",
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "scene_task_idx": 0,
+      "order": "ab",
+      "A": "alphabet_soup",
+      "B": "salad_dressing",
+      "language": "pick up the alphabet soup and place it in the basket and pick up the salad dressing and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in alphabet_soup_1 basket_1_contain_region": 170
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in alphabet_soup_1 basket_1_contain_region": 142
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in alphabet_soup_1 basket_1_contain_region": 174
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t00_b_salad_dressing_ba",
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "scene_task_idx": 0,
+      "order": "ba",
+      "A": "alphabet_soup",
+      "B": "salad_dressing",
+      "language": "pick up the salad dressing and place it in the basket and pick up the alphabet soup and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in alphabet_soup_1 basket_1_contain_region": 163
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in alphabet_soup_1 basket_1_contain_region": 198
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 0,
+          "completed_classes": [],
+          "first_completed_class": null,
+          "first_true_step": {}
+        }
+      ]
+    },
+    {
+      "candidate_id": "t00_b_cream_cheese_ab",
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "scene_task_idx": 0,
+      "order": "ab",
+      "A": "alphabet_soup",
+      "B": "cream_cheese",
+      "language": "pick up the alphabet soup and place it in the basket and pick up the cream cheese and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in alphabet_soup_1 basket_1_contain_region": 166
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in alphabet_soup_1 basket_1_contain_region": 160
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in alphabet_soup_1 basket_1_contain_region": 177
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t00_b_cream_cheese_ba",
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "scene_task_idx": 0,
+      "order": "ba",
+      "A": "alphabet_soup",
+      "B": "cream_cheese",
+      "language": "pick up the cream cheese and place it in the basket and pick up the alphabet soup and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in alphabet_soup_1 basket_1_contain_region": 162
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in alphabet_soup_1 basket_1_contain_region": 161
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in alphabet_soup_1 basket_1_contain_region": 158
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t00_b_milk_ab",
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "scene_task_idx": 0,
+      "order": "ab",
+      "A": "alphabet_soup",
+      "B": "milk",
+      "language": "pick up the alphabet soup and place it in the basket and pick up the milk and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in alphabet_soup_1 basket_1_contain_region": 157
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in alphabet_soup_1 basket_1_contain_region": 154
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in alphabet_soup_1 basket_1_contain_region": 163
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t00_b_milk_ba",
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "scene_task_idx": 0,
+      "order": "ba",
+      "A": "alphabet_soup",
+      "B": "milk",
+      "language": "pick up the milk and place it in the basket and pick up the alphabet soup and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in alphabet_soup_1 basket_1_contain_region": 161
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in alphabet_soup_1 basket_1_contain_region": 145
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in alphabet_soup_1 basket_1_contain_region": 151
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t00_b_tomato_sauce_ab",
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "scene_task_idx": 0,
+      "order": "ab",
+      "A": "alphabet_soup",
+      "B": "tomato_sauce",
+      "language": "pick up the alphabet soup and place it in the basket and pick up the tomato sauce and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in alphabet_soup_1 basket_1_contain_region": 157
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in alphabet_soup_1 basket_1_contain_region": 164
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in alphabet_soup_1 basket_1_contain_region": 143
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t00_b_tomato_sauce_ba",
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "scene_task_idx": 0,
+      "order": "ba",
+      "A": "alphabet_soup",
+      "B": "tomato_sauce",
+      "language": "pick up the tomato sauce and place it in the basket and pick up the alphabet soup and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in alphabet_soup_1 basket_1_contain_region": 167
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in alphabet_soup_1 basket_1_contain_region": 154
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in alphabet_soup_1 basket_1_contain_region": 149
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t00_b_butter_ab",
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "scene_task_idx": 0,
+      "order": "ab",
+      "A": "alphabet_soup",
+      "B": "butter",
+      "language": "pick up the alphabet soup and place it in the basket and pick up the butter and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in alphabet_soup_1 basket_1_contain_region": 162
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in alphabet_soup_1 basket_1_contain_region": 159
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in alphabet_soup_1 basket_1_contain_region": 152
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t00_b_butter_ba",
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "scene_task_idx": 0,
+      "order": "ba",
+      "A": "alphabet_soup",
+      "B": "butter",
+      "language": "pick up the butter and place it in the basket and pick up the alphabet soup and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in alphabet_soup_1 basket_1_contain_region": 156
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in alphabet_soup_1 basket_1_contain_region": 157
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in alphabet_soup_1 basket_1_contain_region": 150
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t01_b_alphabet_soup_ab",
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "scene_task_idx": 1,
+      "order": "ab",
+      "A": "cream_cheese",
+      "B": "alphabet_soup",
+      "language": "pick up the cream cheese and place it in the basket and pick up the alphabet soup and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in cream_cheese_1 basket_1_contain_region": 176
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in cream_cheese_1 basket_1_contain_region": 212
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in cream_cheese_1 basket_1_contain_region": 139
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t01_b_alphabet_soup_ba",
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "scene_task_idx": 1,
+      "order": "ba",
+      "A": "cream_cheese",
+      "B": "alphabet_soup",
+      "language": "pick up the alphabet soup and place it in the basket and pick up the cream cheese and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "B"
+          ],
+          "first_completed_class": "B",
+          "first_true_step": {
+            "in alphabet_soup_1 basket_1_contain_region": 170
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "B"
+          ],
+          "first_completed_class": "B",
+          "first_true_step": {
+            "in alphabet_soup_1 basket_1_contain_region": 153
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in cream_cheese_1 basket_1_contain_region": 172
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t01_b_milk_ab",
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "scene_task_idx": 1,
+      "order": "ab",
+      "A": "cream_cheese",
+      "B": "milk",
+      "language": "pick up the cream cheese and place it in the basket and pick up the milk and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in cream_cheese_1 basket_1_contain_region": 156
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in cream_cheese_1 basket_1_contain_region": 140
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in cream_cheese_1 basket_1_contain_region": 136
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t01_b_milk_ba",
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "scene_task_idx": 1,
+      "order": "ba",
+      "A": "cream_cheese",
+      "B": "milk",
+      "language": "pick up the milk and place it in the basket and pick up the cream cheese and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in cream_cheese_1 basket_1_contain_region": 168
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in cream_cheese_1 basket_1_contain_region": 147
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in cream_cheese_1 basket_1_contain_region": 136
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t01_b_tomato_sauce_ab",
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "scene_task_idx": 1,
+      "order": "ab",
+      "A": "cream_cheese",
+      "B": "tomato_sauce",
+      "language": "pick up the cream cheese and place it in the basket and pick up the tomato sauce and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in cream_cheese_1 basket_1_contain_region": 137
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in cream_cheese_1 basket_1_contain_region": 136
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in cream_cheese_1 basket_1_contain_region": 139
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t01_b_tomato_sauce_ba",
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "scene_task_idx": 1,
+      "order": "ba",
+      "A": "cream_cheese",
+      "B": "tomato_sauce",
+      "language": "pick up the tomato sauce and place it in the basket and pick up the cream cheese and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in cream_cheese_1 basket_1_contain_region": 141
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in cream_cheese_1 basket_1_contain_region": 130
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in cream_cheese_1 basket_1_contain_region": 134
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t01_b_butter_ab",
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "scene_task_idx": 1,
+      "order": "ab",
+      "A": "cream_cheese",
+      "B": "butter",
+      "language": "pick up the cream cheese and place it in the basket and pick up the butter and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in cream_cheese_1 basket_1_contain_region": 167
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in cream_cheese_1 basket_1_contain_region": 135
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in cream_cheese_1 basket_1_contain_region": 135
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t01_b_butter_ba",
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "scene_task_idx": 1,
+      "order": "ba",
+      "A": "cream_cheese",
+      "B": "butter",
+      "language": "pick up the butter and place it in the basket and pick up the cream cheese and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in cream_cheese_1 basket_1_contain_region": 167
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in cream_cheese_1 basket_1_contain_region": 135
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in cream_cheese_1 basket_1_contain_region": 137
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t01_b_orange_juice_ab",
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "scene_task_idx": 1,
+      "order": "ab",
+      "A": "cream_cheese",
+      "B": "orange_juice",
+      "language": "pick up the cream cheese and place it in the basket and pick up the orange juice and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in cream_cheese_1 basket_1_contain_region": 146
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in cream_cheese_1 basket_1_contain_region": 154
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in cream_cheese_1 basket_1_contain_region": 136
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t01_b_orange_juice_ba",
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "scene_task_idx": 1,
+      "order": "ba",
+      "A": "cream_cheese",
+      "B": "orange_juice",
+      "language": "pick up the orange juice and place it in the basket and pick up the cream cheese and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in cream_cheese_1 basket_1_contain_region": 144
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in cream_cheese_1 basket_1_contain_region": 146
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in cream_cheese_1 basket_1_contain_region": 141
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t02_b_ketchup_ab",
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "scene_task_idx": 2,
+      "order": "ab",
+      "A": "salad_dressing",
+      "B": "ketchup",
+      "language": "pick up the salad dressing and place it in the basket and pick up the ketchup and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 0,
+          "completed_classes": [],
+          "first_completed_class": null,
+          "first_true_step": {}
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in salad_dressing_1 basket_1_contain_region": 132
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "B"
+          ],
+          "first_completed_class": "B",
+          "first_true_step": {
+            "in ketchup_1 basket_1_contain_region": 179
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t02_b_ketchup_ba",
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "scene_task_idx": 2,
+      "order": "ba",
+      "A": "salad_dressing",
+      "B": "ketchup",
+      "language": "pick up the ketchup and place it in the basket and pick up the salad dressing and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "B"
+          ],
+          "first_completed_class": "B",
+          "first_true_step": {
+            "in ketchup_1 basket_1_contain_region": 151
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in salad_dressing_1 basket_1_contain_region": 284
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "B"
+          ],
+          "first_completed_class": "B",
+          "first_true_step": {
+            "in ketchup_1 basket_1_contain_region": 150
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t02_b_alphabet_soup_ab",
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "scene_task_idx": 2,
+      "order": "ab",
+      "A": "salad_dressing",
+      "B": "alphabet_soup",
+      "language": "pick up the salad dressing and place it in the basket and pick up the alphabet soup and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in salad_dressing_1 basket_1_contain_region": 128
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in salad_dressing_1 basket_1_contain_region": 123
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in salad_dressing_1 basket_1_contain_region": 176
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t02_b_alphabet_soup_ba",
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "scene_task_idx": 2,
+      "order": "ba",
+      "A": "salad_dressing",
+      "B": "alphabet_soup",
+      "language": "pick up the alphabet soup and place it in the basket and pick up the salad dressing and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in salad_dressing_1 basket_1_contain_region": 130
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in salad_dressing_1 basket_1_contain_region": 174
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in salad_dressing_1 basket_1_contain_region": 124
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t02_b_cream_cheese_ab",
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "scene_task_idx": 2,
+      "order": "ab",
+      "A": "salad_dressing",
+      "B": "cream_cheese",
+      "language": "pick up the salad dressing and place it in the basket and pick up the cream cheese and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "B"
+          ],
+          "first_completed_class": "B",
+          "first_true_step": {
+            "in cream_cheese_1 basket_1_contain_region": 186
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in salad_dressing_1 basket_1_contain_region": 122
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 0,
+          "completed_classes": [],
+          "first_completed_class": null,
+          "first_true_step": {}
+        }
+      ]
+    },
+    {
+      "candidate_id": "t02_b_cream_cheese_ba",
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "scene_task_idx": 2,
+      "order": "ba",
+      "A": "salad_dressing",
+      "B": "cream_cheese",
+      "language": "pick up the cream cheese and place it in the basket and pick up the salad dressing and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 0,
+          "completed_classes": [],
+          "first_completed_class": null,
+          "first_true_step": {}
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in salad_dressing_1 basket_1_contain_region": 121
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in salad_dressing_1 basket_1_contain_region": 128
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t02_b_milk_ab",
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "scene_task_idx": 2,
+      "order": "ab",
+      "A": "salad_dressing",
+      "B": "milk",
+      "language": "pick up the salad dressing and place it in the basket and pick up the milk and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in salad_dressing_1 basket_1_contain_region": 134
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in salad_dressing_1 basket_1_contain_region": 122
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in salad_dressing_1 basket_1_contain_region": 126
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t02_b_milk_ba",
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "scene_task_idx": 2,
+      "order": "ba",
+      "A": "salad_dressing",
+      "B": "milk",
+      "language": "pick up the milk and place it in the basket and pick up the salad dressing and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 0,
+          "completed_classes": [],
+          "first_completed_class": null,
+          "first_true_step": {}
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in salad_dressing_1 basket_1_contain_region": 119
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in salad_dressing_1 basket_1_contain_region": 122
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t02_b_tomato_sauce_ab",
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "scene_task_idx": 2,
+      "order": "ab",
+      "A": "salad_dressing",
+      "B": "tomato_sauce",
+      "language": "pick up the salad dressing and place it in the basket and pick up the tomato sauce and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in salad_dressing_1 basket_1_contain_region": 124
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in salad_dressing_1 basket_1_contain_region": 121
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in salad_dressing_1 basket_1_contain_region": 124
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t02_b_tomato_sauce_ba",
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "scene_task_idx": 2,
+      "order": "ba",
+      "A": "salad_dressing",
+      "B": "tomato_sauce",
+      "language": "pick up the tomato sauce and place it in the basket and pick up the salad dressing and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in salad_dressing_1 basket_1_contain_region": 126
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in salad_dressing_1 basket_1_contain_region": 122
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in salad_dressing_1 basket_1_contain_region": 125
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t03_b_chocolate_pudding_ab",
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "scene_task_idx": 3,
+      "order": "ab",
+      "A": "bbq_sauce",
+      "B": "chocolate_pudding",
+      "language": "pick up the bbq sauce and place it in the basket and pick up the chocolate pudding and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "B"
+          ],
+          "first_completed_class": "B",
+          "first_true_step": {
+            "in chocolate_pudding_1 basket_1_contain_region": 156
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "B"
+          ],
+          "first_completed_class": "B",
+          "first_true_step": {
+            "in chocolate_pudding_1 basket_1_contain_region": 159
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "B"
+          ],
+          "first_completed_class": "B",
+          "first_true_step": {
+            "in chocolate_pudding_1 basket_1_contain_region": 158
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t03_b_chocolate_pudding_ba",
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "scene_task_idx": 3,
+      "order": "ba",
+      "A": "bbq_sauce",
+      "B": "chocolate_pudding",
+      "language": "pick up the chocolate pudding and place it in the basket and pick up the bbq sauce and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "B"
+          ],
+          "first_completed_class": "B",
+          "first_true_step": {
+            "in chocolate_pudding_1 basket_1_contain_region": 157
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "B"
+          ],
+          "first_completed_class": "B",
+          "first_true_step": {
+            "in chocolate_pudding_1 basket_1_contain_region": 157
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "B"
+          ],
+          "first_completed_class": "B",
+          "first_true_step": {
+            "in chocolate_pudding_1 basket_1_contain_region": 159
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t03_b_ketchup_ab",
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "scene_task_idx": 3,
+      "order": "ab",
+      "A": "bbq_sauce",
+      "B": "ketchup",
+      "language": "pick up the bbq sauce and place it in the basket and pick up the ketchup and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in bbq_sauce_1 basket_1_contain_region": 172
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in bbq_sauce_1 basket_1_contain_region": 148
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in bbq_sauce_1 basket_1_contain_region": 132
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t03_b_ketchup_ba",
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "scene_task_idx": 3,
+      "order": "ba",
+      "A": "bbq_sauce",
+      "B": "ketchup",
+      "language": "pick up the ketchup and place it in the basket and pick up the bbq sauce and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in bbq_sauce_1 basket_1_contain_region": 208
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in bbq_sauce_1 basket_1_contain_region": 149
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in bbq_sauce_1 basket_1_contain_region": 138
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t03_b_salad_dressing_ab",
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "scene_task_idx": 3,
+      "order": "ab",
+      "A": "bbq_sauce",
+      "B": "salad_dressing",
+      "language": "pick up the bbq sauce and place it in the basket and pick up the salad dressing and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in bbq_sauce_1 basket_1_contain_region": 180
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in bbq_sauce_1 basket_1_contain_region": 136
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in bbq_sauce_1 basket_1_contain_region": 138
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t03_b_salad_dressing_ba",
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "scene_task_idx": 3,
+      "order": "ba",
+      "A": "bbq_sauce",
+      "B": "salad_dressing",
+      "language": "pick up the salad dressing and place it in the basket and pick up the bbq sauce and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in bbq_sauce_1 basket_1_contain_region": 177
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in bbq_sauce_1 basket_1_contain_region": 140
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in bbq_sauce_1 basket_1_contain_region": 138
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t03_b_alphabet_soup_ab",
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "scene_task_idx": 3,
+      "order": "ab",
+      "A": "bbq_sauce",
+      "B": "alphabet_soup",
+      "language": "pick up the bbq sauce and place it in the basket and pick up the alphabet soup and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in bbq_sauce_1 basket_1_contain_region": 158
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in bbq_sauce_1 basket_1_contain_region": 178
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in bbq_sauce_1 basket_1_contain_region": 133
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t03_b_alphabet_soup_ba",
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "scene_task_idx": 3,
+      "order": "ba",
+      "A": "bbq_sauce",
+      "B": "alphabet_soup",
+      "language": "pick up the alphabet soup and place it in the basket and pick up the bbq sauce and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in bbq_sauce_1 basket_1_contain_region": 165
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in bbq_sauce_1 basket_1_contain_region": 177
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in bbq_sauce_1 basket_1_contain_region": 138
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t03_b_cream_cheese_ab",
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "scene_task_idx": 3,
+      "order": "ab",
+      "A": "bbq_sauce",
+      "B": "cream_cheese",
+      "language": "pick up the bbq sauce and place it in the basket and pick up the cream cheese and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in bbq_sauce_1 basket_1_contain_region": 182
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in bbq_sauce_1 basket_1_contain_region": 144
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in bbq_sauce_1 basket_1_contain_region": 218
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t03_b_cream_cheese_ba",
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "scene_task_idx": 3,
+      "order": "ba",
+      "A": "bbq_sauce",
+      "B": "cream_cheese",
+      "language": "pick up the cream cheese and place it in the basket and pick up the bbq sauce and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in bbq_sauce_1 basket_1_contain_region": 130
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in bbq_sauce_1 basket_1_contain_region": 136
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in bbq_sauce_1 basket_1_contain_region": 137
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t04_b_bbq_sauce_ab",
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "scene_task_idx": 4,
+      "order": "ab",
+      "A": "ketchup",
+      "B": "bbq_sauce",
+      "language": "pick up the ketchup and place it in the basket and pick up the bbq sauce and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in ketchup_1 basket_1_contain_region": 150
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in ketchup_1 basket_1_contain_region": 147
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in ketchup_1 basket_1_contain_region": 139
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t04_b_bbq_sauce_ba",
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "scene_task_idx": 4,
+      "order": "ba",
+      "A": "ketchup",
+      "B": "bbq_sauce",
+      "language": "pick up the bbq sauce and place it in the basket and pick up the ketchup and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in ketchup_1 basket_1_contain_region": 187
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "B"
+          ],
+          "first_completed_class": "B",
+          "first_true_step": {
+            "in bbq_sauce_1 basket_1_contain_region": 188
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in ketchup_1 basket_1_contain_region": 149
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t04_b_salad_dressing_ab",
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "scene_task_idx": 4,
+      "order": "ab",
+      "A": "ketchup",
+      "B": "salad_dressing",
+      "language": "pick up the ketchup and place it in the basket and pick up the salad dressing and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in ketchup_1 basket_1_contain_region": 154
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in ketchup_1 basket_1_contain_region": 148
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in ketchup_1 basket_1_contain_region": 147
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t04_b_salad_dressing_ba",
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "scene_task_idx": 4,
+      "order": "ba",
+      "A": "ketchup",
+      "B": "salad_dressing",
+      "language": "pick up the salad dressing and place it in the basket and pick up the ketchup and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in ketchup_1 basket_1_contain_region": 147
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 0,
+          "completed_classes": [],
+          "first_completed_class": null,
+          "first_true_step": {}
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in ketchup_1 basket_1_contain_region": 144
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t04_b_alphabet_soup_ab",
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "scene_task_idx": 4,
+      "order": "ab",
+      "A": "ketchup",
+      "B": "alphabet_soup",
+      "language": "pick up the ketchup and place it in the basket and pick up the alphabet soup and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in ketchup_1 basket_1_contain_region": 148
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in ketchup_1 basket_1_contain_region": 150
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in ketchup_1 basket_1_contain_region": 147
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t04_b_alphabet_soup_ba",
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "scene_task_idx": 4,
+      "order": "ba",
+      "A": "ketchup",
+      "B": "alphabet_soup",
+      "language": "pick up the alphabet soup and place it in the basket and pick up the ketchup and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in ketchup_1 basket_1_contain_region": 148
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in ketchup_1 basket_1_contain_region": 148
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in ketchup_1 basket_1_contain_region": 146
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t04_b_cream_cheese_ab",
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "scene_task_idx": 4,
+      "order": "ab",
+      "A": "ketchup",
+      "B": "cream_cheese",
+      "language": "pick up the ketchup and place it in the basket and pick up the cream cheese and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in ketchup_1 basket_1_contain_region": 150
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in ketchup_1 basket_1_contain_region": 151
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in ketchup_1 basket_1_contain_region": 144
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t04_b_cream_cheese_ba",
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "scene_task_idx": 4,
+      "order": "ba",
+      "A": "ketchup",
+      "B": "cream_cheese",
+      "language": "pick up the cream cheese and place it in the basket and pick up the ketchup and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in ketchup_1 basket_1_contain_region": 150
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in ketchup_1 basket_1_contain_region": 149
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in ketchup_1 basket_1_contain_region": 144
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t04_b_milk_ab",
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "scene_task_idx": 4,
+      "order": "ab",
+      "A": "ketchup",
+      "B": "milk",
+      "language": "pick up the ketchup and place it in the basket and pick up the milk and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in ketchup_1 basket_1_contain_region": 147
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in ketchup_1 basket_1_contain_region": 149
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in ketchup_1 basket_1_contain_region": 144
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t04_b_milk_ba",
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "scene_task_idx": 4,
+      "order": "ba",
+      "A": "ketchup",
+      "B": "milk",
+      "language": "pick up the milk and place it in the basket and pick up the ketchup and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in ketchup_1 basket_1_contain_region": 150
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in ketchup_1 basket_1_contain_region": 149
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in ketchup_1 basket_1_contain_region": 142
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t05_b_milk_ab",
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "scene_task_idx": 5,
+      "order": "ab",
+      "A": "tomato_sauce",
+      "B": "milk",
+      "language": "pick up the tomato sauce and place it in the basket and pick up the milk and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in tomato_sauce_1 basket_1_contain_region": 143
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in tomato_sauce_1 basket_1_contain_region": 135
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in tomato_sauce_1 basket_1_contain_region": 122
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t05_b_milk_ba",
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "scene_task_idx": 5,
+      "order": "ba",
+      "A": "tomato_sauce",
+      "B": "milk",
+      "language": "pick up the milk and place it in the basket and pick up the tomato sauce and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in tomato_sauce_1 basket_1_contain_region": 144
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in tomato_sauce_1 basket_1_contain_region": 177
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in tomato_sauce_1 basket_1_contain_region": 151
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t05_b_butter_ab",
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "scene_task_idx": 5,
+      "order": "ab",
+      "A": "tomato_sauce",
+      "B": "butter",
+      "language": "pick up the tomato sauce and place it in the basket and pick up the butter and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in tomato_sauce_1 basket_1_contain_region": 138
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in tomato_sauce_1 basket_1_contain_region": 130
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in tomato_sauce_1 basket_1_contain_region": 125
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t05_b_butter_ba",
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "scene_task_idx": 5,
+      "order": "ba",
+      "A": "tomato_sauce",
+      "B": "butter",
+      "language": "pick up the butter and place it in the basket and pick up the tomato sauce and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in tomato_sauce_1 basket_1_contain_region": 163
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in tomato_sauce_1 basket_1_contain_region": 134
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in tomato_sauce_1 basket_1_contain_region": 122
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t05_b_orange_juice_ab",
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "scene_task_idx": 5,
+      "order": "ab",
+      "A": "tomato_sauce",
+      "B": "orange_juice",
+      "language": "pick up the tomato sauce and place it in the basket and pick up the orange juice and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in tomato_sauce_1 basket_1_contain_region": 143
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in tomato_sauce_1 basket_1_contain_region": 157
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in tomato_sauce_1 basket_1_contain_region": 160
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t05_b_orange_juice_ba",
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "scene_task_idx": 5,
+      "order": "ba",
+      "A": "tomato_sauce",
+      "B": "orange_juice",
+      "language": "pick up the orange juice and place it in the basket and pick up the tomato sauce and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in tomato_sauce_1 basket_1_contain_region": 138
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in tomato_sauce_1 basket_1_contain_region": 149
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in tomato_sauce_1 basket_1_contain_region": 132
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t05_b_chocolate_pudding_ab",
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "scene_task_idx": 5,
+      "order": "ab",
+      "A": "tomato_sauce",
+      "B": "chocolate_pudding",
+      "language": "pick up the tomato sauce and place it in the basket and pick up the chocolate pudding and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in tomato_sauce_1 basket_1_contain_region": 185
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in tomato_sauce_1 basket_1_contain_region": 176
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in tomato_sauce_1 basket_1_contain_region": 173
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t05_b_chocolate_pudding_ba",
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "scene_task_idx": 5,
+      "order": "ba",
+      "A": "tomato_sauce",
+      "B": "chocolate_pudding",
+      "language": "pick up the chocolate pudding and place it in the basket and pick up the tomato sauce and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 0,
+          "completed_classes": [],
+          "first_completed_class": null,
+          "first_true_step": {}
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in tomato_sauce_1 basket_1_contain_region": 167
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in tomato_sauce_1 basket_1_contain_region": 173
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t05_b_bbq_sauce_ab",
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "scene_task_idx": 5,
+      "order": "ab",
+      "A": "tomato_sauce",
+      "B": "bbq_sauce",
+      "language": "pick up the tomato sauce and place it in the basket and pick up the bbq sauce and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in tomato_sauce_1 basket_1_contain_region": 126
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in tomato_sauce_1 basket_1_contain_region": 147
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in tomato_sauce_1 basket_1_contain_region": 160
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t05_b_bbq_sauce_ba",
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "scene_task_idx": 5,
+      "order": "ba",
+      "A": "tomato_sauce",
+      "B": "bbq_sauce",
+      "language": "pick up the bbq sauce and place it in the basket and pick up the tomato sauce and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in tomato_sauce_1 basket_1_contain_region": 125
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in tomato_sauce_1 basket_1_contain_region": 144
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in tomato_sauce_1 basket_1_contain_region": 130
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t06_b_tomato_sauce_ab",
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "scene_task_idx": 6,
+      "order": "ab",
+      "A": "butter",
+      "B": "tomato_sauce",
+      "language": "pick up the butter and place it in the basket and pick up the tomato sauce and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in butter_1 basket_1_contain_region": 156
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in butter_1 basket_1_contain_region": 165
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in butter_1 basket_1_contain_region": 156
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t06_b_tomato_sauce_ba",
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "scene_task_idx": 6,
+      "order": "ba",
+      "A": "butter",
+      "B": "tomato_sauce",
+      "language": "pick up the tomato sauce and place it in the basket and pick up the butter and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in butter_1 basket_1_contain_region": 156
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in butter_1 basket_1_contain_region": 153
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in butter_1 basket_1_contain_region": 156
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t06_b_orange_juice_ab",
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "scene_task_idx": 6,
+      "order": "ab",
+      "A": "butter",
+      "B": "orange_juice",
+      "language": "pick up the butter and place it in the basket and pick up the orange juice and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in butter_1 basket_1_contain_region": 156
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in butter_1 basket_1_contain_region": 156
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in butter_1 basket_1_contain_region": 157
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t06_b_orange_juice_ba",
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "scene_task_idx": 6,
+      "order": "ba",
+      "A": "butter",
+      "B": "orange_juice",
+      "language": "pick up the orange juice and place it in the basket and pick up the butter and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in butter_1 basket_1_contain_region": 156
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in butter_1 basket_1_contain_region": 156
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in butter_1 basket_1_contain_region": 157
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t06_b_chocolate_pudding_ab",
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "scene_task_idx": 6,
+      "order": "ab",
+      "A": "butter",
+      "B": "chocolate_pudding",
+      "language": "pick up the butter and place it in the basket and pick up the chocolate pudding and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in butter_1 basket_1_contain_region": 156
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in butter_1 basket_1_contain_region": 154
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in butter_1 basket_1_contain_region": 160
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t06_b_chocolate_pudding_ba",
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "scene_task_idx": 6,
+      "order": "ba",
+      "A": "butter",
+      "B": "chocolate_pudding",
+      "language": "pick up the chocolate pudding and place it in the basket and pick up the butter and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in butter_1 basket_1_contain_region": 154
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in butter_1 basket_1_contain_region": 153
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in butter_1 basket_1_contain_region": 155
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t06_b_bbq_sauce_ab",
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "scene_task_idx": 6,
+      "order": "ab",
+      "A": "butter",
+      "B": "bbq_sauce",
+      "language": "pick up the butter and place it in the basket and pick up the bbq sauce and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in butter_1 basket_1_contain_region": 156
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in butter_1 basket_1_contain_region": 157
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in butter_1 basket_1_contain_region": 155
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t06_b_bbq_sauce_ba",
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "scene_task_idx": 6,
+      "order": "ba",
+      "A": "butter",
+      "B": "bbq_sauce",
+      "language": "pick up the bbq sauce and place it in the basket and pick up the butter and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in butter_1 basket_1_contain_region": 156
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in butter_1 basket_1_contain_region": 156
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in butter_1 basket_1_contain_region": 157
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t06_b_ketchup_ab",
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "scene_task_idx": 6,
+      "order": "ab",
+      "A": "butter",
+      "B": "ketchup",
+      "language": "pick up the butter and place it in the basket and pick up the ketchup and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in butter_1 basket_1_contain_region": 161
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in butter_1 basket_1_contain_region": 158
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in butter_1 basket_1_contain_region": 155
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t06_b_ketchup_ba",
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "scene_task_idx": 6,
+      "order": "ba",
+      "A": "butter",
+      "B": "ketchup",
+      "language": "pick up the ketchup and place it in the basket and pick up the butter and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in butter_1 basket_1_contain_region": 160
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in butter_1 basket_1_contain_region": 157
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in butter_1 basket_1_contain_region": 157
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t07_b_cream_cheese_ab",
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "scene_task_idx": 7,
+      "order": "ab",
+      "A": "milk",
+      "B": "cream_cheese",
+      "language": "pick up the milk and place it in the basket and pick up the cream cheese and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in milk_1 basket_1_contain_region": 185
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in milk_1 basket_1_contain_region": 133
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "B"
+          ],
+          "first_completed_class": "B",
+          "first_true_step": {
+            "in cream_cheese_1 basket_1_contain_region": 172
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t07_b_cream_cheese_ba",
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "scene_task_idx": 7,
+      "order": "ba",
+      "A": "milk",
+      "B": "cream_cheese",
+      "language": "pick up the cream cheese and place it in the basket and pick up the milk and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "B"
+          ],
+          "first_completed_class": "B",
+          "first_true_step": {
+            "in cream_cheese_1 basket_1_contain_region": 181
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "B"
+          ],
+          "first_completed_class": "B",
+          "first_true_step": {
+            "in cream_cheese_1 basket_1_contain_region": 155
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "B"
+          ],
+          "first_completed_class": "B",
+          "first_true_step": {
+            "in cream_cheese_1 basket_1_contain_region": 137
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t07_b_tomato_sauce_ab",
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "scene_task_idx": 7,
+      "order": "ab",
+      "A": "milk",
+      "B": "tomato_sauce",
+      "language": "pick up the milk and place it in the basket and pick up the tomato sauce and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in milk_1 basket_1_contain_region": 146
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in milk_1 basket_1_contain_region": 137
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in milk_1 basket_1_contain_region": 136
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t07_b_tomato_sauce_ba",
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "scene_task_idx": 7,
+      "order": "ba",
+      "A": "milk",
+      "B": "tomato_sauce",
+      "language": "pick up the tomato sauce and place it in the basket and pick up the milk and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in milk_1 basket_1_contain_region": 142
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in milk_1 basket_1_contain_region": 129
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in milk_1 basket_1_contain_region": 137
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t07_b_butter_ab",
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "scene_task_idx": 7,
+      "order": "ab",
+      "A": "milk",
+      "B": "butter",
+      "language": "pick up the milk and place it in the basket and pick up the butter and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in milk_1 basket_1_contain_region": 144
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in milk_1 basket_1_contain_region": 134
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in milk_1 basket_1_contain_region": 167
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t07_b_butter_ba",
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "scene_task_idx": 7,
+      "order": "ba",
+      "A": "milk",
+      "B": "butter",
+      "language": "pick up the butter and place it in the basket and pick up the milk and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in milk_1 basket_1_contain_region": 147
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in milk_1 basket_1_contain_region": 142
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in milk_1 basket_1_contain_region": 147
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t07_b_orange_juice_ab",
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "scene_task_idx": 7,
+      "order": "ab",
+      "A": "milk",
+      "B": "orange_juice",
+      "language": "pick up the milk and place it in the basket and pick up the orange juice and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in milk_1 basket_1_contain_region": 183
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in milk_1 basket_1_contain_region": 140
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in milk_1 basket_1_contain_region": 181
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t07_b_orange_juice_ba",
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "scene_task_idx": 7,
+      "order": "ba",
+      "A": "milk",
+      "B": "orange_juice",
+      "language": "pick up the orange juice and place it in the basket and pick up the milk and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in milk_1 basket_1_contain_region": 150
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in milk_1 basket_1_contain_region": 139
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in milk_1 basket_1_contain_region": 181
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t07_b_chocolate_pudding_ab",
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "scene_task_idx": 7,
+      "order": "ab",
+      "A": "milk",
+      "B": "chocolate_pudding",
+      "language": "pick up the milk and place it in the basket and pick up the chocolate pudding and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in milk_1 basket_1_contain_region": 146
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in milk_1 basket_1_contain_region": 138
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in milk_1 basket_1_contain_region": 135
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t07_b_chocolate_pudding_ba",
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "scene_task_idx": 7,
+      "order": "ba",
+      "A": "milk",
+      "B": "chocolate_pudding",
+      "language": "pick up the chocolate pudding and place it in the basket and pick up the milk and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in milk_1 basket_1_contain_region": 141
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in milk_1 basket_1_contain_region": 140
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in milk_1 basket_1_contain_region": 136
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t08_b_orange_juice_ab",
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "scene_task_idx": 8,
+      "order": "ab",
+      "A": "chocolate_pudding",
+      "B": "orange_juice",
+      "language": "pick up the chocolate pudding and place it in the basket and pick up the orange juice and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in chocolate_pudding_1 basket_1_contain_region": 155
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in chocolate_pudding_1 basket_1_contain_region": 154
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in chocolate_pudding_1 basket_1_contain_region": 158
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t08_b_orange_juice_ba",
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "scene_task_idx": 8,
+      "order": "ba",
+      "A": "chocolate_pudding",
+      "B": "orange_juice",
+      "language": "pick up the orange juice and place it in the basket and pick up the chocolate pudding and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in chocolate_pudding_1 basket_1_contain_region": 156
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in chocolate_pudding_1 basket_1_contain_region": 157
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in chocolate_pudding_1 basket_1_contain_region": 154
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t08_b_bbq_sauce_ab",
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "scene_task_idx": 8,
+      "order": "ab",
+      "A": "chocolate_pudding",
+      "B": "bbq_sauce",
+      "language": "pick up the chocolate pudding and place it in the basket and pick up the bbq sauce and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in chocolate_pudding_1 basket_1_contain_region": 157
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in chocolate_pudding_1 basket_1_contain_region": 157
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in chocolate_pudding_1 basket_1_contain_region": 157
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t08_b_bbq_sauce_ba",
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "scene_task_idx": 8,
+      "order": "ba",
+      "A": "chocolate_pudding",
+      "B": "bbq_sauce",
+      "language": "pick up the bbq sauce and place it in the basket and pick up the chocolate pudding and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in chocolate_pudding_1 basket_1_contain_region": 156
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in chocolate_pudding_1 basket_1_contain_region": 159
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in chocolate_pudding_1 basket_1_contain_region": 157
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t08_b_ketchup_ab",
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "scene_task_idx": 8,
+      "order": "ab",
+      "A": "chocolate_pudding",
+      "B": "ketchup",
+      "language": "pick up the chocolate pudding and place it in the basket and pick up the ketchup and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in chocolate_pudding_1 basket_1_contain_region": 156
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in chocolate_pudding_1 basket_1_contain_region": 160
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in chocolate_pudding_1 basket_1_contain_region": 158
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t08_b_ketchup_ba",
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "scene_task_idx": 8,
+      "order": "ba",
+      "A": "chocolate_pudding",
+      "B": "ketchup",
+      "language": "pick up the ketchup and place it in the basket and pick up the chocolate pudding and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in chocolate_pudding_1 basket_1_contain_region": 158
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in chocolate_pudding_1 basket_1_contain_region": 158
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in chocolate_pudding_1 basket_1_contain_region": 158
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t08_b_salad_dressing_ab",
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "scene_task_idx": 8,
+      "order": "ab",
+      "A": "chocolate_pudding",
+      "B": "salad_dressing",
+      "language": "pick up the chocolate pudding and place it in the basket and pick up the salad dressing and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in chocolate_pudding_1 basket_1_contain_region": 156
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in chocolate_pudding_1 basket_1_contain_region": 158
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in chocolate_pudding_1 basket_1_contain_region": 158
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t08_b_salad_dressing_ba",
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "scene_task_idx": 8,
+      "order": "ba",
+      "A": "chocolate_pudding",
+      "B": "salad_dressing",
+      "language": "pick up the salad dressing and place it in the basket and pick up the chocolate pudding and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in chocolate_pudding_1 basket_1_contain_region": 157
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in chocolate_pudding_1 basket_1_contain_region": 156
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in chocolate_pudding_1 basket_1_contain_region": 158
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t08_b_alphabet_soup_ab",
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "scene_task_idx": 8,
+      "order": "ab",
+      "A": "chocolate_pudding",
+      "B": "alphabet_soup",
+      "language": "pick up the chocolate pudding and place it in the basket and pick up the alphabet soup and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in chocolate_pudding_1 basket_1_contain_region": 154
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in chocolate_pudding_1 basket_1_contain_region": 160
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in chocolate_pudding_1 basket_1_contain_region": 157
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t08_b_alphabet_soup_ba",
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "scene_task_idx": 8,
+      "order": "ba",
+      "A": "chocolate_pudding",
+      "B": "alphabet_soup",
+      "language": "pick up the alphabet soup and place it in the basket and pick up the chocolate pudding and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in chocolate_pudding_1 basket_1_contain_region": 154
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in chocolate_pudding_1 basket_1_contain_region": 159
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in chocolate_pudding_1 basket_1_contain_region": 158
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t09_b_butter_ab",
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "scene_task_idx": 9,
+      "order": "ab",
+      "A": "orange_juice",
+      "B": "butter",
+      "language": "pick up the orange juice and place it in the basket and pick up the butter and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in orange_juice_1 basket_1_contain_region": 133
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in orange_juice_1 basket_1_contain_region": 129
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in orange_juice_1 basket_1_contain_region": 132
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t09_b_butter_ba",
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "scene_task_idx": 9,
+      "order": "ba",
+      "A": "orange_juice",
+      "B": "butter",
+      "language": "pick up the butter and place it in the basket and pick up the orange juice and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in orange_juice_1 basket_1_contain_region": 128
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in orange_juice_1 basket_1_contain_region": 134
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in orange_juice_1 basket_1_contain_region": 136
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t09_b_chocolate_pudding_ab",
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "scene_task_idx": 9,
+      "order": "ab",
+      "A": "orange_juice",
+      "B": "chocolate_pudding",
+      "language": "pick up the orange juice and place it in the basket and pick up the chocolate pudding and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 0,
+          "completed_classes": [],
+          "first_completed_class": null,
+          "first_true_step": {}
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in orange_juice_1 basket_1_contain_region": 327
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in orange_juice_1 basket_1_contain_region": 130
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t09_b_chocolate_pudding_ba",
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "scene_task_idx": 9,
+      "order": "ba",
+      "A": "orange_juice",
+      "B": "chocolate_pudding",
+      "language": "pick up the chocolate pudding and place it in the basket and pick up the orange juice and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in orange_juice_1 basket_1_contain_region": 234
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 0,
+          "completed_classes": [],
+          "first_completed_class": null,
+          "first_true_step": {}
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in orange_juice_1 basket_1_contain_region": 133
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t09_b_bbq_sauce_ab",
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "scene_task_idx": 9,
+      "order": "ab",
+      "A": "orange_juice",
+      "B": "bbq_sauce",
+      "language": "pick up the orange juice and place it in the basket and pick up the bbq sauce and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in orange_juice_1 basket_1_contain_region": 136
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in orange_juice_1 basket_1_contain_region": 135
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in orange_juice_1 basket_1_contain_region": 141
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t09_b_bbq_sauce_ba",
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "scene_task_idx": 9,
+      "order": "ba",
+      "A": "orange_juice",
+      "B": "bbq_sauce",
+      "language": "pick up the bbq sauce and place it in the basket and pick up the orange juice and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in orange_juice_1 basket_1_contain_region": 138
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in orange_juice_1 basket_1_contain_region": 139
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in orange_juice_1 basket_1_contain_region": 136
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t09_b_ketchup_ab",
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "scene_task_idx": 9,
+      "order": "ab",
+      "A": "orange_juice",
+      "B": "ketchup",
+      "language": "pick up the orange juice and place it in the basket and pick up the ketchup and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in orange_juice_1 basket_1_contain_region": 142
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in orange_juice_1 basket_1_contain_region": 143
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in orange_juice_1 basket_1_contain_region": 128
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t09_b_ketchup_ba",
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "scene_task_idx": 9,
+      "order": "ba",
+      "A": "orange_juice",
+      "B": "ketchup",
+      "language": "pick up the ketchup and place it in the basket and pick up the orange juice and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in orange_juice_1 basket_1_contain_region": 133
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in orange_juice_1 basket_1_contain_region": 170
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in orange_juice_1 basket_1_contain_region": 135
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t09_b_salad_dressing_ab",
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "scene_task_idx": 9,
+      "order": "ab",
+      "A": "orange_juice",
+      "B": "salad_dressing",
+      "language": "pick up the orange juice and place it in the basket and pick up the salad dressing and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in orange_juice_1 basket_1_contain_region": 136
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in orange_juice_1 basket_1_contain_region": 136
+          }
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in orange_juice_1 basket_1_contain_region": 132
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "t09_b_salad_dressing_ba",
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "scene_task_idx": 9,
+      "order": "ba",
+      "A": "orange_juice",
+      "B": "salad_dressing",
+      "language": "pick up the salad dressing and place it in the basket and pick up the orange juice and place it in the basket",
+      "n_episodes": 3,
+      "success_count": 0,
+      "success_rate": 0.0,
+      "success_seeds": [],
+      "episodes": [
+        {
+          "seed": 0,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in orange_juice_1 basket_1_contain_region": 135
+          }
+        },
+        {
+          "seed": 1,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 0,
+          "completed_classes": [],
+          "first_completed_class": null,
+          "first_true_step": {}
+        },
+        {
+          "seed": 2,
+          "success": false,
+          "steps": 600,
+          "subtasks_completed": 1,
+          "completed_classes": [
+            "A"
+          ],
+          "first_completed_class": "A",
+          "first_true_step": {
+            "in orange_juice_1 basket_1_contain_region": 134
+          }
+        }
+      ]
+    }
+  ]
+}

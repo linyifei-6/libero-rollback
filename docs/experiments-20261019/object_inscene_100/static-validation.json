@@ -1,0 +1,5318 @@
+{
+  "experiment": "static validation: 100 in-scene promoted-target double-grasp candidates",
+  "generated": "2026-10-23T23:14:54",
+  "candidates_total": 100,
+  "passed": 100,
+  "failed": 0,
+  "checks_summary": {
+    "bddl_parse": 100,
+    "goal_atom_count_2": 100,
+    "init_rows_50": 100,
+    "init_width_matches": 100,
+    "satisfiability": 100,
+    "initial_success_false_rows012": 100,
+    "initial_atoms_false_rows012": 100
+  },
+  "results": [
+    {
+      "candidate_id": "t00_b_salad_dressing_ab",
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "alphabet_soup",
+      "B": "salad_dressing",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "alphabet_soup_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "salad_dressing_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "alphabet_soup_1": true,
+            "salad_dressing_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t00_b_salad_dressing_ba",
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "alphabet_soup",
+      "B": "salad_dressing",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "salad_dressing_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "alphabet_soup_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "salad_dressing_1": true,
+            "alphabet_soup_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t00_b_cream_cheese_ab",
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "alphabet_soup",
+      "B": "cream_cheese",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "alphabet_soup_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "cream_cheese_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "alphabet_soup_1": true,
+            "cream_cheese_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t00_b_cream_cheese_ba",
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "alphabet_soup",
+      "B": "cream_cheese",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "cream_cheese_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "alphabet_soup_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "cream_cheese_1": true,
+            "alphabet_soup_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t00_b_milk_ab",
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "alphabet_soup",
+      "B": "milk",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "alphabet_soup_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "milk_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "alphabet_soup_1": true,
+            "milk_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t00_b_milk_ba",
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "alphabet_soup",
+      "B": "milk",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "milk_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "alphabet_soup_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "milk_1": true,
+            "alphabet_soup_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t00_b_tomato_sauce_ab",
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "alphabet_soup",
+      "B": "tomato_sauce",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "alphabet_soup_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "tomato_sauce_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "alphabet_soup_1": true,
+            "tomato_sauce_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t00_b_tomato_sauce_ba",
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "alphabet_soup",
+      "B": "tomato_sauce",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "tomato_sauce_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "alphabet_soup_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "tomato_sauce_1": true,
+            "alphabet_soup_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t00_b_butter_ab",
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "alphabet_soup",
+      "B": "butter",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "alphabet_soup_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "butter_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "alphabet_soup_1": true,
+            "butter_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t00_b_butter_ba",
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "alphabet_soup",
+      "B": "butter",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "butter_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "alphabet_soup_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "butter_1": true,
+            "alphabet_soup_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t01_b_alphabet_soup_ab",
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "cream_cheese",
+      "B": "alphabet_soup",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "cream_cheese_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "alphabet_soup_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "cream_cheese_1": true,
+            "alphabet_soup_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t01_b_alphabet_soup_ba",
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "cream_cheese",
+      "B": "alphabet_soup",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "alphabet_soup_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "cream_cheese_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "alphabet_soup_1": true,
+            "cream_cheese_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t01_b_milk_ab",
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "cream_cheese",
+      "B": "milk",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "cream_cheese_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "milk_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "cream_cheese_1": true,
+            "milk_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t01_b_milk_ba",
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "cream_cheese",
+      "B": "milk",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "milk_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "cream_cheese_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "milk_1": true,
+            "cream_cheese_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t01_b_tomato_sauce_ab",
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "cream_cheese",
+      "B": "tomato_sauce",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "cream_cheese_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "tomato_sauce_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "cream_cheese_1": true,
+            "tomato_sauce_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t01_b_tomato_sauce_ba",
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "cream_cheese",
+      "B": "tomato_sauce",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "tomato_sauce_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "cream_cheese_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "tomato_sauce_1": true,
+            "cream_cheese_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t01_b_butter_ab",
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "cream_cheese",
+      "B": "butter",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "cream_cheese_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "butter_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "cream_cheese_1": true,
+            "butter_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t01_b_butter_ba",
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "cream_cheese",
+      "B": "butter",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "butter_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "cream_cheese_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "butter_1": true,
+            "cream_cheese_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t01_b_orange_juice_ab",
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "cream_cheese",
+      "B": "orange_juice",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "cream_cheese_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "orange_juice_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "cream_cheese_1": true,
+            "orange_juice_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t01_b_orange_juice_ba",
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "cream_cheese",
+      "B": "orange_juice",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "orange_juice_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "cream_cheese_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "orange_juice_1": true,
+            "cream_cheese_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t02_b_ketchup_ab",
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "salad_dressing",
+      "B": "ketchup",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "salad_dressing_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "ketchup_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "salad_dressing_1": true,
+            "ketchup_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t02_b_ketchup_ba",
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "salad_dressing",
+      "B": "ketchup",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "ketchup_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "salad_dressing_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "ketchup_1": true,
+            "salad_dressing_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t02_b_alphabet_soup_ab",
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "salad_dressing",
+      "B": "alphabet_soup",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "salad_dressing_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "alphabet_soup_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "salad_dressing_1": true,
+            "alphabet_soup_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t02_b_alphabet_soup_ba",
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "salad_dressing",
+      "B": "alphabet_soup",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "alphabet_soup_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "salad_dressing_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "alphabet_soup_1": true,
+            "salad_dressing_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t02_b_cream_cheese_ab",
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "salad_dressing",
+      "B": "cream_cheese",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "salad_dressing_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "cream_cheese_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "salad_dressing_1": true,
+            "cream_cheese_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t02_b_cream_cheese_ba",
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "salad_dressing",
+      "B": "cream_cheese",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "cream_cheese_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "salad_dressing_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "cream_cheese_1": true,
+            "salad_dressing_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t02_b_milk_ab",
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "salad_dressing",
+      "B": "milk",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "salad_dressing_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "milk_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "salad_dressing_1": true,
+            "milk_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t02_b_milk_ba",
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "salad_dressing",
+      "B": "milk",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "milk_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "salad_dressing_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "milk_1": true,
+            "salad_dressing_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t02_b_tomato_sauce_ab",
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "salad_dressing",
+      "B": "tomato_sauce",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "salad_dressing_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "tomato_sauce_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "salad_dressing_1": true,
+            "tomato_sauce_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t02_b_tomato_sauce_ba",
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "salad_dressing",
+      "B": "tomato_sauce",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "tomato_sauce_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "salad_dressing_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "tomato_sauce_1": true,
+            "salad_dressing_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t03_b_chocolate_pudding_ab",
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "bbq_sauce",
+      "B": "chocolate_pudding",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "bbq_sauce_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "chocolate_pudding_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "bbq_sauce_1": true,
+            "chocolate_pudding_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t03_b_chocolate_pudding_ba",
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "bbq_sauce",
+      "B": "chocolate_pudding",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "chocolate_pudding_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "bbq_sauce_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "chocolate_pudding_1": true,
+            "bbq_sauce_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t03_b_ketchup_ab",
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "bbq_sauce",
+      "B": "ketchup",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "bbq_sauce_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "ketchup_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "bbq_sauce_1": true,
+            "ketchup_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t03_b_ketchup_ba",
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "bbq_sauce",
+      "B": "ketchup",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "ketchup_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "bbq_sauce_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "ketchup_1": true,
+            "bbq_sauce_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t03_b_salad_dressing_ab",
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "bbq_sauce",
+      "B": "salad_dressing",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "bbq_sauce_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "salad_dressing_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "bbq_sauce_1": true,
+            "salad_dressing_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t03_b_salad_dressing_ba",
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "bbq_sauce",
+      "B": "salad_dressing",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "salad_dressing_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "bbq_sauce_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "salad_dressing_1": true,
+            "bbq_sauce_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t03_b_alphabet_soup_ab",
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "bbq_sauce",
+      "B": "alphabet_soup",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "bbq_sauce_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "alphabet_soup_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "bbq_sauce_1": true,
+            "alphabet_soup_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t03_b_alphabet_soup_ba",
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "bbq_sauce",
+      "B": "alphabet_soup",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "alphabet_soup_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "bbq_sauce_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "alphabet_soup_1": true,
+            "bbq_sauce_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t03_b_cream_cheese_ab",
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "bbq_sauce",
+      "B": "cream_cheese",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "bbq_sauce_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "cream_cheese_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "bbq_sauce_1": true,
+            "cream_cheese_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t03_b_cream_cheese_ba",
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "bbq_sauce",
+      "B": "cream_cheese",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "cream_cheese_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "bbq_sauce_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "cream_cheese_1": true,
+            "bbq_sauce_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t04_b_bbq_sauce_ab",
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "ketchup",
+      "B": "bbq_sauce",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "ketchup_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "bbq_sauce_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "ketchup_1": true,
+            "bbq_sauce_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t04_b_bbq_sauce_ba",
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "ketchup",
+      "B": "bbq_sauce",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "bbq_sauce_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "ketchup_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "bbq_sauce_1": true,
+            "ketchup_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t04_b_salad_dressing_ab",
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "ketchup",
+      "B": "salad_dressing",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "ketchup_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "salad_dressing_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "ketchup_1": true,
+            "salad_dressing_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t04_b_salad_dressing_ba",
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "ketchup",
+      "B": "salad_dressing",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "salad_dressing_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "ketchup_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "salad_dressing_1": true,
+            "ketchup_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t04_b_alphabet_soup_ab",
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "ketchup",
+      "B": "alphabet_soup",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "ketchup_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "alphabet_soup_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "ketchup_1": true,
+            "alphabet_soup_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t04_b_alphabet_soup_ba",
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "ketchup",
+      "B": "alphabet_soup",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "alphabet_soup_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "ketchup_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "alphabet_soup_1": true,
+            "ketchup_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t04_b_cream_cheese_ab",
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "ketchup",
+      "B": "cream_cheese",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "ketchup_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "cream_cheese_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "ketchup_1": true,
+            "cream_cheese_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t04_b_cream_cheese_ba",
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "ketchup",
+      "B": "cream_cheese",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "cream_cheese_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "ketchup_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "cream_cheese_1": true,
+            "ketchup_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t04_b_milk_ab",
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "ketchup",
+      "B": "milk",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "ketchup_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "milk_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "ketchup_1": true,
+            "milk_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t04_b_milk_ba",
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "ketchup",
+      "B": "milk",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "milk_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "ketchup_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "milk_1": true,
+            "ketchup_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t05_b_milk_ab",
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "tomato_sauce",
+      "B": "milk",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "tomato_sauce_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "milk_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "tomato_sauce_1": true,
+            "milk_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t05_b_milk_ba",
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "tomato_sauce",
+      "B": "milk",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "milk_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "tomato_sauce_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "milk_1": true,
+            "tomato_sauce_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t05_b_butter_ab",
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "tomato_sauce",
+      "B": "butter",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "tomato_sauce_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "butter_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "tomato_sauce_1": true,
+            "butter_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t05_b_butter_ba",
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "tomato_sauce",
+      "B": "butter",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "butter_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "tomato_sauce_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "butter_1": true,
+            "tomato_sauce_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t05_b_orange_juice_ab",
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "tomato_sauce",
+      "B": "orange_juice",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "tomato_sauce_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "orange_juice_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "tomato_sauce_1": true,
+            "orange_juice_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t05_b_orange_juice_ba",
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "tomato_sauce",
+      "B": "orange_juice",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "orange_juice_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "tomato_sauce_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "orange_juice_1": true,
+            "tomato_sauce_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t05_b_chocolate_pudding_ab",
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "tomato_sauce",
+      "B": "chocolate_pudding",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "tomato_sauce_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "chocolate_pudding_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "tomato_sauce_1": true,
+            "chocolate_pudding_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t05_b_chocolate_pudding_ba",
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "tomato_sauce",
+      "B": "chocolate_pudding",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "chocolate_pudding_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "tomato_sauce_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "chocolate_pudding_1": true,
+            "tomato_sauce_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t05_b_bbq_sauce_ab",
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "tomato_sauce",
+      "B": "bbq_sauce",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "tomato_sauce_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "bbq_sauce_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "tomato_sauce_1": true,
+            "bbq_sauce_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t05_b_bbq_sauce_ba",
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "tomato_sauce",
+      "B": "bbq_sauce",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "bbq_sauce_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "tomato_sauce_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "bbq_sauce_1": true,
+            "tomato_sauce_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t06_b_tomato_sauce_ab",
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "butter",
+      "B": "tomato_sauce",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "butter_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "tomato_sauce_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "butter_1": true,
+            "tomato_sauce_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t06_b_tomato_sauce_ba",
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "butter",
+      "B": "tomato_sauce",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "tomato_sauce_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "butter_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "tomato_sauce_1": true,
+            "butter_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t06_b_orange_juice_ab",
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "butter",
+      "B": "orange_juice",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "butter_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "orange_juice_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "butter_1": true,
+            "orange_juice_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t06_b_orange_juice_ba",
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "butter",
+      "B": "orange_juice",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "orange_juice_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "butter_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "orange_juice_1": true,
+            "butter_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t06_b_chocolate_pudding_ab",
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "butter",
+      "B": "chocolate_pudding",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "butter_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "chocolate_pudding_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "butter_1": true,
+            "chocolate_pudding_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t06_b_chocolate_pudding_ba",
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "butter",
+      "B": "chocolate_pudding",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "chocolate_pudding_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "butter_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "chocolate_pudding_1": true,
+            "butter_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t06_b_bbq_sauce_ab",
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "butter",
+      "B": "bbq_sauce",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "butter_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "bbq_sauce_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "butter_1": true,
+            "bbq_sauce_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t06_b_bbq_sauce_ba",
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "butter",
+      "B": "bbq_sauce",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "bbq_sauce_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "butter_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "bbq_sauce_1": true,
+            "butter_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t06_b_ketchup_ab",
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "butter",
+      "B": "ketchup",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "butter_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "ketchup_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "butter_1": true,
+            "ketchup_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t06_b_ketchup_ba",
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "butter",
+      "B": "ketchup",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "ketchup_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "butter_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "ketchup_1": true,
+            "butter_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t07_b_cream_cheese_ab",
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "milk",
+      "B": "cream_cheese",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "milk_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "cream_cheese_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "milk_1": true,
+            "cream_cheese_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t07_b_cream_cheese_ba",
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "milk",
+      "B": "cream_cheese",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "cream_cheese_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "milk_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "cream_cheese_1": true,
+            "milk_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t07_b_tomato_sauce_ab",
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "milk",
+      "B": "tomato_sauce",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "milk_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "tomato_sauce_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "milk_1": true,
+            "tomato_sauce_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t07_b_tomato_sauce_ba",
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "milk",
+      "B": "tomato_sauce",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "tomato_sauce_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "milk_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "tomato_sauce_1": true,
+            "milk_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t07_b_butter_ab",
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "milk",
+      "B": "butter",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "milk_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "butter_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "milk_1": true,
+            "butter_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t07_b_butter_ba",
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "milk",
+      "B": "butter",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "butter_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "milk_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "butter_1": true,
+            "milk_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t07_b_orange_juice_ab",
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "milk",
+      "B": "orange_juice",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "milk_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "orange_juice_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "milk_1": true,
+            "orange_juice_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t07_b_orange_juice_ba",
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "milk",
+      "B": "orange_juice",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "orange_juice_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "milk_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "orange_juice_1": true,
+            "milk_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t07_b_chocolate_pudding_ab",
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "milk",
+      "B": "chocolate_pudding",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "milk_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "chocolate_pudding_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "milk_1": true,
+            "chocolate_pudding_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t07_b_chocolate_pudding_ba",
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "milk",
+      "B": "chocolate_pudding",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "chocolate_pudding_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "milk_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "chocolate_pudding_1": true,
+            "milk_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t08_b_orange_juice_ab",
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "chocolate_pudding",
+      "B": "orange_juice",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "chocolate_pudding_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "orange_juice_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "chocolate_pudding_1": true,
+            "orange_juice_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t08_b_orange_juice_ba",
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "chocolate_pudding",
+      "B": "orange_juice",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "orange_juice_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "chocolate_pudding_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "orange_juice_1": true,
+            "chocolate_pudding_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t08_b_bbq_sauce_ab",
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "chocolate_pudding",
+      "B": "bbq_sauce",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "chocolate_pudding_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "bbq_sauce_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "chocolate_pudding_1": true,
+            "bbq_sauce_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t08_b_bbq_sauce_ba",
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "chocolate_pudding",
+      "B": "bbq_sauce",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "bbq_sauce_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "chocolate_pudding_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "bbq_sauce_1": true,
+            "chocolate_pudding_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t08_b_ketchup_ab",
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "chocolate_pudding",
+      "B": "ketchup",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "chocolate_pudding_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "ketchup_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "chocolate_pudding_1": true,
+            "ketchup_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t08_b_ketchup_ba",
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "chocolate_pudding",
+      "B": "ketchup",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "ketchup_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "chocolate_pudding_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "ketchup_1": true,
+            "chocolate_pudding_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t08_b_salad_dressing_ab",
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "chocolate_pudding",
+      "B": "salad_dressing",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "chocolate_pudding_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "salad_dressing_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "chocolate_pudding_1": true,
+            "salad_dressing_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t08_b_salad_dressing_ba",
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "chocolate_pudding",
+      "B": "salad_dressing",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "salad_dressing_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "chocolate_pudding_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "salad_dressing_1": true,
+            "chocolate_pudding_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t08_b_alphabet_soup_ab",
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "chocolate_pudding",
+      "B": "alphabet_soup",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "chocolate_pudding_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "alphabet_soup_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "chocolate_pudding_1": true,
+            "alphabet_soup_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t08_b_alphabet_soup_ba",
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "chocolate_pudding",
+      "B": "alphabet_soup",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "alphabet_soup_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "chocolate_pudding_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "alphabet_soup_1": true,
+            "chocolate_pudding_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t09_b_butter_ab",
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "orange_juice",
+      "B": "butter",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "orange_juice_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "butter_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "orange_juice_1": true,
+            "butter_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t09_b_butter_ba",
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "orange_juice",
+      "B": "butter",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "butter_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "orange_juice_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "butter_1": true,
+            "orange_juice_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t09_b_chocolate_pudding_ab",
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "orange_juice",
+      "B": "chocolate_pudding",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "orange_juice_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "chocolate_pudding_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "orange_juice_1": true,
+            "chocolate_pudding_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t09_b_chocolate_pudding_ba",
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "orange_juice",
+      "B": "chocolate_pudding",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "chocolate_pudding_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "orange_juice_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "chocolate_pudding_1": true,
+            "orange_juice_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t09_b_bbq_sauce_ab",
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "orange_juice",
+      "B": "bbq_sauce",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "orange_juice_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "bbq_sauce_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "orange_juice_1": true,
+            "bbq_sauce_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t09_b_bbq_sauce_ba",
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "orange_juice",
+      "B": "bbq_sauce",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "bbq_sauce_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "orange_juice_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "bbq_sauce_1": true,
+            "orange_juice_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t09_b_ketchup_ab",
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "orange_juice",
+      "B": "ketchup",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "orange_juice_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "ketchup_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "orange_juice_1": true,
+            "ketchup_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t09_b_ketchup_ba",
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "orange_juice",
+      "B": "ketchup",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "ketchup_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "orange_juice_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "ketchup_1": true,
+            "orange_juice_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t09_b_salad_dressing_ab",
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "orange_juice",
+      "B": "salad_dressing",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "orange_juice_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "salad_dressing_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "orange_juice_1": true,
+            "salad_dressing_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    },
+    {
+      "candidate_id": "t09_b_salad_dressing_ba",
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "orange_juice",
+      "B": "salad_dressing",
+      "checks": {
+        "bddl_parse": true,
+        "goal_atoms": [
+          [
+            "in",
+            "salad_dressing_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "orange_juice_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "goal_atom_count_2": true,
+        "goal_predicates_ok": true,
+        "target_instances_present": true,
+        "init_shape": [
+          50,
+          110
+        ],
+        "init_rows_50": true,
+        "scene": {
+          "nq": 58,
+          "nv": 51,
+          "state_len": 110,
+          "init_width_matches": true
+        },
+        "row0": {
+          "success_false": true,
+          "atom_truth": [
+            false,
+            false
+          ],
+          "settled_z_min": null
+        },
+        "satisfiability_probe": {
+          "atom_true": {
+            "salad_dressing_1": true,
+            "orange_juice_1": true
+          },
+          "check_success_true": true
+        }
+      },
+      "failed": [],
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,3314 @@
+{
+  "experiment": "LIBERO-OBJECT in-scene promoted-target double-grasp candidates",
+  "candidates_total": 100,
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "max_steps": 600,
+  "replan_steps": 10,
+  "source": "openpi/third_party/libero original BDDL + packaged .pruned_init (copied verbatim)",
+  "candidates": [
+    {
+      "candidate_id": "t00_b_salad_dressing_ab",
+      "scene_task_idx": 0,
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "alphabet_soup",
+      "B": "salad_dressing",
+      "first_target": "alphabet_soup",
+      "second_target": "salad_dressing",
+      "goal_atoms": [
+        "(In alphabet_soup_1 basket_1_contain_region)",
+        "(In salad_dressing_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the alphabet soup and place it in the basket and pick up the salad dressing and place it in the basket",
+      "bddl": "artifacts/bddl/t00_b_salad_dressing_ab.bddl",
+      "init": "artifacts/bddl/t00_b_salad_dressing_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_alphabet_soup_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_alphabet_soup_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "df088984da13131f8332ee0f13a7896c6a97afd02ee5007a42e8fc5e0893571e",
+      "source_init_sha256": "b9023e5546b239cacb2aaa3c76df3b73c3de6f97500fea5e27a0db9827002a19",
+      "bddl_sha256": "1a5f360f936af1e8b22f0aa8ea3ac786e5c81ed2d310d3e01558fb8bc99c9f4a",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t00_b_salad_dressing_ba",
+      "scene_task_idx": 0,
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "alphabet_soup",
+      "B": "salad_dressing",
+      "first_target": "salad_dressing",
+      "second_target": "alphabet_soup",
+      "goal_atoms": [
+        "(In salad_dressing_1 basket_1_contain_region)",
+        "(In alphabet_soup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the salad dressing and place it in the basket and pick up the alphabet soup and place it in the basket",
+      "bddl": "artifacts/bddl/t00_b_salad_dressing_ba.bddl",
+      "init": "artifacts/bddl/t00_b_salad_dressing_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_alphabet_soup_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_alphabet_soup_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "df088984da13131f8332ee0f13a7896c6a97afd02ee5007a42e8fc5e0893571e",
+      "source_init_sha256": "b9023e5546b239cacb2aaa3c76df3b73c3de6f97500fea5e27a0db9827002a19",
+      "bddl_sha256": "a3fe022be83888224f81cfa3ef606168b8f0c92e6b8cc2dcbe7ef45ccee083cc",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t00_b_cream_cheese_ab",
+      "scene_task_idx": 0,
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "alphabet_soup",
+      "B": "cream_cheese",
+      "first_target": "alphabet_soup",
+      "second_target": "cream_cheese",
+      "goal_atoms": [
+        "(In alphabet_soup_1 basket_1_contain_region)",
+        "(In cream_cheese_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the alphabet soup and place it in the basket and pick up the cream cheese and place it in the basket",
+      "bddl": "artifacts/bddl/t00_b_cream_cheese_ab.bddl",
+      "init": "artifacts/bddl/t00_b_cream_cheese_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_alphabet_soup_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_alphabet_soup_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "df088984da13131f8332ee0f13a7896c6a97afd02ee5007a42e8fc5e0893571e",
+      "source_init_sha256": "b9023e5546b239cacb2aaa3c76df3b73c3de6f97500fea5e27a0db9827002a19",
+      "bddl_sha256": "ca337615567b524ffe8d8ae82c569368c44b9b9a6d122b37a00e0e4a05e3323e",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t00_b_cream_cheese_ba",
+      "scene_task_idx": 0,
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "alphabet_soup",
+      "B": "cream_cheese",
+      "first_target": "cream_cheese",
+      "second_target": "alphabet_soup",
+      "goal_atoms": [
+        "(In cream_cheese_1 basket_1_contain_region)",
+        "(In alphabet_soup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the cream cheese and place it in the basket and pick up the alphabet soup and place it in the basket",
+      "bddl": "artifacts/bddl/t00_b_cream_cheese_ba.bddl",
+      "init": "artifacts/bddl/t00_b_cream_cheese_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_alphabet_soup_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_alphabet_soup_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "df088984da13131f8332ee0f13a7896c6a97afd02ee5007a42e8fc5e0893571e",
+      "source_init_sha256": "b9023e5546b239cacb2aaa3c76df3b73c3de6f97500fea5e27a0db9827002a19",
+      "bddl_sha256": "ce6057f82d4350ebee3587ba3a7bb5eed560a41b3836351c7fc5e621b09a4def",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t00_b_milk_ab",
+      "scene_task_idx": 0,
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "alphabet_soup",
+      "B": "milk",
+      "first_target": "alphabet_soup",
+      "second_target": "milk",
+      "goal_atoms": [
+        "(In alphabet_soup_1 basket_1_contain_region)",
+        "(In milk_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the alphabet soup and place it in the basket and pick up the milk and place it in the basket",
+      "bddl": "artifacts/bddl/t00_b_milk_ab.bddl",
+      "init": "artifacts/bddl/t00_b_milk_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_alphabet_soup_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_alphabet_soup_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "df088984da13131f8332ee0f13a7896c6a97afd02ee5007a42e8fc5e0893571e",
+      "source_init_sha256": "b9023e5546b239cacb2aaa3c76df3b73c3de6f97500fea5e27a0db9827002a19",
+      "bddl_sha256": "a3a714666abecbbec2a4da4bc0d9879c02354104804fd1617479c6beebb45581",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t00_b_milk_ba",
+      "scene_task_idx": 0,
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "alphabet_soup",
+      "B": "milk",
+      "first_target": "milk",
+      "second_target": "alphabet_soup",
+      "goal_atoms": [
+        "(In milk_1 basket_1_contain_region)",
+        "(In alphabet_soup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the milk and place it in the basket and pick up the alphabet soup and place it in the basket",
+      "bddl": "artifacts/bddl/t00_b_milk_ba.bddl",
+      "init": "artifacts/bddl/t00_b_milk_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_alphabet_soup_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_alphabet_soup_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "df088984da13131f8332ee0f13a7896c6a97afd02ee5007a42e8fc5e0893571e",
+      "source_init_sha256": "b9023e5546b239cacb2aaa3c76df3b73c3de6f97500fea5e27a0db9827002a19",
+      "bddl_sha256": "9574890728d2adee617b05ad572c319cf2c251f63ae01f55a5703508fb9ebd19",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t00_b_tomato_sauce_ab",
+      "scene_task_idx": 0,
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "alphabet_soup",
+      "B": "tomato_sauce",
+      "first_target": "alphabet_soup",
+      "second_target": "tomato_sauce",
+      "goal_atoms": [
+        "(In alphabet_soup_1 basket_1_contain_region)",
+        "(In tomato_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the alphabet soup and place it in the basket and pick up the tomato sauce and place it in the basket",
+      "bddl": "artifacts/bddl/t00_b_tomato_sauce_ab.bddl",
+      "init": "artifacts/bddl/t00_b_tomato_sauce_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_alphabet_soup_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_alphabet_soup_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "df088984da13131f8332ee0f13a7896c6a97afd02ee5007a42e8fc5e0893571e",
+      "source_init_sha256": "b9023e5546b239cacb2aaa3c76df3b73c3de6f97500fea5e27a0db9827002a19",
+      "bddl_sha256": "ad9eacf863f673ebde4661b29721270301f263581561c33f9dd8c3ab6c83132d",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t00_b_tomato_sauce_ba",
+      "scene_task_idx": 0,
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "alphabet_soup",
+      "B": "tomato_sauce",
+      "first_target": "tomato_sauce",
+      "second_target": "alphabet_soup",
+      "goal_atoms": [
+        "(In tomato_sauce_1 basket_1_contain_region)",
+        "(In alphabet_soup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the tomato sauce and place it in the basket and pick up the alphabet soup and place it in the basket",
+      "bddl": "artifacts/bddl/t00_b_tomato_sauce_ba.bddl",
+      "init": "artifacts/bddl/t00_b_tomato_sauce_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_alphabet_soup_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_alphabet_soup_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "df088984da13131f8332ee0f13a7896c6a97afd02ee5007a42e8fc5e0893571e",
+      "source_init_sha256": "b9023e5546b239cacb2aaa3c76df3b73c3de6f97500fea5e27a0db9827002a19",
+      "bddl_sha256": "0b2cc96563e74e8282333673f8162937d451f9c5a66c661e563de051598f85d6",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t00_b_butter_ab",
+      "scene_task_idx": 0,
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "alphabet_soup",
+      "B": "butter",
+      "first_target": "alphabet_soup",
+      "second_target": "butter",
+      "goal_atoms": [
+        "(In alphabet_soup_1 basket_1_contain_region)",
+        "(In butter_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the alphabet soup and place it in the basket and pick up the butter and place it in the basket",
+      "bddl": "artifacts/bddl/t00_b_butter_ab.bddl",
+      "init": "artifacts/bddl/t00_b_butter_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_alphabet_soup_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_alphabet_soup_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "df088984da13131f8332ee0f13a7896c6a97afd02ee5007a42e8fc5e0893571e",
+      "source_init_sha256": "b9023e5546b239cacb2aaa3c76df3b73c3de6f97500fea5e27a0db9827002a19",
+      "bddl_sha256": "267e2e2ffa747b36e6e5e25254fd7f1b36f405b9c2bee6998f197776744f334a",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t00_b_butter_ba",
+      "scene_task_idx": 0,
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "alphabet_soup",
+      "B": "butter",
+      "first_target": "butter",
+      "second_target": "alphabet_soup",
+      "goal_atoms": [
+        "(In butter_1 basket_1_contain_region)",
+        "(In alphabet_soup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the butter and place it in the basket and pick up the alphabet soup and place it in the basket",
+      "bddl": "artifacts/bddl/t00_b_butter_ba.bddl",
+      "init": "artifacts/bddl/t00_b_butter_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_alphabet_soup_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_alphabet_soup_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "df088984da13131f8332ee0f13a7896c6a97afd02ee5007a42e8fc5e0893571e",
+      "source_init_sha256": "b9023e5546b239cacb2aaa3c76df3b73c3de6f97500fea5e27a0db9827002a19",
+      "bddl_sha256": "e179df46b420954a6e46756112e44b8b14bf547b530835b1680c71db7f1cfc32",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t01_b_alphabet_soup_ab",
+      "scene_task_idx": 1,
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "cream_cheese",
+      "B": "alphabet_soup",
+      "first_target": "cream_cheese",
+      "second_target": "alphabet_soup",
+      "goal_atoms": [
+        "(In cream_cheese_1 basket_1_contain_region)",
+        "(In alphabet_soup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the cream cheese and place it in the basket and pick up the alphabet soup and place it in the basket",
+      "bddl": "artifacts/bddl/t01_b_alphabet_soup_ab.bddl",
+      "init": "artifacts/bddl/t01_b_alphabet_soup_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_cream_cheese_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_cream_cheese_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "7019f37ee158d67a21338a6df0c441dd8f84979b946b5e20bb49463ef0508ea2",
+      "source_init_sha256": "5ea5483bca8abd80a8f1935e2c60570d60eaaf6a985c283d62805b46fb76aa94",
+      "bddl_sha256": "a23e1e8f3990de7490691b30d9286befd7b42e133dcddd034467c34259bd7d25",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t01_b_alphabet_soup_ba",
+      "scene_task_idx": 1,
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "cream_cheese",
+      "B": "alphabet_soup",
+      "first_target": "alphabet_soup",
+      "second_target": "cream_cheese",
+      "goal_atoms": [
+        "(In alphabet_soup_1 basket_1_contain_region)",
+        "(In cream_cheese_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the alphabet soup and place it in the basket and pick up the cream cheese and place it in the basket",
+      "bddl": "artifacts/bddl/t01_b_alphabet_soup_ba.bddl",
+      "init": "artifacts/bddl/t01_b_alphabet_soup_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_cream_cheese_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_cream_cheese_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "7019f37ee158d67a21338a6df0c441dd8f84979b946b5e20bb49463ef0508ea2",
+      "source_init_sha256": "5ea5483bca8abd80a8f1935e2c60570d60eaaf6a985c283d62805b46fb76aa94",
+      "bddl_sha256": "3c7201e4bfe2b298b08f708d459a137027580d04d8f7806bd2115ec095705efd",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t01_b_milk_ab",
+      "scene_task_idx": 1,
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "cream_cheese",
+      "B": "milk",
+      "first_target": "cream_cheese",
+      "second_target": "milk",
+      "goal_atoms": [
+        "(In cream_cheese_1 basket_1_contain_region)",
+        "(In milk_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the cream cheese and place it in the basket and pick up the milk and place it in the basket",
+      "bddl": "artifacts/bddl/t01_b_milk_ab.bddl",
+      "init": "artifacts/bddl/t01_b_milk_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_cream_cheese_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_cream_cheese_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "7019f37ee158d67a21338a6df0c441dd8f84979b946b5e20bb49463ef0508ea2",
+      "source_init_sha256": "5ea5483bca8abd80a8f1935e2c60570d60eaaf6a985c283d62805b46fb76aa94",
+      "bddl_sha256": "b3553205d998dd7d937c34723d07a0b2be8786bf4a20ce8defcaf02e2ae64cd9",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t01_b_milk_ba",
+      "scene_task_idx": 1,
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "cream_cheese",
+      "B": "milk",
+      "first_target": "milk",
+      "second_target": "cream_cheese",
+      "goal_atoms": [
+        "(In milk_1 basket_1_contain_region)",
+        "(In cream_cheese_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the milk and place it in the basket and pick up the cream cheese and place it in the basket",
+      "bddl": "artifacts/bddl/t01_b_milk_ba.bddl",
+      "init": "artifacts/bddl/t01_b_milk_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_cream_cheese_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_cream_cheese_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "7019f37ee158d67a21338a6df0c441dd8f84979b946b5e20bb49463ef0508ea2",
+      "source_init_sha256": "5ea5483bca8abd80a8f1935e2c60570d60eaaf6a985c283d62805b46fb76aa94",
+      "bddl_sha256": "a564af63d2566004dd4ea89fdbab9a539375f15927e3ba72a8750c45e6eff3b5",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t01_b_tomato_sauce_ab",
+      "scene_task_idx": 1,
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "cream_cheese",
+      "B": "tomato_sauce",
+      "first_target": "cream_cheese",
+      "second_target": "tomato_sauce",
+      "goal_atoms": [
+        "(In cream_cheese_1 basket_1_contain_region)",
+        "(In tomato_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the cream cheese and place it in the basket and pick up the tomato sauce and place it in the basket",
+      "bddl": "artifacts/bddl/t01_b_tomato_sauce_ab.bddl",
+      "init": "artifacts/bddl/t01_b_tomato_sauce_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_cream_cheese_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_cream_cheese_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "7019f37ee158d67a21338a6df0c441dd8f84979b946b5e20bb49463ef0508ea2",
+      "source_init_sha256": "5ea5483bca8abd80a8f1935e2c60570d60eaaf6a985c283d62805b46fb76aa94",
+      "bddl_sha256": "fbbd91a50937c34d28877d29c688868961e664cf481b36927340c577048a535a",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t01_b_tomato_sauce_ba",
+      "scene_task_idx": 1,
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "cream_cheese",
+      "B": "tomato_sauce",
+      "first_target": "tomato_sauce",
+      "second_target": "cream_cheese",
+      "goal_atoms": [
+        "(In tomato_sauce_1 basket_1_contain_region)",
+        "(In cream_cheese_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the tomato sauce and place it in the basket and pick up the cream cheese and place it in the basket",
+      "bddl": "artifacts/bddl/t01_b_tomato_sauce_ba.bddl",
+      "init": "artifacts/bddl/t01_b_tomato_sauce_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_cream_cheese_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_cream_cheese_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "7019f37ee158d67a21338a6df0c441dd8f84979b946b5e20bb49463ef0508ea2",
+      "source_init_sha256": "5ea5483bca8abd80a8f1935e2c60570d60eaaf6a985c283d62805b46fb76aa94",
+      "bddl_sha256": "d570ef2e77d3d8b721b9d496750772c7129ab63a2c8e75b8536378effd14c595",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t01_b_butter_ab",
+      "scene_task_idx": 1,
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "cream_cheese",
+      "B": "butter",
+      "first_target": "cream_cheese",
+      "second_target": "butter",
+      "goal_atoms": [
+        "(In cream_cheese_1 basket_1_contain_region)",
+        "(In butter_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the cream cheese and place it in the basket and pick up the butter and place it in the basket",
+      "bddl": "artifacts/bddl/t01_b_butter_ab.bddl",
+      "init": "artifacts/bddl/t01_b_butter_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_cream_cheese_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_cream_cheese_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "7019f37ee158d67a21338a6df0c441dd8f84979b946b5e20bb49463ef0508ea2",
+      "source_init_sha256": "5ea5483bca8abd80a8f1935e2c60570d60eaaf6a985c283d62805b46fb76aa94",
+      "bddl_sha256": "51e60be575504959965de8d298f9a351a4c041950817670762a09348cc466a09",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t01_b_butter_ba",
+      "scene_task_idx": 1,
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "cream_cheese",
+      "B": "butter",
+      "first_target": "butter",
+      "second_target": "cream_cheese",
+      "goal_atoms": [
+        "(In butter_1 basket_1_contain_region)",
+        "(In cream_cheese_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the butter and place it in the basket and pick up the cream cheese and place it in the basket",
+      "bddl": "artifacts/bddl/t01_b_butter_ba.bddl",
+      "init": "artifacts/bddl/t01_b_butter_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_cream_cheese_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_cream_cheese_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "7019f37ee158d67a21338a6df0c441dd8f84979b946b5e20bb49463ef0508ea2",
+      "source_init_sha256": "5ea5483bca8abd80a8f1935e2c60570d60eaaf6a985c283d62805b46fb76aa94",
+      "bddl_sha256": "8b0b3e3ba78ddc5840b50fb14cc5ba8b6427a90cab295debd629f434da3864db",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t01_b_orange_juice_ab",
+      "scene_task_idx": 1,
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "cream_cheese",
+      "B": "orange_juice",
+      "first_target": "cream_cheese",
+      "second_target": "orange_juice",
+      "goal_atoms": [
+        "(In cream_cheese_1 basket_1_contain_region)",
+        "(In orange_juice_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the cream cheese and place it in the basket and pick up the orange juice and place it in the basket",
+      "bddl": "artifacts/bddl/t01_b_orange_juice_ab.bddl",
+      "init": "artifacts/bddl/t01_b_orange_juice_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_cream_cheese_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_cream_cheese_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "7019f37ee158d67a21338a6df0c441dd8f84979b946b5e20bb49463ef0508ea2",
+      "source_init_sha256": "5ea5483bca8abd80a8f1935e2c60570d60eaaf6a985c283d62805b46fb76aa94",
+      "bddl_sha256": "7173a8135194e74d70fddb2a37e3ffaa080634b419f63c408872a055f026bc4e",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t01_b_orange_juice_ba",
+      "scene_task_idx": 1,
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "cream_cheese",
+      "B": "orange_juice",
+      "first_target": "orange_juice",
+      "second_target": "cream_cheese",
+      "goal_atoms": [
+        "(In orange_juice_1 basket_1_contain_region)",
+        "(In cream_cheese_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the orange juice and place it in the basket and pick up the cream cheese and place it in the basket",
+      "bddl": "artifacts/bddl/t01_b_orange_juice_ba.bddl",
+      "init": "artifacts/bddl/t01_b_orange_juice_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_cream_cheese_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_cream_cheese_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "7019f37ee158d67a21338a6df0c441dd8f84979b946b5e20bb49463ef0508ea2",
+      "source_init_sha256": "5ea5483bca8abd80a8f1935e2c60570d60eaaf6a985c283d62805b46fb76aa94",
+      "bddl_sha256": "9546f20fdb1df33181408fc56c3dcd84d9dc9ddb6ee46fee25e2cb6c62d523ae",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t02_b_ketchup_ab",
+      "scene_task_idx": 2,
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "salad_dressing",
+      "B": "ketchup",
+      "first_target": "salad_dressing",
+      "second_target": "ketchup",
+      "goal_atoms": [
+        "(In salad_dressing_1 basket_1_contain_region)",
+        "(In ketchup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the salad dressing and place it in the basket and pick up the ketchup and place it in the basket",
+      "bddl": "artifacts/bddl/t02_b_ketchup_ab.bddl",
+      "init": "artifacts/bddl/t02_b_ketchup_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_salad_dressing_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_salad_dressing_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "024978e9e8f43a49b49d0965f4f426d364ce056307f0fcf5733dc4682fac437a",
+      "source_init_sha256": "6f6793ee550419a4a79dcb6ac83a9ba7bbf5e76e92fef26b82b6a7a10f72b04a",
+      "bddl_sha256": "773f7285985454e9fbb97d717ffc55f34d4c7ca401dafb727edb121b714734c8",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t02_b_ketchup_ba",
+      "scene_task_idx": 2,
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "salad_dressing",
+      "B": "ketchup",
+      "first_target": "ketchup",
+      "second_target": "salad_dressing",
+      "goal_atoms": [
+        "(In ketchup_1 basket_1_contain_region)",
+        "(In salad_dressing_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the ketchup and place it in the basket and pick up the salad dressing and place it in the basket",
+      "bddl": "artifacts/bddl/t02_b_ketchup_ba.bddl",
+      "init": "artifacts/bddl/t02_b_ketchup_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_salad_dressing_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_salad_dressing_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "024978e9e8f43a49b49d0965f4f426d364ce056307f0fcf5733dc4682fac437a",
+      "source_init_sha256": "6f6793ee550419a4a79dcb6ac83a9ba7bbf5e76e92fef26b82b6a7a10f72b04a",
+      "bddl_sha256": "4390f4e482dc4b84812f3265e5a1c0ca147f325d070e79a4a94fa0198853b8b5",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t02_b_alphabet_soup_ab",
+      "scene_task_idx": 2,
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "salad_dressing",
+      "B": "alphabet_soup",
+      "first_target": "salad_dressing",
+      "second_target": "alphabet_soup",
+      "goal_atoms": [
+        "(In salad_dressing_1 basket_1_contain_region)",
+        "(In alphabet_soup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the salad dressing and place it in the basket and pick up the alphabet soup and place it in the basket",
+      "bddl": "artifacts/bddl/t02_b_alphabet_soup_ab.bddl",
+      "init": "artifacts/bddl/t02_b_alphabet_soup_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_salad_dressing_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_salad_dressing_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "024978e9e8f43a49b49d0965f4f426d364ce056307f0fcf5733dc4682fac437a",
+      "source_init_sha256": "6f6793ee550419a4a79dcb6ac83a9ba7bbf5e76e92fef26b82b6a7a10f72b04a",
+      "bddl_sha256": "ad434f14ad6b65ec1a3c80b74a5461044dbd8ecf4fe9541f8a6b90a6e1e2f296",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t02_b_alphabet_soup_ba",
+      "scene_task_idx": 2,
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "salad_dressing",
+      "B": "alphabet_soup",
+      "first_target": "alphabet_soup",
+      "second_target": "salad_dressing",
+      "goal_atoms": [
+        "(In alphabet_soup_1 basket_1_contain_region)",
+        "(In salad_dressing_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the alphabet soup and place it in the basket and pick up the salad dressing and place it in the basket",
+      "bddl": "artifacts/bddl/t02_b_alphabet_soup_ba.bddl",
+      "init": "artifacts/bddl/t02_b_alphabet_soup_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_salad_dressing_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_salad_dressing_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "024978e9e8f43a49b49d0965f4f426d364ce056307f0fcf5733dc4682fac437a",
+      "source_init_sha256": "6f6793ee550419a4a79dcb6ac83a9ba7bbf5e76e92fef26b82b6a7a10f72b04a",
+      "bddl_sha256": "4288f5ffca0773da9eebef397905bbffb1064ded131510300dd98d369fb5a061",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t02_b_cream_cheese_ab",
+      "scene_task_idx": 2,
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "salad_dressing",
+      "B": "cream_cheese",
+      "first_target": "salad_dressing",
+      "second_target": "cream_cheese",
+      "goal_atoms": [
+        "(In salad_dressing_1 basket_1_contain_region)",
+        "(In cream_cheese_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the salad dressing and place it in the basket and pick up the cream cheese and place it in the basket",
+      "bddl": "artifacts/bddl/t02_b_cream_cheese_ab.bddl",
+      "init": "artifacts/bddl/t02_b_cream_cheese_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_salad_dressing_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_salad_dressing_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "024978e9e8f43a49b49d0965f4f426d364ce056307f0fcf5733dc4682fac437a",
+      "source_init_sha256": "6f6793ee550419a4a79dcb6ac83a9ba7bbf5e76e92fef26b82b6a7a10f72b04a",
+      "bddl_sha256": "e305640952bd9a772f3722e9e621decf6c2b6ea1c945613328c94b7e91d9746e",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t02_b_cream_cheese_ba",
+      "scene_task_idx": 2,
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "salad_dressing",
+      "B": "cream_cheese",
+      "first_target": "cream_cheese",
+      "second_target": "salad_dressing",
+      "goal_atoms": [
+        "(In cream_cheese_1 basket_1_contain_region)",
+        "(In salad_dressing_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the cream cheese and place it in the basket and pick up the salad dressing and place it in the basket",
+      "bddl": "artifacts/bddl/t02_b_cream_cheese_ba.bddl",
+      "init": "artifacts/bddl/t02_b_cream_cheese_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_salad_dressing_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_salad_dressing_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "024978e9e8f43a49b49d0965f4f426d364ce056307f0fcf5733dc4682fac437a",
+      "source_init_sha256": "6f6793ee550419a4a79dcb6ac83a9ba7bbf5e76e92fef26b82b6a7a10f72b04a",
+      "bddl_sha256": "c4b8c8f31dc23e2938515cd3435068a9f9a32d7dc62ed8eac44b147792a4adda",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t02_b_milk_ab",
+      "scene_task_idx": 2,
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "salad_dressing",
+      "B": "milk",
+      "first_target": "salad_dressing",
+      "second_target": "milk",
+      "goal_atoms": [
+        "(In salad_dressing_1 basket_1_contain_region)",
+        "(In milk_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the salad dressing and place it in the basket and pick up the milk and place it in the basket",
+      "bddl": "artifacts/bddl/t02_b_milk_ab.bddl",
+      "init": "artifacts/bddl/t02_b_milk_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_salad_dressing_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_salad_dressing_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "024978e9e8f43a49b49d0965f4f426d364ce056307f0fcf5733dc4682fac437a",
+      "source_init_sha256": "6f6793ee550419a4a79dcb6ac83a9ba7bbf5e76e92fef26b82b6a7a10f72b04a",
+      "bddl_sha256": "4d818b3ddc68f687c5377d2d71f806283c22248fa288326abee4d70f59b05a31",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t02_b_milk_ba",
+      "scene_task_idx": 2,
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "salad_dressing",
+      "B": "milk",
+      "first_target": "milk",
+      "second_target": "salad_dressing",
+      "goal_atoms": [
+        "(In milk_1 basket_1_contain_region)",
+        "(In salad_dressing_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the milk and place it in the basket and pick up the salad dressing and place it in the basket",
+      "bddl": "artifacts/bddl/t02_b_milk_ba.bddl",
+      "init": "artifacts/bddl/t02_b_milk_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_salad_dressing_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_salad_dressing_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "024978e9e8f43a49b49d0965f4f426d364ce056307f0fcf5733dc4682fac437a",
+      "source_init_sha256": "6f6793ee550419a4a79dcb6ac83a9ba7bbf5e76e92fef26b82b6a7a10f72b04a",
+      "bddl_sha256": "ca6d525dc3d221975563173f359bae45350a77669ee272a0468af3c6c08972aa",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t02_b_tomato_sauce_ab",
+      "scene_task_idx": 2,
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "salad_dressing",
+      "B": "tomato_sauce",
+      "first_target": "salad_dressing",
+      "second_target": "tomato_sauce",
+      "goal_atoms": [
+        "(In salad_dressing_1 basket_1_contain_region)",
+        "(In tomato_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the salad dressing and place it in the basket and pick up the tomato sauce and place it in the basket",
+      "bddl": "artifacts/bddl/t02_b_tomato_sauce_ab.bddl",
+      "init": "artifacts/bddl/t02_b_tomato_sauce_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_salad_dressing_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_salad_dressing_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "024978e9e8f43a49b49d0965f4f426d364ce056307f0fcf5733dc4682fac437a",
+      "source_init_sha256": "6f6793ee550419a4a79dcb6ac83a9ba7bbf5e76e92fef26b82b6a7a10f72b04a",
+      "bddl_sha256": "887110370d27aa213b129649a8d31faaf299dbfc54e5fb17cac065e926967ac4",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t02_b_tomato_sauce_ba",
+      "scene_task_idx": 2,
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "salad_dressing",
+      "B": "tomato_sauce",
+      "first_target": "tomato_sauce",
+      "second_target": "salad_dressing",
+      "goal_atoms": [
+        "(In tomato_sauce_1 basket_1_contain_region)",
+        "(In salad_dressing_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the tomato sauce and place it in the basket and pick up the salad dressing and place it in the basket",
+      "bddl": "artifacts/bddl/t02_b_tomato_sauce_ba.bddl",
+      "init": "artifacts/bddl/t02_b_tomato_sauce_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_salad_dressing_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_salad_dressing_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "024978e9e8f43a49b49d0965f4f426d364ce056307f0fcf5733dc4682fac437a",
+      "source_init_sha256": "6f6793ee550419a4a79dcb6ac83a9ba7bbf5e76e92fef26b82b6a7a10f72b04a",
+      "bddl_sha256": "ff1f830727a5812d7d4c9bd70bfbb4dd5affae13e1406301f54b9cfe14dc7249",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t03_b_chocolate_pudding_ab",
+      "scene_task_idx": 3,
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "bbq_sauce",
+      "B": "chocolate_pudding",
+      "first_target": "bbq_sauce",
+      "second_target": "chocolate_pudding",
+      "goal_atoms": [
+        "(In bbq_sauce_1 basket_1_contain_region)",
+        "(In chocolate_pudding_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the bbq sauce and place it in the basket and pick up the chocolate pudding and place it in the basket",
+      "bddl": "artifacts/bddl/t03_b_chocolate_pudding_ab.bddl",
+      "init": "artifacts/bddl/t03_b_chocolate_pudding_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_bbq_sauce_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_bbq_sauce_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "8a7e37b76fce5621e649e260dbcfcec7ce2f9a055ca09a4f1ebaf5ca74a739c2",
+      "source_init_sha256": "c524077b0c23006f28fc06760a5b5ab37eee67287b5329e84a34b0a8bd599b4a",
+      "bddl_sha256": "0d8623e5f8652ceea8705434c1f8c034293274643df275fc26bd98a1fc550bed",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t03_b_chocolate_pudding_ba",
+      "scene_task_idx": 3,
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "bbq_sauce",
+      "B": "chocolate_pudding",
+      "first_target": "chocolate_pudding",
+      "second_target": "bbq_sauce",
+      "goal_atoms": [
+        "(In chocolate_pudding_1 basket_1_contain_region)",
+        "(In bbq_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the chocolate pudding and place it in the basket and pick up the bbq sauce and place it in the basket",
+      "bddl": "artifacts/bddl/t03_b_chocolate_pudding_ba.bddl",
+      "init": "artifacts/bddl/t03_b_chocolate_pudding_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_bbq_sauce_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_bbq_sauce_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "8a7e37b76fce5621e649e260dbcfcec7ce2f9a055ca09a4f1ebaf5ca74a739c2",
+      "source_init_sha256": "c524077b0c23006f28fc06760a5b5ab37eee67287b5329e84a34b0a8bd599b4a",
+      "bddl_sha256": "3f48566111076a3da6fe25248ce1ec4324bbeab962647a7218b5ca328ca58fe3",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t03_b_ketchup_ab",
+      "scene_task_idx": 3,
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "bbq_sauce",
+      "B": "ketchup",
+      "first_target": "bbq_sauce",
+      "second_target": "ketchup",
+      "goal_atoms": [
+        "(In bbq_sauce_1 basket_1_contain_region)",
+        "(In ketchup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the bbq sauce and place it in the basket and pick up the ketchup and place it in the basket",
+      "bddl": "artifacts/bddl/t03_b_ketchup_ab.bddl",
+      "init": "artifacts/bddl/t03_b_ketchup_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_bbq_sauce_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_bbq_sauce_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "8a7e37b76fce5621e649e260dbcfcec7ce2f9a055ca09a4f1ebaf5ca74a739c2",
+      "source_init_sha256": "c524077b0c23006f28fc06760a5b5ab37eee67287b5329e84a34b0a8bd599b4a",
+      "bddl_sha256": "decb9b7ad51a21b8ba2c744b9102b52c584dbda6718e9a3eaa7de20dc2d923b8",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t03_b_ketchup_ba",
+      "scene_task_idx": 3,
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "bbq_sauce",
+      "B": "ketchup",
+      "first_target": "ketchup",
+      "second_target": "bbq_sauce",
+      "goal_atoms": [
+        "(In ketchup_1 basket_1_contain_region)",
+        "(In bbq_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the ketchup and place it in the basket and pick up the bbq sauce and place it in the basket",
+      "bddl": "artifacts/bddl/t03_b_ketchup_ba.bddl",
+      "init": "artifacts/bddl/t03_b_ketchup_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_bbq_sauce_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_bbq_sauce_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "8a7e37b76fce5621e649e260dbcfcec7ce2f9a055ca09a4f1ebaf5ca74a739c2",
+      "source_init_sha256": "c524077b0c23006f28fc06760a5b5ab37eee67287b5329e84a34b0a8bd599b4a",
+      "bddl_sha256": "63b1b128e1ccbbdabe00747f8dbed4bcebd0cb82b20d6e6f265bb5747f22bc3b",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t03_b_salad_dressing_ab",
+      "scene_task_idx": 3,
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "bbq_sauce",
+      "B": "salad_dressing",
+      "first_target": "bbq_sauce",
+      "second_target": "salad_dressing",
+      "goal_atoms": [
+        "(In bbq_sauce_1 basket_1_contain_region)",
+        "(In salad_dressing_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the bbq sauce and place it in the basket and pick up the salad dressing and place it in the basket",
+      "bddl": "artifacts/bddl/t03_b_salad_dressing_ab.bddl",
+      "init": "artifacts/bddl/t03_b_salad_dressing_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_bbq_sauce_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_bbq_sauce_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "8a7e37b76fce5621e649e260dbcfcec7ce2f9a055ca09a4f1ebaf5ca74a739c2",
+      "source_init_sha256": "c524077b0c23006f28fc06760a5b5ab37eee67287b5329e84a34b0a8bd599b4a",
+      "bddl_sha256": "891b85c565b76578c7d5cbc0f4bbae3c99147000efc0a96b5d0387e92e34a55e",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t03_b_salad_dressing_ba",
+      "scene_task_idx": 3,
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "bbq_sauce",
+      "B": "salad_dressing",
+      "first_target": "salad_dressing",
+      "second_target": "bbq_sauce",
+      "goal_atoms": [
+        "(In salad_dressing_1 basket_1_contain_region)",
+        "(In bbq_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the salad dressing and place it in the basket and pick up the bbq sauce and place it in the basket",
+      "bddl": "artifacts/bddl/t03_b_salad_dressing_ba.bddl",
+      "init": "artifacts/bddl/t03_b_salad_dressing_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_bbq_sauce_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_bbq_sauce_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "8a7e37b76fce5621e649e260dbcfcec7ce2f9a055ca09a4f1ebaf5ca74a739c2",
+      "source_init_sha256": "c524077b0c23006f28fc06760a5b5ab37eee67287b5329e84a34b0a8bd599b4a",
+      "bddl_sha256": "26edb05ccd14f3374d476068a8b41c1dcd3a19396c3328d8fe101db3ecaf9474",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t03_b_alphabet_soup_ab",
+      "scene_task_idx": 3,
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "bbq_sauce",
+      "B": "alphabet_soup",
+      "first_target": "bbq_sauce",
+      "second_target": "alphabet_soup",
+      "goal_atoms": [
+        "(In bbq_sauce_1 basket_1_contain_region)",
+        "(In alphabet_soup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the bbq sauce and place it in the basket and pick up the alphabet soup and place it in the basket",
+      "bddl": "artifacts/bddl/t03_b_alphabet_soup_ab.bddl",
+      "init": "artifacts/bddl/t03_b_alphabet_soup_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_bbq_sauce_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_bbq_sauce_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "8a7e37b76fce5621e649e260dbcfcec7ce2f9a055ca09a4f1ebaf5ca74a739c2",
+      "source_init_sha256": "c524077b0c23006f28fc06760a5b5ab37eee67287b5329e84a34b0a8bd599b4a",
+      "bddl_sha256": "50373cb973bb7d17c920eac6cfcc1cc5bd04e1b8ad58a689ef786a2f825a62d2",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t03_b_alphabet_soup_ba",
+      "scene_task_idx": 3,
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "bbq_sauce",
+      "B": "alphabet_soup",
+      "first_target": "alphabet_soup",
+      "second_target": "bbq_sauce",
+      "goal_atoms": [
+        "(In alphabet_soup_1 basket_1_contain_region)",
+        "(In bbq_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the alphabet soup and place it in the basket and pick up the bbq sauce and place it in the basket",
+      "bddl": "artifacts/bddl/t03_b_alphabet_soup_ba.bddl",
+      "init": "artifacts/bddl/t03_b_alphabet_soup_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_bbq_sauce_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_bbq_sauce_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "8a7e37b76fce5621e649e260dbcfcec7ce2f9a055ca09a4f1ebaf5ca74a739c2",
+      "source_init_sha256": "c524077b0c23006f28fc06760a5b5ab37eee67287b5329e84a34b0a8bd599b4a",
+      "bddl_sha256": "23ca6db8cdbabc790d41d889cabd3810894a67f89c626cfab3071b51cf97662b",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t03_b_cream_cheese_ab",
+      "scene_task_idx": 3,
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "bbq_sauce",
+      "B": "cream_cheese",
+      "first_target": "bbq_sauce",
+      "second_target": "cream_cheese",
+      "goal_atoms": [
+        "(In bbq_sauce_1 basket_1_contain_region)",
+        "(In cream_cheese_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the bbq sauce and place it in the basket and pick up the cream cheese and place it in the basket",
+      "bddl": "artifacts/bddl/t03_b_cream_cheese_ab.bddl",
+      "init": "artifacts/bddl/t03_b_cream_cheese_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_bbq_sauce_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_bbq_sauce_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "8a7e37b76fce5621e649e260dbcfcec7ce2f9a055ca09a4f1ebaf5ca74a739c2",
+      "source_init_sha256": "c524077b0c23006f28fc06760a5b5ab37eee67287b5329e84a34b0a8bd599b4a",
+      "bddl_sha256": "03fe5df65a8e2f3bdc24b5a50d40eb7c29cc604214f72b4d40bcdd0483d6f641",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t03_b_cream_cheese_ba",
+      "scene_task_idx": 3,
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "bbq_sauce",
+      "B": "cream_cheese",
+      "first_target": "cream_cheese",
+      "second_target": "bbq_sauce",
+      "goal_atoms": [
+        "(In cream_cheese_1 basket_1_contain_region)",
+        "(In bbq_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the cream cheese and place it in the basket and pick up the bbq sauce and place it in the basket",
+      "bddl": "artifacts/bddl/t03_b_cream_cheese_ba.bddl",
+      "init": "artifacts/bddl/t03_b_cream_cheese_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_bbq_sauce_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_bbq_sauce_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "8a7e37b76fce5621e649e260dbcfcec7ce2f9a055ca09a4f1ebaf5ca74a739c2",
+      "source_init_sha256": "c524077b0c23006f28fc06760a5b5ab37eee67287b5329e84a34b0a8bd599b4a",
+      "bddl_sha256": "1a56bc927421d3eaaa65d6164de853b3e0113056ac31087401ad0f7ccfd4904d",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t04_b_bbq_sauce_ab",
+      "scene_task_idx": 4,
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "ketchup",
+      "B": "bbq_sauce",
+      "first_target": "ketchup",
+      "second_target": "bbq_sauce",
+      "goal_atoms": [
+        "(In ketchup_1 basket_1_contain_region)",
+        "(In bbq_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the ketchup and place it in the basket and pick up the bbq sauce and place it in the basket",
+      "bddl": "artifacts/bddl/t04_b_bbq_sauce_ab.bddl",
+      "init": "artifacts/bddl/t04_b_bbq_sauce_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_ketchup_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_ketchup_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "4a4e545483a3fe30cf0ef3dc05bfe5e6ad5e37c94b4376dfa73fe1b60e75b319",
+      "source_init_sha256": "b987f7b11e8f9b47353cd7882e1da38ecdf6ec9715ad8a84346583ea71049fd3",
+      "bddl_sha256": "8da6b4a7dbdc3f194e0d71dae72abded562d1c66ac5beaa90518168d0494ba92",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t04_b_bbq_sauce_ba",
+      "scene_task_idx": 4,
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "ketchup",
+      "B": "bbq_sauce",
+      "first_target": "bbq_sauce",
+      "second_target": "ketchup",
+      "goal_atoms": [
+        "(In bbq_sauce_1 basket_1_contain_region)",
+        "(In ketchup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the bbq sauce and place it in the basket and pick up the ketchup and place it in the basket",
+      "bddl": "artifacts/bddl/t04_b_bbq_sauce_ba.bddl",
+      "init": "artifacts/bddl/t04_b_bbq_sauce_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_ketchup_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_ketchup_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "4a4e545483a3fe30cf0ef3dc05bfe5e6ad5e37c94b4376dfa73fe1b60e75b319",
+      "source_init_sha256": "b987f7b11e8f9b47353cd7882e1da38ecdf6ec9715ad8a84346583ea71049fd3",
+      "bddl_sha256": "20e9e082bc8ba5460c50fcc6f48fd7eeaac8fb78d9a96d1f0e25e295f6b8dc8c",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t04_b_salad_dressing_ab",
+      "scene_task_idx": 4,
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "ketchup",
+      "B": "salad_dressing",
+      "first_target": "ketchup",
+      "second_target": "salad_dressing",
+      "goal_atoms": [
+        "(In ketchup_1 basket_1_contain_region)",
+        "(In salad_dressing_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the ketchup and place it in the basket and pick up the salad dressing and place it in the basket",
+      "bddl": "artifacts/bddl/t04_b_salad_dressing_ab.bddl",
+      "init": "artifacts/bddl/t04_b_salad_dressing_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_ketchup_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_ketchup_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "4a4e545483a3fe30cf0ef3dc05bfe5e6ad5e37c94b4376dfa73fe1b60e75b319",
+      "source_init_sha256": "b987f7b11e8f9b47353cd7882e1da38ecdf6ec9715ad8a84346583ea71049fd3",
+      "bddl_sha256": "3d655302caa4170dc10cc6c64f337405e6b385b1f34d5b0cdc32ff000cd6f0d5",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t04_b_salad_dressing_ba",
+      "scene_task_idx": 4,
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "ketchup",
+      "B": "salad_dressing",
+      "first_target": "salad_dressing",
+      "second_target": "ketchup",
+      "goal_atoms": [
+        "(In salad_dressing_1 basket_1_contain_region)",
+        "(In ketchup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the salad dressing and place it in the basket and pick up the ketchup and place it in the basket",
+      "bddl": "artifacts/bddl/t04_b_salad_dressing_ba.bddl",
+      "init": "artifacts/bddl/t04_b_salad_dressing_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_ketchup_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_ketchup_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "4a4e545483a3fe30cf0ef3dc05bfe5e6ad5e37c94b4376dfa73fe1b60e75b319",
+      "source_init_sha256": "b987f7b11e8f9b47353cd7882e1da38ecdf6ec9715ad8a84346583ea71049fd3",
+      "bddl_sha256": "81084f497f793272e3d58d5ab2d73ea38b04e58530d77f07e93de2834e494080",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t04_b_alphabet_soup_ab",
+      "scene_task_idx": 4,
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "ketchup",
+      "B": "alphabet_soup",
+      "first_target": "ketchup",
+      "second_target": "alphabet_soup",
+      "goal_atoms": [
+        "(In ketchup_1 basket_1_contain_region)",
+        "(In alphabet_soup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the ketchup and place it in the basket and pick up the alphabet soup and place it in the basket",
+      "bddl": "artifacts/bddl/t04_b_alphabet_soup_ab.bddl",
+      "init": "artifacts/bddl/t04_b_alphabet_soup_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_ketchup_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_ketchup_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "4a4e545483a3fe30cf0ef3dc05bfe5e6ad5e37c94b4376dfa73fe1b60e75b319",
+      "source_init_sha256": "b987f7b11e8f9b47353cd7882e1da38ecdf6ec9715ad8a84346583ea71049fd3",
+      "bddl_sha256": "dbbfb26e4f7f9956800069099ef1bd5664e37c99ffdbf8f2513e88bf4af5a70b",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t04_b_alphabet_soup_ba",
+      "scene_task_idx": 4,
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "ketchup",
+      "B": "alphabet_soup",
+      "first_target": "alphabet_soup",
+      "second_target": "ketchup",
+      "goal_atoms": [
+        "(In alphabet_soup_1 basket_1_contain_region)",
+        "(In ketchup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the alphabet soup and place it in the basket and pick up the ketchup and place it in the basket",
+      "bddl": "artifacts/bddl/t04_b_alphabet_soup_ba.bddl",
+      "init": "artifacts/bddl/t04_b_alphabet_soup_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_ketchup_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_ketchup_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "4a4e545483a3fe30cf0ef3dc05bfe5e6ad5e37c94b4376dfa73fe1b60e75b319",
+      "source_init_sha256": "b987f7b11e8f9b47353cd7882e1da38ecdf6ec9715ad8a84346583ea71049fd3",
+      "bddl_sha256": "e34b6ad950ebf720c4ac2e3f3329bd9150df5e92ce2b5ae22cc2dd0de9e2ca64",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t04_b_cream_cheese_ab",
+      "scene_task_idx": 4,
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "ketchup",
+      "B": "cream_cheese",
+      "first_target": "ketchup",
+      "second_target": "cream_cheese",
+      "goal_atoms": [
+        "(In ketchup_1 basket_1_contain_region)",
+        "(In cream_cheese_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the ketchup and place it in the basket and pick up the cream cheese and place it in the basket",
+      "bddl": "artifacts/bddl/t04_b_cream_cheese_ab.bddl",
+      "init": "artifacts/bddl/t04_b_cream_cheese_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_ketchup_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_ketchup_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "4a4e545483a3fe30cf0ef3dc05bfe5e6ad5e37c94b4376dfa73fe1b60e75b319",
+      "source_init_sha256": "b987f7b11e8f9b47353cd7882e1da38ecdf6ec9715ad8a84346583ea71049fd3",
+      "bddl_sha256": "1f536b89b240d7abba616f48b7989cec461ec49da97afe40a670e43d2b20d77b",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t04_b_cream_cheese_ba",
+      "scene_task_idx": 4,
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "ketchup",
+      "B": "cream_cheese",
+      "first_target": "cream_cheese",
+      "second_target": "ketchup",
+      "goal_atoms": [
+        "(In cream_cheese_1 basket_1_contain_region)",
+        "(In ketchup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the cream cheese and place it in the basket and pick up the ketchup and place it in the basket",
+      "bddl": "artifacts/bddl/t04_b_cream_cheese_ba.bddl",
+      "init": "artifacts/bddl/t04_b_cream_cheese_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_ketchup_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_ketchup_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "4a4e545483a3fe30cf0ef3dc05bfe5e6ad5e37c94b4376dfa73fe1b60e75b319",
+      "source_init_sha256": "b987f7b11e8f9b47353cd7882e1da38ecdf6ec9715ad8a84346583ea71049fd3",
+      "bddl_sha256": "de974576797c3311642d8ace0ca0ec4b3915deb71d337645587aa05cff4428db",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t04_b_milk_ab",
+      "scene_task_idx": 4,
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "ketchup",
+      "B": "milk",
+      "first_target": "ketchup",
+      "second_target": "milk",
+      "goal_atoms": [
+        "(In ketchup_1 basket_1_contain_region)",
+        "(In milk_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the ketchup and place it in the basket and pick up the milk and place it in the basket",
+      "bddl": "artifacts/bddl/t04_b_milk_ab.bddl",
+      "init": "artifacts/bddl/t04_b_milk_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_ketchup_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_ketchup_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "4a4e545483a3fe30cf0ef3dc05bfe5e6ad5e37c94b4376dfa73fe1b60e75b319",
+      "source_init_sha256": "b987f7b11e8f9b47353cd7882e1da38ecdf6ec9715ad8a84346583ea71049fd3",
+      "bddl_sha256": "be9e2bc3d3b8d7879c85a97dc13416c6f0a21ec9fb215c4c40be34e1dddf3b5f",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t04_b_milk_ba",
+      "scene_task_idx": 4,
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "ketchup",
+      "B": "milk",
+      "first_target": "milk",
+      "second_target": "ketchup",
+      "goal_atoms": [
+        "(In milk_1 basket_1_contain_region)",
+        "(In ketchup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the milk and place it in the basket and pick up the ketchup and place it in the basket",
+      "bddl": "artifacts/bddl/t04_b_milk_ba.bddl",
+      "init": "artifacts/bddl/t04_b_milk_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_ketchup_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_ketchup_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "4a4e545483a3fe30cf0ef3dc05bfe5e6ad5e37c94b4376dfa73fe1b60e75b319",
+      "source_init_sha256": "b987f7b11e8f9b47353cd7882e1da38ecdf6ec9715ad8a84346583ea71049fd3",
+      "bddl_sha256": "de3342d635db8a47a646539e7f7f797eae3ecf91b8c94cd09a4743631ec7508f",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t05_b_milk_ab",
+      "scene_task_idx": 5,
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "tomato_sauce",
+      "B": "milk",
+      "first_target": "tomato_sauce",
+      "second_target": "milk",
+      "goal_atoms": [
+        "(In tomato_sauce_1 basket_1_contain_region)",
+        "(In milk_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the tomato sauce and place it in the basket and pick up the milk and place it in the basket",
+      "bddl": "artifacts/bddl/t05_b_milk_ab.bddl",
+      "init": "artifacts/bddl/t05_b_milk_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_tomato_sauce_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_tomato_sauce_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "b1f4bb69d256a05f693838de46182bb0d3de0de68eec350df1b5b1e76f6c136d",
+      "source_init_sha256": "2326da7ccacd3ebc75d80847f92d2e310b537b8dbbd8a76840a29b13f00f9a65",
+      "bddl_sha256": "48b65492e9523f463c4a8fb373044001ca58671627d7987d0448be1ec12890eb",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t05_b_milk_ba",
+      "scene_task_idx": 5,
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "tomato_sauce",
+      "B": "milk",
+      "first_target": "milk",
+      "second_target": "tomato_sauce",
+      "goal_atoms": [
+        "(In milk_1 basket_1_contain_region)",
+        "(In tomato_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the milk and place it in the basket and pick up the tomato sauce and place it in the basket",
+      "bddl": "artifacts/bddl/t05_b_milk_ba.bddl",
+      "init": "artifacts/bddl/t05_b_milk_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_tomato_sauce_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_tomato_sauce_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "b1f4bb69d256a05f693838de46182bb0d3de0de68eec350df1b5b1e76f6c136d",
+      "source_init_sha256": "2326da7ccacd3ebc75d80847f92d2e310b537b8dbbd8a76840a29b13f00f9a65",
+      "bddl_sha256": "d7ac4340f7672eee1ba943c7c8ef95f0a77c9b9805734f061c8d0bc27144d6c5",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t05_b_butter_ab",
+      "scene_task_idx": 5,
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "tomato_sauce",
+      "B": "butter",
+      "first_target": "tomato_sauce",
+      "second_target": "butter",
+      "goal_atoms": [
+        "(In tomato_sauce_1 basket_1_contain_region)",
+        "(In butter_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the tomato sauce and place it in the basket and pick up the butter and place it in the basket",
+      "bddl": "artifacts/bddl/t05_b_butter_ab.bddl",
+      "init": "artifacts/bddl/t05_b_butter_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_tomato_sauce_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_tomato_sauce_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "b1f4bb69d256a05f693838de46182bb0d3de0de68eec350df1b5b1e76f6c136d",
+      "source_init_sha256": "2326da7ccacd3ebc75d80847f92d2e310b537b8dbbd8a76840a29b13f00f9a65",
+      "bddl_sha256": "a6a1dc63a60f16fab2e22516fa09edbc29a932895c8d6b54962e5dd7b5235573",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t05_b_butter_ba",
+      "scene_task_idx": 5,
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "tomato_sauce",
+      "B": "butter",
+      "first_target": "butter",
+      "second_target": "tomato_sauce",
+      "goal_atoms": [
+        "(In butter_1 basket_1_contain_region)",
+        "(In tomato_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the butter and place it in the basket and pick up the tomato sauce and place it in the basket",
+      "bddl": "artifacts/bddl/t05_b_butter_ba.bddl",
+      "init": "artifacts/bddl/t05_b_butter_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_tomato_sauce_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_tomato_sauce_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "b1f4bb69d256a05f693838de46182bb0d3de0de68eec350df1b5b1e76f6c136d",
+      "source_init_sha256": "2326da7ccacd3ebc75d80847f92d2e310b537b8dbbd8a76840a29b13f00f9a65",
+      "bddl_sha256": "a698924ea09da824ac226b314feed96174404422945e903d4a6ec3eb75ddc19a",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t05_b_orange_juice_ab",
+      "scene_task_idx": 5,
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "tomato_sauce",
+      "B": "orange_juice",
+      "first_target": "tomato_sauce",
+      "second_target": "orange_juice",
+      "goal_atoms": [
+        "(In tomato_sauce_1 basket_1_contain_region)",
+        "(In orange_juice_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the tomato sauce and place it in the basket and pick up the orange juice and place it in the basket",
+      "bddl": "artifacts/bddl/t05_b_orange_juice_ab.bddl",
+      "init": "artifacts/bddl/t05_b_orange_juice_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_tomato_sauce_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_tomato_sauce_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "b1f4bb69d256a05f693838de46182bb0d3de0de68eec350df1b5b1e76f6c136d",
+      "source_init_sha256": "2326da7ccacd3ebc75d80847f92d2e310b537b8dbbd8a76840a29b13f00f9a65",
+      "bddl_sha256": "682b5ef52d9c6d2973122b890a83652814ac274c8177edf57b3b139455fb7316",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t05_b_orange_juice_ba",
+      "scene_task_idx": 5,
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "tomato_sauce",
+      "B": "orange_juice",
+      "first_target": "orange_juice",
+      "second_target": "tomato_sauce",
+      "goal_atoms": [
+        "(In orange_juice_1 basket_1_contain_region)",
+        "(In tomato_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the orange juice and place it in the basket and pick up the tomato sauce and place it in the basket",
+      "bddl": "artifacts/bddl/t05_b_orange_juice_ba.bddl",
+      "init": "artifacts/bddl/t05_b_orange_juice_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_tomato_sauce_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_tomato_sauce_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "b1f4bb69d256a05f693838de46182bb0d3de0de68eec350df1b5b1e76f6c136d",
+      "source_init_sha256": "2326da7ccacd3ebc75d80847f92d2e310b537b8dbbd8a76840a29b13f00f9a65",
+      "bddl_sha256": "c983d8a98aaacc59e1f3493e4bbe1fc83fcaeeadeef9ff059f5d5393ac677acf",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t05_b_chocolate_pudding_ab",
+      "scene_task_idx": 5,
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "tomato_sauce",
+      "B": "chocolate_pudding",
+      "first_target": "tomato_sauce",
+      "second_target": "chocolate_pudding",
+      "goal_atoms": [
+        "(In tomato_sauce_1 basket_1_contain_region)",
+        "(In chocolate_pudding_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the tomato sauce and place it in the basket and pick up the chocolate pudding and place it in the basket",
+      "bddl": "artifacts/bddl/t05_b_chocolate_pudding_ab.bddl",
+      "init": "artifacts/bddl/t05_b_chocolate_pudding_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_tomato_sauce_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_tomato_sauce_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "b1f4bb69d256a05f693838de46182bb0d3de0de68eec350df1b5b1e76f6c136d",
+      "source_init_sha256": "2326da7ccacd3ebc75d80847f92d2e310b537b8dbbd8a76840a29b13f00f9a65",
+      "bddl_sha256": "5701b3ad141b757676220e949f62c409da19d54e7aa757f632e1d8b0b2fc8d2c",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t05_b_chocolate_pudding_ba",
+      "scene_task_idx": 5,
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "tomato_sauce",
+      "B": "chocolate_pudding",
+      "first_target": "chocolate_pudding",
+      "second_target": "tomato_sauce",
+      "goal_atoms": [
+        "(In chocolate_pudding_1 basket_1_contain_region)",
+        "(In tomato_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the chocolate pudding and place it in the basket and pick up the tomato sauce and place it in the basket",
+      "bddl": "artifacts/bddl/t05_b_chocolate_pudding_ba.bddl",
+      "init": "artifacts/bddl/t05_b_chocolate_pudding_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_tomato_sauce_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_tomato_sauce_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "b1f4bb69d256a05f693838de46182bb0d3de0de68eec350df1b5b1e76f6c136d",
+      "source_init_sha256": "2326da7ccacd3ebc75d80847f92d2e310b537b8dbbd8a76840a29b13f00f9a65",
+      "bddl_sha256": "880c59a657439deeb0708ec5caa0811dfd44a614e49404df83fd41dc3467a4db",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t05_b_bbq_sauce_ab",
+      "scene_task_idx": 5,
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "tomato_sauce",
+      "B": "bbq_sauce",
+      "first_target": "tomato_sauce",
+      "second_target": "bbq_sauce",
+      "goal_atoms": [
+        "(In tomato_sauce_1 basket_1_contain_region)",
+        "(In bbq_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the tomato sauce and place it in the basket and pick up the bbq sauce and place it in the basket",
+      "bddl": "artifacts/bddl/t05_b_bbq_sauce_ab.bddl",
+      "init": "artifacts/bddl/t05_b_bbq_sauce_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_tomato_sauce_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_tomato_sauce_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "b1f4bb69d256a05f693838de46182bb0d3de0de68eec350df1b5b1e76f6c136d",
+      "source_init_sha256": "2326da7ccacd3ebc75d80847f92d2e310b537b8dbbd8a76840a29b13f00f9a65",
+      "bddl_sha256": "9f64d055582a5f678bd7e86811535e22c40bf98593cee2d6032fe8bb4285d0f3",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t05_b_bbq_sauce_ba",
+      "scene_task_idx": 5,
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "tomato_sauce",
+      "B": "bbq_sauce",
+      "first_target": "bbq_sauce",
+      "second_target": "tomato_sauce",
+      "goal_atoms": [
+        "(In bbq_sauce_1 basket_1_contain_region)",
+        "(In tomato_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the bbq sauce and place it in the basket and pick up the tomato sauce and place it in the basket",
+      "bddl": "artifacts/bddl/t05_b_bbq_sauce_ba.bddl",
+      "init": "artifacts/bddl/t05_b_bbq_sauce_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_tomato_sauce_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_tomato_sauce_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "b1f4bb69d256a05f693838de46182bb0d3de0de68eec350df1b5b1e76f6c136d",
+      "source_init_sha256": "2326da7ccacd3ebc75d80847f92d2e310b537b8dbbd8a76840a29b13f00f9a65",
+      "bddl_sha256": "a147d28e87e295abde8d3fea20cd7c75d13a9c44e0ee21e554e5fa9dd943301c",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t06_b_tomato_sauce_ab",
+      "scene_task_idx": 6,
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "butter",
+      "B": "tomato_sauce",
+      "first_target": "butter",
+      "second_target": "tomato_sauce",
+      "goal_atoms": [
+        "(In butter_1 basket_1_contain_region)",
+        "(In tomato_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the butter and place it in the basket and pick up the tomato sauce and place it in the basket",
+      "bddl": "artifacts/bddl/t06_b_tomato_sauce_ab.bddl",
+      "init": "artifacts/bddl/t06_b_tomato_sauce_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_butter_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_butter_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "5d8053b40ff33246fdbcc38548db84032c6bb647b4b88b6646d9cf6b73a5006c",
+      "source_init_sha256": "f0925a8653c5902c5a4d78a2053365382ad7d05be7f059abe19c2004ffc5dc59",
+      "bddl_sha256": "b88edce5a1df030930fdb30f340a8169b83d39af4de486a01a6606e7b388b38c",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t06_b_tomato_sauce_ba",
+      "scene_task_idx": 6,
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "butter",
+      "B": "tomato_sauce",
+      "first_target": "tomato_sauce",
+      "second_target": "butter",
+      "goal_atoms": [
+        "(In tomato_sauce_1 basket_1_contain_region)",
+        "(In butter_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the tomato sauce and place it in the basket and pick up the butter and place it in the basket",
+      "bddl": "artifacts/bddl/t06_b_tomato_sauce_ba.bddl",
+      "init": "artifacts/bddl/t06_b_tomato_sauce_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_butter_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_butter_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "5d8053b40ff33246fdbcc38548db84032c6bb647b4b88b6646d9cf6b73a5006c",
+      "source_init_sha256": "f0925a8653c5902c5a4d78a2053365382ad7d05be7f059abe19c2004ffc5dc59",
+      "bddl_sha256": "bd9d6fb6c55771ac4adcdc1c6cc5832c57e2b6dfc4a15fe265a82fc4493181dc",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t06_b_orange_juice_ab",
+      "scene_task_idx": 6,
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "butter",
+      "B": "orange_juice",
+      "first_target": "butter",
+      "second_target": "orange_juice",
+      "goal_atoms": [
+        "(In butter_1 basket_1_contain_region)",
+        "(In orange_juice_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the butter and place it in the basket and pick up the orange juice and place it in the basket",
+      "bddl": "artifacts/bddl/t06_b_orange_juice_ab.bddl",
+      "init": "artifacts/bddl/t06_b_orange_juice_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_butter_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_butter_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "5d8053b40ff33246fdbcc38548db84032c6bb647b4b88b6646d9cf6b73a5006c",
+      "source_init_sha256": "f0925a8653c5902c5a4d78a2053365382ad7d05be7f059abe19c2004ffc5dc59",
+      "bddl_sha256": "142606ef1788a4ddff60f7b5499ce88206330a4a405e9879bb176b7d55fa647f",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t06_b_orange_juice_ba",
+      "scene_task_idx": 6,
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "butter",
+      "B": "orange_juice",
+      "first_target": "orange_juice",
+      "second_target": "butter",
+      "goal_atoms": [
+        "(In orange_juice_1 basket_1_contain_region)",
+        "(In butter_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the orange juice and place it in the basket and pick up the butter and place it in the basket",
+      "bddl": "artifacts/bddl/t06_b_orange_juice_ba.bddl",
+      "init": "artifacts/bddl/t06_b_orange_juice_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_butter_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_butter_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "5d8053b40ff33246fdbcc38548db84032c6bb647b4b88b6646d9cf6b73a5006c",
+      "source_init_sha256": "f0925a8653c5902c5a4d78a2053365382ad7d05be7f059abe19c2004ffc5dc59",
+      "bddl_sha256": "963c34029887e7e49bd04722fe425936e20c66e5e8c5acaec6aab99e25a0e98f",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t06_b_chocolate_pudding_ab",
+      "scene_task_idx": 6,
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "butter",
+      "B": "chocolate_pudding",
+      "first_target": "butter",
+      "second_target": "chocolate_pudding",
+      "goal_atoms": [
+        "(In butter_1 basket_1_contain_region)",
+        "(In chocolate_pudding_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the butter and place it in the basket and pick up the chocolate pudding and place it in the basket",
+      "bddl": "artifacts/bddl/t06_b_chocolate_pudding_ab.bddl",
+      "init": "artifacts/bddl/t06_b_chocolate_pudding_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_butter_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_butter_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "5d8053b40ff33246fdbcc38548db84032c6bb647b4b88b6646d9cf6b73a5006c",
+      "source_init_sha256": "f0925a8653c5902c5a4d78a2053365382ad7d05be7f059abe19c2004ffc5dc59",
+      "bddl_sha256": "5f66a7e4858345be58027d57c4b0e8f8ad84ae71bd17988c40642a7a9ab57558",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t06_b_chocolate_pudding_ba",
+      "scene_task_idx": 6,
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "butter",
+      "B": "chocolate_pudding",
+      "first_target": "chocolate_pudding",
+      "second_target": "butter",
+      "goal_atoms": [
+        "(In chocolate_pudding_1 basket_1_contain_region)",
+        "(In butter_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the chocolate pudding and place it in the basket and pick up the butter and place it in the basket",
+      "bddl": "artifacts/bddl/t06_b_chocolate_pudding_ba.bddl",
+      "init": "artifacts/bddl/t06_b_chocolate_pudding_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_butter_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_butter_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "5d8053b40ff33246fdbcc38548db84032c6bb647b4b88b6646d9cf6b73a5006c",
+      "source_init_sha256": "f0925a8653c5902c5a4d78a2053365382ad7d05be7f059abe19c2004ffc5dc59",
+      "bddl_sha256": "e4096ce4ab0e3af7b9fb1dcc9bf7daa7788cf5c03b19617a69ee748e6ab9d587",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t06_b_bbq_sauce_ab",
+      "scene_task_idx": 6,
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "butter",
+      "B": "bbq_sauce",
+      "first_target": "butter",
+      "second_target": "bbq_sauce",
+      "goal_atoms": [
+        "(In butter_1 basket_1_contain_region)",
+        "(In bbq_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the butter and place it in the basket and pick up the bbq sauce and place it in the basket",
+      "bddl": "artifacts/bddl/t06_b_bbq_sauce_ab.bddl",
+      "init": "artifacts/bddl/t06_b_bbq_sauce_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_butter_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_butter_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "5d8053b40ff33246fdbcc38548db84032c6bb647b4b88b6646d9cf6b73a5006c",
+      "source_init_sha256": "f0925a8653c5902c5a4d78a2053365382ad7d05be7f059abe19c2004ffc5dc59",
+      "bddl_sha256": "73f89591cdc0d8e22c790d22f45fd05a3170ccf8998dd57d290e24873209a567",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t06_b_bbq_sauce_ba",
+      "scene_task_idx": 6,
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "butter",
+      "B": "bbq_sauce",
+      "first_target": "bbq_sauce",
+      "second_target": "butter",
+      "goal_atoms": [
+        "(In bbq_sauce_1 basket_1_contain_region)",
+        "(In butter_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the bbq sauce and place it in the basket and pick up the butter and place it in the basket",
+      "bddl": "artifacts/bddl/t06_b_bbq_sauce_ba.bddl",
+      "init": "artifacts/bddl/t06_b_bbq_sauce_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_butter_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_butter_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "5d8053b40ff33246fdbcc38548db84032c6bb647b4b88b6646d9cf6b73a5006c",
+      "source_init_sha256": "f0925a8653c5902c5a4d78a2053365382ad7d05be7f059abe19c2004ffc5dc59",
+      "bddl_sha256": "36c4181c6ccc57d6f056436af29ba9f279474dc75ca5090c73b670ff639fae0f",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t06_b_ketchup_ab",
+      "scene_task_idx": 6,
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "butter",
+      "B": "ketchup",
+      "first_target": "butter",
+      "second_target": "ketchup",
+      "goal_atoms": [
+        "(In butter_1 basket_1_contain_region)",
+        "(In ketchup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the butter and place it in the basket and pick up the ketchup and place it in the basket",
+      "bddl": "artifacts/bddl/t06_b_ketchup_ab.bddl",
+      "init": "artifacts/bddl/t06_b_ketchup_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_butter_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_butter_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "5d8053b40ff33246fdbcc38548db84032c6bb647b4b88b6646d9cf6b73a5006c",
+      "source_init_sha256": "f0925a8653c5902c5a4d78a2053365382ad7d05be7f059abe19c2004ffc5dc59",
+      "bddl_sha256": "3db21c25128c81d9afcf81feaff94757b7d94cc8d4025e907cd3b3bdb3878aa0",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t06_b_ketchup_ba",
+      "scene_task_idx": 6,
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "butter",
+      "B": "ketchup",
+      "first_target": "ketchup",
+      "second_target": "butter",
+      "goal_atoms": [
+        "(In ketchup_1 basket_1_contain_region)",
+        "(In butter_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the ketchup and place it in the basket and pick up the butter and place it in the basket",
+      "bddl": "artifacts/bddl/t06_b_ketchup_ba.bddl",
+      "init": "artifacts/bddl/t06_b_ketchup_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_butter_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_butter_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "5d8053b40ff33246fdbcc38548db84032c6bb647b4b88b6646d9cf6b73a5006c",
+      "source_init_sha256": "f0925a8653c5902c5a4d78a2053365382ad7d05be7f059abe19c2004ffc5dc59",
+      "bddl_sha256": "14fcb40165ff6ddef4e8130d4329783c4fb29f7d040a1724638d0f0be46f08e0",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t07_b_cream_cheese_ab",
+      "scene_task_idx": 7,
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "milk",
+      "B": "cream_cheese",
+      "first_target": "milk",
+      "second_target": "cream_cheese",
+      "goal_atoms": [
+        "(In milk_1 basket_1_contain_region)",
+        "(In cream_cheese_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the milk and place it in the basket and pick up the cream cheese and place it in the basket",
+      "bddl": "artifacts/bddl/t07_b_cream_cheese_ab.bddl",
+      "init": "artifacts/bddl/t07_b_cream_cheese_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_milk_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_milk_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "9910aabf6717e8ba3e24a3f8500d9bce9ee075346ea6961e8fd766f1257d2996",
+      "source_init_sha256": "4a86269faf4c98baff4c1428997ac828d00c56922a9a131be94e19b6027e1db2",
+      "bddl_sha256": "bb11bbd165a6ccecc7860412b38190a8a9fe9a9394394b78da33a6e367ae29d0",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t07_b_cream_cheese_ba",
+      "scene_task_idx": 7,
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "milk",
+      "B": "cream_cheese",
+      "first_target": "cream_cheese",
+      "second_target": "milk",
+      "goal_atoms": [
+        "(In cream_cheese_1 basket_1_contain_region)",
+        "(In milk_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the cream cheese and place it in the basket and pick up the milk and place it in the basket",
+      "bddl": "artifacts/bddl/t07_b_cream_cheese_ba.bddl",
+      "init": "artifacts/bddl/t07_b_cream_cheese_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_milk_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_milk_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "9910aabf6717e8ba3e24a3f8500d9bce9ee075346ea6961e8fd766f1257d2996",
+      "source_init_sha256": "4a86269faf4c98baff4c1428997ac828d00c56922a9a131be94e19b6027e1db2",
+      "bddl_sha256": "8acecbc8ebc7005cc332cbc16fbd6f665fc67715cc3764c73f0a0e721beea838",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t07_b_tomato_sauce_ab",
+      "scene_task_idx": 7,
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "milk",
+      "B": "tomato_sauce",
+      "first_target": "milk",
+      "second_target": "tomato_sauce",
+      "goal_atoms": [
+        "(In milk_1 basket_1_contain_region)",
+        "(In tomato_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the milk and place it in the basket and pick up the tomato sauce and place it in the basket",
+      "bddl": "artifacts/bddl/t07_b_tomato_sauce_ab.bddl",
+      "init": "artifacts/bddl/t07_b_tomato_sauce_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_milk_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_milk_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "9910aabf6717e8ba3e24a3f8500d9bce9ee075346ea6961e8fd766f1257d2996",
+      "source_init_sha256": "4a86269faf4c98baff4c1428997ac828d00c56922a9a131be94e19b6027e1db2",
+      "bddl_sha256": "9995f6c0c2cde6175682fa6f165ff3225d2c4a669a5c458d38e2aef8b7629115",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t07_b_tomato_sauce_ba",
+      "scene_task_idx": 7,
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "milk",
+      "B": "tomato_sauce",
+      "first_target": "tomato_sauce",
+      "second_target": "milk",
+      "goal_atoms": [
+        "(In tomato_sauce_1 basket_1_contain_region)",
+        "(In milk_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the tomato sauce and place it in the basket and pick up the milk and place it in the basket",
+      "bddl": "artifacts/bddl/t07_b_tomato_sauce_ba.bddl",
+      "init": "artifacts/bddl/t07_b_tomato_sauce_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_milk_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_milk_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "9910aabf6717e8ba3e24a3f8500d9bce9ee075346ea6961e8fd766f1257d2996",
+      "source_init_sha256": "4a86269faf4c98baff4c1428997ac828d00c56922a9a131be94e19b6027e1db2",
+      "bddl_sha256": "a3881c0ceceb0013b97bb0aeee47549628fe39c294a8079f89b58352fa6d999c",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t07_b_butter_ab",
+      "scene_task_idx": 7,
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "milk",
+      "B": "butter",
+      "first_target": "milk",
+      "second_target": "butter",
+      "goal_atoms": [
+        "(In milk_1 basket_1_contain_region)",
+        "(In butter_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the milk and place it in the basket and pick up the butter and place it in the basket",
+      "bddl": "artifacts/bddl/t07_b_butter_ab.bddl",
+      "init": "artifacts/bddl/t07_b_butter_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_milk_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_milk_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "9910aabf6717e8ba3e24a3f8500d9bce9ee075346ea6961e8fd766f1257d2996",
+      "source_init_sha256": "4a86269faf4c98baff4c1428997ac828d00c56922a9a131be94e19b6027e1db2",
+      "bddl_sha256": "feeef03579ddfc8ffba7e4ac05e1025eda00be4f18c56d32243621da14bc1b15",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t07_b_butter_ba",
+      "scene_task_idx": 7,
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "milk",
+      "B": "butter",
+      "first_target": "butter",
+      "second_target": "milk",
+      "goal_atoms": [
+        "(In butter_1 basket_1_contain_region)",
+        "(In milk_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the butter and place it in the basket and pick up the milk and place it in the basket",
+      "bddl": "artifacts/bddl/t07_b_butter_ba.bddl",
+      "init": "artifacts/bddl/t07_b_butter_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_milk_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_milk_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "9910aabf6717e8ba3e24a3f8500d9bce9ee075346ea6961e8fd766f1257d2996",
+      "source_init_sha256": "4a86269faf4c98baff4c1428997ac828d00c56922a9a131be94e19b6027e1db2",
+      "bddl_sha256": "1b1be77eea4af1fe577b670a3dc51d564faa2703f55c3bce2574c743c2569c21",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t07_b_orange_juice_ab",
+      "scene_task_idx": 7,
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "milk",
+      "B": "orange_juice",
+      "first_target": "milk",
+      "second_target": "orange_juice",
+      "goal_atoms": [
+        "(In milk_1 basket_1_contain_region)",
+        "(In orange_juice_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the milk and place it in the basket and pick up the orange juice and place it in the basket",
+      "bddl": "artifacts/bddl/t07_b_orange_juice_ab.bddl",
+      "init": "artifacts/bddl/t07_b_orange_juice_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_milk_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_milk_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "9910aabf6717e8ba3e24a3f8500d9bce9ee075346ea6961e8fd766f1257d2996",
+      "source_init_sha256": "4a86269faf4c98baff4c1428997ac828d00c56922a9a131be94e19b6027e1db2",
+      "bddl_sha256": "8c7aa7821e3813e706703e6215f50ce673b22081168c4c410c2af3cbd75713bb",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t07_b_orange_juice_ba",
+      "scene_task_idx": 7,
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "milk",
+      "B": "orange_juice",
+      "first_target": "orange_juice",
+      "second_target": "milk",
+      "goal_atoms": [
+        "(In orange_juice_1 basket_1_contain_region)",
+        "(In milk_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the orange juice and place it in the basket and pick up the milk and place it in the basket",
+      "bddl": "artifacts/bddl/t07_b_orange_juice_ba.bddl",
+      "init": "artifacts/bddl/t07_b_orange_juice_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_milk_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_milk_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "9910aabf6717e8ba3e24a3f8500d9bce9ee075346ea6961e8fd766f1257d2996",
+      "source_init_sha256": "4a86269faf4c98baff4c1428997ac828d00c56922a9a131be94e19b6027e1db2",
+      "bddl_sha256": "7321d21b3386179c4124d1cce9f18c744372657aba9bfecfd9f2775081a67b7c",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t07_b_chocolate_pudding_ab",
+      "scene_task_idx": 7,
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "milk",
+      "B": "chocolate_pudding",
+      "first_target": "milk",
+      "second_target": "chocolate_pudding",
+      "goal_atoms": [
+        "(In milk_1 basket_1_contain_region)",
+        "(In chocolate_pudding_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the milk and place it in the basket and pick up the chocolate pudding and place it in the basket",
+      "bddl": "artifacts/bddl/t07_b_chocolate_pudding_ab.bddl",
+      "init": "artifacts/bddl/t07_b_chocolate_pudding_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_milk_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_milk_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "9910aabf6717e8ba3e24a3f8500d9bce9ee075346ea6961e8fd766f1257d2996",
+      "source_init_sha256": "4a86269faf4c98baff4c1428997ac828d00c56922a9a131be94e19b6027e1db2",
+      "bddl_sha256": "3ae3bf8b323d3ad24e64b969ae0290875bc14ce4df554236947ed095b9bf5041",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t07_b_chocolate_pudding_ba",
+      "scene_task_idx": 7,
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "milk",
+      "B": "chocolate_pudding",
+      "first_target": "chocolate_pudding",
+      "second_target": "milk",
+      "goal_atoms": [
+        "(In chocolate_pudding_1 basket_1_contain_region)",
+        "(In milk_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the chocolate pudding and place it in the basket and pick up the milk and place it in the basket",
+      "bddl": "artifacts/bddl/t07_b_chocolate_pudding_ba.bddl",
+      "init": "artifacts/bddl/t07_b_chocolate_pudding_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_milk_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_milk_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "9910aabf6717e8ba3e24a3f8500d9bce9ee075346ea6961e8fd766f1257d2996",
+      "source_init_sha256": "4a86269faf4c98baff4c1428997ac828d00c56922a9a131be94e19b6027e1db2",
+      "bddl_sha256": "b4624d3ecfb9fcbcaa62d52bfda4be408bdcc3a0a612b821bc19b9c3366639b2",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t08_b_orange_juice_ab",
+      "scene_task_idx": 8,
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "chocolate_pudding",
+      "B": "orange_juice",
+      "first_target": "chocolate_pudding",
+      "second_target": "orange_juice",
+      "goal_atoms": [
+        "(In chocolate_pudding_1 basket_1_contain_region)",
+        "(In orange_juice_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the chocolate pudding and place it in the basket and pick up the orange juice and place it in the basket",
+      "bddl": "artifacts/bddl/t08_b_orange_juice_ab.bddl",
+      "init": "artifacts/bddl/t08_b_orange_juice_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "674ceabc400b7b16d46e8eaf678709d4a633235c7e0a80233775044fe38b19b0",
+      "source_init_sha256": "1124189363e76609da182dd92217cd02c41be58e88c42e3949d23ba160da75a5",
+      "bddl_sha256": "dd68f36f97f44f637c7bb536b8fd1980839e0fd4224b45cc0059dc11ecff4b21",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t08_b_orange_juice_ba",
+      "scene_task_idx": 8,
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "chocolate_pudding",
+      "B": "orange_juice",
+      "first_target": "orange_juice",
+      "second_target": "chocolate_pudding",
+      "goal_atoms": [
+        "(In orange_juice_1 basket_1_contain_region)",
+        "(In chocolate_pudding_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the orange juice and place it in the basket and pick up the chocolate pudding and place it in the basket",
+      "bddl": "artifacts/bddl/t08_b_orange_juice_ba.bddl",
+      "init": "artifacts/bddl/t08_b_orange_juice_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "674ceabc400b7b16d46e8eaf678709d4a633235c7e0a80233775044fe38b19b0",
+      "source_init_sha256": "1124189363e76609da182dd92217cd02c41be58e88c42e3949d23ba160da75a5",
+      "bddl_sha256": "df54d5cb97dbee44930b9431341aeb77d564ecd80b765dc2687edda3d13006ac",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t08_b_bbq_sauce_ab",
+      "scene_task_idx": 8,
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "chocolate_pudding",
+      "B": "bbq_sauce",
+      "first_target": "chocolate_pudding",
+      "second_target": "bbq_sauce",
+      "goal_atoms": [
+        "(In chocolate_pudding_1 basket_1_contain_region)",
+        "(In bbq_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the chocolate pudding and place it in the basket and pick up the bbq sauce and place it in the basket",
+      "bddl": "artifacts/bddl/t08_b_bbq_sauce_ab.bddl",
+      "init": "artifacts/bddl/t08_b_bbq_sauce_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "674ceabc400b7b16d46e8eaf678709d4a633235c7e0a80233775044fe38b19b0",
+      "source_init_sha256": "1124189363e76609da182dd92217cd02c41be58e88c42e3949d23ba160da75a5",
+      "bddl_sha256": "57881c918c144ce61b0eed02af06c84ae54af377463168080630dda86b2746dc",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t08_b_bbq_sauce_ba",
+      "scene_task_idx": 8,
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "chocolate_pudding",
+      "B": "bbq_sauce",
+      "first_target": "bbq_sauce",
+      "second_target": "chocolate_pudding",
+      "goal_atoms": [
+        "(In bbq_sauce_1 basket_1_contain_region)",
+        "(In chocolate_pudding_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the bbq sauce and place it in the basket and pick up the chocolate pudding and place it in the basket",
+      "bddl": "artifacts/bddl/t08_b_bbq_sauce_ba.bddl",
+      "init": "artifacts/bddl/t08_b_bbq_sauce_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "674ceabc400b7b16d46e8eaf678709d4a633235c7e0a80233775044fe38b19b0",
+      "source_init_sha256": "1124189363e76609da182dd92217cd02c41be58e88c42e3949d23ba160da75a5",
+      "bddl_sha256": "aa1c1e013ea16fba8b0dc82d8d2bc210f8e4f24837ce2141d29a57fee979156b",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t08_b_ketchup_ab",
+      "scene_task_idx": 8,
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "chocolate_pudding",
+      "B": "ketchup",
+      "first_target": "chocolate_pudding",
+      "second_target": "ketchup",
+      "goal_atoms": [
+        "(In chocolate_pudding_1 basket_1_contain_region)",
+        "(In ketchup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the chocolate pudding and place it in the basket and pick up the ketchup and place it in the basket",
+      "bddl": "artifacts/bddl/t08_b_ketchup_ab.bddl",
+      "init": "artifacts/bddl/t08_b_ketchup_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "674ceabc400b7b16d46e8eaf678709d4a633235c7e0a80233775044fe38b19b0",
+      "source_init_sha256": "1124189363e76609da182dd92217cd02c41be58e88c42e3949d23ba160da75a5",
+      "bddl_sha256": "212d2f61ac50dcc439e65396768ec5c14ba15ad887015900c5f40e94e938e552",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t08_b_ketchup_ba",
+      "scene_task_idx": 8,
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "chocolate_pudding",
+      "B": "ketchup",
+      "first_target": "ketchup",
+      "second_target": "chocolate_pudding",
+      "goal_atoms": [
+        "(In ketchup_1 basket_1_contain_region)",
+        "(In chocolate_pudding_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the ketchup and place it in the basket and pick up the chocolate pudding and place it in the basket",
+      "bddl": "artifacts/bddl/t08_b_ketchup_ba.bddl",
+      "init": "artifacts/bddl/t08_b_ketchup_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "674ceabc400b7b16d46e8eaf678709d4a633235c7e0a80233775044fe38b19b0",
+      "source_init_sha256": "1124189363e76609da182dd92217cd02c41be58e88c42e3949d23ba160da75a5",
+      "bddl_sha256": "4d3df37cc0fc406f74889b502f675069d03298f82e7be293dab8f72c2fa1ee62",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t08_b_salad_dressing_ab",
+      "scene_task_idx": 8,
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "chocolate_pudding",
+      "B": "salad_dressing",
+      "first_target": "chocolate_pudding",
+      "second_target": "salad_dressing",
+      "goal_atoms": [
+        "(In chocolate_pudding_1 basket_1_contain_region)",
+        "(In salad_dressing_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the chocolate pudding and place it in the basket and pick up the salad dressing and place it in the basket",
+      "bddl": "artifacts/bddl/t08_b_salad_dressing_ab.bddl",
+      "init": "artifacts/bddl/t08_b_salad_dressing_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "674ceabc400b7b16d46e8eaf678709d4a633235c7e0a80233775044fe38b19b0",
+      "source_init_sha256": "1124189363e76609da182dd92217cd02c41be58e88c42e3949d23ba160da75a5",
+      "bddl_sha256": "a6d9e0325ab72165af94164cc4b02adb55c8e7028b2862ade43e74fd227edede",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t08_b_salad_dressing_ba",
+      "scene_task_idx": 8,
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "chocolate_pudding",
+      "B": "salad_dressing",
+      "first_target": "salad_dressing",
+      "second_target": "chocolate_pudding",
+      "goal_atoms": [
+        "(In salad_dressing_1 basket_1_contain_region)",
+        "(In chocolate_pudding_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the salad dressing and place it in the basket and pick up the chocolate pudding and place it in the basket",
+      "bddl": "artifacts/bddl/t08_b_salad_dressing_ba.bddl",
+      "init": "artifacts/bddl/t08_b_salad_dressing_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "674ceabc400b7b16d46e8eaf678709d4a633235c7e0a80233775044fe38b19b0",
+      "source_init_sha256": "1124189363e76609da182dd92217cd02c41be58e88c42e3949d23ba160da75a5",
+      "bddl_sha256": "0d601eb3c0ec037e88313f6c9416ae0e8f6f21a27290313da91b58d67e5a002a",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t08_b_alphabet_soup_ab",
+      "scene_task_idx": 8,
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "chocolate_pudding",
+      "B": "alphabet_soup",
+      "first_target": "chocolate_pudding",
+      "second_target": "alphabet_soup",
+      "goal_atoms": [
+        "(In chocolate_pudding_1 basket_1_contain_region)",
+        "(In alphabet_soup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the chocolate pudding and place it in the basket and pick up the alphabet soup and place it in the basket",
+      "bddl": "artifacts/bddl/t08_b_alphabet_soup_ab.bddl",
+      "init": "artifacts/bddl/t08_b_alphabet_soup_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "674ceabc400b7b16d46e8eaf678709d4a633235c7e0a80233775044fe38b19b0",
+      "source_init_sha256": "1124189363e76609da182dd92217cd02c41be58e88c42e3949d23ba160da75a5",
+      "bddl_sha256": "f6acd7c7b2997561733183ee375f5273475b8add7ce9a7d609db15fe6c45bb43",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t08_b_alphabet_soup_ba",
+      "scene_task_idx": 8,
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "chocolate_pudding",
+      "B": "alphabet_soup",
+      "first_target": "alphabet_soup",
+      "second_target": "chocolate_pudding",
+      "goal_atoms": [
+        "(In alphabet_soup_1 basket_1_contain_region)",
+        "(In chocolate_pudding_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the alphabet soup and place it in the basket and pick up the chocolate pudding and place it in the basket",
+      "bddl": "artifacts/bddl/t08_b_alphabet_soup_ba.bddl",
+      "init": "artifacts/bddl/t08_b_alphabet_soup_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_chocolate_pudding_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "674ceabc400b7b16d46e8eaf678709d4a633235c7e0a80233775044fe38b19b0",
+      "source_init_sha256": "1124189363e76609da182dd92217cd02c41be58e88c42e3949d23ba160da75a5",
+      "bddl_sha256": "7346fc8dc016e62ad35632d1caf4c671116d9abb6fc6e8d1c731df2f9b13f269",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t09_b_butter_ab",
+      "scene_task_idx": 9,
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "orange_juice",
+      "B": "butter",
+      "first_target": "orange_juice",
+      "second_target": "butter",
+      "goal_atoms": [
+        "(In orange_juice_1 basket_1_contain_region)",
+        "(In butter_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the orange juice and place it in the basket and pick up the butter and place it in the basket",
+      "bddl": "artifacts/bddl/t09_b_butter_ab.bddl",
+      "init": "artifacts/bddl/t09_b_butter_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_orange_juice_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_orange_juice_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "6298533e7bcfb83e40779a77fda39216e8cd53f22bf1af6388585dad0abb0b50",
+      "source_init_sha256": "35b19ffab1fe08c6457ebd732c37d04b9bc0d22b7ce7de015986092ddddea151",
+      "bddl_sha256": "1dec013c3ea6969c78faeb70d64306a2b367c91e34e512281f8ef7bf5fc267cc",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t09_b_butter_ba",
+      "scene_task_idx": 9,
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "orange_juice",
+      "B": "butter",
+      "first_target": "butter",
+      "second_target": "orange_juice",
+      "goal_atoms": [
+        "(In butter_1 basket_1_contain_region)",
+        "(In orange_juice_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the butter and place it in the basket and pick up the orange juice and place it in the basket",
+      "bddl": "artifacts/bddl/t09_b_butter_ba.bddl",
+      "init": "artifacts/bddl/t09_b_butter_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_orange_juice_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_orange_juice_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "6298533e7bcfb83e40779a77fda39216e8cd53f22bf1af6388585dad0abb0b50",
+      "source_init_sha256": "35b19ffab1fe08c6457ebd732c37d04b9bc0d22b7ce7de015986092ddddea151",
+      "bddl_sha256": "4e9022ae1c71071bc08a6662862843086546404840197376ffd94a1f5145c0d6",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t09_b_chocolate_pudding_ab",
+      "scene_task_idx": 9,
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "orange_juice",
+      "B": "chocolate_pudding",
+      "first_target": "orange_juice",
+      "second_target": "chocolate_pudding",
+      "goal_atoms": [
+        "(In orange_juice_1 basket_1_contain_region)",
+        "(In chocolate_pudding_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the orange juice and place it in the basket and pick up the chocolate pudding and place it in the basket",
+      "bddl": "artifacts/bddl/t09_b_chocolate_pudding_ab.bddl",
+      "init": "artifacts/bddl/t09_b_chocolate_pudding_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_orange_juice_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_orange_juice_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "6298533e7bcfb83e40779a77fda39216e8cd53f22bf1af6388585dad0abb0b50",
+      "source_init_sha256": "35b19ffab1fe08c6457ebd732c37d04b9bc0d22b7ce7de015986092ddddea151",
+      "bddl_sha256": "332dc7b78ac1354f9c8987dc36aab668d168776915b1cd35f1da9cab70db69ca",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t09_b_chocolate_pudding_ba",
+      "scene_task_idx": 9,
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "orange_juice",
+      "B": "chocolate_pudding",
+      "first_target": "chocolate_pudding",
+      "second_target": "orange_juice",
+      "goal_atoms": [
+        "(In chocolate_pudding_1 basket_1_contain_region)",
+        "(In orange_juice_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the chocolate pudding and place it in the basket and pick up the orange juice and place it in the basket",
+      "bddl": "artifacts/bddl/t09_b_chocolate_pudding_ba.bddl",
+      "init": "artifacts/bddl/t09_b_chocolate_pudding_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_orange_juice_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_orange_juice_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "6298533e7bcfb83e40779a77fda39216e8cd53f22bf1af6388585dad0abb0b50",
+      "source_init_sha256": "35b19ffab1fe08c6457ebd732c37d04b9bc0d22b7ce7de015986092ddddea151",
+      "bddl_sha256": "a9d509c2792cbe736c12744c1bbedae39819affd34160b489246bea7752626f0",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t09_b_bbq_sauce_ab",
+      "scene_task_idx": 9,
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "orange_juice",
+      "B": "bbq_sauce",
+      "first_target": "orange_juice",
+      "second_target": "bbq_sauce",
+      "goal_atoms": [
+        "(In orange_juice_1 basket_1_contain_region)",
+        "(In bbq_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the orange juice and place it in the basket and pick up the bbq sauce and place it in the basket",
+      "bddl": "artifacts/bddl/t09_b_bbq_sauce_ab.bddl",
+      "init": "artifacts/bddl/t09_b_bbq_sauce_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_orange_juice_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_orange_juice_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "6298533e7bcfb83e40779a77fda39216e8cd53f22bf1af6388585dad0abb0b50",
+      "source_init_sha256": "35b19ffab1fe08c6457ebd732c37d04b9bc0d22b7ce7de015986092ddddea151",
+      "bddl_sha256": "a59395b2c1440a3066152d495edc6cb4bff7e6079ddf1e2bc8103d432787b641",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t09_b_bbq_sauce_ba",
+      "scene_task_idx": 9,
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "orange_juice",
+      "B": "bbq_sauce",
+      "first_target": "bbq_sauce",
+      "second_target": "orange_juice",
+      "goal_atoms": [
+        "(In bbq_sauce_1 basket_1_contain_region)",
+        "(In orange_juice_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the bbq sauce and place it in the basket and pick up the orange juice and place it in the basket",
+      "bddl": "artifacts/bddl/t09_b_bbq_sauce_ba.bddl",
+      "init": "artifacts/bddl/t09_b_bbq_sauce_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_orange_juice_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_orange_juice_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "6298533e7bcfb83e40779a77fda39216e8cd53f22bf1af6388585dad0abb0b50",
+      "source_init_sha256": "35b19ffab1fe08c6457ebd732c37d04b9bc0d22b7ce7de015986092ddddea151",
+      "bddl_sha256": "7cf8da443820945c7ecd53fbcbbf9e0ed9e92f3b195aea3a4d9b633fe783da40",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t09_b_ketchup_ab",
+      "scene_task_idx": 9,
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "orange_juice",
+      "B": "ketchup",
+      "first_target": "orange_juice",
+      "second_target": "ketchup",
+      "goal_atoms": [
+        "(In orange_juice_1 basket_1_contain_region)",
+        "(In ketchup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the orange juice and place it in the basket and pick up the ketchup and place it in the basket",
+      "bddl": "artifacts/bddl/t09_b_ketchup_ab.bddl",
+      "init": "artifacts/bddl/t09_b_ketchup_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_orange_juice_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_orange_juice_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "6298533e7bcfb83e40779a77fda39216e8cd53f22bf1af6388585dad0abb0b50",
+      "source_init_sha256": "35b19ffab1fe08c6457ebd732c37d04b9bc0d22b7ce7de015986092ddddea151",
+      "bddl_sha256": "ca462c49e4a41d29e04659a6d7a1767e9d05ceded4fb28ad1595b326c157e6fc",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t09_b_ketchup_ba",
+      "scene_task_idx": 9,
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "orange_juice",
+      "B": "ketchup",
+      "first_target": "ketchup",
+      "second_target": "orange_juice",
+      "goal_atoms": [
+        "(In ketchup_1 basket_1_contain_region)",
+        "(In orange_juice_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the ketchup and place it in the basket and pick up the orange juice and place it in the basket",
+      "bddl": "artifacts/bddl/t09_b_ketchup_ba.bddl",
+      "init": "artifacts/bddl/t09_b_ketchup_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_orange_juice_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_orange_juice_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "6298533e7bcfb83e40779a77fda39216e8cd53f22bf1af6388585dad0abb0b50",
+      "source_init_sha256": "35b19ffab1fe08c6457ebd732c37d04b9bc0d22b7ce7de015986092ddddea151",
+      "bddl_sha256": "2177bceb2968aa8ea1156f85a14df277298d7e7f1c4bf03a7047a27925bb0d4f",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t09_b_salad_dressing_ab",
+      "scene_task_idx": 9,
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "orange_juice",
+      "B": "salad_dressing",
+      "first_target": "orange_juice",
+      "second_target": "salad_dressing",
+      "goal_atoms": [
+        "(In orange_juice_1 basket_1_contain_region)",
+        "(In salad_dressing_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the orange juice and place it in the basket and pick up the salad dressing and place it in the basket",
+      "bddl": "artifacts/bddl/t09_b_salad_dressing_ab.bddl",
+      "init": "artifacts/bddl/t09_b_salad_dressing_ab.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_orange_juice_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_orange_juice_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "6298533e7bcfb83e40779a77fda39216e8cd53f22bf1af6388585dad0abb0b50",
+      "source_init_sha256": "35b19ffab1fe08c6457ebd732c37d04b9bc0d22b7ce7de015986092ddddea151",
+      "bddl_sha256": "2ed36bebbfce03b4b73304da6adc647850546753fce0e877eba1f8b318fe4189",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    },
+    {
+      "candidate_id": "t09_b_salad_dressing_ba",
+      "scene_task_idx": 9,
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "orange_juice",
+      "B": "salad_dressing",
+      "first_target": "salad_dressing",
+      "second_target": "orange_juice",
+      "goal_atoms": [
+        "(In salad_dressing_1 basket_1_contain_region)",
+        "(In orange_juice_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the salad dressing and place it in the basket and pick up the orange juice and place it in the basket",
+      "bddl": "artifacts/bddl/t09_b_salad_dressing_ba.bddl",
+      "init": "artifacts/bddl/t09_b_salad_dressing_ba.pruned_init",
+      "source_bddl": "bddl_files/libero_object/pick_up_the_orange_juice_and_place_it_in_the_basket.bddl",
+      "source_init": "init_files/libero_object/pick_up_the_orange_juice_and_place_it_in_the_basket.pruned_init",
+      "source_bddl_sha256": "6298533e7bcfb83e40779a77fda39216e8cd53f22bf1af6388585dad0abb0b50",
+      "source_init_sha256": "35b19ffab1fe08c6457ebd732c37d04b9bc0d22b7ce7de015986092ddddea151",
+      "bddl_sha256": "6c381ab1d6505505070b8e60f65fcc0161266a133846450bd138d636cb74c368",
+      "edits": [
+        ":language",
+        ":obj_of_interest",
+        ":goal"
+      ],
+      "unchanged_sections": [
+        ":regions",
+        ":objects",
+        ":fixtures",
+        ":init"
+      ]
+    }
+  ]
+}

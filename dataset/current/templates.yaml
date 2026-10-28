@@ -1,0 +1,163 @@
+templates_version: '1'
+templates:
+- template_id: completed-relation-rollback/articulation-goal/v1
+  description: Revoke a completed articulation or functional goal.
+  state_change_kinds:
+  - revert_articulation_goal
+  required_validity_constraints:
+  - baseline_task_solvable
+  - completed_relation_true_before_intervention
+  - no_object_penetration
+  - target_relation_false_after_intervention
+  - task_remains_solvable
+  - zero_velocity_after_intervention
+  source_ids:
+  - articulation-position-grid-20261016
+  - runtime-grid-expansion-20261009
+- template_id: completed-relation-rollback/articulation-position/v1
+  description: Reusable rollback scenario template.
+  state_change_kinds:
+  - revert_articulation_goal
+  required_validity_constraints:
+  - baseline_task_solvable
+  - completed_relation_true_before_intervention
+  - no_object_penetration
+  - task_remains_solvable
+  - zero_velocity_after_intervention
+  source_ids:
+  - articulation-position-grid-20261016
+- template_id: completed-relation-rollback/completed-pose/v1
+  description: Rotate the completed pose and measure native predicate truth.
+  state_change_kinds:
+  - displace_from_completed_pose
+  - move_to_relation_target
+  required_validity_constraints:
+  - baseline_task_solvable
+  - completed_relation_true_before_intervention
+  - no_object_penetration
+  - object_released_before_intervention
+  - task_remains_solvable
+  - zero_velocity_after_intervention
+  source_ids:
+  - progress-failure-expansion-20261014
+- template_id: completed-relation-rollback/container-above/v1
+  description: Move a released object to a legal pose above its container.
+  state_change_kinds:
+  - restore_container_above_pose
+  required_validity_constraints:
+  - baseline_task_solvable
+  - completed_relation_true_before_intervention
+  - no_object_penetration
+  - object_released_before_intervention
+  - target_relation_false_after_intervention
+  - task_remains_solvable
+  - zero_velocity_after_intervention
+  source_ids:
+  - rollback-battery-20261012
+  - runtime-validated-above-20261012
+- template_id: completed-relation-rollback/episode-initial-pose/v1
+  description: Restore the released object to its episode initial pose.
+  state_change_kinds:
+  - apply_episode_initial_offset
+  - displace_from_completed_pose
+  - restore_episode_initial_pose
+  required_validity_constraints:
+  - baseline_task_solvable
+  - completed_relation_true_before_intervention
+  - no_object_penetration
+  - target_relation_false_after_intervention
+  - task_remains_solvable
+  - zero_velocity_after_intervention
+  source_ids:
+  - progress-failure-expansion-20261014
+  - rollback-battery-20261012
+  - runtime-grid-expansion-20261009
+  - runtime-grid-expansion-20261010
+- template_id: completed-relation-rollback/functional-boundary/v1
+  description: Actuate to either side of the installed native functional threshold.
+  state_change_kinds:
+  - revert_articulation_goal
+  required_validity_constraints:
+  - baseline_task_solvable
+  - completed_relation_true_before_intervention
+  - no_object_penetration
+  - task_remains_solvable
+  - zero_velocity_after_intervention
+  source_ids:
+  - progress-failure-expansion-20261014
+- template_id: completed-relation-rollback/native-boundary/v1
+  description: Search adjacent legal native-predicate inside/outside poses.
+  state_change_kinds:
+  - displace_to_relation_boundary
+  required_validity_constraints:
+  - baseline_task_solvable
+  - completed_relation_true_before_intervention
+  - no_object_penetration
+  - object_released_before_intervention
+  - task_remains_solvable
+  - zero_velocity_after_intervention
+  source_ids:
+  - progress-failure-expansion-20261014
+- template_id: completed-relation-rollback/native-relation-set/v1
+  description: Atomically reset one or two verified native goals at completion.
+  state_change_kinds:
+  - restore_native_relation_set
+  required_validity_constraints:
+  - baseline_task_solvable
+  - completed_relation_true_before_intervention
+  - no_object_penetration
+  - object_released_before_intervention
+  - target_relation_false_after_intervention
+  - task_remains_solvable
+  - zero_velocity_after_intervention
+  source_ids:
+  - progress-failure-expansion-20261014
+- template_id: completed-relation-rollback/reference-object/v1
+  description: Move a relation reference object or relation pair.
+  state_change_kinds:
+  - displace_from_completed_pose
+  - displace_reference_object
+  - translate_relation_pair
+  required_validity_constraints:
+  - baseline_task_solvable
+  - completed_relation_true_before_intervention
+  - no_object_penetration
+  - object_released_before_intervention
+  - reference_motion_does_not_disturb_the_current_s2_object
+  - reference_object_is_not_a_fixed_fixture
+  - task_remains_solvable
+  - zero_velocity_after_intervention
+  source_ids:
+  - matrix-p2-reference-object-20261013
+  - progress-failure-expansion-20261014
+- template_id: completed-relation-rollback/support-surface-offset/v1
+  description: Apply a signed offset relative to the episode initial pose.
+  state_change_kinds:
+  - apply_episode_initial_offset
+  - displace_from_completed_pose
+  required_validity_constraints:
+  - baseline_task_solvable
+  - completed_relation_true_before_intervention
+  - no_object_penetration
+  - object_released_before_intervention
+  - target_relation_false_after_intervention
+  - task_remains_solvable
+  - zero_velocity_after_intervention
+  source_ids:
+  - rollback-battery-20261012
+  - runtime-grid-expansion-20261010
+  - two-subtask-expansion-20261012
+- template_id: completed-relation-rollback/temporal/v1
+  description: External timed restoration or revocation gated by native recovery.
+  state_change_kinds:
+  - restore_episode_initial_pose
+  required_validity_constraints:
+  - baseline_task_solvable
+  - completed_relation_true_before_intervention
+  - no_object_penetration
+  - object_released_before_intervention
+  - target_relation_false_after_intervention
+  - task_remains_solvable
+  - zero_velocity_after_intervention
+  source_ids:
+  - progress-failure-expansion-20261014

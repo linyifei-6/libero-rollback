@@ -1,0 +1,3804 @@
+{
+  "audit": {
+    "generated_at": "2026-10-19T17:18:42+0800",
+    "auditor": "libero-std-verifier (independent, read-only)",
+    "run_root": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019",
+    "spec": "/home/tarowang/workspace/roboot/libero-rollback/.tmp/std-baseline-audit/spec.json",
+    "official_protocol_reference": "/home/tarowang/workspace/roboot/libero-plus/openpi/examples/libero/main.py",
+    "scope": "CPU-only, read-only: JSON/log parsing + OpenCV video probe; no simulator, no model, no GPU",
+    "status": "partial"
+  },
+  "run_state": {
+    "status": "partial",
+    "episodes_present": 23,
+    "episodes_expected": 40,
+    "suites_present": [
+      "LIBERO_SPATIAL",
+      "LIBERO_OBJECT",
+      "LIBERO_GOAL"
+    ],
+    "missing_suites": [
+      "LIBERO_10"
+    ],
+    "missing_tasks": {
+      "LIBERO_GOAL": [
+        1,
+        2,
+        4,
+        6,
+        7,
+        8,
+        9
+      ],
+      "LIBERO_10": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    "in_progress": [
+      {
+        "suite": "LIBERO_GOAL",
+        "tasks_done": 3,
+        "tasks_missing": [
+          1,
+          2,
+          4,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      {
+        "suite": "LIBERO_10",
+        "tasks_done": 0,
+        "tasks_missing": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      }
+    ],
+    "suite_result_files": {
+      "LIBERO_SPATIAL": [
+        "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/run/first-pass/libero_spatial/pi05_20261019_165647/results.json"
+      ],
+      "LIBERO_OBJECT": [
+        "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/run/first-pass/libero_object/pi05_20261019_170621/results.json"
+      ],
+      "LIBERO_GOAL": [
+        "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/run/first-pass/libero_goal/pi05_20261019_171428/results.json"
+      ],
+      "LIBERO_10": []
+    }
+  },
+  "spec_integrity": {
+    "drift": [],
+    "ok": true
+  },
+  "manifest": {
+    "path": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/run/first-pass/manifest.json",
+    "exists": true,
+    "task_issues": [],
+    "protocol": {
+      "reference": "openpi/examples/libero/main.py (official pi05_libero LIBERO eval)",
+      "init_state_index": [
+        0
+      ],
+      "num_trials_per_task_this_pass": 1,
+      "max_steps": {
+        "LIBERO_SPATIAL": 220,
+        "LIBERO_OBJECT": 280,
+        "LIBERO_GOAL": 300,
+        "LIBERO_10": 520
+      },
+      "num_steps_wait": 10,
+      "replan_steps": 5,
+      "cam": "runtime default 256",
+      "video": true,
+      "episode_seed": 0,
+      "environment_seed_offset": 1000,
+      "deviations": [
+        "num_steps_wait=10 patched into the runtime overlay copy to match openpi",
+        "runtime seeds env with episode_seed+1000 and precomputes stabilized init states; openpi seeds np.random with 7 and starts from init_states[episode_idx]",
+        "runtime replan default is 10; 5 passed explicitly to match openpi"
+      ]
+    },
+    "declared_deviations": [
+      "num_steps_wait=10 patched into the runtime overlay copy to match openpi",
+      "runtime seeds env with episode_seed+1000 and precomputes stabilized init states; openpi seeds np.random with 7 and starts from init_states[episode_idx]",
+      "runtime replan default is 10; 5 passed explicitly to match openpi"
+    ],
+    "model": {
+      "adapter": "pi05",
+      "policy_config": "pi05_libero",
+      "checkpoint": "/home/tarowang/.cache/openpi/openpi-assets/checkpoints/pi05_libero",
+      "python": "/home/tarowang/workspace/roboot/libero-plus/openpi/.venv/bin/python"
+    },
+    "benchmark_code": {
+      "source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero (original LIBERO package)",
+      "restored_files": [
+        "benchmark/__init__.py <- benchmark/__init__.py.bak",
+        "benchmark/libero_suite_task_map.py <- benchmark/libero_suite_task_map.py.bak"
+      ],
+      "third_party_git_commit": "f78abd68ee283de9f9be3c8f7e2a9ad60246e95c"
+    },
+    "checkpoint_exists": true
+  },
+  "shadow": {
+    "root": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/shadow",
+    "benchmark_sha256": {
+      "libero/libero/__init__.py": "0f3263e04e58acef0a2184a8b73639292fe9ded83e87ff5d786606ca75bcfb94",
+      "libero/libero/benchmark/__init__.py": "4ce6edbb00b3280692f2e2b2e8a14bf6e2d5878965b0484a386c0355a867ecc5",
+      "libero/libero/benchmark/libero_suite_task_map.py": "0c950df0a785aa55de968bb38ccd865d2017f71ddbe6f48cfd05ac0742b6d62d",
+      "libero/libero/benchmark/mu_creation.py": "1aca2195e1b5ffb91ff22becb08763a060697584d887dd65fa1bc40ec99558fa"
+    },
+    "git_head_sha256": {
+      "libero/libero/__init__.py": "0f3263e04e58acef0a2184a8b73639292fe9ded83e87ff5d786606ca75bcfb94",
+      "libero/libero/benchmark/__init__.py": "4ce6edbb00b3280692f2e2b2e8a14bf6e2d5878965b0484a386c0355a867ecc5",
+      "libero/libero/benchmark/libero_suite_task_map.py": "0c950df0a785aa55de968bb38ccd865d2017f71ddbe6f48cfd05ac0742b6d62d",
+      "libero/libero/benchmark/mu_creation.py": "1aca2195e1b5ffb91ff22becb08763a060697584d887dd65fa1bc40ec99558fa"
+    },
+    "pristine_match": {
+      "libero/libero/__init__.py": true,
+      "libero/libero/benchmark/__init__.py": true,
+      "libero/libero/benchmark/libero_suite_task_map.py": true,
+      "libero/libero/benchmark/mu_creation.py": true
+    },
+    "config": "benchmark_root: /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero\nbddl_files: /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files\ninit_states: /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files\ndatasets: /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets\nassets: /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/assets\n",
+    "symlinks_ok": true,
+    "symlinks": {
+      "bddl_files": {
+        "target": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files",
+        "expected": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files",
+        "ok": true
+      },
+      "init_files": {
+        "target": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files",
+        "expected": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files",
+        "ok": true
+      },
+      "assets": {
+        "target": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/assets",
+        "expected": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/assets",
+        "ok": true
+      }
+    }
+  },
+  "protocol": {
+    "official": {
+      "max_steps": {
+        "LIBERO_SPATIAL": 220,
+        "LIBERO_OBJECT": 280,
+        "LIBERO_GOAL": 300,
+        "LIBERO_10": 520
+      },
+      "num_trials_per_task": 50,
+      "num_steps_wait": 10,
+      "replan_steps": 5,
+      "seed": 7,
+      "resolution": 256
+    },
+    "per_episode_issues": [],
+    "overlay_diff": {
+      "libero_runtime_py": "/home/tarowang/workspace/roboot/libero-plus/libero-runtime/tools/run_benchmark.py",
+      "overlay_py": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/runtime/tools/run_benchmark.py",
+      "diff": "92c92\n< NUM_STEPS_WAIT = 5\n---\n> NUM_STEPS_WAIT = 10\n",
+      "changed": true
+    },
+    "runtime_semantics": {
+      "path": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/runtime/tools/run_benchmark.py",
+      "snippets": {
+        "num_steps_wait": {
+          "line": 92,
+          "text": "92: NUM_STEPS_WAIT = 10"
+        },
+        "select_init_state": {
+          "line": 908,
+          "text": "908: def select_init_state(init_states, seed: int):\n909:     \"\"\"Select the same deterministic benchmark state for a given seed.\"\"\"\n910:     if init_states is None or len(init_states) == 0:\n911:         return None\n912:     return init_states[seed % len(init_states)]\n913:"
+        },
+        "stabilization_steps": {
+          "line": 1859,
+          "text": "1859:     for _ in range(NUM_STEPS_WAIT):\n1860:         stabilized_obs, _, _, _ = env.step(DUMMY_ACTION)\n1861:     pass  # reset_step_counter not on OffScreenRenderEnv"
+        },
+        "use_stabilized_policy_obs": {
+          "line": 1862,
+          "text": "1862:     if use_stabilized_policy_obs:\n1863:         obs = stabilized_obs"
+        },
+        "task_instruction": {
+          "line": 484,
+          "text": "484: def task_instruction(task, bddl_path: str) -> str:\n485:     \"\"\"Prefer the task instruction declared by BDDL over filename metadata.\"\"\"\n486:     try:\n487:         instruction = str(\n488:             BDDLUtils.get_problem_info(bddl_path).get(\"language_instruction\", \"\")\n489:         ).strip()\n490:     except Exception:\n491:         instruction = \"\"\n492:     if instruction:\n493:         return instruction\n494:     if task is None:"
+        },
+        "success_semantics": {
+          "line": 3937,
+          "text": "3937:                 default_success = bool(env.check_success())\n3938:                 if instruction_switch_monitor is not None:"
+        }
+      }
+    },
+    "expected_deviations": [
+      "1 init state per task (init_state_index=[0]); official protocol runs 50 trials/task",
+      "runtime episode seed 0 with environment seed = episode_seed + 1000; openpi seeds np.random with 7 and env.seed(7)",
+      "runtime derives the language instruction from the BDDL :language field; openpi main.py uses benchmark task.language",
+      "runtime initial policy observation is the post-stabilization observation (stabilization_control_steps=10, same observable semantics as openpi's 10 dummy steps)"
+    ]
+  },
+  "instruction_deviation": {
+    "episodes_audited": 23,
+    "mismatching_episodes": 22,
+    "mismatching_episode_detail": [
+      {
+        "suite": "LIBERO_SPATIAL",
+        "idx": 0,
+        "official_benchmark_language": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+        "actual_policy_prompt": "pick the akita black bowl between the plate and the ramekin and place it on the plate",
+        "bddl_language": "Pick the akita black bowl between the plate and the ramekin and place it on the plate",
+        "matches_bddl": true
+      },
+      {
+        "suite": "LIBERO_SPATIAL",
+        "idx": 1,
+        "official_benchmark_language": "pick up the black bowl next to the ramekin and place it on the plate",
+        "actual_policy_prompt": "pick the akita black bowl next to the ramekin and place it on the plate",
+        "bddl_language": "Pick the akita black bowl next to the ramekin and place it on the plate",
+        "matches_bddl": true
+      },
+      {
+        "suite": "LIBERO_SPATIAL",
+        "idx": 2,
+        "official_benchmark_language": "pick up the black bowl from table center and place it on the plate",
+        "actual_policy_prompt": "pick the akita black bowl from table center and place it on the plate",
+        "bddl_language": "Pick the akita black bowl from table center and place it on the plate",
+        "matches_bddl": true
+      },
+      {
+        "suite": "LIBERO_SPATIAL",
+        "idx": 3,
+        "official_benchmark_language": "pick up the black bowl on the cookie box and place it on the plate",
+        "actual_policy_prompt": "pick the akita black bowl on the cookies box and place it on the plate",
+        "bddl_language": "Pick the akita black bowl on the cookies box and place it on the plate",
+        "matches_bddl": true
+      },
+      {
+        "suite": "LIBERO_SPATIAL",
+        "idx": 4,
+        "official_benchmark_language": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+        "actual_policy_prompt": "pick the akita black bowl in the top layer of the wooden cabinet and place it on the plate",
+        "bddl_language": "Pick the akita black bowl in the top layer of the wooden cabinet and place it on the plate",
+        "matches_bddl": true
+      },
+      {
+        "suite": "LIBERO_SPATIAL",
+        "idx": 5,
+        "official_benchmark_language": "pick up the black bowl on the ramekin and place it on the plate",
+        "actual_policy_prompt": "pick the akita black bowl on the ramekin and place it on the plate",
+        "bddl_language": "Pick the akita black bowl on the ramekin and place it on the plate",
+        "matches_bddl": true
+      },
+      {
+        "suite": "LIBERO_SPATIAL",
+        "idx": 6,
+        "official_benchmark_language": "pick up the black bowl next to the cookie box and place it on the plate",
+        "actual_policy_prompt": "pick the akita black bowl next to the cookies box and place it on the plate",
+        "bddl_language": "Pick the akita black bowl next to the cookies box and place it on the plate",
+        "matches_bddl": true
+      },
+      {
+        "suite": "LIBERO_SPATIAL",
+        "idx": 7,
+        "official_benchmark_language": "pick up the black bowl on the stove and place it on the plate",
+        "actual_policy_prompt": "pick the akita black bowl on the stove and place it on the plate",
+        "bddl_language": "Pick the akita black bowl on the stove and place it on the plate",
+        "matches_bddl": true
+      },
+      {
+        "suite": "LIBERO_SPATIAL",
+        "idx": 8,
+        "official_benchmark_language": "pick up the black bowl next to the plate and place it on the plate",
+        "actual_policy_prompt": "pick the akita black bowl next to the plate and place it on the plate",
+        "bddl_language": "Pick the akita black bowl next to the plate and place it on the plate",
+        "matches_bddl": true
+      },
+      {
+        "suite": "LIBERO_SPATIAL",
+        "idx": 9,
+        "official_benchmark_language": "pick up the black bowl on the wooden cabinet and place it on the plate",
+        "actual_policy_prompt": "pick the akita black bowl on the wooden cabinet and place it on the plate",
+        "bddl_language": "Pick the akita black bowl on the wooden cabinet and place it on the plate",
+        "matches_bddl": true
+      },
+      {
+        "suite": "LIBERO_OBJECT",
+        "idx": 0,
+        "official_benchmark_language": "pick up the alphabet soup and place it in the basket",
+        "actual_policy_prompt": "pick the alphabet soup and place it in the basket",
+        "bddl_language": "Pick the alphabet soup and place it in the basket",
+        "matches_bddl": true
+      },
+      {
+        "suite": "LIBERO_OBJECT",
+        "idx": 1,
+        "official_benchmark_language": "pick up the cream cheese and place it in the basket",
+        "actual_policy_prompt": "pick the cream cheese and place it in the basket",
+        "bddl_language": "Pick the cream cheese and place it in the basket",
+        "matches_bddl": true
+      },
+      {
+        "suite": "LIBERO_OBJECT",
+        "idx": 2,
+        "official_benchmark_language": "pick up the salad dressing and place it in the basket",
+        "actual_policy_prompt": "pick the salad dressing and place it in the basket",
+        "bddl_language": "Pick the salad dressing and place it in the basket",
+        "matches_bddl": true
+      },
+      {
+        "suite": "LIBERO_OBJECT",
+        "idx": 3,
+        "official_benchmark_language": "pick up the bbq sauce and place it in the basket",
+        "actual_policy_prompt": "pick the bbq sauce and place it in the basket",
+        "bddl_language": "Pick the bbq sauce and place it in the basket",
+        "matches_bddl": true
+      },
+      {
+        "suite": "LIBERO_OBJECT",
+        "idx": 4,
+        "official_benchmark_language": "pick up the ketchup and place it in the basket",
+        "actual_policy_prompt": "pick the ketchup and place it in the basket",
+        "bddl_language": "Pick the ketchup and place it in the basket",
+        "matches_bddl": true
+      },
+      {
+        "suite": "LIBERO_OBJECT",
+        "idx": 5,
+        "official_benchmark_language": "pick up the tomato sauce and place it in the basket",
+        "actual_policy_prompt": "pick the tomato sauce and place it in the basket",
+        "bddl_language": "Pick the tomato sauce and place it in the basket",
+        "matches_bddl": true
+      },
+      {
+        "suite": "LIBERO_OBJECT",
+        "idx": 6,
+        "official_benchmark_language": "pick up the butter and place it in the basket",
+        "actual_policy_prompt": "pick the butter and place it in the basket",
+        "bddl_language": "Pick the butter and place it in the basket",
+        "matches_bddl": true
+      },
+      {
+        "suite": "LIBERO_OBJECT",
+        "idx": 7,
+        "official_benchmark_language": "pick up the milk and place it in the basket",
+        "actual_policy_prompt": "pick the milk and place it in the basket",
+        "bddl_language": "Pick the milk and place it in the basket",
+        "matches_bddl": true
+      },
+      {
+        "suite": "LIBERO_OBJECT",
+        "idx": 8,
+        "official_benchmark_language": "pick up the chocolate pudding and place it in the basket",
+        "actual_policy_prompt": "pick the chocolate pudding and place it in the basket",
+        "bddl_language": "Pick the chocolate pudding and place it in the basket",
+        "matches_bddl": true
+      },
+      {
+        "suite": "LIBERO_OBJECT",
+        "idx": 9,
+        "official_benchmark_language": "pick up the orange juice and place it in the basket",
+        "actual_policy_prompt": "pick the orange juice and place it in the basket",
+        "bddl_language": "Pick the orange juice and place it in the basket",
+        "matches_bddl": true
+      },
+      {
+        "suite": "LIBERO_GOAL",
+        "idx": 0,
+        "official_benchmark_language": "open the middle drawer of the cabinet",
+        "actual_policy_prompt": "open the middle layer of the drawer",
+        "bddl_language": "Open the middle layer of the drawer",
+        "matches_bddl": true
+      },
+      {
+        "suite": "LIBERO_GOAL",
+        "idx": 3,
+        "official_benchmark_language": "open the top drawer and put the bowl inside",
+        "actual_policy_prompt": "open the top layer of the drawer and put the bowl inside",
+        "bddl_language": "Open the top layer of the drawer and put the bowl inside",
+        "matches_bddl": true
+      }
+    ],
+    "all_40_bddl_vs_official": [
+      {
+        "suite": "LIBERO_SPATIAL",
+        "idx": 0,
+        "official": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+        "bddl": "Pick the akita black bowl between the plate and the ramekin and place it on the plate"
+      },
+      {
+        "suite": "LIBERO_SPATIAL",
+        "idx": 1,
+        "official": "pick up the black bowl next to the ramekin and place it on the plate",
+        "bddl": "Pick the akita black bowl next to the ramekin and place it on the plate"
+      },
+      {
+        "suite": "LIBERO_SPATIAL",
+        "idx": 2,
+        "official": "pick up the black bowl from table center and place it on the plate",
+        "bddl": "Pick the akita black bowl from table center and place it on the plate"
+      },
+      {
+        "suite": "LIBERO_SPATIAL",
+        "idx": 3,
+        "official": "pick up the black bowl on the cookie box and place it on the plate",
+        "bddl": "Pick the akita black bowl on the cookies box and place it on the plate"
+      },
+      {
+        "suite": "LIBERO_SPATIAL",
+        "idx": 4,
+        "official": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+        "bddl": "Pick the akita black bowl in the top layer of the wooden cabinet and place it on the plate"
+      },
+      {
+        "suite": "LIBERO_SPATIAL",
+        "idx": 5,
+        "official": "pick up the black bowl on the ramekin and place it on the plate",
+        "bddl": "Pick the akita black bowl on the ramekin and place it on the plate"
+      },
+      {
+        "suite": "LIBERO_SPATIAL",
+        "idx": 6,
+        "official": "pick up the black bowl next to the cookie box and place it on the plate",
+        "bddl": "Pick the akita black bowl next to the cookies box and place it on the plate"
+      },
+      {
+        "suite": "LIBERO_SPATIAL",
+        "idx": 7,
+        "official": "pick up the black bowl on the stove and place it on the plate",
+        "bddl": "Pick the akita black bowl on the stove and place it on the plate"
+      },
+      {
+        "suite": "LIBERO_SPATIAL",
+        "idx": 8,
+        "official": "pick up the black bowl next to the plate and place it on the plate",
+        "bddl": "Pick the akita black bowl next to the plate and place it on the plate"
+      },
+      {
+        "suite": "LIBERO_SPATIAL",
+        "idx": 9,
+        "official": "pick up the black bowl on the wooden cabinet and place it on the plate",
+        "bddl": "Pick the akita black bowl on the wooden cabinet and place it on the plate"
+      },
+      {
+        "suite": "LIBERO_OBJECT",
+        "idx": 0,
+        "official": "pick up the alphabet soup and place it in the basket",
+        "bddl": "Pick the alphabet soup and place it in the basket"
+      },
+      {
+        "suite": "LIBERO_OBJECT",
+        "idx": 1,
+        "official": "pick up the cream cheese and place it in the basket",
+        "bddl": "Pick the cream cheese and place it in the basket"
+      },
+      {
+        "suite": "LIBERO_OBJECT",
+        "idx": 2,
+        "official": "pick up the salad dressing and place it in the basket",
+        "bddl": "Pick the salad dressing and place it in the basket"
+      },
+      {
+        "suite": "LIBERO_OBJECT",
+        "idx": 3,
+        "official": "pick up the bbq sauce and place it in the basket",
+        "bddl": "Pick the bbq sauce and place it in the basket"
+      },
+      {
+        "suite": "LIBERO_OBJECT",
+        "idx": 4,
+        "official": "pick up the ketchup and place it in the basket",
+        "bddl": "Pick the ketchup and place it in the basket"
+      },
+      {
+        "suite": "LIBERO_OBJECT",
+        "idx": 5,
+        "official": "pick up the tomato sauce and place it in the basket",
+        "bddl": "Pick the tomato sauce and place it in the basket"
+      },
+      {
+        "suite": "LIBERO_OBJECT",
+        "idx": 6,
+        "official": "pick up the butter and place it in the basket",
+        "bddl": "Pick the butter and place it in the basket"
+      },
+      {
+        "suite": "LIBERO_OBJECT",
+        "idx": 7,
+        "official": "pick up the milk and place it in the basket",
+        "bddl": "Pick the milk and place it in the basket"
+      },
+      {
+        "suite": "LIBERO_OBJECT",
+        "idx": 8,
+        "official": "pick up the chocolate pudding and place it in the basket",
+        "bddl": "Pick the chocolate pudding and place it in the basket"
+      },
+      {
+        "suite": "LIBERO_OBJECT",
+        "idx": 9,
+        "official": "pick up the orange juice and place it in the basket",
+        "bddl": "Pick the orange juice and place it in the basket"
+      },
+      {
+        "suite": "LIBERO_GOAL",
+        "idx": 0,
+        "official": "open the middle drawer of the cabinet",
+        "bddl": "Open the middle layer of the drawer"
+      },
+      {
+        "suite": "LIBERO_GOAL",
+        "idx": 2,
+        "official": "put the wine bottle on top of the cabinet",
+        "bddl": "Put the wine bottle on the top of the drawer"
+      },
+      {
+        "suite": "LIBERO_GOAL",
+        "idx": 3,
+        "official": "open the top drawer and put the bowl inside",
+        "bddl": "Open the top layer of the drawer and put the bowl inside"
+      },
+      {
+        "suite": "LIBERO_GOAL",
+        "idx": 4,
+        "official": "put the bowl on top of the cabinet",
+        "bddl": "Put the bowl on the top of the drawer"
+      },
+      {
+        "suite": "LIBERO_GOAL",
+        "idx": 6,
+        "official": "put the cream cheese in the bowl",
+        "bddl": "Put the cream cheese on the bowl"
+      }
+    ]
+  },
+  "logs": {
+    "driver_logs": {
+      "LIBERO_SPATIAL": {
+        "path": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_spatial.log",
+        "exists": true,
+        "mtime": "2026-10-19T17:06:08",
+        "maxsteps_found": [
+          220
+        ],
+        "maxsteps_count": 10,
+        "task_headers": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          1,
+          3,
+          5,
+          7,
+          9
+        ],
+        "n_protocol_lines": 10,
+        "run_protocol": {
+          "initial_policy_observation": "post_stabilization_truth",
+          "stabilization_control_steps": 10,
+          "policy_rng_seed": "episode_seed",
+          "numerical_determinism": {
+            "xla_gpu_deterministic_ops": true,
+            "xla_flag": "--xla_gpu_deterministic_ops"
+          },
+          "policy_sampling": {
+            "schema": "openpi.query-sampling.v1",
+            "mode": "explicit_episode_seed_query_noise",
+            "noise_shape": [
+              10,
+              32
+            ],
+            "seed_components": [
+              "pfcr_domain_separator",
+              "episode_seed",
+              "policy_query"
+            ]
+          },
+          "environment_seed_offset": 1000,
+          "paired_initial_state": true,
+          "strict_paired_baseline": false,
+          "paired_scene": "legacy_original_bddl_baseline",
+          "model": "pi05",
+          "checkpoint": "/home/tarowang/.cache/openpi/openpi-assets/checkpoints/pi05_libero",
+          "unnorm_key": null,
+          "replan_steps": 5,
+          "t0_anchor_handoff": false,
+          "arm_reentry_mode": "t0",
+          "arm_reentry_wait_steps": 0,
+          "arm_reentry_monitored": false,
+          "arm_reentry_gripper": "open",
+          "arm_reentry_near_offset": [
+            -0.03,
+            0.03,
+            0.0
+          ],
+          "arm_reentry_protected": false,
+          "arm_reentry_capsule_window": 60,
+          "post_success_window": false,
+          "pfcr_arbitration": {
+            "mode": "event_driven",
+            "period_steps": null,
+            "immediate_intervention_preemption": true
+          },
+          "pfcr": null,
+          "instruction_switch": null
+        },
+        "n_baseline_summaries": 10,
+        "baseline_summaries": [
+          {
+            "seed": 0,
+            "task": {
+              "success": true,
+              "steps": 80,
+              "recovery_cost": {}
+            }
+          },
+          {
+            "seed": 0,
+            "task": {
+              "success": true,
+              "steps": 97,
+              "recovery_cost": {}
+            }
+          },
+          {
+            "seed": 0,
+            "task": {
+              "success": true,
+              "steps": 121,
+              "recovery_cost": {}
+            }
+          },
+          {
+            "seed": 0,
+            "task": {
+              "success": true,
+              "steps": 111,
+              "recovery_cost": {}
+            }
+          },
+          {
+            "seed": 0,
+            "task": {
+              "success": true,
+              "steps": 98,
+              "recovery_cost": {}
+            }
+          },
+          {
+            "seed": 0,
+            "task": {
+              "success": true,
+              "steps": 111,
+              "recovery_cost": {}
+            }
+          },
+          {
+            "seed": 0,
+            "task": {
+              "success": true,
+              "steps": 90,
+              "recovery_cost": {}
+            }
+          },
+          {
+            "seed": 0,
+            "task": {
+              "success": true,
+              "steps": 85,
+              "recovery_cost": {}
+            }
+          },
+          {
+            "seed": 0,
+            "task": {
+              "success": true,
+              "steps": 113,
+              "recovery_cost": {}
+            }
+          },
+          {
+            "seed": 0,
+            "task": {
+              "success": true,
+              "steps": 119,
+              "recovery_cost": {}
+            }
+          }
+        ],
+        "maxsteps_ok": true,
+        "protocol_ok": true
+      },
+      "LIBERO_OBJECT": {
+        "path": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_object.log",
+        "exists": true,
+        "mtime": "2026-10-19T17:14:18",
+        "maxsteps_found": [
+          280
+        ],
+        "maxsteps_count": 10,
+        "task_headers": [
+          0,
+          3,
+          6,
+          8,
+          1,
+          4,
+          7,
+          9,
+          2,
+          5
+        ],
+        "n_protocol_lines": 10,
+        "run_protocol": {
+          "initial_policy_observation": "post_stabilization_truth",
+          "stabilization_control_steps": 10,
+          "policy_rng_seed": "episode_seed",
+          "numerical_determinism": {
+            "xla_gpu_deterministic_ops": true,
+            "xla_flag": "--xla_gpu_deterministic_ops"
+          },
+          "policy_sampling": {
+            "schema": "openpi.query-sampling.v1",
+            "mode": "explicit_episode_seed_query_noise",
+            "noise_shape": [
+              10,
+              32
+            ],
+            "seed_components": [
+              "pfcr_domain_separator",
+              "episode_seed",
+              "policy_query"
+            ]
+          },
+          "environment_seed_offset": 1000,
+          "paired_initial_state": true,
+          "strict_paired_baseline": false,
+          "paired_scene": "legacy_original_bddl_baseline",
+          "model": "pi05",
+          "checkpoint": "/home/tarowang/.cache/openpi/openpi-assets/checkpoints/pi05_libero",
+          "unnorm_key": null,
+          "replan_steps": 5,
+          "t0_anchor_handoff": false,
+          "arm_reentry_mode": "t0",
+          "arm_reentry_wait_steps": 0,
+          "arm_reentry_monitored": false,
+          "arm_reentry_gripper": "open",
+          "arm_reentry_near_offset": [
+            -0.03,
+            0.03,
+            0.0
+          ],
+          "arm_reentry_protected": false,
+          "arm_reentry_capsule_window": 60,
+          "post_success_window": false,
+          "pfcr_arbitration": {
+            "mode": "event_driven",
+            "period_steps": null,
+            "immediate_intervention_preemption": true
+          },
+          "pfcr": null,
+          "instruction_switch": null
+        },
+        "n_baseline_summaries": 10,
+        "baseline_summaries": [
+          {
+            "seed": 0,
+            "task": {
+              "success": true,
+              "steps": 139,
+              "recovery_cost": {}
+            }
+          },
+          {
+            "seed": 0,
+            "task": {
+              "success": true,
+              "steps": 160,
+              "recovery_cost": {}
+            }
+          },
+          {
+            "seed": 0,
+            "task": {
+              "success": true,
+              "steps": 162,
+              "recovery_cost": {}
+            }
+          },
+          {
+            "seed": 0,
+            "task": {
+              "success": true,
+              "steps": 143,
+              "recovery_cost": {}
+            }
+          },
+          {
+            "seed": 0,
+            "task": {
+              "success": true,
+              "steps": 132,
+              "recovery_cost": {}
+            }
+          },
+          {
+            "seed": 0,
+            "task": {
+              "success": true,
+              "steps": 145,
+              "recovery_cost": {}
+            }
+          },
+          {
+            "seed": 0,
+            "task": {
+              "success": true,
+              "steps": 126,
+              "recovery_cost": {}
+            }
+          },
+          {
+            "seed": 0,
+            "task": {
+              "success": true,
+              "steps": 125,
+              "recovery_cost": {}
+            }
+          },
+          {
+            "seed": 0,
+            "task": {
+              "success": true,
+              "steps": 123,
+              "recovery_cost": {}
+            }
+          },
+          {
+            "seed": 0,
+            "task": {
+              "success": true,
+              "steps": 115,
+              "recovery_cost": {}
+            }
+          }
+        ],
+        "maxsteps_ok": true,
+        "protocol_ok": true
+      },
+      "LIBERO_GOAL": {
+        "path": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_goal.log",
+        "exists": true,
+        "mtime": "2026-10-19T17:18:42",
+        "maxsteps_found": [
+          300
+        ],
+        "maxsteps_count": 4,
+        "task_headers": [
+          0,
+          3,
+          5,
+          8
+        ],
+        "n_protocol_lines": 4,
+        "run_protocol": {
+          "initial_policy_observation": "post_stabilization_truth",
+          "stabilization_control_steps": 10,
+          "policy_rng_seed": "episode_seed",
+          "numerical_determinism": {
+            "xla_gpu_deterministic_ops": true,
+            "xla_flag": "--xla_gpu_deterministic_ops"
+          },
+          "policy_sampling": {
+            "schema": "openpi.query-sampling.v1",
+            "mode": "explicit_episode_seed_query_noise",
+            "noise_shape": [
+              10,
+              32
+            ],
+            "seed_components": [
+              "pfcr_domain_separator",
+              "episode_seed",
+              "policy_query"
+            ]
+          },
+          "environment_seed_offset": 1000,
+          "paired_initial_state": true,
+          "strict_paired_baseline": false,
+          "paired_scene": "legacy_original_bddl_baseline",
+          "model": "pi05",
+          "checkpoint": "/home/tarowang/.cache/openpi/openpi-assets/checkpoints/pi05_libero",
+          "unnorm_key": null,
+          "replan_steps": 5,
+          "t0_anchor_handoff": false,
+          "arm_reentry_mode": "t0",
+          "arm_reentry_wait_steps": 0,
+          "arm_reentry_monitored": false,
+          "arm_reentry_gripper": "open",
+          "arm_reentry_near_offset": [
+            -0.03,
+            0.03,
+            0.0
+          ],
+          "arm_reentry_protected": false,
+          "arm_reentry_capsule_window": 60,
+          "post_success_window": false,
+          "pfcr_arbitration": {
+            "mode": "event_driven",
+            "period_steps": null,
+            "immediate_intervention_preemption": true
+          },
+          "pfcr": null,
+          "instruction_switch": null
+        },
+        "n_baseline_summaries": 3,
+        "baseline_summaries": [
+          {
+            "seed": 0,
+            "task": {
+              "success": true,
+              "steps": 117,
+              "recovery_cost": {}
+            }
+          },
+          {
+            "seed": 0,
+            "task": {
+              "success": true,
+              "steps": 256,
+              "recovery_cost": {}
+            }
+          },
+          {
+            "seed": 0,
+            "task": {
+              "success": true,
+              "steps": 132,
+              "recovery_cost": {}
+            }
+          }
+        ],
+        "maxsteps_ok": true,
+        "protocol_ok": true
+      },
+      "LIBERO_10": {
+        "path": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_10.log",
+        "exists": false
+      }
+    },
+    "eval_logs": {
+      "LIBERO_SPATIAL": {
+        "paths": [
+          "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/run/first-pass/libero_spatial/pi05_20261019_165647/eval.log"
+        ],
+        "path": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/run/first-pass/libero_spatial/pi05_20261019_165647/eval.log",
+        "mtime": "2026-10-19T17:06:08",
+        "maxsteps": [
+          220
+        ],
+        "episode_maxsteps": [
+          {
+            "task_idx": 0,
+            "max_steps": 220
+          },
+          {
+            "task_idx": 2,
+            "max_steps": 220
+          },
+          {
+            "task_idx": 4,
+            "max_steps": 220
+          },
+          {
+            "task_idx": 6,
+            "max_steps": 220
+          },
+          {
+            "task_idx": 8,
+            "max_steps": 220
+          },
+          {
+            "task_idx": 1,
+            "max_steps": 220
+          },
+          {
+            "task_idx": 3,
+            "max_steps": 220
+          },
+          {
+            "task_idx": 5,
+            "max_steps": 220
+          },
+          {
+            "task_idx": 7,
+            "max_steps": 220
+          },
+          {
+            "task_idx": 9,
+            "max_steps": 220
+          }
+        ],
+        "episode_maxsteps_ok": true,
+        "n_task_headers": 10,
+        "n_repro": 10,
+        "n_baseline_summary": 10,
+        "has_traceback": false,
+        "maxsteps_ok": true,
+        "suite_in_progress": false,
+        "counts_consistent": true
+      },
+      "LIBERO_OBJECT": {
+        "paths": [
+          "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/run/first-pass/libero_object/pi05_20261019_170621/eval.log"
+        ],
+        "path": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/run/first-pass/libero_object/pi05_20261019_170621/eval.log",
+        "mtime": "2026-10-19T17:14:18",
+        "maxsteps": [
+          280
+        ],
+        "episode_maxsteps": [
+          {
+            "task_idx": 0,
+            "max_steps": 280
+          },
+          {
+            "task_idx": 3,
+            "max_steps": 280
+          },
+          {
+            "task_idx": 6,
+            "max_steps": 280
+          },
+          {
+            "task_idx": 8,
+            "max_steps": 280
+          },
+          {
+            "task_idx": 1,
+            "max_steps": 280
+          },
+          {
+            "task_idx": 4,
+            "max_steps": 280
+          },
+          {
+            "task_idx": 7,
+            "max_steps": 280
+          },
+          {
+            "task_idx": 9,
+            "max_steps": 280
+          },
+          {
+            "task_idx": 2,
+            "max_steps": 280
+          },
+          {
+            "task_idx": 5,
+            "max_steps": 280
+          }
+        ],
+        "episode_maxsteps_ok": true,
+        "n_task_headers": 10,
+        "n_repro": 10,
+        "n_baseline_summary": 10,
+        "has_traceback": false,
+        "maxsteps_ok": true,
+        "suite_in_progress": false,
+        "counts_consistent": true
+      },
+      "LIBERO_GOAL": {
+        "paths": [
+          "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/run/first-pass/libero_goal/pi05_20261019_171428/eval.log"
+        ],
+        "path": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/run/first-pass/libero_goal/pi05_20261019_171428/eval.log",
+        "mtime": "2026-10-19T17:18:42",
+        "maxsteps": [
+          300
+        ],
+        "episode_maxsteps": [
+          {
+            "task_idx": 0,
+            "max_steps": 300
+          },
+          {
+            "task_idx": 3,
+            "max_steps": 300
+          },
+          {
+            "task_idx": 5,
+            "max_steps": 300
+          },
+          {
+            "task_idx": 8,
+            "max_steps": 300
+          }
+        ],
+        "episode_maxsteps_ok": true,
+        "n_task_headers": 4,
+        "n_repro": 4,
+        "n_baseline_summary": 3,
+        "has_traceback": false,
+        "maxsteps_ok": true,
+        "suite_in_progress": true,
+        "counts_consistent": true
+      },
+      "LIBERO_10": {
+        "paths": []
+      }
+    },
+    "anomalies": [],
+    "benign_warnings": [
+      {
+        "tag": "driver:LIBERO_SPATIAL",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_spatial.log",
+        "line": 21,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_SPATIAL",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_spatial.log",
+        "line": 51,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_SPATIAL",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_spatial.log",
+        "line": 52,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_SPATIAL",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_spatial.log",
+        "line": 63,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_SPATIAL",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_spatial.log",
+        "line": 64,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_SPATIAL",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_spatial.log",
+        "line": 75,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_SPATIAL",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_spatial.log",
+        "line": 76,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_SPATIAL",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_spatial.log",
+        "line": 87,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_SPATIAL",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_spatial.log",
+        "line": 88,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_SPATIAL",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_spatial.log",
+        "line": 99,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_SPATIAL",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_spatial.log",
+        "line": 100,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_SPATIAL",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_spatial.log",
+        "line": 111,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_SPATIAL",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_spatial.log",
+        "line": 112,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_SPATIAL",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_spatial.log",
+        "line": 123,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_SPATIAL",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_spatial.log",
+        "line": 124,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_SPATIAL",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_spatial.log",
+        "line": 135,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_SPATIAL",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_spatial.log",
+        "line": 136,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_SPATIAL",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_spatial.log",
+        "line": 147,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_SPATIAL",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_spatial.log",
+        "line": 148,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_SPATIAL",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_spatial.log",
+        "line": 159,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_SPATIAL",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_spatial.log",
+        "line": 160,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_OBJECT",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_object.log",
+        "line": 21,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_OBJECT",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_object.log",
+        "line": 51,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_OBJECT",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_object.log",
+        "line": 52,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_OBJECT",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_object.log",
+        "line": 63,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_OBJECT",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_object.log",
+        "line": 64,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_OBJECT",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_object.log",
+        "line": 75,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_OBJECT",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_object.log",
+        "line": 76,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_OBJECT",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_object.log",
+        "line": 87,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_OBJECT",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_object.log",
+        "line": 88,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_OBJECT",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_object.log",
+        "line": 99,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_OBJECT",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_object.log",
+        "line": 100,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_OBJECT",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_object.log",
+        "line": 111,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_OBJECT",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_object.log",
+        "line": 112,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_OBJECT",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_object.log",
+        "line": 123,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_OBJECT",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_object.log",
+        "line": 124,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_OBJECT",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_object.log",
+        "line": 135,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_OBJECT",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_object.log",
+        "line": 136,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_OBJECT",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_object.log",
+        "line": 147,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_OBJECT",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_object.log",
+        "line": 148,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_OBJECT",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_object.log",
+        "line": 159,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_OBJECT",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_object.log",
+        "line": 160,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_GOAL",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_goal.log",
+        "line": 21,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_GOAL",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_goal.log",
+        "line": 51,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_GOAL",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_goal.log",
+        "line": 52,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_GOAL",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_goal.log",
+        "line": 63,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_GOAL",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_goal.log",
+        "line": 64,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_GOAL",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_goal.log",
+        "line": 75,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_GOAL",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_goal.log",
+        "line": 76,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_GOAL",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_goal.log",
+        "line": 87,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      },
+      {
+        "tag": "driver:LIBERO_GOAL",
+        "file": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/logs/first-pass-libero_goal.log",
+        "line": 88,
+        "text": "[Warning]: datasets path /home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/datasets does not exist!"
+      }
+    ]
+  },
+  "episodes": [
+    {
+      "suite": "LIBERO_SPATIAL",
+      "task_idx": 0,
+      "task_key": "LIBERO_SPATIAL_T0",
+      "results_path": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/run/first-pass/libero_spatial/pi05_20261019_165647/results.json",
+      "key_consistent": true,
+      "suite_field_ok": true,
+      "instruction": "pick the akita black bowl between the plate and the ramekin and place it on the plate",
+      "label": "baseline_s0",
+      "kind": "baseline",
+      "success": true,
+      "steps": 80,
+      "time_s": 28.0,
+      "result_keys": [
+        "injection_valid",
+        "instruction_switch",
+        "intervention_snapshot",
+        "kind",
+        "pairing_audit",
+        "passed",
+        "pfcr",
+        "phase_probe",
+        "placements",
+        "recovery_cost",
+        "report",
+        "reproducibility",
+        "steps",
+        "success",
+        "t0_anchor_handoff",
+        "time_s"
+      ],
+      "protocol": {
+        "stabilization_control_steps": 10,
+        "replan_steps": 5,
+        "model": "pi05",
+        "checkpoint": "/home/tarowang/.cache/openpi/openpi-assets/checkpoints/pi05_libero",
+        "environment_seed_offset": 1000,
+        "initial_policy_observation": "post_stabilization_truth"
+      },
+      "repro": {
+        "episode_seed": 0,
+        "environment_seed": 1000,
+        "stabilized_observation_sha256": "ec56072abcc621752973d9cd60a89d3459a99a7e9a231029ee525ce1f5973dc2",
+        "stabilized_sim_state_sha256": "8621fecaf6429bd90e11197256b7ea8b5b035e62918bd3b977a856136b09da87",
+        "n_base_policy_queries": 16
+      },
+      "spec_language": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "bddl_language": "Pick the akita black bowl between the plate and the ramekin and place it on the plate",
+      "instruction_matches_official": false,
+      "instruction_matches_bddl": true,
+      "max_steps_expected": 220,
+      "steps_within_max": true,
+      "failure_ran_full_budget": true
+    },
+    {
+      "suite": "LIBERO_SPATIAL",
+      "task_idx": 1,
+      "task_key": "LIBERO_SPATIAL_T1",
+      "results_path": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/run/first-pass/libero_spatial/pi05_20261019_165647/results.json",
+      "key_consistent": true,
+      "suite_field_ok": true,
+      "instruction": "pick the akita black bowl next to the ramekin and place it on the plate",
+      "label": "baseline_s0",
+      "kind": "baseline",
+      "success": true,
+      "steps": 111,
+      "time_s": 38.0,
+      "result_keys": [
+        "injection_valid",
+        "instruction_switch",
+        "intervention_snapshot",
+        "kind",
+        "pairing_audit",
+        "passed",
+        "pfcr",
+        "phase_probe",
+        "placements",
+        "recovery_cost",
+        "report",
+        "reproducibility",
+        "steps",
+        "success",
+        "t0_anchor_handoff",
+        "time_s"
+      ],
+      "protocol": {
+        "stabilization_control_steps": 10,
+        "replan_steps": 5,
+        "model": "pi05",
+        "checkpoint": "/home/tarowang/.cache/openpi/openpi-assets/checkpoints/pi05_libero",
+        "environment_seed_offset": 1000,
+        "initial_policy_observation": "post_stabilization_truth"
+      },
+      "repro": {
+        "episode_seed": 0,
+        "environment_seed": 1000,
+        "stabilized_observation_sha256": "3b35a479ce51c502ae5c3dd02807edb1514d42a0c0b7308e82ccc902a6ebdb8f",
+        "stabilized_sim_state_sha256": "400794cc2e99e05d7c6b7af63c9cd50dbf6379a59b57f86e7a595b9c238aeaef",
+        "n_base_policy_queries": 23
+      },
+      "spec_language": "pick up the black bowl next to the ramekin and place it on the plate",
+      "bddl_language": "Pick the akita black bowl next to the ramekin and place it on the plate",
+      "instruction_matches_official": false,
+      "instruction_matches_bddl": true,
+      "max_steps_expected": 220,
+      "steps_within_max": true,
+      "failure_ran_full_budget": true
+    },
+    {
+      "suite": "LIBERO_SPATIAL",
+      "task_idx": 2,
+      "task_key": "LIBERO_SPATIAL_T2",
+      "results_path": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/run/first-pass/libero_spatial/pi05_20261019_165647/results.json",
+      "key_consistent": true,
+      "suite_field_ok": true,
+      "instruction": "pick the akita black bowl from table center and place it on the plate",
+      "label": "baseline_s0",
+      "kind": "baseline",
+      "success": true,
+      "steps": 97,
+      "time_s": 34.0,
+      "result_keys": [
+        "injection_valid",
+        "instruction_switch",
+        "intervention_snapshot",
+        "kind",
+        "pairing_audit",
+        "passed",
+        "pfcr",
+        "phase_probe",
+        "placements",
+        "recovery_cost",
+        "report",
+        "reproducibility",
+        "steps",
+        "success",
+        "t0_anchor_handoff",
+        "time_s"
+      ],
+      "protocol": {
+        "stabilization_control_steps": 10,
+        "replan_steps": 5,
+        "model": "pi05",
+        "checkpoint": "/home/tarowang/.cache/openpi/openpi-assets/checkpoints/pi05_libero",
+        "environment_seed_offset": 1000,
+        "initial_policy_observation": "post_stabilization_truth"
+      },
+      "repro": {
+        "episode_seed": 0,
+        "environment_seed": 1000,
+        "stabilized_observation_sha256": "5c32fb9516c827d8232375394c9931a08c2e0c5895bc506c06292303aeb1f927",
+        "stabilized_sim_state_sha256": "78386e0e9c3f3fbb26ef8f0f073923bb8985b7e1bde38d8d9ba47870c9836160",
+        "n_base_policy_queries": 20
+      },
+      "spec_language": "pick up the black bowl from table center and place it on the plate",
+      "bddl_language": "Pick the akita black bowl from table center and place it on the plate",
+      "instruction_matches_official": false,
+      "instruction_matches_bddl": true,
+      "max_steps_expected": 220,
+      "steps_within_max": true,
+      "failure_ran_full_budget": true
+    },
+    {
+      "suite": "LIBERO_SPATIAL",
+      "task_idx": 3,
+      "task_key": "LIBERO_SPATIAL_T3",
+      "results_path": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/run/first-pass/libero_spatial/pi05_20261019_165647/results.json",
+      "key_consistent": true,
+      "suite_field_ok": true,
+      "instruction": "pick the akita black bowl on the cookies box and place it on the plate",
+      "label": "baseline_s0",
+      "kind": "baseline",
+      "success": true,
+      "steps": 90,
+      "time_s": 32.0,
+      "result_keys": [
+        "injection_valid",
+        "instruction_switch",
+        "intervention_snapshot",
+        "kind",
+        "pairing_audit",
+        "passed",
+        "pfcr",
+        "phase_probe",
+        "placements",
+        "recovery_cost",
+        "report",
+        "reproducibility",
+        "steps",
+        "success",
+        "t0_anchor_handoff",
+        "time_s"
+      ],
+      "protocol": {
+        "stabilization_control_steps": 10,
+        "replan_steps": 5,
+        "model": "pi05",
+        "checkpoint": "/home/tarowang/.cache/openpi/openpi-assets/checkpoints/pi05_libero",
+        "environment_seed_offset": 1000,
+        "initial_policy_observation": "post_stabilization_truth"
+      },
+      "repro": {
+        "episode_seed": 0,
+        "environment_seed": 1000,
+        "stabilized_observation_sha256": "4127799b13cacdd7b1a3dfae10145d5c0b5e034d84e1249230bfb0ac62b8d228",
+        "stabilized_sim_state_sha256": "ac278444bdece2e407d8eeeed9d380f36cc99ee785ef3787d888ffb008d0a347",
+        "n_base_policy_queries": 18
+      },
+      "spec_language": "pick up the black bowl on the cookie box and place it on the plate",
+      "bddl_language": "Pick the akita black bowl on the cookies box and place it on the plate",
+      "instruction_matches_official": false,
+      "instruction_matches_bddl": true,
+      "max_steps_expected": 220,
+      "steps_within_max": true,
+      "failure_ran_full_budget": true
+    },
+    {
+      "suite": "LIBERO_SPATIAL",
+      "task_idx": 4,
+      "task_key": "LIBERO_SPATIAL_T4",
+      "results_path": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/run/first-pass/libero_spatial/pi05_20261019_165647/results.json",
+      "key_consistent": true,
+      "suite_field_ok": true,
+      "instruction": "pick the akita black bowl in the top layer of the wooden cabinet and place it on the plate",
+      "label": "baseline_s0",
+      "kind": "baseline",
+      "success": true,
+      "steps": 121,
+      "time_s": 41.0,
+      "result_keys": [
+        "injection_valid",
+        "instruction_switch",
+        "intervention_snapshot",
+        "kind",
+        "pairing_audit",
+        "passed",
+        "pfcr",
+        "phase_probe",
+        "placements",
+        "recovery_cost",
+        "report",
+        "reproducibility",
+        "steps",
+        "success",
+        "t0_anchor_handoff",
+        "time_s"
+      ],
+      "protocol": {
+        "stabilization_control_steps": 10,
+        "replan_steps": 5,
+        "model": "pi05",
+        "checkpoint": "/home/tarowang/.cache/openpi/openpi-assets/checkpoints/pi05_libero",
+        "environment_seed_offset": 1000,
+        "initial_policy_observation": "post_stabilization_truth"
+      },
+      "repro": {
+        "episode_seed": 0,
+        "environment_seed": 1000,
+        "stabilized_observation_sha256": "462e12cafa7065e1b952a020305bcc367e198047c9803b8e8fc23994482b4bb4",
+        "stabilized_sim_state_sha256": "60eb1bd377a1ea24c8a309adb203163bd04dc5dbe98311a11f4b9d190076f937",
+        "n_base_policy_queries": 25
+      },
+      "spec_language": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "bddl_language": "Pick the akita black bowl in the top layer of the wooden cabinet and place it on the plate",
+      "instruction_matches_official": false,
+      "instruction_matches_bddl": true,
+      "max_steps_expected": 220,
+      "steps_within_max": true,
+      "failure_ran_full_budget": true
+    },
+    {
+      "suite": "LIBERO_SPATIAL",
+      "task_idx": 5,
+      "task_key": "LIBERO_SPATIAL_T5",
+      "results_path": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/run/first-pass/libero_spatial/pi05_20261019_165647/results.json",
+      "key_consistent": true,
+      "suite_field_ok": true,
+      "instruction": "pick the akita black bowl on the ramekin and place it on the plate",
+      "label": "baseline_s0",
+      "kind": "baseline",
+      "success": true,
+      "steps": 85,
+      "time_s": 34.0,
+      "result_keys": [
+        "injection_valid",
+        "instruction_switch",
+        "intervention_snapshot",
+        "kind",
+        "pairing_audit",
+        "passed",
+        "pfcr",
+        "phase_probe",
+        "placements",
+        "recovery_cost",
+        "report",
+        "reproducibility",
+        "steps",
+        "success",
+        "t0_anchor_handoff",
+        "time_s"
+      ],
+      "protocol": {
+        "stabilization_control_steps": 10,
+        "replan_steps": 5,
+        "model": "pi05",
+        "checkpoint": "/home/tarowang/.cache/openpi/openpi-assets/checkpoints/pi05_libero",
+        "environment_seed_offset": 1000,
+        "initial_policy_observation": "post_stabilization_truth"
+      },
+      "repro": {
+        "episode_seed": 0,
+        "environment_seed": 1000,
+        "stabilized_observation_sha256": "642321ebd734fbf254f2e3f5bca785231627aa83a805b90f5987ad4519aa1743",
+        "stabilized_sim_state_sha256": "fc21cd5f9551be9853f4174e485ff61d14ae9f8a02a689ddaa537d5f477ea103",
+        "n_base_policy_queries": 17
+      },
+      "spec_language": "pick up the black bowl on the ramekin and place it on the plate",
+      "bddl_language": "Pick the akita black bowl on the ramekin and place it on the plate",
+      "instruction_matches_official": false,
+      "instruction_matches_bddl": true,
+      "max_steps_expected": 220,
+      "steps_within_max": true,
+      "failure_ran_full_budget": true
+    },
+    {
+      "suite": "LIBERO_SPATIAL",
+      "task_idx": 6,
+      "task_key": "LIBERO_SPATIAL_T6",
+      "results_path": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/run/first-pass/libero_spatial/pi05_20261019_165647/results.json",
+      "key_consistent": true,
+      "suite_field_ok": true,
+      "instruction": "pick the akita black bowl next to the cookies box and place it on the plate",
+      "label": "baseline_s0",
+      "kind": "baseline",
+      "success": true,
+      "steps": 111,
+      "time_s": 36.0,
+      "result_keys": [
+        "injection_valid",
+        "instruction_switch",
+        "intervention_snapshot",
+        "kind",
+        "pairing_audit",
+        "passed",
+        "pfcr",
+        "phase_probe",
+        "placements",
+        "recovery_cost",
+        "report",
+        "reproducibility",
+        "steps",
+        "success",
+        "t0_anchor_handoff",
+        "time_s"
+      ],
+      "protocol": {
+        "stabilization_control_steps": 10,
+        "replan_steps": 5,
+        "model": "pi05",
+        "checkpoint": "/home/tarowang/.cache/openpi/openpi-assets/checkpoints/pi05_libero",
+        "environment_seed_offset": 1000,
+        "initial_policy_observation": "post_stabilization_truth"
+      },
+      "repro": {
+        "episode_seed": 0,
+        "environment_seed": 1000,
+        "stabilized_observation_sha256": "bcae69eef3b608a0e925c0283be83889d302e4c1e38cefb4c657f9abdae99b99",
+        "stabilized_sim_state_sha256": "b9ff3d956dd28e6530d4b28d9163244be62eeb8c4db516f5c1fd1ada7c8594ff",
+        "n_base_policy_queries": 23
+      },
+      "spec_language": "pick up the black bowl next to the cookie box and place it on the plate",
+      "bddl_language": "Pick the akita black bowl next to the cookies box and place it on the plate",
+      "instruction_matches_official": false,
+      "instruction_matches_bddl": true,
+      "max_steps_expected": 220,
+      "steps_within_max": true,
+      "failure_ran_full_budget": true
+    },
+    {
+      "suite": "LIBERO_SPATIAL",
+      "task_idx": 7,
+      "task_key": "LIBERO_SPATIAL_T7",
+      "results_path": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/run/first-pass/libero_spatial/pi05_20261019_165647/results.json",
+      "key_consistent": true,
+      "suite_field_ok": true,
+      "instruction": "pick the akita black bowl on the stove and place it on the plate",
+      "label": "baseline_s0",
+      "kind": "baseline",
+      "success": true,
+      "steps": 113,
+      "time_s": 42.0,
+      "result_keys": [
+        "injection_valid",
+        "instruction_switch",
+        "intervention_snapshot",
+        "kind",
+        "pairing_audit",
+        "passed",
+        "pfcr",
+        "phase_probe",
+        "placements",
+        "recovery_cost",
+        "report",
+        "reproducibility",
+        "steps",
+        "success",
+        "t0_anchor_handoff",
+        "time_s"
+      ],
+      "protocol": {
+        "stabilization_control_steps": 10,
+        "replan_steps": 5,
+        "model": "pi05",
+        "checkpoint": "/home/tarowang/.cache/openpi/openpi-assets/checkpoints/pi05_libero",
+        "environment_seed_offset": 1000,
+        "initial_policy_observation": "post_stabilization_truth"
+      },
+      "repro": {
+        "episode_seed": 0,
+        "environment_seed": 1000,
+        "stabilized_observation_sha256": "6645e42358c532864128dfeffc84b9561b17fd4840f5c69e24a4ce5ac514e890",
+        "stabilized_sim_state_sha256": "dea57022c8f2fc55ba0f437f2d525a3f2c712b35ef78299edfb7515ee456f65a",
+        "n_base_policy_queries": 23
+      },
+      "spec_language": "pick up the black bowl on the stove and place it on the plate",
+      "bddl_language": "Pick the akita black bowl on the stove and place it on the plate",
+      "instruction_matches_official": false,
+      "instruction_matches_bddl": true,
+      "max_steps_expected": 220,
+      "steps_within_max": true,
+      "failure_ran_full_budget": true
+    },
+    {
+      "suite": "LIBERO_SPATIAL",
+      "task_idx": 8,
+      "task_key": "LIBERO_SPATIAL_T8",
+      "results_path": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/run/first-pass/libero_spatial/pi05_20261019_165647/results.json",
+      "key_consistent": true,
+      "suite_field_ok": true,
+      "instruction": "pick the akita black bowl next to the plate and place it on the plate",
+      "label": "baseline_s0",
+      "kind": "baseline",
+      "success": true,
+      "steps": 98,
+      "time_s": 34.0,
+      "result_keys": [
+        "injection_valid",
+        "instruction_switch",
+        "intervention_snapshot",
+        "kind",
+        "pairing_audit",
+        "passed",
+        "pfcr",
+        "phase_probe",
+        "placements",
+        "recovery_cost",
+        "report",
+        "reproducibility",
+        "steps",
+        "success",
+        "t0_anchor_handoff",
+        "time_s"
+      ],
+      "protocol": {
+        "stabilization_control_steps": 10,
+        "replan_steps": 5,
+        "model": "pi05",
+        "checkpoint": "/home/tarowang/.cache/openpi/openpi-assets/checkpoints/pi05_libero",
+        "environment_seed_offset": 1000,
+        "initial_policy_observation": "post_stabilization_truth"
+      },
+      "repro": {
+        "episode_seed": 0,
+        "environment_seed": 1000,
+        "stabilized_observation_sha256": "06a0284e5ab966ad82b1c2e9897fda65a4d1d19eee6f3924518550c36aafd71f",
+        "stabilized_sim_state_sha256": "4cd7691d9ca9658617e7b0da601ae694ffc2e26a6efd3639cb652728e3d92647",
+        "n_base_policy_queries": 20
+      },
+      "spec_language": "pick up the black bowl next to the plate and place it on the plate",
+      "bddl_language": "Pick the akita black bowl next to the plate and place it on the plate",
+      "instruction_matches_official": false,
+      "instruction_matches_bddl": true,
+      "max_steps_expected": 220,
+      "steps_within_max": true,
+      "failure_ran_full_budget": true
+    },
+    {
+      "suite": "LIBERO_SPATIAL",
+      "task_idx": 9,
+      "task_key": "LIBERO_SPATIAL_T9",
+      "results_path": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/run/first-pass/libero_spatial/pi05_20261019_165647/results.json",
+      "key_consistent": true,
+      "suite_field_ok": true,
+      "instruction": "pick the akita black bowl on the wooden cabinet and place it on the plate",
+      "label": "baseline_s0",
+      "kind": "baseline",
+      "success": true,
+      "steps": 119,
+      "time_s": 41.0,
+      "result_keys": [
+        "injection_valid",
+        "instruction_switch",
+        "intervention_snapshot",
+        "kind",
+        "pairing_audit",
+        "passed",
+        "pfcr",
+        "phase_probe",
+        "placements",
+        "recovery_cost",
+        "report",
+        "reproducibility",
+        "steps",
+        "success",
+        "t0_anchor_handoff",
+        "time_s"
+      ],
+      "protocol": {
+        "stabilization_control_steps": 10,
+        "replan_steps": 5,
+        "model": "pi05",
+        "checkpoint": "/home/tarowang/.cache/openpi/openpi-assets/checkpoints/pi05_libero",
+        "environment_seed_offset": 1000,
+        "initial_policy_observation": "post_stabilization_truth"
+      },
+      "repro": {
+        "episode_seed": 0,
+        "environment_seed": 1000,
+        "stabilized_observation_sha256": "4a6b6de262bbb12549cf4e409cb72acf77b6555930c48112c5b2db74b8424eee",
+        "stabilized_sim_state_sha256": "c0c2c8ac02797bc7e00c59d96964901c44e5d9450cd8b5e7a46c8cdd176ae7fb",
+        "n_base_policy_queries": 24
+      },
+      "spec_language": "pick up the black bowl on the wooden cabinet and place it on the plate",
+      "bddl_language": "Pick the akita black bowl on the wooden cabinet and place it on the plate",
+      "instruction_matches_official": false,
+      "instruction_matches_bddl": true,
+      "max_steps_expected": 220,
+      "steps_within_max": true,
+      "failure_ran_full_budget": true
+    },
+    {
+      "suite": "LIBERO_OBJECT",
+      "task_idx": 0,
+      "task_key": "LIBERO_OBJECT_T0",
+      "results_path": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/run/first-pass/libero_object/pi05_20261019_170621/results.json",
+      "key_consistent": true,
+      "suite_field_ok": true,
+      "instruction": "pick the alphabet soup and place it in the basket",
+      "label": "baseline_s0",
+      "kind": "baseline",
+      "success": true,
+      "steps": 139,
+      "time_s": 32.0,
+      "result_keys": [
+        "injection_valid",
+        "instruction_switch",
+        "intervention_snapshot",
+        "kind",
+        "pairing_audit",
+        "passed",
+        "pfcr",
+        "phase_probe",
+        "placements",
+        "recovery_cost",
+        "report",
+        "reproducibility",
+        "steps",
+        "success",
+        "t0_anchor_handoff",
+        "time_s"
+      ],
+      "protocol": {
+        "stabilization_control_steps": 10,
+        "replan_steps": 5,
+        "model": "pi05",
+        "checkpoint": "/home/tarowang/.cache/openpi/openpi-assets/checkpoints/pi05_libero",
+        "environment_seed_offset": 1000,
+        "initial_policy_observation": "post_stabilization_truth"
+      },
+      "repro": {
+        "episode_seed": 0,
+        "environment_seed": 1000,
+        "stabilized_observation_sha256": "023ba86f77ad2f6b277f7192d2957e308bcc1b98c444611a528591ffe22202eb",
+        "stabilized_sim_state_sha256": "de04dced84b4fc59fea2b29cccaa3bd78267023b408f35b4204cf550a5e64a9f",
+        "n_base_policy_queries": 28
+      },
+      "spec_language": "pick up the alphabet soup and place it in the basket",
+      "bddl_language": "Pick the alphabet soup and place it in the basket",
+      "instruction_matches_official": false,
+      "instruction_matches_bddl": true,
+      "max_steps_expected": 280,
+      "steps_within_max": true,
+      "failure_ran_full_budget": true
+    },
+    {
+      "suite": "LIBERO_OBJECT",
+      "task_idx": 1,
+      "task_key": "LIBERO_OBJECT_T1",
+      "results_path": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/run/first-pass/libero_object/pi05_20261019_170621/results.json",
+      "key_consistent": true,
+      "suite_field_ok": true,
+      "instruction": "pick the cream cheese and place it in the basket",
+      "label": "baseline_s0",
+      "kind": "baseline",
+      "success": true,
+      "steps": 132,
+      "time_s": 30.0,
+      "result_keys": [
+        "injection_valid",
+        "instruction_switch",
+        "intervention_snapshot",
+        "kind",
+        "pairing_audit",
+        "passed",
+        "pfcr",
+        "phase_probe",
+        "placements",
+        "recovery_cost",
+        "report",
+        "reproducibility",
+        "steps",
+        "success",
+        "t0_anchor_handoff",
+        "time_s"
+      ],
+      "protocol": {
+        "stabilization_control_steps": 10,
+        "replan_steps": 5,
+        "model": "pi05",
+        "checkpoint": "/home/tarowang/.cache/openpi/openpi-assets/checkpoints/pi05_libero",
+        "environment_seed_offset": 1000,
+        "initial_policy_observation": "post_stabilization_truth"
+      },
+      "repro": {
+        "episode_seed": 0,
+        "environment_seed": 1000,
+        "stabilized_observation_sha256": "cb32ec85702a9bf06a3d678cd038e5e7f4b9484c9f0f3759db93949307d1133d",
+        "stabilized_sim_state_sha256": "70232b5ac716e96566d76006eea29f62e27ddfd374c12e5e772a32fc112b532c",
+        "n_base_policy_queries": 27
+      },
+      "spec_language": "pick up the cream cheese and place it in the basket",
+      "bddl_language": "Pick the cream cheese and place it in the basket",
+      "instruction_matches_official": false,
+      "instruction_matches_bddl": true,
+      "max_steps_expected": 280,
+      "steps_within_max": true,
+      "failure_ran_full_budget": true
+    },
+    {
+      "suite": "LIBERO_OBJECT",
+      "task_idx": 2,
+      "task_key": "LIBERO_OBJECT_T2",
+      "results_path": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/run/first-pass/libero_object/pi05_20261019_170621/results.json",
+      "key_consistent": true,
+      "suite_field_ok": true,
+      "instruction": "pick the salad dressing and place it in the basket",
+      "label": "baseline_s0",
+      "kind": "baseline",
+      "success": true,
+      "steps": 123,
+      "time_s": 29.0,
+      "result_keys": [
+        "injection_valid",
+        "instruction_switch",
+        "intervention_snapshot",
+        "kind",
+        "pairing_audit",
+        "passed",
+        "pfcr",
+        "phase_probe",
+        "placements",
+        "recovery_cost",
+        "report",
+        "reproducibility",
+        "steps",
+        "success",
+        "t0_anchor_handoff",
+        "time_s"
+      ],
+      "protocol": {
+        "stabilization_control_steps": 10,
+        "replan_steps": 5,
+        "model": "pi05",
+        "checkpoint": "/home/tarowang/.cache/openpi/openpi-assets/checkpoints/pi05_libero",
+        "environment_seed_offset": 1000,
+        "initial_policy_observation": "post_stabilization_truth"
+      },
+      "repro": {
+        "episode_seed": 0,
+        "environment_seed": 1000,
+        "stabilized_observation_sha256": "2e7a98daec76378526a66025318e3d7a61c3f492f2c50e66b0695f22108efd58",
+        "stabilized_sim_state_sha256": "32375e73b72c5c6b5e0696ecf5cfc4c98b739707700223e52ebf20c8dbd0ba26",
+        "n_base_policy_queries": 25
+      },
+      "spec_language": "pick up the salad dressing and place it in the basket",
+      "bddl_language": "Pick the salad dressing and place it in the basket",
+      "instruction_matches_official": false,
+      "instruction_matches_bddl": true,
+      "max_steps_expected": 280,
+      "steps_within_max": true,
+      "failure_ran_full_budget": true
+    },
+    {
+      "suite": "LIBERO_OBJECT",
+      "task_idx": 3,
+      "task_key": "LIBERO_OBJECT_T3",
+      "results_path": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/run/first-pass/libero_object/pi05_20261019_170621/results.json",
+      "key_consistent": true,
+      "suite_field_ok": true,
+      "instruction": "pick the bbq sauce and place it in the basket",
+      "label": "baseline_s0",
+      "kind": "baseline",
+      "success": true,
+      "steps": 160,
+      "time_s": 34.0,
+      "result_keys": [
+        "injection_valid",
+        "instruction_switch",
+        "intervention_snapshot",
+        "kind",
+        "pairing_audit",
+        "passed",
+        "pfcr",
+        "phase_probe",
+        "placements",
+        "recovery_cost",
+        "report",
+        "reproducibility",
+        "steps",
+        "success",
+        "t0_anchor_handoff",
+        "time_s"
+      ],
+      "protocol": {
+        "stabilization_control_steps": 10,
+        "replan_steps": 5,
+        "model": "pi05",
+        "checkpoint": "/home/tarowang/.cache/openpi/openpi-assets/checkpoints/pi05_libero",
+        "environment_seed_offset": 1000,
+        "initial_policy_observation": "post_stabilization_truth"
+      },
+      "repro": {
+        "episode_seed": 0,
+        "environment_seed": 1000,
+        "stabilized_observation_sha256": "df9652c0ccc714e5583cbc6cf9f05ae8d56b56ba3c152180b9dad816d717ec87",
+        "stabilized_sim_state_sha256": "80bb981e272412e26f2c45bed687e85446d1a4d785f1d2701192ddcdcdc43232",
+        "n_base_policy_queries": 32
+      },
+      "spec_language": "pick up the bbq sauce and place it in the basket",
+      "bddl_language": "Pick the bbq sauce and place it in the basket",
+      "instruction_matches_official": false,
+      "instruction_matches_bddl": true,
+      "max_steps_expected": 280,
+      "steps_within_max": true,
+      "failure_ran_full_budget": true
+    },
+    {
+      "suite": "LIBERO_OBJECT",
+      "task_idx": 4,
+      "task_key": "LIBERO_OBJECT_T4",
+      "results_path": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/run/first-pass/libero_object/pi05_20261019_170621/results.json",
+      "key_consistent": true,
+      "suite_field_ok": true,
+      "instruction": "pick the ketchup and place it in the basket",
+      "label": "baseline_s0",
+      "kind": "baseline",
+      "success": true,
+      "steps": 145,
+      "time_s": 29.0,
+      "result_keys": [
+        "injection_valid",
+        "instruction_switch",
+        "intervention_snapshot",
+        "kind",
+        "pairing_audit",
+        "passed",
+        "pfcr",
+        "phase_probe",
+        "placements",
+        "recovery_cost",
+        "report",
+        "reproducibility",
+        "steps",
+        "success",
+        "t0_anchor_handoff",
+        "time_s"
+      ],
+      "protocol": {
+        "stabilization_control_steps": 10,
+        "replan_steps": 5,
+        "model": "pi05",
+        "checkpoint": "/home/tarowang/.cache/openpi/openpi-assets/checkpoints/pi05_libero",
+        "environment_seed_offset": 1000,
+        "initial_policy_observation": "post_stabilization_truth"
+      },
+      "repro": {
+        "episode_seed": 0,
+        "environment_seed": 1000,
+        "stabilized_observation_sha256": "e30abeadb278082b95db8a19978f8188a9918e447b5ef7703863048ff7943e55",
+        "stabilized_sim_state_sha256": "45adc2453e1b3ae6883dc7e2b133b19402054ba442feae03885eeff98e73d28e",
+        "n_base_policy_queries": 29
+      },
+      "spec_language": "pick up the ketchup and place it in the basket",
+      "bddl_language": "Pick the ketchup and place it in the basket",
+      "instruction_matches_official": false,
+      "instruction_matches_bddl": true,
+      "max_steps_expected": 280,
+      "steps_within_max": true,
+      "failure_ran_full_budget": true
+    },
+    {
+      "suite": "LIBERO_OBJECT",
+      "task_idx": 5,
+      "task_key": "LIBERO_OBJECT_T5",
+      "results_path": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/run/first-pass/libero_object/pi05_20261019_170621/results.json",
+      "key_consistent": true,
+      "suite_field_ok": true,
+      "instruction": "pick the tomato sauce and place it in the basket",
+      "label": "baseline_s0",
+      "kind": "baseline",
+      "success": true,
+      "steps": 115,
+      "time_s": 25.0,
+      "result_keys": [
+        "injection_valid",
+        "instruction_switch",
+        "intervention_snapshot",
+        "kind",
+        "pairing_audit",
+        "passed",
+        "pfcr",
+        "phase_probe",
+        "placements",
+        "recovery_cost",
+        "report",
+        "reproducibility",
+        "steps",
+        "success",
+        "t0_anchor_handoff",
+        "time_s"
+      ],
+      "protocol": {
+        "stabilization_control_steps": 10,
+        "replan_steps": 5,
+        "model": "pi05",
+        "checkpoint": "/home/tarowang/.cache/openpi/openpi-assets/checkpoints/pi05_libero",
+        "environment_seed_offset": 1000,
+        "initial_policy_observation": "post_stabilization_truth"
+      },
+      "repro": {
+        "episode_seed": 0,
+        "environment_seed": 1000,
+        "stabilized_observation_sha256": "75dd704f48728165af60f0ab1d1b54e0b6eca248ad8c13b89c5cfc3d1de9be7e",
+        "stabilized_sim_state_sha256": "c03a272b8a7c125186a23d62540fcab1f367bb46c7cde349c865a4db4a49a93c",
+        "n_base_policy_queries": 23
+      },
+      "spec_language": "pick up the tomato sauce and place it in the basket",
+      "bddl_language": "Pick the tomato sauce and place it in the basket",
+      "instruction_matches_official": false,
+      "instruction_matches_bddl": true,
+      "max_steps_expected": 280,
+      "steps_within_max": true,
+      "failure_ran_full_budget": true
+    },
+    {
+      "suite": "LIBERO_OBJECT",
+      "task_idx": 6,
+      "task_key": "LIBERO_OBJECT_T6",
+      "results_path": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/run/first-pass/libero_object/pi05_20261019_170621/results.json",
+      "key_consistent": true,
+      "suite_field_ok": true,
+      "instruction": "pick the butter and place it in the basket",
+      "label": "baseline_s0",
+      "kind": "baseline",
+      "success": true,
+      "steps": 162,
+      "time_s": 36.0,
+      "result_keys": [
+        "injection_valid",
+        "instruction_switch",
+        "intervention_snapshot",
+        "kind",
+        "pairing_audit",
+        "passed",
+        "pfcr",
+        "phase_probe",
+        "placements",
+        "recovery_cost",
+        "report",
+        "reproducibility",
+        "steps",
+        "success",
+        "t0_anchor_handoff",
+        "time_s"
+      ],
+      "protocol": {
+        "stabilization_control_steps": 10,
+        "replan_steps": 5,
+        "model": "pi05",
+        "checkpoint": "/home/tarowang/.cache/openpi/openpi-assets/checkpoints/pi05_libero",
+        "environment_seed_offset": 1000,
+        "initial_policy_observation": "post_stabilization_truth"
+      },
+      "repro": {
+        "episode_seed": 0,
+        "environment_seed": 1000,
+        "stabilized_observation_sha256": "fb27b79161197f1e90614dfb1cff1fef451df6e8e738d62b005ebc2e8a60f2c9",
+        "stabilized_sim_state_sha256": "43b7fe2a9ad229443c87a0d880a60c0a882f189d145b3c0ca6f84f66eada6b13",
+        "n_base_policy_queries": 33
+      },
+      "spec_language": "pick up the butter and place it in the basket",
+      "bddl_language": "Pick the butter and place it in the basket",
+      "instruction_matches_official": false,
+      "instruction_matches_bddl": true,
+      "max_steps_expected": 280,
+      "steps_within_max": true,
+      "failure_ran_full_budget": true
+    },
+    {
+      "suite": "LIBERO_OBJECT",
+      "task_idx": 7,
+      "task_key": "LIBERO_OBJECT_T7",
+      "results_path": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/run/first-pass/libero_object/pi05_20261019_170621/results.json",
+      "key_consistent": true,
+      "suite_field_ok": true,
+      "instruction": "pick the milk and place it in the basket",
+      "label": "baseline_s0",
+      "kind": "baseline",
+      "success": true,
+      "steps": 126,
+      "time_s": 28.0,
+      "result_keys": [
+        "injection_valid",
+        "instruction_switch",
+        "intervention_snapshot",
+        "kind",
+        "pairing_audit",
+        "passed",
+        "pfcr",
+        "phase_probe",
+        "placements",
+        "recovery_cost",
+        "report",
+        "reproducibility",
+        "steps",
+        "success",
+        "t0_anchor_handoff",
+        "time_s"
+      ],
+      "protocol": {
+        "stabilization_control_steps": 10,
+        "replan_steps": 5,
+        "model": "pi05",
+        "checkpoint": "/home/tarowang/.cache/openpi/openpi-assets/checkpoints/pi05_libero",
+        "environment_seed_offset": 1000,
+        "initial_policy_observation": "post_stabilization_truth"
+      },
+      "repro": {
+        "episode_seed": 0,
+        "environment_seed": 1000,
+        "stabilized_observation_sha256": "a384687efc5dd1ce03126f8b7dd6301e930afa44bc16b4def5cae3568b186daf",
+        "stabilized_sim_state_sha256": "f958f038f9b0281a9d955b0542e6a16cdee5ce1c0089c886fd0e6b87298709f3",
+        "n_base_policy_queries": 26
+      },
+      "spec_language": "pick up the milk and place it in the basket",
+      "bddl_language": "Pick the milk and place it in the basket",
+      "instruction_matches_official": false,
+      "instruction_matches_bddl": true,
+      "max_steps_expected": 280,
+      "steps_within_max": true,
+      "failure_ran_full_budget": true
+    },
+    {
+      "suite": "LIBERO_OBJECT",
+      "task_idx": 8,
+      "task_key": "LIBERO_OBJECT_T8",
+      "results_path": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/run/first-pass/libero_object/pi05_20261019_170621/results.json",
+      "key_consistent": true,
+      "suite_field_ok": true,
+      "instruction": "pick the chocolate pudding and place it in the basket",
+      "label": "baseline_s0",
+      "kind": "baseline",
+      "success": true,
+      "steps": 143,
+      "time_s": 32.0,
+      "result_keys": [
+        "injection_valid",
+        "instruction_switch",
+        "intervention_snapshot",
+        "kind",
+        "pairing_audit",
+        "passed",
+        "pfcr",
+        "phase_probe",
+        "placements",
+        "recovery_cost",
+        "report",
+        "reproducibility",
+        "steps",
+        "success",
+        "t0_anchor_handoff",
+        "time_s"
+      ],
+      "protocol": {
+        "stabilization_control_steps": 10,
+        "replan_steps": 5,
+        "model": "pi05",
+        "checkpoint": "/home/tarowang/.cache/openpi/openpi-assets/checkpoints/pi05_libero",
+        "environment_seed_offset": 1000,
+        "initial_policy_observation": "post_stabilization_truth"
+      },
+      "repro": {
+        "episode_seed": 0,
+        "environment_seed": 1000,
+        "stabilized_observation_sha256": "605f53e11366036325d24ccfdddc789b75a774b8ccb6d0b06c7a70fdb4c2b088",
+        "stabilized_sim_state_sha256": "a62bc2d4a5b6e62e19cbabe35843d0b68da57af3f66f3709dab8bfd5249fc484",
+        "n_base_policy_queries": 29
+      },
+      "spec_language": "pick up the chocolate pudding and place it in the basket",
+      "bddl_language": "Pick the chocolate pudding and place it in the basket",
+      "instruction_matches_official": false,
+      "instruction_matches_bddl": true,
+      "max_steps_expected": 280,
+      "steps_within_max": true,
+      "failure_ran_full_budget": true
+    },
+    {
+      "suite": "LIBERO_OBJECT",
+      "task_idx": 9,
+      "task_key": "LIBERO_OBJECT_T9",
+      "results_path": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/run/first-pass/libero_object/pi05_20261019_170621/results.json",
+      "key_consistent": true,
+      "suite_field_ok": true,
+      "instruction": "pick the orange juice and place it in the basket",
+      "label": "baseline_s0",
+      "kind": "baseline",
+      "success": true,
+      "steps": 125,
+      "time_s": 28.0,
+      "result_keys": [
+        "injection_valid",
+        "instruction_switch",
+        "intervention_snapshot",
+        "kind",
+        "pairing_audit",
+        "passed",
+        "pfcr",
+        "phase_probe",
+        "placements",
+        "recovery_cost",
+        "report",
+        "reproducibility",
+        "steps",
+        "success",
+        "t0_anchor_handoff",
+        "time_s"
+      ],
+      "protocol": {
+        "stabilization_control_steps": 10,
+        "replan_steps": 5,
+        "model": "pi05",
+        "checkpoint": "/home/tarowang/.cache/openpi/openpi-assets/checkpoints/pi05_libero",
+        "environment_seed_offset": 1000,
+        "initial_policy_observation": "post_stabilization_truth"
+      },
+      "repro": {
+        "episode_seed": 0,
+        "environment_seed": 1000,
+        "stabilized_observation_sha256": "2f632c3d4ddf7efb22ec028a8fcb032324cb7549949720ca0d7a1af00900fa93",
+        "stabilized_sim_state_sha256": "7505462a7ec9931fcbb1e6f02987a6860e10e63eff85f4aa13472b63e4f927db",
+        "n_base_policy_queries": 25
+      },
+      "spec_language": "pick up the orange juice and place it in the basket",
+      "bddl_language": "Pick the orange juice and place it in the basket",
+      "instruction_matches_official": false,
+      "instruction_matches_bddl": true,
+      "max_steps_expected": 280,
+      "steps_within_max": true,
+      "failure_ran_full_budget": true
+    },
+    {
+      "suite": "LIBERO_GOAL",
+      "task_idx": 0,
+      "task_key": "LIBERO_GOAL_T0",
+      "results_path": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/run/first-pass/libero_goal/pi05_20261019_171428/results.json",
+      "key_consistent": true,
+      "suite_field_ok": true,
+      "instruction": "open the middle layer of the drawer",
+      "label": "baseline_s0",
+      "kind": "baseline",
+      "success": true,
+      "steps": 117,
+      "time_s": 37.0,
+      "result_keys": [
+        "injection_valid",
+        "instruction_switch",
+        "intervention_snapshot",
+        "kind",
+        "pairing_audit",
+        "passed",
+        "pfcr",
+        "phase_probe",
+        "placements",
+        "recovery_cost",
+        "report",
+        "reproducibility",
+        "steps",
+        "success",
+        "t0_anchor_handoff",
+        "time_s"
+      ],
+      "protocol": {
+        "stabilization_control_steps": 10,
+        "replan_steps": 5,
+        "model": "pi05",
+        "checkpoint": "/home/tarowang/.cache/openpi/openpi-assets/checkpoints/pi05_libero",
+        "environment_seed_offset": 1000,
+        "initial_policy_observation": "post_stabilization_truth"
+      },
+      "repro": {
+        "episode_seed": 0,
+        "environment_seed": 1000,
+        "stabilized_observation_sha256": "ab5a9131945967f52066ed01491445c93eaea62d41ec29c9e6230e12db571c07",
+        "stabilized_sim_state_sha256": "15bdae727e625244f25ac4dc3a5b7b75a0fa4a8d733fd0e410d411e0d931f59d",
+        "n_base_policy_queries": 24
+      },
+      "spec_language": "open the middle drawer of the cabinet",
+      "bddl_language": "Open the middle layer of the drawer",
+      "instruction_matches_official": false,
+      "instruction_matches_bddl": true,
+      "max_steps_expected": 300,
+      "steps_within_max": true,
+      "failure_ran_full_budget": true
+    },
+    {
+      "suite": "LIBERO_GOAL",
+      "task_idx": 3,
+      "task_key": "LIBERO_GOAL_T3",
+      "results_path": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/run/first-pass/libero_goal/pi05_20261019_171428/results.json",
+      "key_consistent": true,
+      "suite_field_ok": true,
+      "instruction": "open the top layer of the drawer and put the bowl inside",
+      "label": "baseline_s0",
+      "kind": "baseline",
+      "success": true,
+      "steps": 256,
+      "time_s": 83.0,
+      "result_keys": [
+        "injection_valid",
+        "instruction_switch",
+        "intervention_snapshot",
+        "kind",
+        "pairing_audit",
+        "passed",
+        "pfcr",
+        "phase_probe",
+        "placements",
+        "recovery_cost",
+        "report",
+        "reproducibility",
+        "steps",
+        "success",
+        "t0_anchor_handoff",
+        "time_s"
+      ],
+      "protocol": {
+        "stabilization_control_steps": 10,
+        "replan_steps": 5,
+        "model": "pi05",
+        "checkpoint": "/home/tarowang/.cache/openpi/openpi-assets/checkpoints/pi05_libero",
+        "environment_seed_offset": 1000,
+        "initial_policy_observation": "post_stabilization_truth"
+      },
+      "repro": {
+        "episode_seed": 0,
+        "environment_seed": 1000,
+        "stabilized_observation_sha256": "401fd5d3ae8ebe6251d52bed10d9207bd99f38dbe3747ff6eb5c529a7e621f2c",
+        "stabilized_sim_state_sha256": "d33383da42f25356b91eb55ad39c7162fa93fcade610c2602d4e220920292dac",
+        "n_base_policy_queries": 52
+      },
+      "spec_language": "open the top drawer and put the bowl inside",
+      "bddl_language": "Open the top layer of the drawer and put the bowl inside",
+      "instruction_matches_official": false,
+      "instruction_matches_bddl": true,
+      "max_steps_expected": 300,
+      "steps_within_max": true,
+      "failure_ran_full_budget": true
+    },
+    {
+      "suite": "LIBERO_GOAL",
+      "task_idx": 5,
+      "task_key": "LIBERO_GOAL_T5",
+      "results_path": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/run/first-pass/libero_goal/pi05_20261019_171428/results.json",
+      "key_consistent": true,
+      "suite_field_ok": true,
+      "instruction": "push the plate to the front of the stove",
+      "label": "baseline_s0",
+      "kind": "baseline",
+      "success": true,
+      "steps": 132,
+      "time_s": 40.0,
+      "result_keys": [
+        "injection_valid",
+        "instruction_switch",
+        "intervention_snapshot",
+        "kind",
+        "pairing_audit",
+        "passed",
+        "pfcr",
+        "phase_probe",
+        "placements",
+        "recovery_cost",
+        "report",
+        "reproducibility",
+        "steps",
+        "success",
+        "t0_anchor_handoff",
+        "time_s"
+      ],
+      "protocol": {
+        "stabilization_control_steps": 10,
+        "replan_steps": 5,
+        "model": "pi05",
+        "checkpoint": "/home/tarowang/.cache/openpi/openpi-assets/checkpoints/pi05_libero",
+        "environment_seed_offset": 1000,
+        "initial_policy_observation": "post_stabilization_truth"
+      },
+      "repro": {
+        "episode_seed": 0,
+        "environment_seed": 1000,
+        "stabilized_observation_sha256": "3c5bf8c486e70e0cea8e65a4faf90f8439768e1945a7a5588cfde0e29c7d5d07",
+        "stabilized_sim_state_sha256": "06f5a8dbbbd1f99383e092066ae77606353fc8fdf5c6337a9b25f0d7b0f49484",
+        "n_base_policy_queries": 27
+      },
+      "spec_language": "push the plate to the front of the stove",
+      "bddl_language": "Push the plate to the front of the stove",
+      "instruction_matches_official": true,
+      "instruction_matches_bddl": true,
+      "max_steps_expected": 300,
+      "steps_within_max": true,
+      "failure_ran_full_budget": true
+    }
+  ],
+  "videos": {
+    "per_suite": {
+      "LIBERO_SPATIAL": {
+        "dirs": [
+          "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/run/first-pass/libero_spatial/pi05_20261019_165647/videos"
+        ],
+        "expected_count": 10,
+        "found_count": 10,
+        "files": {
+          "LIBERO_SPATIAL_T0__baseline_seed0.mp4": {
+            "name": "LIBERO_SPATIAL_T0__baseline_seed0.mp4",
+            "size": 100794,
+            "frames": 81,
+            "fps": 20.0,
+            "width": 256,
+            "height": 256,
+            "duration_s": 4.05,
+            "expected_frames_steps_plus_1": 81,
+            "frames_delta": 0,
+            "duration_ok": true,
+            "fps_ok": true,
+            "resolution_ok": true
+          },
+          "LIBERO_SPATIAL_T1__baseline_seed0.mp4": {
+            "name": "LIBERO_SPATIAL_T1__baseline_seed0.mp4",
+            "size": 110062,
+            "frames": 112,
+            "fps": 20.0,
+            "width": 256,
+            "height": 256,
+            "duration_s": 5.6,
+            "expected_frames_steps_plus_1": 112,
+            "frames_delta": 0,
+            "duration_ok": true,
+            "fps_ok": true,
+            "resolution_ok": true
+          },
+          "LIBERO_SPATIAL_T2__baseline_seed0.mp4": {
+            "name": "LIBERO_SPATIAL_T2__baseline_seed0.mp4",
+            "size": 126480,
+            "frames": 98,
+            "fps": 20.0,
+            "width": 256,
+            "height": 256,
+            "duration_s": 4.9,
+            "expected_frames_steps_plus_1": 98,
+            "frames_delta": 0,
+            "duration_ok": true,
+            "fps_ok": true,
+            "resolution_ok": true
+          },
+          "LIBERO_SPATIAL_T3__baseline_seed0.mp4": {
+            "name": "LIBERO_SPATIAL_T3__baseline_seed0.mp4",
+            "size": 123794,
+            "frames": 91,
+            "fps": 20.0,
+            "width": 256,
+            "height": 256,
+            "duration_s": 4.55,
+            "expected_frames_steps_plus_1": 91,
+            "frames_delta": 0,
+            "duration_ok": true,
+            "fps_ok": true,
+            "resolution_ok": true
+          },
+          "LIBERO_SPATIAL_T4__baseline_seed0.mp4": {
+            "name": "LIBERO_SPATIAL_T4__baseline_seed0.mp4",
+            "size": 156840,
+            "frames": 122,
+            "fps": 20.0,
+            "width": 256,
+            "height": 256,
+            "duration_s": 6.1,
+            "expected_frames_steps_plus_1": 122,
+            "frames_delta": 0,
+            "duration_ok": true,
+            "fps_ok": true,
+            "resolution_ok": true
+          },
+          "LIBERO_SPATIAL_T5__baseline_seed0.mp4": {
+            "name": "LIBERO_SPATIAL_T5__baseline_seed0.mp4",
+            "size": 98715,
+            "frames": 86,
+            "fps": 20.0,
+            "width": 256,
+            "height": 256,
+            "duration_s": 4.3,
+            "expected_frames_steps_plus_1": 86,
+            "frames_delta": 0,
+            "duration_ok": true,
+            "fps_ok": true,
+            "resolution_ok": true
+          },
+          "LIBERO_SPATIAL_T6__baseline_seed0.mp4": {
+            "name": "LIBERO_SPATIAL_T6__baseline_seed0.mp4",
+            "size": 161357,
+            "frames": 112,
+            "fps": 20.0,
+            "width": 256,
+            "height": 256,
+            "duration_s": 5.6,
+            "expected_frames_steps_plus_1": 112,
+            "frames_delta": 0,
+            "duration_ok": true,
+            "fps_ok": true,
+            "resolution_ok": true
+          },
+          "LIBERO_SPATIAL_T7__baseline_seed0.mp4": {
+            "name": "LIBERO_SPATIAL_T7__baseline_seed0.mp4",
+            "size": 128472,
+            "frames": 114,
+            "fps": 20.0,
+            "width": 256,
+            "height": 256,
+            "duration_s": 5.7,
+            "expected_frames_steps_plus_1": 114,
+            "frames_delta": 0,
+            "duration_ok": true,
+            "fps_ok": true,
+            "resolution_ok": true
+          },
+          "LIBERO_SPATIAL_T8__baseline_seed0.mp4": {
+            "name": "LIBERO_SPATIAL_T8__baseline_seed0.mp4",
+            "size": 124349,
+            "frames": 99,
+            "fps": 20.0,
+            "width": 256,
+            "height": 256,
+            "duration_s": 4.95,
+            "expected_frames_steps_plus_1": 99,
+            "frames_delta": 0,
+            "duration_ok": true,
+            "fps_ok": true,
+            "resolution_ok": true
+          },
+          "LIBERO_SPATIAL_T9__baseline_seed0.mp4": {
+            "name": "LIBERO_SPATIAL_T9__baseline_seed0.mp4",
+            "size": 128643,
+            "frames": 120,
+            "fps": 20.0,
+            "width": 256,
+            "height": 256,
+            "duration_s": 6.0,
+            "expected_frames_steps_plus_1": 120,
+            "frames_delta": 0,
+            "duration_ok": true,
+            "fps_ok": true,
+            "resolution_ok": true
+          }
+        }
+      },
+      "LIBERO_OBJECT": {
+        "dirs": [
+          "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/run/first-pass/libero_object/pi05_20261019_170621/videos"
+        ],
+        "expected_count": 10,
+        "found_count": 10,
+        "files": {
+          "LIBERO_OBJECT_T0__baseline_seed0.mp4": {
+            "name": "LIBERO_OBJECT_T0__baseline_seed0.mp4",
+            "size": 111480,
+            "frames": 140,
+            "fps": 20.0,
+            "width": 256,
+            "height": 256,
+            "duration_s": 7.0,
+            "expected_frames_steps_plus_1": 140,
+            "frames_delta": 0,
+            "duration_ok": true,
+            "fps_ok": true,
+            "resolution_ok": true
+          },
+          "LIBERO_OBJECT_T1__baseline_seed0.mp4": {
+            "name": "LIBERO_OBJECT_T1__baseline_seed0.mp4",
+            "size": 128055,
+            "frames": 133,
+            "fps": 20.0,
+            "width": 256,
+            "height": 256,
+            "duration_s": 6.65,
+            "expected_frames_steps_plus_1": 133,
+            "frames_delta": 0,
+            "duration_ok": true,
+            "fps_ok": true,
+            "resolution_ok": true
+          },
+          "LIBERO_OBJECT_T2__baseline_seed0.mp4": {
+            "name": "LIBERO_OBJECT_T2__baseline_seed0.mp4",
+            "size": 110031,
+            "frames": 124,
+            "fps": 20.0,
+            "width": 256,
+            "height": 256,
+            "duration_s": 6.2,
+            "expected_frames_steps_plus_1": 124,
+            "frames_delta": 0,
+            "duration_ok": true,
+            "fps_ok": true,
+            "resolution_ok": true
+          },
+          "LIBERO_OBJECT_T3__baseline_seed0.mp4": {
+            "name": "LIBERO_OBJECT_T3__baseline_seed0.mp4",
+            "size": 153699,
+            "frames": 161,
+            "fps": 20.0,
+            "width": 256,
+            "height": 256,
+            "duration_s": 8.05,
+            "expected_frames_steps_plus_1": 161,
+            "frames_delta": 0,
+            "duration_ok": true,
+            "fps_ok": true,
+            "resolution_ok": true
+          },
+          "LIBERO_OBJECT_T4__baseline_seed0.mp4": {
+            "name": "LIBERO_OBJECT_T4__baseline_seed0.mp4",
+            "size": 109107,
+            "frames": 146,
+            "fps": 20.0,
+            "width": 256,
+            "height": 256,
+            "duration_s": 7.3,
+            "expected_frames_steps_plus_1": 146,
+            "frames_delta": 0,
+            "duration_ok": true,
+            "fps_ok": true,
+            "resolution_ok": true
+          },
+          "LIBERO_OBJECT_T5__baseline_seed0.mp4": {
+            "name": "LIBERO_OBJECT_T5__baseline_seed0.mp4",
+            "size": 111406,
+            "frames": 116,
+            "fps": 20.0,
+            "width": 256,
+            "height": 256,
+            "duration_s": 5.8,
+            "expected_frames_steps_plus_1": 116,
+            "frames_delta": 0,
+            "duration_ok": true,
+            "fps_ok": true,
+            "resolution_ok": true
+          },
+          "LIBERO_OBJECT_T6__baseline_seed0.mp4": {
+            "name": "LIBERO_OBJECT_T6__baseline_seed0.mp4",
+            "size": 133921,
+            "frames": 163,
+            "fps": 20.0,
+            "width": 256,
+            "height": 256,
+            "duration_s": 8.15,
+            "expected_frames_steps_plus_1": 163,
+            "frames_delta": 0,
+            "duration_ok": true,
+            "fps_ok": true,
+            "resolution_ok": true
+          },
+          "LIBERO_OBJECT_T7__baseline_seed0.mp4": {
+            "name": "LIBERO_OBJECT_T7__baseline_seed0.mp4",
+            "size": 99776,
+            "frames": 127,
+            "fps": 20.0,
+            "width": 256,
+            "height": 256,
+            "duration_s": 6.35,
+            "expected_frames_steps_plus_1": 127,
+            "frames_delta": 0,
+            "duration_ok": true,
+            "fps_ok": true,
+            "resolution_ok": true
+          },
+          "LIBERO_OBJECT_T8__baseline_seed0.mp4": {
+            "name": "LIBERO_OBJECT_T8__baseline_seed0.mp4",
+            "size": 119734,
+            "frames": 144,
+            "fps": 20.0,
+            "width": 256,
+            "height": 256,
+            "duration_s": 7.2,
+            "expected_frames_steps_plus_1": 144,
+            "frames_delta": 0,
+            "duration_ok": true,
+            "fps_ok": true,
+            "resolution_ok": true
+          },
+          "LIBERO_OBJECT_T9__baseline_seed0.mp4": {
+            "name": "LIBERO_OBJECT_T9__baseline_seed0.mp4",
+            "size": 123600,
+            "frames": 126,
+            "fps": 20.0,
+            "width": 256,
+            "height": 256,
+            "duration_s": 6.3,
+            "expected_frames_steps_plus_1": 126,
+            "frames_delta": 0,
+            "duration_ok": true,
+            "fps_ok": true,
+            "resolution_ok": true
+          }
+        }
+      },
+      "LIBERO_GOAL": {
+        "dirs": [
+          "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/run/first-pass/libero_goal/pi05_20261019_171428/videos"
+        ],
+        "expected_count": 3,
+        "found_count": 3,
+        "files": {
+          "LIBERO_GOAL_T0__baseline_seed0.mp4": {
+            "name": "LIBERO_GOAL_T0__baseline_seed0.mp4",
+            "size": 137966,
+            "frames": 118,
+            "fps": 20.0,
+            "width": 256,
+            "height": 256,
+            "duration_s": 5.9,
+            "expected_frames_steps_plus_1": 118,
+            "frames_delta": 0,
+            "duration_ok": true,
+            "fps_ok": true,
+            "resolution_ok": true
+          },
+          "LIBERO_GOAL_T3__baseline_seed0.mp4": {
+            "name": "LIBERO_GOAL_T3__baseline_seed0.mp4",
+            "size": 263089,
+            "frames": 257,
+            "fps": 20.0,
+            "width": 256,
+            "height": 256,
+            "duration_s": 12.85,
+            "expected_frames_steps_plus_1": 257,
+            "frames_delta": 0,
+            "duration_ok": true,
+            "fps_ok": true,
+            "resolution_ok": true
+          },
+          "LIBERO_GOAL_T5__baseline_seed0.mp4": {
+            "name": "LIBERO_GOAL_T5__baseline_seed0.mp4",
+            "size": 178641,
+            "frames": 133,
+            "fps": 20.0,
+            "width": 256,
+            "height": 256,
+            "duration_s": 6.65,
+            "expected_frames_steps_plus_1": 133,
+            "frames_delta": 0,
+            "duration_ok": true,
+            "fps_ok": true,
+            "resolution_ok": true
+          }
+        }
+      },
+      "LIBERO_10": {
+        "dirs": [],
+        "expected_count": 0,
+        "found_count": 0,
+        "files": {}
+      }
+    },
+    "missing": [],
+    "zero_byte": [],
+    "extra": [],
+    "probes": [],
+    "total_bytes": 3040011,
+    "total_files": 23,
+    "in_progress_artifacts": []
+  },
+  "success_stats": {
+    "per_suite": {
+      "LIBERO_SPATIAL": {
+        "episodes": 10,
+        "success": 10,
+        "success_rate": 1.0,
+        "mean_steps": 102.5,
+        "steps_min": 80,
+        "steps_max": 121,
+        "steps_median": 104.5,
+        "full_budget_episodes": 0
+      },
+      "LIBERO_OBJECT": {
+        "episodes": 10,
+        "success": 10,
+        "success_rate": 1.0,
+        "mean_steps": 137.0,
+        "steps_min": 115,
+        "steps_max": 162,
+        "steps_median": 135.5,
+        "full_budget_episodes": 0
+      },
+      "LIBERO_GOAL": {
+        "episodes": 3,
+        "success": 3,
+        "success_rate": 1.0,
+        "mean_steps": 168.33333333333334,
+        "steps_min": 117,
+        "steps_max": 256,
+        "steps_median": 132,
+        "full_budget_episodes": 0
+      },
+      "LIBERO_10": {
+        "episodes": 0,
+        "success": 0,
+        "success_rate": null,
+        "mean_steps": null,
+        "steps_min": null,
+        "steps_max": null,
+        "steps_median": null,
+        "full_budget_episodes": 0
+      }
+    },
+    "overall": {
+      "episodes": 23,
+      "success": 23,
+      "success_rate": 1.0,
+      "mean_steps": 126.08695652173913,
+      "steps_min": 80,
+      "steps_max": 256,
+      "steps_median": 121
+    },
+    "per_task": {
+      "LIBERO_SPATIAL_T0": {
+        "suite": "LIBERO_SPATIAL",
+        "task_idx": 0,
+        "success": true,
+        "steps": 80,
+        "time_s": 28.0,
+        "instruction": "pick the akita black bowl between the plate and the ramekin and place it on the plate",
+        "instruction_matches_official": false
+      },
+      "LIBERO_SPATIAL_T1": {
+        "suite": "LIBERO_SPATIAL",
+        "task_idx": 1,
+        "success": true,
+        "steps": 111,
+        "time_s": 38.0,
+        "instruction": "pick the akita black bowl next to the ramekin and place it on the plate",
+        "instruction_matches_official": false
+      },
+      "LIBERO_SPATIAL_T2": {
+        "suite": "LIBERO_SPATIAL",
+        "task_idx": 2,
+        "success": true,
+        "steps": 97,
+        "time_s": 34.0,
+        "instruction": "pick the akita black bowl from table center and place it on the plate",
+        "instruction_matches_official": false
+      },
+      "LIBERO_SPATIAL_T3": {
+        "suite": "LIBERO_SPATIAL",
+        "task_idx": 3,
+        "success": true,
+        "steps": 90,
+        "time_s": 32.0,
+        "instruction": "pick the akita black bowl on the cookies box and place it on the plate",
+        "instruction_matches_official": false
+      },
+      "LIBERO_SPATIAL_T4": {
+        "suite": "LIBERO_SPATIAL",
+        "task_idx": 4,
+        "success": true,
+        "steps": 121,
+        "time_s": 41.0,
+        "instruction": "pick the akita black bowl in the top layer of the wooden cabinet and place it on the plate",
+        "instruction_matches_official": false
+      },
+      "LIBERO_SPATIAL_T5": {
+        "suite": "LIBERO_SPATIAL",
+        "task_idx": 5,
+        "success": true,
+        "steps": 85,
+        "time_s": 34.0,
+        "instruction": "pick the akita black bowl on the ramekin and place it on the plate",
+        "instruction_matches_official": false
+      },
+      "LIBERO_SPATIAL_T6": {
+        "suite": "LIBERO_SPATIAL",
+        "task_idx": 6,
+        "success": true,
+        "steps": 111,
+        "time_s": 36.0,
+        "instruction": "pick the akita black bowl next to the cookies box and place it on the plate",
+        "instruction_matches_official": false
+      },
+      "LIBERO_SPATIAL_T7": {
+        "suite": "LIBERO_SPATIAL",
+        "task_idx": 7,
+        "success": true,
+        "steps": 113,
+        "time_s": 42.0,
+        "instruction": "pick the akita black bowl on the stove and place it on the plate",
+        "instruction_matches_official": false
+      },
+      "LIBERO_SPATIAL_T8": {
+        "suite": "LIBERO_SPATIAL",
+        "task_idx": 8,
+        "success": true,
+        "steps": 98,
+        "time_s": 34.0,
+        "instruction": "pick the akita black bowl next to the plate and place it on the plate",
+        "instruction_matches_official": false
+      },
+      "LIBERO_SPATIAL_T9": {
+        "suite": "LIBERO_SPATIAL",
+        "task_idx": 9,
+        "success": true,
+        "steps": 119,
+        "time_s": 41.0,
+        "instruction": "pick the akita black bowl on the wooden cabinet and place it on the plate",
+        "instruction_matches_official": false
+      },
+      "LIBERO_OBJECT_T0": {
+        "suite": "LIBERO_OBJECT",
+        "task_idx": 0,
+        "success": true,
+        "steps": 139,
+        "time_s": 32.0,
+        "instruction": "pick the alphabet soup and place it in the basket",
+        "instruction_matches_official": false
+      },
+      "LIBERO_OBJECT_T1": {
+        "suite": "LIBERO_OBJECT",
+        "task_idx": 1,
+        "success": true,
+        "steps": 132,
+        "time_s": 30.0,
+        "instruction": "pick the cream cheese and place it in the basket",
+        "instruction_matches_official": false
+      },
+      "LIBERO_OBJECT_T2": {
+        "suite": "LIBERO_OBJECT",
+        "task_idx": 2,
+        "success": true,
+        "steps": 123,
+        "time_s": 29.0,
+        "instruction": "pick the salad dressing and place it in the basket",
+        "instruction_matches_official": false
+      },
+      "LIBERO_OBJECT_T3": {
+        "suite": "LIBERO_OBJECT",
+        "task_idx": 3,
+        "success": true,
+        "steps": 160,
+        "time_s": 34.0,
+        "instruction": "pick the bbq sauce and place it in the basket",
+        "instruction_matches_official": false
+      },
+      "LIBERO_OBJECT_T4": {
+        "suite": "LIBERO_OBJECT",
+        "task_idx": 4,
+        "success": true,
+        "steps": 145,
+        "time_s": 29.0,
+        "instruction": "pick the ketchup and place it in the basket",
+        "instruction_matches_official": false
+      },
+      "LIBERO_OBJECT_T5": {
+        "suite": "LIBERO_OBJECT",
+        "task_idx": 5,
+        "success": true,
+        "steps": 115,
+        "time_s": 25.0,
+        "instruction": "pick the tomato sauce and place it in the basket",
+        "instruction_matches_official": false
+      },
+      "LIBERO_OBJECT_T6": {
+        "suite": "LIBERO_OBJECT",
+        "task_idx": 6,
+        "success": true,
+        "steps": 162,
+        "time_s": 36.0,
+        "instruction": "pick the butter and place it in the basket",
+        "instruction_matches_official": false
+      },
+      "LIBERO_OBJECT_T7": {
+        "suite": "LIBERO_OBJECT",
+        "task_idx": 7,
+        "success": true,
+        "steps": 126,
+        "time_s": 28.0,
+        "instruction": "pick the milk and place it in the basket",
+        "instruction_matches_official": false
+      },
+      "LIBERO_OBJECT_T8": {
+        "suite": "LIBERO_OBJECT",
+        "task_idx": 8,
+        "success": true,
+        "steps": 143,
+        "time_s": 32.0,
+        "instruction": "pick the chocolate pudding and place it in the basket",
+        "instruction_matches_official": false
+      },
+      "LIBERO_OBJECT_T9": {
+        "suite": "LIBERO_OBJECT",
+        "task_idx": 9,
+        "success": true,
+        "steps": 125,
+        "time_s": 28.0,
+        "instruction": "pick the orange juice and place it in the basket",
+        "instruction_matches_official": false
+      },
+      "LIBERO_GOAL_T0": {
+        "suite": "LIBERO_GOAL",
+        "task_idx": 0,
+        "success": true,
+        "steps": 117,
+        "time_s": 37.0,
+        "instruction": "open the middle layer of the drawer",
+        "instruction_matches_official": false
+      },
+      "LIBERO_GOAL_T3": {
+        "suite": "LIBERO_GOAL",
+        "task_idx": 3,
+        "success": true,
+        "steps": 256,
+        "time_s": 83.0,
+        "instruction": "open the top layer of the drawer and put the bowl inside",
+        "instruction_matches_official": false
+      },
+      "LIBERO_GOAL_T5": {
+        "suite": "LIBERO_GOAL",
+        "task_idx": 5,
+        "success": true,
+        "steps": 132,
+        "time_s": 40.0,
+        "instruction": "push the plate to the front of the stove",
+        "instruction_matches_official": true
+      }
+    }
+  },
+  "lead_summary_comparison": {
+    "path": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/run/first-pass/summary.json",
+    "present": false,
+    "matches": null,
+    "note": "Lead first-pass summary.json not present at audit time; independent numbers computed below and would be compared on the final audit pass."
+  },
+  "runtime_summary_comparison": {
+    "per_suite_present": {
+      "LIBERO_SPATIAL": true,
+      "LIBERO_OBJECT": true,
+      "LIBERO_GOAL": false,
+      "LIBERO_10": false
+    },
+    "issues": [],
+    "checked": 20
+  },
+  "deviations": [
+    {
+      "id": "D1",
+      "severity": "medium",
+      "item": "policy prompt source",
+      "official": "benchmark task.language (openpi main.py: task_description = task.language)",
+      "actual": "BDDL :language via libero-runtime task_instruction()",
+      "scope": "25/40 tasks differ (episodes audited: 22 differed of 23)",
+      "examples": [
+        {
+          "suite": "LIBERO_SPATIAL",
+          "idx": 0,
+          "official": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+          "bddl": "Pick the akita black bowl between the plate and the ramekin and place it on the plate"
+        },
+        {
+          "suite": "LIBERO_SPATIAL",
+          "idx": 1,
+          "official": "pick up the black bowl next to the ramekin and place it on the plate",
+          "bddl": "Pick the akita black bowl next to the ramekin and place it on the plate"
+        },
+        {
+          "suite": "LIBERO_SPATIAL",
+          "idx": 2,
+          "official": "pick up the black bowl from table center and place it on the plate",
+          "bddl": "Pick the akita black bowl from table center and place it on the plate"
+        },
+        {
+          "suite": "LIBERO_SPATIAL",
+          "idx": 3,
+          "official": "pick up the black bowl on the cookie box and place it on the plate",
+          "bddl": "Pick the akita black bowl on the cookies box and place it on the plate"
+        },
+        {
+          "suite": "LIBERO_SPATIAL",
+          "idx": 4,
+          "official": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+          "bddl": "Pick the akita black bowl in the top layer of the wooden cabinet and place it on the plate"
+        },
+        {
+          "suite": "LIBERO_SPATIAL",
+          "idx": 5,
+          "official": "pick up the black bowl on the ramekin and place it on the plate",
+          "bddl": "Pick the akita black bowl on the ramekin and place it on the plate"
+        }
+      ]
+    },
+    {
+      "id": "D2",
+      "severity": "low",
+      "item": "episode / environment / policy seed",
+      "official": "np.random.seed(7); env.seed(7); policy RNG from seed 7",
+      "actual": "np.random.seed(0); env.seed(1000) (episode_seed+1000); policy torch.manual_seed(0)",
+      "scope": "all audited episodes (documented in manifest)",
+      "evidence": "runtime/tools/run_benchmark.py run_episode(): np.random.seed(seed); env.seed(seed + 1000); _reset_policy_fn(seed)"
+    },
+    {
+      "id": "D3",
+      "severity": "none (implementation-only)",
+      "item": "initial policy observation / stabilization",
+      "official": "set_init_state -> 10 dummy actions -> policy starts from the post-dummy observation (openpi main.py: num_steps_wait=10)",
+      "actual": "set_init_state -> 10 dummy actions (NUM_STEPS_WAIT=10) -> first policy observation := post-stabilization observation; policy then runs without re-stepping the dummy actions",
+      "scope": "all episodes; identical number of dummy actions and identical first policy observation => observably equivalent",
+      "evidence": "runtime/tools/run_benchmark.py: stabilization loop `for _ in range(NUM_STEPS_WAIT)` then `if use_stabilized_policy_obs: obs = stabilized_obs`"
+    },
+    {
+      "id": "D4",
+      "severity": "by-design",
+      "item": "trials per task",
+      "official": "50 trials/task = one per init state",
+      "actual": "1 trial/task (init_state_index=[0] only; seed 0 -> select_init_state = init_states[0])",
+      "scope": "first pass; sample size 1 per task",
+      "evidence": "runtime select_init_state(init_states, seed) = init_states[seed % len]; manifest init_state_index=[0]"
+    },
+    {
+      "id": "D5",
+      "severity": "low",
+      "item": "runtime overlay code changes",
+      "official": "openpi examples/libero/main.py",
+      "actual": "libero-runtime overlay; only code diff vs libero-runtime = NUM_STEPS_WAIT 5 -> 10; per-task max_steps via configs/evaluation.max_steps",
+      "scope": "verified by diff of runs/.../runtime vs libero-plus/libero-runtime",
+      "evidence": "protocol.overlay_diff in evidence.json"
+    },
+    {
+      "id": "D6",
+      "severity": "medium",
+      "item": "inference stack / policy server",
+      "official": "openpi official eval: pi05_libero served by openpi JAX websocket policy server (examples/libero/main.py + scripts/serve_policy.py)",
+      "actual": "in-process PyTorch LeRobot `Pi05LeRobotPolicy` (lerobot.policies.pi05 + OpenPI transformer replacements) loading the same pi05_libero checkpoint; 180-deg image flip, eef_pos+axisangle+gripper state padded to 32, 3-camera LeRobot schema with right wrist black",
+      "scope": "all episodes; same checkpoint but different inference implementation => numbers are 'pi05 via LeRobot runtime', not byte-comparable to openpi's official pi05_libero numbers",
+      "evidence": "runtime/libero_runtime/policies/pi05_lerobot_policy.py (class Pi05LeRobotPolicy; _observation(); predict_chunk())"
+    }
+  ],
+  "checks": [
+    {
+      "check": "spec_asset_files_unchanged",
+      "ok": true,
+      "critical": true,
+      "detail": []
+    },
+    {
+      "check": "manifest_matches_spec_40_tasks",
+      "ok": true,
+      "critical": true,
+      "detail": []
+    },
+    {
+      "check": "manifest_checkpoint_exists",
+      "ok": true,
+      "critical": true,
+      "detail": {
+        "adapter": "pi05",
+        "policy_config": "pi05_libero",
+        "checkpoint": "/home/tarowang/.cache/openpi/openpi-assets/checkpoints/pi05_libero",
+        "python": "/home/tarowang/workspace/roboot/libero-plus/openpi/.venv/bin/python"
+      }
+    },
+    {
+      "check": "shadow_benchmark_is_pristine_head",
+      "ok": true,
+      "critical": true,
+      "detail": {
+        "libero/libero/__init__.py": true,
+        "libero/libero/benchmark/__init__.py": true,
+        "libero/libero/benchmark/libero_suite_task_map.py": true,
+        "libero/libero/benchmark/mu_creation.py": true
+      }
+    },
+    {
+      "check": "shadow_assets_are_pristine_third_party",
+      "ok": true,
+      "critical": true,
+      "detail": {
+        "bddl_files": {
+          "target": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files",
+          "expected": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files",
+          "ok": true
+        },
+        "init_files": {
+          "target": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files",
+          "expected": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files",
+          "ok": true
+        },
+        "assets": {
+          "target": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/assets",
+          "expected": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/assets",
+          "ok": true
+        }
+      }
+    },
+    {
+      "check": "results_parse_no_errors",
+      "ok": true,
+      "critical": true,
+      "detail": []
+    },
+    {
+      "check": "all_40_episodes_present",
+      "ok": false,
+      "critical": false,
+      "detail": {
+        "present": 23,
+        "expected": 40,
+        "missing_suites": [
+          "LIBERO_10"
+        ],
+        "missing_tasks": {
+          "LIBERO_SPATIAL": [],
+          "LIBERO_OBJECT": [],
+          "LIBERO_GOAL": [
+            1,
+            2,
+            4,
+            6,
+            7,
+            8,
+            9
+          ],
+          "LIBERO_10": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        }
+      }
+    },
+    {
+      "check": "one_baseline_episode_per_task",
+      "ok": true,
+      "critical": true,
+      "detail": []
+    },
+    {
+      "check": "results_schema_complete",
+      "ok": true,
+      "critical": true,
+      "detail": []
+    },
+    {
+      "check": "task_key_and_suite_fields_consistent",
+      "ok": true,
+      "critical": true,
+      "detail": []
+    },
+    {
+      "check": "episode_protocol_fields_official",
+      "ok": true,
+      "critical": true,
+      "detail": []
+    },
+    {
+      "check": "reproducibility_fields_sane",
+      "ok": true,
+      "critical": true,
+      "detail": []
+    },
+    {
+      "check": "runtime_init_state_index_matches_manifest",
+      "ok": true,
+      "critical": true,
+      "detail": {
+        "line": 908,
+        "text": "908: def select_init_state(init_states, seed: int):\n909:     \"\"\"Select the same deterministic benchmark state for a given seed.\"\"\"\n910:     if init_states is None or len(init_states) == 0:\n911:         return None\n912:     return init_states[seed % len(init_states)]\n913:"
+      }
+    },
+    {
+      "check": "runtime_stabilization_is_10_dummy_steps",
+      "ok": true,
+      "critical": true,
+      "detail": {
+        "stabilization": {
+          "line": 1859,
+          "text": "1859:     for _ in range(NUM_STEPS_WAIT):\n1860:         stabilized_obs, _, _, _ = env.step(DUMMY_ACTION)\n1861:     pass  # reset_step_counter not on OffScreenRenderEnv"
+        },
+        "num_steps_wait": {
+          "line": 92,
+          "text": "92: NUM_STEPS_WAIT = 10"
+        }
+      }
+    },
+    {
+      "check": "instruction_matches_official_benchmark",
+      "ok": false,
+      "critical": false,
+      "detail": {
+        "audited_episodes": 23,
+        "mismatching_episodes": 22,
+        "all_40_bddl_vs_official": 25
+      }
+    },
+    {
+      "check": "logs_maxsteps_official",
+      "ok": true,
+      "critical": true,
+      "detail": {
+        "LIBERO_SPATIAL": {
+          "driver": [
+            220
+          ],
+          "eval_pairs": [
+            {
+              "task_idx": 0,
+              "max_steps": 220
+            },
+            {
+              "task_idx": 2,
+              "max_steps": 220
+            },
+            {
+              "task_idx": 4,
+              "max_steps": 220
+            },
+            {
+              "task_idx": 6,
+              "max_steps": 220
+            },
+            {
+              "task_idx": 8,
+              "max_steps": 220
+            },
+            {
+              "task_idx": 1,
+              "max_steps": 220
+            },
+            {
+              "task_idx": 3,
+              "max_steps": 220
+            },
+            {
+              "task_idx": 5,
+              "max_steps": 220
+            },
+            {
+              "task_idx": 7,
+              "max_steps": 220
+            },
+            {
+              "task_idx": 9,
+              "max_steps": 220
+            }
+          ]
+        },
+        "LIBERO_OBJECT": {
+          "driver": [
+            280
+          ],
+          "eval_pairs": [
+            {
+              "task_idx": 0,
+              "max_steps": 280
+            },
+            {
+              "task_idx": 3,
+              "max_steps": 280
+            },
+            {
+              "task_idx": 6,
+              "max_steps": 280
+            },
+            {
+              "task_idx": 8,
+              "max_steps": 280
+            },
+            {
+              "task_idx": 1,
+              "max_steps": 280
+            },
+            {
+              "task_idx": 4,
+              "max_steps": 280
+            },
+            {
+              "task_idx": 7,
+              "max_steps": 280
+            },
+            {
+              "task_idx": 9,
+              "max_steps": 280
+            },
+            {
+              "task_idx": 2,
+              "max_steps": 280
+            },
+            {
+              "task_idx": 5,
+              "max_steps": 280
+            }
+          ]
+        },
+        "LIBERO_GOAL": {
+          "driver": [
+            300
+          ],
+          "eval_pairs": [
+            {
+              "task_idx": 0,
+              "max_steps": 300
+            },
+            {
+              "task_idx": 3,
+              "max_steps": 300
+            },
+            {
+              "task_idx": 5,
+              "max_steps": 300
+            },
+            {
+              "task_idx": 8,
+              "max_steps": 300
+            }
+          ]
+        }
+      }
+    },
+    {
+      "check": "logs_protocol_official",
+      "ok": true,
+      "critical": true,
+      "detail": {}
+    },
+    {
+      "check": "logs_counts_consistent",
+      "ok": true,
+      "critical": true,
+      "detail": {}
+    },
+    {
+      "check": "no_log_anomalies",
+      "ok": true,
+      "critical": true,
+      "detail": []
+    },
+    {
+      "check": "results_match_logs",
+      "ok": true,
+      "critical": true,
+      "detail": []
+    },
+    {
+      "check": "videos_one_per_completed_episode",
+      "ok": true,
+      "critical": false,
+      "detail": {
+        "missing": [],
+        "zero_byte": []
+      }
+    },
+    {
+      "check": "video_probe_matches_steps_20hz",
+      "ok": true,
+      "critical": false,
+      "detail": []
+    },
+    {
+      "check": "no_unexplained_extra_videos",
+      "ok": true,
+      "critical": false,
+      "detail": []
+    },
+    {
+      "check": "runtime_evaluation_summary_consistent",
+      "ok": true,
+      "critical": false,
+      "detail": []
+    },
+    {
+      "check": "runtime_overlay_only_num_steps_wait_patch",
+      "ok": true,
+      "critical": true,
+      "detail": "92c92\n< NUM_STEPS_WAIT = 5\n---\n> NUM_STEPS_WAIT = 10\n"
+    }
+  ],
+  "verdict": {
+    "status": "partial",
+    "episodes_audited": 23,
+    "episodes_expected": 40,
+    "critical_checks_passed": 19,
+    "critical_checks_total": 19,
+    "all_critical_checks_passed": true,
+    "usable_as_evidence": false,
+    "limitations": [
+      "PARTIAL RUN: only 23/40 episodes present at audit time",
+      "1 init state (index 0) per task",
+      "prompt text differs from official benchmark language for 25/40 tasks (BDDL :language)",
+      "seed semantics differ from openpi (episode_seed 0 / env seed 1000 vs seed 7)",
+      "inference stack is the in-process LeRobot PyTorch pi05 adapter, not the openpi JAX policy server"
+    ]
+  }
+}

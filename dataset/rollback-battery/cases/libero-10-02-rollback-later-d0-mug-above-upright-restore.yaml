@@ -1,0 +1,55 @@
+assumptions:
+- Ported from the runtime RB reference suites so this repo can reproduce them.
+- The runtime template and severity are pinned in the `runtime` block.
+case_id: libero-10-02-rollback-later-d0-mug-above-upright-restore
+completed_relations:
+- source_task_goal: true
+dataset_version: 1.6.0
+expected_evaluation_semantics: relation_then_resume
+intervention_description: 'Runtime RB4 reference: revoke the completed s1 by restoring it to container_above
+  while s2 is being executed.'
+open_questions:
+- Confirm the ported case reproduces the runtime binding's outcome.
+rollback_target:
+  state_change:
+    clearance_m: 0.05
+    clearance_max_m: 0.45
+    clearance_step_m: 0.01
+    edge_slide_m: 0.1
+    kind: restore_container_above_pose
+    target: container_above
+    velocity: zero
+scenario_type: completed_relation_rollback
+schema_version: libero-rollback.case.v1
+severity: above
+severity_rationale: Runtime reference label, ported verbatim.
+source:
+  case_reference: RB4 / rb_rb4_above_late / t78
+  case_source_id: rollback-battery-20261012
+  supporting_source_ids:
+  - scenario-timing-position-matrix-20260926
+  task_locator_source_id: full-suite-runtime-crosswalk-20261009
+  task_source_id: libero-plus-task-definitions-v1
+stage:
+  description: Ported from the runtime RB4 suite (rb_rb4_above_late), trigger enter_x3a_actuation.
+  name: rb_rb_rb4_above_late
+task:
+  source_bddl: KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it.bddl
+  source_task_locator: T78
+  suite: LIBERO-10
+  task_id: libero_10/02
+  task_index: 2
+template_id: completed-relation-rollback/container-above/v1
+trigger:
+  delay_steps: 0
+  event: enter_next_subgoal_lift
+  time_point: later
+  window: runtime RB4 reference window
+validity_constraints:
+- completed_relation_true_before_intervention
+- target_relation_false_after_intervention
+- object_released_before_intervention
+- zero_velocity_after_intervention
+- no_object_penetration
+- task_remains_solvable
+- baseline_task_solvable

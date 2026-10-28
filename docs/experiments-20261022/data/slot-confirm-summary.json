@@ -1,0 +1,58 @@
+{
+  "candidates": 2,
+  "episodes": 4,
+  "success": 2,
+  "robust_all_seeds": [
+    "k8_left_pot_on_stove"
+  ],
+  "rows": [
+    {
+      "candidate_id": "k8_left_pot_on_stove",
+      "scene": "KITCHEN_SCENE8",
+      "risk": "low",
+      "language": "put the left moka pot on the stove and turn it on",
+      "goal_atoms": [
+        "(On moka_pot_2 flat_stove_1_cook_region)",
+        "(Turnon flat_stove_1)"
+      ],
+      "seeds": {
+        "1": {
+          "success": true,
+          "steps": 156,
+          "time_s": 42.0,
+          "video": null
+        },
+        "2": {
+          "success": true,
+          "steps": 198,
+          "time_s": 49.0,
+          "video": null
+        }
+      }
+    },
+    {
+      "candidate_id": "lr2_tomato_butter",
+      "scene": "LIVING_ROOM_SCENE2",
+      "risk": "low",
+      "language": "put both the tomato sauce and the butter in the basket",
+      "goal_atoms": [
+        "(In tomato_sauce_1 basket_1_contain_region)",
+        "(In butter_1 basket_1_contain_region)"
+      ],
+      "seeds": {
+        "1": {
+          "success": false,
+          "steps": 600,
+          "time_s": 77.0,
+          "video": null
+        },
+        "2": {
+          "success": false,
+          "steps": 600,
+          "time_s": 79.0,
+          "video": null
+        }
+      }
+    }
+  ]
+}

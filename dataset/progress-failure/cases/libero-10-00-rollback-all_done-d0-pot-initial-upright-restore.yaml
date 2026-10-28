@@ -1,0 +1,58 @@
+assumptions:
+- Project-authored extension; parameters are proposals, not measurements.
+- Native predicate, collision, release and protected actor checks must pass in each episode.
+- Runtime BDDL variant is recorded separately from the canonical LIBERO-10 task.
+case_id: libero-10-00-rollback-all_done-d0-pot-initial-upright-restore
+completed_relations:
+- predicate: (On moka_pot_1 flat_stove_1_cook_region)
+  source_task_goal: true
+dataset_version: 1.8.0
+expected_evaluation_semantics: relation_then_resume
+intervention_description: 'Task 00: initial-pose-all-done; preserve the instruction and protected goals.'
+open_questions:
+- Episode-specific physical validity and predicate truth require simulation evidence.
+- Post-success continuation must expose at least one policy query after intervention; count separately
+  from nonterminal rollback.
+rollback_target:
+  actor: moka_pot_1
+  predicate: (On moka_pot_1 flat_stove_1_cook_region)
+  state_change:
+    kind: restore_episode_initial_pose
+    target: episode_initial_pose
+    velocity: zero
+  target_subgoal: moka_pot_1_placement
+scenario_type: completed_relation_rollback
+schema_version: libero-rollback.case.v1
+severity: d0
+severity_rationale: Mechanism label; concrete parameters are explicit and imply no model difficulty ranking.
+source:
+  case_reference: docs/expansion-plan.md / task 00 / initial-pose-all-done
+  case_source_id: progress-failure-expansion-20261014
+  supporting_source_ids:
+  - scenario-timing-position-matrix-20260926
+  - scenario-validity-severity-guidance-20260922
+  task_locator_source_id: full-suite-runtime-crosswalk-20261009
+  task_source_id: libero-plus-task-definitions-v1
+stage:
+  name: completion_boundary
+  description: All native goals hold before revocation; continue after success.
+task:
+  source_bddl: KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it.bddl
+  source_task_locator: T0
+  suite: LIBERO-10
+  task_id: libero_10/00
+  task_index: 0
+template_id: completed-relation-rollback/episode-initial-pose/v1
+trigger:
+  event: enter_next_subgoal_completed
+  time_point: all_done
+  delay_steps: 0
+  window: All native goals hold before revocation; continue after success.
+validity_constraints:
+- completed_relation_true_before_intervention
+- object_released_before_intervention
+- zero_velocity_after_intervention
+- no_object_penetration
+- task_remains_solvable
+- baseline_task_solvable
+- target_relation_false_after_intervention

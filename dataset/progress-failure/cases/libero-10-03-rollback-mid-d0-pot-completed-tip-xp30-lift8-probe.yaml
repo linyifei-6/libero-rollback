@@ -1,0 +1,66 @@
+assumptions:
+- Project-authored extension; parameters are proposals, not measurements.
+- Native predicate, collision, release and protected actor checks must pass in each episode.
+- Runtime BDDL variant is recorded separately from the canonical LIBERO-10 task.
+- Lifted by 0.08 m before the rotation so the tilted object clears the container walls while remaining
+  inside the goal region.
+case_id: libero-10-03-rollback-mid-d0-pot-completed-tip-xp30-lift8-probe
+completed_relations:
+- source_task_goal: true
+dataset_version: 1.8.0
+expected_evaluation_semantics: relation_only
+intervention_description: 'Task 03: roll30-completed-mid; preserve the instruction and protected goals.'
+open_questions:
+- Episode-specific physical validity and predicate truth require simulation evidence.
+- 'Rotation is a truth probe: classify relation-preserving control or rollback from native pre/post truth;
+  never infer failure from angle alone.'
+pose_role: measured_relation_probe
+rollback_target:
+  state_change:
+    kind: displace_from_completed_pose
+    lift_m: 0.08
+    offset_frame: world
+    offset_m:
+    - 0.0
+    - 0.0
+    - 0.0
+    orientation_axis_angle:
+      angle_rad: 0.5235987755982988
+      axis:
+      - 1.0
+      - 0.0
+      - 0.0
+    velocity: zero
+scenario_type: completed_relation_rollback
+schema_version: libero-rollback.case.v1
+severity: pose
+severity_rationale: Mechanism label; concrete parameters are explicit and imply no model difficulty ranking.
+source:
+  case_reference: docs/expansion-plan.md / task 03 / roll30-completed-mid
+  case_source_id: progress-failure-expansion-20261014
+  supporting_source_ids:
+  - scenario-timing-position-matrix-20260926
+  task_locator_source_id: full-suite-runtime-crosswalk-20261009
+  task_source_id: libero-plus-task-definitions-v1
+stage:
+  description: The first relation holds, the next operation is under way.
+  name: next_subgoal_approach
+task:
+  source_bddl: KITCHEN_SCENE8_put_both_moka_pots_on_the_stove.bddl
+  source_task_locator: T133
+  suite: LIBERO-10
+  task_id: libero_10/03
+  task_index: 3
+template_id: completed-relation-rollback/completed-pose/v1
+trigger:
+  delay_steps: 0
+  event: enter_next_subgoal_approach
+  time_point: mid
+  window: The first relation holds, the next operation is under way.
+validity_constraints:
+- completed_relation_true_before_intervention
+- object_released_before_intervention
+- zero_velocity_after_intervention
+- no_object_penetration
+- task_remains_solvable
+- baseline_task_solvable

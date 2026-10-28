@@ -1,0 +1,985 @@
+coverage_version: '1'
+suite: LIBERO-10
+task_source: libero-plus-task-definitions-v1
+tasks:
+- task_id: libero_10/00
+  task_index: 0
+  task_name: Turn on the stove and put the moka pot on it
+  source_task_locator: T0
+  source_bddl: KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it.bddl
+  canonical_bddl: KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it.bddl
+  runtime_task_locator: T0
+  runtime_bddl: KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_table_1.bddl
+  allowed_source_bddls:
+  - KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it.bddl
+  - KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_table_1.bddl
+  crosswalk_source_id: full-suite-runtime-crosswalk-20261009
+  runtime_profile_sha256: 071717de45563c72ce465aef67b28ff9b8e83c8d49cf8f97aae29f5717a5889d
+  scenario_applicability: documented
+  candidate_rollback_events:
+  - enter_next_subgoal_approach
+  - enter_next_subgoal_completed
+  - enter_next_subgoal_lift
+  candidate_state_change_kinds:
+  - restore_episode_initial_pose
+  - restore_native_relation_set
+  - revert_articulation_goal
+  case_count: 12
+  case_ids:
+  - libero-10-00-rollback-all_done-d0-pot-initial-upright-restore
+  - libero-10-00-rollback-all_done-d0-pot-relations-s2-upright-restore
+  - libero-10-00-rollback-all_done-d0-pot-relations-s2-upright-v2-restore
+  - libero-10-00-rollback-early-d10-target-joint-upright-setback1-restore
+  - libero-10-00-rollback-later-d0-target-joint-upright-setback0p5-control
+  - libero-10-00-rollback-later-d0-target-joint-upright-setback1-restore
+  - libero-10-00-rollback-later-d0-target-joint-upright-setback1p5-restore
+  - libero-10-00-rollback-mid-d0-target-joint-upright-setback0p5-control
+  - libero-10-00-rollback-mid-d0-target-joint-upright-setback1-control
+  - libero-10-00-rollback-mid-d0-target-joint-upright-setback1-restore
+  - libero-10-00-rollback-mid-d0-target-joint-upright-setback1-v2-restore
+  - libero-10-00-rollback-mid-d0-target-joint-upright-setback1p5-restore
+  open_questions:
+  - All target predicates must be true then false; preserve every non-target native
+    goal. Failed atomic writes restore all simulator coordinates.
+  - Calibrate success_threshold_rad against a baseline episode rather than the T270
+    default.
+  - Calibrate the quarter point against the measured knob pre-position rather than
+    the nominal 2.1 rad range.
+  - Compare against the half-range reference case (libero-10-00-moka-pot-stove-rollback-s1-s2-mid-p1)
+    to see whether a deeper close changes recovery.
+  - Confirm on the live episode that a 0.5 rad setback leaves (Turnon flat_stove_1)
+    true; if it flips false, this case is a rollback rather than a control and the
+    magnitude belongs in the rollback grid.
+  - Confirm that the 1.5 rad setback reaches the target joint position with the 600
+    N envelope instead of being clipped, and that the native predicate is false afterwards.
+  - Confirm that the setback actually flips the native (Turnon flat_stove_1) predicate
+    to false.
+  - Episode-specific physical validity and predicate truth require simulation evidence.
+  - Joint resets are external endpoint interventions, not a claim of a collision-free
+    continuous actuation path.
+  - Post-success continuation must expose at least one policy query after intervention;
+    count separately from nonterminal rollback.
+  - Read Turnon threshold from installed stove object; verify native truth at drive
+    completion, not travel magnitude.
+- task_id: libero_10/01
+  task_index: 1
+  task_name: Put the black bowl in the bottom drawer and close it
+  source_task_locator: T33
+  source_bddl: KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.bddl
+  canonical_bddl: KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.bddl
+  runtime_task_locator: T33
+  runtime_bddl: KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.bddl
+  allowed_source_bddls:
+  - KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.bddl
+  crosswalk_source_id: full-suite-runtime-crosswalk-20261009
+  runtime_profile_sha256: 428b06a7eee561137727fde014b63ae9f55e693e45c5c20d8128c4c23c59127f
+  scenario_applicability: documented
+  candidate_rollback_events:
+  - enter_first_subgoal_completed
+  - enter_next_subgoal_approach
+  - enter_next_subgoal_completed
+  - enter_next_subgoal_lift
+  candidate_state_change_kinds:
+  - apply_episode_initial_offset
+  - displace_from_completed_pose
+  - displace_to_relation_boundary
+  - restore_container_above_pose
+  - restore_episode_initial_pose
+  - restore_native_relation_set
+  case_count: 59
+  case_ids:
+  - libero-10-01-rollback-all_done-d0-bowl-initial-upright-restore
+  - libero-10-01-rollback-all_done-d0-bowl-relations-s1-upright-restore
+  - libero-10-01-rollback-all_done-d0-bowl-relations-s1-upright-v2-restore
+  - libero-10-01-rollback-early-d0-bowl-above-upright-restore
+  - libero-10-01-rollback-early-d0-bowl-completed-tip-xp20-lift2-probe
+  - libero-10-01-rollback-early-d0-bowl-completed-tip-yp20-lift2-probe
+  - libero-10-01-rollback-early-d0-bowl-completed-tip-yp20-lift2-v2-probe
+  - libero-10-01-rollback-early-d0-bowl-initial-tip-xn90-lift5-restore
+  - libero-10-01-rollback-early-d0-bowl-initial-tip-xp180-lift5-restore
+  - libero-10-01-rollback-early-d0-bowl-initial-tip-xp90-lift5-restore
+  - libero-10-01-rollback-early-d0-bowl-initial-tip-yn90-lift5-restore
+  - libero-10-01-rollback-early-d0-bowl-initial-tip-yp90-lift5-restore
+  - libero-10-01-rollback-early-d0-bowl-initial-upright-restore
+  - libero-10-01-rollback-early-d0-bowl-initial-upright-v2-restore
+  - libero-10-01-rollback-early-d0-bowl-offset-xn3yp3-upright-restore
+  - libero-10-01-rollback-early-d0-bowl-offset-xn5yp5-upright-restore
+  - libero-10-01-rollback-early-d0-bowl-offset-xn8yp6-upright-restore
+  - libero-10-01-rollback-early-d0-bowl-offset-xp10yp8-upright-restore
+  - libero-10-01-rollback-early-d0-bowl-offset-xp3yp3-upright-restore
+  - libero-10-01-rollback-early-d0-bowl-offset-xp5yp5-upright-restore
+  - libero-10-01-rollback-early-d10-bowl-above-upright-restore
+  - libero-10-01-rollback-later-d0-bowl-above-upright-restore
+  - libero-10-01-rollback-later-d0-bowl-above-upright-v2-restore
+  - libero-10-01-rollback-later-d0-bowl-completed-tip-xp20-lift2-probe
+  - libero-10-01-rollback-later-d0-bowl-completed-tip-yp20-lift2-probe
+  - libero-10-01-rollback-later-d0-bowl-completed-tip-yp20-lift2-v2-probe
+  - libero-10-01-rollback-later-d0-bowl-initial-tip-xn90-lift5-restore
+  - libero-10-01-rollback-later-d0-bowl-initial-tip-xp180-lift5-restore
+  - libero-10-01-rollback-later-d0-bowl-initial-tip-xp90-lift5-restore
+  - libero-10-01-rollback-later-d0-bowl-initial-tip-yn90-lift5-restore
+  - libero-10-01-rollback-later-d0-bowl-initial-tip-yp90-lift5-restore
+  - libero-10-01-rollback-later-d0-bowl-initial-upright-restore
+  - libero-10-01-rollback-later-d0-bowl-offset-xn3yp3-upright-restore
+  - libero-10-01-rollback-later-d0-bowl-offset-xn6yp10-upright-restore
+  - libero-10-01-rollback-later-d0-bowl-offset-xn8yp6-upright-restore
+  - libero-10-01-rollback-later-d0-bowl-offset-xp10yp8-upright-restore
+  - libero-10-01-rollback-later-d0-bowl-offset-xp8yp6-upright-restore
+  - libero-10-01-rollback-mid-d0-bowl-above-upright-restore
+  - libero-10-01-rollback-mid-d0-bowl-above-upright-v2-restore
+  - libero-10-01-rollback-mid-d0-bowl-boundary-inside-upright-control
+  - libero-10-01-rollback-mid-d0-bowl-boundary-outside-upright-restore
+  - libero-10-01-rollback-mid-d0-bowl-completed-tip-xp15-lift4-probe
+  - libero-10-01-rollback-mid-d0-bowl-completed-tip-xp20-lift2-probe
+  - libero-10-01-rollback-mid-d0-bowl-completed-tip-yp20-lift2-probe
+  - libero-10-01-rollback-mid-d0-bowl-completed-tip-yp20-lift2-v2-probe
+  - libero-10-01-rollback-mid-d0-bowl-completed-yaw-zp180-probe
+  - libero-10-01-rollback-mid-d0-bowl-initial-tip-xn90-lift5-restore
+  - libero-10-01-rollback-mid-d0-bowl-initial-tip-xp180-lift5-restore
+  - libero-10-01-rollback-mid-d0-bowl-initial-tip-xp90-lift5-restore
+  - libero-10-01-rollback-mid-d0-bowl-initial-tip-yn90-lift5-restore
+  - libero-10-01-rollback-mid-d0-bowl-initial-tip-yp90-lift5-restore
+  - libero-10-01-rollback-mid-d0-bowl-initial-upright-restore
+  - libero-10-01-rollback-mid-d0-bowl-initial-upright-v2-restore
+  - libero-10-01-rollback-mid-d0-bowl-offset-xn3yp3-upright-restore
+  - libero-10-01-rollback-mid-d0-bowl-offset-xn3yp3-upright-v2-restore
+  - libero-10-01-rollback-mid-d0-bowl-offset-xn5yp5-upright-restore
+  - libero-10-01-rollback-mid-d0-bowl-offset-xn5yp5-upright-v2-restore
+  - libero-10-01-rollback-mid-d0-bowl-offset-xp3yp3-upright-restore
+  - libero-10-01-rollback-mid-d0-bowl-offset-xp5yp5-upright-restore
+  open_questions:
+  - A horizontal legal pair may not exist for enclosed drawer/microwave or basket
+    walls; retain rejection rather than skipping collisions.
+  - All target predicates must be true then false; preserve every non-target native
+    goal. Failed atomic writes restore all simulator coordinates.
+  - Confirm the chosen hover pose sits above the opening.
+  - Confirm the ported case reproduces the runtime binding's outcome.
+  - Episode-specific physical validity and predicate truth require simulation evidence.
+  - Joint resets are external endpoint interventions, not a claim of a collision-free
+    continuous actuation path.
+  - Post-success continuation must expose at least one policy query after intervention;
+    count separately from nonterminal rollback.
+  - Posture at the raised episode-initial position must be verified in simulation
+    (penetration and truth).
+  - 'Rotation is a truth probe: classify relation-preserving control or rollback from
+    native pre/post truth; never infer failure from angle alone.'
+  - Verify collision-free support, no penetration and release.
+  - Verify collision-free support, no penetration, release, and task solvability for
+    the selected episode.
+  - Whether the 20 degree lean keeps the relation true and stays penetration-free
+    is verified by preflight.
+  - Without spontaneous recovery, the second event must remain untriggered and be
+    reported as such.
+- task_id: libero_10/02
+  task_index: 2
+  task_name: Put the yellow and white mug in the microwave and close it
+  source_task_locator: T78
+  source_bddl: KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it.bddl
+  canonical_bddl: KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it.bddl
+  runtime_task_locator: T78
+  runtime_bddl: KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it.bddl
+  allowed_source_bddls:
+  - KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it.bddl
+  crosswalk_source_id: full-suite-runtime-crosswalk-20261009
+  runtime_profile_sha256: 7b5233e8d70aeb0230708d43dedcebac020ce9f09bdf7177dd5291e54b20eb87
+  scenario_applicability: documented
+  candidate_rollback_events:
+  - enter_first_subgoal_completed
+  - enter_next_subgoal_approach
+  - enter_next_subgoal_completed
+  - enter_next_subgoal_lift
+  candidate_state_change_kinds:
+  - apply_episode_initial_offset
+  - displace_from_completed_pose
+  - displace_to_relation_boundary
+  - restore_container_above_pose
+  - restore_episode_initial_pose
+  - restore_native_relation_set
+  case_count: 53
+  case_ids:
+  - libero-10-02-rollback-all_done-d0-mug-initial-upright-restore
+  - libero-10-02-rollback-all_done-d0-mug-relations-s1-upright-restore
+  - libero-10-02-rollback-all_done-d0-mug-relations-s1-upright-v2-restore
+  - libero-10-02-rollback-early-d0-mug-above-upright-restore
+  - libero-10-02-rollback-early-d0-mug-initial-tip-xn90-lift5-restore
+  - libero-10-02-rollback-early-d0-mug-initial-tip-xp180-lift5-restore
+  - libero-10-02-rollback-early-d0-mug-initial-tip-xp90-lift5-restore
+  - libero-10-02-rollback-early-d0-mug-initial-tip-yn90-lift5-restore
+  - libero-10-02-rollback-early-d0-mug-initial-tip-yp90-lift5-restore
+  - libero-10-02-rollback-early-d0-mug-initial-upright-restore
+  - libero-10-02-rollback-early-d0-mug-initial-upright-v2-restore
+  - libero-10-02-rollback-early-d0-mug-offset-xn3yp3-upright-restore
+  - libero-10-02-rollback-early-d0-mug-offset-xn5yp5-upright-restore
+  - libero-10-02-rollback-early-d0-mug-offset-xn8yp6-upright-restore
+  - libero-10-02-rollback-early-d0-mug-offset-xp10yp8-upright-restore
+  - libero-10-02-rollback-early-d0-mug-offset-xp3yp3-upright-restore
+  - libero-10-02-rollback-early-d0-mug-offset-xp8yp6-upright-restore
+  - libero-10-02-rollback-early-d10-mug-above-upright-restore
+  - libero-10-02-rollback-later-d0-mug-above-upright-restore
+  - libero-10-02-rollback-later-d0-mug-above-upright-v2-restore
+  - libero-10-02-rollback-later-d0-mug-initial-tip-xn90-lift5-restore
+  - libero-10-02-rollback-later-d0-mug-initial-tip-xp180-lift5-restore
+  - libero-10-02-rollback-later-d0-mug-initial-tip-xp90-lift5-restore
+  - libero-10-02-rollback-later-d0-mug-initial-tip-yn90-lift5-restore
+  - libero-10-02-rollback-later-d0-mug-initial-tip-yp90-lift5-restore
+  - libero-10-02-rollback-later-d0-mug-initial-upright-restore
+  - libero-10-02-rollback-later-d0-mug-offset-xn3yp3-upright-restore
+  - libero-10-02-rollback-later-d0-mug-offset-xn6yp10-upright-restore
+  - libero-10-02-rollback-later-d0-mug-offset-xn8yp6-upright-restore
+  - libero-10-02-rollback-later-d0-mug-offset-xp10yp8-upright-restore
+  - libero-10-02-rollback-later-d0-mug-offset-xp8yp6-upright-restore
+  - libero-10-02-rollback-mid-d0-mug-above-upright-restore
+  - libero-10-02-rollback-mid-d0-mug-above-upright-v2-restore
+  - libero-10-02-rollback-mid-d0-mug-boundary-inside-upright-control
+  - libero-10-02-rollback-mid-d0-mug-boundary-outside-upright-restore
+  - libero-10-02-rollback-mid-d0-mug-completed-tip-xp15-lift4-probe
+  - libero-10-02-rollback-mid-d0-mug-completed-tip-xp30-lift8-probe
+  - libero-10-02-rollback-mid-d0-mug-completed-tip-xp45-lift12-probe
+  - libero-10-02-rollback-mid-d0-mug-completed-tip-xp60-lift16-probe
+  - libero-10-02-rollback-mid-d0-mug-completed-yaw-zp180-probe
+  - libero-10-02-rollback-mid-d0-mug-initial-tip-xn90-lift5-restore
+  - libero-10-02-rollback-mid-d0-mug-initial-tip-xp180-lift5-restore
+  - libero-10-02-rollback-mid-d0-mug-initial-tip-xp90-lift5-restore
+  - libero-10-02-rollback-mid-d0-mug-initial-tip-yn90-lift5-restore
+  - libero-10-02-rollback-mid-d0-mug-initial-tip-yp90-lift5-restore
+  - libero-10-02-rollback-mid-d0-mug-initial-upright-restore
+  - libero-10-02-rollback-mid-d0-mug-initial-upright-v2-restore
+  - libero-10-02-rollback-mid-d0-mug-offset-xn3yp3-upright-restore
+  - libero-10-02-rollback-mid-d0-mug-offset-xn3yp3-upright-v2-restore
+  - libero-10-02-rollback-mid-d0-mug-offset-xn5yp5-upright-restore
+  - libero-10-02-rollback-mid-d0-mug-offset-xn5yp5-upright-v2-restore
+  - libero-10-02-rollback-mid-d0-mug-offset-xp3yp3-upright-restore
+  - libero-10-02-rollback-mid-d0-mug-offset-xp5yp5-upright-restore
+  open_questions:
+  - A horizontal legal pair may not exist for enclosed drawer/microwave or basket
+    walls; retain rejection rather than skipping collisions.
+  - All target predicates must be true then false; preserve every non-target native
+    goal. Failed atomic writes restore all simulator coordinates.
+  - Confirm the chosen hover pose sits above the opening.
+  - Confirm the ported case reproduces the runtime binding's outcome.
+  - Episode-specific physical validity and predicate truth require simulation evidence.
+  - Joint resets are external endpoint interventions, not a claim of a collision-free
+    continuous actuation path.
+  - Post-success continuation must expose at least one policy query after intervention;
+    count separately from nonterminal rollback.
+  - Posture at the episode-initial position must be verified in simulation (penetration
+    and truth).
+  - 'Rotation is a truth probe: classify relation-preserving control or rollback from
+    native pre/post truth; never infer failure from angle alone.'
+  - Verify collision-free support, no penetration and release.
+  - Verify collision-free support, no penetration, release, and task solvability for
+    the selected episode.
+  - Without spontaneous recovery, the second event must remain untriggered and be
+    reported as such.
+- task_id: libero_10/03
+  task_index: 3
+  task_name: Put both moka pots on the stove
+  source_task_locator: T133
+  source_bddl: KITCHEN_SCENE8_put_both_moka_pots_on_the_stove.bddl
+  canonical_bddl: KITCHEN_SCENE8_put_both_moka_pots_on_the_stove.bddl
+  runtime_task_locator: T133
+  runtime_bddl: KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_tb_20.bddl
+  allowed_source_bddls:
+  - KITCHEN_SCENE8_put_both_moka_pots_on_the_stove.bddl
+  - KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_tb_20.bddl
+  crosswalk_source_id: full-suite-runtime-crosswalk-20261009
+  runtime_profile_sha256: 380296a4663cfc6f87407dce32391a38e1d374830570d10d84ccacc8d825ee58
+  scenario_applicability: documented
+  candidate_rollback_events:
+  - enter_first_subgoal_completed
+  - enter_next_subgoal_approach
+  - enter_next_subgoal_completed
+  - enter_next_subgoal_lift
+  candidate_state_change_kinds:
+  - apply_episode_initial_offset
+  - displace_from_completed_pose
+  - displace_to_relation_boundary
+  - restore_episode_initial_pose
+  - restore_native_relation_set
+  case_count: 63
+  case_ids:
+  - libero-10-03-rollback-all_done-d0-pot-offset-xn3yp3-upright-restore
+  - libero-10-03-rollback-all_done-d0-pot-relations-s1-upright-restore
+  - libero-10-03-rollback-all_done-d0-pot-relations-s1-upright-v2-restore
+  - libero-10-03-rollback-early-d0-pot-completed-tip-xn90-lift3-restore
+  - libero-10-03-rollback-early-d0-pot-completed-tip-xp180-lift3-probe
+  - libero-10-03-rollback-early-d0-pot-completed-tip-xp90-lift3-probe
+  - libero-10-03-rollback-early-d0-pot-completed-tip-yn90-lift3-restore
+  - libero-10-03-rollback-early-d0-pot-completed-tip-yp90-lift3-restore
+  - libero-10-03-rollback-early-d0-pot-initial-tip-xn90-lift5-restore
+  - libero-10-03-rollback-early-d0-pot-initial-tip-xp180-lift5-restore
+  - libero-10-03-rollback-early-d0-pot-initial-tip-xp90-lift5-restore
+  - libero-10-03-rollback-early-d0-pot-initial-tip-yn90-lift5-restore
+  - libero-10-03-rollback-early-d0-pot-initial-tip-yp90-lift5-restore
+  - libero-10-03-rollback-early-d0-pot-initial-upright-restore
+  - libero-10-03-rollback-early-d0-pot-initial-upright-v2-restore
+  - libero-10-03-rollback-early-d0-pot-offset-xn3yp3-upright-restore
+  - libero-10-03-rollback-early-d0-pot-offset-xn5yp5-upright-restore
+  - libero-10-03-rollback-early-d0-pot-offset-xn6yp6-upright-restore
+  - libero-10-03-rollback-early-d0-pot-offset-xn8yp6-upright-restore
+  - libero-10-03-rollback-early-d0-pot-offset-xp10yp8-upright-restore
+  - libero-10-03-rollback-early-d0-pot-offset-xp3yp3-upright-restore
+  - libero-10-03-rollback-early-d0-pot-offset-xp5yp5-upright-restore
+  - libero-10-03-rollback-later-d0-pot-completed-tip-xn90-lift3-restore
+  - libero-10-03-rollback-later-d0-pot-completed-tip-xp180-lift3-probe
+  - libero-10-03-rollback-later-d0-pot-completed-tip-xp90-lift3-probe
+  - libero-10-03-rollback-later-d0-pot-completed-tip-yn90-lift3-restore
+  - libero-10-03-rollback-later-d0-pot-completed-tip-yp90-lift3-restore
+  - libero-10-03-rollback-later-d0-pot-initial-tip-xn90-lift5-restore
+  - libero-10-03-rollback-later-d0-pot-initial-tip-xp180-lift5-restore
+  - libero-10-03-rollback-later-d0-pot-initial-tip-xp90-lift5-restore
+  - libero-10-03-rollback-later-d0-pot-initial-tip-yn90-lift5-restore
+  - libero-10-03-rollback-later-d0-pot-initial-tip-yp90-lift5-restore
+  - libero-10-03-rollback-later-d0-pot-initial-upright-restore
+  - libero-10-03-rollback-later-d0-pot-offset-xn3yp3-upright-restore
+  - libero-10-03-rollback-later-d0-pot-offset-xn6yp6-upright-restore
+  - libero-10-03-rollback-later-d0-pot-offset-xn8yp6-upright-restore
+  - libero-10-03-rollback-later-d0-pot-offset-xp10yp8-upright-restore
+  - libero-10-03-rollback-later-d0-pot-offset-xp8yp6-upright-restore
+  - libero-10-03-rollback-mid-d0-pot-boundary-inside-upright-control
+  - libero-10-03-rollback-mid-d0-pot-boundary-outside-upright-restore
+  - libero-10-03-rollback-mid-d0-pot-completed-tip-xn90-lift3-restore
+  - libero-10-03-rollback-mid-d0-pot-completed-tip-xp15-lift4-probe
+  - libero-10-03-rollback-mid-d0-pot-completed-tip-xp180-lift3-probe
+  - libero-10-03-rollback-mid-d0-pot-completed-tip-xp30-lift8-probe
+  - libero-10-03-rollback-mid-d0-pot-completed-tip-xp45-lift12-probe
+  - libero-10-03-rollback-mid-d0-pot-completed-tip-xp60-lift16-probe
+  - libero-10-03-rollback-mid-d0-pot-completed-tip-xp90-lift3-probe
+  - libero-10-03-rollback-mid-d0-pot-completed-tip-yn90-lift3-restore
+  - libero-10-03-rollback-mid-d0-pot-completed-tip-yp90-lift3-restore
+  - libero-10-03-rollback-mid-d0-pot-completed-yaw-zp180-probe
+  - libero-10-03-rollback-mid-d0-pot-initial-tip-xn90-lift5-restore
+  - libero-10-03-rollback-mid-d0-pot-initial-tip-xp180-lift5-restore
+  - libero-10-03-rollback-mid-d0-pot-initial-tip-xp90-lift5-restore
+  - libero-10-03-rollback-mid-d0-pot-initial-tip-yn90-lift5-restore
+  - libero-10-03-rollback-mid-d0-pot-initial-tip-yp90-lift5-restore
+  - libero-10-03-rollback-mid-d0-pot-initial-upright-restore
+  - libero-10-03-rollback-mid-d0-pot-initial-upright-v2-restore
+  - libero-10-03-rollback-mid-d0-pot-offset-xn3yp3-upright-restore
+  - libero-10-03-rollback-mid-d0-pot-offset-xn3yp3-upright-v2-restore
+  - libero-10-03-rollback-mid-d0-pot-offset-xn5yp5-upright-restore
+  - libero-10-03-rollback-mid-d0-pot-offset-xn5yp5-upright-v2-restore
+  - libero-10-03-rollback-mid-d0-pot-offset-xp3yp3-upright-restore
+  - libero-10-03-rollback-mid-d0-pot-offset-xp5yp5-upright-restore
+  open_questions:
+  - A horizontal legal pair may not exist for enclosed drawer/microwave or basket
+    walls; retain rejection rather than skipping collisions.
+  - All target predicates must be true then false; preserve every non-target native
+    goal. Failed atomic writes restore all simulator coordinates.
+  - Confirm the ported case reproduces the runtime binding's outcome.
+  - Episode-specific physical validity and predicate truth require simulation evidence.
+  - Joint resets are external endpoint interventions, not a claim of a collision-free
+    continuous actuation path.
+  - Native truth and penetration are verified by preflight.
+  - 'Rotation is a truth probe: classify relation-preserving control or rollback from
+    native pre/post truth; never infer failure from angle alone.'
+  - Verify collision-free support, no penetration and release.
+  - Verify collision-free support, no penetration, release, and task solvability for
+    the selected episode.
+  - Without spontaneous recovery, the second event must remain untriggered and be
+    reported as such.
+- task_id: libero_10/04
+  task_index: 4
+  task_name: Put the alphabet soup and cream cheese box in the basket
+  source_task_locator: T137
+  source_bddl: LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.bddl
+  canonical_bddl: LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.bddl
+  runtime_task_locator: T137
+  runtime_bddl: LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket_table_1.bddl
+  allowed_source_bddls:
+  - LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.bddl
+  - LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket_table_1.bddl
+  crosswalk_source_id: full-suite-runtime-crosswalk-20261009
+  runtime_profile_sha256: 03319696a6593523df7108ff6ef18326007e85236d5902092b7ff6b1683f4192
+  scenario_applicability: documented
+  candidate_rollback_events:
+  - enter_first_subgoal_completed
+  - enter_next_subgoal_approach
+  - enter_next_subgoal_completed
+  - enter_next_subgoal_lift
+  candidate_state_change_kinds:
+  - apply_episode_initial_offset
+  - displace_from_completed_pose
+  - displace_reference_object
+  - displace_to_relation_boundary
+  - restore_episode_initial_pose
+  - restore_native_relation_set
+  - translate_relation_pair
+  case_count: 70
+  case_ids:
+  - libero-10-04-rollback-all_done-d0-soup-initial-upright-restore
+  - libero-10-04-rollback-all_done-d0-soup-relations-s1-upright-restore
+  - libero-10-04-rollback-all_done-d0-soup-relations-s1-upright-v2-restore
+  - libero-10-04-rollback-early-d0-soup-ref-moved-upright-restore
+  - libero-10-04-rollback-early-d0-soup-ref-moved-upright-v2-restore
+  - libero-10-04-rollback-early-d10-soup-completed-tip-xn90-lift3-probe
+  - libero-10-04-rollback-early-d10-soup-completed-tip-xp180-lift3-probe
+  - libero-10-04-rollback-early-d10-soup-completed-tip-xp90-lift3-probe
+  - libero-10-04-rollback-early-d10-soup-completed-tip-yn90-lift3-probe
+  - libero-10-04-rollback-early-d10-soup-completed-tip-yp90-lift3-probe
+  - libero-10-04-rollback-early-d10-soup-initial-tip-xn90-lift5-restore
+  - libero-10-04-rollback-early-d10-soup-initial-tip-xp180-lift5-restore
+  - libero-10-04-rollback-early-d10-soup-initial-tip-xp90-lift5-restore
+  - libero-10-04-rollback-early-d10-soup-initial-tip-yn90-lift5-restore
+  - libero-10-04-rollback-early-d10-soup-initial-tip-yp90-lift5-restore
+  - libero-10-04-rollback-early-d10-soup-initial-upright-restore
+  - libero-10-04-rollback-early-d10-soup-offset-xn3yp3-upright-restore
+  - libero-10-04-rollback-later-d0-soup-initial-upright-restore
+  - libero-10-04-rollback-later-d0-soup-offset-xn3yp3-upright-restore
+  - libero-10-04-rollback-later-d0-soup-offset-xn5yp5-upright-restore
+  - libero-10-04-rollback-later-d0-soup-offset-xn6yp10-upright-restore
+  - libero-10-04-rollback-later-d0-soup-offset-xn8yp6-upright-restore
+  - libero-10-04-rollback-later-d0-soup-offset-xp10yp8-upright-restore
+  - libero-10-04-rollback-later-d0-soup-offset-xp3yp3-upright-restore
+  - libero-10-04-rollback-later-d0-soup-offset-xp5yp5-upright-restore
+  - libero-10-04-rollback-later-d0-soup-offset-xp8yp6-upright-restore
+  - libero-10-04-rollback-later-d0-soup-ref-moved-upright-restore
+  - libero-10-04-rollback-later-d0-soup-ref-moved-upright-v2-restore
+  - libero-10-04-rollback-later-d10-soup-completed-tip-xn90-lift3-probe
+  - libero-10-04-rollback-later-d10-soup-completed-tip-xp180-lift3-probe
+  - libero-10-04-rollback-later-d10-soup-completed-tip-xp90-lift3-probe
+  - libero-10-04-rollback-later-d10-soup-completed-tip-yn90-lift3-probe
+  - libero-10-04-rollback-later-d10-soup-completed-tip-yp90-lift3-probe
+  - libero-10-04-rollback-later-d10-soup-initial-tip-xn90-lift5-restore
+  - libero-10-04-rollback-later-d10-soup-initial-tip-xp180-lift5-restore
+  - libero-10-04-rollback-later-d10-soup-initial-tip-xp90-lift5-restore
+  - libero-10-04-rollback-later-d10-soup-initial-tip-yn90-lift5-restore
+  - libero-10-04-rollback-later-d10-soup-initial-tip-yp90-lift5-restore
+  - libero-10-04-rollback-mid-d0-soup-boundary-inside-upright-control
+  - libero-10-04-rollback-mid-d0-soup-boundary-outside-upright-restore
+  - libero-10-04-rollback-mid-d0-soup-completed-tip-xp15-lift4-probe
+  - libero-10-04-rollback-mid-d0-soup-completed-tip-xp30-lift8-probe
+  - libero-10-04-rollback-mid-d0-soup-completed-tip-xp45-lift12-probe
+  - libero-10-04-rollback-mid-d0-soup-completed-tip-xp60-lift16-probe
+  - libero-10-04-rollback-mid-d0-soup-completed-yaw-zp180-probe
+  - libero-10-04-rollback-mid-d0-soup-initial-upright-restore
+  - libero-10-04-rollback-mid-d0-soup-initial-upright-v2-restore
+  - libero-10-04-rollback-mid-d0-soup-offset-xn3yp3-upright-restore
+  - libero-10-04-rollback-mid-d0-soup-offset-xn3yp3-upright-v2-restore
+  - libero-10-04-rollback-mid-d0-soup-offset-xn5yp5-upright-restore
+  - libero-10-04-rollback-mid-d0-soup-offset-xn6yp10-upright-restore
+  - libero-10-04-rollback-mid-d0-soup-offset-xn8yp6-upright-restore
+  - libero-10-04-rollback-mid-d0-soup-offset-xp10yp8-upright-restore
+  - libero-10-04-rollback-mid-d0-soup-offset-xp3yp3-upright-restore
+  - libero-10-04-rollback-mid-d0-soup-offset-xp5yp5-upright-restore
+  - libero-10-04-rollback-mid-d0-soup-offset-xp8yp6-upright-restore
+  - libero-10-04-rollback-mid-d0-soup-ref-moved-upright-control
+  - libero-10-04-rollback-mid-d0-soup-ref-moved-upright-restore
+  - libero-10-04-rollback-mid-d0-soup-ref-moved-upright-v2-restore
+  - libero-10-04-rollback-mid-d0-soup-ref-moved-upright-v3-restore
+  - libero-10-04-rollback-mid-d10-soup-completed-tip-xn90-lift3-probe
+  - libero-10-04-rollback-mid-d10-soup-completed-tip-xp180-lift3-probe
+  - libero-10-04-rollback-mid-d10-soup-completed-tip-xp90-lift3-probe
+  - libero-10-04-rollback-mid-d10-soup-completed-tip-yn90-lift3-probe
+  - libero-10-04-rollback-mid-d10-soup-completed-tip-yp90-lift3-probe
+  - libero-10-04-rollback-mid-d10-soup-initial-tip-xn90-lift5-restore
+  - libero-10-04-rollback-mid-d10-soup-initial-tip-xp180-lift5-restore
+  - libero-10-04-rollback-mid-d10-soup-initial-tip-xp90-lift5-restore
+  - libero-10-04-rollback-mid-d10-soup-initial-tip-yn90-lift5-restore
+  - libero-10-04-rollback-mid-d10-soup-initial-tip-yp90-lift5-restore
+  open_questions:
+  - A horizontal legal pair may not exist for enclosed drawer/microwave or basket
+    walls; retain rejection rather than skipping collisions.
+  - All target predicates must be true then false; preserve every non-target native
+    goal. Failed atomic writes restore all simulator coordinates.
+  - Confirm that moving the 低矮篮筐 by [0.15, 0.0, 0.0] does not collide with or drag
+    the object that s2 is currently manipulating.
+  - Episode-specific physical validity and predicate truth require simulation evidence.
+  - Joint resets are external endpoint interventions, not a claim of a collision-free
+    continuous actuation path.
+  - Native truth and penetration are verified by preflight.
+  - Post-success continuation must expose at least one policy query after intervention;
+    count separately from nonterminal rollback.
+  - 'Rotation is a truth probe: classify relation-preserving control or rollback from
+    native pre/post truth; never infer failure from angle alone.'
+  - Verify collision-free support and release.
+  - Verify collision-free support, no penetration and release.
+  - Verify collision-free support, no penetration, release, and task solvability.
+  - Without spontaneous recovery, the second event must remain untriggered and be
+    reported as such.
+- task_id: libero_10/05
+  task_index: 5
+  task_name: Put the alphabet soup and tomato sauce in the basket
+  source_task_locator: T145
+  source_bddl: LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.bddl
+  canonical_bddl: LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.bddl
+  runtime_task_locator: T145
+  runtime_bddl: LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_table_1.bddl
+  allowed_source_bddls:
+  - LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.bddl
+  - LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_table_1.bddl
+  crosswalk_source_id: full-suite-runtime-crosswalk-20261009
+  runtime_profile_sha256: 0903a9d1d8a67d33961da64fbddaf46159acac18cfd6bbcf824c4a69b4fb62af
+  scenario_applicability: documented
+  candidate_rollback_events:
+  - enter_first_subgoal_completed
+  - enter_next_subgoal_approach
+  - enter_next_subgoal_completed
+  - enter_next_subgoal_lift
+  candidate_state_change_kinds:
+  - apply_episode_initial_offset
+  - displace_from_completed_pose
+  - displace_reference_object
+  - displace_to_relation_boundary
+  - restore_episode_initial_pose
+  - restore_native_relation_set
+  - translate_relation_pair
+  case_count: 70
+  case_ids:
+  - libero-10-05-rollback-all_done-d0-soup-initial-upright-restore
+  - libero-10-05-rollback-all_done-d0-soup-relations-s1-upright-restore
+  - libero-10-05-rollback-all_done-d0-soup-relations-s1-upright-v2-restore
+  - libero-10-05-rollback-early-d0-soup-ref-moved-upright-restore
+  - libero-10-05-rollback-early-d0-soup-ref-moved-upright-v2-restore
+  - libero-10-05-rollback-early-d10-soup-completed-tip-xn90-lift3-probe
+  - libero-10-05-rollback-early-d10-soup-completed-tip-xp180-lift3-probe
+  - libero-10-05-rollback-early-d10-soup-completed-tip-xp90-lift3-probe
+  - libero-10-05-rollback-early-d10-soup-completed-tip-yn90-lift3-probe
+  - libero-10-05-rollback-early-d10-soup-completed-tip-yp90-lift3-probe
+  - libero-10-05-rollback-early-d10-soup-initial-tip-xn90-lift5-restore
+  - libero-10-05-rollback-early-d10-soup-initial-tip-xp180-lift5-restore
+  - libero-10-05-rollback-early-d10-soup-initial-tip-xp90-lift5-restore
+  - libero-10-05-rollback-early-d10-soup-initial-tip-yn90-lift5-restore
+  - libero-10-05-rollback-early-d10-soup-initial-tip-yp90-lift5-restore
+  - libero-10-05-rollback-early-d10-soup-initial-upright-restore
+  - libero-10-05-rollback-early-d10-soup-offset-xn3yp3-upright-restore
+  - libero-10-05-rollback-later-d0-soup-initial-upright-restore
+  - libero-10-05-rollback-later-d0-soup-offset-xn3yp3-upright-restore
+  - libero-10-05-rollback-later-d0-soup-offset-xn5yp5-upright-restore
+  - libero-10-05-rollback-later-d0-soup-offset-xn6yp6-upright-restore
+  - libero-10-05-rollback-later-d0-soup-offset-xn8yp6-upright-restore
+  - libero-10-05-rollback-later-d0-soup-offset-xp10yp8-upright-restore
+  - libero-10-05-rollback-later-d0-soup-offset-xp3yp3-upright-restore
+  - libero-10-05-rollback-later-d0-soup-offset-xp5yp5-upright-restore
+  - libero-10-05-rollback-later-d0-soup-offset-xp8yp6-upright-restore
+  - libero-10-05-rollback-later-d0-soup-ref-moved-upright-restore
+  - libero-10-05-rollback-later-d0-soup-ref-moved-upright-v2-restore
+  - libero-10-05-rollback-later-d10-soup-completed-tip-xn90-lift3-probe
+  - libero-10-05-rollback-later-d10-soup-completed-tip-xp180-lift3-probe
+  - libero-10-05-rollback-later-d10-soup-completed-tip-xp90-lift3-probe
+  - libero-10-05-rollback-later-d10-soup-completed-tip-yn90-lift3-probe
+  - libero-10-05-rollback-later-d10-soup-completed-tip-yp90-lift3-probe
+  - libero-10-05-rollback-later-d10-soup-initial-tip-xn90-lift5-restore
+  - libero-10-05-rollback-later-d10-soup-initial-tip-xp180-lift5-restore
+  - libero-10-05-rollback-later-d10-soup-initial-tip-xp90-lift5-restore
+  - libero-10-05-rollback-later-d10-soup-initial-tip-yn90-lift5-restore
+  - libero-10-05-rollback-later-d10-soup-initial-tip-yp90-lift5-restore
+  - libero-10-05-rollback-mid-d0-soup-boundary-inside-upright-control
+  - libero-10-05-rollback-mid-d0-soup-boundary-outside-upright-restore
+  - libero-10-05-rollback-mid-d0-soup-completed-tip-xp15-lift4-probe
+  - libero-10-05-rollback-mid-d0-soup-completed-tip-xp30-lift8-probe
+  - libero-10-05-rollback-mid-d0-soup-completed-tip-xp45-lift12-probe
+  - libero-10-05-rollback-mid-d0-soup-completed-tip-xp60-lift16-probe
+  - libero-10-05-rollback-mid-d0-soup-completed-yaw-zp180-probe
+  - libero-10-05-rollback-mid-d0-soup-initial-upright-restore
+  - libero-10-05-rollback-mid-d0-soup-initial-upright-v2-restore
+  - libero-10-05-rollback-mid-d0-soup-offset-xn3yp3-upright-restore
+  - libero-10-05-rollback-mid-d0-soup-offset-xn3yp3-upright-v2-restore
+  - libero-10-05-rollback-mid-d0-soup-offset-xn5yp5-upright-restore
+  - libero-10-05-rollback-mid-d0-soup-offset-xn6yp6-upright-restore
+  - libero-10-05-rollback-mid-d0-soup-offset-xn8yp6-upright-restore
+  - libero-10-05-rollback-mid-d0-soup-offset-xp10yp8-upright-restore
+  - libero-10-05-rollback-mid-d0-soup-offset-xp3yp3-upright-restore
+  - libero-10-05-rollback-mid-d0-soup-offset-xp5yp5-upright-restore
+  - libero-10-05-rollback-mid-d0-soup-offset-xp8yp6-upright-restore
+  - libero-10-05-rollback-mid-d0-soup-ref-moved-upright-control
+  - libero-10-05-rollback-mid-d0-soup-ref-moved-upright-restore
+  - libero-10-05-rollback-mid-d0-soup-ref-moved-upright-v2-restore
+  - libero-10-05-rollback-mid-d0-soup-ref-moved-upright-v3-restore
+  - libero-10-05-rollback-mid-d10-soup-completed-tip-xn90-lift3-probe
+  - libero-10-05-rollback-mid-d10-soup-completed-tip-xp180-lift3-probe
+  - libero-10-05-rollback-mid-d10-soup-completed-tip-xp90-lift3-probe
+  - libero-10-05-rollback-mid-d10-soup-completed-tip-yn90-lift3-probe
+  - libero-10-05-rollback-mid-d10-soup-completed-tip-yp90-lift3-probe
+  - libero-10-05-rollback-mid-d10-soup-initial-tip-xn90-lift5-restore
+  - libero-10-05-rollback-mid-d10-soup-initial-tip-xp180-lift5-restore
+  - libero-10-05-rollback-mid-d10-soup-initial-tip-xp90-lift5-restore
+  - libero-10-05-rollback-mid-d10-soup-initial-tip-yn90-lift5-restore
+  - libero-10-05-rollback-mid-d10-soup-initial-tip-yp90-lift5-restore
+  open_questions:
+  - A horizontal legal pair may not exist for enclosed drawer/microwave or basket
+    walls; retain rejection rather than skipping collisions.
+  - All target predicates must be true then false; preserve every non-target native
+    goal. Failed atomic writes restore all simulator coordinates.
+  - Episode-specific physical validity and predicate truth require simulation evidence.
+  - Joint resets are external endpoint interventions, not a claim of a collision-free
+    continuous actuation path.
+  - Native truth and penetration are verified by preflight.
+  - Post-success continuation must expose at least one policy query after intervention;
+    count separately from nonterminal rollback.
+  - 'Rotation is a truth probe: classify relation-preserving control or rollback from
+    native pre/post truth; never infer failure from angle alone.'
+  - Verify collision-free support and release.
+  - Verify collision-free support, no penetration and release.
+  - Verify collision-free support, no penetration, release, and task solvability.
+  - Without spontaneous recovery, the second event must remain untriggered and be
+    reported as such.
+- task_id: libero_10/06
+  task_index: 6
+  task_name: Put the cream cheese box and butter in the basket
+  source_task_locator: T158
+  source_bddl: LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket.bddl
+  canonical_bddl: LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket.bddl
+  runtime_task_locator: T158
+  runtime_bddl: LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket_table_1.bddl
+  allowed_source_bddls:
+  - LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket.bddl
+  - LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket_table_1.bddl
+  crosswalk_source_id: full-suite-runtime-crosswalk-20261009
+  runtime_profile_sha256: a3163af3a9185b4f7d6abb5a7f2f227918deb25f7a84df2a3d870ac5d8c3cfb9
+  scenario_applicability: documented
+  candidate_rollback_events:
+  - enter_first_subgoal_completed
+  - enter_next_subgoal_approach
+  - enter_next_subgoal_completed
+  - enter_next_subgoal_lift
+  candidate_state_change_kinds:
+  - apply_episode_initial_offset
+  - displace_from_completed_pose
+  - displace_reference_object
+  - displace_to_relation_boundary
+  - restore_episode_initial_pose
+  - restore_native_relation_set
+  - translate_relation_pair
+  case_count: 70
+  case_ids:
+  - libero-10-06-rollback-all_done-d0-cheese-initial-upright-restore
+  - libero-10-06-rollback-all_done-d0-cheese-relations-s1-upright-restore
+  - libero-10-06-rollback-all_done-d0-cheese-relations-s1-upright-v2-restore
+  - libero-10-06-rollback-early-d0-cheese-ref-moved-upright-restore
+  - libero-10-06-rollback-early-d0-cheese-ref-moved-upright-v2-restore
+  - libero-10-06-rollback-early-d10-cheese-completed-tip-xn90-lift3-probe
+  - libero-10-06-rollback-early-d10-cheese-completed-tip-xp180-lift3-probe
+  - libero-10-06-rollback-early-d10-cheese-completed-tip-xp90-lift3-probe
+  - libero-10-06-rollback-early-d10-cheese-completed-tip-yn90-lift3-probe
+  - libero-10-06-rollback-early-d10-cheese-completed-tip-yp90-lift3-probe
+  - libero-10-06-rollback-early-d10-cheese-initial-tip-xn90-lift5-restore
+  - libero-10-06-rollback-early-d10-cheese-initial-tip-xp180-lift5-restore
+  - libero-10-06-rollback-early-d10-cheese-initial-tip-xp90-lift5-restore
+  - libero-10-06-rollback-early-d10-cheese-initial-tip-yn90-lift5-restore
+  - libero-10-06-rollback-early-d10-cheese-initial-tip-yp90-lift5-restore
+  - libero-10-06-rollback-early-d10-cheese-initial-upright-restore
+  - libero-10-06-rollback-early-d10-cheese-offset-xn3yp3-upright-restore
+  - libero-10-06-rollback-later-d0-cheese-initial-upright-restore
+  - libero-10-06-rollback-later-d0-cheese-offset-xn3yp3-upright-restore
+  - libero-10-06-rollback-later-d0-cheese-offset-xn5yp5-upright-restore
+  - libero-10-06-rollback-later-d0-cheese-offset-xn6yp10-upright-restore
+  - libero-10-06-rollback-later-d0-cheese-offset-xn8yp6-upright-restore
+  - libero-10-06-rollback-later-d0-cheese-offset-xp10yp8-upright-restore
+  - libero-10-06-rollback-later-d0-cheese-offset-xp3yp3-upright-restore
+  - libero-10-06-rollback-later-d0-cheese-offset-xp5yp5-upright-restore
+  - libero-10-06-rollback-later-d0-cheese-offset-xp8yp6-upright-restore
+  - libero-10-06-rollback-later-d0-cheese-ref-moved-upright-restore
+  - libero-10-06-rollback-later-d0-cheese-ref-moved-upright-v2-restore
+  - libero-10-06-rollback-later-d10-cheese-completed-tip-xn90-lift3-probe
+  - libero-10-06-rollback-later-d10-cheese-completed-tip-xp180-lift3-probe
+  - libero-10-06-rollback-later-d10-cheese-completed-tip-xp90-lift3-probe
+  - libero-10-06-rollback-later-d10-cheese-completed-tip-yn90-lift3-probe
+  - libero-10-06-rollback-later-d10-cheese-completed-tip-yp90-lift3-probe
+  - libero-10-06-rollback-later-d10-cheese-initial-tip-xn90-lift5-restore
+  - libero-10-06-rollback-later-d10-cheese-initial-tip-xp180-lift5-restore
+  - libero-10-06-rollback-later-d10-cheese-initial-tip-xp90-lift5-restore
+  - libero-10-06-rollback-later-d10-cheese-initial-tip-yn90-lift5-restore
+  - libero-10-06-rollback-later-d10-cheese-initial-tip-yp90-lift5-restore
+  - libero-10-06-rollback-mid-d0-cheese-boundary-inside-upright-control
+  - libero-10-06-rollback-mid-d0-cheese-boundary-outside-upright-restore
+  - libero-10-06-rollback-mid-d0-cheese-completed-tip-xp15-lift4-probe
+  - libero-10-06-rollback-mid-d0-cheese-completed-tip-xp30-lift8-probe
+  - libero-10-06-rollback-mid-d0-cheese-completed-tip-xp45-lift12-probe
+  - libero-10-06-rollback-mid-d0-cheese-completed-tip-xp60-lift16-probe
+  - libero-10-06-rollback-mid-d0-cheese-completed-yaw-zp180-probe
+  - libero-10-06-rollback-mid-d0-cheese-initial-upright-restore
+  - libero-10-06-rollback-mid-d0-cheese-initial-upright-v2-restore
+  - libero-10-06-rollback-mid-d0-cheese-offset-xn3yp3-upright-restore
+  - libero-10-06-rollback-mid-d0-cheese-offset-xn3yp3-upright-v2-restore
+  - libero-10-06-rollback-mid-d0-cheese-offset-xn5yp5-upright-restore
+  - libero-10-06-rollback-mid-d0-cheese-offset-xn6yp10-upright-restore
+  - libero-10-06-rollback-mid-d0-cheese-offset-xn8yp6-upright-restore
+  - libero-10-06-rollback-mid-d0-cheese-offset-xp10yp8-upright-restore
+  - libero-10-06-rollback-mid-d0-cheese-offset-xp3yp3-upright-restore
+  - libero-10-06-rollback-mid-d0-cheese-offset-xp5yp5-upright-restore
+  - libero-10-06-rollback-mid-d0-cheese-offset-xp8yp6-upright-restore
+  - libero-10-06-rollback-mid-d0-cheese-ref-moved-upright-control
+  - libero-10-06-rollback-mid-d0-cheese-ref-moved-upright-restore
+  - libero-10-06-rollback-mid-d0-cheese-ref-moved-upright-v2-restore
+  - libero-10-06-rollback-mid-d0-cheese-ref-moved-upright-v3-restore
+  - libero-10-06-rollback-mid-d10-cheese-completed-tip-xn90-lift3-probe
+  - libero-10-06-rollback-mid-d10-cheese-completed-tip-xp180-lift3-probe
+  - libero-10-06-rollback-mid-d10-cheese-completed-tip-xp90-lift3-probe
+  - libero-10-06-rollback-mid-d10-cheese-completed-tip-yn90-lift3-probe
+  - libero-10-06-rollback-mid-d10-cheese-completed-tip-yp90-lift3-probe
+  - libero-10-06-rollback-mid-d10-cheese-initial-tip-xn90-lift5-restore
+  - libero-10-06-rollback-mid-d10-cheese-initial-tip-xp180-lift5-restore
+  - libero-10-06-rollback-mid-d10-cheese-initial-tip-xp90-lift5-restore
+  - libero-10-06-rollback-mid-d10-cheese-initial-tip-yn90-lift5-restore
+  - libero-10-06-rollback-mid-d10-cheese-initial-tip-yp90-lift5-restore
+  open_questions:
+  - A horizontal legal pair may not exist for enclosed drawer/microwave or basket
+    walls; retain rejection rather than skipping collisions.
+  - All target predicates must be true then false; preserve every non-target native
+    goal. Failed atomic writes restore all simulator coordinates.
+  - Episode-specific physical validity and predicate truth require simulation evidence.
+  - Joint resets are external endpoint interventions, not a claim of a collision-free
+    continuous actuation path.
+  - Native truth and penetration are verified by preflight.
+  - Post-success continuation must expose at least one policy query after intervention;
+    count separately from nonterminal rollback.
+  - 'Rotation is a truth probe: classify relation-preserving control or rollback from
+    native pre/post truth; never infer failure from angle alone.'
+  - Verify collision-free support and release.
+  - Verify collision-free support, no penetration and release.
+  - Verify collision-free support, no penetration, release, and task solvability.
+  - Without spontaneous recovery, the second event must remain untriggered and be
+    reported as such.
+- task_id: libero_10/07
+  task_index: 7
+  task_name: Put the white mug on the left plate and the yellow and white mug on the
+    right plate
+  source_task_locator: T193
+  source_bddl: LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.bddl
+  canonical_bddl: LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.bddl
+  runtime_task_locator: T193
+  runtime_bddl: LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.bddl
+  allowed_source_bddls:
+  - LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.bddl
+  crosswalk_source_id: full-suite-runtime-crosswalk-20261009
+  runtime_profile_sha256: e0e0549dba9ee96f755e36232cf0fc8ef53214a78a90e8429700cc9561bc6e21
+  scenario_applicability: documented
+  candidate_rollback_events:
+  - enter_first_subgoal_completed
+  - enter_next_subgoal_approach
+  - enter_next_subgoal_completed
+  - enter_next_subgoal_lift
+  candidate_state_change_kinds:
+  - apply_episode_initial_offset
+  - displace_from_completed_pose
+  - displace_reference_object
+  - displace_to_relation_boundary
+  - move_to_relation_target
+  - restore_episode_initial_pose
+  - restore_native_relation_set
+  - translate_relation_pair
+  case_count: 58
+  case_ids:
+  - libero-10-07-rollback-all_done-d0-mug-offset-xn3yp3-upright-restore
+  - libero-10-07-rollback-all_done-d0-mug-relations-s1-upright-restore
+  - libero-10-07-rollback-all_done-d0-mug-relations-s1-upright-v2-restore
+  - libero-10-07-rollback-early-d0-mug-completed-tip-xn20-probe
+  - libero-10-07-rollback-early-d0-mug-completed-tip-xp20-probe
+  - libero-10-07-rollback-early-d0-mug-completed-tip-yn20-probe
+  - libero-10-07-rollback-early-d0-mug-completed-tip-yp20-probe
+  - libero-10-07-rollback-early-d0-mug-completed-yaw-zp90-probe
+  - libero-10-07-rollback-early-d0-mug-initial-upright-restore
+  - libero-10-07-rollback-early-d0-mug-initial-upright-v2-restore
+  - libero-10-07-rollback-early-d0-mug-offset-xn3yp3-upright-restore
+  - libero-10-07-rollback-early-d0-mug-offset-xn5yp5-upright-restore
+  - libero-10-07-rollback-early-d0-mug-offset-xn8yp6-upright-restore
+  - libero-10-07-rollback-early-d0-mug-offset-xp10yp8-upright-restore
+  - libero-10-07-rollback-early-d0-mug-offset-xp3yp3-upright-restore
+  - libero-10-07-rollback-early-d0-mug-offset-xp5yp5-upright-restore
+  - libero-10-07-rollback-early-d0-mug-ref-moved-upright-restore
+  - libero-10-07-rollback-early-d0-mug-ref-moved-upright-v2-restore
+  - libero-10-07-rollback-early-d0-mug-relations-both-upright-restore
+  - libero-10-07-rollback-later-d0-mug-completed-tip-xn20-probe
+  - libero-10-07-rollback-later-d0-mug-completed-tip-xp20-probe
+  - libero-10-07-rollback-later-d0-mug-completed-tip-yn20-probe
+  - libero-10-07-rollback-later-d0-mug-completed-tip-yp20-probe
+  - libero-10-07-rollback-later-d0-mug-completed-yaw-zp90-probe
+  - libero-10-07-rollback-later-d0-mug-initial-upright-restore
+  - libero-10-07-rollback-later-d0-mug-offset-xn3yp3-upright-restore
+  - libero-10-07-rollback-later-d0-mug-offset-xn6yp10-upright-restore
+  - libero-10-07-rollback-later-d0-mug-offset-xn8yp6-upright-restore
+  - libero-10-07-rollback-later-d0-mug-offset-xp10yp8-upright-restore
+  - libero-10-07-rollback-later-d0-mug-offset-xp8yp6-upright-restore
+  - libero-10-07-rollback-later-d0-mug-ref-moved-upright-restore
+  - libero-10-07-rollback-later-d0-mug-ref-moved-upright-v2-restore
+  - libero-10-07-rollback-later-d0-mug-relations-both-upright-restore
+  - libero-10-07-rollback-mid-d0-mug-boundary-inside-upright-control
+  - libero-10-07-rollback-mid-d0-mug-boundary-outside-upright-restore
+  - libero-10-07-rollback-mid-d0-mug-completed-tip-xn20-probe
+  - libero-10-07-rollback-mid-d0-mug-completed-tip-xp15-lift4-probe
+  - libero-10-07-rollback-mid-d0-mug-completed-tip-xp20-probe
+  - libero-10-07-rollback-mid-d0-mug-completed-tip-xp30-lift8-probe
+  - libero-10-07-rollback-mid-d0-mug-completed-tip-xp45-lift12-probe
+  - libero-10-07-rollback-mid-d0-mug-completed-tip-xp60-lift16-probe
+  - libero-10-07-rollback-mid-d0-mug-completed-tip-yn20-probe
+  - libero-10-07-rollback-mid-d0-mug-completed-tip-yp20-probe
+  - libero-10-07-rollback-mid-d0-mug-completed-yaw-zp180-probe
+  - libero-10-07-rollback-mid-d0-mug-completed-yaw-zp90-probe
+  - libero-10-07-rollback-mid-d0-mug-initial-upright-restore
+  - libero-10-07-rollback-mid-d0-mug-initial-upright-v2-restore
+  - libero-10-07-rollback-mid-d0-mug-offset-xn3yp3-upright-restore
+  - libero-10-07-rollback-mid-d0-mug-offset-xn3yp3-upright-v2-restore
+  - libero-10-07-rollback-mid-d0-mug-offset-xn5yp5-upright-restore
+  - libero-10-07-rollback-mid-d0-mug-offset-xn5yp5-upright-v2-restore
+  - libero-10-07-rollback-mid-d0-mug-offset-xp3yp3-upright-restore
+  - libero-10-07-rollback-mid-d0-mug-offset-xp5yp5-upright-restore
+  - libero-10-07-rollback-mid-d0-mug-ref-moved-upright-control
+  - libero-10-07-rollback-mid-d0-mug-ref-moved-upright-restore
+  - libero-10-07-rollback-mid-d0-mug-ref-moved-upright-v2-restore
+  - libero-10-07-rollback-mid-d0-mug-ref-moved-upright-v3-restore
+  - libero-10-07-rollback-mid-d0-mug-relations-both-upright-restore
+  open_questions:
+  - A horizontal legal pair may not exist for enclosed drawer/microwave or basket
+    walls; retain rejection rather than skipping collisions.
+  - All target predicates must be true then false; preserve every non-target native
+    goal. Failed atomic writes restore all simulator coordinates.
+  - Confirm that moving the 平面盘 by [0.15, 0.0, 0.0] does not collide with or drag
+    the object that s2 is currently manipulating.
+  - Confirm the ported case reproduces the runtime binding's outcome.
+  - Episode-specific physical validity and predicate truth require simulation evidence.
+  - Joint resets are external endpoint interventions, not a claim of a collision-free
+    continuous actuation path.
+  - Native truth and penetration are verified by preflight.
+  - 'Rotation is a truth probe: classify relation-preserving control or rollback from
+    native pre/post truth; never infer failure from angle alone.'
+  - Verify collision-free support, no penetration and release.
+  - Verify collision-free support, no penetration, release, and task solvability for
+    the selected episode.
+  - Without spontaneous recovery, the second event must remain untriggered and be
+    reported as such.
+- task_id: libero_10/08
+  task_index: 8
+  task_name: Put the white mug on the plate and the chocolate pudding to the right
+    of the plate
+  source_task_locator: T237
+  source_bddl: LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.bddl
+  canonical_bddl: LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.bddl
+  runtime_task_locator: T237
+  runtime_bddl: LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate_table_1.bddl
+  allowed_source_bddls:
+  - LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.bddl
+  - LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate_table_1.bddl
+  crosswalk_source_id: full-suite-runtime-crosswalk-20261009
+  runtime_profile_sha256: df4dbaa471a9f3b84f15d301ea247bd17d0d3c29f3a141ea59261d0c6be0f29f
+  scenario_applicability: documented
+  candidate_rollback_events:
+  - enter_first_subgoal_completed
+  - enter_next_subgoal_approach
+  - enter_next_subgoal_completed
+  - enter_next_subgoal_lift
+  candidate_state_change_kinds:
+  - apply_episode_initial_offset
+  - displace_from_completed_pose
+  - displace_reference_object
+  - displace_to_relation_boundary
+  - move_to_relation_target
+  - restore_episode_initial_pose
+  - restore_native_relation_set
+  - translate_relation_pair
+  case_count: 56
+  case_ids:
+  - libero-10-08-rollback-all_done-d0-mug-initial-upright-restore
+  - libero-10-08-rollback-all_done-d0-mug-relations-s1-upright-restore
+  - libero-10-08-rollback-all_done-d0-mug-relations-s1-upright-v2-restore
+  - libero-10-08-rollback-early-d0-mug-completed-tip-xn20-probe
+  - libero-10-08-rollback-early-d0-mug-completed-tip-xp20-probe
+  - libero-10-08-rollback-early-d0-mug-completed-tip-yn20-probe
+  - libero-10-08-rollback-early-d0-mug-completed-tip-yp20-probe
+  - libero-10-08-rollback-early-d0-mug-completed-yaw-zp90-probe
+  - libero-10-08-rollback-early-d0-mug-ref-moved-upright-restore
+  - libero-10-08-rollback-early-d0-mug-ref-moved-upright-v2-restore
+  - libero-10-08-rollback-early-d10-mug-initial-upright-restore
+  - libero-10-08-rollback-early-d10-mug-offset-xn3yp3-upright-restore
+  - libero-10-08-rollback-later-d0-mug-completed-tip-xn20-probe
+  - libero-10-08-rollback-later-d0-mug-completed-tip-xp20-probe
+  - libero-10-08-rollback-later-d0-mug-completed-tip-yn20-probe
+  - libero-10-08-rollback-later-d0-mug-completed-tip-yp20-probe
+  - libero-10-08-rollback-later-d0-mug-completed-yaw-zp90-probe
+  - libero-10-08-rollback-later-d0-mug-initial-upright-restore
+  - libero-10-08-rollback-later-d0-mug-offset-xn3yp3-upright-restore
+  - libero-10-08-rollback-later-d0-mug-offset-xn5yp5-upright-restore
+  - libero-10-08-rollback-later-d0-mug-offset-xn6yp10-upright-restore
+  - libero-10-08-rollback-later-d0-mug-offset-xn8yp6-upright-restore
+  - libero-10-08-rollback-later-d0-mug-offset-xp10yp8-upright-restore
+  - libero-10-08-rollback-later-d0-mug-offset-xp3yp3-upright-restore
+  - libero-10-08-rollback-later-d0-mug-offset-xp5yp5-upright-restore
+  - libero-10-08-rollback-later-d0-mug-offset-xp8yp6-upright-restore
+  - libero-10-08-rollback-later-d0-mug-ref-moved-upright-restore
+  - libero-10-08-rollback-later-d0-mug-ref-moved-upright-v2-restore
+  - libero-10-08-rollback-mid-d0-mug-boundary-inside-upright-control
+  - libero-10-08-rollback-mid-d0-mug-boundary-outside-upright-restore
+  - libero-10-08-rollback-mid-d0-mug-completed-tip-xn20-probe
+  - libero-10-08-rollback-mid-d0-mug-completed-tip-xp15-lift4-probe
+  - libero-10-08-rollback-mid-d0-mug-completed-tip-xp20-probe
+  - libero-10-08-rollback-mid-d0-mug-completed-tip-xp30-lift8-probe
+  - libero-10-08-rollback-mid-d0-mug-completed-tip-xp45-lift12-probe
+  - libero-10-08-rollback-mid-d0-mug-completed-tip-xp60-lift16-probe
+  - libero-10-08-rollback-mid-d0-mug-completed-tip-yn20-probe
+  - libero-10-08-rollback-mid-d0-mug-completed-tip-yp20-probe
+  - libero-10-08-rollback-mid-d0-mug-completed-yaw-zp180-probe
+  - libero-10-08-rollback-mid-d0-mug-completed-yaw-zp90-probe
+  - libero-10-08-rollback-mid-d0-mug-initial-upright-restore
+  - libero-10-08-rollback-mid-d0-mug-initial-upright-v2-restore
+  - libero-10-08-rollback-mid-d0-mug-offset-xn3yp3-upright-restore
+  - libero-10-08-rollback-mid-d0-mug-offset-xn3yp3-upright-v2-restore
+  - libero-10-08-rollback-mid-d0-mug-offset-xn5yp5-upright-restore
+  - libero-10-08-rollback-mid-d0-mug-offset-xn6yp10-upright-restore
+  - libero-10-08-rollback-mid-d0-mug-offset-xn8yp6-upright-restore
+  - libero-10-08-rollback-mid-d0-mug-offset-xp10yp8-upright-restore
+  - libero-10-08-rollback-mid-d0-mug-offset-xp3yp3-upright-restore
+  - libero-10-08-rollback-mid-d0-mug-offset-xp5yp5-upright-restore
+  - libero-10-08-rollback-mid-d0-mug-offset-xp8yp6-upright-restore
+  - libero-10-08-rollback-mid-d0-mug-ref-moved-upright-control
+  - libero-10-08-rollback-mid-d0-mug-ref-moved-upright-restore
+  - libero-10-08-rollback-mid-d0-mug-ref-moved-upright-v2-restore
+  - libero-10-08-rollback-mid-d0-mug-ref-moved-upright-v3-restore
+  - libero-10-08-rollback-mid-d0-mug-relations-both-upright-restore
+  open_questions:
+  - A horizontal legal pair may not exist for enclosed drawer/microwave or basket
+    walls; retain rejection rather than skipping collisions.
+  - All target predicates must be true then false; preserve every non-target native
+    goal. Failed atomic writes restore all simulator coordinates.
+  - Episode-specific physical validity and predicate truth require simulation evidence.
+  - Joint resets are external endpoint interventions, not a claim of a collision-free
+    continuous actuation path.
+  - Native truth and penetration are verified by preflight.
+  - Post-success continuation must expose at least one policy query after intervention;
+    count separately from nonterminal rollback.
+  - 'Rotation is a truth probe: classify relation-preserving control or rollback from
+    native pre/post truth; never infer failure from angle alone.'
+  - Verify collision-free support and release.
+  - Verify collision-free support, no penetration and release.
+  - Verify collision-free support, no penetration, release, and task solvability.
+  - Without spontaneous recovery, the second event must remain untriggered and be
+    reported as such.
+- task_id: libero_10/09
+  task_index: 9
+  task_name: Pick up the book and place it in the back compartment of the caddy
+  source_task_locator: T256
+  source_bddl: STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.bddl
+  canonical_bddl: STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.bddl
+  runtime_task_locator: T276
+  runtime_bddl: STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_table_1.bddl
+  allowed_source_bddls:
+  - STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.bddl
+  - STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_table_1.bddl
+  crosswalk_source_id: full-suite-runtime-crosswalk-20261009
+  runtime_profile_sha256: d436a7b5ee10d88ab297e42a3f4cf0c17ede4636198f66dee929f46e6cac1573
+  scenario_applicability: candidate
+  candidate_rollback_events:
+  - enter_next_subgoal_completed
+  candidate_state_change_kinds:
+  - apply_episode_initial_offset
+  - displace_from_completed_pose
+  - restore_episode_initial_pose
+  case_count: 13
+  case_ids:
+  - libero-10-09-rollback-all_done-d0-book-completed-yaw-zp90-probe
+  - libero-10-09-rollback-all_done-d0-book-initial-upright-restore
+  - libero-10-09-rollback-all_done-d0-book-initial-upright-v2-restore
+  - libero-10-09-rollback-all_done-d0-book-offset-xn15-upright-restore
+  - libero-10-09-rollback-all_done-d0-book-offset-xn3yp3-upright-restore
+  - libero-10-09-rollback-all_done-d0-book-offset-xn5yp5-upright-restore
+  - libero-10-09-rollback-all_done-d0-book-offset-xn8yp6-upright-restore
+  - libero-10-09-rollback-all_done-d0-book-offset-xp15-upright-restore
+  - libero-10-09-rollback-all_done-d0-book-offset-xp3yn3-upright-restore
+  - libero-10-09-rollback-all_done-d0-book-offset-xp5yn5-upright-restore
+  - libero-10-09-rollback-all_done-d0-book-offset-xp8yn6-upright-restore
+  - libero-10-09-rollback-all_done-d0-book-offset-yn15-upright-restore
+  - libero-10-09-rollback-all_done-d0-book-offset-yp15-upright-restore
+  open_questions:
+  - Episode-specific physical validity and predicate truth require simulation evidence.
+  - Post-success continuation must expose at least one policy query after intervention;
+    count separately from nonterminal rollback.
+  - Which trigger event reaches the completion boundary is measured by preflight.

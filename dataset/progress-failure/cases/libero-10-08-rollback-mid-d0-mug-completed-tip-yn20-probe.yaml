@@ -1,0 +1,80 @@
+assumptions:
+- Project-authored extension; parameters are proposals, not measurements.
+- The goal target is a body (the plate), so the predicate includes a real contact term; a rotated mug
+  can break the relation, unlike site-region tasks.
+- 'Rotation is capped: a 90/180 degree sweep penetrates the plate by 0.025-0.063 m (measured), and the
+  runtime variant used here does not apply a lift, so the angle must stay inside the free geometry.'
+- Preflight decides the semantics; the declaration follows the measurement.
+case_id: libero-10-08-rollback-mid-d0-mug-completed-tip-yn20-probe
+completed_relations:
+- selection_id: first_completed_plate_placement
+  selection_strategy: first_completed_subgoal_in_execution_order
+  candidates:
+  - predicate: (On porcelain_mug_1 plate_1)
+    actor: porcelain_mug_1
+    source_task_goal: true
+  - predicate: (On chocolate_pudding_1 living_room_table_plate_right_region)
+    actor: chocolate_pudding_1
+    source_task_goal: true
+dataset_version: 1.9.0
+expected_evaluation_semantics: relation_only
+intervention_description: 'Task 08: rotate the completed mug in place (- 20 degrees about y) while the
+  second subgoal is under way; the angle is capped at what the support geometry admits, and the semantics
+  follow the measurement.'
+open_questions:
+- Native truth and penetration are verified by preflight.
+rollback_target:
+  selection_id: first_completed_plate_placement
+  actor: selected_relation_actor
+  state_change:
+    kind: displace_from_completed_pose
+    offset_frame: world
+    offset_m:
+    - 0.0
+    - 0.0
+    - 0.0
+    orientation_axis_angle:
+      axis:
+      - 0.0
+      - 1.0
+      - 0.0
+      angle_rad: -0.3490658503988659
+    velocity: zero
+scenario_type: completed_relation_rollback
+schema_version: libero-rollback.case.v1
+severity: pose
+severity_rationale: Mechanism label; the posture parameters are explicit.
+source:
+  case_reference: docs/expansion-plan.md / task 08 / reference-moved-mid
+  case_source_id: progress-failure-expansion-20261014
+  supporting_source_ids:
+  - scenario-timing-position-matrix-20260926
+  - scenario-validity-severity-guidance-20260922
+  task_locator_source_id: full-suite-runtime-crosswalk-20261009
+  task_source_id: libero-plus-task-definitions-v1
+stage:
+  name: next_subgoal_approach
+  description: The first relation holds, the next operation is under way.
+task:
+  source_bddl: LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.bddl
+  source_task_locator: T237
+  suite: LIBERO-10
+  task_id: libero_10/08
+  task_index: 8
+template_id: completed-relation-rollback/reference-object/v1
+trigger:
+  event: enter_next_subgoal_approach
+  time_point: mid
+  delay_steps: 0
+  window: The first relation holds, the next operation is under way.
+validity_constraints:
+- completed_relation_true_before_intervention
+- object_released_before_intervention
+- zero_velocity_after_intervention
+- no_object_penetration
+- task_remains_solvable
+- baseline_task_solvable
+- target_relation_false_after_intervention
+- reference_object_is_not_a_fixed_fixture
+- reference_motion_does_not_disturb_the_current_s2_object
+pose_role: measured_relation_probe

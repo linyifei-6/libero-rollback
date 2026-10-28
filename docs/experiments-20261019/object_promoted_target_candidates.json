@@ -1,0 +1,1329 @@
+{
+  "design": "in-scene promoted-target double-grasp tasks",
+  "description": "keep the original OBJECT scene (basket + 6 objects); A = original target; B = one of the 5 distractor objects promoted to a second target; 4 distractors remain. Goal = (In A basket) AND (In B basket). Scene/init unchanged -> reuse source .pruned_init. All 10 object types are confirmed targets in their own tasks (pi05 baseline 10/10), so B is always a previously-validated target type.",
+  "candidates_total": 50,
+  "per_scene": {
+    "0": [
+      "t00_b_salad_dressing",
+      "t00_b_cream_cheese",
+      "t00_b_milk",
+      "t00_b_tomato_sauce",
+      "t00_b_butter"
+    ],
+    "1": [
+      "t01_b_alphabet_soup",
+      "t01_b_milk",
+      "t01_b_tomato_sauce",
+      "t01_b_butter",
+      "t01_b_orange_juice"
+    ],
+    "2": [
+      "t02_b_ketchup",
+      "t02_b_alphabet_soup",
+      "t02_b_cream_cheese",
+      "t02_b_milk",
+      "t02_b_tomato_sauce"
+    ],
+    "3": [
+      "t03_b_chocolate_pudding",
+      "t03_b_ketchup",
+      "t03_b_salad_dressing",
+      "t03_b_alphabet_soup",
+      "t03_b_cream_cheese"
+    ],
+    "4": [
+      "t04_b_bbq_sauce",
+      "t04_b_salad_dressing",
+      "t04_b_alphabet_soup",
+      "t04_b_cream_cheese",
+      "t04_b_milk"
+    ],
+    "5": [
+      "t05_b_milk",
+      "t05_b_butter",
+      "t05_b_orange_juice",
+      "t05_b_chocolate_pudding",
+      "t05_b_bbq_sauce"
+    ],
+    "6": [
+      "t06_b_tomato_sauce",
+      "t06_b_orange_juice",
+      "t06_b_chocolate_pudding",
+      "t06_b_bbq_sauce",
+      "t06_b_ketchup"
+    ],
+    "7": [
+      "t07_b_cream_cheese",
+      "t07_b_tomato_sauce",
+      "t07_b_butter",
+      "t07_b_orange_juice",
+      "t07_b_chocolate_pudding"
+    ],
+    "8": [
+      "t08_b_orange_juice",
+      "t08_b_bbq_sauce",
+      "t08_b_ketchup",
+      "t08_b_salad_dressing",
+      "t08_b_alphabet_soup"
+    ],
+    "9": [
+      "t09_b_butter",
+      "t09_b_chocolate_pudding",
+      "t09_b_bbq_sauce",
+      "t09_b_ketchup",
+      "t09_b_salad_dressing"
+    ]
+  },
+  "candidates": [
+    {
+      "candidate_id": "t00_b_salad_dressing",
+      "scene_task_idx": 0,
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "A": "alphabet_soup",
+      "A_instance": "alphabet_soup_1",
+      "B": "salad_dressing",
+      "B_instance": "salad_dressing_1",
+      "B_init_slot": "R0",
+      "B_home_task_idx": 2,
+      "B_home_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "cream_cheese",
+        "milk",
+        "tomato_sauce",
+        "butter"
+      ],
+      "goal_atoms": [
+        "(In alphabet_soup_1 basket_1_contain_region)",
+        "(In salad_dressing_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the alphabet soup and place it in the basket and pick up the salad dressing and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 0 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t00_b_cream_cheese",
+      "scene_task_idx": 0,
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "A": "alphabet_soup",
+      "A_instance": "alphabet_soup_1",
+      "B": "cream_cheese",
+      "B_instance": "cream_cheese_1",
+      "B_init_slot": "R1",
+      "B_home_task_idx": 1,
+      "B_home_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "salad_dressing",
+        "milk",
+        "tomato_sauce",
+        "butter"
+      ],
+      "goal_atoms": [
+        "(In alphabet_soup_1 basket_1_contain_region)",
+        "(In cream_cheese_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the alphabet soup and place it in the basket and pick up the cream cheese and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 0 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t00_b_milk",
+      "scene_task_idx": 0,
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "A": "alphabet_soup",
+      "A_instance": "alphabet_soup_1",
+      "B": "milk",
+      "B_instance": "milk_1",
+      "B_init_slot": "R2",
+      "B_home_task_idx": 7,
+      "B_home_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "salad_dressing",
+        "cream_cheese",
+        "tomato_sauce",
+        "butter"
+      ],
+      "goal_atoms": [
+        "(In alphabet_soup_1 basket_1_contain_region)",
+        "(In milk_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the alphabet soup and place it in the basket and pick up the milk and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 0 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t00_b_tomato_sauce",
+      "scene_task_idx": 0,
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "A": "alphabet_soup",
+      "A_instance": "alphabet_soup_1",
+      "B": "tomato_sauce",
+      "B_instance": "tomato_sauce_1",
+      "B_init_slot": "R3",
+      "B_home_task_idx": 5,
+      "B_home_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "salad_dressing",
+        "cream_cheese",
+        "milk",
+        "butter"
+      ],
+      "goal_atoms": [
+        "(In alphabet_soup_1 basket_1_contain_region)",
+        "(In tomato_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the alphabet soup and place it in the basket and pick up the tomato sauce and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 0 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t00_b_butter",
+      "scene_task_idx": 0,
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "A": "alphabet_soup",
+      "A_instance": "alphabet_soup_1",
+      "B": "butter",
+      "B_instance": "butter_1",
+      "B_init_slot": "R4",
+      "B_home_task_idx": 6,
+      "B_home_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "salad_dressing",
+        "cream_cheese",
+        "milk",
+        "tomato_sauce"
+      ],
+      "goal_atoms": [
+        "(In alphabet_soup_1 basket_1_contain_region)",
+        "(In butter_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the alphabet soup and place it in the basket and pick up the butter and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 0 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t01_b_alphabet_soup",
+      "scene_task_idx": 1,
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "A": "cream_cheese",
+      "A_instance": "cream_cheese_1",
+      "B": "alphabet_soup",
+      "B_instance": "alphabet_soup_1",
+      "B_init_slot": "R0",
+      "B_home_task_idx": 0,
+      "B_home_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "milk",
+        "tomato_sauce",
+        "butter",
+        "orange_juice"
+      ],
+      "goal_atoms": [
+        "(In cream_cheese_1 basket_1_contain_region)",
+        "(In alphabet_soup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the cream cheese and place it in the basket and pick up the alphabet soup and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 1 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t01_b_milk",
+      "scene_task_idx": 1,
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "A": "cream_cheese",
+      "A_instance": "cream_cheese_1",
+      "B": "milk",
+      "B_instance": "milk_1",
+      "B_init_slot": "R1",
+      "B_home_task_idx": 7,
+      "B_home_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "alphabet_soup",
+        "tomato_sauce",
+        "butter",
+        "orange_juice"
+      ],
+      "goal_atoms": [
+        "(In cream_cheese_1 basket_1_contain_region)",
+        "(In milk_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the cream cheese and place it in the basket and pick up the milk and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 1 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t01_b_tomato_sauce",
+      "scene_task_idx": 1,
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "A": "cream_cheese",
+      "A_instance": "cream_cheese_1",
+      "B": "tomato_sauce",
+      "B_instance": "tomato_sauce_1",
+      "B_init_slot": "R2",
+      "B_home_task_idx": 5,
+      "B_home_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "alphabet_soup",
+        "milk",
+        "butter",
+        "orange_juice"
+      ],
+      "goal_atoms": [
+        "(In cream_cheese_1 basket_1_contain_region)",
+        "(In tomato_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the cream cheese and place it in the basket and pick up the tomato sauce and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 1 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t01_b_butter",
+      "scene_task_idx": 1,
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "A": "cream_cheese",
+      "A_instance": "cream_cheese_1",
+      "B": "butter",
+      "B_instance": "butter_1",
+      "B_init_slot": "R3",
+      "B_home_task_idx": 6,
+      "B_home_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "alphabet_soup",
+        "milk",
+        "tomato_sauce",
+        "orange_juice"
+      ],
+      "goal_atoms": [
+        "(In cream_cheese_1 basket_1_contain_region)",
+        "(In butter_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the cream cheese and place it in the basket and pick up the butter and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 1 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t01_b_orange_juice",
+      "scene_task_idx": 1,
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "A": "cream_cheese",
+      "A_instance": "cream_cheese_1",
+      "B": "orange_juice",
+      "B_instance": "orange_juice_1",
+      "B_init_slot": "R4",
+      "B_home_task_idx": 9,
+      "B_home_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "alphabet_soup",
+        "milk",
+        "tomato_sauce",
+        "butter"
+      ],
+      "goal_atoms": [
+        "(In cream_cheese_1 basket_1_contain_region)",
+        "(In orange_juice_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the cream cheese and place it in the basket and pick up the orange juice and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 1 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t02_b_ketchup",
+      "scene_task_idx": 2,
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "A": "salad_dressing",
+      "A_instance": "salad_dressing_1",
+      "B": "ketchup",
+      "B_instance": "ketchup_1",
+      "B_init_slot": "R0",
+      "B_home_task_idx": 4,
+      "B_home_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "alphabet_soup",
+        "cream_cheese",
+        "milk",
+        "tomato_sauce"
+      ],
+      "goal_atoms": [
+        "(In salad_dressing_1 basket_1_contain_region)",
+        "(In ketchup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the salad dressing and place it in the basket and pick up the ketchup and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 2 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t02_b_alphabet_soup",
+      "scene_task_idx": 2,
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "A": "salad_dressing",
+      "A_instance": "salad_dressing_1",
+      "B": "alphabet_soup",
+      "B_instance": "alphabet_soup_1",
+      "B_init_slot": "R1",
+      "B_home_task_idx": 0,
+      "B_home_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "ketchup",
+        "cream_cheese",
+        "milk",
+        "tomato_sauce"
+      ],
+      "goal_atoms": [
+        "(In salad_dressing_1 basket_1_contain_region)",
+        "(In alphabet_soup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the salad dressing and place it in the basket and pick up the alphabet soup and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 2 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t02_b_cream_cheese",
+      "scene_task_idx": 2,
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "A": "salad_dressing",
+      "A_instance": "salad_dressing_1",
+      "B": "cream_cheese",
+      "B_instance": "cream_cheese_1",
+      "B_init_slot": "R2",
+      "B_home_task_idx": 1,
+      "B_home_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "ketchup",
+        "alphabet_soup",
+        "milk",
+        "tomato_sauce"
+      ],
+      "goal_atoms": [
+        "(In salad_dressing_1 basket_1_contain_region)",
+        "(In cream_cheese_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the salad dressing and place it in the basket and pick up the cream cheese and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 2 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t02_b_milk",
+      "scene_task_idx": 2,
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "A": "salad_dressing",
+      "A_instance": "salad_dressing_1",
+      "B": "milk",
+      "B_instance": "milk_1",
+      "B_init_slot": "R3",
+      "B_home_task_idx": 7,
+      "B_home_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "ketchup",
+        "alphabet_soup",
+        "cream_cheese",
+        "tomato_sauce"
+      ],
+      "goal_atoms": [
+        "(In salad_dressing_1 basket_1_contain_region)",
+        "(In milk_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the salad dressing and place it in the basket and pick up the milk and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 2 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t02_b_tomato_sauce",
+      "scene_task_idx": 2,
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "A": "salad_dressing",
+      "A_instance": "salad_dressing_1",
+      "B": "tomato_sauce",
+      "B_instance": "tomato_sauce_1",
+      "B_init_slot": "R4",
+      "B_home_task_idx": 5,
+      "B_home_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "ketchup",
+        "alphabet_soup",
+        "cream_cheese",
+        "milk"
+      ],
+      "goal_atoms": [
+        "(In salad_dressing_1 basket_1_contain_region)",
+        "(In tomato_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the salad dressing and place it in the basket and pick up the tomato sauce and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 2 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t03_b_chocolate_pudding",
+      "scene_task_idx": 3,
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "A": "bbq_sauce",
+      "A_instance": "bbq_sauce_1",
+      "B": "chocolate_pudding",
+      "B_instance": "chocolate_pudding_1",
+      "B_init_slot": "R0",
+      "B_home_task_idx": 8,
+      "B_home_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "ketchup",
+        "salad_dressing",
+        "alphabet_soup",
+        "cream_cheese"
+      ],
+      "goal_atoms": [
+        "(In bbq_sauce_1 basket_1_contain_region)",
+        "(In chocolate_pudding_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the bbq sauce and place it in the basket and pick up the chocolate pudding and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 3 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t03_b_ketchup",
+      "scene_task_idx": 3,
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "A": "bbq_sauce",
+      "A_instance": "bbq_sauce_1",
+      "B": "ketchup",
+      "B_instance": "ketchup_1",
+      "B_init_slot": "R1",
+      "B_home_task_idx": 4,
+      "B_home_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "chocolate_pudding",
+        "salad_dressing",
+        "alphabet_soup",
+        "cream_cheese"
+      ],
+      "goal_atoms": [
+        "(In bbq_sauce_1 basket_1_contain_region)",
+        "(In ketchup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the bbq sauce and place it in the basket and pick up the ketchup and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 3 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t03_b_salad_dressing",
+      "scene_task_idx": 3,
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "A": "bbq_sauce",
+      "A_instance": "bbq_sauce_1",
+      "B": "salad_dressing",
+      "B_instance": "salad_dressing_1",
+      "B_init_slot": "R2",
+      "B_home_task_idx": 2,
+      "B_home_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "chocolate_pudding",
+        "ketchup",
+        "alphabet_soup",
+        "cream_cheese"
+      ],
+      "goal_atoms": [
+        "(In bbq_sauce_1 basket_1_contain_region)",
+        "(In salad_dressing_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the bbq sauce and place it in the basket and pick up the salad dressing and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 3 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t03_b_alphabet_soup",
+      "scene_task_idx": 3,
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "A": "bbq_sauce",
+      "A_instance": "bbq_sauce_1",
+      "B": "alphabet_soup",
+      "B_instance": "alphabet_soup_1",
+      "B_init_slot": "R3",
+      "B_home_task_idx": 0,
+      "B_home_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "chocolate_pudding",
+        "ketchup",
+        "salad_dressing",
+        "cream_cheese"
+      ],
+      "goal_atoms": [
+        "(In bbq_sauce_1 basket_1_contain_region)",
+        "(In alphabet_soup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the bbq sauce and place it in the basket and pick up the alphabet soup and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 3 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t03_b_cream_cheese",
+      "scene_task_idx": 3,
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "A": "bbq_sauce",
+      "A_instance": "bbq_sauce_1",
+      "B": "cream_cheese",
+      "B_instance": "cream_cheese_1",
+      "B_init_slot": "R4",
+      "B_home_task_idx": 1,
+      "B_home_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "chocolate_pudding",
+        "ketchup",
+        "salad_dressing",
+        "alphabet_soup"
+      ],
+      "goal_atoms": [
+        "(In bbq_sauce_1 basket_1_contain_region)",
+        "(In cream_cheese_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the bbq sauce and place it in the basket and pick up the cream cheese and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 3 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t04_b_bbq_sauce",
+      "scene_task_idx": 4,
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "A": "ketchup",
+      "A_instance": "ketchup_1",
+      "B": "bbq_sauce",
+      "B_instance": "bbq_sauce_1",
+      "B_init_slot": "R0",
+      "B_home_task_idx": 3,
+      "B_home_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "salad_dressing",
+        "alphabet_soup",
+        "cream_cheese",
+        "milk"
+      ],
+      "goal_atoms": [
+        "(In ketchup_1 basket_1_contain_region)",
+        "(In bbq_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the ketchup and place it in the basket and pick up the bbq sauce and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 4 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t04_b_salad_dressing",
+      "scene_task_idx": 4,
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "A": "ketchup",
+      "A_instance": "ketchup_1",
+      "B": "salad_dressing",
+      "B_instance": "salad_dressing_1",
+      "B_init_slot": "R1",
+      "B_home_task_idx": 2,
+      "B_home_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "bbq_sauce",
+        "alphabet_soup",
+        "cream_cheese",
+        "milk"
+      ],
+      "goal_atoms": [
+        "(In ketchup_1 basket_1_contain_region)",
+        "(In salad_dressing_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the ketchup and place it in the basket and pick up the salad dressing and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 4 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t04_b_alphabet_soup",
+      "scene_task_idx": 4,
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "A": "ketchup",
+      "A_instance": "ketchup_1",
+      "B": "alphabet_soup",
+      "B_instance": "alphabet_soup_1",
+      "B_init_slot": "R2",
+      "B_home_task_idx": 0,
+      "B_home_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "bbq_sauce",
+        "salad_dressing",
+        "cream_cheese",
+        "milk"
+      ],
+      "goal_atoms": [
+        "(In ketchup_1 basket_1_contain_region)",
+        "(In alphabet_soup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the ketchup and place it in the basket and pick up the alphabet soup and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 4 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t04_b_cream_cheese",
+      "scene_task_idx": 4,
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "A": "ketchup",
+      "A_instance": "ketchup_1",
+      "B": "cream_cheese",
+      "B_instance": "cream_cheese_1",
+      "B_init_slot": "R3",
+      "B_home_task_idx": 1,
+      "B_home_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "bbq_sauce",
+        "salad_dressing",
+        "alphabet_soup",
+        "milk"
+      ],
+      "goal_atoms": [
+        "(In ketchup_1 basket_1_contain_region)",
+        "(In cream_cheese_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the ketchup and place it in the basket and pick up the cream cheese and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 4 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t04_b_milk",
+      "scene_task_idx": 4,
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "A": "ketchup",
+      "A_instance": "ketchup_1",
+      "B": "milk",
+      "B_instance": "milk_1",
+      "B_init_slot": "R4",
+      "B_home_task_idx": 7,
+      "B_home_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "bbq_sauce",
+        "salad_dressing",
+        "alphabet_soup",
+        "cream_cheese"
+      ],
+      "goal_atoms": [
+        "(In ketchup_1 basket_1_contain_region)",
+        "(In milk_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the ketchup and place it in the basket and pick up the milk and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 4 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t05_b_milk",
+      "scene_task_idx": 5,
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "A": "tomato_sauce",
+      "A_instance": "tomato_sauce_1",
+      "B": "milk",
+      "B_instance": "milk_1",
+      "B_init_slot": "R0",
+      "B_home_task_idx": 7,
+      "B_home_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "butter",
+        "orange_juice",
+        "chocolate_pudding",
+        "bbq_sauce"
+      ],
+      "goal_atoms": [
+        "(In tomato_sauce_1 basket_1_contain_region)",
+        "(In milk_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the tomato sauce and place it in the basket and pick up the milk and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 5 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t05_b_butter",
+      "scene_task_idx": 5,
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "A": "tomato_sauce",
+      "A_instance": "tomato_sauce_1",
+      "B": "butter",
+      "B_instance": "butter_1",
+      "B_init_slot": "R1",
+      "B_home_task_idx": 6,
+      "B_home_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "milk",
+        "orange_juice",
+        "chocolate_pudding",
+        "bbq_sauce"
+      ],
+      "goal_atoms": [
+        "(In tomato_sauce_1 basket_1_contain_region)",
+        "(In butter_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the tomato sauce and place it in the basket and pick up the butter and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 5 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t05_b_orange_juice",
+      "scene_task_idx": 5,
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "A": "tomato_sauce",
+      "A_instance": "tomato_sauce_1",
+      "B": "orange_juice",
+      "B_instance": "orange_juice_1",
+      "B_init_slot": "R2",
+      "B_home_task_idx": 9,
+      "B_home_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "milk",
+        "butter",
+        "chocolate_pudding",
+        "bbq_sauce"
+      ],
+      "goal_atoms": [
+        "(In tomato_sauce_1 basket_1_contain_region)",
+        "(In orange_juice_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the tomato sauce and place it in the basket and pick up the orange juice and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 5 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t05_b_chocolate_pudding",
+      "scene_task_idx": 5,
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "A": "tomato_sauce",
+      "A_instance": "tomato_sauce_1",
+      "B": "chocolate_pudding",
+      "B_instance": "chocolate_pudding_1",
+      "B_init_slot": "R3",
+      "B_home_task_idx": 8,
+      "B_home_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "milk",
+        "butter",
+        "orange_juice",
+        "bbq_sauce"
+      ],
+      "goal_atoms": [
+        "(In tomato_sauce_1 basket_1_contain_region)",
+        "(In chocolate_pudding_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the tomato sauce and place it in the basket and pick up the chocolate pudding and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 5 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t05_b_bbq_sauce",
+      "scene_task_idx": 5,
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "A": "tomato_sauce",
+      "A_instance": "tomato_sauce_1",
+      "B": "bbq_sauce",
+      "B_instance": "bbq_sauce_1",
+      "B_init_slot": "R4",
+      "B_home_task_idx": 3,
+      "B_home_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "milk",
+        "butter",
+        "orange_juice",
+        "chocolate_pudding"
+      ],
+      "goal_atoms": [
+        "(In tomato_sauce_1 basket_1_contain_region)",
+        "(In bbq_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the tomato sauce and place it in the basket and pick up the bbq sauce and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 5 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t06_b_tomato_sauce",
+      "scene_task_idx": 6,
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "A": "butter",
+      "A_instance": "butter_1",
+      "B": "tomato_sauce",
+      "B_instance": "tomato_sauce_1",
+      "B_init_slot": "R0",
+      "B_home_task_idx": 5,
+      "B_home_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "orange_juice",
+        "chocolate_pudding",
+        "bbq_sauce",
+        "ketchup"
+      ],
+      "goal_atoms": [
+        "(In butter_1 basket_1_contain_region)",
+        "(In tomato_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the butter and place it in the basket and pick up the tomato sauce and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 6 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t06_b_orange_juice",
+      "scene_task_idx": 6,
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "A": "butter",
+      "A_instance": "butter_1",
+      "B": "orange_juice",
+      "B_instance": "orange_juice_1",
+      "B_init_slot": "R1",
+      "B_home_task_idx": 9,
+      "B_home_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "tomato_sauce",
+        "chocolate_pudding",
+        "bbq_sauce",
+        "ketchup"
+      ],
+      "goal_atoms": [
+        "(In butter_1 basket_1_contain_region)",
+        "(In orange_juice_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the butter and place it in the basket and pick up the orange juice and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 6 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t06_b_chocolate_pudding",
+      "scene_task_idx": 6,
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "A": "butter",
+      "A_instance": "butter_1",
+      "B": "chocolate_pudding",
+      "B_instance": "chocolate_pudding_1",
+      "B_init_slot": "R2",
+      "B_home_task_idx": 8,
+      "B_home_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "tomato_sauce",
+        "orange_juice",
+        "bbq_sauce",
+        "ketchup"
+      ],
+      "goal_atoms": [
+        "(In butter_1 basket_1_contain_region)",
+        "(In chocolate_pudding_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the butter and place it in the basket and pick up the chocolate pudding and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 6 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t06_b_bbq_sauce",
+      "scene_task_idx": 6,
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "A": "butter",
+      "A_instance": "butter_1",
+      "B": "bbq_sauce",
+      "B_instance": "bbq_sauce_1",
+      "B_init_slot": "R3",
+      "B_home_task_idx": 3,
+      "B_home_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "tomato_sauce",
+        "orange_juice",
+        "chocolate_pudding",
+        "ketchup"
+      ],
+      "goal_atoms": [
+        "(In butter_1 basket_1_contain_region)",
+        "(In bbq_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the butter and place it in the basket and pick up the bbq sauce and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 6 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t06_b_ketchup",
+      "scene_task_idx": 6,
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "A": "butter",
+      "A_instance": "butter_1",
+      "B": "ketchup",
+      "B_instance": "ketchup_1",
+      "B_init_slot": "R4",
+      "B_home_task_idx": 4,
+      "B_home_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "tomato_sauce",
+        "orange_juice",
+        "chocolate_pudding",
+        "bbq_sauce"
+      ],
+      "goal_atoms": [
+        "(In butter_1 basket_1_contain_region)",
+        "(In ketchup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the butter and place it in the basket and pick up the ketchup and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 6 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t07_b_cream_cheese",
+      "scene_task_idx": 7,
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "A": "milk",
+      "A_instance": "milk_1",
+      "B": "cream_cheese",
+      "B_instance": "cream_cheese_1",
+      "B_init_slot": "R0",
+      "B_home_task_idx": 1,
+      "B_home_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "tomato_sauce",
+        "butter",
+        "orange_juice",
+        "chocolate_pudding"
+      ],
+      "goal_atoms": [
+        "(In milk_1 basket_1_contain_region)",
+        "(In cream_cheese_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the milk and place it in the basket and pick up the cream cheese and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 7 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t07_b_tomato_sauce",
+      "scene_task_idx": 7,
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "A": "milk",
+      "A_instance": "milk_1",
+      "B": "tomato_sauce",
+      "B_instance": "tomato_sauce_1",
+      "B_init_slot": "R1",
+      "B_home_task_idx": 5,
+      "B_home_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "cream_cheese",
+        "butter",
+        "orange_juice",
+        "chocolate_pudding"
+      ],
+      "goal_atoms": [
+        "(In milk_1 basket_1_contain_region)",
+        "(In tomato_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the milk and place it in the basket and pick up the tomato sauce and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 7 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t07_b_butter",
+      "scene_task_idx": 7,
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "A": "milk",
+      "A_instance": "milk_1",
+      "B": "butter",
+      "B_instance": "butter_1",
+      "B_init_slot": "R2",
+      "B_home_task_idx": 6,
+      "B_home_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "cream_cheese",
+        "tomato_sauce",
+        "orange_juice",
+        "chocolate_pudding"
+      ],
+      "goal_atoms": [
+        "(In milk_1 basket_1_contain_region)",
+        "(In butter_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the milk and place it in the basket and pick up the butter and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 7 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t07_b_orange_juice",
+      "scene_task_idx": 7,
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "A": "milk",
+      "A_instance": "milk_1",
+      "B": "orange_juice",
+      "B_instance": "orange_juice_1",
+      "B_init_slot": "R3",
+      "B_home_task_idx": 9,
+      "B_home_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "cream_cheese",
+        "tomato_sauce",
+        "butter",
+        "chocolate_pudding"
+      ],
+      "goal_atoms": [
+        "(In milk_1 basket_1_contain_region)",
+        "(In orange_juice_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the milk and place it in the basket and pick up the orange juice and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 7 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t07_b_chocolate_pudding",
+      "scene_task_idx": 7,
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "A": "milk",
+      "A_instance": "milk_1",
+      "B": "chocolate_pudding",
+      "B_instance": "chocolate_pudding_1",
+      "B_init_slot": "R4",
+      "B_home_task_idx": 8,
+      "B_home_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "cream_cheese",
+        "tomato_sauce",
+        "butter",
+        "orange_juice"
+      ],
+      "goal_atoms": [
+        "(In milk_1 basket_1_contain_region)",
+        "(In chocolate_pudding_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the milk and place it in the basket and pick up the chocolate pudding and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 7 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t08_b_orange_juice",
+      "scene_task_idx": 8,
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "A": "chocolate_pudding",
+      "A_instance": "chocolate_pudding_1",
+      "B": "orange_juice",
+      "B_instance": "orange_juice_1",
+      "B_init_slot": "R0",
+      "B_home_task_idx": 9,
+      "B_home_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "bbq_sauce",
+        "ketchup",
+        "salad_dressing",
+        "alphabet_soup"
+      ],
+      "goal_atoms": [
+        "(In chocolate_pudding_1 basket_1_contain_region)",
+        "(In orange_juice_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the chocolate pudding and place it in the basket and pick up the orange juice and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 8 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t08_b_bbq_sauce",
+      "scene_task_idx": 8,
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "A": "chocolate_pudding",
+      "A_instance": "chocolate_pudding_1",
+      "B": "bbq_sauce",
+      "B_instance": "bbq_sauce_1",
+      "B_init_slot": "R1",
+      "B_home_task_idx": 3,
+      "B_home_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "orange_juice",
+        "ketchup",
+        "salad_dressing",
+        "alphabet_soup"
+      ],
+      "goal_atoms": [
+        "(In chocolate_pudding_1 basket_1_contain_region)",
+        "(In bbq_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the chocolate pudding and place it in the basket and pick up the bbq sauce and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 8 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t08_b_ketchup",
+      "scene_task_idx": 8,
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "A": "chocolate_pudding",
+      "A_instance": "chocolate_pudding_1",
+      "B": "ketchup",
+      "B_instance": "ketchup_1",
+      "B_init_slot": "R2",
+      "B_home_task_idx": 4,
+      "B_home_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "orange_juice",
+        "bbq_sauce",
+        "salad_dressing",
+        "alphabet_soup"
+      ],
+      "goal_atoms": [
+        "(In chocolate_pudding_1 basket_1_contain_region)",
+        "(In ketchup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the chocolate pudding and place it in the basket and pick up the ketchup and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 8 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t08_b_salad_dressing",
+      "scene_task_idx": 8,
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "A": "chocolate_pudding",
+      "A_instance": "chocolate_pudding_1",
+      "B": "salad_dressing",
+      "B_instance": "salad_dressing_1",
+      "B_init_slot": "R3",
+      "B_home_task_idx": 2,
+      "B_home_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "orange_juice",
+        "bbq_sauce",
+        "ketchup",
+        "alphabet_soup"
+      ],
+      "goal_atoms": [
+        "(In chocolate_pudding_1 basket_1_contain_region)",
+        "(In salad_dressing_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the chocolate pudding and place it in the basket and pick up the salad dressing and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 8 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t08_b_alphabet_soup",
+      "scene_task_idx": 8,
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "A": "chocolate_pudding",
+      "A_instance": "chocolate_pudding_1",
+      "B": "alphabet_soup",
+      "B_instance": "alphabet_soup_1",
+      "B_init_slot": "R4",
+      "B_home_task_idx": 0,
+      "B_home_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "orange_juice",
+        "bbq_sauce",
+        "ketchup",
+        "salad_dressing"
+      ],
+      "goal_atoms": [
+        "(In chocolate_pudding_1 basket_1_contain_region)",
+        "(In alphabet_soup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the chocolate pudding and place it in the basket and pick up the alphabet soup and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 8 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t09_b_butter",
+      "scene_task_idx": 9,
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "A": "orange_juice",
+      "A_instance": "orange_juice_1",
+      "B": "butter",
+      "B_instance": "butter_1",
+      "B_init_slot": "R0",
+      "B_home_task_idx": 6,
+      "B_home_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "chocolate_pudding",
+        "bbq_sauce",
+        "ketchup",
+        "salad_dressing"
+      ],
+      "goal_atoms": [
+        "(In orange_juice_1 basket_1_contain_region)",
+        "(In butter_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the orange juice and place it in the basket and pick up the butter and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 9 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t09_b_chocolate_pudding",
+      "scene_task_idx": 9,
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "A": "orange_juice",
+      "A_instance": "orange_juice_1",
+      "B": "chocolate_pudding",
+      "B_instance": "chocolate_pudding_1",
+      "B_init_slot": "R1",
+      "B_home_task_idx": 8,
+      "B_home_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "butter",
+        "bbq_sauce",
+        "ketchup",
+        "salad_dressing"
+      ],
+      "goal_atoms": [
+        "(In orange_juice_1 basket_1_contain_region)",
+        "(In chocolate_pudding_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the orange juice and place it in the basket and pick up the chocolate pudding and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 9 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t09_b_bbq_sauce",
+      "scene_task_idx": 9,
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "A": "orange_juice",
+      "A_instance": "orange_juice_1",
+      "B": "bbq_sauce",
+      "B_instance": "bbq_sauce_1",
+      "B_init_slot": "R2",
+      "B_home_task_idx": 3,
+      "B_home_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "butter",
+        "chocolate_pudding",
+        "ketchup",
+        "salad_dressing"
+      ],
+      "goal_atoms": [
+        "(In orange_juice_1 basket_1_contain_region)",
+        "(In bbq_sauce_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the orange juice and place it in the basket and pick up the bbq sauce and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 9 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t09_b_ketchup",
+      "scene_task_idx": 9,
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "A": "orange_juice",
+      "A_instance": "orange_juice_1",
+      "B": "ketchup",
+      "B_instance": "ketchup_1",
+      "B_init_slot": "R3",
+      "B_home_task_idx": 4,
+      "B_home_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "butter",
+        "chocolate_pudding",
+        "bbq_sauce",
+        "salad_dressing"
+      ],
+      "goal_atoms": [
+        "(In orange_juice_1 basket_1_contain_region)",
+        "(In ketchup_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the orange juice and place it in the basket and pick up the ketchup and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 9 .pruned_init (same scene / same 7 rigid bodies)"
+    },
+    {
+      "candidate_id": "t09_b_salad_dressing",
+      "scene_task_idx": 9,
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "A": "orange_juice",
+      "A_instance": "orange_juice_1",
+      "B": "salad_dressing",
+      "B_instance": "salad_dressing_1",
+      "B_init_slot": "R4",
+      "B_home_task_idx": 2,
+      "B_home_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "remaining_distractors": [
+        "butter",
+        "chocolate_pudding",
+        "bbq_sauce",
+        "ketchup"
+      ],
+      "goal_atoms": [
+        "(In orange_juice_1 basket_1_contain_region)",
+        "(In salad_dressing_1 basket_1_contain_region)"
+      ],
+      "language": "pick up the orange juice and place it in the basket and pick up the salad dressing and place it in the basket",
+      "bddl_edits": ":goal / :obj_of_interest / :language only; :objects/:regions/:init unchanged",
+      "init_file": "reuse source task 9 .pruned_init (same scene / same 7 rigid bodies)"
+    }
+  ]
+}

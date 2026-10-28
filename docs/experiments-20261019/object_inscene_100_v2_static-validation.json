@@ -1,0 +1,2116 @@
+{
+  "experiment": "v2 candidate definitions static validation (language-only change vs v1)",
+  "candidates_total": 100,
+  "passed": 100,
+  "failed": 0,
+  "errors": [],
+  "checks": {
+    "bddl_parse": 100,
+    "language_matches_template": 100,
+    "goal_matches_v1": 100,
+    "only_language_changed_vs_v1": 100,
+    "init_identical_v1": 100
+  },
+  "results": [
+    {
+      "candidate_id": "t00_b_butter_ab",
+      "language": "pick up the alphabet soup and the butter and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "butter_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t00_b_butter_ba",
+      "language": "pick up the butter and the alphabet soup and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "butter_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t00_b_cream_cheese_ab",
+      "language": "pick up the alphabet soup and the cream cheese and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t00_b_cream_cheese_ba",
+      "language": "pick up the cream cheese and the alphabet soup and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t00_b_milk_ab",
+      "language": "pick up the alphabet soup and the milk and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "milk_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t00_b_milk_ba",
+      "language": "pick up the milk and the alphabet soup and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "milk_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t00_b_salad_dressing_ab",
+      "language": "pick up the alphabet soup and the salad dressing and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "salad_dressing_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t00_b_salad_dressing_ba",
+      "language": "pick up the salad dressing and the alphabet soup and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "salad_dressing_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t00_b_tomato_sauce_ab",
+      "language": "pick up the alphabet soup and the tomato sauce and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t00_b_tomato_sauce_ba",
+      "language": "pick up the tomato sauce and the alphabet soup and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t01_b_alphabet_soup_ab",
+      "language": "pick up the cream cheese and the alphabet soup and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t01_b_alphabet_soup_ba",
+      "language": "pick up the alphabet soup and the cream cheese and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t01_b_butter_ab",
+      "language": "pick up the cream cheese and the butter and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "butter_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t01_b_butter_ba",
+      "language": "pick up the butter and the cream cheese and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "butter_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t01_b_milk_ab",
+      "language": "pick up the cream cheese and the milk and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "milk_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t01_b_milk_ba",
+      "language": "pick up the milk and the cream cheese and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "milk_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t01_b_orange_juice_ab",
+      "language": "pick up the cream cheese and the orange juice and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "orange_juice_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t01_b_orange_juice_ba",
+      "language": "pick up the orange juice and the cream cheese and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "orange_juice_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t01_b_tomato_sauce_ab",
+      "language": "pick up the cream cheese and the tomato sauce and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t01_b_tomato_sauce_ba",
+      "language": "pick up the tomato sauce and the cream cheese and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t02_b_alphabet_soup_ab",
+      "language": "pick up the salad dressing and the alphabet soup and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "salad_dressing_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t02_b_alphabet_soup_ba",
+      "language": "pick up the alphabet soup and the salad dressing and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "salad_dressing_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t02_b_cream_cheese_ab",
+      "language": "pick up the salad dressing and the cream cheese and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "salad_dressing_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t02_b_cream_cheese_ba",
+      "language": "pick up the cream cheese and the salad dressing and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "salad_dressing_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t02_b_ketchup_ab",
+      "language": "pick up the salad dressing and the ketchup and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "salad_dressing_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "ketchup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t02_b_ketchup_ba",
+      "language": "pick up the ketchup and the salad dressing and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "ketchup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "salad_dressing_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t02_b_milk_ab",
+      "language": "pick up the salad dressing and the milk and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "salad_dressing_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "milk_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t02_b_milk_ba",
+      "language": "pick up the milk and the salad dressing and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "milk_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "salad_dressing_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t02_b_tomato_sauce_ab",
+      "language": "pick up the salad dressing and the tomato sauce and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "salad_dressing_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t02_b_tomato_sauce_ba",
+      "language": "pick up the tomato sauce and the salad dressing and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "salad_dressing_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t03_b_alphabet_soup_ab",
+      "language": "pick up the bbq sauce and the alphabet soup and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "bbq_sauce_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t03_b_alphabet_soup_ba",
+      "language": "pick up the alphabet soup and the bbq sauce and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "bbq_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t03_b_chocolate_pudding_ab",
+      "language": "pick up the bbq sauce and the chocolate pudding and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "bbq_sauce_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "chocolate_pudding_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t03_b_chocolate_pudding_ba",
+      "language": "pick up the chocolate pudding and the bbq sauce and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "chocolate_pudding_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "bbq_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t03_b_cream_cheese_ab",
+      "language": "pick up the bbq sauce and the cream cheese and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "bbq_sauce_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t03_b_cream_cheese_ba",
+      "language": "pick up the cream cheese and the bbq sauce and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "bbq_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t03_b_ketchup_ab",
+      "language": "pick up the bbq sauce and the ketchup and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "bbq_sauce_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "ketchup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t03_b_ketchup_ba",
+      "language": "pick up the ketchup and the bbq sauce and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "ketchup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "bbq_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t03_b_salad_dressing_ab",
+      "language": "pick up the bbq sauce and the salad dressing and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "bbq_sauce_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "salad_dressing_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t03_b_salad_dressing_ba",
+      "language": "pick up the salad dressing and the bbq sauce and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "salad_dressing_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "bbq_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t04_b_alphabet_soup_ab",
+      "language": "pick up the ketchup and the alphabet soup and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "ketchup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t04_b_alphabet_soup_ba",
+      "language": "pick up the alphabet soup and the ketchup and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "ketchup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t04_b_bbq_sauce_ab",
+      "language": "pick up the ketchup and the bbq sauce and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "ketchup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "bbq_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t04_b_bbq_sauce_ba",
+      "language": "pick up the bbq sauce and the ketchup and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "bbq_sauce_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "ketchup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t04_b_cream_cheese_ab",
+      "language": "pick up the ketchup and the cream cheese and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "ketchup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t04_b_cream_cheese_ba",
+      "language": "pick up the cream cheese and the ketchup and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "ketchup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t04_b_milk_ab",
+      "language": "pick up the ketchup and the milk and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "ketchup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "milk_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t04_b_milk_ba",
+      "language": "pick up the milk and the ketchup and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "milk_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "ketchup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t04_b_salad_dressing_ab",
+      "language": "pick up the ketchup and the salad dressing and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "ketchup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "salad_dressing_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t04_b_salad_dressing_ba",
+      "language": "pick up the salad dressing and the ketchup and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "salad_dressing_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "ketchup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t05_b_bbq_sauce_ab",
+      "language": "pick up the tomato sauce and the bbq sauce and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "bbq_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t05_b_bbq_sauce_ba",
+      "language": "pick up the bbq sauce and the tomato sauce and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "bbq_sauce_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t05_b_butter_ab",
+      "language": "pick up the tomato sauce and the butter and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "butter_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t05_b_butter_ba",
+      "language": "pick up the butter and the tomato sauce and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "butter_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t05_b_chocolate_pudding_ab",
+      "language": "pick up the tomato sauce and the chocolate pudding and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "chocolate_pudding_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t05_b_chocolate_pudding_ba",
+      "language": "pick up the chocolate pudding and the tomato sauce and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "chocolate_pudding_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t05_b_milk_ab",
+      "language": "pick up the tomato sauce and the milk and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "milk_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t05_b_milk_ba",
+      "language": "pick up the milk and the tomato sauce and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "milk_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t05_b_orange_juice_ab",
+      "language": "pick up the tomato sauce and the orange juice and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "orange_juice_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t05_b_orange_juice_ba",
+      "language": "pick up the orange juice and the tomato sauce and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "orange_juice_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t06_b_bbq_sauce_ab",
+      "language": "pick up the butter and the bbq sauce and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "butter_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "bbq_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t06_b_bbq_sauce_ba",
+      "language": "pick up the bbq sauce and the butter and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "bbq_sauce_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "butter_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t06_b_chocolate_pudding_ab",
+      "language": "pick up the butter and the chocolate pudding and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "butter_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "chocolate_pudding_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t06_b_chocolate_pudding_ba",
+      "language": "pick up the chocolate pudding and the butter and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "chocolate_pudding_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "butter_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t06_b_ketchup_ab",
+      "language": "pick up the butter and the ketchup and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "butter_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "ketchup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t06_b_ketchup_ba",
+      "language": "pick up the ketchup and the butter and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "ketchup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "butter_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t06_b_orange_juice_ab",
+      "language": "pick up the butter and the orange juice and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "butter_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "orange_juice_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t06_b_orange_juice_ba",
+      "language": "pick up the orange juice and the butter and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "orange_juice_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "butter_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t06_b_tomato_sauce_ab",
+      "language": "pick up the butter and the tomato sauce and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "butter_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t06_b_tomato_sauce_ba",
+      "language": "pick up the tomato sauce and the butter and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "butter_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t07_b_butter_ab",
+      "language": "pick up the milk and the butter and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "milk_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "butter_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t07_b_butter_ba",
+      "language": "pick up the butter and the milk and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "butter_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "milk_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t07_b_chocolate_pudding_ab",
+      "language": "pick up the milk and the chocolate pudding and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "milk_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "chocolate_pudding_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t07_b_chocolate_pudding_ba",
+      "language": "pick up the chocolate pudding and the milk and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "chocolate_pudding_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "milk_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t07_b_cream_cheese_ab",
+      "language": "pick up the milk and the cream cheese and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "milk_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t07_b_cream_cheese_ba",
+      "language": "pick up the cream cheese and the milk and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "milk_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t07_b_orange_juice_ab",
+      "language": "pick up the milk and the orange juice and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "milk_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "orange_juice_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t07_b_orange_juice_ba",
+      "language": "pick up the orange juice and the milk and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "orange_juice_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "milk_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t07_b_tomato_sauce_ab",
+      "language": "pick up the milk and the tomato sauce and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "milk_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t07_b_tomato_sauce_ba",
+      "language": "pick up the tomato sauce and the milk and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "milk_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t08_b_alphabet_soup_ab",
+      "language": "pick up the chocolate pudding and the alphabet soup and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "chocolate_pudding_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t08_b_alphabet_soup_ba",
+      "language": "pick up the alphabet soup and the chocolate pudding and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "chocolate_pudding_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t08_b_bbq_sauce_ab",
+      "language": "pick up the chocolate pudding and the bbq sauce and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "chocolate_pudding_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "bbq_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t08_b_bbq_sauce_ba",
+      "language": "pick up the bbq sauce and the chocolate pudding and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "bbq_sauce_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "chocolate_pudding_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t08_b_ketchup_ab",
+      "language": "pick up the chocolate pudding and the ketchup and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "chocolate_pudding_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "ketchup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t08_b_ketchup_ba",
+      "language": "pick up the ketchup and the chocolate pudding and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "ketchup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "chocolate_pudding_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t08_b_orange_juice_ab",
+      "language": "pick up the chocolate pudding and the orange juice and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "chocolate_pudding_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "orange_juice_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t08_b_orange_juice_ba",
+      "language": "pick up the orange juice and the chocolate pudding and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "orange_juice_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "chocolate_pudding_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t08_b_salad_dressing_ab",
+      "language": "pick up the chocolate pudding and the salad dressing and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "chocolate_pudding_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "salad_dressing_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t08_b_salad_dressing_ba",
+      "language": "pick up the salad dressing and the chocolate pudding and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "salad_dressing_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "chocolate_pudding_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t09_b_bbq_sauce_ab",
+      "language": "pick up the orange juice and the bbq sauce and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "orange_juice_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "bbq_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t09_b_bbq_sauce_ba",
+      "language": "pick up the bbq sauce and the orange juice and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "bbq_sauce_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "orange_juice_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t09_b_butter_ab",
+      "language": "pick up the orange juice and the butter and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "orange_juice_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "butter_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t09_b_butter_ba",
+      "language": "pick up the butter and the orange juice and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "butter_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "orange_juice_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t09_b_chocolate_pudding_ab",
+      "language": "pick up the orange juice and the chocolate pudding and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "orange_juice_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "chocolate_pudding_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t09_b_chocolate_pudding_ba",
+      "language": "pick up the chocolate pudding and the orange juice and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "chocolate_pudding_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "orange_juice_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t09_b_ketchup_ab",
+      "language": "pick up the orange juice and the ketchup and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "orange_juice_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "ketchup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t09_b_ketchup_ba",
+      "language": "pick up the ketchup and the orange juice and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "ketchup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "orange_juice_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t09_b_salad_dressing_ab",
+      "language": "pick up the orange juice and the salad dressing and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "orange_juice_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "salad_dressing_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    },
+    {
+      "candidate_id": "t09_b_salad_dressing_ba",
+      "language": "pick up the salad dressing and the orange juice and place them in the basket",
+      "language_matches_template": true,
+      "goal_atoms": [
+        [
+          "in",
+          "salad_dressing_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "orange_juice_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_matches_v1": true,
+      "only_language_changed_vs_v1": true,
+      "init_identical_v1": true,
+      "passed": true
+    }
+  ]
+}

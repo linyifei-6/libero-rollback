@@ -1,0 +1,50 @@
+task_profile:
+  id: libero_10_t193
+  suite: LIBERO_10
+  task_idx: 193
+  bddl_name: LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate
+  skills: [pick, place, remember, spatial_bind, repair]
+  roles:
+    manipulated_object: {kind: body, name: porcelain_mug_1}
+    subgoal_object_a: {kind: body, name: porcelain_mug_1}
+    subgoal_object_b: {kind: body, name: white_yellow_mug_1}
+    subgoal_goal_a: {kind: body, name: plate_1}
+    subgoal_goal_b: {kind: body, name: plate_2}
+    completed_subgoal_object: {kind: body, name: porcelain_mug_1}
+    completed_subgoal_goal: {kind: body, name: plate_1}
+    next_subgoal_object: {kind: body, name: white_yellow_mug_1}
+    next_subgoal_goal: {kind: body, name: plate_2}
+    goal_object: {kind: body, name: plate_1}
+    eef: {kind: observation, key: robot0_eef_pos}
+    gripper: {kind: observation, key: robot0_gripper_qpos}
+    agent_camera: {kind: observation, key: agentview_image}
+    wrist_camera: {kind: observation, key: robot0_eye_in_hand_image}
+  manipulated_object_candidates: [subgoal_object_a, subgoal_object_b]
+  task_frame: {lateral_axis: +Y, vertical_axis: +Z}
+  workspace:
+    x: [-1.0, 1.0]
+    y: [-1.0, 1.0]
+    z: [0.0, 1.5]
+  milestones:
+    x1_approach: {target_role: manipulated_object, distance_m: [0.08, 0.16], require_approaching: true, require_not_lifted: true}
+    x2a_precontact: {target_role: manipulated_object, max_distance_m: 0.08, require_not_lifted: true, require_no_robot_contact: true}
+    x2b_close_intent: {target_role: manipulated_object, max_distance_m: 0.08, max_gripper_aperture_m: 0.07, min_closing_delta_m: 0.002, require_not_lifted: true, require_no_robot_contact: false}
+    x2c_grasp_commit: {target_role: manipulated_object, max_distance_m: 0.08, max_gripper_aperture_m: 0.065, require_not_lifted: true, require_no_robot_contact: false}
+    x3a_transport: {object_role: manipulated_object, min_lift_from_initial_m: 0.03, max_eef_distance_m: 0.10}
+    x3b_preplacement: {object_role: manipulated_object, goal_role: goal_object, max_xy_distance_m: 0.18, require_lifted_once: true}
+    x3b_descent_commit: {object_role: manipulated_object, goal_role: goal_object, max_xy_distance_m: 0.14, min_descending_delta_m: 0.0005, require_lifted_once: true}
+    first_subgoal_completed: {}
+    next_subgoal_completed: {}
+    next_subgoal_approach: {max_distance_m: 0.14}
+    next_subgoal_lift: {min_lift_from_initial_m: 0.02, max_eef_distance_m: 0.10}
+    next_subgoal_preplacement: {max_xy_distance_m: 0.18, require_lifted_once: true}
+    next_subgoal_descent_commit: {max_xy_distance_m: 0.14, min_descending_delta_m: 0.0005, require_lifted_once: true}
+  subgoals:
+    - id: white_mug_on_left_plate
+      predicate: "on"
+      actor_role: subgoal_object_a
+      goal_role: subgoal_goal_a
+    - id: yellow_white_mug_on_right_plate
+      predicate: "on"
+      actor_role: subgoal_object_b
+      goal_role: subgoal_goal_b

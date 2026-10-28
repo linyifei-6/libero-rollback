@@ -1,0 +1,57 @@
+{
+  "suite": "LIBERO_OBJECT",
+  "recovery_note": "原始 artifacts/object-pairs/pairs.json、30 个 bddl/init、validation.json 与 object-scout 原型 bddl 都随原 runs/combined-tasks-20261019 目录删除；恢复重跑已按用户要求停止。审计证据保留了生成方法与口径统计，但没有保留完整 30 对选择清单，因此本文件不伪造 pair 列表。",
+  "method": "取 LIBERO-OBJECT 10 个任务的无序两两组合；合并两个任务的 :objects/:regions/:init（basket 去重），goal=(And atom_i atom_j)，语言=两官方语言 ' and ' 连接；因合并后 qpos 布局变化，初始状态按 joint/body 名字从两个源任务分别取物体位姿合成（ndarray (50,1+nq+nv)，torch.save，布局 [time,qpos,qvel]）。",
+  "verification_summary": {
+    "pairs_generated_and_static_validated": "30/30",
+    "checks": "50/50 行 set_init_state 往返 0 误差、0 碰撞、初始 success=False、双目标可满足性、runtime 通道复刻",
+    "init_shapes_by_union_bucket": {
+      "union7": [
+        50,
+        123
+      ],
+      "union8": [
+        50,
+        136
+      ],
+      "union9": [
+        50,
+        149
+      ]
+    }
+  },
+  "audit_authoritative_counts": {
+    "7": 10,
+    "8": 10,
+    "9": 10
+  },
+  "skipped": {
+    "count": 15,
+    "reason": "union=10（合并场景需要第 4 个安全初始槽位，state_len 约 162），暂跳过"
+  },
+  "known_pair_ids": [
+    {
+      "pair_id": "object_pair_00_01",
+      "tasks": [
+        "alphabet_soup",
+        "cream_cheese"
+      ],
+      "union_bucket": 7
+    },
+    {
+      "pair_id": "object_pair_00_03",
+      "tasks": [
+        "alphabet_soup",
+        "bbq_sauce"
+      ],
+      "union_bucket": 9
+    }
+  ],
+  "dynamic_result": {
+    "run": "object-pilot (4 pairs: object_pair_00_01 / 00_03 / 00_04 / 08_09)",
+    "episodes": 4,
+    "success": 0,
+    "note": "全部只完成第 1 个 object；单任务控制中 cream cheese 在合并场景失败 → 合并场景 init/摆放需调试"
+  },
+  "source": "docs/experiments-20261019/combined_twosubtask.json static.object_union_distribution + 幸存审计报告"
+}

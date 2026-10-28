@@ -1,0 +1,63 @@
+assumptions:
+- Project-authored extension; parameters are proposals, not measurements.
+- Native predicate, collision, release and protected actor checks must pass in each episode.
+- Runtime BDDL variant is recorded separately from the canonical LIBERO-10 task.
+case_id: libero-10-07-rollback-mid-d0-mug-completed-yaw-zp180-probe
+completed_relations:
+- source_task_goal: true
+dataset_version: 1.8.0
+expected_evaluation_semantics: relation_only
+intervention_description: 'Task 07: yaw180-completed-mid; preserve the instruction and protected goals.'
+open_questions:
+- Episode-specific physical validity and predicate truth require simulation evidence.
+- 'Rotation is a truth probe: classify relation-preserving control or rollback from native pre/post truth;
+  never infer failure from angle alone.'
+rollback_target:
+  state_change:
+    kind: displace_from_completed_pose
+    offset_m:
+    - 0.0
+    - 0.0
+    - 0.0
+    offset_frame: world
+    velocity: zero
+    orientation_axis_angle:
+      axis:
+      - 0.0
+      - 0.0
+      - 1.0
+      angle_rad: 3.141592653589793
+scenario_type: completed_relation_rollback
+schema_version: libero-rollback.case.v1
+severity: pose
+severity_rationale: Mechanism label; concrete parameters are explicit and imply no model difficulty ranking.
+source:
+  case_reference: docs/expansion-plan.md / task 07 / yaw180-completed-mid
+  case_source_id: progress-failure-expansion-20261014
+  supporting_source_ids:
+  - scenario-timing-position-matrix-20260926
+  task_locator_source_id: full-suite-runtime-crosswalk-20261009
+  task_source_id: libero-plus-task-definitions-v1
+stage:
+  name: next_subgoal_approach
+  description: The first relation holds, the next operation is under way.
+task:
+  source_bddl: LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.bddl
+  source_task_locator: T193
+  suite: LIBERO-10
+  task_id: libero_10/07
+  task_index: 7
+template_id: completed-relation-rollback/completed-pose/v1
+trigger:
+  event: enter_next_subgoal_approach
+  time_point: mid
+  delay_steps: 0
+  window: The first relation holds, the next operation is under way.
+validity_constraints:
+- completed_relation_true_before_intervention
+- object_released_before_intervention
+- zero_velocity_after_intervention
+- no_object_penetration
+- task_remains_solvable
+- baseline_task_solvable
+pose_role: measured_relation_probe

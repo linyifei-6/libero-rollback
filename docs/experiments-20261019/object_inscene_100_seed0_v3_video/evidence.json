@@ -1,0 +1,3033 @@
+{
+  "experiment": "pi05 zero-shot validation of 100 in-scene promoted-target double-grasp candidates (v3 LIBERO-10 phrasing, seed 0, video)",
+  "run_dir": "/home/tarowang/workspace/roboot/libero-rollback/runs/object-inscene-100-20261023",
+  "results_json": "/home/tarowang/workspace/roboot/libero-rollback/runs/object-inscene-100-20261023/run/seed0-v3-video/pi05_20261024_111542/results.json",
+  "candidates_total": 100,
+  "protocol": {
+    "model": "pi05",
+    "seeds": [
+      0
+    ],
+    "max_steps": 600,
+    "replan_steps": 10,
+    "runtime": "runs/combined-tasks-20261019/runtime (custom sibling .pruned_init patch)",
+    "init": "source task .pruned_init row 0",
+    "video": true,
+    "phrasing": "put both the {A} and the {B} in the basket / put both the {B} and the {A} in the basket (LIBERO-10 template)"
+  },
+  "stats": {
+    "episodes": 100,
+    "success": 5,
+    "success_rate": 0.05,
+    "steps_distribution": {
+      "600": 95,
+      "267": 1,
+      "316": 1,
+      "408": 1,
+      "412": 1,
+      "318": 1
+    },
+    "subtasks_distribution": {
+      "1": 88,
+      "2": 5,
+      "0": 7
+    },
+    "first_completed_class": {
+      "A": 83,
+      "B": 10,
+      "none": 7
+    },
+    "by_order": {
+      "ab": {
+        "episodes": 50,
+        "success": 3,
+        "success_rate": 0.06,
+        "first_completed": {
+          "A": 48,
+          "none": 2
+        }
+      },
+      "ba": {
+        "episodes": 50,
+        "success": 2,
+        "success_rate": 0.04,
+        "first_completed": {
+          "A": 35,
+          "B": 10,
+          "none": 5
+        }
+      }
+    },
+    "by_scene": {
+      "0": {
+        "episodes": 10,
+        "success": 3,
+        "success_rate": 0.3,
+        "first_completed": {
+          "A": 8,
+          "B": 1,
+          "none": 1
+        }
+      },
+      "1": {
+        "episodes": 10,
+        "success": 1,
+        "success_rate": 0.1,
+        "first_completed": {
+          "A": 9,
+          "B": 1
+        }
+      },
+      "2": {
+        "episodes": 10,
+        "success": 0,
+        "success_rate": 0.0,
+        "first_completed": {
+          "A": 9,
+          "B": 1
+        }
+      },
+      "3": {
+        "episodes": 10,
+        "success": 0,
+        "success_rate": 0.0,
+        "first_completed": {
+          "A": 8,
+          "B": 2
+        }
+      },
+      "4": {
+        "episodes": 10,
+        "success": 0,
+        "success_rate": 0.0,
+        "first_completed": {
+          "A": 9,
+          "none": 1
+        }
+      },
+      "5": {
+        "episodes": 10,
+        "success": 1,
+        "success_rate": 0.1,
+        "first_completed": {
+          "A": 9,
+          "B": 1
+        }
+      },
+      "6": {
+        "episodes": 10,
+        "success": 0,
+        "success_rate": 0.0,
+        "first_completed": {
+          "A": 10
+        }
+      },
+      "7": {
+        "episodes": 10,
+        "success": 0,
+        "success_rate": 0.0,
+        "first_completed": {
+          "A": 9,
+          "B": 1
+        }
+      },
+      "8": {
+        "episodes": 10,
+        "success": 0,
+        "success_rate": 0.0,
+        "first_completed": {
+          "A": 9,
+          "B": 1
+        }
+      },
+      "9": {
+        "episodes": 10,
+        "success": 0,
+        "success_rate": 0.0,
+        "first_completed": {
+          "A": 3,
+          "B": 2,
+          "none": 5
+        }
+      }
+    },
+    "by_B": {
+      "alphabet_soup": {
+        "episodes": 10,
+        "success": 0,
+        "success_rate": 0.0,
+        "first_completed": {
+          "A": 9,
+          "B": 1
+        }
+      },
+      "bbq_sauce": {
+        "episodes": 10,
+        "success": 0,
+        "success_rate": 0.0,
+        "first_completed": {
+          "A": 9,
+          "B": 1
+        }
+      },
+      "butter": {
+        "episodes": 10,
+        "success": 2,
+        "success_rate": 0.2,
+        "first_completed": {
+          "A": 7,
+          "B": 2,
+          "none": 1
+        }
+      },
+      "chocolate_pudding": {
+        "episodes": 10,
+        "success": 0,
+        "success_rate": 0.0,
+        "first_completed": {
+          "A": 7,
+          "B": 1,
+          "none": 2
+        }
+      },
+      "cream_cheese": {
+        "episodes": 10,
+        "success": 2,
+        "success_rate": 0.2,
+        "first_completed": {
+          "A": 7,
+          "B": 3
+        }
+      },
+      "ketchup": {
+        "episodes": 10,
+        "success": 0,
+        "success_rate": 0.0,
+        "first_completed": {
+          "A": 8,
+          "B": 1,
+          "none": 1
+        }
+      },
+      "milk": {
+        "episodes": 10,
+        "success": 0,
+        "success_rate": 0.0,
+        "first_completed": {
+          "A": 10
+        }
+      },
+      "orange_juice": {
+        "episodes": 10,
+        "success": 0,
+        "success_rate": 0.0,
+        "first_completed": {
+          "A": 9,
+          "B": 1
+        }
+      },
+      "salad_dressing": {
+        "episodes": 10,
+        "success": 0,
+        "success_rate": 0.0,
+        "first_completed": {
+          "A": 8,
+          "none": 2
+        }
+      },
+      "tomato_sauce": {
+        "episodes": 10,
+        "success": 1,
+        "success_rate": 0.1,
+        "first_completed": {
+          "A": 9,
+          "none": 1
+        }
+      }
+    }
+  },
+  "records": [
+    {
+      "candidate_id": "t00_b_butter_ab",
+      "runner_task_key": "CUSTOM_T0",
+      "runner_task_idx": 0,
+      "scene_task_idx": 0,
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "alphabet_soup",
+      "B": "butter",
+      "instruction": "put both the alphabet soup and the butter in the basket",
+      "goal_atoms": [
+        "(In alphabet_soup_1 basket_1_contain_region)",
+        "(In butter_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 113.0,
+      "first_true_step": {
+        "in alphabet_soup_1 basket_1_contain_region": 152
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t00_b_butter_ab__seed0__001.jsonl",
+      "video": "CUSTOM_T0__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t00_b_butter_ba",
+      "runner_task_key": "CUSTOM_T1",
+      "runner_task_idx": 1,
+      "scene_task_idx": 0,
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "alphabet_soup",
+      "B": "butter",
+      "instruction": "put both the butter and the alphabet soup in the basket",
+      "goal_atoms": [
+        "(In butter_1 basket_1_contain_region)",
+        "(In alphabet_soup_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 122.0,
+      "first_true_step": {
+        "in alphabet_soup_1 basket_1_contain_region": 161
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t00_b_butter_ba__seed0__002.jsonl",
+      "video": "CUSTOM_T1__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t00_b_cream_cheese_ab",
+      "runner_task_key": "CUSTOM_T2",
+      "runner_task_idx": 2,
+      "scene_task_idx": 0,
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "alphabet_soup",
+      "B": "cream_cheese",
+      "instruction": "put both the alphabet soup and the cream cheese in the basket",
+      "goal_atoms": [
+        "(In alphabet_soup_1 basket_1_contain_region)",
+        "(In cream_cheese_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": true,
+      "steps": 267,
+      "time_s": 54.0,
+      "first_true_step": {
+        "in alphabet_soup_1 basket_1_contain_region": 153,
+        "in cream_cheese_1 basket_1_contain_region": 276
+      },
+      "completed_classes": [
+        "A",
+        "B"
+      ],
+      "subtasks_completed": 2,
+      "trace": "t00_b_cream_cheese_ab__seed0__003.jsonl",
+      "video": "CUSTOM_T2__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t00_b_cream_cheese_ba",
+      "runner_task_key": "CUSTOM_T3",
+      "runner_task_idx": 3,
+      "scene_task_idx": 0,
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "alphabet_soup",
+      "B": "cream_cheese",
+      "instruction": "put both the cream cheese and the alphabet soup in the basket",
+      "goal_atoms": [
+        "(In cream_cheese_1 basket_1_contain_region)",
+        "(In alphabet_soup_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": true,
+      "steps": 316,
+      "time_s": 63.0,
+      "first_true_step": {
+        "in alphabet_soup_1 basket_1_contain_region": 151,
+        "in cream_cheese_1 basket_1_contain_region": 325
+      },
+      "completed_classes": [
+        "B",
+        "A"
+      ],
+      "subtasks_completed": 2,
+      "trace": "t00_b_cream_cheese_ba__seed0__004.jsonl",
+      "video": "CUSTOM_T3__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t00_b_milk_ab",
+      "runner_task_key": "CUSTOM_T4",
+      "runner_task_idx": 4,
+      "scene_task_idx": 0,
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "alphabet_soup",
+      "B": "milk",
+      "instruction": "put both the alphabet soup and the milk in the basket",
+      "goal_atoms": [
+        "(In alphabet_soup_1 basket_1_contain_region)",
+        "(In milk_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 124.0,
+      "first_true_step": {
+        "in alphabet_soup_1 basket_1_contain_region": 150
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t00_b_milk_ab__seed0__005.jsonl",
+      "video": "CUSTOM_T4__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t00_b_milk_ba",
+      "runner_task_key": "CUSTOM_T5",
+      "runner_task_idx": 5,
+      "scene_task_idx": 0,
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "alphabet_soup",
+      "B": "milk",
+      "instruction": "put both the milk and the alphabet soup in the basket",
+      "goal_atoms": [
+        "(In milk_1 basket_1_contain_region)",
+        "(In alphabet_soup_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 123.0,
+      "first_true_step": {
+        "in alphabet_soup_1 basket_1_contain_region": 150
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t00_b_milk_ba__seed0__006.jsonl",
+      "video": "CUSTOM_T5__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t00_b_salad_dressing_ab",
+      "runner_task_key": "CUSTOM_T6",
+      "runner_task_idx": 6,
+      "scene_task_idx": 0,
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "alphabet_soup",
+      "B": "salad_dressing",
+      "instruction": "put both the alphabet soup and the salad dressing in the basket",
+      "goal_atoms": [
+        "(In alphabet_soup_1 basket_1_contain_region)",
+        "(In salad_dressing_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 127.0,
+      "first_true_step": {
+        "in alphabet_soup_1 basket_1_contain_region": 147
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t00_b_salad_dressing_ab__seed0__007.jsonl",
+      "video": "CUSTOM_T6__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t00_b_salad_dressing_ba",
+      "runner_task_key": "CUSTOM_T7",
+      "runner_task_idx": 7,
+      "scene_task_idx": 0,
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "alphabet_soup",
+      "B": "salad_dressing",
+      "instruction": "put both the salad dressing and the alphabet soup in the basket",
+      "goal_atoms": [
+        "(In salad_dressing_1 basket_1_contain_region)",
+        "(In alphabet_soup_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 124.0,
+      "first_true_step": {
+        "in alphabet_soup_1 basket_1_contain_region": 157
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t00_b_salad_dressing_ba__seed0__008.jsonl",
+      "video": "CUSTOM_T7__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t00_b_tomato_sauce_ab",
+      "runner_task_key": "CUSTOM_T8",
+      "runner_task_idx": 8,
+      "scene_task_idx": 0,
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "alphabet_soup",
+      "B": "tomato_sauce",
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "goal_atoms": [
+        "(In alphabet_soup_1 basket_1_contain_region)",
+        "(In tomato_sauce_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": true,
+      "steps": 408,
+      "time_s": 84.0,
+      "first_true_step": {
+        "in alphabet_soup_1 basket_1_contain_region": 158,
+        "in tomato_sauce_1 basket_1_contain_region": 417
+      },
+      "completed_classes": [
+        "A",
+        "B"
+      ],
+      "subtasks_completed": 2,
+      "trace": "t00_b_tomato_sauce_ab__seed0__009.jsonl",
+      "video": "CUSTOM_T8__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t00_b_tomato_sauce_ba",
+      "runner_task_key": "CUSTOM_T9",
+      "runner_task_idx": 9,
+      "scene_task_idx": 0,
+      "scene_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "alphabet_soup",
+      "B": "tomato_sauce",
+      "instruction": "put both the tomato sauce and the alphabet soup in the basket",
+      "goal_atoms": [
+        "(In tomato_sauce_1 basket_1_contain_region)",
+        "(In alphabet_soup_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 123.0,
+      "first_true_step": {},
+      "completed_classes": [],
+      "subtasks_completed": 0,
+      "trace": "t00_b_tomato_sauce_ba__seed0__010.jsonl",
+      "video": "CUSTOM_T9__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t01_b_alphabet_soup_ab",
+      "runner_task_key": "CUSTOM_T10",
+      "runner_task_idx": 10,
+      "scene_task_idx": 1,
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "cream_cheese",
+      "B": "alphabet_soup",
+      "instruction": "put both the cream cheese and the alphabet soup in the basket",
+      "goal_atoms": [
+        "(In cream_cheese_1 basket_1_contain_region)",
+        "(In alphabet_soup_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 121.0,
+      "first_true_step": {
+        "in cream_cheese_1 basket_1_contain_region": 174
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t01_b_alphabet_soup_ab__seed0__011.jsonl",
+      "video": "CUSTOM_T10__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t01_b_alphabet_soup_ba",
+      "runner_task_key": "CUSTOM_T11",
+      "runner_task_idx": 11,
+      "scene_task_idx": 1,
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "cream_cheese",
+      "B": "alphabet_soup",
+      "instruction": "put both the alphabet soup and the cream cheese in the basket",
+      "goal_atoms": [
+        "(In alphabet_soup_1 basket_1_contain_region)",
+        "(In cream_cheese_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 118.0,
+      "first_true_step": {
+        "in alphabet_soup_1 basket_1_contain_region": 179
+      },
+      "completed_classes": [
+        "B"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t01_b_alphabet_soup_ba__seed0__012.jsonl",
+      "video": "CUSTOM_T11__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t01_b_butter_ab",
+      "runner_task_key": "CUSTOM_T12",
+      "runner_task_idx": 12,
+      "scene_task_idx": 1,
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "cream_cheese",
+      "B": "butter",
+      "instruction": "put both the cream cheese and the butter in the basket",
+      "goal_atoms": [
+        "(In cream_cheese_1 basket_1_contain_region)",
+        "(In butter_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": true,
+      "steps": 412,
+      "time_s": 83.0,
+      "first_true_step": {
+        "in cream_cheese_1 basket_1_contain_region": 241,
+        "in butter_1 basket_1_contain_region": 421
+      },
+      "completed_classes": [
+        "A",
+        "B"
+      ],
+      "subtasks_completed": 2,
+      "trace": "t01_b_butter_ab__seed0__013.jsonl",
+      "video": "CUSTOM_T12__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t01_b_butter_ba",
+      "runner_task_key": "CUSTOM_T13",
+      "runner_task_idx": 13,
+      "scene_task_idx": 1,
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "cream_cheese",
+      "B": "butter",
+      "instruction": "put both the butter and the cream cheese in the basket",
+      "goal_atoms": [
+        "(In butter_1 basket_1_contain_region)",
+        "(In cream_cheese_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 122.0,
+      "first_true_step": {
+        "in cream_cheese_1 basket_1_contain_region": 176
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t01_b_butter_ba__seed0__014.jsonl",
+      "video": "CUSTOM_T13__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t01_b_milk_ab",
+      "runner_task_key": "CUSTOM_T14",
+      "runner_task_idx": 14,
+      "scene_task_idx": 1,
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "cream_cheese",
+      "B": "milk",
+      "instruction": "put both the cream cheese and the milk in the basket",
+      "goal_atoms": [
+        "(In cream_cheese_1 basket_1_contain_region)",
+        "(In milk_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 123.0,
+      "first_true_step": {
+        "in cream_cheese_1 basket_1_contain_region": 166
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t01_b_milk_ab__seed0__015.jsonl",
+      "video": "CUSTOM_T14__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t01_b_milk_ba",
+      "runner_task_key": "CUSTOM_T15",
+      "runner_task_idx": 15,
+      "scene_task_idx": 1,
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "cream_cheese",
+      "B": "milk",
+      "instruction": "put both the milk and the cream cheese in the basket",
+      "goal_atoms": [
+        "(In milk_1 basket_1_contain_region)",
+        "(In cream_cheese_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 123.0,
+      "first_true_step": {
+        "in cream_cheese_1 basket_1_contain_region": 197
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t01_b_milk_ba__seed0__016.jsonl",
+      "video": "CUSTOM_T15__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t01_b_orange_juice_ab",
+      "runner_task_key": "CUSTOM_T16",
+      "runner_task_idx": 16,
+      "scene_task_idx": 1,
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "cream_cheese",
+      "B": "orange_juice",
+      "instruction": "put both the cream cheese and the orange juice in the basket",
+      "goal_atoms": [
+        "(In cream_cheese_1 basket_1_contain_region)",
+        "(In orange_juice_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 122.0,
+      "first_true_step": {
+        "in cream_cheese_1 basket_1_contain_region": 140
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t01_b_orange_juice_ab__seed0__017.jsonl",
+      "video": "CUSTOM_T16__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t01_b_orange_juice_ba",
+      "runner_task_key": "CUSTOM_T17",
+      "runner_task_idx": 17,
+      "scene_task_idx": 1,
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "cream_cheese",
+      "B": "orange_juice",
+      "instruction": "put both the orange juice and the cream cheese in the basket",
+      "goal_atoms": [
+        "(In orange_juice_1 basket_1_contain_region)",
+        "(In cream_cheese_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 121.0,
+      "first_true_step": {
+        "in cream_cheese_1 basket_1_contain_region": 150
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t01_b_orange_juice_ba__seed0__018.jsonl",
+      "video": "CUSTOM_T17__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t01_b_tomato_sauce_ab",
+      "runner_task_key": "CUSTOM_T18",
+      "runner_task_idx": 18,
+      "scene_task_idx": 1,
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "cream_cheese",
+      "B": "tomato_sauce",
+      "instruction": "put both the cream cheese and the tomato sauce in the basket",
+      "goal_atoms": [
+        "(In cream_cheese_1 basket_1_contain_region)",
+        "(In tomato_sauce_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 120.0,
+      "first_true_step": {
+        "in cream_cheese_1 basket_1_contain_region": 157
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t01_b_tomato_sauce_ab__seed0__019.jsonl",
+      "video": "CUSTOM_T18__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t01_b_tomato_sauce_ba",
+      "runner_task_key": "CUSTOM_T19",
+      "runner_task_idx": 19,
+      "scene_task_idx": 1,
+      "scene_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "cream_cheese",
+      "B": "tomato_sauce",
+      "instruction": "put both the tomato sauce and the cream cheese in the basket",
+      "goal_atoms": [
+        "(In tomato_sauce_1 basket_1_contain_region)",
+        "(In cream_cheese_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 123.0,
+      "first_true_step": {
+        "in cream_cheese_1 basket_1_contain_region": 174
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t01_b_tomato_sauce_ba__seed0__020.jsonl",
+      "video": "CUSTOM_T19__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t02_b_alphabet_soup_ab",
+      "runner_task_key": "CUSTOM_T20",
+      "runner_task_idx": 20,
+      "scene_task_idx": 2,
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "salad_dressing",
+      "B": "alphabet_soup",
+      "instruction": "put both the salad dressing and the alphabet soup in the basket",
+      "goal_atoms": [
+        "(In salad_dressing_1 basket_1_contain_region)",
+        "(In alphabet_soup_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 125.0,
+      "first_true_step": {
+        "in salad_dressing_1 basket_1_contain_region": 129
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t02_b_alphabet_soup_ab__seed0__021.jsonl",
+      "video": "CUSTOM_T20__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t02_b_alphabet_soup_ba",
+      "runner_task_key": "CUSTOM_T21",
+      "runner_task_idx": 21,
+      "scene_task_idx": 2,
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "salad_dressing",
+      "B": "alphabet_soup",
+      "instruction": "put both the alphabet soup and the salad dressing in the basket",
+      "goal_atoms": [
+        "(In alphabet_soup_1 basket_1_contain_region)",
+        "(In salad_dressing_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 124.0,
+      "first_true_step": {
+        "in salad_dressing_1 basket_1_contain_region": 139
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t02_b_alphabet_soup_ba__seed0__022.jsonl",
+      "video": "CUSTOM_T21__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t02_b_cream_cheese_ab",
+      "runner_task_key": "CUSTOM_T22",
+      "runner_task_idx": 22,
+      "scene_task_idx": 2,
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "salad_dressing",
+      "B": "cream_cheese",
+      "instruction": "put both the salad dressing and the cream cheese in the basket",
+      "goal_atoms": [
+        "(In salad_dressing_1 basket_1_contain_region)",
+        "(In cream_cheese_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 125.0,
+      "first_true_step": {
+        "in salad_dressing_1 basket_1_contain_region": 134
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t02_b_cream_cheese_ab__seed0__023.jsonl",
+      "video": "CUSTOM_T22__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t02_b_cream_cheese_ba",
+      "runner_task_key": "CUSTOM_T23",
+      "runner_task_idx": 23,
+      "scene_task_idx": 2,
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "salad_dressing",
+      "B": "cream_cheese",
+      "instruction": "put both the cream cheese and the salad dressing in the basket",
+      "goal_atoms": [
+        "(In cream_cheese_1 basket_1_contain_region)",
+        "(In salad_dressing_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 125.0,
+      "first_true_step": {
+        "in salad_dressing_1 basket_1_contain_region": 137
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t02_b_cream_cheese_ba__seed0__024.jsonl",
+      "video": "CUSTOM_T23__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t02_b_ketchup_ab",
+      "runner_task_key": "CUSTOM_T24",
+      "runner_task_idx": 24,
+      "scene_task_idx": 2,
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "salad_dressing",
+      "B": "ketchup",
+      "instruction": "put both the salad dressing and the ketchup in the basket",
+      "goal_atoms": [
+        "(In salad_dressing_1 basket_1_contain_region)",
+        "(In ketchup_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 124.0,
+      "first_true_step": {
+        "in salad_dressing_1 basket_1_contain_region": 133
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t02_b_ketchup_ab__seed0__025.jsonl",
+      "video": "CUSTOM_T24__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t02_b_ketchup_ba",
+      "runner_task_key": "CUSTOM_T25",
+      "runner_task_idx": 25,
+      "scene_task_idx": 2,
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "salad_dressing",
+      "B": "ketchup",
+      "instruction": "put both the ketchup and the salad dressing in the basket",
+      "goal_atoms": [
+        "(In ketchup_1 basket_1_contain_region)",
+        "(In salad_dressing_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 124.0,
+      "first_true_step": {
+        "in ketchup_1 basket_1_contain_region": 156
+      },
+      "completed_classes": [
+        "B"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t02_b_ketchup_ba__seed0__026.jsonl",
+      "video": "CUSTOM_T25__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t02_b_milk_ab",
+      "runner_task_key": "CUSTOM_T26",
+      "runner_task_idx": 26,
+      "scene_task_idx": 2,
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "salad_dressing",
+      "B": "milk",
+      "instruction": "put both the salad dressing and the milk in the basket",
+      "goal_atoms": [
+        "(In salad_dressing_1 basket_1_contain_region)",
+        "(In milk_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 124.0,
+      "first_true_step": {
+        "in salad_dressing_1 basket_1_contain_region": 131
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t02_b_milk_ab__seed0__027.jsonl",
+      "video": "CUSTOM_T26__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t02_b_milk_ba",
+      "runner_task_key": "CUSTOM_T27",
+      "runner_task_idx": 27,
+      "scene_task_idx": 2,
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "salad_dressing",
+      "B": "milk",
+      "instruction": "put both the milk and the salad dressing in the basket",
+      "goal_atoms": [
+        "(In milk_1 basket_1_contain_region)",
+        "(In salad_dressing_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 125.0,
+      "first_true_step": {
+        "in salad_dressing_1 basket_1_contain_region": 130
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t02_b_milk_ba__seed0__028.jsonl",
+      "video": "CUSTOM_T27__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t02_b_tomato_sauce_ab",
+      "runner_task_key": "CUSTOM_T28",
+      "runner_task_idx": 28,
+      "scene_task_idx": 2,
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "salad_dressing",
+      "B": "tomato_sauce",
+      "instruction": "put both the salad dressing and the tomato sauce in the basket",
+      "goal_atoms": [
+        "(In salad_dressing_1 basket_1_contain_region)",
+        "(In tomato_sauce_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 122.0,
+      "first_true_step": {
+        "in salad_dressing_1 basket_1_contain_region": 136
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t02_b_tomato_sauce_ab__seed0__029.jsonl",
+      "video": "CUSTOM_T28__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t02_b_tomato_sauce_ba",
+      "runner_task_key": "CUSTOM_T29",
+      "runner_task_idx": 29,
+      "scene_task_idx": 2,
+      "scene_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "salad_dressing",
+      "B": "tomato_sauce",
+      "instruction": "put both the tomato sauce and the salad dressing in the basket",
+      "goal_atoms": [
+        "(In tomato_sauce_1 basket_1_contain_region)",
+        "(In salad_dressing_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 123.0,
+      "first_true_step": {
+        "in salad_dressing_1 basket_1_contain_region": 139
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t02_b_tomato_sauce_ba__seed0__030.jsonl",
+      "video": "CUSTOM_T29__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t03_b_alphabet_soup_ab",
+      "runner_task_key": "CUSTOM_T30",
+      "runner_task_idx": 30,
+      "scene_task_idx": 3,
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "bbq_sauce",
+      "B": "alphabet_soup",
+      "instruction": "put both the bbq sauce and the alphabet soup in the basket",
+      "goal_atoms": [
+        "(In bbq_sauce_1 basket_1_contain_region)",
+        "(In alphabet_soup_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 117.0,
+      "first_true_step": {
+        "in bbq_sauce_1 basket_1_contain_region": 169
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t03_b_alphabet_soup_ab__seed0__031.jsonl",
+      "video": "CUSTOM_T30__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t03_b_alphabet_soup_ba",
+      "runner_task_key": "CUSTOM_T31",
+      "runner_task_idx": 31,
+      "scene_task_idx": 3,
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "bbq_sauce",
+      "B": "alphabet_soup",
+      "instruction": "put both the alphabet soup and the bbq sauce in the basket",
+      "goal_atoms": [
+        "(In alphabet_soup_1 basket_1_contain_region)",
+        "(In bbq_sauce_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 118.0,
+      "first_true_step": {
+        "in bbq_sauce_1 basket_1_contain_region": 178
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t03_b_alphabet_soup_ba__seed0__032.jsonl",
+      "video": "CUSTOM_T31__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t03_b_chocolate_pudding_ab",
+      "runner_task_key": "CUSTOM_T32",
+      "runner_task_idx": 32,
+      "scene_task_idx": 3,
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "bbq_sauce",
+      "B": "chocolate_pudding",
+      "instruction": "put both the bbq sauce and the chocolate pudding in the basket",
+      "goal_atoms": [
+        "(In bbq_sauce_1 basket_1_contain_region)",
+        "(In chocolate_pudding_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 119.0,
+      "first_true_step": {
+        "in bbq_sauce_1 basket_1_contain_region": 176
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t03_b_chocolate_pudding_ab__seed0__033.jsonl",
+      "video": "CUSTOM_T32__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t03_b_chocolate_pudding_ba",
+      "runner_task_key": "CUSTOM_T33",
+      "runner_task_idx": 33,
+      "scene_task_idx": 3,
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "bbq_sauce",
+      "B": "chocolate_pudding",
+      "instruction": "put both the chocolate pudding and the bbq sauce in the basket",
+      "goal_atoms": [
+        "(In chocolate_pudding_1 basket_1_contain_region)",
+        "(In bbq_sauce_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 117.0,
+      "first_true_step": {
+        "in chocolate_pudding_1 basket_1_contain_region": 157
+      },
+      "completed_classes": [
+        "B"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t03_b_chocolate_pudding_ba__seed0__034.jsonl",
+      "video": "CUSTOM_T33__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t03_b_cream_cheese_ab",
+      "runner_task_key": "CUSTOM_T34",
+      "runner_task_idx": 34,
+      "scene_task_idx": 3,
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "bbq_sauce",
+      "B": "cream_cheese",
+      "instruction": "put both the bbq sauce and the cream cheese in the basket",
+      "goal_atoms": [
+        "(In bbq_sauce_1 basket_1_contain_region)",
+        "(In cream_cheese_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 118.0,
+      "first_true_step": {
+        "in bbq_sauce_1 basket_1_contain_region": 136
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t03_b_cream_cheese_ab__seed0__035.jsonl",
+      "video": "CUSTOM_T34__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t03_b_cream_cheese_ba",
+      "runner_task_key": "CUSTOM_T35",
+      "runner_task_idx": 35,
+      "scene_task_idx": 3,
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "bbq_sauce",
+      "B": "cream_cheese",
+      "instruction": "put both the cream cheese and the bbq sauce in the basket",
+      "goal_atoms": [
+        "(In cream_cheese_1 basket_1_contain_region)",
+        "(In bbq_sauce_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 119.0,
+      "first_true_step": {
+        "in cream_cheese_1 basket_1_contain_region": 254
+      },
+      "completed_classes": [
+        "B"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t03_b_cream_cheese_ba__seed0__036.jsonl",
+      "video": "CUSTOM_T35__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t03_b_ketchup_ab",
+      "runner_task_key": "CUSTOM_T36",
+      "runner_task_idx": 36,
+      "scene_task_idx": 3,
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "bbq_sauce",
+      "B": "ketchup",
+      "instruction": "put both the bbq sauce and the ketchup in the basket",
+      "goal_atoms": [
+        "(In bbq_sauce_1 basket_1_contain_region)",
+        "(In ketchup_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 118.0,
+      "first_true_step": {
+        "in bbq_sauce_1 basket_1_contain_region": 177
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t03_b_ketchup_ab__seed0__037.jsonl",
+      "video": "CUSTOM_T36__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t03_b_ketchup_ba",
+      "runner_task_key": "CUSTOM_T37",
+      "runner_task_idx": 37,
+      "scene_task_idx": 3,
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "bbq_sauce",
+      "B": "ketchup",
+      "instruction": "put both the ketchup and the bbq sauce in the basket",
+      "goal_atoms": [
+        "(In ketchup_1 basket_1_contain_region)",
+        "(In bbq_sauce_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 118.0,
+      "first_true_step": {
+        "in bbq_sauce_1 basket_1_contain_region": 176
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t03_b_ketchup_ba__seed0__038.jsonl",
+      "video": "CUSTOM_T37__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t03_b_salad_dressing_ab",
+      "runner_task_key": "CUSTOM_T38",
+      "runner_task_idx": 38,
+      "scene_task_idx": 3,
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "bbq_sauce",
+      "B": "salad_dressing",
+      "instruction": "put both the bbq sauce and the salad dressing in the basket",
+      "goal_atoms": [
+        "(In bbq_sauce_1 basket_1_contain_region)",
+        "(In salad_dressing_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 118.0,
+      "first_true_step": {
+        "in bbq_sauce_1 basket_1_contain_region": 231
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t03_b_salad_dressing_ab__seed0__039.jsonl",
+      "video": "CUSTOM_T38__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t03_b_salad_dressing_ba",
+      "runner_task_key": "CUSTOM_T39",
+      "runner_task_idx": 39,
+      "scene_task_idx": 3,
+      "scene_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "bbq_sauce",
+      "B": "salad_dressing",
+      "instruction": "put both the salad dressing and the bbq sauce in the basket",
+      "goal_atoms": [
+        "(In salad_dressing_1 basket_1_contain_region)",
+        "(In bbq_sauce_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 117.0,
+      "first_true_step": {
+        "in bbq_sauce_1 basket_1_contain_region": 181
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t03_b_salad_dressing_ba__seed0__040.jsonl",
+      "video": "CUSTOM_T39__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t04_b_alphabet_soup_ab",
+      "runner_task_key": "CUSTOM_T40",
+      "runner_task_idx": 40,
+      "scene_task_idx": 4,
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "ketchup",
+      "B": "alphabet_soup",
+      "instruction": "put both the ketchup and the alphabet soup in the basket",
+      "goal_atoms": [
+        "(In ketchup_1 basket_1_contain_region)",
+        "(In alphabet_soup_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 118.0,
+      "first_true_step": {
+        "in ketchup_1 basket_1_contain_region": 152
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t04_b_alphabet_soup_ab__seed0__041.jsonl",
+      "video": "CUSTOM_T40__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t04_b_alphabet_soup_ba",
+      "runner_task_key": "CUSTOM_T41",
+      "runner_task_idx": 41,
+      "scene_task_idx": 4,
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "ketchup",
+      "B": "alphabet_soup",
+      "instruction": "put both the alphabet soup and the ketchup in the basket",
+      "goal_atoms": [
+        "(In alphabet_soup_1 basket_1_contain_region)",
+        "(In ketchup_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 119.0,
+      "first_true_step": {
+        "in ketchup_1 basket_1_contain_region": 167
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t04_b_alphabet_soup_ba__seed0__042.jsonl",
+      "video": "CUSTOM_T41__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t04_b_bbq_sauce_ab",
+      "runner_task_key": "CUSTOM_T42",
+      "runner_task_idx": 42,
+      "scene_task_idx": 4,
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "ketchup",
+      "B": "bbq_sauce",
+      "instruction": "put both the ketchup and the bbq sauce in the basket",
+      "goal_atoms": [
+        "(In ketchup_1 basket_1_contain_region)",
+        "(In bbq_sauce_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 120.0,
+      "first_true_step": {
+        "in ketchup_1 basket_1_contain_region": 153
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t04_b_bbq_sauce_ab__seed0__043.jsonl",
+      "video": "CUSTOM_T42__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t04_b_bbq_sauce_ba",
+      "runner_task_key": "CUSTOM_T43",
+      "runner_task_idx": 43,
+      "scene_task_idx": 4,
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "ketchup",
+      "B": "bbq_sauce",
+      "instruction": "put both the bbq sauce and the ketchup in the basket",
+      "goal_atoms": [
+        "(In bbq_sauce_1 basket_1_contain_region)",
+        "(In ketchup_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 119.0,
+      "first_true_step": {
+        "in ketchup_1 basket_1_contain_region": 155
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t04_b_bbq_sauce_ba__seed0__044.jsonl",
+      "video": "CUSTOM_T43__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t04_b_cream_cheese_ab",
+      "runner_task_key": "CUSTOM_T44",
+      "runner_task_idx": 44,
+      "scene_task_idx": 4,
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "ketchup",
+      "B": "cream_cheese",
+      "instruction": "put both the ketchup and the cream cheese in the basket",
+      "goal_atoms": [
+        "(In ketchup_1 basket_1_contain_region)",
+        "(In cream_cheese_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 121.0,
+      "first_true_step": {
+        "in ketchup_1 basket_1_contain_region": 157
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t04_b_cream_cheese_ab__seed0__045.jsonl",
+      "video": "CUSTOM_T44__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t04_b_cream_cheese_ba",
+      "runner_task_key": "CUSTOM_T45",
+      "runner_task_idx": 45,
+      "scene_task_idx": 4,
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "ketchup",
+      "B": "cream_cheese",
+      "instruction": "put both the cream cheese and the ketchup in the basket",
+      "goal_atoms": [
+        "(In cream_cheese_1 basket_1_contain_region)",
+        "(In ketchup_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 120.0,
+      "first_true_step": {
+        "in ketchup_1 basket_1_contain_region": 155
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t04_b_cream_cheese_ba__seed0__046.jsonl",
+      "video": "CUSTOM_T45__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t04_b_milk_ab",
+      "runner_task_key": "CUSTOM_T46",
+      "runner_task_idx": 46,
+      "scene_task_idx": 4,
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "ketchup",
+      "B": "milk",
+      "instruction": "put both the ketchup and the milk in the basket",
+      "goal_atoms": [
+        "(In ketchup_1 basket_1_contain_region)",
+        "(In milk_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 120.0,
+      "first_true_step": {
+        "in ketchup_1 basket_1_contain_region": 150
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t04_b_milk_ab__seed0__047.jsonl",
+      "video": "CUSTOM_T46__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t04_b_milk_ba",
+      "runner_task_key": "CUSTOM_T47",
+      "runner_task_idx": 47,
+      "scene_task_idx": 4,
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "ketchup",
+      "B": "milk",
+      "instruction": "put both the milk and the ketchup in the basket",
+      "goal_atoms": [
+        "(In milk_1 basket_1_contain_region)",
+        "(In ketchup_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 118.0,
+      "first_true_step": {
+        "in ketchup_1 basket_1_contain_region": 149
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t04_b_milk_ba__seed0__048.jsonl",
+      "video": "CUSTOM_T47__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t04_b_salad_dressing_ab",
+      "runner_task_key": "CUSTOM_T48",
+      "runner_task_idx": 48,
+      "scene_task_idx": 4,
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "ketchup",
+      "B": "salad_dressing",
+      "instruction": "put both the ketchup and the salad dressing in the basket",
+      "goal_atoms": [
+        "(In ketchup_1 basket_1_contain_region)",
+        "(In salad_dressing_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 118.0,
+      "first_true_step": {
+        "in ketchup_1 basket_1_contain_region": 159
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t04_b_salad_dressing_ab__seed0__049.jsonl",
+      "video": "CUSTOM_T48__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t04_b_salad_dressing_ba",
+      "runner_task_key": "CUSTOM_T49",
+      "runner_task_idx": 49,
+      "scene_task_idx": 4,
+      "scene_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "ketchup",
+      "B": "salad_dressing",
+      "instruction": "put both the salad dressing and the ketchup in the basket",
+      "goal_atoms": [
+        "(In salad_dressing_1 basket_1_contain_region)",
+        "(In ketchup_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 118.0,
+      "first_true_step": {},
+      "completed_classes": [],
+      "subtasks_completed": 0,
+      "trace": "t04_b_salad_dressing_ba__seed0__050.jsonl",
+      "video": "CUSTOM_T49__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t05_b_bbq_sauce_ab",
+      "runner_task_key": "CUSTOM_T50",
+      "runner_task_idx": 50,
+      "scene_task_idx": 5,
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "tomato_sauce",
+      "B": "bbq_sauce",
+      "instruction": "put both the tomato sauce and the bbq sauce in the basket",
+      "goal_atoms": [
+        "(In tomato_sauce_1 basket_1_contain_region)",
+        "(In bbq_sauce_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 123.0,
+      "first_true_step": {
+        "in tomato_sauce_1 basket_1_contain_region": 151
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t05_b_bbq_sauce_ab__seed0__051.jsonl",
+      "video": "CUSTOM_T50__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t05_b_bbq_sauce_ba",
+      "runner_task_key": "CUSTOM_T51",
+      "runner_task_idx": 51,
+      "scene_task_idx": 5,
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "tomato_sauce",
+      "B": "bbq_sauce",
+      "instruction": "put both the bbq sauce and the tomato sauce in the basket",
+      "goal_atoms": [
+        "(In bbq_sauce_1 basket_1_contain_region)",
+        "(In tomato_sauce_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 122.0,
+      "first_true_step": {
+        "in tomato_sauce_1 basket_1_contain_region": 130
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t05_b_bbq_sauce_ba__seed0__052.jsonl",
+      "video": "CUSTOM_T51__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t05_b_butter_ab",
+      "runner_task_key": "CUSTOM_T52",
+      "runner_task_idx": 52,
+      "scene_task_idx": 5,
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "tomato_sauce",
+      "B": "butter",
+      "instruction": "put both the tomato sauce and the butter in the basket",
+      "goal_atoms": [
+        "(In tomato_sauce_1 basket_1_contain_region)",
+        "(In butter_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 122.0,
+      "first_true_step": {
+        "in tomato_sauce_1 basket_1_contain_region": 127
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t05_b_butter_ab__seed0__053.jsonl",
+      "video": "CUSTOM_T52__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t05_b_butter_ba",
+      "runner_task_key": "CUSTOM_T53",
+      "runner_task_idx": 53,
+      "scene_task_idx": 5,
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "tomato_sauce",
+      "B": "butter",
+      "instruction": "put both the butter and the tomato sauce in the basket",
+      "goal_atoms": [
+        "(In butter_1 basket_1_contain_region)",
+        "(In tomato_sauce_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": true,
+      "steps": 318,
+      "time_s": 66.0,
+      "first_true_step": {
+        "in tomato_sauce_1 basket_1_contain_region": 136,
+        "in butter_1 basket_1_contain_region": 327
+      },
+      "completed_classes": [
+        "B",
+        "A"
+      ],
+      "subtasks_completed": 2,
+      "trace": "t05_b_butter_ba__seed0__054.jsonl",
+      "video": "CUSTOM_T53__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t05_b_chocolate_pudding_ab",
+      "runner_task_key": "CUSTOM_T54",
+      "runner_task_idx": 54,
+      "scene_task_idx": 5,
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "tomato_sauce",
+      "B": "chocolate_pudding",
+      "instruction": "put both the tomato sauce and the chocolate pudding in the basket",
+      "goal_atoms": [
+        "(In tomato_sauce_1 basket_1_contain_region)",
+        "(In chocolate_pudding_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 124.0,
+      "first_true_step": {
+        "in tomato_sauce_1 basket_1_contain_region": 129
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t05_b_chocolate_pudding_ab__seed0__055.jsonl",
+      "video": "CUSTOM_T54__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t05_b_chocolate_pudding_ba",
+      "runner_task_key": "CUSTOM_T55",
+      "runner_task_idx": 55,
+      "scene_task_idx": 5,
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "tomato_sauce",
+      "B": "chocolate_pudding",
+      "instruction": "put both the chocolate pudding and the tomato sauce in the basket",
+      "goal_atoms": [
+        "(In chocolate_pudding_1 basket_1_contain_region)",
+        "(In tomato_sauce_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 125.0,
+      "first_true_step": {
+        "in tomato_sauce_1 basket_1_contain_region": 154
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t05_b_chocolate_pudding_ba__seed0__056.jsonl",
+      "video": "CUSTOM_T55__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t05_b_milk_ab",
+      "runner_task_key": "CUSTOM_T56",
+      "runner_task_idx": 56,
+      "scene_task_idx": 5,
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "tomato_sauce",
+      "B": "milk",
+      "instruction": "put both the tomato sauce and the milk in the basket",
+      "goal_atoms": [
+        "(In tomato_sauce_1 basket_1_contain_region)",
+        "(In milk_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 126.0,
+      "first_true_step": {
+        "in tomato_sauce_1 basket_1_contain_region": 128
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t05_b_milk_ab__seed0__057.jsonl",
+      "video": "CUSTOM_T56__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t05_b_milk_ba",
+      "runner_task_key": "CUSTOM_T57",
+      "runner_task_idx": 57,
+      "scene_task_idx": 5,
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "tomato_sauce",
+      "B": "milk",
+      "instruction": "put both the milk and the tomato sauce in the basket",
+      "goal_atoms": [
+        "(In milk_1 basket_1_contain_region)",
+        "(In tomato_sauce_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 124.0,
+      "first_true_step": {
+        "in tomato_sauce_1 basket_1_contain_region": 152
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t05_b_milk_ba__seed0__058.jsonl",
+      "video": "CUSTOM_T57__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t05_b_orange_juice_ab",
+      "runner_task_key": "CUSTOM_T58",
+      "runner_task_idx": 58,
+      "scene_task_idx": 5,
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "tomato_sauce",
+      "B": "orange_juice",
+      "instruction": "put both the tomato sauce and the orange juice in the basket",
+      "goal_atoms": [
+        "(In tomato_sauce_1 basket_1_contain_region)",
+        "(In orange_juice_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 124.0,
+      "first_true_step": {
+        "in tomato_sauce_1 basket_1_contain_region": 142
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t05_b_orange_juice_ab__seed0__059.jsonl",
+      "video": "CUSTOM_T58__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t05_b_orange_juice_ba",
+      "runner_task_key": "CUSTOM_T59",
+      "runner_task_idx": 59,
+      "scene_task_idx": 5,
+      "scene_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "tomato_sauce",
+      "B": "orange_juice",
+      "instruction": "put both the orange juice and the tomato sauce in the basket",
+      "goal_atoms": [
+        "(In orange_juice_1 basket_1_contain_region)",
+        "(In tomato_sauce_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 122.0,
+      "first_true_step": {
+        "in tomato_sauce_1 basket_1_contain_region": 147
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t05_b_orange_juice_ba__seed0__060.jsonl",
+      "video": "CUSTOM_T59__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t06_b_bbq_sauce_ab",
+      "runner_task_key": "CUSTOM_T60",
+      "runner_task_idx": 60,
+      "scene_task_idx": 6,
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "butter",
+      "B": "bbq_sauce",
+      "instruction": "put both the butter and the bbq sauce in the basket",
+      "goal_atoms": [
+        "(In butter_1 basket_1_contain_region)",
+        "(In bbq_sauce_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 121.0,
+      "first_true_step": {
+        "in butter_1 basket_1_contain_region": 160
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t06_b_bbq_sauce_ab__seed0__061.jsonl",
+      "video": "CUSTOM_T60__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t06_b_bbq_sauce_ba",
+      "runner_task_key": "CUSTOM_T61",
+      "runner_task_idx": 61,
+      "scene_task_idx": 6,
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "butter",
+      "B": "bbq_sauce",
+      "instruction": "put both the bbq sauce and the butter in the basket",
+      "goal_atoms": [
+        "(In bbq_sauce_1 basket_1_contain_region)",
+        "(In butter_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 121.0,
+      "first_true_step": {
+        "in butter_1 basket_1_contain_region": 158
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t06_b_bbq_sauce_ba__seed0__062.jsonl",
+      "video": "CUSTOM_T61__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t06_b_chocolate_pudding_ab",
+      "runner_task_key": "CUSTOM_T62",
+      "runner_task_idx": 62,
+      "scene_task_idx": 6,
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "butter",
+      "B": "chocolate_pudding",
+      "instruction": "put both the butter and the chocolate pudding in the basket",
+      "goal_atoms": [
+        "(In butter_1 basket_1_contain_region)",
+        "(In chocolate_pudding_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 122.0,
+      "first_true_step": {
+        "in butter_1 basket_1_contain_region": 157
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t06_b_chocolate_pudding_ab__seed0__063.jsonl",
+      "video": "CUSTOM_T62__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t06_b_chocolate_pudding_ba",
+      "runner_task_key": "CUSTOM_T63",
+      "runner_task_idx": 63,
+      "scene_task_idx": 6,
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "butter",
+      "B": "chocolate_pudding",
+      "instruction": "put both the chocolate pudding and the butter in the basket",
+      "goal_atoms": [
+        "(In chocolate_pudding_1 basket_1_contain_region)",
+        "(In butter_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 122.0,
+      "first_true_step": {
+        "in butter_1 basket_1_contain_region": 156
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t06_b_chocolate_pudding_ba__seed0__064.jsonl",
+      "video": "CUSTOM_T63__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t06_b_ketchup_ab",
+      "runner_task_key": "CUSTOM_T64",
+      "runner_task_idx": 64,
+      "scene_task_idx": 6,
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "butter",
+      "B": "ketchup",
+      "instruction": "put both the butter and the ketchup in the basket",
+      "goal_atoms": [
+        "(In butter_1 basket_1_contain_region)",
+        "(In ketchup_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 121.0,
+      "first_true_step": {
+        "in butter_1 basket_1_contain_region": 156
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t06_b_ketchup_ab__seed0__065.jsonl",
+      "video": "CUSTOM_T64__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t06_b_ketchup_ba",
+      "runner_task_key": "CUSTOM_T65",
+      "runner_task_idx": 65,
+      "scene_task_idx": 6,
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "butter",
+      "B": "ketchup",
+      "instruction": "put both the ketchup and the butter in the basket",
+      "goal_atoms": [
+        "(In ketchup_1 basket_1_contain_region)",
+        "(In butter_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 121.0,
+      "first_true_step": {
+        "in butter_1 basket_1_contain_region": 161
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t06_b_ketchup_ba__seed0__066.jsonl",
+      "video": "CUSTOM_T65__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t06_b_orange_juice_ab",
+      "runner_task_key": "CUSTOM_T66",
+      "runner_task_idx": 66,
+      "scene_task_idx": 6,
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "butter",
+      "B": "orange_juice",
+      "instruction": "put both the butter and the orange juice in the basket",
+      "goal_atoms": [
+        "(In butter_1 basket_1_contain_region)",
+        "(In orange_juice_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 122.0,
+      "first_true_step": {
+        "in butter_1 basket_1_contain_region": 161
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t06_b_orange_juice_ab__seed0__067.jsonl",
+      "video": "CUSTOM_T66__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t06_b_orange_juice_ba",
+      "runner_task_key": "CUSTOM_T67",
+      "runner_task_idx": 67,
+      "scene_task_idx": 6,
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "butter",
+      "B": "orange_juice",
+      "instruction": "put both the orange juice and the butter in the basket",
+      "goal_atoms": [
+        "(In orange_juice_1 basket_1_contain_region)",
+        "(In butter_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 122.0,
+      "first_true_step": {
+        "in butter_1 basket_1_contain_region": 161
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t06_b_orange_juice_ba__seed0__068.jsonl",
+      "video": "CUSTOM_T67__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t06_b_tomato_sauce_ab",
+      "runner_task_key": "CUSTOM_T68",
+      "runner_task_idx": 68,
+      "scene_task_idx": 6,
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "butter",
+      "B": "tomato_sauce",
+      "instruction": "put both the butter and the tomato sauce in the basket",
+      "goal_atoms": [
+        "(In butter_1 basket_1_contain_region)",
+        "(In tomato_sauce_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 122.0,
+      "first_true_step": {
+        "in butter_1 basket_1_contain_region": 160
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t06_b_tomato_sauce_ab__seed0__069.jsonl",
+      "video": "CUSTOM_T68__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t06_b_tomato_sauce_ba",
+      "runner_task_key": "CUSTOM_T69",
+      "runner_task_idx": 69,
+      "scene_task_idx": 6,
+      "scene_task": "pick_up_the_butter_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "butter",
+      "B": "tomato_sauce",
+      "instruction": "put both the tomato sauce and the butter in the basket",
+      "goal_atoms": [
+        "(In tomato_sauce_1 basket_1_contain_region)",
+        "(In butter_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 124.0,
+      "first_true_step": {
+        "in butter_1 basket_1_contain_region": 156
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t06_b_tomato_sauce_ba__seed0__070.jsonl",
+      "video": "CUSTOM_T69__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t07_b_butter_ab",
+      "runner_task_key": "CUSTOM_T70",
+      "runner_task_idx": 70,
+      "scene_task_idx": 7,
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "milk",
+      "B": "butter",
+      "instruction": "put both the milk and the butter in the basket",
+      "goal_atoms": [
+        "(In milk_1 basket_1_contain_region)",
+        "(In butter_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 121.0,
+      "first_true_step": {
+        "in milk_1 basket_1_contain_region": 141
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t07_b_butter_ab__seed0__071.jsonl",
+      "video": "CUSTOM_T70__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t07_b_butter_ba",
+      "runner_task_key": "CUSTOM_T71",
+      "runner_task_idx": 71,
+      "scene_task_idx": 7,
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "milk",
+      "B": "butter",
+      "instruction": "put both the butter and the milk in the basket",
+      "goal_atoms": [
+        "(In butter_1 basket_1_contain_region)",
+        "(In milk_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 121.0,
+      "first_true_step": {
+        "in milk_1 basket_1_contain_region": 155
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t07_b_butter_ba__seed0__072.jsonl",
+      "video": "CUSTOM_T71__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t07_b_chocolate_pudding_ab",
+      "runner_task_key": "CUSTOM_T72",
+      "runner_task_idx": 72,
+      "scene_task_idx": 7,
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "milk",
+      "B": "chocolate_pudding",
+      "instruction": "put both the milk and the chocolate pudding in the basket",
+      "goal_atoms": [
+        "(In milk_1 basket_1_contain_region)",
+        "(In chocolate_pudding_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 121.0,
+      "first_true_step": {
+        "in milk_1 basket_1_contain_region": 139
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t07_b_chocolate_pudding_ab__seed0__073.jsonl",
+      "video": "CUSTOM_T72__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t07_b_chocolate_pudding_ba",
+      "runner_task_key": "CUSTOM_T73",
+      "runner_task_idx": 73,
+      "scene_task_idx": 7,
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "milk",
+      "B": "chocolate_pudding",
+      "instruction": "put both the chocolate pudding and the milk in the basket",
+      "goal_atoms": [
+        "(In chocolate_pudding_1 basket_1_contain_region)",
+        "(In milk_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 121.0,
+      "first_true_step": {
+        "in milk_1 basket_1_contain_region": 149
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t07_b_chocolate_pudding_ba__seed0__074.jsonl",
+      "video": "CUSTOM_T73__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t07_b_cream_cheese_ab",
+      "runner_task_key": "CUSTOM_T74",
+      "runner_task_idx": 74,
+      "scene_task_idx": 7,
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "milk",
+      "B": "cream_cheese",
+      "instruction": "put both the milk and the cream cheese in the basket",
+      "goal_atoms": [
+        "(In milk_1 basket_1_contain_region)",
+        "(In cream_cheese_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 122.0,
+      "first_true_step": {
+        "in milk_1 basket_1_contain_region": 140
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t07_b_cream_cheese_ab__seed0__075.jsonl",
+      "video": "CUSTOM_T74__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t07_b_cream_cheese_ba",
+      "runner_task_key": "CUSTOM_T75",
+      "runner_task_idx": 75,
+      "scene_task_idx": 7,
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "milk",
+      "B": "cream_cheese",
+      "instruction": "put both the cream cheese and the milk in the basket",
+      "goal_atoms": [
+        "(In cream_cheese_1 basket_1_contain_region)",
+        "(In milk_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 121.0,
+      "first_true_step": {
+        "in cream_cheese_1 basket_1_contain_region": 138
+      },
+      "completed_classes": [
+        "B"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t07_b_cream_cheese_ba__seed0__076.jsonl",
+      "video": "CUSTOM_T75__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t07_b_orange_juice_ab",
+      "runner_task_key": "CUSTOM_T76",
+      "runner_task_idx": 76,
+      "scene_task_idx": 7,
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "milk",
+      "B": "orange_juice",
+      "instruction": "put both the milk and the orange juice in the basket",
+      "goal_atoms": [
+        "(In milk_1 basket_1_contain_region)",
+        "(In orange_juice_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 124.0,
+      "first_true_step": {
+        "in milk_1 basket_1_contain_region": 149
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t07_b_orange_juice_ab__seed0__077.jsonl",
+      "video": "CUSTOM_T76__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t07_b_orange_juice_ba",
+      "runner_task_key": "CUSTOM_T77",
+      "runner_task_idx": 77,
+      "scene_task_idx": 7,
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "milk",
+      "B": "orange_juice",
+      "instruction": "put both the orange juice and the milk in the basket",
+      "goal_atoms": [
+        "(In orange_juice_1 basket_1_contain_region)",
+        "(In milk_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 124.0,
+      "first_true_step": {
+        "in milk_1 basket_1_contain_region": 156
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t07_b_orange_juice_ba__seed0__078.jsonl",
+      "video": "CUSTOM_T77__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t07_b_tomato_sauce_ab",
+      "runner_task_key": "CUSTOM_T78",
+      "runner_task_idx": 78,
+      "scene_task_idx": 7,
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "milk",
+      "B": "tomato_sauce",
+      "instruction": "put both the milk and the tomato sauce in the basket",
+      "goal_atoms": [
+        "(In milk_1 basket_1_contain_region)",
+        "(In tomato_sauce_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 123.0,
+      "first_true_step": {
+        "in milk_1 basket_1_contain_region": 149
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t07_b_tomato_sauce_ab__seed0__079.jsonl",
+      "video": "CUSTOM_T78__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t07_b_tomato_sauce_ba",
+      "runner_task_key": "CUSTOM_T79",
+      "runner_task_idx": 79,
+      "scene_task_idx": 7,
+      "scene_task": "pick_up_the_milk_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "milk",
+      "B": "tomato_sauce",
+      "instruction": "put both the tomato sauce and the milk in the basket",
+      "goal_atoms": [
+        "(In tomato_sauce_1 basket_1_contain_region)",
+        "(In milk_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 122.0,
+      "first_true_step": {
+        "in milk_1 basket_1_contain_region": 141
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t07_b_tomato_sauce_ba__seed0__080.jsonl",
+      "video": "CUSTOM_T79__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t08_b_alphabet_soup_ab",
+      "runner_task_key": "CUSTOM_T80",
+      "runner_task_idx": 80,
+      "scene_task_idx": 8,
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "chocolate_pudding",
+      "B": "alphabet_soup",
+      "instruction": "put both the chocolate pudding and the alphabet soup in the basket",
+      "goal_atoms": [
+        "(In chocolate_pudding_1 basket_1_contain_region)",
+        "(In alphabet_soup_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 120.0,
+      "first_true_step": {
+        "in chocolate_pudding_1 basket_1_contain_region": 157
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t08_b_alphabet_soup_ab__seed0__081.jsonl",
+      "video": "CUSTOM_T80__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t08_b_alphabet_soup_ba",
+      "runner_task_key": "CUSTOM_T81",
+      "runner_task_idx": 81,
+      "scene_task_idx": 8,
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "chocolate_pudding",
+      "B": "alphabet_soup",
+      "instruction": "put both the alphabet soup and the chocolate pudding in the basket",
+      "goal_atoms": [
+        "(In alphabet_soup_1 basket_1_contain_region)",
+        "(In chocolate_pudding_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 119.0,
+      "first_true_step": {
+        "in chocolate_pudding_1 basket_1_contain_region": 157
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t08_b_alphabet_soup_ba__seed0__082.jsonl",
+      "video": "CUSTOM_T81__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t08_b_bbq_sauce_ab",
+      "runner_task_key": "CUSTOM_T82",
+      "runner_task_idx": 82,
+      "scene_task_idx": 8,
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "chocolate_pudding",
+      "B": "bbq_sauce",
+      "instruction": "put both the chocolate pudding and the bbq sauce in the basket",
+      "goal_atoms": [
+        "(In chocolate_pudding_1 basket_1_contain_region)",
+        "(In bbq_sauce_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 121.0,
+      "first_true_step": {
+        "in chocolate_pudding_1 basket_1_contain_region": 146
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t08_b_bbq_sauce_ab__seed0__083.jsonl",
+      "video": "CUSTOM_T82__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t08_b_bbq_sauce_ba",
+      "runner_task_key": "CUSTOM_T83",
+      "runner_task_idx": 83,
+      "scene_task_idx": 8,
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "chocolate_pudding",
+      "B": "bbq_sauce",
+      "instruction": "put both the bbq sauce and the chocolate pudding in the basket",
+      "goal_atoms": [
+        "(In bbq_sauce_1 basket_1_contain_region)",
+        "(In chocolate_pudding_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 118.0,
+      "first_true_step": {
+        "in chocolate_pudding_1 basket_1_contain_region": 156
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t08_b_bbq_sauce_ba__seed0__084.jsonl",
+      "video": "CUSTOM_T83__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t08_b_ketchup_ab",
+      "runner_task_key": "CUSTOM_T84",
+      "runner_task_idx": 84,
+      "scene_task_idx": 8,
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "chocolate_pudding",
+      "B": "ketchup",
+      "instruction": "put both the chocolate pudding and the ketchup in the basket",
+      "goal_atoms": [
+        "(In chocolate_pudding_1 basket_1_contain_region)",
+        "(In ketchup_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 119.0,
+      "first_true_step": {
+        "in chocolate_pudding_1 basket_1_contain_region": 156
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t08_b_ketchup_ab__seed0__085.jsonl",
+      "video": "CUSTOM_T84__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t08_b_ketchup_ba",
+      "runner_task_key": "CUSTOM_T85",
+      "runner_task_idx": 85,
+      "scene_task_idx": 8,
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "chocolate_pudding",
+      "B": "ketchup",
+      "instruction": "put both the ketchup and the chocolate pudding in the basket",
+      "goal_atoms": [
+        "(In ketchup_1 basket_1_contain_region)",
+        "(In chocolate_pudding_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 119.0,
+      "first_true_step": {
+        "in chocolate_pudding_1 basket_1_contain_region": 147
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t08_b_ketchup_ba__seed0__086.jsonl",
+      "video": "CUSTOM_T85__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t08_b_orange_juice_ab",
+      "runner_task_key": "CUSTOM_T86",
+      "runner_task_idx": 86,
+      "scene_task_idx": 8,
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "chocolate_pudding",
+      "B": "orange_juice",
+      "instruction": "put both the chocolate pudding and the orange juice in the basket",
+      "goal_atoms": [
+        "(In chocolate_pudding_1 basket_1_contain_region)",
+        "(In orange_juice_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 120.0,
+      "first_true_step": {
+        "in chocolate_pudding_1 basket_1_contain_region": 160
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t08_b_orange_juice_ab__seed0__087.jsonl",
+      "video": "CUSTOM_T86__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t08_b_orange_juice_ba",
+      "runner_task_key": "CUSTOM_T87",
+      "runner_task_idx": 87,
+      "scene_task_idx": 8,
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "chocolate_pudding",
+      "B": "orange_juice",
+      "instruction": "put both the orange juice and the chocolate pudding in the basket",
+      "goal_atoms": [
+        "(In orange_juice_1 basket_1_contain_region)",
+        "(In chocolate_pudding_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 118.0,
+      "first_true_step": {
+        "in orange_juice_1 basket_1_contain_region": 189
+      },
+      "completed_classes": [
+        "B"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t08_b_orange_juice_ba__seed0__088.jsonl",
+      "video": "CUSTOM_T87__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t08_b_salad_dressing_ab",
+      "runner_task_key": "CUSTOM_T88",
+      "runner_task_idx": 88,
+      "scene_task_idx": 8,
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "chocolate_pudding",
+      "B": "salad_dressing",
+      "instruction": "put both the chocolate pudding and the salad dressing in the basket",
+      "goal_atoms": [
+        "(In chocolate_pudding_1 basket_1_contain_region)",
+        "(In salad_dressing_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 122.0,
+      "first_true_step": {
+        "in chocolate_pudding_1 basket_1_contain_region": 157
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t08_b_salad_dressing_ab__seed0__089.jsonl",
+      "video": "CUSTOM_T88__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t08_b_salad_dressing_ba",
+      "runner_task_key": "CUSTOM_T89",
+      "runner_task_idx": 89,
+      "scene_task_idx": 8,
+      "scene_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "chocolate_pudding",
+      "B": "salad_dressing",
+      "instruction": "put both the salad dressing and the chocolate pudding in the basket",
+      "goal_atoms": [
+        "(In salad_dressing_1 basket_1_contain_region)",
+        "(In chocolate_pudding_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 122.0,
+      "first_true_step": {
+        "in chocolate_pudding_1 basket_1_contain_region": 157
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t08_b_salad_dressing_ba__seed0__090.jsonl",
+      "video": "CUSTOM_T89__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t09_b_bbq_sauce_ab",
+      "runner_task_key": "CUSTOM_T90",
+      "runner_task_idx": 90,
+      "scene_task_idx": 9,
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "orange_juice",
+      "B": "bbq_sauce",
+      "instruction": "put both the orange juice and the bbq sauce in the basket",
+      "goal_atoms": [
+        "(In orange_juice_1 basket_1_contain_region)",
+        "(In bbq_sauce_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 121.0,
+      "first_true_step": {
+        "in orange_juice_1 basket_1_contain_region": 248
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t09_b_bbq_sauce_ab__seed0__091.jsonl",
+      "video": "CUSTOM_T90__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t09_b_bbq_sauce_ba",
+      "runner_task_key": "CUSTOM_T91",
+      "runner_task_idx": 91,
+      "scene_task_idx": 9,
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "orange_juice",
+      "B": "bbq_sauce",
+      "instruction": "put both the bbq sauce and the orange juice in the basket",
+      "goal_atoms": [
+        "(In bbq_sauce_1 basket_1_contain_region)",
+        "(In orange_juice_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 120.0,
+      "first_true_step": {
+        "in bbq_sauce_1 basket_1_contain_region": 296
+      },
+      "completed_classes": [
+        "B"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t09_b_bbq_sauce_ba__seed0__092.jsonl",
+      "video": "CUSTOM_T91__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t09_b_butter_ab",
+      "runner_task_key": "CUSTOM_T92",
+      "runner_task_idx": 92,
+      "scene_task_idx": 9,
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "orange_juice",
+      "B": "butter",
+      "instruction": "put both the orange juice and the butter in the basket",
+      "goal_atoms": [
+        "(In orange_juice_1 basket_1_contain_region)",
+        "(In butter_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 117.0,
+      "first_true_step": {},
+      "completed_classes": [],
+      "subtasks_completed": 0,
+      "trace": "t09_b_butter_ab__seed0__093.jsonl",
+      "video": "CUSTOM_T92__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t09_b_butter_ba",
+      "runner_task_key": "CUSTOM_T93",
+      "runner_task_idx": 93,
+      "scene_task_idx": 9,
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "orange_juice",
+      "B": "butter",
+      "instruction": "put both the butter and the orange juice in the basket",
+      "goal_atoms": [
+        "(In butter_1 basket_1_contain_region)",
+        "(In orange_juice_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 118.0,
+      "first_true_step": {
+        "in butter_1 basket_1_contain_region": 194
+      },
+      "completed_classes": [
+        "B"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t09_b_butter_ba__seed0__094.jsonl",
+      "video": "CUSTOM_T93__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t09_b_chocolate_pudding_ab",
+      "runner_task_key": "CUSTOM_T94",
+      "runner_task_idx": 94,
+      "scene_task_idx": 9,
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "orange_juice",
+      "B": "chocolate_pudding",
+      "instruction": "put both the orange juice and the chocolate pudding in the basket",
+      "goal_atoms": [
+        "(In orange_juice_1 basket_1_contain_region)",
+        "(In chocolate_pudding_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 117.0,
+      "first_true_step": {},
+      "completed_classes": [],
+      "subtasks_completed": 0,
+      "trace": "t09_b_chocolate_pudding_ab__seed0__095.jsonl",
+      "video": "CUSTOM_T94__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t09_b_chocolate_pudding_ba",
+      "runner_task_key": "CUSTOM_T95",
+      "runner_task_idx": 95,
+      "scene_task_idx": 9,
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "orange_juice",
+      "B": "chocolate_pudding",
+      "instruction": "put both the chocolate pudding and the orange juice in the basket",
+      "goal_atoms": [
+        "(In chocolate_pudding_1 basket_1_contain_region)",
+        "(In orange_juice_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 121.0,
+      "first_true_step": {},
+      "completed_classes": [],
+      "subtasks_completed": 0,
+      "trace": "t09_b_chocolate_pudding_ba__seed0__096.jsonl",
+      "video": "CUSTOM_T95__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t09_b_ketchup_ab",
+      "runner_task_key": "CUSTOM_T96",
+      "runner_task_idx": 96,
+      "scene_task_idx": 9,
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "orange_juice",
+      "B": "ketchup",
+      "instruction": "put both the orange juice and the ketchup in the basket",
+      "goal_atoms": [
+        "(In orange_juice_1 basket_1_contain_region)",
+        "(In ketchup_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 122.0,
+      "first_true_step": {
+        "in orange_juice_1 basket_1_contain_region": 240
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t09_b_ketchup_ab__seed0__097.jsonl",
+      "video": "CUSTOM_T96__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t09_b_ketchup_ba",
+      "runner_task_key": "CUSTOM_T97",
+      "runner_task_idx": 97,
+      "scene_task_idx": 9,
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "orange_juice",
+      "B": "ketchup",
+      "instruction": "put both the ketchup and the orange juice in the basket",
+      "goal_atoms": [
+        "(In ketchup_1 basket_1_contain_region)",
+        "(In orange_juice_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 121.0,
+      "first_true_step": {},
+      "completed_classes": [],
+      "subtasks_completed": 0,
+      "trace": "t09_b_ketchup_ba__seed0__098.jsonl",
+      "video": "CUSTOM_T97__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t09_b_salad_dressing_ab",
+      "runner_task_key": "CUSTOM_T98",
+      "runner_task_idx": 98,
+      "scene_task_idx": 9,
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "order": "ab",
+      "A": "orange_juice",
+      "B": "salad_dressing",
+      "instruction": "put both the orange juice and the salad dressing in the basket",
+      "goal_atoms": [
+        "(In orange_juice_1 basket_1_contain_region)",
+        "(In salad_dressing_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 123.0,
+      "first_true_step": {
+        "in orange_juice_1 basket_1_contain_region": 138
+      },
+      "completed_classes": [
+        "A"
+      ],
+      "subtasks_completed": 1,
+      "trace": "t09_b_salad_dressing_ab__seed0__099.jsonl",
+      "video": "CUSTOM_T98__baseline_seed0.mp4"
+    },
+    {
+      "candidate_id": "t09_b_salad_dressing_ba",
+      "runner_task_key": "CUSTOM_T99",
+      "runner_task_idx": 99,
+      "scene_task_idx": 9,
+      "scene_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "order": "ba",
+      "A": "orange_juice",
+      "B": "salad_dressing",
+      "instruction": "put both the salad dressing and the orange juice in the basket",
+      "goal_atoms": [
+        "(In salad_dressing_1 basket_1_contain_region)",
+        "(In orange_juice_1 basket_1_contain_region)"
+      ],
+      "seed": 0,
+      "success": false,
+      "steps": 600,
+      "time_s": 117.0,
+      "first_true_step": {},
+      "completed_classes": [],
+      "subtasks_completed": 0,
+      "trace": "t09_b_salad_dressing_ba__seed0__100.jsonl",
+      "video": "CUSTOM_T99__baseline_seed0.mp4"
+    }
+  ]
+}

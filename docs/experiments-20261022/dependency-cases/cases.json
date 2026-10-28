@@ -1,0 +1,3583 @@
+{
+  "suite": "LIBERO-GOAL",
+  "purpose": "dependency-style two-subtask case catalog (for review; no dynamic runs yet)",
+  "goal_tasks": [
+    {
+      "idx": 0,
+      "name": "open_the_middle_drawer_of_the_cabinet",
+      "language": "open the middle drawer of the cabinet",
+      "bddl_language": "Open the middle layer of the drawer",
+      "goal_atoms": [
+        "(Open wooden_cabinet_1_middle_region)"
+      ],
+      "regions": {
+        "plate_region": "main_table",
+        "akita_black_bowl_region": "main_table",
+        "wine_bottle_region": "main_table",
+        "cream_cheese_region": "main_table",
+        "stove_front_region": "main_table",
+        "cabinet_region": "main_table",
+        "stove_region": "main_table",
+        "wine_rack_region": "main_table",
+        "top_region": "wine_rack_1",
+        "middle_region": "wooden_cabinet_1",
+        "bottom_region": "wooden_cabinet_1",
+        "top_side": "wooden_cabinet_1",
+        "cook_region": "flat_stove_1",
+        "right_region": "bowl_drainer_1",
+        "left_region": "bowl_drainer_1"
+      },
+      "objects": [
+        {
+          "instance": "akita_black_bowl_1",
+          "type": "akita_black_bowl"
+        },
+        {
+          "instance": "cream_cheese_1",
+          "type": "cream_cheese"
+        },
+        {
+          "instance": "wine_bottle_1",
+          "type": "wine_bottle"
+        },
+        {
+          "instance": "plate_1",
+          "type": "plate"
+        }
+      ]
+    },
+    {
+      "idx": 1,
+      "name": "put_the_bowl_on_the_stove",
+      "language": "put the bowl on the stove",
+      "bddl_language": "Put the bowl on the stove",
+      "goal_atoms": [
+        "(On akita_black_bowl_1 flat_stove_1_cook_region)"
+      ],
+      "regions": {
+        "plate_region": "main_table",
+        "akita_black_bowl_region": "main_table",
+        "wine_bottle_region": "main_table",
+        "cream_cheese_region": "main_table",
+        "stove_front_region": "main_table",
+        "cabinet_region": "main_table",
+        "stove_region": "main_table",
+        "wine_rack_region": "main_table",
+        "top_region": "wine_rack_1",
+        "middle_region": "wooden_cabinet_1",
+        "bottom_region": "wooden_cabinet_1",
+        "top_side": "wooden_cabinet_1",
+        "cook_region": "flat_stove_1",
+        "right_region": "bowl_drainer_1",
+        "left_region": "bowl_drainer_1"
+      },
+      "objects": [
+        {
+          "instance": "akita_black_bowl_1",
+          "type": "akita_black_bowl"
+        },
+        {
+          "instance": "cream_cheese_1",
+          "type": "cream_cheese"
+        },
+        {
+          "instance": "wine_bottle_1",
+          "type": "wine_bottle"
+        },
+        {
+          "instance": "plate_1",
+          "type": "plate"
+        }
+      ]
+    },
+    {
+      "idx": 2,
+      "name": "put_the_wine_bottle_on_top_of_the_cabinet",
+      "language": "put the wine bottle on top of the cabinet",
+      "bddl_language": "Put the wine bottle on the top of the drawer",
+      "goal_atoms": [
+        "(On wine_bottle_1 wooden_cabinet_1_top_side)"
+      ],
+      "regions": {
+        "plate_region": "main_table",
+        "akita_black_bowl_region": "main_table",
+        "wine_bottle_region": "main_table",
+        "cream_cheese_region": "main_table",
+        "stove_front_region": "main_table",
+        "cabinet_region": "main_table",
+        "stove_region": "main_table",
+        "wine_rack_region": "main_table",
+        "top_region": "wine_rack_1",
+        "middle_region": "wooden_cabinet_1",
+        "bottom_region": "wooden_cabinet_1",
+        "top_side": "wooden_cabinet_1",
+        "cook_region": "flat_stove_1",
+        "right_region": "bowl_drainer_1",
+        "left_region": "bowl_drainer_1"
+      },
+      "objects": [
+        {
+          "instance": "akita_black_bowl_1",
+          "type": "akita_black_bowl"
+        },
+        {
+          "instance": "cream_cheese_1",
+          "type": "cream_cheese"
+        },
+        {
+          "instance": "wine_bottle_1",
+          "type": "wine_bottle"
+        },
+        {
+          "instance": "plate_1",
+          "type": "plate"
+        }
+      ]
+    },
+    {
+      "idx": 3,
+      "name": "open_the_top_drawer_and_put_the_bowl_inside",
+      "language": "open the top drawer and put the bowl inside",
+      "bddl_language": "Open the top layer of the drawer and put the bowl inside",
+      "goal_atoms": [
+        "(In akita_black_bowl_1 wooden_cabinet_1_top_region)"
+      ],
+      "regions": {
+        "plate_region": "main_table",
+        "akita_black_bowl_region": "main_table",
+        "wine_bottle_region": "main_table",
+        "cream_cheese_region": "main_table",
+        "stove_front_region": "main_table",
+        "cabinet_region": "main_table",
+        "stove_region": "main_table",
+        "wine_rack_region": "main_table",
+        "top_region": "wine_rack_1",
+        "middle_region": "wooden_cabinet_1",
+        "bottom_region": "wooden_cabinet_1",
+        "top_side": "wooden_cabinet_1",
+        "cook_region": "flat_stove_1",
+        "right_region": "bowl_drainer_1",
+        "left_region": "bowl_drainer_1"
+      },
+      "objects": [
+        {
+          "instance": "akita_black_bowl_1",
+          "type": "akita_black_bowl"
+        },
+        {
+          "instance": "cream_cheese_1",
+          "type": "cream_cheese"
+        },
+        {
+          "instance": "wine_bottle_1",
+          "type": "wine_bottle"
+        },
+        {
+          "instance": "plate_1",
+          "type": "plate"
+        }
+      ]
+    },
+    {
+      "idx": 4,
+      "name": "put_the_bowl_on_top_of_the_cabinet",
+      "language": "put the bowl on top of the cabinet",
+      "bddl_language": "Put the bowl on the top of the drawer",
+      "goal_atoms": [
+        "(On akita_black_bowl_1 wooden_cabinet_1_top_side)"
+      ],
+      "regions": {
+        "plate_region": "main_table",
+        "akita_black_bowl_region": "main_table",
+        "wine_bottle_region": "main_table",
+        "cream_cheese_region": "main_table",
+        "stove_front_region": "main_table",
+        "cabinet_region": "main_table",
+        "stove_region": "main_table",
+        "wine_rack_region": "main_table",
+        "top_region": "wine_rack_1",
+        "middle_region": "wooden_cabinet_1",
+        "bottom_region": "wooden_cabinet_1",
+        "top_side": "wooden_cabinet_1",
+        "cook_region": "flat_stove_1",
+        "right_region": "bowl_drainer_1",
+        "left_region": "bowl_drainer_1"
+      },
+      "objects": [
+        {
+          "instance": "akita_black_bowl_1",
+          "type": "akita_black_bowl"
+        },
+        {
+          "instance": "cream_cheese_1",
+          "type": "cream_cheese"
+        },
+        {
+          "instance": "wine_bottle_1",
+          "type": "wine_bottle"
+        },
+        {
+          "instance": "plate_1",
+          "type": "plate"
+        }
+      ]
+    },
+    {
+      "idx": 5,
+      "name": "push_the_plate_to_the_front_of_the_stove",
+      "language": "push the plate to the front of the stove",
+      "bddl_language": "Push the plate to the front of the stove",
+      "goal_atoms": [
+        "(On plate_1 main_table_stove_front_region)"
+      ],
+      "regions": {
+        "plate_region": "main_table",
+        "akita_black_bowl_region": "main_table",
+        "wine_bottle_region": "main_table",
+        "cream_cheese_region": "main_table",
+        "stove_front_region": "main_table",
+        "cabinet_region": "main_table",
+        "stove_region": "main_table",
+        "wine_rack_region": "main_table",
+        "top_region": "wine_rack_1",
+        "middle_region": "wooden_cabinet_1",
+        "bottom_region": "wooden_cabinet_1",
+        "top_side": "wooden_cabinet_1",
+        "cook_region": "flat_stove_1",
+        "right_region": "bowl_drainer_1",
+        "left_region": "bowl_drainer_1"
+      },
+      "objects": [
+        {
+          "instance": "akita_black_bowl_1",
+          "type": "akita_black_bowl"
+        },
+        {
+          "instance": "cream_cheese_1",
+          "type": "cream_cheese"
+        },
+        {
+          "instance": "wine_bottle_1",
+          "type": "wine_bottle"
+        },
+        {
+          "instance": "plate_1",
+          "type": "plate"
+        }
+      ]
+    },
+    {
+      "idx": 6,
+      "name": "put_the_cream_cheese_in_the_bowl",
+      "language": "put the cream cheese in the bowl",
+      "bddl_language": "Put the cream cheese on the bowl",
+      "goal_atoms": [
+        "(On cream_cheese_1 akita_black_bowl_1)"
+      ],
+      "regions": {
+        "plate_region": "main_table",
+        "akita_black_bowl_region": "main_table",
+        "wine_bottle_region": "main_table",
+        "cream_cheese_region": "main_table",
+        "stove_front_region": "main_table",
+        "cabinet_region": "main_table",
+        "stove_region": "main_table",
+        "wine_rack_region": "main_table",
+        "top_region": "wine_rack_1",
+        "middle_region": "wooden_cabinet_1",
+        "bottom_region": "wooden_cabinet_1",
+        "top_side": "wooden_cabinet_1",
+        "cook_region": "flat_stove_1",
+        "right_region": "bowl_drainer_1",
+        "left_region": "bowl_drainer_1"
+      },
+      "objects": [
+        {
+          "instance": "akita_black_bowl_1",
+          "type": "akita_black_bowl"
+        },
+        {
+          "instance": "cream_cheese_1",
+          "type": "cream_cheese"
+        },
+        {
+          "instance": "wine_bottle_1",
+          "type": "wine_bottle"
+        },
+        {
+          "instance": "plate_1",
+          "type": "plate"
+        }
+      ]
+    },
+    {
+      "idx": 7,
+      "name": "turn_on_the_stove",
+      "language": "turn on the stove",
+      "bddl_language": "Turn on the stove",
+      "goal_atoms": [
+        "(Turnon flat_stove_1)"
+      ],
+      "regions": {
+        "plate_region": "main_table",
+        "akita_black_bowl_region": "main_table",
+        "wine_bottle_region": "main_table",
+        "cream_cheese_region": "main_table",
+        "stove_front_region": "main_table",
+        "cabinet_region": "main_table",
+        "stove_region": "main_table",
+        "wine_rack_region": "main_table",
+        "top_region": "wine_rack_1",
+        "middle_region": "wooden_cabinet_1",
+        "bottom_region": "wooden_cabinet_1",
+        "top_side": "wooden_cabinet_1",
+        "cook_region": "flat_stove_1",
+        "right_region": "bowl_drainer_1",
+        "left_region": "bowl_drainer_1"
+      },
+      "objects": [
+        {
+          "instance": "akita_black_bowl_1",
+          "type": "akita_black_bowl"
+        },
+        {
+          "instance": "cream_cheese_1",
+          "type": "cream_cheese"
+        },
+        {
+          "instance": "wine_bottle_1",
+          "type": "wine_bottle"
+        },
+        {
+          "instance": "plate_1",
+          "type": "plate"
+        }
+      ]
+    },
+    {
+      "idx": 8,
+      "name": "put_the_bowl_on_the_plate",
+      "language": "put the bowl on the plate",
+      "bddl_language": "Put the bowl on the plate",
+      "goal_atoms": [
+        "(On akita_black_bowl_1 plate_1)"
+      ],
+      "regions": {
+        "plate_region": "main_table",
+        "akita_black_bowl_region": "main_table",
+        "wine_bottle_region": "main_table",
+        "cream_cheese_region": "main_table",
+        "stove_front_region": "main_table",
+        "cabinet_region": "main_table",
+        "stove_region": "main_table",
+        "wine_rack_region": "main_table",
+        "top_region": "wine_rack_1",
+        "middle_region": "wooden_cabinet_1",
+        "bottom_region": "wooden_cabinet_1",
+        "top_side": "wooden_cabinet_1",
+        "cook_region": "flat_stove_1",
+        "right_region": "bowl_drainer_1",
+        "left_region": "bowl_drainer_1"
+      },
+      "objects": [
+        {
+          "instance": "akita_black_bowl_1",
+          "type": "akita_black_bowl"
+        },
+        {
+          "instance": "cream_cheese_1",
+          "type": "cream_cheese"
+        },
+        {
+          "instance": "wine_bottle_1",
+          "type": "wine_bottle"
+        },
+        {
+          "instance": "plate_1",
+          "type": "plate"
+        }
+      ]
+    },
+    {
+      "idx": 9,
+      "name": "put_the_wine_bottle_on_the_rack",
+      "language": "put the wine bottle on the rack",
+      "bddl_language": "Put the wine bottle on the rack",
+      "goal_atoms": [
+        "(On wine_bottle_1 wine_rack_1_top_region)"
+      ],
+      "regions": {
+        "plate_region": "main_table",
+        "akita_black_bowl_region": "main_table",
+        "wine_bottle_region": "main_table",
+        "cream_cheese_region": "main_table",
+        "stove_front_region": "main_table",
+        "cabinet_region": "main_table",
+        "stove_region": "main_table",
+        "wine_rack_region": "main_table",
+        "top_region": "wine_rack_1",
+        "middle_region": "wooden_cabinet_1",
+        "bottom_region": "wooden_cabinet_1",
+        "top_side": "wooden_cabinet_1",
+        "cook_region": "flat_stove_1",
+        "right_region": "bowl_drainer_1",
+        "left_region": "bowl_drainer_1"
+      },
+      "objects": [
+        {
+          "instance": "akita_black_bowl_1",
+          "type": "akita_black_bowl"
+        },
+        {
+          "instance": "cream_cheese_1",
+          "type": "cream_cheese"
+        },
+        {
+          "instance": "wine_bottle_1",
+          "type": "wine_bottle"
+        },
+        {
+          "instance": "plate_1",
+          "type": "plate"
+        }
+      ]
+    }
+  ],
+  "ordered_pairs": {
+    "original_45": [
+      {
+        "pair_id": "00_01",
+        "order": "original(i<j)",
+        "first_task": 0,
+        "second_task": 1,
+        "tasks": [
+          "open_the_middle_drawer_of_the_cabinet",
+          "put_the_bowl_on_the_stove"
+        ],
+        "instruction": "open the middle drawer of the cabinet and put the bowl on the stove",
+        "goal_atoms": [
+          "(Open wooden_cabinet_1_middle_region)",
+          "(On akita_black_bowl_1 flat_stove_1_cook_region)"
+        ],
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "smoke",
+            "staged",
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 3,
+          "max_subtasks_completed": 1
+        }
+      },
+      {
+        "pair_id": "00_02",
+        "order": "original(i<j)",
+        "first_task": 0,
+        "second_task": 2,
+        "tasks": [
+          "open_the_middle_drawer_of_the_cabinet",
+          "put_the_wine_bottle_on_top_of_the_cabinet"
+        ],
+        "instruction": "open the middle drawer of the cabinet and put the wine bottle on top of the cabinet",
+        "goal_atoms": [
+          "(Open wooden_cabinet_1_middle_region)",
+          "(On wine_bottle_1 wooden_cabinet_1_top_side)"
+        ],
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "pilot(and)",
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 2,
+          "max_subtasks_completed": 1
+        }
+      },
+      {
+        "pair_id": "00_03",
+        "order": "original(i<j)",
+        "first_task": 0,
+        "second_task": 3,
+        "tasks": [
+          "open_the_middle_drawer_of_the_cabinet",
+          "open_the_top_drawer_and_put_the_bowl_inside"
+        ],
+        "instruction": "open the middle drawer of the cabinet and open the top drawer and put the bowl inside",
+        "goal_atoms": [
+          "(Open wooden_cabinet_1_middle_region)",
+          "(In akita_black_bowl_1 wooden_cabinet_1_top_region)"
+        ],
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        }
+      },
+      {
+        "pair_id": "00_04",
+        "order": "original(i<j)",
+        "first_task": 0,
+        "second_task": 4,
+        "tasks": [
+          "open_the_middle_drawer_of_the_cabinet",
+          "put_the_bowl_on_top_of_the_cabinet"
+        ],
+        "instruction": "open the middle drawer of the cabinet and put the bowl on top of the cabinet",
+        "goal_atoms": [
+          "(Open wooden_cabinet_1_middle_region)",
+          "(On akita_black_bowl_1 wooden_cabinet_1_top_side)"
+        ],
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        }
+      },
+      {
+        "pair_id": "00_05",
+        "order": "original(i<j)",
+        "first_task": 0,
+        "second_task": 5,
+        "tasks": [
+          "open_the_middle_drawer_of_the_cabinet",
+          "push_the_plate_to_the_front_of_the_stove"
+        ],
+        "instruction": "open the middle drawer of the cabinet and push the plate to the front of the stove",
+        "goal_atoms": [
+          "(Open wooden_cabinet_1_middle_region)",
+          "(On plate_1 main_table_stove_front_region)"
+        ],
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        }
+      },
+      {
+        "pair_id": "00_06",
+        "order": "original(i<j)",
+        "first_task": 0,
+        "second_task": 6,
+        "tasks": [
+          "open_the_middle_drawer_of_the_cabinet",
+          "put_the_cream_cheese_in_the_bowl"
+        ],
+        "instruction": "open the middle drawer of the cabinet and put the cream cheese in the bowl",
+        "goal_atoms": [
+          "(Open wooden_cabinet_1_middle_region)",
+          "(On cream_cheese_1 akita_black_bowl_1)"
+        ],
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        }
+      },
+      {
+        "pair_id": "00_07",
+        "order": "original(i<j)",
+        "first_task": 0,
+        "second_task": 7,
+        "tasks": [
+          "open_the_middle_drawer_of_the_cabinet",
+          "turn_on_the_stove"
+        ],
+        "instruction": "open the middle drawer of the cabinet and turn on the stove",
+        "goal_atoms": [
+          "(Open wooden_cabinet_1_middle_region)",
+          "(Turnon flat_stove_1)"
+        ],
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": true,
+          "runs": [
+            "pilot(and)",
+            "staged",
+            "sweep-compatible"
+          ],
+          "success_steps": [
+            579
+          ],
+          "episodes": 3,
+          "max_subtasks_completed": 2
+        }
+      },
+      {
+        "pair_id": "00_08",
+        "order": "original(i<j)",
+        "first_task": 0,
+        "second_task": 8,
+        "tasks": [
+          "open_the_middle_drawer_of_the_cabinet",
+          "put_the_bowl_on_the_plate"
+        ],
+        "instruction": "open the middle drawer of the cabinet and put the bowl on the plate",
+        "goal_atoms": [
+          "(Open wooden_cabinet_1_middle_region)",
+          "(On akita_black_bowl_1 plate_1)"
+        ],
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        }
+      },
+      {
+        "pair_id": "00_09",
+        "order": "original(i<j)",
+        "first_task": 0,
+        "second_task": 9,
+        "tasks": [
+          "open_the_middle_drawer_of_the_cabinet",
+          "put_the_wine_bottle_on_the_rack"
+        ],
+        "instruction": "open the middle drawer of the cabinet and put the wine bottle on the rack",
+        "goal_atoms": [
+          "(Open wooden_cabinet_1_middle_region)",
+          "(On wine_bottle_1 wine_rack_1_top_region)"
+        ],
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "pilot(and)",
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 2,
+          "max_subtasks_completed": 1
+        }
+      },
+      {
+        "pair_id": "01_02",
+        "order": "original(i<j)",
+        "first_task": 1,
+        "second_task": 2,
+        "tasks": [
+          "put_the_bowl_on_the_stove",
+          "put_the_wine_bottle_on_top_of_the_cabinet"
+        ],
+        "instruction": "put the bowl on the stove and put the wine bottle on top of the cabinet",
+        "goal_atoms": [
+          "(On akita_black_bowl_1 flat_stove_1_cook_region)",
+          "(On wine_bottle_1 wooden_cabinet_1_top_side)"
+        ],
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        }
+      },
+      {
+        "pair_id": "01_03",
+        "order": "original(i<j)",
+        "first_task": 1,
+        "second_task": 3,
+        "tasks": [
+          "put_the_bowl_on_the_stove",
+          "open_the_top_drawer_and_put_the_bowl_inside"
+        ],
+        "instruction": "put the bowl on the stove and open the top drawer and put the bowl inside",
+        "goal_atoms": [
+          "(On akita_black_bowl_1 flat_stove_1_cook_region)",
+          "(In akita_black_bowl_1 wooden_cabinet_1_top_region)"
+        ],
+        "classification": "conflict",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {}
+      },
+      {
+        "pair_id": "01_04",
+        "order": "original(i<j)",
+        "first_task": 1,
+        "second_task": 4,
+        "tasks": [
+          "put_the_bowl_on_the_stove",
+          "put_the_bowl_on_top_of_the_cabinet"
+        ],
+        "instruction": "put the bowl on the stove and put the bowl on top of the cabinet",
+        "goal_atoms": [
+          "(On akita_black_bowl_1 flat_stove_1_cook_region)",
+          "(On akita_black_bowl_1 wooden_cabinet_1_top_side)"
+        ],
+        "classification": "conflict",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {}
+      },
+      {
+        "pair_id": "01_05",
+        "order": "original(i<j)",
+        "first_task": 1,
+        "second_task": 5,
+        "tasks": [
+          "put_the_bowl_on_the_stove",
+          "push_the_plate_to_the_front_of_the_stove"
+        ],
+        "instruction": "put the bowl on the stove and push the plate to the front of the stove",
+        "goal_atoms": [
+          "(On akita_black_bowl_1 flat_stove_1_cook_region)",
+          "(On plate_1 main_table_stove_front_region)"
+        ],
+        "classification": "hard",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {}
+      },
+      {
+        "pair_id": "01_06",
+        "order": "original(i<j)",
+        "first_task": 1,
+        "second_task": 6,
+        "tasks": [
+          "put_the_bowl_on_the_stove",
+          "put_the_cream_cheese_in_the_bowl"
+        ],
+        "instruction": "put the bowl on the stove and put the cream cheese in the bowl",
+        "goal_atoms": [
+          "(On akita_black_bowl_1 flat_stove_1_cook_region)",
+          "(On cream_cheese_1 akita_black_bowl_1)"
+        ],
+        "classification": "hard",
+        "dependency_pattern": "reverse_dependency",
+        "dependency_detail": {
+          "B": "akita_black_bowl_1",
+          "A": "cream_cheese_1",
+          "atom1": "(On akita_black_bowl_1 flat_stove_1_cook_region)",
+          "atom2": "(On cream_cheese_1 akita_black_bowl_1)"
+        },
+        "prior_result": {},
+        "user_defined": true,
+        "dependency_note": "用户口径：reverse_dependency 组"
+      },
+      {
+        "pair_id": "01_07",
+        "order": "original(i<j)",
+        "first_task": 1,
+        "second_task": 7,
+        "tasks": [
+          "put_the_bowl_on_the_stove",
+          "turn_on_the_stove"
+        ],
+        "instruction": "put the bowl on the stove and turn on the stove",
+        "goal_atoms": [
+          "(On akita_black_bowl_1 flat_stove_1_cook_region)",
+          "(Turnon flat_stove_1)"
+        ],
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        }
+      },
+      {
+        "pair_id": "01_08",
+        "order": "original(i<j)",
+        "first_task": 1,
+        "second_task": 8,
+        "tasks": [
+          "put_the_bowl_on_the_stove",
+          "put_the_bowl_on_the_plate"
+        ],
+        "instruction": "put the bowl on the stove and put the bowl on the plate",
+        "goal_atoms": [
+          "(On akita_black_bowl_1 flat_stove_1_cook_region)",
+          "(On akita_black_bowl_1 plate_1)"
+        ],
+        "classification": "conflict",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {}
+      },
+      {
+        "pair_id": "01_09",
+        "order": "original(i<j)",
+        "first_task": 1,
+        "second_task": 9,
+        "tasks": [
+          "put_the_bowl_on_the_stove",
+          "put_the_wine_bottle_on_the_rack"
+        ],
+        "instruction": "put the bowl on the stove and put the wine bottle on the rack",
+        "goal_atoms": [
+          "(On akita_black_bowl_1 flat_stove_1_cook_region)",
+          "(On wine_bottle_1 wine_rack_1_top_region)"
+        ],
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        }
+      },
+      {
+        "pair_id": "02_03",
+        "order": "original(i<j)",
+        "first_task": 2,
+        "second_task": 3,
+        "tasks": [
+          "put_the_wine_bottle_on_top_of_the_cabinet",
+          "open_the_top_drawer_and_put_the_bowl_inside"
+        ],
+        "instruction": "put the wine bottle on top of the cabinet and open the top drawer and put the bowl inside",
+        "goal_atoms": [
+          "(On wine_bottle_1 wooden_cabinet_1_top_side)",
+          "(In akita_black_bowl_1 wooden_cabinet_1_top_region)"
+        ],
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "pilot(and)",
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 2,
+          "max_subtasks_completed": 1
+        }
+      },
+      {
+        "pair_id": "02_04",
+        "order": "original(i<j)",
+        "first_task": 2,
+        "second_task": 4,
+        "tasks": [
+          "put_the_wine_bottle_on_top_of_the_cabinet",
+          "put_the_bowl_on_top_of_the_cabinet"
+        ],
+        "instruction": "put the wine bottle on top of the cabinet and put the bowl on top of the cabinet",
+        "goal_atoms": [
+          "(On wine_bottle_1 wooden_cabinet_1_top_side)",
+          "(On akita_black_bowl_1 wooden_cabinet_1_top_side)"
+        ],
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        }
+      },
+      {
+        "pair_id": "02_05",
+        "order": "original(i<j)",
+        "first_task": 2,
+        "second_task": 5,
+        "tasks": [
+          "put_the_wine_bottle_on_top_of_the_cabinet",
+          "push_the_plate_to_the_front_of_the_stove"
+        ],
+        "instruction": "put the wine bottle on top of the cabinet and push the plate to the front of the stove",
+        "goal_atoms": [
+          "(On wine_bottle_1 wooden_cabinet_1_top_side)",
+          "(On plate_1 main_table_stove_front_region)"
+        ],
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        }
+      },
+      {
+        "pair_id": "02_06",
+        "order": "original(i<j)",
+        "first_task": 2,
+        "second_task": 6,
+        "tasks": [
+          "put_the_wine_bottle_on_top_of_the_cabinet",
+          "put_the_cream_cheese_in_the_bowl"
+        ],
+        "instruction": "put the wine bottle on top of the cabinet and put the cream cheese in the bowl",
+        "goal_atoms": [
+          "(On wine_bottle_1 wooden_cabinet_1_top_side)",
+          "(On cream_cheese_1 akita_black_bowl_1)"
+        ],
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        }
+      },
+      {
+        "pair_id": "02_07",
+        "order": "original(i<j)",
+        "first_task": 2,
+        "second_task": 7,
+        "tasks": [
+          "put_the_wine_bottle_on_top_of_the_cabinet",
+          "turn_on_the_stove"
+        ],
+        "instruction": "put the wine bottle on top of the cabinet and turn on the stove",
+        "goal_atoms": [
+          "(On wine_bottle_1 wooden_cabinet_1_top_side)",
+          "(Turnon flat_stove_1)"
+        ],
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        }
+      },
+      {
+        "pair_id": "02_08",
+        "order": "original(i<j)",
+        "first_task": 2,
+        "second_task": 8,
+        "tasks": [
+          "put_the_wine_bottle_on_top_of_the_cabinet",
+          "put_the_bowl_on_the_plate"
+        ],
+        "instruction": "put the wine bottle on top of the cabinet and put the bowl on the plate",
+        "goal_atoms": [
+          "(On wine_bottle_1 wooden_cabinet_1_top_side)",
+          "(On akita_black_bowl_1 plate_1)"
+        ],
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        }
+      },
+      {
+        "pair_id": "02_09",
+        "order": "original(i<j)",
+        "first_task": 2,
+        "second_task": 9,
+        "tasks": [
+          "put_the_wine_bottle_on_top_of_the_cabinet",
+          "put_the_wine_bottle_on_the_rack"
+        ],
+        "instruction": "put the wine bottle on top of the cabinet and put the wine bottle on the rack",
+        "goal_atoms": [
+          "(On wine_bottle_1 wooden_cabinet_1_top_side)",
+          "(On wine_bottle_1 wine_rack_1_top_region)"
+        ],
+        "classification": "conflict",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "pilot(and)"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        }
+      },
+      {
+        "pair_id": "03_04",
+        "order": "original(i<j)",
+        "first_task": 3,
+        "second_task": 4,
+        "tasks": [
+          "open_the_top_drawer_and_put_the_bowl_inside",
+          "put_the_bowl_on_top_of_the_cabinet"
+        ],
+        "instruction": "open the top drawer and put the bowl inside and put the bowl on top of the cabinet",
+        "goal_atoms": [
+          "(In akita_black_bowl_1 wooden_cabinet_1_top_region)",
+          "(On akita_black_bowl_1 wooden_cabinet_1_top_side)"
+        ],
+        "classification": "conflict",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {}
+      },
+      {
+        "pair_id": "03_05",
+        "order": "original(i<j)",
+        "first_task": 3,
+        "second_task": 5,
+        "tasks": [
+          "open_the_top_drawer_and_put_the_bowl_inside",
+          "push_the_plate_to_the_front_of_the_stove"
+        ],
+        "instruction": "open the top drawer and put the bowl inside and push the plate to the front of the stove",
+        "goal_atoms": [
+          "(In akita_black_bowl_1 wooden_cabinet_1_top_region)",
+          "(On plate_1 main_table_stove_front_region)"
+        ],
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        }
+      },
+      {
+        "pair_id": "03_06",
+        "order": "original(i<j)",
+        "first_task": 3,
+        "second_task": 6,
+        "tasks": [
+          "open_the_top_drawer_and_put_the_bowl_inside",
+          "put_the_cream_cheese_in_the_bowl"
+        ],
+        "instruction": "open the top drawer and put the bowl inside and put the cream cheese in the bowl",
+        "goal_atoms": [
+          "(In akita_black_bowl_1 wooden_cabinet_1_top_region)",
+          "(On cream_cheese_1 akita_black_bowl_1)"
+        ],
+        "classification": "hard",
+        "dependency_pattern": "reverse_dependency",
+        "dependency_detail": {
+          "B": "akita_black_bowl_1",
+          "A": "cream_cheese_1",
+          "atom1": "(In akita_black_bowl_1 wooden_cabinet_1_top_region)",
+          "atom2": "(On cream_cheese_1 akita_black_bowl_1)"
+        },
+        "prior_result": {},
+        "user_defined": true,
+        "dependency_note": "用户口径：reverse_dependency 组"
+      },
+      {
+        "pair_id": "03_07",
+        "order": "original(i<j)",
+        "first_task": 3,
+        "second_task": 7,
+        "tasks": [
+          "open_the_top_drawer_and_put_the_bowl_inside",
+          "turn_on_the_stove"
+        ],
+        "instruction": "open the top drawer and put the bowl inside and turn on the stove",
+        "goal_atoms": [
+          "(In akita_black_bowl_1 wooden_cabinet_1_top_region)",
+          "(Turnon flat_stove_1)"
+        ],
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 0
+        }
+      },
+      {
+        "pair_id": "03_08",
+        "order": "original(i<j)",
+        "first_task": 3,
+        "second_task": 8,
+        "tasks": [
+          "open_the_top_drawer_and_put_the_bowl_inside",
+          "put_the_bowl_on_the_plate"
+        ],
+        "instruction": "open the top drawer and put the bowl inside and put the bowl on the plate",
+        "goal_atoms": [
+          "(In akita_black_bowl_1 wooden_cabinet_1_top_region)",
+          "(On akita_black_bowl_1 plate_1)"
+        ],
+        "classification": "conflict",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {}
+      },
+      {
+        "pair_id": "03_09",
+        "order": "original(i<j)",
+        "first_task": 3,
+        "second_task": 9,
+        "tasks": [
+          "open_the_top_drawer_and_put_the_bowl_inside",
+          "put_the_wine_bottle_on_the_rack"
+        ],
+        "instruction": "open the top drawer and put the bowl inside and put the wine bottle on the rack",
+        "goal_atoms": [
+          "(In akita_black_bowl_1 wooden_cabinet_1_top_region)",
+          "(On wine_bottle_1 wine_rack_1_top_region)"
+        ],
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 0
+        }
+      },
+      {
+        "pair_id": "04_05",
+        "order": "original(i<j)",
+        "first_task": 4,
+        "second_task": 5,
+        "tasks": [
+          "put_the_bowl_on_top_of_the_cabinet",
+          "push_the_plate_to_the_front_of_the_stove"
+        ],
+        "instruction": "put the bowl on top of the cabinet and push the plate to the front of the stove",
+        "goal_atoms": [
+          "(On akita_black_bowl_1 wooden_cabinet_1_top_side)",
+          "(On plate_1 main_table_stove_front_region)"
+        ],
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        }
+      },
+      {
+        "pair_id": "04_06",
+        "order": "original(i<j)",
+        "first_task": 4,
+        "second_task": 6,
+        "tasks": [
+          "put_the_bowl_on_top_of_the_cabinet",
+          "put_the_cream_cheese_in_the_bowl"
+        ],
+        "instruction": "put the bowl on top of the cabinet and put the cream cheese in the bowl",
+        "goal_atoms": [
+          "(On akita_black_bowl_1 wooden_cabinet_1_top_side)",
+          "(On cream_cheese_1 akita_black_bowl_1)"
+        ],
+        "classification": "hard",
+        "dependency_pattern": "reverse_dependency",
+        "dependency_detail": {
+          "B": "akita_black_bowl_1",
+          "A": "cream_cheese_1",
+          "atom1": "(On akita_black_bowl_1 wooden_cabinet_1_top_side)",
+          "atom2": "(On cream_cheese_1 akita_black_bowl_1)"
+        },
+        "prior_result": {},
+        "user_defined": true,
+        "dependency_note": "用户口径：reverse_dependency 组"
+      },
+      {
+        "pair_id": "04_07",
+        "order": "original(i<j)",
+        "first_task": 4,
+        "second_task": 7,
+        "tasks": [
+          "put_the_bowl_on_top_of_the_cabinet",
+          "turn_on_the_stove"
+        ],
+        "instruction": "put the bowl on top of the cabinet and turn on the stove",
+        "goal_atoms": [
+          "(On akita_black_bowl_1 wooden_cabinet_1_top_side)",
+          "(Turnon flat_stove_1)"
+        ],
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": true,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [
+            397
+          ],
+          "episodes": 1,
+          "max_subtasks_completed": 2
+        }
+      },
+      {
+        "pair_id": "04_08",
+        "order": "original(i<j)",
+        "first_task": 4,
+        "second_task": 8,
+        "tasks": [
+          "put_the_bowl_on_top_of_the_cabinet",
+          "put_the_bowl_on_the_plate"
+        ],
+        "instruction": "put the bowl on top of the cabinet and put the bowl on the plate",
+        "goal_atoms": [
+          "(On akita_black_bowl_1 wooden_cabinet_1_top_side)",
+          "(On akita_black_bowl_1 plate_1)"
+        ],
+        "classification": "conflict",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {}
+      },
+      {
+        "pair_id": "04_09",
+        "order": "original(i<j)",
+        "first_task": 4,
+        "second_task": 9,
+        "tasks": [
+          "put_the_bowl_on_top_of_the_cabinet",
+          "put_the_wine_bottle_on_the_rack"
+        ],
+        "instruction": "put the bowl on top of the cabinet and put the wine bottle on the rack",
+        "goal_atoms": [
+          "(On akita_black_bowl_1 wooden_cabinet_1_top_side)",
+          "(On wine_bottle_1 wine_rack_1_top_region)"
+        ],
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 0
+        }
+      },
+      {
+        "pair_id": "05_06",
+        "order": "original(i<j)",
+        "first_task": 5,
+        "second_task": 6,
+        "tasks": [
+          "push_the_plate_to_the_front_of_the_stove",
+          "put_the_cream_cheese_in_the_bowl"
+        ],
+        "instruction": "push the plate to the front of the stove and put the cream cheese in the bowl",
+        "goal_atoms": [
+          "(On plate_1 main_table_stove_front_region)",
+          "(On cream_cheese_1 akita_black_bowl_1)"
+        ],
+        "classification": "compatible",
+        "dependency_pattern": "reverse_dependency",
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "pilot(and)",
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 2,
+          "max_subtasks_completed": 1
+        },
+        "user_defined": true,
+        "dependency_note": "用户口径：reverse_dependency 组"
+      },
+      {
+        "pair_id": "05_07",
+        "order": "original(i<j)",
+        "first_task": 5,
+        "second_task": 7,
+        "tasks": [
+          "push_the_plate_to_the_front_of_the_stove",
+          "turn_on_the_stove"
+        ],
+        "instruction": "push the plate to the front of the stove and turn on the stove",
+        "goal_atoms": [
+          "(On plate_1 main_table_stove_front_region)",
+          "(Turnon flat_stove_1)"
+        ],
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "pilot(and)",
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 2,
+          "max_subtasks_completed": 1
+        }
+      },
+      {
+        "pair_id": "05_08",
+        "order": "original(i<j)",
+        "first_task": 5,
+        "second_task": 8,
+        "tasks": [
+          "push_the_plate_to_the_front_of_the_stove",
+          "put_the_bowl_on_the_plate"
+        ],
+        "instruction": "push the plate to the front of the stove and put the bowl on the plate",
+        "goal_atoms": [
+          "(On plate_1 main_table_stove_front_region)",
+          "(On akita_black_bowl_1 plate_1)"
+        ],
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        }
+      },
+      {
+        "pair_id": "05_09",
+        "order": "original(i<j)",
+        "first_task": 5,
+        "second_task": 9,
+        "tasks": [
+          "push_the_plate_to_the_front_of_the_stove",
+          "put_the_wine_bottle_on_the_rack"
+        ],
+        "instruction": "push the plate to the front of the stove and put the wine bottle on the rack",
+        "goal_atoms": [
+          "(On plate_1 main_table_stove_front_region)",
+          "(On wine_bottle_1 wine_rack_1_top_region)"
+        ],
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 0
+        }
+      },
+      {
+        "pair_id": "06_07",
+        "order": "original(i<j)",
+        "first_task": 6,
+        "second_task": 7,
+        "tasks": [
+          "put_the_cream_cheese_in_the_bowl",
+          "turn_on_the_stove"
+        ],
+        "instruction": "put the cream cheese in the bowl and turn on the stove",
+        "goal_atoms": [
+          "(On cream_cheese_1 akita_black_bowl_1)",
+          "(Turnon flat_stove_1)"
+        ],
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        }
+      },
+      {
+        "pair_id": "06_08",
+        "order": "original(i<j)",
+        "first_task": 6,
+        "second_task": 8,
+        "tasks": [
+          "put_the_cream_cheese_in_the_bowl",
+          "put_the_bowl_on_the_plate"
+        ],
+        "instruction": "put the cream cheese in the bowl and put the bowl on the plate",
+        "goal_atoms": [
+          "(On cream_cheese_1 akita_black_bowl_1)",
+          "(On akita_black_bowl_1 plate_1)"
+        ],
+        "classification": "hard",
+        "dependency_pattern": "container_move",
+        "dependency_detail": {
+          "A": "cream_cheese_1",
+          "B": "akita_black_bowl_1",
+          "C": "plate_1",
+          "atom1": "(On cream_cheese_1 akita_black_bowl_1)",
+          "atom2": "(On akita_black_bowl_1 plate_1)"
+        },
+        "prior_result": {
+          "success": true,
+          "runs": [
+            "pilot(and)"
+          ],
+          "success_steps": [
+            318
+          ],
+          "episodes": 1,
+          "max_subtasks_completed": 2
+        },
+        "user_defined": true
+      },
+      {
+        "pair_id": "06_09",
+        "order": "original(i<j)",
+        "first_task": 6,
+        "second_task": 9,
+        "tasks": [
+          "put_the_cream_cheese_in_the_bowl",
+          "put_the_wine_bottle_on_the_rack"
+        ],
+        "instruction": "put the cream cheese in the bowl and put the wine bottle on the rack",
+        "goal_atoms": [
+          "(On cream_cheese_1 akita_black_bowl_1)",
+          "(On wine_bottle_1 wine_rack_1_top_region)"
+        ],
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        }
+      },
+      {
+        "pair_id": "07_08",
+        "order": "original(i<j)",
+        "first_task": 7,
+        "second_task": 8,
+        "tasks": [
+          "turn_on_the_stove",
+          "put_the_bowl_on_the_plate"
+        ],
+        "instruction": "turn on the stove and put the bowl on the plate",
+        "goal_atoms": [
+          "(Turnon flat_stove_1)",
+          "(On akita_black_bowl_1 plate_1)"
+        ],
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        }
+      },
+      {
+        "pair_id": "07_09",
+        "order": "original(i<j)",
+        "first_task": 7,
+        "second_task": 9,
+        "tasks": [
+          "turn_on_the_stove",
+          "put_the_wine_bottle_on_the_rack"
+        ],
+        "instruction": "turn on the stove and put the wine bottle on the rack",
+        "goal_atoms": [
+          "(Turnon flat_stove_1)",
+          "(On wine_bottle_1 wine_rack_1_top_region)"
+        ],
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        }
+      },
+      {
+        "pair_id": "08_09",
+        "order": "original(i<j)",
+        "first_task": 8,
+        "second_task": 9,
+        "tasks": [
+          "put_the_bowl_on_the_plate",
+          "put_the_wine_bottle_on_the_rack"
+        ],
+        "instruction": "put the bowl on the plate and put the wine bottle on the rack",
+        "goal_atoms": [
+          "(On akita_black_bowl_1 plate_1)",
+          "(On wine_bottle_1 wine_rack_1_top_region)"
+        ],
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": true,
+          "runs": [
+            "pilot(and)",
+            "staged",
+            "sweep-compatible"
+          ],
+          "success_steps": [
+            390
+          ],
+          "episodes": 3,
+          "max_subtasks_completed": 2
+        }
+      }
+    ],
+    "reversed_45": [
+      {
+        "pair_id": "01_00",
+        "order": "reversed(j>i)",
+        "first_task": 1,
+        "second_task": 0,
+        "tasks": [
+          "put_the_bowl_on_the_stove",
+          "open_the_middle_drawer_of_the_cabinet"
+        ],
+        "instruction": "put the bowl on the stove and open the middle drawer of the cabinet",
+        "goal_atoms": [
+          "(Open wooden_cabinet_1_middle_region)",
+          "(On akita_black_bowl_1 flat_stove_1_cook_region)"
+        ],
+        "canonical_goal": "00_01",
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "smoke",
+            "staged",
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 3,
+          "max_subtasks_completed": 1
+        },
+        "note": "与 00_01 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务"
+      },
+      {
+        "pair_id": "02_00",
+        "order": "reversed(j>i)",
+        "first_task": 2,
+        "second_task": 0,
+        "tasks": [
+          "put_the_wine_bottle_on_top_of_the_cabinet",
+          "open_the_middle_drawer_of_the_cabinet"
+        ],
+        "instruction": "put the wine bottle on top of the cabinet and open the middle drawer of the cabinet",
+        "goal_atoms": [
+          "(Open wooden_cabinet_1_middle_region)",
+          "(On wine_bottle_1 wooden_cabinet_1_top_side)"
+        ],
+        "canonical_goal": "00_02",
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "pilot(and)",
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 2,
+          "max_subtasks_completed": 1
+        },
+        "note": "与 00_02 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务"
+      },
+      {
+        "pair_id": "03_00",
+        "order": "reversed(j>i)",
+        "first_task": 3,
+        "second_task": 0,
+        "tasks": [
+          "open_the_top_drawer_and_put_the_bowl_inside",
+          "open_the_middle_drawer_of_the_cabinet"
+        ],
+        "instruction": "open the top drawer and put the bowl inside and open the middle drawer of the cabinet",
+        "goal_atoms": [
+          "(Open wooden_cabinet_1_middle_region)",
+          "(In akita_black_bowl_1 wooden_cabinet_1_top_region)"
+        ],
+        "canonical_goal": "00_03",
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        },
+        "note": "与 00_03 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务"
+      },
+      {
+        "pair_id": "04_00",
+        "order": "reversed(j>i)",
+        "first_task": 4,
+        "second_task": 0,
+        "tasks": [
+          "put_the_bowl_on_top_of_the_cabinet",
+          "open_the_middle_drawer_of_the_cabinet"
+        ],
+        "instruction": "put the bowl on top of the cabinet and open the middle drawer of the cabinet",
+        "goal_atoms": [
+          "(Open wooden_cabinet_1_middle_region)",
+          "(On akita_black_bowl_1 wooden_cabinet_1_top_side)"
+        ],
+        "canonical_goal": "00_04",
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        },
+        "note": "与 00_04 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务"
+      },
+      {
+        "pair_id": "05_00",
+        "order": "reversed(j>i)",
+        "first_task": 5,
+        "second_task": 0,
+        "tasks": [
+          "push_the_plate_to_the_front_of_the_stove",
+          "open_the_middle_drawer_of_the_cabinet"
+        ],
+        "instruction": "push the plate to the front of the stove and open the middle drawer of the cabinet",
+        "goal_atoms": [
+          "(Open wooden_cabinet_1_middle_region)",
+          "(On plate_1 main_table_stove_front_region)"
+        ],
+        "canonical_goal": "00_05",
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        },
+        "note": "与 00_05 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务"
+      },
+      {
+        "pair_id": "06_00",
+        "order": "reversed(j>i)",
+        "first_task": 6,
+        "second_task": 0,
+        "tasks": [
+          "put_the_cream_cheese_in_the_bowl",
+          "open_the_middle_drawer_of_the_cabinet"
+        ],
+        "instruction": "put the cream cheese in the bowl and open the middle drawer of the cabinet",
+        "goal_atoms": [
+          "(Open wooden_cabinet_1_middle_region)",
+          "(On cream_cheese_1 akita_black_bowl_1)"
+        ],
+        "canonical_goal": "00_06",
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        },
+        "note": "与 00_06 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务"
+      },
+      {
+        "pair_id": "07_00",
+        "order": "reversed(j>i)",
+        "first_task": 7,
+        "second_task": 0,
+        "tasks": [
+          "turn_on_the_stove",
+          "open_the_middle_drawer_of_the_cabinet"
+        ],
+        "instruction": "turn on the stove and open the middle drawer of the cabinet",
+        "goal_atoms": [
+          "(Open wooden_cabinet_1_middle_region)",
+          "(Turnon flat_stove_1)"
+        ],
+        "canonical_goal": "00_07",
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": true,
+          "runs": [
+            "pilot(and)",
+            "staged",
+            "sweep-compatible"
+          ],
+          "success_steps": [
+            579
+          ],
+          "episodes": 3,
+          "max_subtasks_completed": 2
+        },
+        "note": "与 00_07 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务"
+      },
+      {
+        "pair_id": "08_00",
+        "order": "reversed(j>i)",
+        "first_task": 8,
+        "second_task": 0,
+        "tasks": [
+          "put_the_bowl_on_the_plate",
+          "open_the_middle_drawer_of_the_cabinet"
+        ],
+        "instruction": "put the bowl on the plate and open the middle drawer of the cabinet",
+        "goal_atoms": [
+          "(Open wooden_cabinet_1_middle_region)",
+          "(On akita_black_bowl_1 plate_1)"
+        ],
+        "canonical_goal": "00_08",
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        },
+        "note": "与 00_08 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务"
+      },
+      {
+        "pair_id": "09_00",
+        "order": "reversed(j>i)",
+        "first_task": 9,
+        "second_task": 0,
+        "tasks": [
+          "put_the_wine_bottle_on_the_rack",
+          "open_the_middle_drawer_of_the_cabinet"
+        ],
+        "instruction": "put the wine bottle on the rack and open the middle drawer of the cabinet",
+        "goal_atoms": [
+          "(Open wooden_cabinet_1_middle_region)",
+          "(On wine_bottle_1 wine_rack_1_top_region)"
+        ],
+        "canonical_goal": "00_09",
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "pilot(and)",
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 2,
+          "max_subtasks_completed": 1
+        },
+        "note": "与 00_09 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务"
+      },
+      {
+        "pair_id": "02_01",
+        "order": "reversed(j>i)",
+        "first_task": 2,
+        "second_task": 1,
+        "tasks": [
+          "put_the_wine_bottle_on_top_of_the_cabinet",
+          "put_the_bowl_on_the_stove"
+        ],
+        "instruction": "put the wine bottle on top of the cabinet and put the bowl on the stove",
+        "goal_atoms": [
+          "(On akita_black_bowl_1 flat_stove_1_cook_region)",
+          "(On wine_bottle_1 wooden_cabinet_1_top_side)"
+        ],
+        "canonical_goal": "01_02",
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        },
+        "note": "与 01_02 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务"
+      },
+      {
+        "pair_id": "03_01",
+        "order": "reversed(j>i)",
+        "first_task": 3,
+        "second_task": 1,
+        "tasks": [
+          "open_the_top_drawer_and_put_the_bowl_inside",
+          "put_the_bowl_on_the_stove"
+        ],
+        "instruction": "open the top drawer and put the bowl inside and put the bowl on the stove",
+        "goal_atoms": [
+          "(On akita_black_bowl_1 flat_stove_1_cook_region)",
+          "(In akita_black_bowl_1 wooden_cabinet_1_top_region)"
+        ],
+        "canonical_goal": "01_03",
+        "classification": "conflict",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {},
+        "note": "与 01_03 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务"
+      },
+      {
+        "pair_id": "04_01",
+        "order": "reversed(j>i)",
+        "first_task": 4,
+        "second_task": 1,
+        "tasks": [
+          "put_the_bowl_on_top_of_the_cabinet",
+          "put_the_bowl_on_the_stove"
+        ],
+        "instruction": "put the bowl on top of the cabinet and put the bowl on the stove",
+        "goal_atoms": [
+          "(On akita_black_bowl_1 flat_stove_1_cook_region)",
+          "(On akita_black_bowl_1 wooden_cabinet_1_top_side)"
+        ],
+        "canonical_goal": "01_04",
+        "classification": "conflict",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {},
+        "note": "与 01_04 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务"
+      },
+      {
+        "pair_id": "05_01",
+        "order": "reversed(j>i)",
+        "first_task": 5,
+        "second_task": 1,
+        "tasks": [
+          "push_the_plate_to_the_front_of_the_stove",
+          "put_the_bowl_on_the_stove"
+        ],
+        "instruction": "push the plate to the front of the stove and put the bowl on the stove",
+        "goal_atoms": [
+          "(On akita_black_bowl_1 flat_stove_1_cook_region)",
+          "(On plate_1 main_table_stove_front_region)"
+        ],
+        "canonical_goal": "01_05",
+        "classification": "hard",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {},
+        "note": "与 01_05 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务"
+      },
+      {
+        "pair_id": "06_01",
+        "order": "reversed(j>i)",
+        "first_task": 6,
+        "second_task": 1,
+        "tasks": [
+          "put_the_cream_cheese_in_the_bowl",
+          "put_the_bowl_on_the_stove"
+        ],
+        "instruction": "put the cream cheese in the bowl and put the bowl on the stove",
+        "goal_atoms": [
+          "(On akita_black_bowl_1 flat_stove_1_cook_region)",
+          "(On cream_cheese_1 akita_black_bowl_1)"
+        ],
+        "canonical_goal": "01_06",
+        "classification": "hard",
+        "dependency_pattern": "container_move",
+        "dependency_detail": {
+          "A": "cream_cheese_1",
+          "B": "akita_black_bowl_1",
+          "C": "flat_stove_1_cook_region",
+          "atom1": "(On cream_cheese_1 akita_black_bowl_1)",
+          "atom2": "(On akita_black_bowl_1 flat_stove_1_cook_region)"
+        },
+        "prior_result": {},
+        "note": "与 01_06 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务",
+        "user_defined": true
+      },
+      {
+        "pair_id": "07_01",
+        "order": "reversed(j>i)",
+        "first_task": 7,
+        "second_task": 1,
+        "tasks": [
+          "turn_on_the_stove",
+          "put_the_bowl_on_the_stove"
+        ],
+        "instruction": "turn on the stove and put the bowl on the stove",
+        "goal_atoms": [
+          "(On akita_black_bowl_1 flat_stove_1_cook_region)",
+          "(Turnon flat_stove_1)"
+        ],
+        "canonical_goal": "01_07",
+        "classification": "compatible",
+        "dependency_pattern": "turnon_then_place",
+        "dependency_detail": {
+          "F": "flat_stove_1",
+          "atom1": "(Turnon flat_stove_1)",
+          "atom2": "(On akita_black_bowl_1 flat_stove_1_cook_region)"
+        },
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        },
+        "note": "与 01_07 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务"
+      },
+      {
+        "pair_id": "08_01",
+        "order": "reversed(j>i)",
+        "first_task": 8,
+        "second_task": 1,
+        "tasks": [
+          "put_the_bowl_on_the_plate",
+          "put_the_bowl_on_the_stove"
+        ],
+        "instruction": "put the bowl on the plate and put the bowl on the stove",
+        "goal_atoms": [
+          "(On akita_black_bowl_1 flat_stove_1_cook_region)",
+          "(On akita_black_bowl_1 plate_1)"
+        ],
+        "canonical_goal": "01_08",
+        "classification": "conflict",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {},
+        "note": "与 01_08 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务"
+      },
+      {
+        "pair_id": "09_01",
+        "order": "reversed(j>i)",
+        "first_task": 9,
+        "second_task": 1,
+        "tasks": [
+          "put_the_wine_bottle_on_the_rack",
+          "put_the_bowl_on_the_stove"
+        ],
+        "instruction": "put the wine bottle on the rack and put the bowl on the stove",
+        "goal_atoms": [
+          "(On akita_black_bowl_1 flat_stove_1_cook_region)",
+          "(On wine_bottle_1 wine_rack_1_top_region)"
+        ],
+        "canonical_goal": "01_09",
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        },
+        "note": "与 01_09 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务"
+      },
+      {
+        "pair_id": "03_02",
+        "order": "reversed(j>i)",
+        "first_task": 3,
+        "second_task": 2,
+        "tasks": [
+          "open_the_top_drawer_and_put_the_bowl_inside",
+          "put_the_wine_bottle_on_top_of_the_cabinet"
+        ],
+        "instruction": "open the top drawer and put the bowl inside and put the wine bottle on top of the cabinet",
+        "goal_atoms": [
+          "(On wine_bottle_1 wooden_cabinet_1_top_side)",
+          "(In akita_black_bowl_1 wooden_cabinet_1_top_region)"
+        ],
+        "canonical_goal": "02_03",
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "pilot(and)",
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 2,
+          "max_subtasks_completed": 1
+        },
+        "note": "与 02_03 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务"
+      },
+      {
+        "pair_id": "04_02",
+        "order": "reversed(j>i)",
+        "first_task": 4,
+        "second_task": 2,
+        "tasks": [
+          "put_the_bowl_on_top_of_the_cabinet",
+          "put_the_wine_bottle_on_top_of_the_cabinet"
+        ],
+        "instruction": "put the bowl on top of the cabinet and put the wine bottle on top of the cabinet",
+        "goal_atoms": [
+          "(On wine_bottle_1 wooden_cabinet_1_top_side)",
+          "(On akita_black_bowl_1 wooden_cabinet_1_top_side)"
+        ],
+        "canonical_goal": "02_04",
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        },
+        "note": "与 02_04 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务"
+      },
+      {
+        "pair_id": "05_02",
+        "order": "reversed(j>i)",
+        "first_task": 5,
+        "second_task": 2,
+        "tasks": [
+          "push_the_plate_to_the_front_of_the_stove",
+          "put_the_wine_bottle_on_top_of_the_cabinet"
+        ],
+        "instruction": "push the plate to the front of the stove and put the wine bottle on top of the cabinet",
+        "goal_atoms": [
+          "(On wine_bottle_1 wooden_cabinet_1_top_side)",
+          "(On plate_1 main_table_stove_front_region)"
+        ],
+        "canonical_goal": "02_05",
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        },
+        "note": "与 02_05 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务"
+      },
+      {
+        "pair_id": "06_02",
+        "order": "reversed(j>i)",
+        "first_task": 6,
+        "second_task": 2,
+        "tasks": [
+          "put_the_cream_cheese_in_the_bowl",
+          "put_the_wine_bottle_on_top_of_the_cabinet"
+        ],
+        "instruction": "put the cream cheese in the bowl and put the wine bottle on top of the cabinet",
+        "goal_atoms": [
+          "(On wine_bottle_1 wooden_cabinet_1_top_side)",
+          "(On cream_cheese_1 akita_black_bowl_1)"
+        ],
+        "canonical_goal": "02_06",
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        },
+        "note": "与 02_06 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务"
+      },
+      {
+        "pair_id": "07_02",
+        "order": "reversed(j>i)",
+        "first_task": 7,
+        "second_task": 2,
+        "tasks": [
+          "turn_on_the_stove",
+          "put_the_wine_bottle_on_top_of_the_cabinet"
+        ],
+        "instruction": "turn on the stove and put the wine bottle on top of the cabinet",
+        "goal_atoms": [
+          "(On wine_bottle_1 wooden_cabinet_1_top_side)",
+          "(Turnon flat_stove_1)"
+        ],
+        "canonical_goal": "02_07",
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        },
+        "note": "与 02_07 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务"
+      },
+      {
+        "pair_id": "08_02",
+        "order": "reversed(j>i)",
+        "first_task": 8,
+        "second_task": 2,
+        "tasks": [
+          "put_the_bowl_on_the_plate",
+          "put_the_wine_bottle_on_top_of_the_cabinet"
+        ],
+        "instruction": "put the bowl on the plate and put the wine bottle on top of the cabinet",
+        "goal_atoms": [
+          "(On wine_bottle_1 wooden_cabinet_1_top_side)",
+          "(On akita_black_bowl_1 plate_1)"
+        ],
+        "canonical_goal": "02_08",
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        },
+        "note": "与 02_08 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务"
+      },
+      {
+        "pair_id": "09_02",
+        "order": "reversed(j>i)",
+        "first_task": 9,
+        "second_task": 2,
+        "tasks": [
+          "put_the_wine_bottle_on_the_rack",
+          "put_the_wine_bottle_on_top_of_the_cabinet"
+        ],
+        "instruction": "put the wine bottle on the rack and put the wine bottle on top of the cabinet",
+        "goal_atoms": [
+          "(On wine_bottle_1 wooden_cabinet_1_top_side)",
+          "(On wine_bottle_1 wine_rack_1_top_region)"
+        ],
+        "canonical_goal": "02_09",
+        "classification": "conflict",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "pilot(and)"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        },
+        "note": "与 02_09 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务"
+      },
+      {
+        "pair_id": "04_03",
+        "order": "reversed(j>i)",
+        "first_task": 4,
+        "second_task": 3,
+        "tasks": [
+          "put_the_bowl_on_top_of_the_cabinet",
+          "open_the_top_drawer_and_put_the_bowl_inside"
+        ],
+        "instruction": "put the bowl on top of the cabinet and open the top drawer and put the bowl inside",
+        "goal_atoms": [
+          "(In akita_black_bowl_1 wooden_cabinet_1_top_region)",
+          "(On akita_black_bowl_1 wooden_cabinet_1_top_side)"
+        ],
+        "canonical_goal": "03_04",
+        "classification": "conflict",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {},
+        "note": "与 03_04 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务"
+      },
+      {
+        "pair_id": "05_03",
+        "order": "reversed(j>i)",
+        "first_task": 5,
+        "second_task": 3,
+        "tasks": [
+          "push_the_plate_to_the_front_of_the_stove",
+          "open_the_top_drawer_and_put_the_bowl_inside"
+        ],
+        "instruction": "push the plate to the front of the stove and open the top drawer and put the bowl inside",
+        "goal_atoms": [
+          "(In akita_black_bowl_1 wooden_cabinet_1_top_region)",
+          "(On plate_1 main_table_stove_front_region)"
+        ],
+        "canonical_goal": "03_05",
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        },
+        "note": "与 03_05 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务"
+      },
+      {
+        "pair_id": "06_03",
+        "order": "reversed(j>i)",
+        "first_task": 6,
+        "second_task": 3,
+        "tasks": [
+          "put_the_cream_cheese_in_the_bowl",
+          "open_the_top_drawer_and_put_the_bowl_inside"
+        ],
+        "instruction": "put the cream cheese in the bowl and open the top drawer and put the bowl inside",
+        "goal_atoms": [
+          "(In akita_black_bowl_1 wooden_cabinet_1_top_region)",
+          "(On cream_cheese_1 akita_black_bowl_1)"
+        ],
+        "canonical_goal": "03_06",
+        "classification": "hard",
+        "dependency_pattern": "container_move",
+        "dependency_detail": {
+          "A": "cream_cheese_1",
+          "B": "akita_black_bowl_1",
+          "C": "wooden_cabinet_1_top_region",
+          "atom1": "(On cream_cheese_1 akita_black_bowl_1)",
+          "atom2": "(In akita_black_bowl_1 wooden_cabinet_1_top_region)"
+        },
+        "prior_result": {},
+        "note": "与 03_06 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务",
+        "user_defined": true
+      },
+      {
+        "pair_id": "07_03",
+        "order": "reversed(j>i)",
+        "first_task": 7,
+        "second_task": 3,
+        "tasks": [
+          "turn_on_the_stove",
+          "open_the_top_drawer_and_put_the_bowl_inside"
+        ],
+        "instruction": "turn on the stove and open the top drawer and put the bowl inside",
+        "goal_atoms": [
+          "(In akita_black_bowl_1 wooden_cabinet_1_top_region)",
+          "(Turnon flat_stove_1)"
+        ],
+        "canonical_goal": "03_07",
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 0
+        },
+        "note": "与 03_07 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务"
+      },
+      {
+        "pair_id": "08_03",
+        "order": "reversed(j>i)",
+        "first_task": 8,
+        "second_task": 3,
+        "tasks": [
+          "put_the_bowl_on_the_plate",
+          "open_the_top_drawer_and_put_the_bowl_inside"
+        ],
+        "instruction": "put the bowl on the plate and open the top drawer and put the bowl inside",
+        "goal_atoms": [
+          "(In akita_black_bowl_1 wooden_cabinet_1_top_region)",
+          "(On akita_black_bowl_1 plate_1)"
+        ],
+        "canonical_goal": "03_08",
+        "classification": "conflict",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {},
+        "note": "与 03_08 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务"
+      },
+      {
+        "pair_id": "09_03",
+        "order": "reversed(j>i)",
+        "first_task": 9,
+        "second_task": 3,
+        "tasks": [
+          "put_the_wine_bottle_on_the_rack",
+          "open_the_top_drawer_and_put_the_bowl_inside"
+        ],
+        "instruction": "put the wine bottle on the rack and open the top drawer and put the bowl inside",
+        "goal_atoms": [
+          "(In akita_black_bowl_1 wooden_cabinet_1_top_region)",
+          "(On wine_bottle_1 wine_rack_1_top_region)"
+        ],
+        "canonical_goal": "03_09",
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 0
+        },
+        "note": "与 03_09 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务"
+      },
+      {
+        "pair_id": "05_04",
+        "order": "reversed(j>i)",
+        "first_task": 5,
+        "second_task": 4,
+        "tasks": [
+          "push_the_plate_to_the_front_of_the_stove",
+          "put_the_bowl_on_top_of_the_cabinet"
+        ],
+        "instruction": "push the plate to the front of the stove and put the bowl on top of the cabinet",
+        "goal_atoms": [
+          "(On akita_black_bowl_1 wooden_cabinet_1_top_side)",
+          "(On plate_1 main_table_stove_front_region)"
+        ],
+        "canonical_goal": "04_05",
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        },
+        "note": "与 04_05 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务"
+      },
+      {
+        "pair_id": "06_04",
+        "order": "reversed(j>i)",
+        "first_task": 6,
+        "second_task": 4,
+        "tasks": [
+          "put_the_cream_cheese_in_the_bowl",
+          "put_the_bowl_on_top_of_the_cabinet"
+        ],
+        "instruction": "put the cream cheese in the bowl and put the bowl on top of the cabinet",
+        "goal_atoms": [
+          "(On akita_black_bowl_1 wooden_cabinet_1_top_side)",
+          "(On cream_cheese_1 akita_black_bowl_1)"
+        ],
+        "canonical_goal": "04_06",
+        "classification": "hard",
+        "dependency_pattern": "container_move",
+        "dependency_detail": {
+          "A": "cream_cheese_1",
+          "B": "akita_black_bowl_1",
+          "C": "wooden_cabinet_1_top_side",
+          "atom1": "(On cream_cheese_1 akita_black_bowl_1)",
+          "atom2": "(On akita_black_bowl_1 wooden_cabinet_1_top_side)"
+        },
+        "prior_result": {},
+        "note": "与 04_06 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务",
+        "user_defined": true
+      },
+      {
+        "pair_id": "07_04",
+        "order": "reversed(j>i)",
+        "first_task": 7,
+        "second_task": 4,
+        "tasks": [
+          "turn_on_the_stove",
+          "put_the_bowl_on_top_of_the_cabinet"
+        ],
+        "instruction": "turn on the stove and put the bowl on top of the cabinet",
+        "goal_atoms": [
+          "(On akita_black_bowl_1 wooden_cabinet_1_top_side)",
+          "(Turnon flat_stove_1)"
+        ],
+        "canonical_goal": "04_07",
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": true,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [
+            397
+          ],
+          "episodes": 1,
+          "max_subtasks_completed": 2
+        },
+        "note": "与 04_07 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务"
+      },
+      {
+        "pair_id": "08_04",
+        "order": "reversed(j>i)",
+        "first_task": 8,
+        "second_task": 4,
+        "tasks": [
+          "put_the_bowl_on_the_plate",
+          "put_the_bowl_on_top_of_the_cabinet"
+        ],
+        "instruction": "put the bowl on the plate and put the bowl on top of the cabinet",
+        "goal_atoms": [
+          "(On akita_black_bowl_1 wooden_cabinet_1_top_side)",
+          "(On akita_black_bowl_1 plate_1)"
+        ],
+        "canonical_goal": "04_08",
+        "classification": "conflict",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {},
+        "note": "与 04_08 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务"
+      },
+      {
+        "pair_id": "09_04",
+        "order": "reversed(j>i)",
+        "first_task": 9,
+        "second_task": 4,
+        "tasks": [
+          "put_the_wine_bottle_on_the_rack",
+          "put_the_bowl_on_top_of_the_cabinet"
+        ],
+        "instruction": "put the wine bottle on the rack and put the bowl on top of the cabinet",
+        "goal_atoms": [
+          "(On akita_black_bowl_1 wooden_cabinet_1_top_side)",
+          "(On wine_bottle_1 wine_rack_1_top_region)"
+        ],
+        "canonical_goal": "04_09",
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 0
+        },
+        "note": "与 04_09 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务"
+      },
+      {
+        "pair_id": "06_05",
+        "order": "reversed(j>i)",
+        "first_task": 6,
+        "second_task": 5,
+        "tasks": [
+          "put_the_cream_cheese_in_the_bowl",
+          "push_the_plate_to_the_front_of_the_stove"
+        ],
+        "instruction": "put the cream cheese in the bowl and push the plate to the front of the stove",
+        "goal_atoms": [
+          "(On plate_1 main_table_stove_front_region)",
+          "(On cream_cheese_1 akita_black_bowl_1)"
+        ],
+        "canonical_goal": "05_06",
+        "classification": "compatible",
+        "dependency_pattern": "container_move",
+        "dependency_detail": {},
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "pilot(and)",
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 2,
+          "max_subtasks_completed": 1
+        },
+        "note": "与 05_06 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务",
+        "user_defined": true,
+        "dependency_note": "用户口径加入 container_move：第二个子任务移动的是 plate（C=plate），B=bowl 本身未移动；按用户定义归入该组，语义上更接近场景级并行依赖"
+      },
+      {
+        "pair_id": "07_05",
+        "order": "reversed(j>i)",
+        "first_task": 7,
+        "second_task": 5,
+        "tasks": [
+          "turn_on_the_stove",
+          "push_the_plate_to_the_front_of_the_stove"
+        ],
+        "instruction": "turn on the stove and push the plate to the front of the stove",
+        "goal_atoms": [
+          "(On plate_1 main_table_stove_front_region)",
+          "(Turnon flat_stove_1)"
+        ],
+        "canonical_goal": "05_07",
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "pilot(and)",
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 2,
+          "max_subtasks_completed": 1
+        },
+        "note": "与 05_07 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务"
+      },
+      {
+        "pair_id": "08_05",
+        "order": "reversed(j>i)",
+        "first_task": 8,
+        "second_task": 5,
+        "tasks": [
+          "put_the_bowl_on_the_plate",
+          "push_the_plate_to_the_front_of_the_stove"
+        ],
+        "instruction": "put the bowl on the plate and push the plate to the front of the stove",
+        "goal_atoms": [
+          "(On plate_1 main_table_stove_front_region)",
+          "(On akita_black_bowl_1 plate_1)"
+        ],
+        "canonical_goal": "05_08",
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        },
+        "note": "与 05_08 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务"
+      },
+      {
+        "pair_id": "09_05",
+        "order": "reversed(j>i)",
+        "first_task": 9,
+        "second_task": 5,
+        "tasks": [
+          "put_the_wine_bottle_on_the_rack",
+          "push_the_plate_to_the_front_of_the_stove"
+        ],
+        "instruction": "put the wine bottle on the rack and push the plate to the front of the stove",
+        "goal_atoms": [
+          "(On plate_1 main_table_stove_front_region)",
+          "(On wine_bottle_1 wine_rack_1_top_region)"
+        ],
+        "canonical_goal": "05_09",
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 0
+        },
+        "note": "与 05_09 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务"
+      },
+      {
+        "pair_id": "07_06",
+        "order": "reversed(j>i)",
+        "first_task": 7,
+        "second_task": 6,
+        "tasks": [
+          "turn_on_the_stove",
+          "put_the_cream_cheese_in_the_bowl"
+        ],
+        "instruction": "turn on the stove and put the cream cheese in the bowl",
+        "goal_atoms": [
+          "(On cream_cheese_1 akita_black_bowl_1)",
+          "(Turnon flat_stove_1)"
+        ],
+        "canonical_goal": "06_07",
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        },
+        "note": "与 06_07 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务"
+      },
+      {
+        "pair_id": "08_06",
+        "order": "reversed(j>i)",
+        "first_task": 8,
+        "second_task": 6,
+        "tasks": [
+          "put_the_bowl_on_the_plate",
+          "put_the_cream_cheese_in_the_bowl"
+        ],
+        "instruction": "put the bowl on the plate and put the cream cheese in the bowl",
+        "goal_atoms": [
+          "(On cream_cheese_1 akita_black_bowl_1)",
+          "(On akita_black_bowl_1 plate_1)"
+        ],
+        "canonical_goal": "06_08",
+        "classification": "hard",
+        "dependency_pattern": "reverse_dependency",
+        "dependency_detail": {
+          "B": "akita_black_bowl_1",
+          "A": "cream_cheese_1",
+          "atom1": "(On akita_black_bowl_1 plate_1)",
+          "atom2": "(On cream_cheese_1 akita_black_bowl_1)"
+        },
+        "prior_result": {
+          "success": true,
+          "runs": [
+            "pilot(and)"
+          ],
+          "success_steps": [
+            318
+          ],
+          "episodes": 1,
+          "max_subtasks_completed": 2
+        },
+        "note": "与 06_08 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务",
+        "user_defined": true,
+        "dependency_note": "用户口径：reverse_dependency 组"
+      },
+      {
+        "pair_id": "09_06",
+        "order": "reversed(j>i)",
+        "first_task": 9,
+        "second_task": 6,
+        "tasks": [
+          "put_the_wine_bottle_on_the_rack",
+          "put_the_cream_cheese_in_the_bowl"
+        ],
+        "instruction": "put the wine bottle on the rack and put the cream cheese in the bowl",
+        "goal_atoms": [
+          "(On cream_cheese_1 akita_black_bowl_1)",
+          "(On wine_bottle_1 wine_rack_1_top_region)"
+        ],
+        "canonical_goal": "06_09",
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        },
+        "note": "与 06_09 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务"
+      },
+      {
+        "pair_id": "08_07",
+        "order": "reversed(j>i)",
+        "first_task": 8,
+        "second_task": 7,
+        "tasks": [
+          "put_the_bowl_on_the_plate",
+          "turn_on_the_stove"
+        ],
+        "instruction": "put the bowl on the plate and turn on the stove",
+        "goal_atoms": [
+          "(Turnon flat_stove_1)",
+          "(On akita_black_bowl_1 plate_1)"
+        ],
+        "canonical_goal": "07_08",
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        },
+        "note": "与 07_08 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务"
+      },
+      {
+        "pair_id": "09_07",
+        "order": "reversed(j>i)",
+        "first_task": 9,
+        "second_task": 7,
+        "tasks": [
+          "put_the_wine_bottle_on_the_rack",
+          "turn_on_the_stove"
+        ],
+        "instruction": "put the wine bottle on the rack and turn on the stove",
+        "goal_atoms": [
+          "(Turnon flat_stove_1)",
+          "(On wine_bottle_1 wine_rack_1_top_region)"
+        ],
+        "canonical_goal": "07_09",
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        },
+        "note": "与 07_09 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务"
+      },
+      {
+        "pair_id": "09_08",
+        "order": "reversed(j>i)",
+        "first_task": 9,
+        "second_task": 8,
+        "tasks": [
+          "put_the_wine_bottle_on_the_rack",
+          "put_the_bowl_on_the_plate"
+        ],
+        "instruction": "put the wine bottle on the rack and put the bowl on the plate",
+        "goal_atoms": [
+          "(On akita_black_bowl_1 plate_1)",
+          "(On wine_bottle_1 wine_rack_1_top_region)"
+        ],
+        "canonical_goal": "08_09",
+        "classification": "compatible",
+        "dependency_pattern": null,
+        "dependency_detail": null,
+        "prior_result": {
+          "success": true,
+          "runs": [
+            "pilot(and)",
+            "staged",
+            "sweep-compatible"
+          ],
+          "success_steps": [
+            390
+          ],
+          "episodes": 3,
+          "max_subtasks_completed": 2
+        },
+        "note": "与 08_09 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务"
+      }
+    ],
+    "ref_note": "顺序/措辞变体不构成新任务；仅用于按依赖方向组织 instruction。"
+  },
+  "dependency_native": {
+    "container_move": [
+      {
+        "pair_id": "06_08",
+        "order": "original(i<j)",
+        "first_task": 6,
+        "second_task": 8,
+        "tasks": [
+          "put_the_cream_cheese_in_the_bowl",
+          "put_the_bowl_on_the_plate"
+        ],
+        "instruction": "put the cream cheese in the bowl and put the bowl on the plate",
+        "goal_atoms": [
+          "(On cream_cheese_1 akita_black_bowl_1)",
+          "(On akita_black_bowl_1 plate_1)"
+        ],
+        "classification": "hard",
+        "dependency_pattern": "container_move",
+        "dependency_detail": {
+          "A": "cream_cheese_1",
+          "B": "akita_black_bowl_1",
+          "C": "plate_1",
+          "atom1": "(On cream_cheese_1 akita_black_bowl_1)",
+          "atom2": "(On akita_black_bowl_1 plate_1)"
+        },
+        "prior_result": {
+          "success": true,
+          "runs": [
+            "pilot(and)"
+          ],
+          "success_steps": [
+            318
+          ],
+          "episodes": 1,
+          "max_subtasks_completed": 2
+        },
+        "user_defined": true
+      },
+      {
+        "pair_id": "06_01",
+        "order": "reversed(j>i)",
+        "first_task": 6,
+        "second_task": 1,
+        "tasks": [
+          "put_the_cream_cheese_in_the_bowl",
+          "put_the_bowl_on_the_stove"
+        ],
+        "instruction": "put the cream cheese in the bowl and put the bowl on the stove",
+        "goal_atoms": [
+          "(On akita_black_bowl_1 flat_stove_1_cook_region)",
+          "(On cream_cheese_1 akita_black_bowl_1)"
+        ],
+        "canonical_goal": "01_06",
+        "classification": "hard",
+        "dependency_pattern": "container_move",
+        "dependency_detail": {
+          "A": "cream_cheese_1",
+          "B": "akita_black_bowl_1",
+          "C": "flat_stove_1_cook_region",
+          "atom1": "(On cream_cheese_1 akita_black_bowl_1)",
+          "atom2": "(On akita_black_bowl_1 flat_stove_1_cook_region)"
+        },
+        "prior_result": {},
+        "note": "与 01_06 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务",
+        "user_defined": true
+      },
+      {
+        "pair_id": "06_03",
+        "order": "reversed(j>i)",
+        "first_task": 6,
+        "second_task": 3,
+        "tasks": [
+          "put_the_cream_cheese_in_the_bowl",
+          "open_the_top_drawer_and_put_the_bowl_inside"
+        ],
+        "instruction": "put the cream cheese in the bowl and open the top drawer and put the bowl inside",
+        "goal_atoms": [
+          "(In akita_black_bowl_1 wooden_cabinet_1_top_region)",
+          "(On cream_cheese_1 akita_black_bowl_1)"
+        ],
+        "canonical_goal": "03_06",
+        "classification": "hard",
+        "dependency_pattern": "container_move",
+        "dependency_detail": {
+          "A": "cream_cheese_1",
+          "B": "akita_black_bowl_1",
+          "C": "wooden_cabinet_1_top_region",
+          "atom1": "(On cream_cheese_1 akita_black_bowl_1)",
+          "atom2": "(In akita_black_bowl_1 wooden_cabinet_1_top_region)"
+        },
+        "prior_result": {},
+        "note": "与 03_06 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务",
+        "user_defined": true
+      },
+      {
+        "pair_id": "06_04",
+        "order": "reversed(j>i)",
+        "first_task": 6,
+        "second_task": 4,
+        "tasks": [
+          "put_the_cream_cheese_in_the_bowl",
+          "put_the_bowl_on_top_of_the_cabinet"
+        ],
+        "instruction": "put the cream cheese in the bowl and put the bowl on top of the cabinet",
+        "goal_atoms": [
+          "(On akita_black_bowl_1 wooden_cabinet_1_top_side)",
+          "(On cream_cheese_1 akita_black_bowl_1)"
+        ],
+        "canonical_goal": "04_06",
+        "classification": "hard",
+        "dependency_pattern": "container_move",
+        "dependency_detail": {
+          "A": "cream_cheese_1",
+          "B": "akita_black_bowl_1",
+          "C": "wooden_cabinet_1_top_side",
+          "atom1": "(On cream_cheese_1 akita_black_bowl_1)",
+          "atom2": "(On akita_black_bowl_1 wooden_cabinet_1_top_side)"
+        },
+        "prior_result": {},
+        "note": "与 04_06 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务",
+        "user_defined": true
+      },
+      {
+        "pair_id": "06_05",
+        "order": "reversed(j>i)",
+        "first_task": 6,
+        "second_task": 5,
+        "tasks": [
+          "put_the_cream_cheese_in_the_bowl",
+          "push_the_plate_to_the_front_of_the_stove"
+        ],
+        "instruction": "put the cream cheese in the bowl and push the plate to the front of the stove",
+        "goal_atoms": [
+          "(On plate_1 main_table_stove_front_region)",
+          "(On cream_cheese_1 akita_black_bowl_1)"
+        ],
+        "canonical_goal": "05_06",
+        "classification": "compatible",
+        "dependency_pattern": "container_move",
+        "dependency_detail": {},
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "pilot(and)",
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 2,
+          "max_subtasks_completed": 1
+        },
+        "note": "与 05_06 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务",
+        "user_defined": true,
+        "dependency_note": "用户口径加入 container_move：第二个子任务移动的是 plate（C=plate），B=bowl 本身未移动；按用户定义归入该组，语义上更接近场景级并行依赖"
+      }
+    ],
+    "turnon_then_place": [
+      {
+        "pair_id": "07_01",
+        "order": "reversed(j>i)",
+        "first_task": 7,
+        "second_task": 1,
+        "tasks": [
+          "turn_on_the_stove",
+          "put_the_bowl_on_the_stove"
+        ],
+        "instruction": "turn on the stove and put the bowl on the stove",
+        "goal_atoms": [
+          "(On akita_black_bowl_1 flat_stove_1_cook_region)",
+          "(Turnon flat_stove_1)"
+        ],
+        "canonical_goal": "01_07",
+        "classification": "compatible",
+        "dependency_pattern": "turnon_then_place",
+        "dependency_detail": {
+          "F": "flat_stove_1",
+          "atom1": "(Turnon flat_stove_1)",
+          "atom2": "(On akita_black_bowl_1 flat_stove_1_cook_region)"
+        },
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 1,
+          "max_subtasks_completed": 1
+        },
+        "note": "与 01_07 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务"
+      }
+    ],
+    "reverse_dependency": [
+      {
+        "pair_id": "01_06",
+        "order": "original(i<j)",
+        "first_task": 1,
+        "second_task": 6,
+        "tasks": [
+          "put_the_bowl_on_the_stove",
+          "put_the_cream_cheese_in_the_bowl"
+        ],
+        "instruction": "put the bowl on the stove and put the cream cheese in the bowl",
+        "goal_atoms": [
+          "(On akita_black_bowl_1 flat_stove_1_cook_region)",
+          "(On cream_cheese_1 akita_black_bowl_1)"
+        ],
+        "classification": "hard",
+        "dependency_pattern": "reverse_dependency",
+        "dependency_detail": {
+          "B": "akita_black_bowl_1",
+          "A": "cream_cheese_1",
+          "atom1": "(On akita_black_bowl_1 flat_stove_1_cook_region)",
+          "atom2": "(On cream_cheese_1 akita_black_bowl_1)"
+        },
+        "prior_result": {},
+        "user_defined": true,
+        "dependency_note": "用户口径：reverse_dependency 组"
+      },
+      {
+        "pair_id": "03_06",
+        "order": "original(i<j)",
+        "first_task": 3,
+        "second_task": 6,
+        "tasks": [
+          "open_the_top_drawer_and_put_the_bowl_inside",
+          "put_the_cream_cheese_in_the_bowl"
+        ],
+        "instruction": "open the top drawer and put the bowl inside and put the cream cheese in the bowl",
+        "goal_atoms": [
+          "(In akita_black_bowl_1 wooden_cabinet_1_top_region)",
+          "(On cream_cheese_1 akita_black_bowl_1)"
+        ],
+        "classification": "hard",
+        "dependency_pattern": "reverse_dependency",
+        "dependency_detail": {
+          "B": "akita_black_bowl_1",
+          "A": "cream_cheese_1",
+          "atom1": "(In akita_black_bowl_1 wooden_cabinet_1_top_region)",
+          "atom2": "(On cream_cheese_1 akita_black_bowl_1)"
+        },
+        "prior_result": {},
+        "user_defined": true,
+        "dependency_note": "用户口径：reverse_dependency 组"
+      },
+      {
+        "pair_id": "04_06",
+        "order": "original(i<j)",
+        "first_task": 4,
+        "second_task": 6,
+        "tasks": [
+          "put_the_bowl_on_top_of_the_cabinet",
+          "put_the_cream_cheese_in_the_bowl"
+        ],
+        "instruction": "put the bowl on top of the cabinet and put the cream cheese in the bowl",
+        "goal_atoms": [
+          "(On akita_black_bowl_1 wooden_cabinet_1_top_side)",
+          "(On cream_cheese_1 akita_black_bowl_1)"
+        ],
+        "classification": "hard",
+        "dependency_pattern": "reverse_dependency",
+        "dependency_detail": {
+          "B": "akita_black_bowl_1",
+          "A": "cream_cheese_1",
+          "atom1": "(On akita_black_bowl_1 wooden_cabinet_1_top_side)",
+          "atom2": "(On cream_cheese_1 akita_black_bowl_1)"
+        },
+        "prior_result": {},
+        "user_defined": true,
+        "dependency_note": "用户口径：reverse_dependency 组"
+      },
+      {
+        "pair_id": "05_06",
+        "order": "original(i<j)",
+        "first_task": 5,
+        "second_task": 6,
+        "tasks": [
+          "push_the_plate_to_the_front_of_the_stove",
+          "put_the_cream_cheese_in_the_bowl"
+        ],
+        "instruction": "push the plate to the front of the stove and put the cream cheese in the bowl",
+        "goal_atoms": [
+          "(On plate_1 main_table_stove_front_region)",
+          "(On cream_cheese_1 akita_black_bowl_1)"
+        ],
+        "classification": "compatible",
+        "dependency_pattern": "reverse_dependency",
+        "dependency_detail": null,
+        "prior_result": {
+          "success": false,
+          "runs": [
+            "pilot(and)",
+            "sweep-compatible"
+          ],
+          "success_steps": [],
+          "episodes": 2,
+          "max_subtasks_completed": 1
+        },
+        "user_defined": true,
+        "dependency_note": "用户口径：reverse_dependency 组"
+      },
+      {
+        "pair_id": "08_06",
+        "order": "reversed(j>i)",
+        "first_task": 8,
+        "second_task": 6,
+        "tasks": [
+          "put_the_bowl_on_the_plate",
+          "put_the_cream_cheese_in_the_bowl"
+        ],
+        "instruction": "put the bowl on the plate and put the cream cheese in the bowl",
+        "goal_atoms": [
+          "(On cream_cheese_1 akita_black_bowl_1)",
+          "(On akita_black_bowl_1 plate_1)"
+        ],
+        "canonical_goal": "06_08",
+        "classification": "hard",
+        "dependency_pattern": "reverse_dependency",
+        "dependency_detail": {
+          "B": "akita_black_bowl_1",
+          "A": "cream_cheese_1",
+          "atom1": "(On akita_black_bowl_1 plate_1)",
+          "atom2": "(On cream_cheese_1 akita_black_bowl_1)"
+        },
+        "prior_result": {
+          "success": true,
+          "runs": [
+            "pilot(and)"
+          ],
+          "success_steps": [
+            318
+          ],
+          "episodes": 1,
+          "max_subtasks_completed": 2
+        },
+        "note": "与 06_08 同 goal，仅 instruction 顺序不同；顺序/措辞本身不构成新任务",
+        "user_defined": true,
+        "dependency_note": "用户口径：reverse_dependency 组"
+      }
+    ]
+  },
+  "synthetic_candidates": [
+    {
+      "case_id": "goal_pair_06_01",
+      "family": "container_move",
+      "pattern": "把 A 放到 B 上/里；再把 B 移到 C",
+      "A": "cream_cheese_1",
+      "B": "akita_black_bowl_1",
+      "C": "flat_stove_1_cook_region",
+      "instruction": "put the cream cheese on the bowl and put the bowl on the stove",
+      "goal_atoms": [
+        "(On cream_cheese_1 akita_black_bowl_1)",
+        "(On akita_black_bowl_1 flat_stove_1_cook_region)"
+      ],
+      "origin": "native",
+      "region_exists": true,
+      "risk": "low",
+      "prior_result": {},
+      "note": "与已有 pair 06_01 相同 goal（仅 instruction 顺序不同，不是新任务）",
+      "recommend": "推荐",
+      "is_new_goal": false,
+      "task_kind": "instruction_variant_of_existing_goal"
+    },
+    {
+      "case_id": "goal_pair_06_04",
+      "family": "container_move",
+      "pattern": "把 A 放到 B 上/里；再把 B 移到 C",
+      "A": "cream_cheese_1",
+      "B": "akita_black_bowl_1",
+      "C": "wooden_cabinet_1_top_side",
+      "instruction": "put the cream cheese on the bowl and put the bowl on the top of the cabinet",
+      "goal_atoms": [
+        "(On cream_cheese_1 akita_black_bowl_1)",
+        "(On akita_black_bowl_1 wooden_cabinet_1_top_side)"
+      ],
+      "origin": "native",
+      "region_exists": true,
+      "risk": "low",
+      "prior_result": {},
+      "note": "与已有 pair 06_04 相同 goal（仅 instruction 顺序不同，不是新任务）",
+      "recommend": "推荐",
+      "is_new_goal": false,
+      "task_kind": "instruction_variant_of_existing_goal"
+    },
+    {
+      "case_id": "goal_pair_06_08",
+      "family": "container_move",
+      "pattern": "把 A 放到 B 上/里；再把 B 移到 C",
+      "A": "cream_cheese_1",
+      "B": "akita_black_bowl_1",
+      "C": "plate_1",
+      "instruction": "put the cream cheese on the bowl and put the bowl on the plate",
+      "goal_atoms": [
+        "(On cream_cheese_1 akita_black_bowl_1)",
+        "(On akita_black_bowl_1 plate_1)"
+      ],
+      "origin": "native",
+      "region_exists": true,
+      "risk": "low",
+      "prior_result": {
+        "success": true,
+        "runs": [
+          "pilot(and)"
+        ],
+        "success_steps": [
+          318
+        ],
+        "episodes": 1,
+        "max_subtasks_completed": 2
+      },
+      "note": "与已有 pair 06_08 相同 goal（仅 instruction 顺序不同，不是新任务）",
+      "recommend": "推荐",
+      "is_new_goal": false,
+      "task_kind": "instruction_variant_of_existing_goal"
+    },
+    {
+      "case_id": "goal_pair_06_03",
+      "family": "container_move",
+      "pattern": "把 A 放到 B 上/里；再把 B 移到 C",
+      "A": "cream_cheese_1",
+      "B": "akita_black_bowl_1",
+      "C": "wooden_cabinet_1_top_region",
+      "instruction": "put the cream cheese on the bowl and open the top drawer of the cabinet and put the bowl inside",
+      "goal_atoms": [
+        "(On cream_cheese_1 akita_black_bowl_1)",
+        "(In akita_black_bowl_1 wooden_cabinet_1_top_region)"
+      ],
+      "origin": "native",
+      "region_exists": true,
+      "risk": "medium",
+      "prior_result": {},
+      "note": "与已有 pair 06_03 相同 goal（仅 instruction 顺序不同，不是新任务）",
+      "recommend": "备选",
+      "is_new_goal": false,
+      "task_kind": "instruction_variant_of_existing_goal"
+    },
+    {
+      "case_id": "synthetic_dep_bowl_woodencabinet1middle",
+      "family": "container_move",
+      "pattern": "把 A 放到 B 上/里；再把 B 移到 C",
+      "A": "cream_cheese_1",
+      "B": "akita_black_bowl_1",
+      "C": "wooden_cabinet_1_middle_region",
+      "instruction": "put the cream cheese on the bowl and open the middle drawer of the cabinet and put the bowl inside",
+      "goal_atoms": [
+        "(On cream_cheese_1 akita_black_bowl_1)",
+        "(In akita_black_bowl_1 wooden_cabinet_1_middle_region)"
+      ],
+      "origin": "synthetic",
+      "region_exists": true,
+      "risk": "medium",
+      "prior_result": {},
+      "note": "新 goal 组合：场景 region 存在；需生成 bddl 后做静态/动态验证",
+      "recommend": "备选",
+      "is_new_goal": true,
+      "task_kind": "new_goal"
+    },
+    {
+      "case_id": "synthetic_dep_bowl_woodencabinet1bottom",
+      "family": "container_move",
+      "pattern": "把 A 放到 B 上/里；再把 B 移到 C",
+      "A": "cream_cheese_1",
+      "B": "akita_black_bowl_1",
+      "C": "wooden_cabinet_1_bottom_region",
+      "instruction": "put the cream cheese on the bowl and open the bottom drawer of the cabinet and put the bowl inside",
+      "goal_atoms": [
+        "(On cream_cheese_1 akita_black_bowl_1)",
+        "(In akita_black_bowl_1 wooden_cabinet_1_bottom_region)"
+      ],
+      "origin": "synthetic",
+      "region_exists": true,
+      "risk": "medium",
+      "prior_result": {},
+      "note": "新 goal 组合：场景 region 存在；需生成 bddl 后做静态/动态验证",
+      "recommend": "备选",
+      "is_new_goal": true,
+      "task_kind": "new_goal"
+    },
+    {
+      "case_id": "synthetic_dep_bowl_winerack1top",
+      "family": "container_move",
+      "pattern": "把 A 放到 B 上/里；再把 B 移到 C",
+      "A": "cream_cheese_1",
+      "B": "akita_black_bowl_1",
+      "C": "wine_rack_1_top_region",
+      "instruction": "put the cream cheese on the bowl and put the bowl on the wine rack",
+      "goal_atoms": [
+        "(On cream_cheese_1 akita_black_bowl_1)",
+        "(On akita_black_bowl_1 wine_rack_1_top_region)"
+      ],
+      "origin": "synthetic",
+      "region_exists": true,
+      "risk": "high",
+      "prior_result": {},
+      "note": "新 goal 组合：场景 region 存在；需生成 bddl 后做静态/动态验证",
+      "recommend": "风险高/最后",
+      "is_new_goal": true,
+      "task_kind": "new_goal"
+    },
+    {
+      "case_id": "synthetic_dep_bowl_maintablestovefront",
+      "family": "container_move",
+      "pattern": "把 A 放到 B 上/里；再把 B 移到 C",
+      "A": "cream_cheese_1",
+      "B": "akita_black_bowl_1",
+      "C": "main_table_stove_front_region",
+      "instruction": "put the cream cheese on the bowl and put the bowl at the front of the stove",
+      "goal_atoms": [
+        "(On cream_cheese_1 akita_black_bowl_1)",
+        "(On akita_black_bowl_1 main_table_stove_front_region)"
+      ],
+      "origin": "synthetic",
+      "region_exists": true,
+      "risk": "medium",
+      "prior_result": {},
+      "note": "新 goal 组合：场景 region 存在；需生成 bddl 后做静态/动态验证",
+      "recommend": "备选",
+      "is_new_goal": true,
+      "task_kind": "new_goal"
+    },
+    {
+      "case_id": "synthetic_dep_plate_maintablestovefront",
+      "family": "container_move_plate",
+      "pattern": "把 A 放到 plate 上；再移动 plate 到 C",
+      "A": "cream_cheese_1",
+      "B": "plate_1",
+      "C": "main_table_stove_front_region",
+      "instruction": "put the cream cheese on the plate and push the plate to the front of the stove",
+      "goal_atoms": [
+        "(On cream_cheese_1 plate_1)",
+        "(On plate_1 main_table_stove_front_region)"
+      ],
+      "origin": "synthetic",
+      "region_exists": true,
+      "risk": "high",
+      "prior_result": {},
+      "note": "plate 是可推动物体（任务5）但非抓取物体；推动中 cheese 可能滑落 → 高风险",
+      "recommend": "风险高/最后",
+      "is_new_goal": true,
+      "task_kind": "new_goal"
+    },
+    {
+      "case_id": "synthetic_chain_cheese_bowl_plate_stove_front",
+      "family": "extended_chain",
+      "pattern": "A→B、B→C、C→D 三段链",
+      "A": "cream_cheese_1",
+      "B": "akita_black_bowl_1",
+      "C": "",
+      "instruction": "put the cream cheese on the bowl, put the bowl on the plate, and push the plate to the front of the stove",
+      "goal_atoms": [
+        "(On cream_cheese_1 akita_black_bowl_1)",
+        "(On akita_black_bowl_1 plate_1)",
+        "(On plate_1 main_table_stove_front_region)"
+      ],
+      "origin": "synthetic",
+      "region_exists": true,
+      "risk": "high",
+      "prior_result": {},
+      "note": "三段链；600 步可能不够，建议 800–1000+",
+      "recommend": "纳入候选（三段链，高风险）",
+      "is_new_goal": true,
+      "task_kind": "new_goal"
+    },
+    {
+      "case_id": "synthetic_chain_cheese_bowl_stove_on",
+      "family": "extended_chain",
+      "pattern": "A→B、B→C、turnon C",
+      "A": "cream_cheese_1",
+      "B": "akita_black_bowl_1",
+      "C": "",
+      "instruction": "put the cream cheese on the bowl, put the bowl on the stove, and turn on the stove",
+      "goal_atoms": [
+        "(On cream_cheese_1 akita_black_bowl_1)",
+        "(On akita_black_bowl_1 flat_stove_1_cook_region)",
+        "(Turnon flat_stove_1)"
+      ],
+      "origin": "synthetic",
+      "region_exists": true,
+      "risk": "medium",
+      "prior_result": {},
+      "note": "三段链；最后 turnon 是 GOAL 任务7 目标",
+      "recommend": "纳入候选（三段链，用户已确认）",
+      "is_new_goal": true,
+      "task_kind": "new_goal"
+    },
+    {
+      "case_id": "synthetic_chain_open_top_bowl_cheese",
+      "family": "extended_chain",
+      "pattern": "打开容器 → 把 B 放入 → 把 A 放到 B 上",
+      "A": "cream_cheese_1",
+      "B": "akita_black_bowl_1",
+      "C": "",
+      "instruction": "put the cream cheese on the bowl, open the top drawer of the cabinet, and put the bowl inside",
+      "goal_atoms": [
+        "(On cream_cheese_1 akita_black_bowl_1)",
+        "(In akita_black_bowl_1 wooden_cabinet_1_top_region)"
+      ],
+      "origin": "synthetic",
+      "region_exists": true,
+      "risk": "medium",
+      "prior_result": {},
+      "note": "与 06_03 相同 goal（仅 instruction 多写明 open），不是新任务",
+      "recommend": "纳入候选（三段链，用户已确认）",
+      "is_new_goal": false,
+      "task_kind": "instruction_variant_of_existing_goal"
+    },
+    {
+      "case_id": "synthetic_chain_open_middle_bowl_cheese",
+      "family": "extended_chain",
+      "pattern": "打开容器 → 把 B 放入 → 把 A 放到 B 上",
+      "A": "cream_cheese_1",
+      "B": "akita_black_bowl_1",
+      "C": "",
+      "instruction": "open the middle drawer of the cabinet, put the bowl inside, and put the cream cheese on the bowl",
+      "goal_atoms": [
+        "(Open wooden_cabinet_1_middle_region)",
+        "(In akita_black_bowl_1 wooden_cabinet_1_middle_region)",
+        "(On cream_cheese_1 akita_black_bowl_1)"
+      ],
+      "origin": "synthetic",
+      "region_exists": true,
+      "risk": "high",
+      "prior_result": {},
+      "note": "含 open 原子；抽屉打开后放碗；碗在抽屉里再放 cheese 可能不可达",
+      "recommend": "纳入候选（三段链，高风险）",
+      "is_new_goal": true,
+      "task_kind": "new_goal"
+    }
+  ],
+  "task_definition": "task = 环境 + 初始状态 + goal 判定 + instruction；instruction 变体也是候选任务，成功即成立",
+  "feasibility_criterion": "max_steps 内任一 seed 成功即可视为可行任务（多 seed 用于报告稳定性，不作为硬门槛）",
+  "rejected_candidates": [
+    {
+      "case_id": "synthetic_dep_plate_woodencabinet1topside",
+      "instruction": "put the cream cheese on the plate and put the plate on the top of the cabinet",
+      "reason": "用户审核：plate 移动只保留 push the plate to the front of the stove；本候选排除"
+    },
+    {
+      "case_id": "synthetic_dep_plate_flatstove1cook",
+      "instruction": "put the cream cheese on the plate and put the plate on the stove",
+      "reason": "用户审核：plate 移动只保留 push the plate to the front of the stove；本候选排除"
+    }
+  ],
+  "counts": {
+    "goal_tasks": 10,
+    "ordered_original_45": 45,
+    "ordered_reversed_45": 45,
+    "running_candidate_tasks_unique": 50,
+    "native_dependency_total": 11,
+    "native_container_move": 5,
+    "native_turnon_then_place": 1,
+    "native_reverse_dependency": 5,
+    "user_defined_container_move": [
+      "06_01",
+      "06_03",
+      "06_04",
+      "06_05",
+      "06_08"
+    ],
+    "user_defined_reverse_dependency": [
+      "01_06",
+      "03_06",
+      "04_06",
+      "05_06",
+      "08_06"
+    ],
+    "new_goal_candidates": 8,
+    "instruction_variant_candidates": 5,
+    "total_candidates_for_review": 13
+  }
+}

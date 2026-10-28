@@ -1,0 +1,72 @@
+assumptions:
+- Project-authored extension; parameters are proposals, not measurements.
+- Native predicate, collision, release and protected actor checks must pass in each episode.
+- Runtime BDDL variant is recorded separately from the canonical LIBERO-10 task.
+case_id: libero-10-03-rollback-all_done-d0-pot-relations-s1-upright-restore
+completed_relations:
+- predicate: (on moka_pot_1 flat_stove_1_cook_region)
+  source_task_goal: true
+- predicate: (on moka_pot_2 flat_stove_1_cook_region)
+  source_task_goal: true
+dataset_version: 1.8.0
+expected_evaluation_semantics: relation_then_resume
+intervention_description: 'Task 03: both-goals-all-done; preserve the instruction and protected goals.'
+open_questions:
+- Episode-specific physical validity and predicate truth require simulation evidence.
+- All target predicates must be true then false; preserve every non-target native goal. Failed atomic
+  writes restore all simulator coordinates.
+- Joint resets are external endpoint interventions, not a claim of a collision-free continuous actuation
+  path.
+rollback_target:
+  state_change:
+    kind: restore_native_relation_set
+    relations:
+    - predicate:
+      - 'on'
+      - moka_pot_1
+      - flat_stove_1_cook_region
+      actor_role: subgoal_object_a
+      subgoal_id: moka_pot_1_on_stove
+      restore: episode_initial_pose
+    - predicate:
+      - 'on'
+      - moka_pot_2
+      - flat_stove_1_cook_region
+      actor_role: subgoal_object_b
+      subgoal_id: moka_pot_2_on_stove
+      restore: episode_initial_pose
+    velocity: zero
+scenario_type: completed_relation_rollback
+schema_version: libero-rollback.case.v1
+severity: d0
+severity_rationale: Mechanism label; concrete parameters are explicit and imply no model difficulty ranking.
+source:
+  case_reference: docs/expansion-plan.md / task 03 / both-goals-all-done
+  case_source_id: progress-failure-expansion-20261014
+  supporting_source_ids:
+  - scenario-timing-position-matrix-20260926
+  task_locator_source_id: full-suite-runtime-crosswalk-20261009
+  task_source_id: libero-plus-task-definitions-v1
+stage:
+  name: completion_boundary
+  description: All native goals hold before revocation; continue after success.
+task:
+  source_bddl: KITCHEN_SCENE8_put_both_moka_pots_on_the_stove.bddl
+  source_task_locator: T133
+  suite: LIBERO-10
+  task_id: libero_10/03
+  task_index: 3
+template_id: completed-relation-rollback/native-relation-set/v1
+trigger:
+  event: enter_next_subgoal_completed
+  time_point: all_done
+  delay_steps: 0
+  window: All native goals hold before revocation; continue after success.
+validity_constraints:
+- completed_relation_true_before_intervention
+- object_released_before_intervention
+- zero_velocity_after_intervention
+- no_object_penetration
+- task_remains_solvable
+- baseline_task_solvable
+- target_relation_false_after_intervention

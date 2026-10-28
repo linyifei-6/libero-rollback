@@ -1,0 +1,74 @@
+assumptions:
+- Project-authored extension; parameters are proposals, not measurements.
+- The basket is translated sideways (0.15 m along +y) while the second subgoal is under way; the magnitude
+  follows this task's already validated reference-object displacement, and the axis differs from the along-x
+  variant because a shorter +x translation penetrates a neighbouring object.
+- Moving the basket is expected to make the completed relation false; verified by preflight.
+- Native predicate, collision, release and protected actor checks must pass in each episode.
+case_id: libero-10-04-rollback-later-d0-soup-ref-moved-upright-v2-restore
+completed_relations:
+- selection_id: first_completed_basket_placement
+  selection_strategy: first_completed_subgoal_in_execution_order
+  candidates:
+  - predicate: (In alphabet_soup_1 basket_1_contain_region)
+    actor: alphabet_soup_1
+    source_task_goal: true
+  - predicate: (In cream_cheese_1 basket_1_contain_region)
+    actor: cream_cheese_1
+    source_task_goal: true
+dataset_version: 1.9.0
+expected_evaluation_semantics: relation_then_resume
+intervention_description: 'Task 04: translate the basket sideways (0.15 m along +y) while the second subgoal
+  is under way.'
+open_questions:
+- Native truth and penetration are verified by preflight.
+reference_role: failure
+rollback_target:
+  selection_id: first_completed_basket_placement
+  actor: selected_relation_actor
+  state_change:
+    kind: displace_reference_object
+    offset_frame: world
+    reference_role: basket_1
+    translation_m:
+    - 0.0
+    - 0.15
+    - 0.0
+    velocity: zero
+scenario_type: completed_relation_rollback
+schema_version: libero-rollback.case.v1
+severity: reference
+severity_rationale: 'Reference-object group. The relation''s other end moves instead of the revoked object,
+  which is why the paired control is required: the same translation applied to both ends must leave the
+  relation true.'
+source:
+  case_reference: matrix P2 reference object / task 04 / failure / mid
+  case_source_id: matrix-p2-reference-object-20261013
+  supporting_source_ids:
+  - scenario-timing-position-matrix-20260926
+  task_locator_source_id: full-suite-runtime-crosswalk-20261009
+  task_source_id: libero-plus-task-definitions-v1
+stage:
+  description: s2 is being executed; move the relation's other end (basket_1) at the mid window.
+  name: next_subgoal_approach
+task:
+  source_bddl: LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket_table_1.bddl
+  source_task_locator: T137
+  suite: LIBERO-10
+  task_id: libero_10/04
+  task_index: 4
+template_id: completed-relation-rollback/reference-object/v1
+trigger:
+  delay_steps: 0
+  event: enter_next_subgoal_lift
+  time_point: later
+  window: reference object ref-moved, mid
+validity_constraints:
+- completed_relation_true_before_intervention
+- object_released_before_intervention
+- zero_velocity_after_intervention
+- no_object_penetration
+- task_remains_solvable
+- baseline_task_solvable
+- reference_object_is_not_a_fixed_fixture
+- reference_motion_does_not_disturb_the_current_s2_object

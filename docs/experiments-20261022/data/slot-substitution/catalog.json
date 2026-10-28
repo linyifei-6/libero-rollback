@@ -1,0 +1,3250 @@
+{
+  "generator_version": "1.0.0",
+  "suite": "LIBERO_10",
+  "benchmark": "LIBERO_10",
+  "task_order_index": 0,
+  "method": "slot-substitution within the same LIBERO-10 scene",
+  "method_detail": "以源任务 bddl 为模板, 只替换 :goal / :language / :obj_of_interest; :regions/:fixtures/:objects/:init 逐字节保持; init 取源任务 .pruned_init 作为 sibling; 所有目标槽位只使用该场景已有 objects/regions/fixtures。",
+  "artifacts_dir": "/home/tarowang/workspace/roboot/libero-rollback/runs/expand-tasks-20261022/artifacts/slot-substitution",
+  "n_candidates": 45,
+  "n_candidates_target": 35,
+  "risk_counts": {
+    "low": 36,
+    "medium": 5,
+    "high": 4
+  },
+  "scene_counts": {
+    "LIVING_ROOM_SCENE2": 19,
+    "KITCHEN_SCENE3": 2,
+    "KITCHEN_SCENE4": 3,
+    "LIVING_ROOM_SCENE5": 5,
+    "STUDY_SCENE1": 4,
+    "LIVING_ROOM_SCENE6": 3,
+    "LIVING_ROOM_SCENE1": 5,
+    "KITCHEN_SCENE8": 2,
+    "KITCHEN_SCENE6": 2
+  },
+  "scene_summary": {
+    "LIVING_ROOM_SCENE2": {
+      "source_idx": 0,
+      "source_task": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+      "source_language": "put both the alphabet soup and the tomato sauce in the basket",
+      "n_candidates": 19,
+      "risk_counts": {
+        "low": 19
+      },
+      "candidate_ids": [
+        "lr2_soup_cheese",
+        "lr2_soup_ketchup",
+        "lr2_soup_juice",
+        "lr2_soup_milk",
+        "lr2_soup_butter",
+        "lr2_cheese_tomato",
+        "lr2_cheese_ketchup",
+        "lr2_cheese_juice",
+        "lr2_cheese_milk",
+        "lr2_tomato_ketchup",
+        "lr2_tomato_juice",
+        "lr2_tomato_milk",
+        "lr2_tomato_butter",
+        "lr2_ketchup_juice",
+        "lr2_ketchup_milk",
+        "lr2_ketchup_butter",
+        "lr2_juice_milk",
+        "lr2_juice_butter",
+        "lr2_milk_butter"
+      ]
+    },
+    "KITCHEN_SCENE3": {
+      "source_idx": 2,
+      "source_task": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it",
+      "source_language": "turn on the stove and put the moka pot on it",
+      "n_candidates": 2,
+      "risk_counts": {
+        "medium": 1,
+        "high": 1
+      },
+      "candidate_ids": [
+        "k3_frypan_on_stove",
+        "k3_moka_and_frypan_on_stove"
+      ]
+    },
+    "KITCHEN_SCENE4": {
+      "source_idx": 3,
+      "source_task": "KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it",
+      "source_language": "put the black bowl in the bottom drawer of the cabinet and close it",
+      "n_candidates": 3,
+      "risk_counts": {
+        "high": 2,
+        "medium": 1
+      },
+      "candidate_ids": [
+        "k4_wine_bottle_bottom_close",
+        "k4_bowl_middle_close",
+        "k4_wine_bottle_middle_close"
+      ]
+    },
+    "LIVING_ROOM_SCENE5": {
+      "source_idx": 4,
+      "source_task": "LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate",
+      "source_language": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "n_candidates": 5,
+      "risk_counts": {
+        "low": 5
+      },
+      "candidate_ids": [
+        "lr5_porcelain_left_red_right",
+        "lr5_red_left_porcelain_right",
+        "lr5_red_left_yellow_white_right",
+        "lr5_yellow_white_left_porcelain_right",
+        "lr5_yellow_white_left_red_right"
+      ]
+    },
+    "STUDY_SCENE1": {
+      "source_idx": 5,
+      "source_task": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy",
+      "source_language": "pick up the book and place it in the back compartment of the caddy",
+      "n_candidates": 4,
+      "risk_counts": {
+        "medium": 3,
+        "low": 1
+      },
+      "candidate_ids": [
+        "study_book_back_mug_right_comp",
+        "study_book_front_mug_left_comp",
+        "study_book_front_mug_right_comp",
+        "study_book_back_mug_table_right"
+      ]
+    },
+    "LIVING_ROOM_SCENE6": {
+      "source_idx": 6,
+      "source_task": "LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate",
+      "source_language": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "n_candidates": 3,
+      "risk_counts": {
+        "low": 3
+      },
+      "candidate_ids": [
+        "lr6_red_plate_pudding_right",
+        "lr6_white_plate_red_right",
+        "lr6_red_plate_white_right"
+      ]
+    },
+    "LIVING_ROOM_SCENE1": {
+      "source_idx": 7,
+      "source_task": "LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket",
+      "source_language": "put both the alphabet soup and the cream cheese box in the basket",
+      "n_candidates": 5,
+      "risk_counts": {
+        "low": 5
+      },
+      "candidate_ids": [
+        "lr1_soup_tomato",
+        "lr1_soup_ketchup",
+        "lr1_cheese_tomato",
+        "lr1_cheese_ketchup",
+        "lr1_tomato_ketchup"
+      ]
+    },
+    "KITCHEN_SCENE8": {
+      "source_idx": 8,
+      "source_task": "KITCHEN_SCENE8_put_both_moka_pots_on_the_stove",
+      "source_language": "put both moka pots on the stove",
+      "n_candidates": 2,
+      "risk_counts": {
+        "low": 2
+      },
+      "candidate_ids": [
+        "k8_right_pot_on_stove",
+        "k8_left_pot_on_stove"
+      ]
+    },
+    "KITCHEN_SCENE6": {
+      "source_idx": 9,
+      "source_task": "KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it",
+      "source_language": "put the yellow and white mug in the microwave and close it",
+      "n_candidates": 2,
+      "risk_counts": {
+        "low": 1,
+        "high": 1
+      },
+      "candidate_ids": [
+        "k6_porcelain_mug_microwave_close",
+        "k6_both_mugs_microwave_close"
+      ]
+    }
+  },
+  "screening_order": {
+    "phase_a_scene_representatives": [
+      "lr2_soup_cheese",
+      "k3_frypan_on_stove",
+      "k4_bowl_middle_close",
+      "lr5_porcelain_left_red_right",
+      "study_book_back_mug_table_right",
+      "lr6_red_plate_pudding_right",
+      "lr1_soup_tomato",
+      "k8_right_pot_on_stove",
+      "k6_porcelain_mug_microwave_close"
+    ],
+    "phase_b_low_risk_remaining": [
+      "lr2_soup_ketchup",
+      "lr2_soup_juice",
+      "lr2_soup_milk",
+      "lr2_soup_butter",
+      "lr2_cheese_tomato",
+      "lr2_cheese_ketchup",
+      "lr2_cheese_juice",
+      "lr2_cheese_milk",
+      "lr2_tomato_ketchup",
+      "lr2_tomato_juice",
+      "lr2_tomato_milk",
+      "lr2_tomato_butter",
+      "lr2_ketchup_juice",
+      "lr2_ketchup_milk",
+      "lr2_ketchup_butter",
+      "lr2_juice_milk",
+      "lr2_juice_butter",
+      "lr2_milk_butter",
+      "lr1_soup_ketchup",
+      "lr1_cheese_tomato",
+      "lr1_cheese_ketchup",
+      "lr1_tomato_ketchup",
+      "lr5_red_left_porcelain_right",
+      "lr5_red_left_yellow_white_right",
+      "lr5_yellow_white_left_porcelain_right",
+      "lr5_yellow_white_left_red_right",
+      "lr6_white_plate_red_right",
+      "lr6_red_plate_white_right",
+      "k8_left_pot_on_stove"
+    ],
+    "phase_c_medium_risk_remaining": [
+      "study_book_back_mug_right_comp",
+      "study_book_front_mug_left_comp",
+      "study_book_front_mug_right_comp"
+    ],
+    "phase_d_high_risk": [
+      "k3_moka_and_frypan_on_stove",
+      "k4_wine_bottle_bottom_close",
+      "k4_wine_bottle_middle_close",
+      "k6_both_mugs_microwave_close"
+    ],
+    "ordered_candidate_ids": [
+      "lr2_soup_cheese",
+      "k3_frypan_on_stove",
+      "k4_bowl_middle_close",
+      "lr5_porcelain_left_red_right",
+      "study_book_back_mug_table_right",
+      "lr6_red_plate_pudding_right",
+      "lr1_soup_tomato",
+      "k8_right_pot_on_stove",
+      "k6_porcelain_mug_microwave_close",
+      "lr2_soup_ketchup",
+      "lr2_soup_juice",
+      "lr2_soup_milk",
+      "lr2_soup_butter",
+      "lr2_cheese_tomato",
+      "lr2_cheese_ketchup",
+      "lr2_cheese_juice",
+      "lr2_cheese_milk",
+      "lr2_tomato_ketchup",
+      "lr2_tomato_juice",
+      "lr2_tomato_milk",
+      "lr2_tomato_butter",
+      "lr2_ketchup_juice",
+      "lr2_ketchup_milk",
+      "lr2_ketchup_butter",
+      "lr2_juice_milk",
+      "lr2_juice_butter",
+      "lr2_milk_butter",
+      "lr1_soup_ketchup",
+      "lr1_cheese_tomato",
+      "lr1_cheese_ketchup",
+      "lr1_tomato_ketchup",
+      "lr5_red_left_porcelain_right",
+      "lr5_red_left_yellow_white_right",
+      "lr5_yellow_white_left_porcelain_right",
+      "lr5_yellow_white_left_red_right",
+      "lr6_white_plate_red_right",
+      "lr6_red_plate_white_right",
+      "k8_left_pot_on_stove",
+      "study_book_back_mug_right_comp",
+      "study_book_front_mug_left_comp",
+      "study_book_front_mug_right_comp",
+      "k3_moka_and_frypan_on_stove",
+      "k4_wine_bottle_bottom_close",
+      "k4_wine_bottle_middle_close",
+      "k6_both_mugs_microwave_close"
+    ]
+  },
+  "source_tasks": [
+    {
+      "idx": 0,
+      "name": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+      "language": "put both the alphabet soup and the tomato sauce in the basket",
+      "goal_state": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "obj_of_interest": [
+        "alphabet_soup_1",
+        "tomato_sauce_1",
+        "basket_1"
+      ],
+      "init_filename": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.pruned_init",
+      "init_shape": [
+        50,
+        123
+      ],
+      "bddl_path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.bddl",
+      "init_path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.pruned_init"
+    },
+    {
+      "idx": 1,
+      "name": "LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket",
+      "language": "put both the cream cheese box and the butter in the basket",
+      "goal_state": [
+        [
+          "in",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "butter_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "obj_of_interest": [
+        "cream_cheese_1",
+        "butter_1",
+        "basket_1"
+      ],
+      "init_filename": "LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket.pruned_init",
+      "init_shape": [
+        50,
+        123
+      ],
+      "bddl_path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket.bddl",
+      "init_path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket.pruned_init"
+    },
+    {
+      "idx": 2,
+      "name": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it",
+      "language": "turn on the stove and put the moka pot on it",
+      "goal_state": [
+        [
+          "turnon",
+          "flat_stove_1"
+        ],
+        [
+          "on",
+          "moka_pot_1",
+          "flat_stove_1_cook_region"
+        ]
+      ],
+      "obj_of_interest": [
+        "moka_pot_1",
+        "flat_stove_1"
+      ],
+      "init_filename": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it.pruned_init",
+      "init_shape": [
+        50,
+        47
+      ],
+      "bddl_path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it.bddl",
+      "init_path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it.pruned_init"
+    },
+    {
+      "idx": 3,
+      "name": "KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it",
+      "language": "put the black bowl in the bottom drawer of the cabinet and close it",
+      "goal_state": [
+        [
+          "close",
+          "white_cabinet_1_bottom_region"
+        ],
+        [
+          "in",
+          "akita_black_bowl_1",
+          "white_cabinet_1_bottom_region"
+        ]
+      ],
+      "obj_of_interest": [
+        "akita_black_bowl_1",
+        "white_cabinet_1"
+      ],
+      "init_filename": "KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.pruned_init",
+      "init_shape": [
+        50,
+        51
+      ],
+      "bddl_path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.bddl",
+      "init_path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.pruned_init"
+    },
+    {
+      "idx": 4,
+      "name": "LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate",
+      "language": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "goal_state": [
+        [
+          "on",
+          "porcelain_mug_1",
+          "plate_1"
+        ],
+        [
+          "on",
+          "white_yellow_mug_1",
+          "plate_2"
+        ]
+      ],
+      "obj_of_interest": [
+        "plate_1",
+        "plate_2",
+        "white_yellow_mug_1",
+        "porcelain_mug_1"
+      ],
+      "init_filename": "LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.pruned_init",
+      "init_shape": [
+        50,
+        84
+      ],
+      "bddl_path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.bddl",
+      "init_path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.pruned_init"
+    },
+    {
+      "idx": 5,
+      "name": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy",
+      "language": "pick up the book and place it in the back compartment of the caddy",
+      "goal_state": [
+        [
+          "in",
+          "black_book_1",
+          "desk_caddy_1_back_contain_region"
+        ]
+      ],
+      "obj_of_interest": [
+        "black_book_1",
+        "desk_caddy_1"
+      ],
+      "init_filename": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.pruned_init",
+      "init_shape": [
+        50,
+        45
+      ],
+      "bddl_path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.bddl",
+      "init_path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.pruned_init"
+    },
+    {
+      "idx": 6,
+      "name": "LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate",
+      "language": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "goal_state": [
+        [
+          "on",
+          "porcelain_mug_1",
+          "plate_1"
+        ],
+        [
+          "on",
+          "chocolate_pudding_1",
+          "living_room_table_plate_right_region"
+        ]
+      ],
+      "obj_of_interest": [
+        "plate_1",
+        "chocolate_pudding_1",
+        "porcelain_mug_1"
+      ],
+      "init_filename": "LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.pruned_init",
+      "init_shape": [
+        50,
+        71
+      ],
+      "bddl_path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.bddl",
+      "init_path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.pruned_init"
+    },
+    {
+      "idx": 7,
+      "name": "LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket",
+      "language": "put both the alphabet soup and the cream cheese box in the basket",
+      "goal_state": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "obj_of_interest": [
+        "alphabet_soup_1",
+        "cream_cheese_1",
+        "basket_1"
+      ],
+      "init_filename": "LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.pruned_init",
+      "init_shape": [
+        50,
+        84
+      ],
+      "bddl_path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.bddl",
+      "init_path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.pruned_init"
+    },
+    {
+      "idx": 8,
+      "name": "KITCHEN_SCENE8_put_both_moka_pots_on_the_stove",
+      "language": "put both moka pots on the stove",
+      "goal_state": [
+        [
+          "on",
+          "moka_pot_1",
+          "flat_stove_1_cook_region"
+        ],
+        [
+          "on",
+          "moka_pot_2",
+          "flat_stove_1_cook_region"
+        ],
+        [
+          "turnon",
+          "flat_stove_1"
+        ]
+      ],
+      "obj_of_interest": [
+        "moka_pot_1",
+        "moka_pot_2",
+        "flat_stove_1"
+      ],
+      "init_filename": "KITCHEN_SCENE8_put_both_moka_pots_on_the_stove.pruned_init",
+      "init_shape": [
+        50,
+        47
+      ],
+      "bddl_path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/KITCHEN_SCENE8_put_both_moka_pots_on_the_stove.bddl",
+      "init_path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/KITCHEN_SCENE8_put_both_moka_pots_on_the_stove.pruned_init"
+    },
+    {
+      "idx": 9,
+      "name": "KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it",
+      "language": "put the yellow and white mug in the microwave and close it",
+      "goal_state": [
+        [
+          "in",
+          "white_yellow_mug_1",
+          "microwave_1_heating_region"
+        ],
+        [
+          "close",
+          "microwave_1"
+        ]
+      ],
+      "obj_of_interest": [
+        "white_yellow_mug_1",
+        "microwave_1"
+      ],
+      "init_filename": "KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it.pruned_init",
+      "init_shape": [
+        50,
+        47
+      ],
+      "bddl_path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it.bddl",
+      "init_path": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it.pruned_init"
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "lr2_soup_cheese",
+      "scene": "LIVING_ROOM_SCENE2",
+      "source_idx": 0,
+      "source_task": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+      "source_language": "put both the alphabet soup and the tomato sauce in the basket",
+      "source_goal_state": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.pruned_init",
+      "init_source_filename": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.pruned_init",
+      "goal_atoms": [
+        "(In alphabet_soup_1 basket_1_contain_region)",
+        "(In cream_cheese_1 basket_1_contain_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "put both the alphabet soup and the cream cheese box in the basket",
+      "subtasks": [
+        "put the alphabet soup in the basket",
+        "put the cream cheese box in the basket"
+      ],
+      "obj_of_interest": [
+        "alphabet_soup_1",
+        "cream_cheese_1",
+        "basket_1"
+      ],
+      "risk": "low",
+      "risk_reason": "与两条原任务完全同构（两种 grocery → basket）: 物体均为场景原生 grocery, basket_1_contain_region 与 In predicate 均已在原任务中训练; 仅替换被放入的物体槽位。 本场景 8 物体中 2 条原任务已覆盖, 其余为同构新组合。",
+      "artifacts": {
+        "bddl": "bddl/lr2_soup_cheese.bddl",
+        "init": "bddl/lr2_soup_cheese.pruned_init"
+      },
+      "sha256": {
+        "bddl": "66d1e0e0af4217cb693472ca157cd6f04894dd858ebb6ca6d7d03b2f810cb841",
+        "init": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030",
+        "init_source": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030"
+      }
+    },
+    {
+      "candidate_id": "lr2_soup_ketchup",
+      "scene": "LIVING_ROOM_SCENE2",
+      "source_idx": 0,
+      "source_task": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+      "source_language": "put both the alphabet soup and the tomato sauce in the basket",
+      "source_goal_state": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.pruned_init",
+      "init_source_filename": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.pruned_init",
+      "goal_atoms": [
+        "(In alphabet_soup_1 basket_1_contain_region)",
+        "(In ketchup_1 basket_1_contain_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "ketchup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "put both the alphabet soup and the ketchup in the basket",
+      "subtasks": [
+        "put the alphabet soup in the basket",
+        "put the ketchup in the basket"
+      ],
+      "obj_of_interest": [
+        "alphabet_soup_1",
+        "ketchup_1",
+        "basket_1"
+      ],
+      "risk": "low",
+      "risk_reason": "与两条原任务完全同构（两种 grocery → basket）: 物体均为场景原生 grocery, basket_1_contain_region 与 In predicate 均已在原任务中训练; 仅替换被放入的物体槽位。 本场景 8 物体中 2 条原任务已覆盖, 其余为同构新组合。",
+      "artifacts": {
+        "bddl": "bddl/lr2_soup_ketchup.bddl",
+        "init": "bddl/lr2_soup_ketchup.pruned_init"
+      },
+      "sha256": {
+        "bddl": "9699732052acc3bb7fabfe1e764ed3da8205d4e67a22911ca4a0004f609129ec",
+        "init": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030",
+        "init_source": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030"
+      }
+    },
+    {
+      "candidate_id": "lr2_soup_juice",
+      "scene": "LIVING_ROOM_SCENE2",
+      "source_idx": 0,
+      "source_task": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+      "source_language": "put both the alphabet soup and the tomato sauce in the basket",
+      "source_goal_state": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.pruned_init",
+      "init_source_filename": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.pruned_init",
+      "goal_atoms": [
+        "(In alphabet_soup_1 basket_1_contain_region)",
+        "(In orange_juice_1 basket_1_contain_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "orange_juice_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "put both the alphabet soup and the orange juice in the basket",
+      "subtasks": [
+        "put the alphabet soup in the basket",
+        "put the orange juice in the basket"
+      ],
+      "obj_of_interest": [
+        "alphabet_soup_1",
+        "orange_juice_1",
+        "basket_1"
+      ],
+      "risk": "low",
+      "risk_reason": "与两条原任务完全同构（两种 grocery → basket）: 物体均为场景原生 grocery, basket_1_contain_region 与 In predicate 均已在原任务中训练; 仅替换被放入的物体槽位。 本场景 8 物体中 2 条原任务已覆盖, 其余为同构新组合。",
+      "artifacts": {
+        "bddl": "bddl/lr2_soup_juice.bddl",
+        "init": "bddl/lr2_soup_juice.pruned_init"
+      },
+      "sha256": {
+        "bddl": "0a9025bf02c11f494df08934c7d5741295ddba1b63c15a5b93c1aa5b39466b3b",
+        "init": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030",
+        "init_source": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030"
+      }
+    },
+    {
+      "candidate_id": "lr2_soup_milk",
+      "scene": "LIVING_ROOM_SCENE2",
+      "source_idx": 0,
+      "source_task": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+      "source_language": "put both the alphabet soup and the tomato sauce in the basket",
+      "source_goal_state": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.pruned_init",
+      "init_source_filename": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.pruned_init",
+      "goal_atoms": [
+        "(In alphabet_soup_1 basket_1_contain_region)",
+        "(In milk_1 basket_1_contain_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "milk_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "put both the alphabet soup and the milk in the basket",
+      "subtasks": [
+        "put the alphabet soup in the basket",
+        "put the milk in the basket"
+      ],
+      "obj_of_interest": [
+        "alphabet_soup_1",
+        "milk_1",
+        "basket_1"
+      ],
+      "risk": "low",
+      "risk_reason": "与两条原任务完全同构（两种 grocery → basket）: 物体均为场景原生 grocery, basket_1_contain_region 与 In predicate 均已在原任务中训练; 仅替换被放入的物体槽位。 本场景 8 物体中 2 条原任务已覆盖, 其余为同构新组合。",
+      "artifacts": {
+        "bddl": "bddl/lr2_soup_milk.bddl",
+        "init": "bddl/lr2_soup_milk.pruned_init"
+      },
+      "sha256": {
+        "bddl": "a8155aefff55e3f1b35066e07533c1433963a579d6b58b064a8dfea558a845db",
+        "init": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030",
+        "init_source": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030"
+      }
+    },
+    {
+      "candidate_id": "lr2_soup_butter",
+      "scene": "LIVING_ROOM_SCENE2",
+      "source_idx": 0,
+      "source_task": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+      "source_language": "put both the alphabet soup and the tomato sauce in the basket",
+      "source_goal_state": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.pruned_init",
+      "init_source_filename": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.pruned_init",
+      "goal_atoms": [
+        "(In alphabet_soup_1 basket_1_contain_region)",
+        "(In butter_1 basket_1_contain_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "butter_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "put both the alphabet soup and the butter in the basket",
+      "subtasks": [
+        "put the alphabet soup in the basket",
+        "put the butter in the basket"
+      ],
+      "obj_of_interest": [
+        "alphabet_soup_1",
+        "butter_1",
+        "basket_1"
+      ],
+      "risk": "low",
+      "risk_reason": "与两条原任务完全同构（两种 grocery → basket）: 物体均为场景原生 grocery, basket_1_contain_region 与 In predicate 均已在原任务中训练; 仅替换被放入的物体槽位。 本场景 8 物体中 2 条原任务已覆盖, 其余为同构新组合。",
+      "artifacts": {
+        "bddl": "bddl/lr2_soup_butter.bddl",
+        "init": "bddl/lr2_soup_butter.pruned_init"
+      },
+      "sha256": {
+        "bddl": "d3022cbc252977c6383d638f8cbe863609094a52fae13ec2b87c20d7fe596ae4",
+        "init": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030",
+        "init_source": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030"
+      }
+    },
+    {
+      "candidate_id": "lr2_cheese_tomato",
+      "scene": "LIVING_ROOM_SCENE2",
+      "source_idx": 0,
+      "source_task": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+      "source_language": "put both the alphabet soup and the tomato sauce in the basket",
+      "source_goal_state": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.pruned_init",
+      "init_source_filename": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.pruned_init",
+      "goal_atoms": [
+        "(In cream_cheese_1 basket_1_contain_region)",
+        "(In tomato_sauce_1 basket_1_contain_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "in",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "put both the cream cheese box and the tomato sauce in the basket",
+      "subtasks": [
+        "put the cream cheese box in the basket",
+        "put the tomato sauce in the basket"
+      ],
+      "obj_of_interest": [
+        "cream_cheese_1",
+        "tomato_sauce_1",
+        "basket_1"
+      ],
+      "risk": "low",
+      "risk_reason": "与两条原任务完全同构（两种 grocery → basket）: 物体均为场景原生 grocery, basket_1_contain_region 与 In predicate 均已在原任务中训练; 仅替换被放入的物体槽位。 本场景 8 物体中 2 条原任务已覆盖, 其余为同构新组合。",
+      "artifacts": {
+        "bddl": "bddl/lr2_cheese_tomato.bddl",
+        "init": "bddl/lr2_cheese_tomato.pruned_init"
+      },
+      "sha256": {
+        "bddl": "f7347998e70ed84a232a7f148e80f5a9aa78c7c334e8f4f414b47779ca16b5e0",
+        "init": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030",
+        "init_source": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030"
+      }
+    },
+    {
+      "candidate_id": "lr2_cheese_ketchup",
+      "scene": "LIVING_ROOM_SCENE2",
+      "source_idx": 0,
+      "source_task": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+      "source_language": "put both the alphabet soup and the tomato sauce in the basket",
+      "source_goal_state": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.pruned_init",
+      "init_source_filename": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.pruned_init",
+      "goal_atoms": [
+        "(In cream_cheese_1 basket_1_contain_region)",
+        "(In ketchup_1 basket_1_contain_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "in",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "ketchup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "put both the cream cheese box and the ketchup in the basket",
+      "subtasks": [
+        "put the cream cheese box in the basket",
+        "put the ketchup in the basket"
+      ],
+      "obj_of_interest": [
+        "cream_cheese_1",
+        "ketchup_1",
+        "basket_1"
+      ],
+      "risk": "low",
+      "risk_reason": "与两条原任务完全同构（两种 grocery → basket）: 物体均为场景原生 grocery, basket_1_contain_region 与 In predicate 均已在原任务中训练; 仅替换被放入的物体槽位。 本场景 8 物体中 2 条原任务已覆盖, 其余为同构新组合。",
+      "artifacts": {
+        "bddl": "bddl/lr2_cheese_ketchup.bddl",
+        "init": "bddl/lr2_cheese_ketchup.pruned_init"
+      },
+      "sha256": {
+        "bddl": "c67a891b8743bd338fcd32f834e138ce37f86018e17811cf4c595fa3c9093166",
+        "init": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030",
+        "init_source": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030"
+      }
+    },
+    {
+      "candidate_id": "lr2_cheese_juice",
+      "scene": "LIVING_ROOM_SCENE2",
+      "source_idx": 0,
+      "source_task": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+      "source_language": "put both the alphabet soup and the tomato sauce in the basket",
+      "source_goal_state": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.pruned_init",
+      "init_source_filename": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.pruned_init",
+      "goal_atoms": [
+        "(In cream_cheese_1 basket_1_contain_region)",
+        "(In orange_juice_1 basket_1_contain_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "in",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "orange_juice_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "put both the cream cheese box and the orange juice in the basket",
+      "subtasks": [
+        "put the cream cheese box in the basket",
+        "put the orange juice in the basket"
+      ],
+      "obj_of_interest": [
+        "cream_cheese_1",
+        "orange_juice_1",
+        "basket_1"
+      ],
+      "risk": "low",
+      "risk_reason": "与两条原任务完全同构（两种 grocery → basket）: 物体均为场景原生 grocery, basket_1_contain_region 与 In predicate 均已在原任务中训练; 仅替换被放入的物体槽位。 本场景 8 物体中 2 条原任务已覆盖, 其余为同构新组合。",
+      "artifacts": {
+        "bddl": "bddl/lr2_cheese_juice.bddl",
+        "init": "bddl/lr2_cheese_juice.pruned_init"
+      },
+      "sha256": {
+        "bddl": "e99b98ea4a13322f5d7f5a42fe6ce0d4538a5cb157c65024b278c8beb478d985",
+        "init": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030",
+        "init_source": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030"
+      }
+    },
+    {
+      "candidate_id": "lr2_cheese_milk",
+      "scene": "LIVING_ROOM_SCENE2",
+      "source_idx": 0,
+      "source_task": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+      "source_language": "put both the alphabet soup and the tomato sauce in the basket",
+      "source_goal_state": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.pruned_init",
+      "init_source_filename": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.pruned_init",
+      "goal_atoms": [
+        "(In cream_cheese_1 basket_1_contain_region)",
+        "(In milk_1 basket_1_contain_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "in",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "milk_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "put both the cream cheese box and the milk in the basket",
+      "subtasks": [
+        "put the cream cheese box in the basket",
+        "put the milk in the basket"
+      ],
+      "obj_of_interest": [
+        "cream_cheese_1",
+        "milk_1",
+        "basket_1"
+      ],
+      "risk": "low",
+      "risk_reason": "与两条原任务完全同构（两种 grocery → basket）: 物体均为场景原生 grocery, basket_1_contain_region 与 In predicate 均已在原任务中训练; 仅替换被放入的物体槽位。 本场景 8 物体中 2 条原任务已覆盖, 其余为同构新组合。",
+      "artifacts": {
+        "bddl": "bddl/lr2_cheese_milk.bddl",
+        "init": "bddl/lr2_cheese_milk.pruned_init"
+      },
+      "sha256": {
+        "bddl": "9df1f0b3b61967e62351ee97c37d848380838ebcb1b696d35d534c6a9027e482",
+        "init": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030",
+        "init_source": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030"
+      }
+    },
+    {
+      "candidate_id": "lr2_tomato_ketchup",
+      "scene": "LIVING_ROOM_SCENE2",
+      "source_idx": 0,
+      "source_task": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+      "source_language": "put both the alphabet soup and the tomato sauce in the basket",
+      "source_goal_state": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.pruned_init",
+      "init_source_filename": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.pruned_init",
+      "goal_atoms": [
+        "(In tomato_sauce_1 basket_1_contain_region)",
+        "(In ketchup_1 basket_1_contain_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "ketchup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "put both the tomato sauce and the ketchup in the basket",
+      "subtasks": [
+        "put the tomato sauce in the basket",
+        "put the ketchup in the basket"
+      ],
+      "obj_of_interest": [
+        "tomato_sauce_1",
+        "ketchup_1",
+        "basket_1"
+      ],
+      "risk": "low",
+      "risk_reason": "与两条原任务完全同构（两种 grocery → basket）: 物体均为场景原生 grocery, basket_1_contain_region 与 In predicate 均已在原任务中训练; 仅替换被放入的物体槽位。 本场景 8 物体中 2 条原任务已覆盖, 其余为同构新组合。",
+      "artifacts": {
+        "bddl": "bddl/lr2_tomato_ketchup.bddl",
+        "init": "bddl/lr2_tomato_ketchup.pruned_init"
+      },
+      "sha256": {
+        "bddl": "2fd28cb98a5fadc7d8f4a7e4d0f11e5e1e8331b3610c0d6e1d761ed500b7b73f",
+        "init": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030",
+        "init_source": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030"
+      }
+    },
+    {
+      "candidate_id": "lr2_tomato_juice",
+      "scene": "LIVING_ROOM_SCENE2",
+      "source_idx": 0,
+      "source_task": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+      "source_language": "put both the alphabet soup and the tomato sauce in the basket",
+      "source_goal_state": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.pruned_init",
+      "init_source_filename": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.pruned_init",
+      "goal_atoms": [
+        "(In tomato_sauce_1 basket_1_contain_region)",
+        "(In orange_juice_1 basket_1_contain_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "orange_juice_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "put both the tomato sauce and the orange juice in the basket",
+      "subtasks": [
+        "put the tomato sauce in the basket",
+        "put the orange juice in the basket"
+      ],
+      "obj_of_interest": [
+        "tomato_sauce_1",
+        "orange_juice_1",
+        "basket_1"
+      ],
+      "risk": "low",
+      "risk_reason": "与两条原任务完全同构（两种 grocery → basket）: 物体均为场景原生 grocery, basket_1_contain_region 与 In predicate 均已在原任务中训练; 仅替换被放入的物体槽位。 本场景 8 物体中 2 条原任务已覆盖, 其余为同构新组合。",
+      "artifacts": {
+        "bddl": "bddl/lr2_tomato_juice.bddl",
+        "init": "bddl/lr2_tomato_juice.pruned_init"
+      },
+      "sha256": {
+        "bddl": "35f635a146d601e33fc5cab4e107ce5cd304daa18287253a1a7dfd0f4a5bfdb6",
+        "init": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030",
+        "init_source": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030"
+      }
+    },
+    {
+      "candidate_id": "lr2_tomato_milk",
+      "scene": "LIVING_ROOM_SCENE2",
+      "source_idx": 0,
+      "source_task": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+      "source_language": "put both the alphabet soup and the tomato sauce in the basket",
+      "source_goal_state": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.pruned_init",
+      "init_source_filename": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.pruned_init",
+      "goal_atoms": [
+        "(In tomato_sauce_1 basket_1_contain_region)",
+        "(In milk_1 basket_1_contain_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "milk_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "put both the tomato sauce and the milk in the basket",
+      "subtasks": [
+        "put the tomato sauce in the basket",
+        "put the milk in the basket"
+      ],
+      "obj_of_interest": [
+        "tomato_sauce_1",
+        "milk_1",
+        "basket_1"
+      ],
+      "risk": "low",
+      "risk_reason": "与两条原任务完全同构（两种 grocery → basket）: 物体均为场景原生 grocery, basket_1_contain_region 与 In predicate 均已在原任务中训练; 仅替换被放入的物体槽位。 本场景 8 物体中 2 条原任务已覆盖, 其余为同构新组合。",
+      "artifacts": {
+        "bddl": "bddl/lr2_tomato_milk.bddl",
+        "init": "bddl/lr2_tomato_milk.pruned_init"
+      },
+      "sha256": {
+        "bddl": "0b66888b48971363aa2e45568404179d5c876dbe06ff04253920bdd1fe74adaf",
+        "init": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030",
+        "init_source": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030"
+      }
+    },
+    {
+      "candidate_id": "lr2_tomato_butter",
+      "scene": "LIVING_ROOM_SCENE2",
+      "source_idx": 0,
+      "source_task": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+      "source_language": "put both the alphabet soup and the tomato sauce in the basket",
+      "source_goal_state": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.pruned_init",
+      "init_source_filename": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.pruned_init",
+      "goal_atoms": [
+        "(In tomato_sauce_1 basket_1_contain_region)",
+        "(In butter_1 basket_1_contain_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "butter_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "put both the tomato sauce and the butter in the basket",
+      "subtasks": [
+        "put the tomato sauce in the basket",
+        "put the butter in the basket"
+      ],
+      "obj_of_interest": [
+        "tomato_sauce_1",
+        "butter_1",
+        "basket_1"
+      ],
+      "risk": "low",
+      "risk_reason": "与两条原任务完全同构（两种 grocery → basket）: 物体均为场景原生 grocery, basket_1_contain_region 与 In predicate 均已在原任务中训练; 仅替换被放入的物体槽位。 本场景 8 物体中 2 条原任务已覆盖, 其余为同构新组合。",
+      "artifacts": {
+        "bddl": "bddl/lr2_tomato_butter.bddl",
+        "init": "bddl/lr2_tomato_butter.pruned_init"
+      },
+      "sha256": {
+        "bddl": "bca921cfde7c80ee5f78c347dbca64eb8f598c8e5ac6b6f3ccc401b91ef47572",
+        "init": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030",
+        "init_source": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030"
+      }
+    },
+    {
+      "candidate_id": "lr2_ketchup_juice",
+      "scene": "LIVING_ROOM_SCENE2",
+      "source_idx": 0,
+      "source_task": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+      "source_language": "put both the alphabet soup and the tomato sauce in the basket",
+      "source_goal_state": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.pruned_init",
+      "init_source_filename": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.pruned_init",
+      "goal_atoms": [
+        "(In ketchup_1 basket_1_contain_region)",
+        "(In orange_juice_1 basket_1_contain_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "in",
+          "ketchup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "orange_juice_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "put both the ketchup and the orange juice in the basket",
+      "subtasks": [
+        "put the ketchup in the basket",
+        "put the orange juice in the basket"
+      ],
+      "obj_of_interest": [
+        "ketchup_1",
+        "orange_juice_1",
+        "basket_1"
+      ],
+      "risk": "low",
+      "risk_reason": "与两条原任务完全同构（两种 grocery → basket）: 物体均为场景原生 grocery, basket_1_contain_region 与 In predicate 均已在原任务中训练; 仅替换被放入的物体槽位。 本场景 8 物体中 2 条原任务已覆盖, 其余为同构新组合。",
+      "artifacts": {
+        "bddl": "bddl/lr2_ketchup_juice.bddl",
+        "init": "bddl/lr2_ketchup_juice.pruned_init"
+      },
+      "sha256": {
+        "bddl": "b686f1f7b6fd5fdddc9b2f47f0413dfcaa6082fae0c2cb943d1ff6cfe36f1d55",
+        "init": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030",
+        "init_source": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030"
+      }
+    },
+    {
+      "candidate_id": "lr2_ketchup_milk",
+      "scene": "LIVING_ROOM_SCENE2",
+      "source_idx": 0,
+      "source_task": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+      "source_language": "put both the alphabet soup and the tomato sauce in the basket",
+      "source_goal_state": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.pruned_init",
+      "init_source_filename": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.pruned_init",
+      "goal_atoms": [
+        "(In ketchup_1 basket_1_contain_region)",
+        "(In milk_1 basket_1_contain_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "in",
+          "ketchup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "milk_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "put both the ketchup and the milk in the basket",
+      "subtasks": [
+        "put the ketchup in the basket",
+        "put the milk in the basket"
+      ],
+      "obj_of_interest": [
+        "ketchup_1",
+        "milk_1",
+        "basket_1"
+      ],
+      "risk": "low",
+      "risk_reason": "与两条原任务完全同构（两种 grocery → basket）: 物体均为场景原生 grocery, basket_1_contain_region 与 In predicate 均已在原任务中训练; 仅替换被放入的物体槽位。 本场景 8 物体中 2 条原任务已覆盖, 其余为同构新组合。",
+      "artifacts": {
+        "bddl": "bddl/lr2_ketchup_milk.bddl",
+        "init": "bddl/lr2_ketchup_milk.pruned_init"
+      },
+      "sha256": {
+        "bddl": "3013dfaae6ff65f89409dfe1b15411c095a11e307f32fdc2954294ee12bfa530",
+        "init": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030",
+        "init_source": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030"
+      }
+    },
+    {
+      "candidate_id": "lr2_ketchup_butter",
+      "scene": "LIVING_ROOM_SCENE2",
+      "source_idx": 0,
+      "source_task": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+      "source_language": "put both the alphabet soup and the tomato sauce in the basket",
+      "source_goal_state": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.pruned_init",
+      "init_source_filename": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.pruned_init",
+      "goal_atoms": [
+        "(In ketchup_1 basket_1_contain_region)",
+        "(In butter_1 basket_1_contain_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "in",
+          "ketchup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "butter_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "put both the ketchup and the butter in the basket",
+      "subtasks": [
+        "put the ketchup in the basket",
+        "put the butter in the basket"
+      ],
+      "obj_of_interest": [
+        "ketchup_1",
+        "butter_1",
+        "basket_1"
+      ],
+      "risk": "low",
+      "risk_reason": "与两条原任务完全同构（两种 grocery → basket）: 物体均为场景原生 grocery, basket_1_contain_region 与 In predicate 均已在原任务中训练; 仅替换被放入的物体槽位。 本场景 8 物体中 2 条原任务已覆盖, 其余为同构新组合。",
+      "artifacts": {
+        "bddl": "bddl/lr2_ketchup_butter.bddl",
+        "init": "bddl/lr2_ketchup_butter.pruned_init"
+      },
+      "sha256": {
+        "bddl": "9440b4d7a10538259bdc51bb21b2748df952d0270c6a017d87728820fbcdc8de",
+        "init": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030",
+        "init_source": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030"
+      }
+    },
+    {
+      "candidate_id": "lr2_juice_milk",
+      "scene": "LIVING_ROOM_SCENE2",
+      "source_idx": 0,
+      "source_task": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+      "source_language": "put both the alphabet soup and the tomato sauce in the basket",
+      "source_goal_state": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.pruned_init",
+      "init_source_filename": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.pruned_init",
+      "goal_atoms": [
+        "(In orange_juice_1 basket_1_contain_region)",
+        "(In milk_1 basket_1_contain_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "in",
+          "orange_juice_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "milk_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "put both the orange juice and the milk in the basket",
+      "subtasks": [
+        "put the orange juice in the basket",
+        "put the milk in the basket"
+      ],
+      "obj_of_interest": [
+        "orange_juice_1",
+        "milk_1",
+        "basket_1"
+      ],
+      "risk": "low",
+      "risk_reason": "与两条原任务完全同构（两种 grocery → basket）: 物体均为场景原生 grocery, basket_1_contain_region 与 In predicate 均已在原任务中训练; 仅替换被放入的物体槽位。 本场景 8 物体中 2 条原任务已覆盖, 其余为同构新组合。",
+      "artifacts": {
+        "bddl": "bddl/lr2_juice_milk.bddl",
+        "init": "bddl/lr2_juice_milk.pruned_init"
+      },
+      "sha256": {
+        "bddl": "374da6ca193f7c465af71724c1308d5118588d87f09b9c3dc7b08f7ea45c67fd",
+        "init": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030",
+        "init_source": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030"
+      }
+    },
+    {
+      "candidate_id": "lr2_juice_butter",
+      "scene": "LIVING_ROOM_SCENE2",
+      "source_idx": 0,
+      "source_task": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+      "source_language": "put both the alphabet soup and the tomato sauce in the basket",
+      "source_goal_state": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.pruned_init",
+      "init_source_filename": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.pruned_init",
+      "goal_atoms": [
+        "(In orange_juice_1 basket_1_contain_region)",
+        "(In butter_1 basket_1_contain_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "in",
+          "orange_juice_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "butter_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "put both the orange juice and the butter in the basket",
+      "subtasks": [
+        "put the orange juice in the basket",
+        "put the butter in the basket"
+      ],
+      "obj_of_interest": [
+        "orange_juice_1",
+        "butter_1",
+        "basket_1"
+      ],
+      "risk": "low",
+      "risk_reason": "与两条原任务完全同构（两种 grocery → basket）: 物体均为场景原生 grocery, basket_1_contain_region 与 In predicate 均已在原任务中训练; 仅替换被放入的物体槽位。 本场景 8 物体中 2 条原任务已覆盖, 其余为同构新组合。",
+      "artifacts": {
+        "bddl": "bddl/lr2_juice_butter.bddl",
+        "init": "bddl/lr2_juice_butter.pruned_init"
+      },
+      "sha256": {
+        "bddl": "e67b126397c827004973b251c14970289ddf055aa73a0a3b874a837c7366f384",
+        "init": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030",
+        "init_source": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030"
+      }
+    },
+    {
+      "candidate_id": "lr2_milk_butter",
+      "scene": "LIVING_ROOM_SCENE2",
+      "source_idx": 0,
+      "source_task": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+      "source_language": "put both the alphabet soup and the tomato sauce in the basket",
+      "source_goal_state": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.pruned_init",
+      "init_source_filename": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.pruned_init",
+      "goal_atoms": [
+        "(In milk_1 basket_1_contain_region)",
+        "(In butter_1 basket_1_contain_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "in",
+          "milk_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "butter_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "put both the milk and the butter in the basket",
+      "subtasks": [
+        "put the milk in the basket",
+        "put the butter in the basket"
+      ],
+      "obj_of_interest": [
+        "milk_1",
+        "butter_1",
+        "basket_1"
+      ],
+      "risk": "low",
+      "risk_reason": "与两条原任务完全同构（两种 grocery → basket）: 物体均为场景原生 grocery, basket_1_contain_region 与 In predicate 均已在原任务中训练; 仅替换被放入的物体槽位。 本场景 8 物体中 2 条原任务已覆盖, 其余为同构新组合。",
+      "artifacts": {
+        "bddl": "bddl/lr2_milk_butter.bddl",
+        "init": "bddl/lr2_milk_butter.pruned_init"
+      },
+      "sha256": {
+        "bddl": "63ae6912af1c08d6c6cec0474d3d7992ab61d919f2825117d9da950f6bdbdbb5",
+        "init": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030",
+        "init_source": "1899fe54c51e24a41d5f9e32254730d6777f4894ab68e0e873f1fa7ae2062030"
+      }
+    },
+    {
+      "candidate_id": "lr1_soup_tomato",
+      "scene": "LIVING_ROOM_SCENE1",
+      "source_idx": 7,
+      "source_task": "LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket",
+      "source_language": "put both the alphabet soup and the cream cheese box in the basket",
+      "source_goal_state": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.pruned_init",
+      "init_source_filename": "LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.pruned_init",
+      "goal_atoms": [
+        "(In alphabet_soup_1 basket_1_contain_region)",
+        "(In tomato_sauce_1 basket_1_contain_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "put both the alphabet soup and the tomato sauce in the basket",
+      "subtasks": [
+        "put the alphabet soup in the basket",
+        "put the tomato sauce in the basket"
+      ],
+      "obj_of_interest": [
+        "alphabet_soup_1",
+        "tomato_sauce_1",
+        "basket_1"
+      ],
+      "risk": "low",
+      "risk_reason": "与两条原任务完全同构（两种 grocery → basket）: 物体均为场景原生 grocery, basket_1_contain_region 与 In predicate 均已在原任务中训练; 仅替换被放入的物体槽位。 本场景 5 物体中 1 条原任务已覆盖。",
+      "artifacts": {
+        "bddl": "bddl/lr1_soup_tomato.bddl",
+        "init": "bddl/lr1_soup_tomato.pruned_init"
+      },
+      "sha256": {
+        "bddl": "c6a880258fbc45062dc0c0c213b8889b5da18b225796b6f43a7e224de379a29c",
+        "init": "2113ea5923fcbbe1b57b428383934496072f062729d0b72d3021573d55d25abc",
+        "init_source": "2113ea5923fcbbe1b57b428383934496072f062729d0b72d3021573d55d25abc"
+      }
+    },
+    {
+      "candidate_id": "lr1_soup_ketchup",
+      "scene": "LIVING_ROOM_SCENE1",
+      "source_idx": 7,
+      "source_task": "LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket",
+      "source_language": "put both the alphabet soup and the cream cheese box in the basket",
+      "source_goal_state": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.pruned_init",
+      "init_source_filename": "LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.pruned_init",
+      "goal_atoms": [
+        "(In alphabet_soup_1 basket_1_contain_region)",
+        "(In ketchup_1 basket_1_contain_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "ketchup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "put both the alphabet soup and the ketchup in the basket",
+      "subtasks": [
+        "put the alphabet soup in the basket",
+        "put the ketchup in the basket"
+      ],
+      "obj_of_interest": [
+        "alphabet_soup_1",
+        "ketchup_1",
+        "basket_1"
+      ],
+      "risk": "low",
+      "risk_reason": "与两条原任务完全同构（两种 grocery → basket）: 物体均为场景原生 grocery, basket_1_contain_region 与 In predicate 均已在原任务中训练; 仅替换被放入的物体槽位。 本场景 5 物体中 1 条原任务已覆盖。",
+      "artifacts": {
+        "bddl": "bddl/lr1_soup_ketchup.bddl",
+        "init": "bddl/lr1_soup_ketchup.pruned_init"
+      },
+      "sha256": {
+        "bddl": "8aeb9553e2bcd7a88a5cd533e943798a734eed0133fabaaf395b492ecc6cb874",
+        "init": "2113ea5923fcbbe1b57b428383934496072f062729d0b72d3021573d55d25abc",
+        "init_source": "2113ea5923fcbbe1b57b428383934496072f062729d0b72d3021573d55d25abc"
+      }
+    },
+    {
+      "candidate_id": "lr1_cheese_tomato",
+      "scene": "LIVING_ROOM_SCENE1",
+      "source_idx": 7,
+      "source_task": "LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket",
+      "source_language": "put both the alphabet soup and the cream cheese box in the basket",
+      "source_goal_state": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.pruned_init",
+      "init_source_filename": "LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.pruned_init",
+      "goal_atoms": [
+        "(In cream_cheese_1 basket_1_contain_region)",
+        "(In tomato_sauce_1 basket_1_contain_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "in",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "put both the cream cheese box and the tomato sauce in the basket",
+      "subtasks": [
+        "put the cream cheese box in the basket",
+        "put the tomato sauce in the basket"
+      ],
+      "obj_of_interest": [
+        "cream_cheese_1",
+        "tomato_sauce_1",
+        "basket_1"
+      ],
+      "risk": "low",
+      "risk_reason": "与两条原任务完全同构（两种 grocery → basket）: 物体均为场景原生 grocery, basket_1_contain_region 与 In predicate 均已在原任务中训练; 仅替换被放入的物体槽位。 本场景 5 物体中 1 条原任务已覆盖。",
+      "artifacts": {
+        "bddl": "bddl/lr1_cheese_tomato.bddl",
+        "init": "bddl/lr1_cheese_tomato.pruned_init"
+      },
+      "sha256": {
+        "bddl": "e7b4933e84b17147c97993b0f3c5b680e3f261262e18667e85e41b880931d0b4",
+        "init": "2113ea5923fcbbe1b57b428383934496072f062729d0b72d3021573d55d25abc",
+        "init_source": "2113ea5923fcbbe1b57b428383934496072f062729d0b72d3021573d55d25abc"
+      }
+    },
+    {
+      "candidate_id": "lr1_cheese_ketchup",
+      "scene": "LIVING_ROOM_SCENE1",
+      "source_idx": 7,
+      "source_task": "LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket",
+      "source_language": "put both the alphabet soup and the cream cheese box in the basket",
+      "source_goal_state": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.pruned_init",
+      "init_source_filename": "LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.pruned_init",
+      "goal_atoms": [
+        "(In cream_cheese_1 basket_1_contain_region)",
+        "(In ketchup_1 basket_1_contain_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "in",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "ketchup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "put both the cream cheese box and the ketchup in the basket",
+      "subtasks": [
+        "put the cream cheese box in the basket",
+        "put the ketchup in the basket"
+      ],
+      "obj_of_interest": [
+        "cream_cheese_1",
+        "ketchup_1",
+        "basket_1"
+      ],
+      "risk": "low",
+      "risk_reason": "与两条原任务完全同构（两种 grocery → basket）: 物体均为场景原生 grocery, basket_1_contain_region 与 In predicate 均已在原任务中训练; 仅替换被放入的物体槽位。 本场景 5 物体中 1 条原任务已覆盖。",
+      "artifacts": {
+        "bddl": "bddl/lr1_cheese_ketchup.bddl",
+        "init": "bddl/lr1_cheese_ketchup.pruned_init"
+      },
+      "sha256": {
+        "bddl": "521c5d440c91dcf753054997187125629fc70ea2b69371b608538507859df469",
+        "init": "2113ea5923fcbbe1b57b428383934496072f062729d0b72d3021573d55d25abc",
+        "init_source": "2113ea5923fcbbe1b57b428383934496072f062729d0b72d3021573d55d25abc"
+      }
+    },
+    {
+      "candidate_id": "lr1_tomato_ketchup",
+      "scene": "LIVING_ROOM_SCENE1",
+      "source_idx": 7,
+      "source_task": "LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket",
+      "source_language": "put both the alphabet soup and the cream cheese box in the basket",
+      "source_goal_state": [
+        [
+          "in",
+          "alphabet_soup_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "cream_cheese_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.pruned_init",
+      "init_source_filename": "LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket.pruned_init",
+      "goal_atoms": [
+        "(In tomato_sauce_1 basket_1_contain_region)",
+        "(In ketchup_1 basket_1_contain_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "in",
+          "tomato_sauce_1",
+          "basket_1_contain_region"
+        ],
+        [
+          "in",
+          "ketchup_1",
+          "basket_1_contain_region"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "put both the tomato sauce and the ketchup in the basket",
+      "subtasks": [
+        "put the tomato sauce in the basket",
+        "put the ketchup in the basket"
+      ],
+      "obj_of_interest": [
+        "tomato_sauce_1",
+        "ketchup_1",
+        "basket_1"
+      ],
+      "risk": "low",
+      "risk_reason": "与两条原任务完全同构（两种 grocery → basket）: 物体均为场景原生 grocery, basket_1_contain_region 与 In predicate 均已在原任务中训练; 仅替换被放入的物体槽位。 本场景 5 物体中 1 条原任务已覆盖。",
+      "artifacts": {
+        "bddl": "bddl/lr1_tomato_ketchup.bddl",
+        "init": "bddl/lr1_tomato_ketchup.pruned_init"
+      },
+      "sha256": {
+        "bddl": "e533ba9dc3293c86fd1d4e5ce95b46a31768a47cc4b673f1e7e3a5ec62852d6b",
+        "init": "2113ea5923fcbbe1b57b428383934496072f062729d0b72d3021573d55d25abc",
+        "init_source": "2113ea5923fcbbe1b57b428383934496072f062729d0b72d3021573d55d25abc"
+      }
+    },
+    {
+      "candidate_id": "lr5_porcelain_left_red_right",
+      "scene": "LIVING_ROOM_SCENE5",
+      "source_idx": 4,
+      "source_task": "LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate",
+      "source_language": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "source_goal_state": [
+        [
+          "on",
+          "porcelain_mug_1",
+          "plate_1"
+        ],
+        [
+          "on",
+          "white_yellow_mug_1",
+          "plate_2"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.pruned_init",
+      "init_source_filename": "LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.pruned_init",
+      "goal_atoms": [
+        "(On porcelain_mug_1 plate_1)",
+        "(On red_coffee_mug_1 plate_2)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "on",
+          "porcelain_mug_1",
+          "plate_1"
+        ],
+        [
+          "on",
+          "red_coffee_mug_1",
+          "plate_2"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "put the white mug on the left plate and put the red coffee mug on the right plate",
+      "subtasks": [
+        "put the white mug on the left plate",
+        "put the red coffee mug on the right plate"
+      ],
+      "obj_of_interest": [
+        "plate_1",
+        "plate_2",
+        "porcelain_mug_1",
+        "red_coffee_mug_1"
+      ],
+      "risk": "low",
+      "risk_reason": "两个 plate 与三个 mug 均为场景原生对象; 原任务已训练 two-plate/mug 放置结构, 只交换 mug→plate 槽位 (mug 尺寸相近, plate 区域相同)。",
+      "artifacts": {
+        "bddl": "bddl/lr5_porcelain_left_red_right.bddl",
+        "init": "bddl/lr5_porcelain_left_red_right.pruned_init"
+      },
+      "sha256": {
+        "bddl": "f61ff527a31ee3eb1a93e7c1297959cdd074d48b1e382d0d2cc5663bd13ad024",
+        "init": "b6f20784b381c75d715f4fdaadda1fb460cbe24adcbad76f381a009419b8474e",
+        "init_source": "b6f20784b381c75d715f4fdaadda1fb460cbe24adcbad76f381a009419b8474e"
+      }
+    },
+    {
+      "candidate_id": "lr5_red_left_porcelain_right",
+      "scene": "LIVING_ROOM_SCENE5",
+      "source_idx": 4,
+      "source_task": "LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate",
+      "source_language": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "source_goal_state": [
+        [
+          "on",
+          "porcelain_mug_1",
+          "plate_1"
+        ],
+        [
+          "on",
+          "white_yellow_mug_1",
+          "plate_2"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.pruned_init",
+      "init_source_filename": "LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.pruned_init",
+      "goal_atoms": [
+        "(On red_coffee_mug_1 plate_1)",
+        "(On porcelain_mug_1 plate_2)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "on",
+          "red_coffee_mug_1",
+          "plate_1"
+        ],
+        [
+          "on",
+          "porcelain_mug_1",
+          "plate_2"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "put the red coffee mug on the left plate and put the white mug on the right plate",
+      "subtasks": [
+        "put the red coffee mug on the left plate",
+        "put the white mug on the right plate"
+      ],
+      "obj_of_interest": [
+        "plate_1",
+        "plate_2",
+        "red_coffee_mug_1",
+        "porcelain_mug_1"
+      ],
+      "risk": "low",
+      "risk_reason": "两个 plate 与三个 mug 均为场景原生对象; 原任务已训练 two-plate/mug 放置结构, 只交换 mug→plate 槽位 (mug 尺寸相近, plate 区域相同)。",
+      "artifacts": {
+        "bddl": "bddl/lr5_red_left_porcelain_right.bddl",
+        "init": "bddl/lr5_red_left_porcelain_right.pruned_init"
+      },
+      "sha256": {
+        "bddl": "57f2a1107a52356c994f6e64418a8b05ff51d5c55f34f8a4d5848908d8e031ec",
+        "init": "b6f20784b381c75d715f4fdaadda1fb460cbe24adcbad76f381a009419b8474e",
+        "init_source": "b6f20784b381c75d715f4fdaadda1fb460cbe24adcbad76f381a009419b8474e"
+      }
+    },
+    {
+      "candidate_id": "lr5_red_left_yellow_white_right",
+      "scene": "LIVING_ROOM_SCENE5",
+      "source_idx": 4,
+      "source_task": "LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate",
+      "source_language": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "source_goal_state": [
+        [
+          "on",
+          "porcelain_mug_1",
+          "plate_1"
+        ],
+        [
+          "on",
+          "white_yellow_mug_1",
+          "plate_2"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.pruned_init",
+      "init_source_filename": "LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.pruned_init",
+      "goal_atoms": [
+        "(On red_coffee_mug_1 plate_1)",
+        "(On white_yellow_mug_1 plate_2)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "on",
+          "red_coffee_mug_1",
+          "plate_1"
+        ],
+        [
+          "on",
+          "white_yellow_mug_1",
+          "plate_2"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "put the red coffee mug on the left plate and put the yellow and white mug on the right plate",
+      "subtasks": [
+        "put the red coffee mug on the left plate",
+        "put the yellow and white mug on the right plate"
+      ],
+      "obj_of_interest": [
+        "plate_1",
+        "plate_2",
+        "red_coffee_mug_1",
+        "white_yellow_mug_1"
+      ],
+      "risk": "low",
+      "risk_reason": "两个 plate 与三个 mug 均为场景原生对象; 原任务已训练 two-plate/mug 放置结构, 只交换 mug→plate 槽位 (mug 尺寸相近, plate 区域相同)。",
+      "artifacts": {
+        "bddl": "bddl/lr5_red_left_yellow_white_right.bddl",
+        "init": "bddl/lr5_red_left_yellow_white_right.pruned_init"
+      },
+      "sha256": {
+        "bddl": "b27f85fdc05bae0c467688d7fbc7988c6c102c1d8b55988fc22e1694ba405a6f",
+        "init": "b6f20784b381c75d715f4fdaadda1fb460cbe24adcbad76f381a009419b8474e",
+        "init_source": "b6f20784b381c75d715f4fdaadda1fb460cbe24adcbad76f381a009419b8474e"
+      }
+    },
+    {
+      "candidate_id": "lr5_yellow_white_left_porcelain_right",
+      "scene": "LIVING_ROOM_SCENE5",
+      "source_idx": 4,
+      "source_task": "LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate",
+      "source_language": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "source_goal_state": [
+        [
+          "on",
+          "porcelain_mug_1",
+          "plate_1"
+        ],
+        [
+          "on",
+          "white_yellow_mug_1",
+          "plate_2"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.pruned_init",
+      "init_source_filename": "LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.pruned_init",
+      "goal_atoms": [
+        "(On white_yellow_mug_1 plate_1)",
+        "(On porcelain_mug_1 plate_2)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "on",
+          "white_yellow_mug_1",
+          "plate_1"
+        ],
+        [
+          "on",
+          "porcelain_mug_1",
+          "plate_2"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "put the yellow and white mug on the left plate and put the white mug on the right plate",
+      "subtasks": [
+        "put the yellow and white mug on the left plate",
+        "put the white mug on the right plate"
+      ],
+      "obj_of_interest": [
+        "plate_1",
+        "plate_2",
+        "white_yellow_mug_1",
+        "porcelain_mug_1"
+      ],
+      "risk": "low",
+      "risk_reason": "两个 plate 与三个 mug 均为场景原生对象; 原任务已训练 two-plate/mug 放置结构, 只交换 mug→plate 槽位 (mug 尺寸相近, plate 区域相同)。",
+      "artifacts": {
+        "bddl": "bddl/lr5_yellow_white_left_porcelain_right.bddl",
+        "init": "bddl/lr5_yellow_white_left_porcelain_right.pruned_init"
+      },
+      "sha256": {
+        "bddl": "aa973b41c4c6ecb3558c37c973881d69015f19e99125be98aebbf9127a15b017",
+        "init": "b6f20784b381c75d715f4fdaadda1fb460cbe24adcbad76f381a009419b8474e",
+        "init_source": "b6f20784b381c75d715f4fdaadda1fb460cbe24adcbad76f381a009419b8474e"
+      }
+    },
+    {
+      "candidate_id": "lr5_yellow_white_left_red_right",
+      "scene": "LIVING_ROOM_SCENE5",
+      "source_idx": 4,
+      "source_task": "LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate",
+      "source_language": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "source_goal_state": [
+        [
+          "on",
+          "porcelain_mug_1",
+          "plate_1"
+        ],
+        [
+          "on",
+          "white_yellow_mug_1",
+          "plate_2"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.pruned_init",
+      "init_source_filename": "LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.pruned_init",
+      "goal_atoms": [
+        "(On white_yellow_mug_1 plate_1)",
+        "(On red_coffee_mug_1 plate_2)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "on",
+          "white_yellow_mug_1",
+          "plate_1"
+        ],
+        [
+          "on",
+          "red_coffee_mug_1",
+          "plate_2"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "put the yellow and white mug on the left plate and put the red coffee mug on the right plate",
+      "subtasks": [
+        "put the yellow and white mug on the left plate",
+        "put the red coffee mug on the right plate"
+      ],
+      "obj_of_interest": [
+        "plate_1",
+        "plate_2",
+        "white_yellow_mug_1",
+        "red_coffee_mug_1"
+      ],
+      "risk": "low",
+      "risk_reason": "两个 plate 与三个 mug 均为场景原生对象; 原任务已训练 two-plate/mug 放置结构, 只交换 mug→plate 槽位 (mug 尺寸相近, plate 区域相同)。",
+      "artifacts": {
+        "bddl": "bddl/lr5_yellow_white_left_red_right.bddl",
+        "init": "bddl/lr5_yellow_white_left_red_right.pruned_init"
+      },
+      "sha256": {
+        "bddl": "e1c0377dfa498ccca53983ca4ccdc4b21b0196917a8e17dfb8204a156975b2b8",
+        "init": "b6f20784b381c75d715f4fdaadda1fb460cbe24adcbad76f381a009419b8474e",
+        "init_source": "b6f20784b381c75d715f4fdaadda1fb460cbe24adcbad76f381a009419b8474e"
+      }
+    },
+    {
+      "candidate_id": "lr6_red_plate_pudding_right",
+      "scene": "LIVING_ROOM_SCENE6",
+      "source_idx": 6,
+      "source_task": "LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate",
+      "source_language": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "source_goal_state": [
+        [
+          "on",
+          "porcelain_mug_1",
+          "plate_1"
+        ],
+        [
+          "on",
+          "chocolate_pudding_1",
+          "living_room_table_plate_right_region"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.pruned_init",
+      "init_source_filename": "LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.pruned_init",
+      "goal_atoms": [
+        "(On red_coffee_mug_1 plate_1)",
+        "(On chocolate_pudding_1 living_room_table_plate_right_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "on",
+          "red_coffee_mug_1",
+          "plate_1"
+        ],
+        [
+          "on",
+          "chocolate_pudding_1",
+          "living_room_table_plate_right_region"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "put the red coffee mug on the plate and put the chocolate pudding to the right of the plate",
+      "subtasks": [
+        "put the red coffee mug on the plate",
+        "put the chocolate pudding to the right of the plate"
+      ],
+      "obj_of_interest": [
+        "plate_1",
+        "chocolate_pudding_1",
+        "red_coffee_mug_1"
+      ],
+      "risk": "low",
+      "risk_reason": "第一原子把 mug 槽位从 porcelain_mug 换成同场景 red_coffee_mug (同类物体); 第二原子保持原任务的 chocolate_pudding→plate 右侧区域不变。",
+      "artifacts": {
+        "bddl": "bddl/lr6_red_plate_pudding_right.bddl",
+        "init": "bddl/lr6_red_plate_pudding_right.pruned_init"
+      },
+      "sha256": {
+        "bddl": "034660b416fa825fc63fe469c52d47b159e12ab5ce0ad3ad702d4d52eaaabad9",
+        "init": "6e811394c4ff9a43ae23515d8512e9b657c04344b94dd5baed121b595490514f",
+        "init_source": "6e811394c4ff9a43ae23515d8512e9b657c04344b94dd5baed121b595490514f"
+      }
+    },
+    {
+      "candidate_id": "lr6_white_plate_red_right",
+      "scene": "LIVING_ROOM_SCENE6",
+      "source_idx": 6,
+      "source_task": "LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate",
+      "source_language": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "source_goal_state": [
+        [
+          "on",
+          "porcelain_mug_1",
+          "plate_1"
+        ],
+        [
+          "on",
+          "chocolate_pudding_1",
+          "living_room_table_plate_right_region"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.pruned_init",
+      "init_source_filename": "LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.pruned_init",
+      "goal_atoms": [
+        "(On porcelain_mug_1 plate_1)",
+        "(On red_coffee_mug_1 living_room_table_plate_right_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "on",
+          "porcelain_mug_1",
+          "plate_1"
+        ],
+        [
+          "on",
+          "red_coffee_mug_1",
+          "living_room_table_plate_right_region"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "put the white mug on the plate and put the red coffee mug to the right of the plate",
+      "subtasks": [
+        "put the white mug on the plate",
+        "put the red coffee mug to the right of the plate"
+      ],
+      "obj_of_interest": [
+        "plate_1",
+        "red_coffee_mug_1",
+        "porcelain_mug_1"
+      ],
+      "risk": "low",
+      "risk_reason": "第一原子保持原任务; 第二原子把 pudding 换成 red_coffee_mug 放到 plate 右侧区域 (区域与原任务相同, mug 可放置; On(object, region) predicate 已训练)。",
+      "artifacts": {
+        "bddl": "bddl/lr6_white_plate_red_right.bddl",
+        "init": "bddl/lr6_white_plate_red_right.pruned_init"
+      },
+      "sha256": {
+        "bddl": "7d4cda018bc2e466dd066ee4fc00277687c64a5ef7ab046337382dd08a80b4f4",
+        "init": "6e811394c4ff9a43ae23515d8512e9b657c04344b94dd5baed121b595490514f",
+        "init_source": "6e811394c4ff9a43ae23515d8512e9b657c04344b94dd5baed121b595490514f"
+      }
+    },
+    {
+      "candidate_id": "lr6_red_plate_white_right",
+      "scene": "LIVING_ROOM_SCENE6",
+      "source_idx": 6,
+      "source_task": "LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate",
+      "source_language": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "source_goal_state": [
+        [
+          "on",
+          "porcelain_mug_1",
+          "plate_1"
+        ],
+        [
+          "on",
+          "chocolate_pudding_1",
+          "living_room_table_plate_right_region"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.pruned_init",
+      "init_source_filename": "LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate.pruned_init",
+      "goal_atoms": [
+        "(On red_coffee_mug_1 plate_1)",
+        "(On porcelain_mug_1 living_room_table_plate_right_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "on",
+          "red_coffee_mug_1",
+          "plate_1"
+        ],
+        [
+          "on",
+          "porcelain_mug_1",
+          "living_room_table_plate_right_region"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "put the red coffee mug on the plate and put the white mug to the right of the plate",
+      "subtasks": [
+        "put the red coffee mug on the plate",
+        "put the white mug to the right of the plate"
+      ],
+      "obj_of_interest": [
+        "plate_1",
+        "porcelain_mug_1",
+        "red_coffee_mug_1"
+      ],
+      "risk": "low",
+      "risk_reason": "两个 mug 槽位互换, plate 与 plate 右侧区域均与原任务一致; mug 尺寸相近。",
+      "artifacts": {
+        "bddl": "bddl/lr6_red_plate_white_right.bddl",
+        "init": "bddl/lr6_red_plate_white_right.pruned_init"
+      },
+      "sha256": {
+        "bddl": "5b45a3f42d09d0579387aa0a94522e55bd600867da2d58735294a8414b835f39",
+        "init": "6e811394c4ff9a43ae23515d8512e9b657c04344b94dd5baed121b595490514f",
+        "init_source": "6e811394c4ff9a43ae23515d8512e9b657c04344b94dd5baed121b595490514f"
+      }
+    },
+    {
+      "candidate_id": "k3_frypan_on_stove",
+      "scene": "KITCHEN_SCENE3",
+      "source_idx": 2,
+      "source_task": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it",
+      "source_language": "turn on the stove and put the moka pot on it",
+      "source_goal_state": [
+        [
+          "turnon",
+          "flat_stove_1"
+        ],
+        [
+          "on",
+          "moka_pot_1",
+          "flat_stove_1_cook_region"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it.pruned_init",
+      "init_source_filename": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it.pruned_init",
+      "goal_atoms": [
+        "(Turnon flat_stove_1)",
+        "(On chefmate_8_frypan_1 flat_stove_1_cook_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "turnon",
+          "flat_stove_1"
+        ],
+        [
+          "on",
+          "chefmate_8_frypan_1",
+          "flat_stove_1_cook_region"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "turn on the stove and put the frying pan on it",
+      "subtasks": [
+        "turn on the stove",
+        "put the frying pan on the stove"
+      ],
+      "obj_of_interest": [
+        "chefmate_8_frypan_1",
+        "flat_stove_1"
+      ],
+      "risk": "medium",
+      "risk_reason": "frying pan 比 moka pot 更大更重, 放到 cook_region 的接触/姿态更紧, 抓取与放置难度上升; 结构与 predicate 完全同源 (Turnon + On cook_region)。",
+      "artifacts": {
+        "bddl": "bddl/k3_frypan_on_stove.bddl",
+        "init": "bddl/k3_frypan_on_stove.pruned_init"
+      },
+      "sha256": {
+        "bddl": "f478f7d636e36ff4f6a689a43e01d9b9310429a7e3c5e7c397cbea766e81c125",
+        "init": "02a8401f8d59f5447fc8c5a16f4c158dd8c426c3eaed6779927a2a53e9abf3c5",
+        "init_source": "02a8401f8d59f5447fc8c5a16f4c158dd8c426c3eaed6779927a2a53e9abf3c5"
+      }
+    },
+    {
+      "candidate_id": "k3_moka_and_frypan_on_stove",
+      "scene": "KITCHEN_SCENE3",
+      "source_idx": 2,
+      "source_task": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it",
+      "source_language": "turn on the stove and put the moka pot on it",
+      "source_goal_state": [
+        [
+          "turnon",
+          "flat_stove_1"
+        ],
+        [
+          "on",
+          "moka_pot_1",
+          "flat_stove_1_cook_region"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it.pruned_init",
+      "init_source_filename": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it.pruned_init",
+      "goal_atoms": [
+        "(Turnon flat_stove_1)",
+        "(On moka_pot_1 flat_stove_1_cook_region)",
+        "(On chefmate_8_frypan_1 flat_stove_1_cook_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "turnon",
+          "flat_stove_1"
+        ],
+        [
+          "on",
+          "moka_pot_1",
+          "flat_stove_1_cook_region"
+        ],
+        [
+          "on",
+          "chefmate_8_frypan_1",
+          "flat_stove_1_cook_region"
+        ]
+      ],
+      "goal_atom_count": 3,
+      "language": "turn on the stove and put the moka pot and the frying pan on it",
+      "subtasks": [
+        "turn on the stove",
+        "put the moka pot on the stove",
+        "put the frying pan on the stove"
+      ],
+      "obj_of_interest": [
+        "moka_pot_1",
+        "chefmate_8_frypan_1",
+        "flat_stove_1"
+      ],
+      "risk": "high",
+      "risk_reason": "两件锅具同时放进同一 cook_region: 空间拥挤、互相碰撞, 且需在 turnon 后保持两物体均在区域内的姿态; 训练分布内从未出现。",
+      "artifacts": {
+        "bddl": "bddl/k3_moka_and_frypan_on_stove.bddl",
+        "init": "bddl/k3_moka_and_frypan_on_stove.pruned_init"
+      },
+      "sha256": {
+        "bddl": "1acd1a0f0f4ff2a580832401cdab74d37e55a31bb8209b0fcd705342c16f9599",
+        "init": "02a8401f8d59f5447fc8c5a16f4c158dd8c426c3eaed6779927a2a53e9abf3c5",
+        "init_source": "02a8401f8d59f5447fc8c5a16f4c158dd8c426c3eaed6779927a2a53e9abf3c5"
+      }
+    },
+    {
+      "candidate_id": "k4_wine_bottle_bottom_close",
+      "scene": "KITCHEN_SCENE4",
+      "source_idx": 3,
+      "source_task": "KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it",
+      "source_language": "put the black bowl in the bottom drawer of the cabinet and close it",
+      "source_goal_state": [
+        [
+          "close",
+          "white_cabinet_1_bottom_region"
+        ],
+        [
+          "in",
+          "akita_black_bowl_1",
+          "white_cabinet_1_bottom_region"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.pruned_init",
+      "init_source_filename": "KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.pruned_init",
+      "goal_atoms": [
+        "(Close white_cabinet_1_bottom_region)",
+        "(In wine_bottle_1 white_cabinet_1_bottom_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "close",
+          "white_cabinet_1_bottom_region"
+        ],
+        [
+          "in",
+          "wine_bottle_1",
+          "white_cabinet_1_bottom_region"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "put the wine bottle in the bottom drawer of the cabinet and close it",
+      "subtasks": [
+        "put the wine bottle in the bottom drawer of the cabinet",
+        "close the bottom drawer"
+      ],
+      "obj_of_interest": [
+        "wine_bottle_1",
+        "white_cabinet_1"
+      ],
+      "risk": "high",
+      "risk_reason": "酒瓶高度可能超过抽屉内净空, 放入/关闭抽屉时存在穿插与碰撞风险; 原任务只用 black bowl (矮) 验证过 bottom drawer, 分布外。",
+      "artifacts": {
+        "bddl": "bddl/k4_wine_bottle_bottom_close.bddl",
+        "init": "bddl/k4_wine_bottle_bottom_close.pruned_init"
+      },
+      "sha256": {
+        "bddl": "684983c1c81d0aed53ebb5a29ea8497c63ebe50692a3466f7cdf6ec9836da536",
+        "init": "e98ded151f64a036c74c872336dd09b968c379f3c9db7bc333aba37e7c235b86",
+        "init_source": "e98ded151f64a036c74c872336dd09b968c379f3c9db7bc333aba37e7c235b86"
+      }
+    },
+    {
+      "candidate_id": "k4_bowl_middle_close",
+      "scene": "KITCHEN_SCENE4",
+      "source_idx": 3,
+      "source_task": "KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it",
+      "source_language": "put the black bowl in the bottom drawer of the cabinet and close it",
+      "source_goal_state": [
+        [
+          "close",
+          "white_cabinet_1_bottom_region"
+        ],
+        [
+          "in",
+          "akita_black_bowl_1",
+          "white_cabinet_1_bottom_region"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.pruned_init",
+      "init_source_filename": "KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.pruned_init",
+      "goal_atoms": [
+        "(Close white_cabinet_1_middle_region)",
+        "(In akita_black_bowl_1 white_cabinet_1_middle_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "close",
+          "white_cabinet_1_middle_region"
+        ],
+        [
+          "in",
+          "akita_black_bowl_1",
+          "white_cabinet_1_middle_region"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "put the black bowl in the middle drawer of the cabinet and close it",
+      "subtasks": [
+        "put the black bowl in the middle drawer of the cabinet",
+        "close the middle drawer"
+      ],
+      "obj_of_interest": [
+        "akita_black_bowl_1",
+        "white_cabinet_1"
+      ],
+      "risk": "medium",
+      "risk_reason": "middle 抽屉区域存在且碗尺寸适配; 但原任务仅 bottom 抽屉在训练分布内, 中层抽屉的开启/关闭时机与可达性需动态确认。",
+      "artifacts": {
+        "bddl": "bddl/k4_bowl_middle_close.bddl",
+        "init": "bddl/k4_bowl_middle_close.pruned_init"
+      },
+      "sha256": {
+        "bddl": "d01675437d9edc6de11406e6489b5566f72441ce61336f363cce2dc6d108dd78",
+        "init": "e98ded151f64a036c74c872336dd09b968c379f3c9db7bc333aba37e7c235b86",
+        "init_source": "e98ded151f64a036c74c872336dd09b968c379f3c9db7bc333aba37e7c235b86"
+      }
+    },
+    {
+      "candidate_id": "k4_wine_bottle_middle_close",
+      "scene": "KITCHEN_SCENE4",
+      "source_idx": 3,
+      "source_task": "KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it",
+      "source_language": "put the black bowl in the bottom drawer of the cabinet and close it",
+      "source_goal_state": [
+        [
+          "close",
+          "white_cabinet_1_bottom_region"
+        ],
+        [
+          "in",
+          "akita_black_bowl_1",
+          "white_cabinet_1_bottom_region"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.pruned_init",
+      "init_source_filename": "KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.pruned_init",
+      "goal_atoms": [
+        "(Close white_cabinet_1_middle_region)",
+        "(In wine_bottle_1 white_cabinet_1_middle_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "close",
+          "white_cabinet_1_middle_region"
+        ],
+        [
+          "in",
+          "wine_bottle_1",
+          "white_cabinet_1_middle_region"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "put the wine bottle in the middle drawer of the cabinet and close it",
+      "subtasks": [
+        "put the wine bottle in the middle drawer of the cabinet",
+        "close the middle drawer"
+      ],
+      "obj_of_interest": [
+        "wine_bottle_1",
+        "white_cabinet_1"
+      ],
+      "risk": "high",
+      "risk_reason": "酒瓶高度 + 中层抽屉可达性双重风险; 瓶子可能放不进或关闭时碰撞, 分布外。",
+      "artifacts": {
+        "bddl": "bddl/k4_wine_bottle_middle_close.bddl",
+        "init": "bddl/k4_wine_bottle_middle_close.pruned_init"
+      },
+      "sha256": {
+        "bddl": "9a06dc527804413e408436cd02e06777391c256035a3fbcd92b9b2d9469dd7e1",
+        "init": "e98ded151f64a036c74c872336dd09b968c379f3c9db7bc333aba37e7c235b86",
+        "init_source": "e98ded151f64a036c74c872336dd09b968c379f3c9db7bc333aba37e7c235b86"
+      }
+    },
+    {
+      "candidate_id": "k6_porcelain_mug_microwave_close",
+      "scene": "KITCHEN_SCENE6",
+      "source_idx": 9,
+      "source_task": "KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it",
+      "source_language": "put the yellow and white mug in the microwave and close it",
+      "source_goal_state": [
+        [
+          "in",
+          "white_yellow_mug_1",
+          "microwave_1_heating_region"
+        ],
+        [
+          "close",
+          "microwave_1"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it.pruned_init",
+      "init_source_filename": "KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it.pruned_init",
+      "goal_atoms": [
+        "(In porcelain_mug_1 microwave_1_heating_region)",
+        "(Close microwave_1)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "in",
+          "porcelain_mug_1",
+          "microwave_1_heating_region"
+        ],
+        [
+          "close",
+          "microwave_1"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "put the white mug in the microwave and close it",
+      "subtasks": [
+        "put the white mug in the microwave",
+        "close the microwave"
+      ],
+      "obj_of_interest": [
+        "porcelain_mug_1",
+        "microwave_1"
+      ],
+      "risk": "low",
+      "risk_reason": "同类 mug 槽位替换 (原任务用 yellow and white mug), 两个 mug 尺寸相近; microwave 开/关动作与原任务一致。",
+      "artifacts": {
+        "bddl": "bddl/k6_porcelain_mug_microwave_close.bddl",
+        "init": "bddl/k6_porcelain_mug_microwave_close.pruned_init"
+      },
+      "sha256": {
+        "bddl": "459acc751bf4a84b99b016b27ba0041cc37f8d0f67aecbd2fc8368c63b5ce117",
+        "init": "6b75c8d4d1e1c40b5d99c78ceea380d99ccffb0a484a4cb2d3153488a0afbbe2",
+        "init_source": "6b75c8d4d1e1c40b5d99c78ceea380d99ccffb0a484a4cb2d3153488a0afbbe2"
+      }
+    },
+    {
+      "candidate_id": "k6_both_mugs_microwave_close",
+      "scene": "KITCHEN_SCENE6",
+      "source_idx": 9,
+      "source_task": "KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it",
+      "source_language": "put the yellow and white mug in the microwave and close it",
+      "source_goal_state": [
+        [
+          "in",
+          "white_yellow_mug_1",
+          "microwave_1_heating_region"
+        ],
+        [
+          "close",
+          "microwave_1"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it.pruned_init",
+      "init_source_filename": "KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it.pruned_init",
+      "goal_atoms": [
+        "(In porcelain_mug_1 microwave_1_heating_region)",
+        "(In white_yellow_mug_1 microwave_1_heating_region)",
+        "(Close microwave_1)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "in",
+          "porcelain_mug_1",
+          "microwave_1_heating_region"
+        ],
+        [
+          "in",
+          "white_yellow_mug_1",
+          "microwave_1_heating_region"
+        ],
+        [
+          "close",
+          "microwave_1"
+        ]
+      ],
+      "goal_atom_count": 3,
+      "language": "put the white mug and the yellow and white mug in the microwave and close it",
+      "subtasks": [
+        "put the white mug in the microwave",
+        "put the yellow and white mug in the microwave",
+        "close the microwave"
+      ],
+      "obj_of_interest": [
+        "porcelain_mug_1",
+        "white_yellow_mug_1",
+        "microwave_1"
+      ],
+      "risk": "high",
+      "risk_reason": "两个 mug 同时放入 microwave heating region: 空间狭窄、易互相碰撞, 且可能关不上门; 分布外。",
+      "artifacts": {
+        "bddl": "bddl/k6_both_mugs_microwave_close.bddl",
+        "init": "bddl/k6_both_mugs_microwave_close.pruned_init"
+      },
+      "sha256": {
+        "bddl": "8a533760ffd8402d66d02c8797bc0866582adb1cb6043d1cc687348543d83c38",
+        "init": "6b75c8d4d1e1c40b5d99c78ceea380d99ccffb0a484a4cb2d3153488a0afbbe2",
+        "init_source": "6b75c8d4d1e1c40b5d99c78ceea380d99ccffb0a484a4cb2d3153488a0afbbe2"
+      }
+    },
+    {
+      "candidate_id": "k8_right_pot_on_stove",
+      "scene": "KITCHEN_SCENE8",
+      "source_idx": 8,
+      "source_task": "KITCHEN_SCENE8_put_both_moka_pots_on_the_stove",
+      "source_language": "put both moka pots on the stove",
+      "source_goal_state": [
+        [
+          "on",
+          "moka_pot_1",
+          "flat_stove_1_cook_region"
+        ],
+        [
+          "on",
+          "moka_pot_2",
+          "flat_stove_1_cook_region"
+        ],
+        [
+          "turnon",
+          "flat_stove_1"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/KITCHEN_SCENE8_put_both_moka_pots_on_the_stove.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/KITCHEN_SCENE8_put_both_moka_pots_on_the_stove.pruned_init",
+      "init_source_filename": "KITCHEN_SCENE8_put_both_moka_pots_on_the_stove.pruned_init",
+      "goal_atoms": [
+        "(On moka_pot_1 flat_stove_1_cook_region)",
+        "(Turnon flat_stove_1)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "on",
+          "moka_pot_1",
+          "flat_stove_1_cook_region"
+        ],
+        [
+          "turnon",
+          "flat_stove_1"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "put the right moka pot on the stove and turn it on",
+      "subtasks": [
+        "put the right moka pot on the stove",
+        "turn on the stove"
+      ],
+      "obj_of_interest": [
+        "moka_pot_1",
+        "flat_stove_1"
+      ],
+      "risk": "low",
+      "risk_reason": "单 pot 变体: 保留原任务的 On(cook_region)+Turnon 原子, 只去掉另一只 pot; moka_pot_1 初始在右侧 init region (moka_pot_right_init_region), 物体/区域均原生。",
+      "artifacts": {
+        "bddl": "bddl/k8_right_pot_on_stove.bddl",
+        "init": "bddl/k8_right_pot_on_stove.pruned_init"
+      },
+      "sha256": {
+        "bddl": "1bc8c8a98483d9287431d821e996523ed5d582ab0f518f392bdda58113386381",
+        "init": "44f992e911c84a1340589510ecdaf947a4872966f7678c8364d8bb5d13dc4dac",
+        "init_source": "44f992e911c84a1340589510ecdaf947a4872966f7678c8364d8bb5d13dc4dac"
+      }
+    },
+    {
+      "candidate_id": "k8_left_pot_on_stove",
+      "scene": "KITCHEN_SCENE8",
+      "source_idx": 8,
+      "source_task": "KITCHEN_SCENE8_put_both_moka_pots_on_the_stove",
+      "source_language": "put both moka pots on the stove",
+      "source_goal_state": [
+        [
+          "on",
+          "moka_pot_1",
+          "flat_stove_1_cook_region"
+        ],
+        [
+          "on",
+          "moka_pot_2",
+          "flat_stove_1_cook_region"
+        ],
+        [
+          "turnon",
+          "flat_stove_1"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/KITCHEN_SCENE8_put_both_moka_pots_on_the_stove.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/KITCHEN_SCENE8_put_both_moka_pots_on_the_stove.pruned_init",
+      "init_source_filename": "KITCHEN_SCENE8_put_both_moka_pots_on_the_stove.pruned_init",
+      "goal_atoms": [
+        "(On moka_pot_2 flat_stove_1_cook_region)",
+        "(Turnon flat_stove_1)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "on",
+          "moka_pot_2",
+          "flat_stove_1_cook_region"
+        ],
+        [
+          "turnon",
+          "flat_stove_1"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "put the left moka pot on the stove and turn it on",
+      "subtasks": [
+        "put the left moka pot on the stove",
+        "turn on the stove"
+      ],
+      "obj_of_interest": [
+        "moka_pot_2",
+        "flat_stove_1"
+      ],
+      "risk": "low",
+      "risk_reason": "单 pot 变体 (另一只 pot): 结构与原任务一致; moka_pot_2 初始在左侧 init region (moka_pot_left_init_region), 物体/区域均原生。",
+      "artifacts": {
+        "bddl": "bddl/k8_left_pot_on_stove.bddl",
+        "init": "bddl/k8_left_pot_on_stove.pruned_init"
+      },
+      "sha256": {
+        "bddl": "f331372964b22b5b1d107a09f4a16865853c8cc002772e7328ee07077f11cdc0",
+        "init": "44f992e911c84a1340589510ecdaf947a4872966f7678c8364d8bb5d13dc4dac",
+        "init_source": "44f992e911c84a1340589510ecdaf947a4872966f7678c8364d8bb5d13dc4dac"
+      }
+    },
+    {
+      "candidate_id": "study_book_back_mug_right_comp",
+      "scene": "STUDY_SCENE1",
+      "source_idx": 5,
+      "source_task": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy",
+      "source_language": "pick up the book and place it in the back compartment of the caddy",
+      "source_goal_state": [
+        [
+          "in",
+          "black_book_1",
+          "desk_caddy_1_back_contain_region"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.pruned_init",
+      "init_source_filename": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.pruned_init",
+      "goal_atoms": [
+        "(In black_book_1 desk_caddy_1_back_contain_region)",
+        "(In white_yellow_mug_1 desk_caddy_1_right_contain_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "in",
+          "black_book_1",
+          "desk_caddy_1_back_contain_region"
+        ],
+        [
+          "in",
+          "white_yellow_mug_1",
+          "desk_caddy_1_right_contain_region"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "pick up the book and place it in the back compartment of the caddy and put the yellow and white mug in the right compartment of the caddy",
+      "subtasks": [
+        "put the book in the back compartment of the caddy",
+        "put the yellow and white mug in the right compartment of the caddy"
+      ],
+      "obj_of_interest": [
+        "black_book_1",
+        "white_yellow_mug_1",
+        "desk_caddy_1"
+      ],
+      "risk": "medium",
+      "risk_reason": "第一原子与原任务一致; 第二原子要求 mug 进入 caddy 右隔间: 隔间宽度/深度是否容纳 mug 未知 (训练分布只含 book→back compartment), 但区域与 In predicate 已存在。",
+      "artifacts": {
+        "bddl": "bddl/study_book_back_mug_right_comp.bddl",
+        "init": "bddl/study_book_back_mug_right_comp.pruned_init"
+      },
+      "sha256": {
+        "bddl": "79625ee8168159cb0a330588602fafddeff0ce018d7803b2c0a25c27a7681388",
+        "init": "6cd3937ba18d64e72223222af36888d26ea201840415adbc4dae590454d0a5a8",
+        "init_source": "6cd3937ba18d64e72223222af36888d26ea201840415adbc4dae590454d0a5a8"
+      }
+    },
+    {
+      "candidate_id": "study_book_front_mug_left_comp",
+      "scene": "STUDY_SCENE1",
+      "source_idx": 5,
+      "source_task": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy",
+      "source_language": "pick up the book and place it in the back compartment of the caddy",
+      "source_goal_state": [
+        [
+          "in",
+          "black_book_1",
+          "desk_caddy_1_back_contain_region"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.pruned_init",
+      "init_source_filename": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.pruned_init",
+      "goal_atoms": [
+        "(In black_book_1 desk_caddy_1_front_contain_region)",
+        "(In white_yellow_mug_1 desk_caddy_1_left_contain_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "in",
+          "black_book_1",
+          "desk_caddy_1_front_contain_region"
+        ],
+        [
+          "in",
+          "white_yellow_mug_1",
+          "desk_caddy_1_left_contain_region"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "pick up the book and place it in the front compartment of the caddy and put the yellow and white mug in the left compartment of the caddy",
+      "subtasks": [
+        "put the book in the front compartment of the caddy",
+        "put the yellow and white mug in the left compartment of the caddy"
+      ],
+      "obj_of_interest": [
+        "black_book_1",
+        "white_yellow_mug_1",
+        "desk_caddy_1"
+      ],
+      "risk": "medium",
+      "risk_reason": "front/left 隔间区域均存在, 但原任务只把 book 放进 back 隔间: front 隔间几何较浅、mug 体积适配未知; 属于分布外组合。",
+      "artifacts": {
+        "bddl": "bddl/study_book_front_mug_left_comp.bddl",
+        "init": "bddl/study_book_front_mug_left_comp.pruned_init"
+      },
+      "sha256": {
+        "bddl": "385eb6b8438900efe0d95c6ca6a1c535206c0875000c9989e74cb32c19518509",
+        "init": "6cd3937ba18d64e72223222af36888d26ea201840415adbc4dae590454d0a5a8",
+        "init_source": "6cd3937ba18d64e72223222af36888d26ea201840415adbc4dae590454d0a5a8"
+      }
+    },
+    {
+      "candidate_id": "study_book_front_mug_right_comp",
+      "scene": "STUDY_SCENE1",
+      "source_idx": 5,
+      "source_task": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy",
+      "source_language": "pick up the book and place it in the back compartment of the caddy",
+      "source_goal_state": [
+        [
+          "in",
+          "black_book_1",
+          "desk_caddy_1_back_contain_region"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.pruned_init",
+      "init_source_filename": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.pruned_init",
+      "goal_atoms": [
+        "(In black_book_1 desk_caddy_1_front_contain_region)",
+        "(In white_yellow_mug_1 desk_caddy_1_right_contain_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "in",
+          "black_book_1",
+          "desk_caddy_1_front_contain_region"
+        ],
+        [
+          "in",
+          "white_yellow_mug_1",
+          "desk_caddy_1_right_contain_region"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "pick up the book and place it in the front compartment of the caddy and put the yellow and white mug in the right compartment of the caddy",
+      "subtasks": [
+        "put the book in the front compartment of the caddy",
+        "put the yellow and white mug in the right compartment of the caddy"
+      ],
+      "obj_of_interest": [
+        "black_book_1",
+        "white_yellow_mug_1",
+        "desk_caddy_1"
+      ],
+      "risk": "medium",
+      "risk_reason": "两个非原配隔间组合: front 隔间 + mug 进 right 隔间, 几何适配与可达性未在训练分布内。",
+      "artifacts": {
+        "bddl": "bddl/study_book_front_mug_right_comp.bddl",
+        "init": "bddl/study_book_front_mug_right_comp.pruned_init"
+      },
+      "sha256": {
+        "bddl": "5aa607342ee197fd892f77766c574c12863d3251bb8d1b927e5b25bc6445076b",
+        "init": "6cd3937ba18d64e72223222af36888d26ea201840415adbc4dae590454d0a5a8",
+        "init_source": "6cd3937ba18d64e72223222af36888d26ea201840415adbc4dae590454d0a5a8"
+      }
+    },
+    {
+      "candidate_id": "study_book_back_mug_table_right",
+      "scene": "STUDY_SCENE1",
+      "source_idx": 5,
+      "source_task": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy",
+      "source_language": "pick up the book and place it in the back compartment of the caddy",
+      "source_goal_state": [
+        [
+          "in",
+          "black_book_1",
+          "desk_caddy_1_back_contain_region"
+        ]
+      ],
+      "template_bddl": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/bddl_files/libero_10/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.bddl",
+      "init_source": "/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero/libero/libero/init_files/libero_10/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.pruned_init",
+      "init_source_filename": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.pruned_init",
+      "goal_atoms": [
+        "(In black_book_1 desk_caddy_1_back_contain_region)",
+        "(On white_yellow_mug_1 study_table_desk_caddy_right_region)"
+      ],
+      "goal_atoms_parsed": [
+        [
+          "in",
+          "black_book_1",
+          "desk_caddy_1_back_contain_region"
+        ],
+        [
+          "on",
+          "white_yellow_mug_1",
+          "study_table_desk_caddy_right_region"
+        ]
+      ],
+      "goal_atom_count": 2,
+      "language": "pick up the book and place it in the back compartment of the caddy and put the yellow and white mug to the right of the caddy",
+      "subtasks": [
+        "put the book in the back compartment of the caddy",
+        "put the yellow and white mug to the right of the caddy"
+      ],
+      "obj_of_interest": [
+        "black_book_1",
+        "white_yellow_mug_1",
+        "desk_caddy_1"
+      ],
+      "risk": "low",
+      "risk_reason": "第一原子与原任务一致; 第二原子把 mug 放到 caddy 右侧的官方 table region (study_table_desk_caddy_right_region 已存在), 不进入狭窄隔间; On(object, region) 已训练。",
+      "artifacts": {
+        "bddl": "bddl/study_book_back_mug_table_right.bddl",
+        "init": "bddl/study_book_back_mug_table_right.pruned_init"
+      },
+      "sha256": {
+        "bddl": "f83d059738e2692c452eadd038ed1495e70c67027426283a3836eb6ca02fdfb5",
+        "init": "6cd3937ba18d64e72223222af36888d26ea201840415adbc4dae590454d0a5a8",
+        "init_source": "6cd3937ba18d64e72223222af36888d26ea201840415adbc4dae590454d0a5a8"
+      }
+    }
+  ]
+}

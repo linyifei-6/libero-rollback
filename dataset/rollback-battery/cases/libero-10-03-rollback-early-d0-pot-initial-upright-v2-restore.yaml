@@ -1,0 +1,51 @@
+assumptions:
+- Ported from the runtime RB reference suites so this repo can reproduce them.
+- The runtime template and severity are pinned in the `runtime` block.
+case_id: libero-10-03-rollback-early-d0-pot-initial-upright-v2-restore
+completed_relations:
+- source_task_goal: true
+dataset_version: 1.6.0
+expected_evaluation_semantics: relation_then_resume
+intervention_description: 'Runtime RB3 reference: revoke the completed s1 by restoring it to initial_pose
+  while s2 is being executed.'
+open_questions:
+- Confirm the ported case reproduces the runtime binding's outcome.
+rollback_target:
+  state_change:
+    kind: restore_episode_initial_pose
+    target: episode_initial_pose
+    velocity: zero
+scenario_type: completed_relation_rollback
+schema_version: libero-rollback.case.v1
+severity: d0
+severity_rationale: Runtime reference label, ported verbatim.
+source:
+  case_reference: RB3 / rb_rb3_second / t133
+  case_source_id: rollback-battery-20261012
+  supporting_source_ids:
+  - scenario-timing-position-matrix-20260926
+  task_locator_source_id: full-suite-runtime-crosswalk-20261009
+  task_source_id: libero-plus-task-definitions-v1
+stage:
+  description: Ported from the runtime RB3 suite (rb_rb3_second), trigger enter_first_subgoal_completed.
+  name: rb_rb_rb3_second
+task:
+  source_bddl: KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_tb_20.bddl
+  source_task_locator: T133
+  suite: LIBERO-10
+  task_id: libero_10/03
+  task_index: 3
+template_id: completed-relation-rollback/episode-initial-pose/v1
+trigger:
+  delay_steps: 0
+  event: enter_first_subgoal_completed
+  time_point: early
+  window: runtime RB3 reference window
+validity_constraints:
+- completed_relation_true_before_intervention
+- target_relation_false_after_intervention
+- object_released_before_intervention
+- zero_velocity_after_intervention
+- no_object_penetration
+- task_remains_solvable
+- baseline_task_solvable

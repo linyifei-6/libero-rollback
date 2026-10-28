@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "libero-rollback"
+version = "1.0.0"
+description = "Model-independent rollback evaluation cases for LIBERO-10"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "jsonschema>=4.22,<5",
+  "PyYAML>=6.0,<7",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8,<9",
+  "ruff>=0.8,<1",
+]
+
+[project.scripts]
+libero-rollback = "libero_rollback.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+# `tests/_outdated` holds the suite written for the retired dataset shape; it is kept for
+# reference only and must not be collected.
+norecursedirs = ["_outdated", ".venv", "runs", "dataset"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+include = [
+  "src/**/*.py", "tests/**/*.py",
+  "scripts/build_current_catalog.py", "scripts/generate_progress_failure_cases.py",
+  "scripts/runtime_extensions.py", "scripts/runtime_preflight.py",
+  "scripts/prepare_validation_runtime.py", "scripts/run_grid_cases.py",
+  "scripts/build_current_report.py", "scripts/build_case_matrix_doc.py",
+  "scripts/audit_report_videos.py",
+  "scripts/compile_catalog.py",
+  "scripts/summarize_preflight.py",
+  # evaluation runners and report/acceptance tooling
+  "scripts/run_batched_eval.py",
+  "scripts/eval_cli_config.py",
+  "scripts/accept_run.py",
+  "scripts/build_eval_report.py",
+]
+exclude = ["tests/_outdated/**"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+
+[tool.ruff.lint.per-file-ignores]
+# HTML/Markdown templates and exact external-source anchors have long literal lines.
+"scripts/build_current_report.py" = ["E501"]
+# the report builder carries the page's CSS and markup as literals
+"scripts/build_eval_report.py" = ["E501"]
+"scripts/build_case_matrix_doc.py" = ["E501"]
+"scripts/prepare_validation_runtime.py" = ["E501"]

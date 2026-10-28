@@ -1,0 +1,61 @@
+assumptions:
+- Task 00 has no strict ordering between its two subtasks; this case revokes s1 while s2 runs.
+- Setback 0.10 rad is the largest declared sliding variant; the stove knob is a hinge, so the magnitude
+  must be validated against the native Turnon predicate.
+case_id: libero-10-00-rollback-early-d10-target-joint-upright-setback1-restore
+completed_relations:
+- goal_id: turnon_goal
+  joint_role: articulation_target
+  source_task_goal: true
+dataset_version: 1.4.0
+expected_evaluation_semantics: relation_then_resume
+intervention_description: Revoke the completed s1 goal (Turnon flat_stove_1) by driving the stove knob
+  back out of its on position while s2 is being executed; retain the instruction and s2.
+open_questions:
+- Confirm that the setback actually flips the native (Turnon flat_stove_1) predicate to false.
+- Calibrate success_threshold_rad against a baseline episode rather than the T270 default.
+rollback_target:
+  goal_id: turnon_goal
+  joint_role: articulation_target
+  state_change:
+    joint_role: articulation_target
+    kind: revert_articulation_goal
+    position_tolerance: 0.05
+    setback: 1.0
+    velocity: zero
+scenario_type: completed_relation_rollback
+schema_version: libero-rollback.case.v1
+severity: articulation
+severity_rationale: Mechanism label for revoking an articulation goal by joint setback; the magnitude
+  is the stove knob travel recorded in state_change.
+source:
+  case_reference: early/p1 batch / task 00 / roll back s1 (stove) during s2
+  case_source_id: runtime-grid-expansion-20261009
+  supporting_source_ids:
+  - scenario-timing-position-matrix-20260926
+  - scenario-validity-severity-guidance-20260922
+  task_locator_source_id: full-suite-runtime-crosswalk-20261009
+  task_source_id: libero-plus-task-definitions-v1
+stage:
+  description: s1 (Turnon flat_stove_1) is complete; the arm is turning towards the moka pot to execute
+    s2 (On moka_pot_1 flat_stove_1_cook_region). Revoke s1 by turning the stove knob back off.
+  name: next_subgoal_approach
+task:
+  source_bddl: KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it.bddl
+  source_task_locator: T0
+  suite: LIBERO-10
+  task_id: libero_10/00
+  task_index: 0
+template_id: completed-relation-rollback/articulation-goal/v1
+trigger:
+  delay_steps: 10
+  event: enter_next_subgoal_approach
+  time_point: early
+  window: the stove has been turned on and the arm starts approaching the moka pot
+validity_constraints:
+- completed_relation_true_before_intervention
+- target_relation_false_after_intervention
+- zero_velocity_after_intervention
+- no_object_penetration
+- task_remains_solvable
+- baseline_task_solvable

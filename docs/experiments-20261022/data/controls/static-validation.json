@@ -1,0 +1,1090 @@
+{
+  "generator_version": "1.0.0",
+  "suite": "LIBERO_10",
+  "artifacts_dir": "/home/tarowang/workspace/roboot/libero-rollback/runs/expand-tasks-20261022/artifacts/controls",
+  "n_expected": 18,
+  "n_validated": 18,
+  "method": {
+    "generate": "以源 LIBERO-10 bddl 为模板; control 只改 :goal(单原子)/:language/:obj_of_interest; order 只改 :language; 其余段逐字节保持; init 取源任务 .pruned_init (sibling)",
+    "parse": "BDDLUtils.robosuite_parse_problem + BDDLUtils.get_problem_info",
+    "parse_assertions": [
+      "goal 原子数符合预期 (control=1, order=源任务原子数)",
+      "goal_state 与声明/源任务一致",
+      "language_instruction == 声明的语言",
+      "obj_of_interest 正确; :regions/:fixtures/:objects/:init 与源任务一致",
+      "control 的 goal 原子引用 object/region/fixture 均存在; order 的 :goal/:obj_of_interest 段与源任务逐字节一致"
+    ],
+    "env_smoke": [
+      "OffScreenRenderEnv(bddl_file_name=..., camera_heights=256, camera_widths=256)",
+      "env.seed(1000); env.reset(); env.set_init_state(init[0])",
+      "success = env.check_success(); atoms = env.env.parsed_problem['goal_state']; env.close()",
+      "要求无异常、初始 success == False、env goal 原子数与声明一致；失败最多复跑 3 次"
+    ],
+    "cpu_only": true,
+    "loads_policy_model": false,
+    "implementation": "reuses artifacts/slot-substitution/scripts/build_slot_candidates.py helpers (read-only import)"
+  },
+  "environment": {
+    "python_version": "3.11.14",
+    "torch_version": "2.7.1+cu126",
+    "numpy_version": "1.26.4",
+    "cuda_visible_devices": "",
+    "mujoco_gl": "osmesa",
+    "libero_config_path": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019/shadow",
+    "baseline_root": "/home/tarowang/workspace/roboot/libero-rollback/runs/libero-std-baseline-20261019",
+    "run_root": "/home/tarowang/workspace/roboot/libero-rollback/runs/expand-tasks-20261022"
+  },
+  "summary": {
+    "n_controls_or_variants": 18,
+    "n_control": 12,
+    "n_order": 6,
+    "n_passed": 18,
+    "n_failed": 0,
+    "pass_rate": "18/18",
+    "failed_ids": [],
+    "per_kind": {
+      "control": {
+        "n": 12,
+        "passed": 12
+      },
+      "order": {
+        "n": 6,
+        "passed": 6
+      }
+    },
+    "all_initial_success_false": true,
+    "smoke_attempts_total": 18,
+    "smoke_ids_needing_retry": [],
+    "check_stats": {
+      "bddl_exists": {
+        "passed": 18,
+        "total": 18
+      },
+      "init_sibling_exists": {
+        "passed": 18,
+        "total": 18
+      },
+      "patched_sections_unique": {
+        "passed": 18,
+        "total": 18
+      },
+      "no_double_open_paren": {
+        "passed": 18,
+        "total": 18
+      },
+      "only_expected_sections_changed": {
+        "passed": 18,
+        "total": 18
+      },
+      "parse_ok": {
+        "passed": 18,
+        "total": 18
+      },
+      "goal_atom_count_matches_expected": {
+        "passed": 18,
+        "total": 18
+      },
+      "goal_atoms_match_expected": {
+        "passed": 18,
+        "total": 18
+      },
+      "language_matches_expected": {
+        "passed": 18,
+        "total": 18
+      },
+      "obj_of_interest_matches_expected": {
+        "passed": 18,
+        "total": 18
+      },
+      "regions_match_source": {
+        "passed": 18,
+        "total": 18
+      },
+      "fixtures_match_source": {
+        "passed": 18,
+        "total": 18
+      },
+      "objects_match_source": {
+        "passed": 18,
+        "total": 18
+      },
+      "init_state_match_source": {
+        "passed": 18,
+        "total": 18
+      },
+      "atom_references_exist": {
+        "passed": 12,
+        "total": 12
+      },
+      "init_sha256_matches_source": {
+        "passed": 18,
+        "total": 18
+      },
+      "init_sha256_matches_record": {
+        "passed": 18,
+        "total": 18
+      },
+      "init_shape_ok": {
+        "passed": 18,
+        "total": 18
+      },
+      "env_goal_atom_count_matches_expected": {
+        "passed": 18,
+        "total": 18
+      },
+      "env_goal_atoms_match_parsed": {
+        "passed": 18,
+        "total": 18
+      },
+      "goal_section_unchanged": {
+        "passed": 6,
+        "total": 6
+      },
+      "obj_section_unchanged": {
+        "passed": 6,
+        "total": 6
+      }
+    },
+    "durations": {
+      "parse": {
+        "count": 18,
+        "total_s": 0.013,
+        "min_s": 0.0,
+        "median_s": 0.001,
+        "max_s": 0.004
+      },
+      "smoke": {
+        "count": 18,
+        "total_s": 89.112,
+        "min_s": 3.97,
+        "median_s": 5.071,
+        "max_s": 6.204
+      }
+    }
+  },
+  "results": [
+    {
+      "control_id": "ctrl_lr1_soup",
+      "kind": "control",
+      "checks": {
+        "bddl_exists": true,
+        "init_sibling_exists": true,
+        "patched_section_occurrence_counts": {
+          ":language": 1,
+          ":obj_of_interest": 1,
+          ":goal": 1
+        },
+        "patched_sections_unique": true,
+        "no_double_open_paren": true,
+        "only_expected_sections_changed": true,
+        "parse_ok": true,
+        "goal_atom_count_matches_expected": true,
+        "goal_atoms_match_expected": true,
+        "language_matches_expected": true,
+        "obj_of_interest_matches_expected": true,
+        "regions_match_source": true,
+        "fixtures_match_source": true,
+        "objects_match_source": true,
+        "init_state_match_source": true,
+        "atom_references_exist": true,
+        "init_sha256_matches_source": true,
+        "init_sha256_matches_record": true,
+        "init_shape_ok": true,
+        "env_goal_atom_count_matches_expected": true,
+        "env_goal_atoms_match_parsed": true
+      },
+      "failures": [],
+      "parse_duration_s": 0.0004,
+      "smoke": {
+        "ok": true,
+        "attempts": 1,
+        "duration_s": 5.849,
+        "initial_success": false,
+        "env_goal_atoms": [
+          [
+            "in",
+            "alphabet_soup_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "env_goal_atom_count": 1,
+        "error": null,
+        "traceback": null
+      },
+      "status": "pass"
+    },
+    {
+      "control_id": "ctrl_lr1_cheese",
+      "kind": "control",
+      "checks": {
+        "bddl_exists": true,
+        "init_sibling_exists": true,
+        "patched_section_occurrence_counts": {
+          ":language": 1,
+          ":obj_of_interest": 1,
+          ":goal": 1
+        },
+        "patched_sections_unique": true,
+        "no_double_open_paren": true,
+        "only_expected_sections_changed": true,
+        "parse_ok": true,
+        "goal_atom_count_matches_expected": true,
+        "goal_atoms_match_expected": true,
+        "language_matches_expected": true,
+        "obj_of_interest_matches_expected": true,
+        "regions_match_source": true,
+        "fixtures_match_source": true,
+        "objects_match_source": true,
+        "init_state_match_source": true,
+        "atom_references_exist": true,
+        "init_sha256_matches_source": true,
+        "init_sha256_matches_record": true,
+        "init_shape_ok": true,
+        "env_goal_atom_count_matches_expected": true,
+        "env_goal_atoms_match_parsed": true
+      },
+      "failures": [],
+      "parse_duration_s": 0.0004,
+      "smoke": {
+        "ok": true,
+        "attempts": 1,
+        "duration_s": 4.903,
+        "initial_success": false,
+        "env_goal_atoms": [
+          [
+            "in",
+            "cream_cheese_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "env_goal_atom_count": 1,
+        "error": null,
+        "traceback": null
+      },
+      "status": "pass"
+    },
+    {
+      "control_id": "ctrl_lr1_ketchup",
+      "kind": "control",
+      "checks": {
+        "bddl_exists": true,
+        "init_sibling_exists": true,
+        "patched_section_occurrence_counts": {
+          ":language": 1,
+          ":obj_of_interest": 1,
+          ":goal": 1
+        },
+        "patched_sections_unique": true,
+        "no_double_open_paren": true,
+        "only_expected_sections_changed": true,
+        "parse_ok": true,
+        "goal_atom_count_matches_expected": true,
+        "goal_atoms_match_expected": true,
+        "language_matches_expected": true,
+        "obj_of_interest_matches_expected": true,
+        "regions_match_source": true,
+        "fixtures_match_source": true,
+        "objects_match_source": true,
+        "init_state_match_source": true,
+        "atom_references_exist": true,
+        "init_sha256_matches_source": true,
+        "init_sha256_matches_record": true,
+        "init_shape_ok": true,
+        "env_goal_atom_count_matches_expected": true,
+        "env_goal_atoms_match_parsed": true
+      },
+      "failures": [],
+      "parse_duration_s": 0.0004,
+      "smoke": {
+        "ok": true,
+        "attempts": 1,
+        "duration_s": 4.644,
+        "initial_success": false,
+        "env_goal_atoms": [
+          [
+            "in",
+            "ketchup_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "env_goal_atom_count": 1,
+        "error": null,
+        "traceback": null
+      },
+      "status": "pass"
+    },
+    {
+      "control_id": "ctrl_lr1_tomato",
+      "kind": "control",
+      "checks": {
+        "bddl_exists": true,
+        "init_sibling_exists": true,
+        "patched_section_occurrence_counts": {
+          ":language": 1,
+          ":obj_of_interest": 1,
+          ":goal": 1
+        },
+        "patched_sections_unique": true,
+        "no_double_open_paren": true,
+        "only_expected_sections_changed": true,
+        "parse_ok": true,
+        "goal_atom_count_matches_expected": true,
+        "goal_atoms_match_expected": true,
+        "language_matches_expected": true,
+        "obj_of_interest_matches_expected": true,
+        "regions_match_source": true,
+        "fixtures_match_source": true,
+        "objects_match_source": true,
+        "init_state_match_source": true,
+        "atom_references_exist": true,
+        "init_sha256_matches_source": true,
+        "init_sha256_matches_record": true,
+        "init_shape_ok": true,
+        "env_goal_atom_count_matches_expected": true,
+        "env_goal_atoms_match_parsed": true
+      },
+      "failures": [],
+      "parse_duration_s": 0.0004,
+      "smoke": {
+        "ok": true,
+        "attempts": 1,
+        "duration_s": 4.442,
+        "initial_success": false,
+        "env_goal_atoms": [
+          [
+            "in",
+            "tomato_sauce_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "env_goal_atom_count": 1,
+        "error": null,
+        "traceback": null
+      },
+      "status": "pass"
+    },
+    {
+      "control_id": "ctrl_lr2_ketchup",
+      "kind": "control",
+      "checks": {
+        "bddl_exists": true,
+        "init_sibling_exists": true,
+        "patched_section_occurrence_counts": {
+          ":language": 1,
+          ":obj_of_interest": 1,
+          ":goal": 1
+        },
+        "patched_sections_unique": true,
+        "no_double_open_paren": true,
+        "only_expected_sections_changed": true,
+        "parse_ok": true,
+        "goal_atom_count_matches_expected": true,
+        "goal_atoms_match_expected": true,
+        "language_matches_expected": true,
+        "obj_of_interest_matches_expected": true,
+        "regions_match_source": true,
+        "fixtures_match_source": true,
+        "objects_match_source": true,
+        "init_state_match_source": true,
+        "atom_references_exist": true,
+        "init_sha256_matches_source": true,
+        "init_sha256_matches_record": true,
+        "init_shape_ok": true,
+        "env_goal_atom_count_matches_expected": true,
+        "env_goal_atoms_match_parsed": true
+      },
+      "failures": [],
+      "parse_duration_s": 0.0008,
+      "smoke": {
+        "ok": true,
+        "attempts": 1,
+        "duration_s": 5.362,
+        "initial_success": false,
+        "env_goal_atoms": [
+          [
+            "in",
+            "ketchup_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "env_goal_atom_count": 1,
+        "error": null,
+        "traceback": null
+      },
+      "status": "pass"
+    },
+    {
+      "control_id": "ctrl_lr2_milk",
+      "kind": "control",
+      "checks": {
+        "bddl_exists": true,
+        "init_sibling_exists": true,
+        "patched_section_occurrence_counts": {
+          ":language": 1,
+          ":obj_of_interest": 1,
+          ":goal": 1
+        },
+        "patched_sections_unique": true,
+        "no_double_open_paren": true,
+        "only_expected_sections_changed": true,
+        "parse_ok": true,
+        "goal_atom_count_matches_expected": true,
+        "goal_atoms_match_expected": true,
+        "language_matches_expected": true,
+        "obj_of_interest_matches_expected": true,
+        "regions_match_source": true,
+        "fixtures_match_source": true,
+        "objects_match_source": true,
+        "init_state_match_source": true,
+        "atom_references_exist": true,
+        "init_sha256_matches_source": true,
+        "init_sha256_matches_record": true,
+        "init_shape_ok": true,
+        "env_goal_atom_count_matches_expected": true,
+        "env_goal_atoms_match_parsed": true
+      },
+      "failures": [],
+      "parse_duration_s": 0.0007,
+      "smoke": {
+        "ok": true,
+        "attempts": 1,
+        "duration_s": 5.288,
+        "initial_success": false,
+        "env_goal_atoms": [
+          [
+            "in",
+            "milk_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "env_goal_atom_count": 1,
+        "error": null,
+        "traceback": null
+      },
+      "status": "pass"
+    },
+    {
+      "control_id": "ctrl_lr2_juice",
+      "kind": "control",
+      "checks": {
+        "bddl_exists": true,
+        "init_sibling_exists": true,
+        "patched_section_occurrence_counts": {
+          ":language": 1,
+          ":obj_of_interest": 1,
+          ":goal": 1
+        },
+        "patched_sections_unique": true,
+        "no_double_open_paren": true,
+        "only_expected_sections_changed": true,
+        "parse_ok": true,
+        "goal_atom_count_matches_expected": true,
+        "goal_atoms_match_expected": true,
+        "language_matches_expected": true,
+        "obj_of_interest_matches_expected": true,
+        "regions_match_source": true,
+        "fixtures_match_source": true,
+        "objects_match_source": true,
+        "init_state_match_source": true,
+        "atom_references_exist": true,
+        "init_sha256_matches_source": true,
+        "init_sha256_matches_record": true,
+        "init_shape_ok": true,
+        "env_goal_atom_count_matches_expected": true,
+        "env_goal_atoms_match_parsed": true
+      },
+      "failures": [],
+      "parse_duration_s": 0.0005,
+      "smoke": {
+        "ok": true,
+        "attempts": 1,
+        "duration_s": 5.146,
+        "initial_success": false,
+        "env_goal_atoms": [
+          [
+            "in",
+            "orange_juice_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "env_goal_atom_count": 1,
+        "error": null,
+        "traceback": null
+      },
+      "status": "pass"
+    },
+    {
+      "control_id": "ctrl_lr2_butter",
+      "kind": "control",
+      "checks": {
+        "bddl_exists": true,
+        "init_sibling_exists": true,
+        "patched_section_occurrence_counts": {
+          ":language": 1,
+          ":obj_of_interest": 1,
+          ":goal": 1
+        },
+        "patched_sections_unique": true,
+        "no_double_open_paren": true,
+        "only_expected_sections_changed": true,
+        "parse_ok": true,
+        "goal_atom_count_matches_expected": true,
+        "goal_atoms_match_expected": true,
+        "language_matches_expected": true,
+        "obj_of_interest_matches_expected": true,
+        "regions_match_source": true,
+        "fixtures_match_source": true,
+        "objects_match_source": true,
+        "init_state_match_source": true,
+        "atom_references_exist": true,
+        "init_sha256_matches_source": true,
+        "init_sha256_matches_record": true,
+        "init_shape_ok": true,
+        "env_goal_atom_count_matches_expected": true,
+        "env_goal_atoms_match_parsed": true
+      },
+      "failures": [],
+      "parse_duration_s": 0.0006,
+      "smoke": {
+        "ok": true,
+        "attempts": 1,
+        "duration_s": 5.259,
+        "initial_success": false,
+        "env_goal_atoms": [
+          [
+            "in",
+            "butter_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "env_goal_atom_count": 1,
+        "error": null,
+        "traceback": null
+      },
+      "status": "pass"
+    },
+    {
+      "control_id": "ctrl_k3_frypan",
+      "kind": "control",
+      "checks": {
+        "bddl_exists": true,
+        "init_sibling_exists": true,
+        "patched_section_occurrence_counts": {
+          ":language": 1,
+          ":obj_of_interest": 1,
+          ":goal": 1
+        },
+        "patched_sections_unique": true,
+        "no_double_open_paren": true,
+        "only_expected_sections_changed": true,
+        "parse_ok": true,
+        "goal_atom_count_matches_expected": true,
+        "goal_atoms_match_expected": true,
+        "language_matches_expected": true,
+        "obj_of_interest_matches_expected": true,
+        "regions_match_source": true,
+        "fixtures_match_source": true,
+        "objects_match_source": true,
+        "init_state_match_source": true,
+        "atom_references_exist": true,
+        "init_sha256_matches_source": true,
+        "init_sha256_matches_record": true,
+        "init_shape_ok": true,
+        "env_goal_atom_count_matches_expected": true,
+        "env_goal_atoms_match_parsed": true
+      },
+      "failures": [],
+      "parse_duration_s": 0.0003,
+      "smoke": {
+        "ok": true,
+        "attempts": 1,
+        "duration_s": 4.002,
+        "initial_success": false,
+        "env_goal_atoms": [
+          [
+            "on",
+            "chefmate_8_frypan_1",
+            "flat_stove_1_cook_region"
+          ]
+        ],
+        "env_goal_atom_count": 1,
+        "error": null,
+        "traceback": null
+      },
+      "status": "pass"
+    },
+    {
+      "control_id": "ctrl_k3_moka",
+      "kind": "control",
+      "checks": {
+        "bddl_exists": true,
+        "init_sibling_exists": true,
+        "patched_section_occurrence_counts": {
+          ":language": 1,
+          ":obj_of_interest": 1,
+          ":goal": 1
+        },
+        "patched_sections_unique": true,
+        "no_double_open_paren": true,
+        "only_expected_sections_changed": true,
+        "parse_ok": true,
+        "goal_atom_count_matches_expected": true,
+        "goal_atoms_match_expected": true,
+        "language_matches_expected": true,
+        "obj_of_interest_matches_expected": true,
+        "regions_match_source": true,
+        "fixtures_match_source": true,
+        "objects_match_source": true,
+        "init_state_match_source": true,
+        "atom_references_exist": true,
+        "init_sha256_matches_source": true,
+        "init_sha256_matches_record": true,
+        "init_shape_ok": true,
+        "env_goal_atom_count_matches_expected": true,
+        "env_goal_atoms_match_parsed": true
+      },
+      "failures": [],
+      "parse_duration_s": 0.0044,
+      "smoke": {
+        "ok": true,
+        "attempts": 1,
+        "duration_s": 4.046,
+        "initial_success": false,
+        "env_goal_atoms": [
+          [
+            "on",
+            "moka_pot_1",
+            "flat_stove_1_cook_region"
+          ]
+        ],
+        "env_goal_atom_count": 1,
+        "error": null,
+        "traceback": null
+      },
+      "status": "pass"
+    },
+    {
+      "control_id": "ctrl_k4_wine_bottom",
+      "kind": "control",
+      "checks": {
+        "bddl_exists": true,
+        "init_sibling_exists": true,
+        "patched_section_occurrence_counts": {
+          ":language": 1,
+          ":obj_of_interest": 1,
+          ":goal": 1
+        },
+        "patched_sections_unique": true,
+        "no_double_open_paren": true,
+        "only_expected_sections_changed": true,
+        "parse_ok": true,
+        "goal_atom_count_matches_expected": true,
+        "goal_atoms_match_expected": true,
+        "language_matches_expected": true,
+        "obj_of_interest_matches_expected": true,
+        "regions_match_source": true,
+        "fixtures_match_source": true,
+        "objects_match_source": true,
+        "init_state_match_source": true,
+        "atom_references_exist": true,
+        "init_sha256_matches_source": true,
+        "init_sha256_matches_record": true,
+        "init_shape_ok": true,
+        "env_goal_atom_count_matches_expected": true,
+        "env_goal_atoms_match_parsed": true
+      },
+      "failures": [],
+      "parse_duration_s": 0.0004,
+      "smoke": {
+        "ok": true,
+        "attempts": 1,
+        "duration_s": 4.924,
+        "initial_success": false,
+        "env_goal_atoms": [
+          [
+            "in",
+            "wine_bottle_1",
+            "white_cabinet_1_bottom_region"
+          ]
+        ],
+        "env_goal_atom_count": 1,
+        "error": null,
+        "traceback": null
+      },
+      "status": "pass"
+    },
+    {
+      "control_id": "ctrl_study_mug_back",
+      "kind": "control",
+      "checks": {
+        "bddl_exists": true,
+        "init_sibling_exists": true,
+        "patched_section_occurrence_counts": {
+          ":language": 1,
+          ":obj_of_interest": 1,
+          ":goal": 1
+        },
+        "patched_sections_unique": true,
+        "no_double_open_paren": true,
+        "only_expected_sections_changed": true,
+        "parse_ok": true,
+        "goal_atom_count_matches_expected": true,
+        "goal_atoms_match_expected": true,
+        "language_matches_expected": true,
+        "obj_of_interest_matches_expected": true,
+        "regions_match_source": true,
+        "fixtures_match_source": true,
+        "objects_match_source": true,
+        "init_state_match_source": true,
+        "atom_references_exist": true,
+        "init_sha256_matches_source": true,
+        "init_sha256_matches_record": true,
+        "init_shape_ok": true,
+        "env_goal_atom_count_matches_expected": true,
+        "env_goal_atoms_match_parsed": true
+      },
+      "failures": [],
+      "parse_duration_s": 0.0005,
+      "smoke": {
+        "ok": true,
+        "attempts": 1,
+        "duration_s": 5.008,
+        "initial_success": false,
+        "env_goal_atoms": [
+          [
+            "in",
+            "white_yellow_mug_1",
+            "desk_caddy_1_back_contain_region"
+          ]
+        ],
+        "env_goal_atom_count": 1,
+        "error": null,
+        "traceback": null
+      },
+      "status": "pass"
+    },
+    {
+      "control_id": "ord_k3_pot_then_on",
+      "kind": "order",
+      "checks": {
+        "bddl_exists": true,
+        "init_sibling_exists": true,
+        "patched_section_occurrence_counts": {
+          ":language": 1
+        },
+        "patched_sections_unique": true,
+        "no_double_open_paren": true,
+        "only_expected_sections_changed": true,
+        "parse_ok": true,
+        "goal_atom_count_matches_expected": true,
+        "goal_atoms_match_expected": true,
+        "language_matches_expected": true,
+        "obj_of_interest_matches_expected": true,
+        "regions_match_source": true,
+        "fixtures_match_source": true,
+        "objects_match_source": true,
+        "init_state_match_source": true,
+        "goal_section_unchanged": true,
+        "obj_section_unchanged": true,
+        "init_sha256_matches_source": true,
+        "init_sha256_matches_record": true,
+        "init_shape_ok": true,
+        "env_goal_atom_count_matches_expected": true,
+        "env_goal_atoms_match_parsed": true
+      },
+      "failures": [],
+      "parse_duration_s": 0.0003,
+      "smoke": {
+        "ok": true,
+        "attempts": 1,
+        "duration_s": 3.97,
+        "initial_success": false,
+        "env_goal_atoms": [
+          [
+            "turnon",
+            "flat_stove_1"
+          ],
+          [
+            "on",
+            "moka_pot_1",
+            "flat_stove_1_cook_region"
+          ]
+        ],
+        "env_goal_atom_count": 2,
+        "error": null,
+        "traceback": null
+      },
+      "status": "pass"
+    },
+    {
+      "control_id": "ord_lr1_cheese_soup",
+      "kind": "order",
+      "checks": {
+        "bddl_exists": true,
+        "init_sibling_exists": true,
+        "patched_section_occurrence_counts": {
+          ":language": 1
+        },
+        "patched_sections_unique": true,
+        "no_double_open_paren": true,
+        "only_expected_sections_changed": true,
+        "parse_ok": true,
+        "goal_atom_count_matches_expected": true,
+        "goal_atoms_match_expected": true,
+        "language_matches_expected": true,
+        "obj_of_interest_matches_expected": true,
+        "regions_match_source": true,
+        "fixtures_match_source": true,
+        "objects_match_source": true,
+        "init_state_match_source": true,
+        "goal_section_unchanged": true,
+        "obj_section_unchanged": true,
+        "init_sha256_matches_source": true,
+        "init_sha256_matches_record": true,
+        "init_shape_ok": true,
+        "env_goal_atom_count_matches_expected": true,
+        "env_goal_atoms_match_parsed": true
+      },
+      "failures": [],
+      "parse_duration_s": 0.0012,
+      "smoke": {
+        "ok": true,
+        "attempts": 1,
+        "duration_s": 4.489,
+        "initial_success": false,
+        "env_goal_atoms": [
+          [
+            "in",
+            "alphabet_soup_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "cream_cheese_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "env_goal_atom_count": 2,
+        "error": null,
+        "traceback": null
+      },
+      "status": "pass"
+    },
+    {
+      "control_id": "ord_lr2_tomato_soup",
+      "kind": "order",
+      "checks": {
+        "bddl_exists": true,
+        "init_sibling_exists": true,
+        "patched_section_occurrence_counts": {
+          ":language": 1
+        },
+        "patched_sections_unique": true,
+        "no_double_open_paren": true,
+        "only_expected_sections_changed": true,
+        "parse_ok": true,
+        "goal_atom_count_matches_expected": true,
+        "goal_atoms_match_expected": true,
+        "language_matches_expected": true,
+        "obj_of_interest_matches_expected": true,
+        "regions_match_source": true,
+        "fixtures_match_source": true,
+        "objects_match_source": true,
+        "init_state_match_source": true,
+        "goal_section_unchanged": true,
+        "obj_section_unchanged": true,
+        "init_sha256_matches_source": true,
+        "init_sha256_matches_record": true,
+        "init_shape_ok": true,
+        "env_goal_atom_count_matches_expected": true,
+        "env_goal_atoms_match_parsed": true
+      },
+      "failures": [],
+      "parse_duration_s": 0.0005,
+      "smoke": {
+        "ok": true,
+        "attempts": 1,
+        "duration_s": 5.161,
+        "initial_success": false,
+        "env_goal_atoms": [
+          [
+            "in",
+            "alphabet_soup_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "tomato_sauce_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "env_goal_atom_count": 2,
+        "error": null,
+        "traceback": null
+      },
+      "status": "pass"
+    },
+    {
+      "control_id": "ord_lr2_butter_cheese",
+      "kind": "order",
+      "checks": {
+        "bddl_exists": true,
+        "init_sibling_exists": true,
+        "patched_section_occurrence_counts": {
+          ":language": 1
+        },
+        "patched_sections_unique": true,
+        "no_double_open_paren": true,
+        "only_expected_sections_changed": true,
+        "parse_ok": true,
+        "goal_atom_count_matches_expected": true,
+        "goal_atoms_match_expected": true,
+        "language_matches_expected": true,
+        "obj_of_interest_matches_expected": true,
+        "regions_match_source": true,
+        "fixtures_match_source": true,
+        "objects_match_source": true,
+        "init_state_match_source": true,
+        "goal_section_unchanged": true,
+        "obj_section_unchanged": true,
+        "init_sha256_matches_source": true,
+        "init_sha256_matches_record": true,
+        "init_shape_ok": true,
+        "env_goal_atom_count_matches_expected": true,
+        "env_goal_atoms_match_parsed": true
+      },
+      "failures": [],
+      "parse_duration_s": 0.0005,
+      "smoke": {
+        "ok": true,
+        "attempts": 1,
+        "duration_s": 5.133,
+        "initial_success": false,
+        "env_goal_atoms": [
+          [
+            "in",
+            "cream_cheese_1",
+            "basket_1_contain_region"
+          ],
+          [
+            "in",
+            "butter_1",
+            "basket_1_contain_region"
+          ]
+        ],
+        "env_goal_atom_count": 2,
+        "error": null,
+        "traceback": null
+      },
+      "status": "pass"
+    },
+    {
+      "control_id": "ord_lr5_yellow_porcelain",
+      "kind": "order",
+      "checks": {
+        "bddl_exists": true,
+        "init_sibling_exists": true,
+        "patched_section_occurrence_counts": {
+          ":language": 1
+        },
+        "patched_sections_unique": true,
+        "no_double_open_paren": true,
+        "only_expected_sections_changed": true,
+        "parse_ok": true,
+        "goal_atom_count_matches_expected": true,
+        "goal_atoms_match_expected": true,
+        "language_matches_expected": true,
+        "obj_of_interest_matches_expected": true,
+        "regions_match_source": true,
+        "fixtures_match_source": true,
+        "objects_match_source": true,
+        "init_state_match_source": true,
+        "goal_section_unchanged": true,
+        "obj_section_unchanged": true,
+        "init_sha256_matches_source": true,
+        "init_sha256_matches_record": true,
+        "init_shape_ok": true,
+        "env_goal_atom_count_matches_expected": true,
+        "env_goal_atoms_match_parsed": true
+      },
+      "failures": [],
+      "parse_duration_s": 0.0005,
+      "smoke": {
+        "ok": true,
+        "attempts": 1,
+        "duration_s": 6.204,
+        "initial_success": false,
+        "env_goal_atoms": [
+          [
+            "on",
+            "porcelain_mug_1",
+            "plate_1"
+          ],
+          [
+            "on",
+            "white_yellow_mug_1",
+            "plate_2"
+          ]
+        ],
+        "env_goal_atom_count": 2,
+        "error": null,
+        "traceback": null
+      },
+      "status": "pass"
+    },
+    {
+      "control_id": "ord_lr6_pudding_mug",
+      "kind": "order",
+      "checks": {
+        "bddl_exists": true,
+        "init_sibling_exists": true,
+        "patched_section_occurrence_counts": {
+          ":language": 1
+        },
+        "patched_sections_unique": true,
+        "no_double_open_paren": true,
+        "only_expected_sections_changed": true,
+        "parse_ok": true,
+        "goal_atom_count_matches_expected": true,
+        "goal_atoms_match_expected": true,
+        "language_matches_expected": true,
+        "obj_of_interest_matches_expected": true,
+        "regions_match_source": true,
+        "fixtures_match_source": true,
+        "objects_match_source": true,
+        "init_state_match_source": true,
+        "goal_section_unchanged": true,
+        "obj_section_unchanged": true,
+        "init_sha256_matches_source": true,
+        "init_sha256_matches_record": true,
+        "init_shape_ok": true,
+        "env_goal_atom_count_matches_expected": true,
+        "env_goal_atoms_match_parsed": true
+      },
+      "failures": [],
+      "parse_duration_s": 0.0005,
+      "smoke": {
+        "ok": true,
+        "attempts": 1,
+        "duration_s": 5.282,
+        "initial_success": false,
+        "env_goal_atoms": [
+          [
+            "on",
+            "porcelain_mug_1",
+            "plate_1"
+          ],
+          [
+            "on",
+            "chocolate_pudding_1",
+            "living_room_table_plate_right_region"
+          ]
+        ],
+        "env_goal_atom_count": 2,
+        "error": null,
+        "traceback": null
+      },
+      "status": "pass"
+    }
+  ]
+}

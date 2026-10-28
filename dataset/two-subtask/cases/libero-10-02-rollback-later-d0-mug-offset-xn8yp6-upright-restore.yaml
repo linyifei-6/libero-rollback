@@ -1,0 +1,62 @@
+assumptions:
+- The rollback target is the first subgoal completed in execution order.
+- The relation must hold and the object must be released before mutation.
+case_id: libero-10-02-rollback-later-d0-mug-offset-xn8yp6-upright-restore
+completed_relations:
+- predicate: (In white_yellow_mug_1 microwave_1_heating_region)
+  source_task_goal: true
+dataset_version: 1.6.0
+expected_evaluation_semantics: relation_then_resume
+intervention_description: Revoke the completed s1 relation (In white_yellow_mug_1 microwave_1_heating_region)
+  by restoring white_yellow_mug_1 to its initial offset n8 while s2 is being executed; retain the instruction
+  and every other goal.
+open_questions:
+- Verify collision-free support, no penetration and release.
+rollback_target:
+  actor: white_yellow_mug_1
+  predicate: (In white_yellow_mug_1 microwave_1_heating_region)
+  state_change:
+    kind: apply_episode_initial_offset
+    offset_frame: world
+    offset_m:
+    - -0.08
+    - 0.06
+    - 0.0
+    velocity: zero
+scenario_type: completed_relation_rollback
+schema_version: libero-rollback.case.v1
+severity: n8
+severity_rationale: Grid severity label; the concrete signed offset lives in the template severity, not
+  in the case.
+source:
+  case_reference: two-subtask / task 02 / revoke s1 (white_yellow_mug_1) to its initial offset n8 during
+    s2 / later
+  case_source_id: two-subtask-expansion-20261012
+  supporting_source_ids:
+  - scenario-timing-position-matrix-20260926
+  task_locator_source_id: full-suite-runtime-crosswalk-20261009
+  task_source_id: libero-plus-task-definitions-v1
+stage:
+  description: s2 is being executed; revoke s1 at the later window.
+  name: next_subgoal_lift
+task:
+  source_bddl: KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it.bddl
+  source_task_locator: T78
+  suite: LIBERO-10
+  task_id: libero_10/02
+  task_index: 2
+template_id: completed-relation-rollback/support-surface-offset/v1
+trigger:
+  delay_steps: 0
+  event: enter_next_subgoal_lift
+  time_point: later
+  window: later window via enter_x3a_actuation
+validity_constraints:
+- completed_relation_true_before_intervention
+- target_relation_false_after_intervention
+- object_released_before_intervention
+- zero_velocity_after_intervention
+- target_pose_within_workspace
+- no_object_penetration
+- task_remains_solvable
+- baseline_task_solvable

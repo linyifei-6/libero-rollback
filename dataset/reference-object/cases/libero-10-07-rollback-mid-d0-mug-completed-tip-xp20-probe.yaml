@@ -1,0 +1,79 @@
+assumptions:
+- Project-authored extension; parameters are proposals, not measurements.
+- The goal target is a body (the plate), so the predicate includes a real contact term; a rotated mug
+  can break the relation, unlike site-region tasks.
+- 'Rotation is capped: a 90/180 degree sweep penetrates the plate by 0.025-0.063 m (measured), and the
+  runtime variant used here does not apply a lift, so the angle must stay inside the free geometry.'
+- Preflight decides the semantics; the declaration follows the measurement.
+case_id: libero-10-07-rollback-mid-d0-mug-completed-tip-xp20-probe
+completed_relations:
+- selection_id: first_completed_plate_placement
+  selection_strategy: first_completed_subgoal_in_execution_order
+  candidates:
+  - predicate: (On porcelain_mug_1 plate_1)
+    actor: porcelain_mug_1
+    source_task_goal: true
+  - predicate: (On white_yellow_mug_1 plate_2)
+    actor: white_yellow_mug_1
+    source_task_goal: true
+dataset_version: 1.9.0
+expected_evaluation_semantics: relation_only
+intervention_description: 'Task 07: rotate the completed mug in place (+ 20 degrees about x) while the
+  second subgoal is under way; the angle is capped at what the support geometry admits, and the semantics
+  follow the measurement.'
+open_questions:
+- Native truth and penetration are verified by preflight.
+reference_role: failure
+rollback_target:
+  selection_id: first_completed_plate_placement
+  actor: selected_relation_actor
+  state_change:
+    kind: displace_from_completed_pose
+    offset_frame: world
+    offset_m:
+    - 0.0
+    - 0.0
+    - 0.0
+    orientation_axis_angle:
+      axis:
+      - 1.0
+      - 0.0
+      - 0.0
+      angle_rad: 0.3490658503988659
+    velocity: zero
+scenario_type: completed_relation_rollback
+schema_version: libero-rollback.case.v1
+severity: pose
+severity_rationale: Mechanism label; the posture parameters are explicit.
+source:
+  case_reference: matrix P2 reference object / task 07 / failure / mid
+  case_source_id: matrix-p2-reference-object-20261013
+  supporting_source_ids:
+  - scenario-timing-position-matrix-20260926
+  task_locator_source_id: full-suite-runtime-crosswalk-20261009
+  task_source_id: libero-plus-task-definitions-v1
+stage:
+  description: s2 is being executed; move the relation's other end (plate_1) at the mid window.
+  name: next_subgoal_approach
+task:
+  source_bddl: LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate.bddl
+  source_task_locator: T193
+  suite: LIBERO-10
+  task_id: libero_10/07
+  task_index: 7
+template_id: completed-relation-rollback/reference-object/v1
+trigger:
+  delay_steps: 0
+  event: enter_next_subgoal_approach
+  time_point: mid
+  window: reference object ref-moved, mid
+validity_constraints:
+- completed_relation_true_before_intervention
+- object_released_before_intervention
+- zero_velocity_after_intervention
+- no_object_penetration
+- task_remains_solvable
+- baseline_task_solvable
+- reference_object_is_not_a_fixed_fixture
+- reference_motion_does_not_disturb_the_current_s2_object
+pose_role: measured_relation_probe
