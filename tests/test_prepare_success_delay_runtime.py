@@ -16,7 +16,8 @@ import prepare_success_delay_runtime as overlay  # noqa: E402
 def _runner_fixture() -> str:
     """Concatenate every anchor block so each replacement has one target."""
 
-    return "\n".join(old for _name, old, _new in overlay.REPLACEMENTS)
+    anchors = "\n".join(old for _name, old, _new in overlay.REPLACEMENTS)
+    return anchors + "\n" + overlay.BASELINE_ENV_PLAIN_OLD + "\n"
 
 
 def test_patch_runner_source_adds_success_window_contract() -> None:

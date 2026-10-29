@@ -49,7 +49,36 @@ REPLACEMENTS: list[tuple[str, str, str]] = [
     ('ignore_done capability', '                        ignore_done=(\n                            pfcr_requires_post_success_observation(pfcr_settings)\n                            or bool(args.post_success_window)\n                        ),\n', '                        ignore_done=(\n                            pfcr_requires_post_success_observation(pfcr_settings)\n                            or bool(args.post_success_window)\n                            or bool(args.success_delay)\n                        ),\n'),
     ('CLI arguments', '    p.add_argument(\n        "--post-success-window",\n        action="store_true",\n        help=(\n            "keep stepping after the task predicate first becomes true.  Only "\n            "the A3 protection cases need it: they revoke one of two relations "\n            "that are both already complete, and without the window the episode "\n            "ends on the very step the trigger fires, so the intervention never "\n            "executes (INTERVENTION_NOT_EXECUTED)."\n        ),\n    )\n', '    p.add_argument(\n        "--post-success-window",\n        action="store_true",\n        help=(\n            "keep stepping after the task predicate first becomes true.  Only "\n            "the A3 protection cases need it: they revoke one of two relations "\n            "that are both already complete, and without the window the episode "\n            "ends on the very step the trigger fires, so the intervention never "\n            "executes (INTERVENTION_NOT_EXECUTED)."\n        ),\n    )\n    p.add_argument(\n        "--success-delay",\n        type=int,\n        default=0,\n        help=(\n            "after the task predicate first becomes true, require it to stay "\n            "true for this many additional control steps before reporting a "\n            "stable success; 0 keeps the legacy immediate stop.  The "\n            "verification tail is appended to --max-steps rather than taken "\n            "out of the active budget"\n        ),\n    )\n    p.add_argument(\n        "--success-check-interval",\n        type=int,\n        default=1,\n        help=(\n            "sample the task predicate every N steps inside the hold window; "\n            "1 (default) is the strict consecutive-step definition"\n        ),\n    )\n'),
     ('main validation', 'def main():\n    args = parse_args()\n    custom_bddl_paths: list[str] = []\n', 'def main():\n    args = parse_args()\n    if args.success_delay < 0:\n        raise SystemExit("--success-delay must be nonnegative")\n    if args.success_check_interval < 1:\n        raise SystemExit("--success-check-interval must be positive")\n    if args.success_delay and args.post_success_window:\n        raise SystemExit(\n            "--success-delay and --post-success-window are mutually exclusive"\n        )\n    custom_bddl_paths: list[str] = []\n'),
+    ('success_delay done suppression', '                if (\n                    environment_done\n                    and (pfcr_bridge is not None or post_success_observation)\n                    and env_supports_post_success_steps(env)\n                ):\n                    done = False\n', '                if (\n                    environment_done\n                    and (\n                        pfcr_bridge is not None\n                        or post_success_observation\n                        or success_delay > 0\n                    )\n                    and env_supports_post_success_steps(env)\n                ):\n                    done = False\n'),
+    ('baseline success_delay kwargs', '                        environment_initializer=baseline_initializer,\n                        instruction_switch_monitor=(\n', '                        environment_initializer=baseline_initializer,\n                        success_delay=int(args.success_delay),\n                        success_check_interval=int(args.success_check_interval),\n                        instruction_switch_monitor=(\n'),
 ]
+
+# Frozen overlays differ in whether the native-preflight patch already added an
+# ignore_done argument to the paired-baseline environment.  Handle both known
+# forms so the same builder works against v19/v18 overlays and the std/official
+# baseline overlays.
+BASELINE_PREFLIGHT_IGNORE_OLD = (
+    '                        ignore_done=bool(os.environ.get("ROLLBACK_PREFLIGHT_OUTPUT")),\n'
+)
+BASELINE_PREFLIGHT_IGNORE_NEW = (
+    '                        ignore_done=(\n'
+    '                            bool(os.environ.get("ROLLBACK_PREFLIGHT_OUTPUT"))\n'
+    '                            or bool(args.success_delay)\n'
+    "                        ),\n"
+)
+BASELINE_ENV_PLAIN_OLD = """                    env = OffScreenRenderEnv(
+                        bddl_file_name=baseline_bddl,
+                        camera_heights=cam,
+                        camera_widths=cam,
+                    )
+"""
+BASELINE_ENV_PLAIN_NEW = """                    env = OffScreenRenderEnv(
+                        bddl_file_name=baseline_bddl,
+                        camera_heights=cam,
+                        camera_widths=cam,
+                        ignore_done=bool(args.success_delay),
+                    )
+"""
 
 
 def replace_once(text: str, old: str, new: str, name: str) -> str:
@@ -65,6 +94,17 @@ def replace_once(text: str, old: str, new: str, name: str) -> str:
 def patch_runner_source(text: str) -> str:
     """Apply every success-delay replacement to a runner source string."""
 
+    if BASELINE_PREFLIGHT_IGNORE_OLD in text:
+        text = replace_once(
+            text,
+            BASELINE_PREFLIGHT_IGNORE_OLD,
+            BASELINE_PREFLIGHT_IGNORE_NEW,
+            "baseline preflight ignore_done",
+        )
+    else:
+        text = replace_once(
+            text, BASELINE_ENV_PLAIN_OLD, BASELINE_ENV_PLAIN_NEW, "baseline ignore_done"
+        )
     for name, old, new in REPLACEMENTS:
         text = replace_once(text, old, new, name)
     return text
