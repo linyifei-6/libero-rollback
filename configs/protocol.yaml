@@ -1,0 +1,177 @@
+# Canonical evaluation protocol for LIBERO-Rollback v2.
+#
+# Authority: docs/SPEC.md §5 (protocol constants) and README §6. This file is
+# the machine-readable mirror of those constants; when this file and SPEC.md
+# disagree, SPEC.md wins and both must be fixed in the same change.
+#
+# Nothing in this file is machine-specific. Host paths belong in `.env` /
+# environment variables (see `.env.example`), never in committed config.
+# The benchmark is offline: it opens no network ports and starts no services.
+
+schema_version: 1
+protocol_version: "2.0.0-dev"
+dataset_version_target: "2.0.0.dev0"
+network: none            # file-based artefacts only; no ports / services
+
+# ---------------------------------------------------------------------------
+# Step budgets (docs/SPEC.md §5)
+#
+# `max_steps` counts active policy steps. The repair window is appended only
+# after a *valid* injection and does not eat into the main budget; the actual
+# per-episode number is recorded as `repair_budget_steps`.
+# ---------------------------------------------------------------------------
+budgets:
+  a: {max_steps: 600, repair_window: 0}
+  c: {max_steps: 600, repair_window: 0}            # C is Phase 2 (not built yet)
+  b: {max_steps: 600, repair_window: 300}
+  d_native: {max_steps: 800, repair_window: 300}
+  d_compose: {max_steps: 600, repair_window: 300}  # D-compose is Phase 2 (provisional)
+
+# ---------------------------------------------------------------------------
+# Trigger semantics (README §3.5)
+# ---------------------------------------------------------------------------
+trigger:
+  b:
+    event: all_done
+    delay_steps: 10
+    definition: >-
+      all native goal atoms are true from GT predicates (a real success, not a
+      historical ledger); inject after `delay_steps` further environment steps.
+  d:
+    windows: [early, mid, later]
+    criterion: gt_predicates_and_sim_state_only
+    external_runtime_profile: forbidden
+
+# `replan_steps` is aligned with B `delay_steps` so a trigger never lands in
+# the middle of the action chunk that was already queued.
+replan_steps: 10
+
+# ---------------------------------------------------------------------------
+# Episode sampling for the main table
+# ---------------------------------------------------------------------------
+init:
+  main_row: 0
+  variance_rows: [0, 1, 2, 3, 4]
+
+seed:
+  main: 0
+  run_to_run_repeats: 5          # variance estimate: 20 tasks x 5 repeats
+
+render:
+  camera: 256
+  settle_steps: 10
+  # resolved at run time from the environment, recorded in provenance.json
+  mujoco_gl_env: MUJOCO_GL
+
+video:
+  enabled_by_default: true
+  fps: 20
+  codec: H.264
+  pixel_format: yuv420p
+  faststart: true
+  injection_card_seconds: 1
+
+# ---------------------------------------------------------------------------
+# Perturbation levels (README §3.4)
+#
+# L1 and L2 are two *shapes* of perturbation, not difficulty ranks. Every
+# injected case must record the measured geometry (`dtranslation_m`,
+# `dangle_rad`, `axis`) in its result artefacts.
+# ---------------------------------------------------------------------------
+perturbation:
+  levels: [C0, L0, L1, L2]
+  c0:
+    kind: noop
+    expected_relation_after: true
+    per_task: 1                  # exactly one no-op control per task
+  l0:
+    kind: init_pose
+    expected_relation_after: false
+    note: restore to the settled snapshot of init row 0 (a configuration the policy saw at t=0)
+  l1:
+    kind: translation
+    expected_relation_after: false
+    translation_m: {d03: 0.03, d06: 0.06, d10: 0.10}
+    joint_opening_fraction: {d03: 0.10, d06: 0.25, d10: 0.40}
+    axis: horizontal ray from the goal-region centre towards the initial pose
+  l2:
+    kind: yaw
+    expected_relation_after: false
+    yaw_deg: {r30: 30, r60: 60, r90: 90}
+    axis: world z
+    excluded_families: [joint]   # articulation tasks have no L2 level
+
+# ---------------------------------------------------------------------------
+# Per-case acceptance gates (README §5.2 / SPEC §7)
+# A case counts as `injection_invalid` unless every gate passes.
+# ---------------------------------------------------------------------------
+gates:
+  baseline_task_solvable: required
+  completed_relation_true_before_intervention: required   # from GT, not a ledger
+  relation_false_after_intervention: required             # C0: relation must stay true
+  relation_preserved_for_c0: required
+  no_object_penetration_max_m: 0.01                       # initial resting contact is ~8 mm
+  zero_velocity_after_intervention: required
+  object_released_min_gripper_gap_m: 0.01
+  restorable: required            # C4 oracle; full sweep in Phase 2
+  geometry_recorded: [dtranslation_m, dangle_rad, axis]
+  d_extra: [s1_reachable, event_fires_reproducibly, s2_undisturbed_by_injection]
+
+# ---------------------------------------------------------------------------
+# Measurement discipline (README §4.2, SPEC §6)
+# ---------------------------------------------------------------------------
+success:
+  judge: env.check_success
+  trace: gt_predicate_trace
+  vlm_judge: forbidden
+
+metrics:
+  recovery_denominator: [valid_recovered, valid_not_recovered]
+  control_denominator: all_attempted_c0_cases
+  trigger_denominator: all_attempted_cases
+  excluded_from_recovery:
+    - valid_control
+    - valid_relation_preserving_probe
+    - valid_external_restoration
+    - injection_invalid
+    - trigger_not_reached
+    - truth_unverified
+    - protocol_incomplete
+    - incomplete
+  non_triggerable: "N/A"        # never 0%; must appear explicitly in tables
+  required_footnote: [model, checkpoint, n_inits, budget, ci]
+  ci: wilson_95
+  paired_test: exact_mcnemar
+  cluster_bootstrap_by: structure
+  micro_macro: both
+
+# ---------------------------------------------------------------------------
+# Splits (README §3.7, SPEC §0/§10)
+#
+# `core` is the target v2.0 matrix; only A / B / D-native are executable in
+# Phase 1. C and D-compose stay provisional until the C structures exist.
+# ---------------------------------------------------------------------------
+splits:
+  lite:
+    episodes: 30
+    composition: {a: 10, b: 10, d_native: 10}
+  core:
+    a: 40
+    b: 442
+    c: 160
+    d_native: 189
+    d_compose: 360
+    total: 1191
+  phase1_executable: {a: 40, b: 442, d_native: 189}
+  phase2_provisional: {c: 160, d_compose: 360}
+  variance: {structures: 100, inits: 5, approx_episodes: 400}
+  restate: {approx_episodes: 100}
+  full: {approx_episodes: 1700}
+  negative:
+    classes: [conflict, degenerate, infeasible, probe]
+    in_main_table: false
+
+# A D window whose measured trigger rate is below this threshold is reported
+# as N/A (with the reason) instead of entering the main table (README §3.5).
+window_admissibility:
+  min_trigger_rate_for_main_table: 0.20

@@ -1,0 +1,139 @@
+# Model registry for LIBERO-Rollback.
+#
+# This file is *configuration*, not provenance: it names the adapter module,
+# the environment variables that point at an isolated interpreter and a local
+# checkpoint, and the sampling/preprocessing parameters the runner must pass.
+#
+# Path resolution order for anything path-like:
+#   1. explicit CLI flag (e.g. `--checkpoint`, `--python`)
+#   2. environment variable named in `python_env` / `checkpoint_env`
+#   3. `checkpoint_default` — a placeholder only (home-relative or empty)
+#
+# This file must never contain a machine-specific absolute path. Checkpoints
+# are NOT downloaded and are NOT part of the dataset; users obtain them under
+# the model's own license. See docs/protocol.md and configs/envs/README.md.
+
+schema_version: 1
+env_var_templates: configs/envs/<model>.lock   # per-model env lock, Phase 2
+
+adapter_contract:
+  module: libero_rollback.policies
+  protocol: PolicyAdapter
+  # The runner depends on exactly these two methods (README §8.4):
+  methods:
+    reset_episode: "reset_episode(seed: int) -> None"
+    predict_chunk: "predict_chunk(observation: Mapping, instruction: str) -> np.ndarray  # (T, 7)"
+  action_dim: 7
+  runner_policy_names: [pi05, smolvla, openvla_oft, none]
+
+# ---------------------------------------------------------------------------
+# Models
+#
+# `adapter` is a Python module path; `class` is the concrete class that wraps
+# a checkpoint. pi0 / pi0_fast share the OpenPI adapter with a different
+# `config_name` and checkpoint directory, matching README §8.4.
+# ---------------------------------------------------------------------------
+models:
+  pi05:
+    adapter: libero_rollback.policies.pi05
+    class: Pi05Policy
+    family: openpi
+    python_env: PI05_PYTHON
+    checkpoint_env: PI05_CHECKPOINT
+    checkpoint_default: "~/.cache/openpi/openpi-assets/checkpoints/pi05_libero"
+    config_name: pi05_libero
+    runner_supported: true
+    action_horizon: 10
+    image_size: 256
+    replan_steps: 10
+    env:
+      XLA_FLAGS: "--xla_gpu_deterministic_ops"
+    notes: >-
+      Reference model for README §2. Adapter flips both images, concatenates
+      eef pos + axis-angle + gripper qpos into the proprio state and replans
+      every `replan_steps`. OpenPI is imported lazily so the static layer can
+      load this registry without JAX.
+
+  pi0:
+    adapter: libero_rollback.policies.pi05
+    class: Pi05Policy
+    family: openpi
+    python_env: PI0_PYTHON
+    checkpoint_env: PI0_CHECKPOINT
+    checkpoint_default: "~/.cache/openpi/openpi-assets/checkpoints/pi0_libero"
+    config_name: pi0_libero
+    runner_supported: false
+    action_horizon: 10
+    image_size: 256
+    replan_steps: 10
+    env:
+      XLA_FLAGS: "--xla_gpu_deterministic_ops"
+    notes: >-
+      OpenPI pi0; same adapter surface as pi05, different training config.
+      load_policy() does not wire pi0 yet (runner POLICY_NAMES = pi05/smolvla/openvla_oft/none; Phase 2).
+
+  pi0_fast:
+    adapter: libero_rollback.policies.pi05
+    class: Pi05Policy
+    family: openpi
+    python_env: PI0_FAST_PYTHON
+    checkpoint_env: PI0_FAST_CHECKPOINT
+    checkpoint_default: "~/.cache/openpi/openpi-assets/checkpoints/pi0_fast_libero"
+    config_name: pi0_fast_libero
+    runner_supported: false
+    action_horizon: 10
+    image_size: 256
+    replan_steps: 10
+    env:
+      XLA_FLAGS: "--xla_gpu_deterministic_ops"
+    notes: >-
+      OpenPI pi0-FAST; same adapter surface as pi05. load_policy() does not wire
+      pi0_fast yet (runner POLICY_NAMES = pi05/smolvla/openvla_oft/none; Phase 2).
+
+  openvla_oft:
+    adapter: libero_rollback.policies.openvla_oft
+    class: OpenVlaOftPolicy
+    family: openvla_oft
+    python_env: OPENVLA_OFT_PYTHON
+    checkpoint_env: OPENVLA_OFT_CHECKPOINT
+    # Upstream names the checkpoint folder but does not prescribe a local root;
+    # leave the default empty and require the environment variable.
+    checkpoint_default: ""
+    checkpoint_name_hint: "openvla-7b-oft-finetuned-libero-spatial-object-goal-10"
+    runner_supported: true
+    action_horizon: 8
+    image_size: 256
+    replan_steps: 10
+    preprocess:
+      rotate_180: true
+      resize: 224
+      center_crop: true
+      use_proprio: true
+      use_l1_regression: true
+    unnorm_key_by_suite:
+      goal: libero_goal_no_noops
+      object: libero_object_no_noops
+      spatial: libero_spatial_no_noops
+      l10: libero_10_no_noops
+    notes: >-
+      Py3.10 + torch 2.2.0 is the tested stack (README §8.4). `unnorm_key`
+      follows the suite and must be confirmed against the checkpoint card
+      before a leaderboard submission. The wrapped OFT policy performs its own
+      observation preprocessing, so the adapter receives raw LIBERO observations.
+
+  smolvla:
+    adapter: libero_rollback.policies.smolvla
+    class: SmolVlaPolicy
+    family: lerobot
+    python_env: SMOLVLA_PYTHON
+    checkpoint_env: SMOLVLA_CHECKPOINT
+    checkpoint_default: ""
+    checkpoint_name_hint: "smolvla_libero"
+    runner_supported: true
+    action_horizon: 50
+    image_size: 256
+    replan_steps: 10
+    notes: >-
+      0.45B lightweight model used as the zero-progress control in README §2
+      and §6.1. Chunk size is checkpoint-defined; the adapter reports the
+      actual value in episode metadata.

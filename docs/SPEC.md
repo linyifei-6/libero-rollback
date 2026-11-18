@@ -62,8 +62,8 @@ LIBERO_SUITE_DIRS = {
 }
 ```
 
-- `task_idx` 是**本仓稳定编号**（0–9），不是 LIBERO-plus 的全局整数下标。
-- `bddl_name` 是 BDDL stem，例如 `libero_10/KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it`。
+- `task_idx` 沿用**来源仓的 LIBERO 全局任务下标**（不是 0–9 重编号）：goal 0–270、object 0–235、spatial 0–244、l10 0–276 的子集；A/B/D 共享同一 `(suite, task_idx)` 映射（该口径在 Phase 1 冻结，见 `dataset/sources.yaml`）。
+- `bddl_name` 是 BDDL stem，例如 `KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it`。
 - A 套件的 40 个任务**完全由 B 的 40 个 task key 派生**（`suite, task_idx, bddl_name` 一一对应），保证 A↔B 配对。
 - D-native 的 `task_idx` 使用与 B 的 `l10` 相同的编号映射。
 
@@ -90,7 +90,7 @@ LIBERO_SUITE_DIRS = {
 |---|---|---|
 | `case_id` | str | `a-<suite>-t<idx:03d>` |
 | `suite` | enum | `goal/object/spatial/l10` |
-| `task_idx` | int | 0–9 |
+| `task_idx` | int | 来源仓 LIBERO 全局任务下标（见 §2.2） |
 | `bddl_name` | str | BDDL stem |
 | `instruction` | str | 从 BDDL `:language` 提取，逐字保存 |
 | `init_source` | str | 相对 `LIBERO_HOME` 的 init 路径 |
@@ -119,6 +119,8 @@ LIBERO_SUITE_DIRS = {
 
 目标：120 个 n=2 结构 + 40 个 n=3 结构。列契约在 C 构建时冻结；`case_id = c-<struct_id>`，`struct_id` 形如 `sNNNN`。
 D-compose 的 360 行复用同一 `struct_id`（`d-compose-<struct_id>-<window>-l0`）。
+
+> **导入矩阵的 `trigger_criterion` 是来源仓旧标签**（`s1 first true`、`s2 displacement > 5 cm`、`distance to s2 goal < 8 cm`、`no injection`）。旧 5 cm / 8 cm 几何判据已作废；D runner 必须把它们映射到 §3.4 的 GT 事件名，不得复用阈值。
 
 ---
 
@@ -254,9 +256,9 @@ src/libero_rollback/
 ├── runtime/
 │   ├── env.py         # LIBERO config/env 创建 + init row 读取
 │   ├── perturbation.py# C0/L0/L1/L2 注入 + 几何 + restorable oracle
-│   ├── triggers.py    # all_done + D 窗口（GT 谓词）
-│   ├── trace.py       # trace.jsonl / 终点 GT 快照
-│   └── video.py       # 视频录制 + 注入卡
+│   ├── video.py       # 视频录制 + 注入卡
+│   ├── triggers.py    # ⬜ Phase 2：all_done + D 窗口（GT 谓词）
+│   └── trace.py       # ⬜ Phase 2：独立 trace writer（当前由 runner 内联写 trace/终点 GT）
 └── policies/
     ├── __init__.py    # PolicyAdapter 协议 + load_policy()
     ├── pi05.py
@@ -302,8 +304,8 @@ run_matrix(*, matrix, cases, output, model, checkpoint=None, ...) -> dict
 ## 13. Phase 1 未完成项（进入 `docs/implementation-status.md`）
 
 1. C 套件（160 结构）与 D-compose（360）数据构建（需要 40-task pool 的结构生成器 + 覆盖证明）。
-2. D 轴 runner（窗口触发 + D-native 189 执行）。
+2. D 轴 runner（窗口触发 + D-native 189 执行）；`runtime/triggers.py` / `trace.py` 随之落地。
 3. 脚本 oracle（C3 可解性 / C4 可复原性）。
 4. 报告中的视频证据与决策卡（简化版报告先落地）。
-5. leaderboard 服务端校验（本地 `leaderboard validate` 先落地）。
+5. leaderboard 服务端校验（本地 `libero-rollback leaderboard validate` 已落地，服务端提交校验 Phase 2）。
 6. `pip` / HF dataset / datasheet 发布。

@@ -1,0 +1,73 @@
+# Three-layer asset pin, layer 1 of 3: CODE pin + expected counts.
+#
+# Layer 1 (this file)   upstream repo + commit + clean-worktree requirement
+# Layer 2 (manifest.yaml) per-file sha256 of bddl/init content
+# Layer 3 (scripts/verify_libero.py) runtime hard check, run before any episode
+#
+# Status: DRAFT. The commit, suite layout and file counts below come from
+# docs/SPEC.md §2.1 and the repository's own audit of a local checkout. The
+# local audit checkout had a dirty worktree, therefore the clean-worktree
+# requirement and the sha256 content pin are NOT yet certified — see `audit`
+# and `verification` at the bottom. Do not mark this file `frozen` until
+# `scripts/verify_libero.py` passes on a clean checkout and assets/manifest.yaml
+# has real sha256 entries.
+
+schema_version: 1
+status: draft
+
+repo: https://github.com/Lifelong-Robot-Learning/LIBERO
+commit: f78abd68ee283de9f9be3c8f7e2a9ad60246e95c
+license: MIT
+clean_worktree: required
+
+# Only these three asset families are used by the benchmark; the upstream
+# `datasets/` tree (demonstrations, GB-TB) is NOT required (README §8.1).
+used_paths:
+  - libero/libero/bddl_files
+  - libero/libero/init_files
+  - libero/libero/assets
+optional_paths:
+  - datasets          # training demonstrations only
+
+# Suites used by this benchmark (SPEC §2.2). Counts are per directory.
+suites:
+  libero_goal: {bddl: 10, pruned_init: 10, used_by: [goal]}
+  libero_object: {bddl: 10, pruned_init: 10, used_by: [object]}
+  libero_spatial: {bddl: 10, pruned_init: 10, used_by: [spatial]}
+  libero_10: {bddl: 10, pruned_init: 10, used_by: [l10, d-native]}
+  libero_90: {bddl: 90, pruned_init: 90, used_by: []}   # present upstream, not used here
+
+counts:
+  bddl_files: 130
+  pruned_init_files: 130
+  assets_apparent_size: "~3.1 GB (not committed)"
+
+# Simulation stack pinned together with the assets (draft until the smoke test
+# passes; mirror of requirements-sim.lock.txt, which remains the source file).
+sim_stack:
+  status: draft
+  python: "3.11"
+  numpy: "1.26.4"
+  robosuite: "1.4.0"
+  mujoco: "3.8.0"
+  bddl: "3.6.0"
+  gym: "0.25.2"
+  torch: "2.7.1"
+
+verification:
+  layer1_code_pin: "scripts/verify_libero.py --libero-home $LIBERO_HOME"
+  layer2_content_sha256: "assets/manifest.yaml — files list is EMPTY in Phase 1 (not frozen)"
+  layer3_runtime: "every run records provenance.json before the first episode"
+
+how_to_verify: |
+  export LIBERO_HOME=/path/to/LIBERO
+  uv run python scripts/verify_libero.py --libero-home "$LIBERO_HOME"
+  # --allow-dirty downgrades the clean-worktree failure to a warning for
+  # development checkouts; never use it for a leaderboard run.
+
+audit:
+  date: "2026-11-18"
+  commit_confirmed: true            # `git -C "$LIBERO_HOME" rev-parse HEAD` returned the pin
+  counts_confirmed: true            # 130 .bddl / 130 .pruned_init across the five suite dirs
+  clean_worktree_confirmed: false   # audit checkout had local modifications; re-check on a clean clone
+  sha256_confirmed: false           # manifest content pin is Phase 2

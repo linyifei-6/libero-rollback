@@ -1,0 +1,51 @@
+# Three-layer asset pin, layer 2 of 3: CONTENT pin (counts + per-file sha256).
+#
+# The `files` list is intentionally EMPTY in Phase 1. It is filled only after
+# `scripts/verify_libero.py` runs on a CLEAN pinned checkout; hand-written or
+# copy-pasted hashes are forbidden (they would launder a dirty worktree into
+# the frozen manifest). Counted-but-unhashed is honest; "verified" is not.
+#
+# Fill procedure (Phase 2):
+#   1. git clone https://github.com/Lifelong-Robot-Learning/LIBERO "$LIBERO_HOME"
+#      git -C "$LIBERO_HOME" checkout f78abd68ee283de9f9be3c8f7e2a9ad60246e95c
+#      test -z "$(git -C "$LIBERO_HOME" status --porcelain)"   # must be clean
+#   2. uv run python scripts/verify_libero.py --libero-home "$LIBERO_HOME" --print-sha256 \
+#        > .cache/libero-files.sha256
+#   3. Convert every `sha256  relpath` line into a `files:` entry, set
+#      `sha256_frozen: true`, and record the command + date in
+#      dataset/sources.yaml. Commit. Then `scripts/verify_libero.py` will
+#      hard-fail on any asset drift.
+#
+# Scope: bddl_files/**/*.bddl and init_files/**/*.pruned_init only. The 3.1 GB
+# binary `assets/` tree is covered by its own directory digest when frozen
+# (Phase 2); it is never committed.
+
+schema_version: 1
+status: draft
+sha256_frozen: false
+
+libero:
+  repo: https://github.com/Lifelong-Robot-Learning/LIBERO
+  commit: f78abd68ee283de9f9be3c8f7e2a9ad60246e95c
+
+# Expected counts only — verified at run time by scripts/verify_libero.py.
+counts:
+  bddl_files: 130
+  pruned_init_files: 130
+  suites:
+    libero_goal: {bddl: 10, pruned_init: 10}
+    libero_object: {bddl: 10, pruned_init: 10}
+    libero_spatial: {bddl: 10, pruned_init: 10}
+    libero_10: {bddl: 10, pruned_init: 10}
+    libero_90: {bddl: 90, pruned_init: 90}
+
+# Each entry: {path, sha256, bytes}. `path` is relative to LIBERO_HOME.
+files: []
+
+assets_tree:
+  path: libero/libero/assets
+  digest: null          # directory digest, Phase 2
+  note: "~3.1 GB; verified by size/structure at run time, never committed"
+
+generated_by: null      # fill with `scripts/verify_libero.py --print-sha256` when frozen
+generated_at: null

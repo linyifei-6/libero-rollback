@@ -26,21 +26,19 @@ The benchmark ships as versioned CSV matrices plus LIBERO-native assets; it adds
 
 | 层 | 组件 | 状态 | 说明 |
 |---|---|---|---|
-| 规范 | 本 README（套件/协议/指标/证书/口径） | 🟡 v0.1 冻结 | 数据规范将落为 `docs/SPEC.md`，与本文件同步维护 |
-| 数据 | `dataset/matrices/{a,b,c,d}-matrix.csv` | 🟡 迁移中 | B/D 矩阵已在来源仓定稿；A/C 矩阵随数据生成 |
-| 数据 | C 套件（composition，BDDL + sibling init + metadata） | 🟡 迁移中 | 来源仓 512 ordered / 434 valid，按本仓 split 裁剪 |
-| 数据 | A 套件（原始 LIBERO 任务映射） | ⬜ 未开始 | 不新增文件，只做 `task → bddl/init` 映射与 pin |
-| 数据 | `manifest.yaml` + 数据卡 + 覆盖证明 | ⬜ 未开始 | 逐文件 sha256、`evaluation_split`、已知限制 |
-| 代码 | 静态校验（schema / manifest / coverage / 路径卫生） | 🟡 移植中 | 来源：`libero-rollback` 的 `validation.py` / schema / 模板 |
-| 代码 | 注入与有效性门控（C0/L0/L1/L2、`restorable` oracle） | 🟡 移植中 | 来源：`libero-compose` 的 `benchmark/perturbation.py` |
-| 代码 | 四态 runner + trace + 视频 | 🟡 移植中 | 来源：`benchmark/b_matrix.py`、`scripts/run_b_matrix.py` |
-| 代码 | D 轴窗口触发（early/mid/later） | ⬜ 未开始 | 必须基于 GT 谓词自建，不依赖任何 runtime profile |
-| 代码 | 模型适配器（π0.5 / OpenVLA-OFT / SmolVLA / π0） | 🟡 原型存在 | 接口只有 `reset_episode` + `predict_chunk` 两个方法 |
-| 代码 | 报告（自包含 HTML）/ leaderboard / 提交校验 | ⬜ 未开始 | 报告契约沿用前序仓 `schema_version=1` 思路 |
-| 证据 | 8 张证书 C1–C8 | 🟡 部分 | C3 可解性 / C4 可复原性 / C7 终点 GT 仍是缺口 |
-| 发布 | `pip install` + HF dataset + datasheet + leaderboard | ⬜ 未开始 | 见 [§13 路线图](#13-路线图) |
+| 规范 | 本 README + `docs/SPEC.md` | ✅ Phase 1 冻结 | `docs/SPEC.md` 是数据契约与模块接口的唯一权威 |
+| 数据 | A 矩阵 40 / B 矩阵 442 / D-native 189 | ✅ 已迁移 | A 由脚本生成，B/D-native 导入并冻结；逐文件 sha256 在 manifest |
+| 数据 | D-compose 360（占位） | 🟡 暂存不执行 | 复用 C 的结构 id；C 未构建前不进任何 split |
+| 数据 | C 套件（160 结构） | ⬜ Phase 2 | 前序仓 512 ordered 不能直接充当；需按 40-task pool 重建 |
+| 数据 | `manifest.yaml` / `sources.yaml` / `lite.yaml` / 数据卡 | ✅ 已生成 | `build_manifest.py --check` 0 diff；`validate` PASS（1,031 case） |
+| 代码 | 静态层（矩阵 / schema / validation / evidence / metrics / report / CLI） | ✅ 已实现并测试 | 纯 stdlib + PyYAML/jsonschema；`libero-rollback validate` PASS |
+| 代码 | 运行层（B runner / 注入 / 视频 / 3 个模型适配器） | 🟡 移植完成，待真机验证 | 本机无 MuJoCo/权重；dry-run 与 fake-env 测试通过 |
+| 代码 | D 轴 runner（窗口触发 + D-native 执行） | ⬜ Phase 2 | 需要 GT 窗口触发器与 D-native 执行链路 |
+| 代码 | C 套件生成器 + 覆盖证明 | ⬜ Phase 2 | 见 [§13 路线图](#13-路线图) |
+| 证据 | 证书 C1/C2/C5/C7/C8 | 🟡 部分 | C3 可解性 / C4 可复原性仍缺（脚本 oracle） |
+| 发布 | pip / HF dataset / datasheet / leaderboard | 🟡 本地部分 | 报告与 `leaderboard validate` 可用；发布流程 Phase 2 |
 
-> 本 README 中的命令是**接口草案**，随 M2 实现冻结；数据与数字口径以本文件的表格为准，不引用前序仓的过期口径（v1 与 v2 不混表）。
+> **Phase 1 迁移结果（2026-11-18）**：已落地 A/B/D-native 数据（1,031 个 case 中的 671 个可执行 case）、静态契约层、B 套件运行层（移植）、报告/CLI 与文档。`C` 与 `D-compose` 因前序仓从未构建 v2 结构而留到 Phase 2（**不做假数据**）。本机未跑真实仿真/真实模型，因此**本仓当前没有任何主表数字**：§2 的数字是前序仓 v1 证据，只用于动机；逐项状态与验收命令见 [`docs/implementation-status.md`](docs/implementation-status.md)。
 
 ---
 
@@ -139,6 +137,8 @@ The benchmark ships as versioned CSV matrices plus LIBERO-native assets; it adds
 
 **D 的 case 分布**（`d-matrix.csv` 实计）：native 189（LIBERO-10 九个多目标任务：`early/mid/later` 三窗口 × `L0/L1/L2` 参数族 + 9 条 `all_done` no-op 对照）；compose 360（120 个 n=2 结构 × 3 窗口 × `L0`，level 曲线由 B 承担）。
 
+> **A 的实测 `n_goals`**（BDDL `:goal` 展开）：31 条 n=1、8 条 n=2、1 条 n=3（LIBERO-10 的 n=2 任务与 GOAL t030 的 n=3）。因此 A 在套件表里写 `n=1–3`，报告时按 suite 分列：A(Obj/Goal/Spatial) 是 n=1 锚点，A(l10) 是 n=2 参照。
+
 > **为什么 D 不要求基础任务完成**：D 只要求“存在一个已完成的子任务，在模型去处理另一个子任务时被撤销”。触发条件由**单目标能力**保证（A 已证明其存在），因此 case 集不依赖“模型能否把整条任务做完”。
 
 ### 3.3 可比较对（这张表是设计核心）
@@ -191,6 +191,7 @@ D 的窗口检测**只使用 GT 谓词与仿真状态**，复用环境已有事�
   - D：`d-l10-t<idx:03d>-<window>-<level>[-<param>]`、`d-compose-<struct_id>-<window>-l0`；
   - `<suite> ∈ {goal, object, spatial, l10}`，`<level> ∈ {C0,L0,L1,L2}`，`<param> ∈ {d03,d06,d10,r30,r60,r90}`，`<window> ∈ {early,mid,later}`。
 - **case 矩阵 CSV 是唯一机器可读来源**；`dataset/matrices/*.csv` 的列契约在 `docs/SPEC.md` 冻结。发布后 case_id 与语义不可静默变更，数据变更走版本号。
+- `task_idx` 沿用来源仓的 **LIBERO 全局任务下标**（goal 0–270 / object 0–235 / spatial 0–244 / l10 0–276 的子集），**不是 0–9 重编号**；A/B/D 共享同一 `(suite, task_idx)` 映射（见 SPEC §2.2）。
 
 ### 3.7 分层与 split
 
@@ -198,7 +199,7 @@ D 的窗口检测**只使用 GT 谓词与仿真状态**，复用环境已有事�
 |---|---|---|
 | `lite` | 30 条（A/B/C/D 均衡抽样） | 冒烟 / CI / 论文复现，< 1 GPU-h |
 | `core` | A 40 + B 442 + C 160 + D 549 = **1,191** | 主表、leaderboard |
-| `variance` | `core` 中 100 结构 × 5 init（0–4）≈ 400 episodes | 估任务间异质性与 run-to-run 方差 |
+| `variance` | 100 case × 5 init（0–4）= 500 episodes（40 A + 30 B + 30 D） | 估任务间异质性与 run-to-run 方差 |
 | `restate` | B/D 子集的重述臂 ≈ 100 episodes | `Restate Δ` |
 | `full` | `core` + `variance` + `restate` ≈ 1,700 episodes | 全量发布 |
 | `negative` | `conflict / degenerate / infeasible` 与 `probe` | 负对照，**不进执行主表** |
@@ -558,8 +559,8 @@ uv run libero-rollback leaderboard validate --run runs/core-pi05
 | C | 160 | ≈ 7 |
 | D | 549 | ≈ 18–23 |
 | **`core` 合计（主表）** | **1,191** | **≈ 45–55** |
-| variance + restate（补充） | ≈ 500 | ≈ 20 |
-| **完整 leaderboard 条目** | **≈ 1,700** | **≈ 65–75** |
+| variance + restate（补充） | ≈ 600 | ≈ 22–28 |
+| **完整 leaderboard 条目** | **≈ 1,800** | **≈ 68–83** |
 
 > 一个完整 leaderboard 条目约 **1 GPU-day/模型**；B 实测均值约 180 s/case（含视频，π0.5，2026-11-18 快照）。该数字随模型与视频开关变化，报告时必须带协议。
 
@@ -594,6 +595,9 @@ uv run libero-rollback leaderboard validate --run runs/core-pi05
 5. **`valid` 是构造层判断**：不等于物理已验证；数据卡必须区分 “construction-level valid” 与 “physically verified”。
 6. **窗口触发率**：D 的触发率是实测值；某窗口在某模型上不可达时按 `N/A` 处理，并从主表剔除原因而非删 case。
 7. **编码**：全部数据与 metadata 统一 UTF-8；CI 校验编码与无 BOM。
+8. **`task_idx` 不是 0–9 重编号**：导入矩阵沿用来源仓的 LIBERO 全局任务下标（goal 0–270 等），与 SPEC 早期草稿的“0–9 稳定编号”不同；A/B/D 已统一到导入矩阵的映射。发布前冻结此口径，不再重编号（重编号会改 case_id）。
+9. **D-native 的 `trigger_criterion` 是旧标签**：导入矩阵保留来源仓的 `s1 first true` / `s2 displacement > 5 cm` / `distance to s2 goal < 8 cm` / `no injection`；其中 5 cm / 8 cm 几何判据已作废，M2 必须映射到 GT 事件名（`enter_first_subgoal_completed` / `enter_next_subgoal_lift` / `enter_next_subgoal_preplacement`），不得复用旧阈值。
+10. **C 与 D-compose 未构建**：`c=0`，D-compose 360 行只是设计占位（`<from C>` 字面量）；所有 `EGC`/`PP`/A↔C 结论留到 Phase 2，发布前不得引用。
 
 ### 9.4 资产依赖与可复现 pin
 
@@ -665,7 +669,7 @@ uv run libero-rollback leaderboard validate --run runs/core-pi05
 | **M3 主 sweep 与发布** | core 全量 + variance 子集 + leaderboard + 数据卡 + `pip`/HF 发布 | 一条 `repro` 命令 < 1 GPU-h；leaderboard 可提交 |
 | **M4 扩展** | C3/C4 oracle 全量、重述臂、多 init 方差、n≥3 阶梯、跨模拟器 | Stage 2 实验清单 |
 
-当前处于 **M0 → M1** 之间（见 [§0](#0-现状速览)）。**Stage 1 只需要现有数据 + B 全量 + D-native**；Stage 2 再冻结 v2.0 主表并跑全模型 sweep。
+当前进度：**M0 ✅**（README + `docs/SPEC.md` + 协议冻结）、**M1 ✅（Phase 1：A/B/D-native 数据 + 契约层 + 静态证书）**、**M2 🟡**（B 运行层已移植，dry-run 与 fake-env 测试通过，未在真实仿真/模型上验证）。C/D-compose 数据与 D runner 进入 M1 第二阶段。**Stage 1 只需要现有 B 全量 + D-native**；Stage 2 再冻结 v2.0 主表并跑全模型 sweep。
 
 ---
 
