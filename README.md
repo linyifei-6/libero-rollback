@@ -36,6 +36,8 @@ The benchmark ships as versioned CSV matrices plus LIBERO-native assets; it adds
 | 代码 | D 轴 runner（窗口触发 + D-native 执行） | ⬜ Phase 2 | 需要 GT 窗口触发器与 D-native 执行链路 |
 | 代码 | C 套件生成器 + 覆盖证明 | ⬜ Phase 2 | 见 [§13 路线图](#13-路线图) |
 | 证据 | 证书 C1/C2/C5/C7/C8 | 🟡 部分 | C3 可解性 / C4 可复原性仍缺（脚本 oracle） |
+| 证据 | 历史实验迁移（A/B/C 三模型） | ✅ 已迁移 | `experiments/` 收录 v1 口径历史证据（非 v2 主表）+ `docs/experiment-report.md` 整体实验记录 |
+| 报告 | 人工审核报告（白色模板） | ✅ 已落地 | `docs/report-template/` + `scripts/build_review_report.py`；首份报告：B 矩阵 π0.5 Goal+Object 165 case 注入/恢复有效性审核 |
 | 发布 | pip / HF dataset / datasheet / leaderboard | 🟡 本地部分 | 报告与 `leaderboard validate` 可用；发布流程 Phase 2 |
 
 > **Phase 1 迁移结果（2026-11-18）**：已落地 A/B/D-native 数据（1,031 个 case 中的 671 个可执行 case）、静态契约层、B 套件运行层（移植）、报告/CLI 与文档。`C` 与 `D-compose` 因前序仓从未构建 v2 结构而留到 Phase 2（**不做假数据**）。本机未跑真实仿真/真实模型，因此**本仓当前没有任何主表数字**：§2 的数字是前序仓 v1 证据，只用于动机；逐项状态与验收命令见 [`docs/implementation-status.md`](docs/implementation-status.md)。
@@ -100,6 +102,19 @@ The benchmark ships as versioned CSV matrices plus LIBERO-native assets; it adds
 | 只是模型弱 | π0.5 单任务 40/40；同模型 staged 65%，合取单句 4% |
 
 结论：缺的不是技能、不是感知、也不是预算，而是**同时表示并跟踪一组目标谓词**的能力。**Compose = 时间点上的合取；Rollback = 时间区间上的合取**——它们是同一构念的两个投影，这就是把 A/B/C/D 放进同一份仪器的理由。
+
+### 2.4 已迁移的历史实验证据（v1 口径，非主表）
+
+前序仓的三模型（π0.5 / SmolVLA 0.45B / OpenVLA-OFT 7B）模测数据与实验报告已结构化迁移到 [`experiments/`](experiments/README.md)，整体记录见 [`docs/experiment-report.md`](docs/experiment-report.md)：
+
+| 方向 | 模型覆盖 | 关键读数（详细分母/协议见整体记录） |
+|---|---|---|
+| **A** LIBERO 单任务 + success-delay | 三模型 | 四套件 hit：π0.5 **37/40**、OpenVLA-OFT **33/40**、SmolVLA **19/40**；stable@100/hit：**58/64 / 33/33 / 19/21**；strict@100 仅 64–71% |
+| **B** 完成边界撤销 | **仅 π0.5** | v1 要求自修 **0/9**；单任务回滚 **1/9 = 11.1%**；B 矩阵 Goal+Object **23/137 = 16.8%**（Goal 30.9% vs Object 2.9%），C0 **20/20** |
+| **C** 组合无扰动 | 三模型 | π0.5 **2/49 = 4.1%**（GOAL）/ 12/300 = 4.0%（OBJECT）；SmolVLA **0/76**；OpenVLA-OFT **0/176**（PP 76–95%，后提到目标 0/100） |
+
+> **这些是 v1 历史证据，不是 v2.0 主表**：协议、分母、case 集与当前 SPEC 不同，且为单 seed / 单 init，不得与本仓主表混排（§10.3）。B 轴目前只有 π0.5，**“三模型 B 对照”不成立**。
+> 首份**人工审核报告**（注入有效性 / 恢复有效性，逐 case 勾选 + 视频跳转）：[B 矩阵 π0.5 Goal+Object 165 case 审核报告](experiments/b-rollback/report-goal-object-20261118/index.html)；模板与生成方式见 [§9.5](#95-实验报告与审核模板)。
 
 ---
 
@@ -383,13 +398,13 @@ libero-rollback/
 │   ├── runtime/
 │   │   ├── env.py                 # OffScreenRenderEnv 封装（只依赖上游 LIBERO）
 │   │   ├── perturbation.py        # C0/L0/L1/L2 注入 + 几何量 + restorable oracle
-│   │   ├── triggers.py            # all_done / early-mid-later（GT 谓词，无外部 profile）
-│   │   └── trace.py               # GT atoms、逐步 trace、终点快照
+│   │   ├── triggers.py            # ⬜ Phase 2：all_done / early-mid-later（GT 谓词）
+│   │   └── trace.py               # ⬜ Phase 2：独立 trace writer（runner 内联写 trace/终点 GT）
 │   ├── policies/                  # Policy 协议 + π0.5 / OpenVLA-OFT / SmolVLA / π0 适配器
 │   ├── runner.py                  # 四态 runner（intact/revoke/control/probe）、续跑、分片
 │   ├── metrics.py                 # SR / Recovery / EGC / PP / Retention / 统计
 │   └── report.py                  # 自包含 HTML + aggregate.json
-├── scripts/                       # bootstrap_libero.py、verify_libero.py、setup_env.py、build_*.py、run.py、report.py、repro.py
+├── scripts/                       # bootstrap_libero.py、verify_libero.py、setup_env.py、build_*.py、build_review_report.py、run.py、report.py、repro.py
 ├── assets/
 │   ├── libero.lock.yaml           # 上游 commit + clean_worktree + 仿真栈版本
 │   └── manifest.yaml              # bddl/init 文件数与 sha256（只存校验和，不入库大文件）
@@ -397,16 +412,23 @@ libero-rollback/
 │   ├── models.yaml                # 模型注册表：adapter / python / checkpoint / 采样参数
 │   ├── protocol.yaml              # 预算/延迟/init/seed/camera
 │   └── envs/                      # 每模型环境锁（仿 libero-plus 的 per-model env）
+├── experiments/                   # 迁移的三模型历史实验证据（v1 口径）
+│   ├── README.md / provenance.yaml
+│   ├── a-libero/ · b-rollback/ · c-compose/
+│   └── b-rollback/report-goal-object-20261118/  # 白色审核报告（videos 本地不入库）
 ├── docs/
 │   ├── SPEC.md                    # 数据规范（唯一权威）
 │   ├── protocol.md                # 评测协议
 │   ├── datasheet.md               # 数据卡（8 张证书 + 已知限制）
 │   ├── attribution.md             # 与前序仓的关系、来源与致谢
+│   ├── experiment-report.md       # 三模型 A/B/C 历史实验整体记录
+│   ├── cli-spec.md                # CLI 现状参考 + v3 维度开关草案（v3 未实现）
+│   ├── report-template/           # 白色主题人工审核报告模板规范 + 样例
 │   └── implementation-status.md   # 实现进度（本文 §0 的详细版）
 ├── tests/                         # pytest：schema、矩阵、注入几何、证据口径、报告契约
 ├── examples/                      # 最小复现 notebook / 提交示例
 ├── .cache/                        # LIBERO_CONFIG_PATH（gitignored，绝不写 ~/.libero）
-└── runs/                          # 运行产物（gitignored）
+└── runs/                          # 运行产物（gitignored；人工审核报告放 experiments/）
 ```
 
 ### 7.1 三层依赖隔离（必须保持）
@@ -546,6 +568,9 @@ uv run libero-rollback report --run runs/core-pi05 --out runs/core-pi05/report
 # 4) 复现与提交
 bash scripts/repro.sh --model pi05 --split lite        # 一条命令重建 lite 结果
 uv run libero-rollback leaderboard validate --run runs/core-pi05
+
+# 5) 人工审核报告（白色主题；注入/恢复有效性，逐 case 勾选 + 视频跳转）
+uv run python scripts/build_review_report.py --from-run runs/core-pi05 --out experiments/b-rollback/core-pi05-review --title "B 矩阵审核报告" --model pi05
 ```
 
 ### 8.6 成本（估算，单模型）
@@ -609,6 +634,15 @@ uv run libero-rollback leaderboard validate --run runs/core-pi05
 - **渲染设置**：camera 分辨率、`settle_steps`、视频编码参数随 run manifest pin。
 - **C 套件是唯一派生数据**：BDDL + sibling `.pruned_init` 由纯 stdlib 生成器在本仓生成/重建，逐字节可审计。
 
+### 9.5 实验报告与审核模板
+
+- **目的**：每份实验报告服务于一次**人工审核**，只审两件事——(a) 注入是否真实有效（注入前关系真、注入后关系假 / C0 保持真、无穿模、零速度、已释放）；(b) 恢复是否真实来自策略自修复（不是 `restorable` 状态写回 oracle、不是外部复原、不是触发未到达误判）。
+- **模板规范与样例**：[`docs/report-template/README.md`](docs/report-template/README.md)（结构 / 白色 token 表 / 审核口径 / 验收清单）与 [`docs/report-template/case-review.html`](docs/report-template/case-review.html)（可双击打开的白色样例）。
+- **视觉硬性要求**：白色背景（`#ffffff`）、浅灰卡片、深色文字；自包含 CSS/JS，禁止 CDN/外链资源；`file://` 双击可用。
+- **生成器**：[`scripts/build_review_report.py`](scripts/build_review_report.py)；输入 `cases.jsonl` 或 run 目录，输出 `index.html` + 分页 + `evidence.json` + `cases.jsonl` + `provenance.json`。
+- **首份真实报告**：[B 矩阵 π0.5 Goal+Object 165 case 审核报告](experiments/b-rollback/report-goal-object-20261118/index.html)（注入 157/157 有效；Recovery 23/137 = 16.8%；C0 20/20）。视频为本地审核产物（`*.mp4` gitignored），新 clone 打开会显式提示缺失，按报告内 `videos/README.md` 复制即可。
+- **口径红线**：Recovery 分母 = 注入有效且非 C0；`N/A` 不显示 0%；`restorable` 不参与恢复指标；视频/截图缺失必须显式标注。
+
 ---
 
 ## 10. 与前序仓的关系（Provenance）
@@ -665,11 +699,11 @@ uv run libero-rollback leaderboard validate --run runs/core-pi05
 |---|---|---|
 | **M0 规范冻结** | 本 README + `docs/SPEC.md` + 协议/指标/证书/数据卡模板 | 评审可据此实现，无未定义口径 |
 | **M1 数据迁移** | 四套件矩阵 + C 套件数据 + manifest/覆盖证明 + 证书 C1/C2/C5/C7 | `validate --dataset` PASS + 0 diff 重建 |
-| **M2 Runner 与适配器** | 四态 runner、A/B/C/D 全链路、π0.5/OpenVLA-OFT/SmolVLA/π0 适配器、lite 复现 | lite 30 条跑通，报告可生成 |
+| **M2 Runner 与适配器** | 四态 runner、A/B/C/D 全链路、π0.5/OpenVLA-OFT/SmolVLA/π0 适配器、lite 复现、历史实验迁移 + 审核报告模板 | lite 30 条跑通，报告可生成 |
 | **M3 主 sweep 与发布** | core 全量 + variance 子集 + leaderboard + 数据卡 + `pip`/HF 发布 | 一条 `repro` 命令 < 1 GPU-h；leaderboard 可提交 |
 | **M4 扩展** | C3/C4 oracle 全量、重述臂、多 init 方差、n≥3 阶梯、跨模拟器 | Stage 2 实验清单 |
 
-当前进度：**M0 ✅**（README + `docs/SPEC.md` + 协议冻结）、**M1 ✅（Phase 1：A/B/D-native 数据 + 契约层 + 静态证书）**、**M2 🟡**（B 运行层已移植，dry-run 与 fake-env 测试通过，未在真实仿真/模型上验证）。C/D-compose 数据与 D runner 进入 M1 第二阶段。**Stage 1 只需要现有 B 全量 + D-native**；Stage 2 再冻结 v2.0 主表并跑全模型 sweep。
+当前进度：**M0 ✅**（README + `docs/SPEC.md` + 协议冻结）、**M1 ✅（Phase 1：A/B/D-native 数据 + 契约层 + 静态证书）**、**M2 🟡**（B 运行层已移植，dry-run 与 fake-env 测试通过，未在真实仿真/模型上验证；历史实验证据已迁移至 `experiments/`，白色审核报告模板与首份 B 矩阵审核报告已落地）。C/D-compose 数据与 D runner 进入 M1 第二阶段。**Stage 1 只需要现有 B 全量 + D-native**；Stage 2 再冻结 v2.0 主表并跑全模型 sweep。
 
 ---
 

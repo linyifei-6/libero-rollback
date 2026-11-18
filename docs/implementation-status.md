@@ -19,7 +19,7 @@
 | 数据 C 套件 | 🟡 迁移中 | ⬜ Phase 2（未构建） | §2.3 |
 | 数据 A 套件 | ⬜ 未开始 | ✅ 40 行已生成，`--check` 可重建 | §2.3 |
 | 数据 manifest + 数据卡 + 覆盖证明 | ⬜ 未开始 | 🟡 manifest/sources/lite/数据卡已就绪；**覆盖证明未构建** | §2.3 |
-| 代码 静态校验 | ✅ 已实现并测试 | ✅ `validate_dataset.py` 12/12 + 141 个测试通过 | §2.4–§2.5 |
+| 代码 静态校验 | ✅ 已实现并测试 | ✅ `validate_dataset.py` 12/12 + 189 个测试通过 | §2.4–§2.5 |
 | 代码 注入与有效性门控 | 🟡 移植中 | 🟡 代码已移植（`runtime/perturbation.py`），未在仿真中执行 | §2.6 |
 | 代码 四态 runner + trace + 视频 | 🟡 移植中 | 🟡 B 套件 dry-run 已验证；真实 episode 未跑；trace.py 缺失 | §2.6 |
 | 代码 D 轴窗口触发 | ⬜ 未开始 | ⬜ `runtime/triggers.py` 不存在 | §2.6 |
@@ -39,6 +39,7 @@
 | [README.md](../README.md) | ✅ | Phase 1 状态表、A 的 `n_goals` 实测、variance 规模、§9.3 数据债务均已同步 |
 | [docs/SPEC.md](SPEC.md) | ✅ | 数据契约与接口唯一权威（v2.0-draft） |
 | [docs/protocol.md](protocol.md) | ✅ | 本任务新增：S0–S5 阶段、预算/门控/产物/续跑/报告口径/禁止事项 |
+| [docs/cli-spec.md](cli-spec.md) | 🟡 | 本任务新增：现状 CLI 逐参数参考（实测）+ v3 维度开关（`success-delay`/`rollback`）+ l10 B/D 分离方案；**v3 尚未实现** |
 | [docs/datasheet.md](datasheet.md) | ✅ | 本任务新增：套件/实测分布/来源/证书/数据债务/限制 |
 | [docs/attribution.md](attribution.md) | ✅ | 本任务新增：来源与 copy 映射、独立性约束、复核命令 |
 | [docs/implementation-status.md](implementation-status.md) | ✅ | 本文件 |
@@ -286,3 +287,33 @@ exit=0
 | `uv run libero-rollback leaderboard validate --run <run>` | 本地提交校验可用 |
 
 **仍未完成（如实）**：真实仿真 episode、真实模型推理、视频编码、D 套件 runner、C/D-compose 数据、C3/C4 脚本 oracle、资产内容 sha256 冻结（ISSUE-5/6/8）。
+
+---
+
+## 9. M2 实验证据迁移与审核报告（2026-11-18）
+
+### 9.1 历史实验证据迁移（task-5）
+
+- 目录：`experiments/`（A/B/C 三套件；`README.md` 索引、`provenance.yaml` 来源与 sha256、每套件 `README.md` + `results.json` + `source/` 文档副本）。
+- 整体记录：`docs/experiment-report.md`（三模型 × A/B/C 总表、逐套件协议/指标/结论、跨套件可比性红线、缺口）。
+- 口径：**v1 历史证据，不是 v2.0 主表**；B 轴只有 π0.5；C 是 libero-compose v1 组合（非 v2 C 套件）；全部单 seed/单 init。已迁移的 18 个文件均为小体积文本，不复制视频/大 run。
+- 复核：`uv run pytest tests/test_experiments.py -q` → **34 passed**。
+
+### 9.2 人工审核报告模板与首份报告（task-6）
+
+- 模板规范：`docs/report-template/README.md`（v1；双审核目的、页面结构、白色 token 表、交互、数据契约、口径红线、验收清单）。
+- 模板样例：`docs/report-template/case-review.html`（白色、单文件、三类代表 case）。
+- 生成器：`scripts/build_review_report.py`（`cases.jsonl` / `--from-run` → `index.html` + 分页 + `evidence.json` + `provenance.json`；白色主题、左侧导航、筛选、case 锚点、视频时间点跳转、审核勾选 localStorage + 导出 JSON）。
+- 首份真实报告：`experiments/b-rollback/report-goal-object-20261118/`（pi05 · B 矩阵 Goal+Object 165 case）。
+  - 重算自 165 个 `summary.json`：触发 all_done 157/165；注入硬门控 **157/157 有效、0 无效**；C0 **20/20**；**Recovery 23/137 = 16.8%**（goal 21/68 = 30.9%，object 2/69 = 2.9%）。
+  - 与旧 `aggregate.json` 的 44 个可比字段全部一致；2 处差异写进报告对账节（源 `run-summary.json` 128 为中段快照；旧 SUMMARY 几何量混用量纲）。
+  - 视频 165 个为本地审核产物（`*.mp4` gitignored，不入库），`videos/README.md` 给复制命令；新 clone 打开会显式提示视频缺失。
+- 复核：`uv run pytest tests/test_review_report.py -q` → **14 passed**（含真实报告一致性）；`ruff check .` → 0 errors。
+
+### 9.3 未完成 / 风险
+
+1. B 矩阵只跑了 Goal+Object（165/442），Spatial 80 + L10 197 未跑，**不能当 B 全量结论**。
+2. 单 seed=0 / init_row=0；Wilson CI 仅为本次运行内条件比例。
+3. 源 run 根 `run-summary.json`（128）为早/中段快照，与 165 个 case 目录不一致；报告以 165 summary 为准并显式说明。
+4. `docs/cli-spec.md` 是 v3 CLI 设计草案（Part I 现状参考 + Part II/III 建议），**v3 未实现**，不作为契约。
+5. `docs/report-template` 样例由同一 renderer 生成，模板改动后需重跑生成器/样例（暂无 `--sample` 入口）。

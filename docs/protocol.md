@@ -17,7 +17,7 @@
 | S2 环境冒烟 | `scripts/smoke_env.py`（需仿真 env） | `runs/smoke/smoke_env.json` | `success=False`、观测形状正确、无初始穿透 | 🟡 依赖仿真环境 |
 | S3 计划（dry-run） | `scripts/run_b_matrix.py --dry-run` | `plan.json` | 计划可生成、不启动仿真/模型 | ✅ B 套件可用 |
 | S4 评测 | `scripts/run.sh --execute ...` 或 `libero-rollback run` | run 目录（见 §5） | 逐 case 门控 + 聚合口径正确 | 🟡 B 套件链路存在；D 窗口触发未实现 |
-| S5 报告与提交 | `libero-rollback report` / `leaderboard validate` | 自包含 HTML + `aggregate.json` | 契约校验通过、分母齐全 | 🟡 代码与单测已实现；真实 run 端到端待仿真环境 |
+| S5 报告与提交 | `libero-rollback report` / `leaderboard validate` / 人工审核报告 | 自包含 HTML + `aggregate.json` + 审核报告 | 契约校验、分母齐全、注入/恢复可逐 case 人工复核 | 🟡 本地报告与审核模板已实现（`docs/report-template/`、`scripts/build_review_report.py`）；真实 v2 主表 run 待 M2 |
 
 > **只有 S4 的 episode 产物是评测证据。** `plan.json`、dry-run 输出、静态校验报告都**不是**证据，不得进表。
 
@@ -199,6 +199,9 @@ C0、无效注入、外部复原、协议不完整、不可触发**一律排除*
 ---
 
 ## 9. 报告口径（红线）
+
+> 报告模板与人工审核流程见 [`docs/report-template/README.md`](report-template/README.md)；首份真实报告示例见 [`experiments/b-rollback/report-goal-object-20261118/index.html`](../experiments/b-rollback/report-goal-object-20261118/index.html)。审核只回答两件事：注入是否真实有效、恢复是否真实来自策略自修复。
+
 
 1. **禁止**把 `Recovery`（条件量）与 `SR`（无条件和）并排当同一个量；
 2. 不可触发 = `N/A`，不是 0%；`N/A` 是一等结果，必须进表与正文；
