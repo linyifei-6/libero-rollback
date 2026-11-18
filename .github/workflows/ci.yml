@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  static:
+    name: lint + static tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+        with:
+          python-version: "3.11"
+
+      - name: Install package (dev extras)
+        run: uv sync --extra dev
+
+      - name: Ruff
+        run: uv run ruff check .
+
+      - name: Pytest
+        run: uv run pytest
+
+      - name: Validate dataset (static, no simulation)
+        run: uv run libero-rollback validate --dataset dataset
+
+  no-forbidden-imports:
+    name: independence guard
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Forbid dependency on precursor repos
+        run: |
+          set -e
+          if grep -RInE "^(import|from) (libero_compose|libero_runtime|libero_rollback\b)" src scripts tests; then
+            echo "::error::This repository must not import the precursor repositories"
+            exit 1
+          fi
+          if grep -RInE "/(home|Users)/[^/]+/" dataset; then
+            echo "::error::dataset/ must not contain absolute host paths"
+            exit 1
+          fi

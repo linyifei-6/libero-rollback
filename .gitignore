@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+.venv-*/
+.venvs/
+
+# Test / lint caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Local machine state (never commit)
+.env
+.env.*
+!.env.example
+.cache/
+models/
+runs/
+*.mp4
+*.log
+*.tmp
+.DS_Store
+.vscode/
+.idea/
+
+# Data is committed under dataset/; large assets stay outside the repo.
+# (Do NOT ignore *.pruned_init: those are part of the frozen dataset.)

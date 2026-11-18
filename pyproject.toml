@@ -1,0 +1,48 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "libero-rollback"
+version = "2.0.0.dev0"
+description = "LIBERO-Rollback: a controlled-perturbation benchmark for goal-state persistence in VLA policies"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+authors = [{ name = "LIBERO-Rollback contributors" }]
+keywords = ["robotics", "benchmark", "vla", "libero", "rollback", "long-horizon"]
+dependencies = [
+  "PyYAML>=6.0,<7",
+  "jsonschema>=4.22,<5",
+]
+
+[project.optional-dependencies]
+# Runner extras: only needed on the evaluation machine (simulation + models).
+runtime = [
+  "numpy>=1.26",
+  "Pillow>=10",
+]
+dev = [
+  "pytest>=8,<9",
+  "ruff>=0.8,<1",
+]
+
+[project.scripts]
+libero-rollback = "libero_rollback.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/libero_rollback"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+norecursedirs = ["_vendor", "runs", "dataset", ".cache", ".venv*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+include = ["src/**/*.py", "tests/**/*.py", "scripts/**/*.py"]
+extend-exclude = [".cache", ".venv*", "dataset"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]

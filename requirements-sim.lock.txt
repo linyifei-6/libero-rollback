@@ -1,0 +1,14 @@
+# Simulation stack pinned for the upstream LIBERO checkout.
+#
+# Status: DRAFT. These are the versions used by the local smoke-verified
+# environment. They are frozen (and mirrored into assets/libero.lock.yaml) only
+# after `scripts/smoke_env.py` passes on a clean upstream LIBERO checkout.
+#
+# torch is required to read the official `.pruned_init` files (torch.save zip).
+# CPU-only CI can install the CPU wheel; GPU evaluation uses the CUDA build.
+numpy==1.26.4
+robosuite==1.4.0
+mujoco==3.8.0
+bddl==3.6.0
+gym==0.25.2
+torch==2.7.1
