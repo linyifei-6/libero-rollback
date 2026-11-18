@@ -2,7 +2,7 @@
 
 > 复核日期：2026-11-18 ｜ 复核人：task-4（docs-env）｜ 数据集版本 `2.0.0.dev0`（v2.0-draft）
 > 上位文档：[README.md](../README.md) · [docs/SPEC.md](SPEC.md) · [docs/protocol.md](protocol.md)
-> **本文件是当前仓库的事实快照**；README §0 的速览表是 M1 启动时的快照，尚未同步（README 不在本任务写 scope，需在 M1 收尾时按本文件更新）。
+> **本文件是当前仓库的事实快照**；README §0、§3.2、§3.7、§9.3 已在 M1 收尾（2026-11-18）同步为 Phase 1 实测状态，三处文档现在一致。
 
 状态标记：✅ 已实现且**本次真实跑过验收命令并给出输出**；🟡 代码/数据已存在但未端到端验证、或验收未全绿；⬜ 未开始（Phase 2）。
 
@@ -14,12 +14,12 @@
 
 | README §0 行 | README 快照 | 当前事实（本文件） | 对应章节 |
 |---|---|---|---|
-| 规范 README + SPEC | 🟡 v0.1 冻结 | ✅ SPEC v2.0-draft 已冻结为权威契约；README 与本文件同步待做 | §2.1 |
+| 规范 README + SPEC | ✅ Phase 1 冻结 | ✅ SPEC v2.0-draft 为权威契约；README 已同步 | §2.1 |
 | 数据 `dataset/matrices/*` | 🟡 迁移中 | ✅ A 40 / B 442 / D-native 189 已冻结；D-compose 360 provisional；C 0 | §2.3 |
 | 数据 C 套件 | 🟡 迁移中 | ⬜ Phase 2（未构建） | §2.3 |
 | 数据 A 套件 | ⬜ 未开始 | ✅ 40 行已生成，`--check` 可重建 | §2.3 |
 | 数据 manifest + 数据卡 + 覆盖证明 | ⬜ 未开始 | 🟡 manifest/sources/lite/数据卡已就绪；**覆盖证明未构建** | §2.3 |
-| 代码 静态校验 | 🟡 移植中 | ✅ `validate_dataset.py` 12/12 + 140 个测试通过 | §2.4–§2.5 |
+| 代码 静态校验 | ✅ 已实现并测试 | ✅ `validate_dataset.py` 12/12 + 141 个测试通过 | §2.4–§2.5 |
 | 代码 注入与有效性门控 | 🟡 移植中 | 🟡 代码已移植（`runtime/perturbation.py`），未在仿真中执行 | §2.6 |
 | 代码 四态 runner + trace + 视频 | 🟡 移植中 | 🟡 B 套件 dry-run 已验证；真实 episode 未跑；trace.py 缺失 | §2.6 |
 | 代码 D 轴窗口触发 | ⬜ 未开始 | ⬜ `runtime/triggers.py` 不存在 | §2.6 |
@@ -36,7 +36,7 @@
 
 | 组件 | 状态 | 说明 |
 |---|---|---|
-| [README.md](../README.md) | 🟡 | 规范草案；§0 表、§3.2 的 A 的 n 范围、§3.7 variance 规模需按 [datasheet §8](datasheet.md#8-数据债务发布前逐条解决或明确标注) 更新 |
+| [README.md](../README.md) | ✅ | Phase 1 状态表、A 的 `n_goals` 实测、variance 规模、§9.3 数据债务均已同步 |
 | [docs/SPEC.md](SPEC.md) | ✅ | 数据契约与接口唯一权威（v2.0-draft） |
 | [docs/protocol.md](protocol.md) | ✅ | 本任务新增：S0–S5 阶段、预算/门控/产物/续跑/报告口径/禁止事项 |
 | [docs/datasheet.md](datasheet.md) | ✅ | 本任务新增：套件/实测分布/来源/证书/数据债务/限制 |
