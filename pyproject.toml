@@ -25,6 +25,9 @@ runtime = [
 dev = [
   "pytest>=8,<9",
   "ruff>=0.8,<1",
+  # numpy is not needed by the static layer; it is installed in dev so the
+  # pure-math perturbation tests can run without the full simulation stack.
+  "numpy>=1.26",
 ]
 
 [project.scripts]
@@ -46,3 +49,8 @@ extend-exclude = [".cache", ".venv*", "dataset"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP"]
+
+[tool.ruff.lint.per-file-ignores]
+# Inline CSS / HTML templates carry long literal lines on purpose.
+"src/libero_rollback/report.py" = ["E501"]
+"tests/test_cli.py" = ["E501"]

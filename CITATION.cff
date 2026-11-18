@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this benchmark, please cite the repository and the LIBERO paper."
+title: "LIBERO-Rollback: A Controlled-Perturbation Benchmark for Goal-State Persistence in Vision-Language-Action Policies"
+type: software
+authors:
+  - name: "LIBERO-Rollback contributors"
+version: 2.0.0
+date-released: "2026-11-18"
+license: MIT
+repository-code: "https://github.com/linyifei-6/libero-rollback"
+keywords:
+  - robot learning
+  - vision-language-action
+  - benchmark
+  - LIBERO
+  - rollback
+  - goal-state persistence
+references:
+  - type: article
+    title: "LIBERO: Benchmarking Knowledge Transfer for Lifelong Robot Learning"
+    authors:
+      - family-names: Liu
+        given-names: Bo
+      - family-names: Liu
+        given-names: Yifeng
+      - family-names: Liang
+        given-names: Xiaolong
+      - family-names: Cai
+        given-names: Weidong
+    journal: "arXiv preprint arXiv:2306.03310"
+    year: 2023
