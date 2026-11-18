@@ -1,0 +1,2248 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:libero-rollback:schema:case:v1",
+  "title": "LIBERO Rollback Case v1",
+  "description": "A model-independent rollback scenario definition. Execution results are excluded. The optional relation_stage/case_class/object_role/state_kind/params_text fields are R3 GOAL metadata; R2 cases remain valid because every added field is optional.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "dataset_version",
+    "case_id",
+    "template_id",
+    "source",
+    "task",
+    "stage",
+    "trigger",
+    "intervention_description",
+    "completed_relations",
+    "rollback_target",
+    "validity_constraints",
+    "scenario_type",
+    "severity",
+    "severity_rationale",
+    "expected_evaluation_semantics",
+    "assumptions",
+    "open_questions"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "libero-rollback.case.v1"
+    },
+    "dataset_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "case_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:[-_][a-z0-9]+)*$"
+    },
+    "template_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "case_source_id",
+        "task_source_id",
+        "task_locator_source_id",
+        "case_reference"
+      ],
+      "properties": {
+        "case_source_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "task_source_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "task_locator_source_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "case_reference": {
+          "type": "string",
+          "minLength": 1
+        },
+        "supporting_source_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "task": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "suite",
+        "task_id",
+        "task_index",
+        "source_bddl"
+      ],
+      "properties": {
+        "suite": {
+          "type": "string",
+          "enum": [
+            "LIBERO-10",
+            "LIBERO-GOAL",
+            "LIBERO-OBJECT",
+            "LIBERO-90"
+          ],
+          "description": "Released suite label. LIBERO-10 keeps the historical hyphenated value used by the first 524 cases; the cross-suite expansion adds the LIBERO-GOAL, LIBERO-OBJECT and LIBERO-90 report labels."
+        },
+        "task_id": {
+          "type": "string",
+          "anyOf": [
+            {
+              "pattern": "^libero_10/(?:0[0-9]|k8_[a-z0-9_]+)$"
+            },
+            {
+              "pattern": "^libero_goal/[0-9]{2}_[0-9]{2}$"
+            },
+            {
+              "pattern": "^libero_object/[a-z0-9_]+$"
+            },
+            {
+              "pattern": "^libero_90/[A-Za-z0-9_]+$"
+            }
+          ],
+          "description": "Task identity: libero_10/0N for the official LIBERO-10 tasks, libero_10/k8_* for candidate LIBERO-10 tasks, and the base-task key for the LIBERO-GOAL/OBJECT/90 suites."
+        },
+        "task_index": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 9,
+          "description": "Position in the official LIBERO-10 task list; null for candidate LIBERO-10 tasks and for every non-LIBERO-10 task."
+        },
+        "source_bddl": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_task_locator": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "stage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "description"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "trigger": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "event",
+        "window",
+        "delay_steps"
+      ],
+      "properties": {
+        "event": {
+          "type": "string",
+          "minLength": 1
+        },
+        "window": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Free-text description of when the injection happens, in the words of the source material."
+        },
+        "delay_steps": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "time_point": {
+          "type": "string",
+          "enum": [
+            "early",
+            "mid",
+            "later",
+            "all_done"
+          ],
+          "description": "Structured runtime time point: early = first completed subgoal just confirmed; mid = robot withdrawn and turning to the next step; later = the closing or next action is under way; all_done = every goal predicate already holds (completion boundary)."
+        }
+      }
+    },
+    "intervention_description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "completed_relations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "predicate",
+              "source_task_goal"
+            ],
+            "properties": {
+              "predicate": {
+                "type": "string",
+                "minLength": 1
+              },
+              "source_task_goal": {
+                "type": "boolean"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "selection_id",
+              "selection_strategy",
+              "candidates"
+            ],
+            "properties": {
+              "selection_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "selection_strategy": {
+                "const": "first_completed_subgoal_in_execution_order"
+              },
+              "candidates": {
+                "type": "array",
+                "minItems": 2,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "predicate",
+                    "actor",
+                    "source_task_goal"
+                  ],
+                  "properties": {
+                    "predicate": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "actor": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "source_task_goal": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "goal_id",
+              "joint_role",
+              "source_task_goal"
+            ],
+            "properties": {
+              "goal_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "joint_role": {
+                "type": "string",
+                "minLength": 1
+              },
+              "source_task_goal": {
+                "type": "boolean"
+              }
+            },
+            "description": "A completed articulation goal (Close / Turnon) revoked at its joint."
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "source_task_goal"
+            ],
+            "properties": {
+              "source_task_goal": {
+                "type": "boolean"
+              }
+            },
+            "description": "Legacy generated case whose relation is resolved by the task profile."
+          }
+        ]
+      }
+    },
+    "rollback_target": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "predicate",
+            "actor",
+            "state_change"
+          ],
+          "properties": {
+            "predicate": {
+              "type": "string",
+              "minLength": 1
+            },
+            "actor": {
+              "type": "string",
+              "minLength": 1
+            },
+            "state_change": {
+              "$ref": "#/$defs/stateChange"
+            },
+            "target_subgoal": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Explicit installed runtime subgoal ID; must match declared actor and predicate."
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "selection_id",
+            "actor",
+            "state_change"
+          ],
+          "properties": {
+            "selection_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "actor": {
+              "const": "selected_relation_actor"
+            },
+            "state_change": {
+              "$ref": "#/$defs/stateChange"
+            },
+            "target_subgoal": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Explicit installed runtime subgoal ID; must match declared actor and predicate."
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "goal_id",
+            "joint_role",
+            "state_change"
+          ],
+          "properties": {
+            "goal_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "joint_role": {
+              "type": "string",
+              "minLength": 1
+            },
+            "state_change": {
+              "$ref": "#/$defs/stateChange"
+            },
+            "target_subgoal": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Explicit installed runtime subgoal ID; must match declared actor and predicate."
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "state_change"
+          ],
+          "properties": {
+            "state_change": {
+              "$ref": "#/$defs/stateChange"
+            },
+            "target_subgoal": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Explicit installed runtime subgoal ID; must match declared actor and predicate."
+            }
+          },
+          "description": "Legacy generated case whose actor and relation are resolved by the task profile."
+        }
+      ]
+    },
+    "validity_constraints": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "completed_relation_true_before_intervention",
+          "target_relation_false_after_intervention",
+          "object_released_before_intervention",
+          "zero_velocity_after_intervention",
+          "target_pose_within_workspace",
+          "target_pose_collision_free",
+          "target_pose_on_support_surface",
+          "orientation_preserved",
+          "no_object_penetration",
+          "task_remains_solvable",
+          "baseline_task_solvable",
+          "reference_object_is_not_a_fixed_fixture",
+          "reference_motion_does_not_disturb_the_current_s2_object",
+          "reference_move_executable_before_s2_grasp",
+          "reference_move_is_collision_free",
+          "dependent_relation_true_before_intervention",
+          "dependent_relation_false_after_intervention",
+          "dependent_relation_truth_recorded",
+          "target_relation_true_after_intervention",
+          "support_bowl_stays_upright",
+          "in_flight_cheese_insertion_not_disturbed",
+          "s2_relation_preserved"
+        ]
+      }
+    },
+    "scenario_type": {
+      "const": "completed_relation_rollback"
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "checkpoint",
+        "p3",
+        "p5",
+        "p8",
+        "p10",
+        "n3",
+        "n5",
+        "n8",
+        "above",
+        "articulation",
+        "pose",
+        "reference",
+        "r05",
+        "boundary",
+        "holding"
+      ],
+      "description": "Position/mechanism label. d0..d3 and checkpoint are the historical labels already released in 1.0.0/1.1.0; p3/p5/p8/p10 move away from the robot, n3/n5/n8 move towards it, above is the container-hover destination and articulation marks an articulation-goal rollback."
+    },
+    "severity_rationale": {
+      "type": "string",
+      "minLength": 1
+    },
+    "expected_evaluation_semantics": {
+      "type": "string",
+      "enum": [
+        "relation_only",
+        "relation_then_resume",
+        "protected_partial",
+        "unsupported_boundary",
+        "relation_holds_control"
+      ]
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "open_questions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "transient": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "after_steps",
+        "destination"
+      ],
+      "description": "Second state write after the injection. `pre_injection` restores the pose the object held before the first write, so the revoked relation is briefly true again (transient failure); `initial_offset` performs a second revocation while recovery is under way.",
+      "properties": {
+        "after_steps": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 200
+        },
+        "destination": {
+          "type": "string",
+          "enum": [
+            "pre_injection",
+            "initial_offset"
+          ]
+        },
+        "offset_m": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 3,
+          "maxItems": 3
+        },
+        "offset_frame": {
+          "type": "string",
+          "enum": [
+            "task_frame",
+            "world"
+          ]
+        },
+        "gate": {
+          "enum": [
+            "elapsed_steps",
+            "relation_recovered"
+          ]
+        },
+        "hold_steps": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "destination": {
+                "const": "initial_offset"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "offset_m",
+              "offset_frame"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "gate": {
+                "const": "relation_recovered"
+              }
+            },
+            "required": [
+              "gate"
+            ]
+          },
+          "then": {
+            "properties": {
+              "destination": {
+                "const": "initial_offset"
+              }
+            },
+            "required": [
+              "hold_steps"
+            ]
+          }
+        }
+      ]
+    },
+    "pose_role": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Optional pose perturbation label such as roll or spin."
+    },
+    "reference_role": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Optional relation reference object moved by a reference-object case."
+    },
+    "clone_of": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1,
+      "description": "Case ID of the released LIBERO-10 case this definition was cloned from; null for project-authored all_done extension cases that have no single clone source."
+    },
+    "dependency": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "classification",
+        "target_relation",
+        "dependent_relation",
+        "shared_endpoint",
+        "target_relation_true_at_trigger",
+        "dependent_relation_true_at_trigger",
+        "dependent_relation_effect",
+        "feasibility"
+      ],
+      "properties": {
+        "classification": {
+          "type": "string",
+          "minLength": 1
+        },
+        "target_relation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dependent_relation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "shared_endpoint": {
+          "type": "string",
+          "minLength": 1
+        },
+        "shared_endpoint_role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "target_relation_true_at_trigger": {
+          "type": "boolean"
+        },
+        "dependent_relation_true_at_trigger": {
+          "type": "boolean"
+        },
+        "s2_phase": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dependent_relation_effect": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dependent_relation_risk": {
+          "type": "boolean"
+        },
+        "protected_relation": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "feasibility": {
+          "type": "string",
+          "minLength": 1
+        },
+        "notes": {
+          "type": "string"
+        },
+        "classification_constraints": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "needs_review": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "string",
+              "minLength": 1
+            }
+          ],
+          "description": "Boolean flag or an explicit conditional-feasibility note; both forms occur in the reviewed dependency grids."
+        }
+      },
+      "description": "Dependency marker for tasks whose target relation shares a container or support endpoint with another native goal relation. Runtime pre/post truth must classify the case as rollback, control or coupled."
+    },
+    "pseudo_completed_goals": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Native goal atoms that are already true at episode start (pseudo-success), so revoking them does not undo a robot-completed subgoal."
+    },
+    "review_note": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Review decision recorded while auditing this case definition."
+    },
+    "relation_stage": {
+      "type": "string",
+      "enum": [
+        "s1",
+        "s2",
+        "both",
+        "s1s2"
+      ],
+      "description": "R3 metadata: which completed sub-goal relation stage the intervention targets (s1 = first completed, s2 = second completed, both = atomic pair)."
+    },
+    "case_class": {
+      "type": "string",
+      "enum": [
+        "rev",
+        "probe",
+        "control"
+      ],
+      "description": "R3 metadata: main-set rollback (rev), truth probe (probe) or relation-preserving control (control). Mirrors expected_evaluation_semantics."
+    },
+    "object_role": {
+      "type": "string",
+      "enum": [
+        "goal",
+        "other",
+        "both",
+        "pair"
+      ],
+      "description": "R3 metadata: which relation endpoint is perturbed (goal object, other/reference endpoint, or both endpoints together)."
+    },
+    "state_kind": {
+      "type": "string",
+      "enum": [
+        "pose_initial",
+        "pose_completed",
+        "pose_current",
+        "pose_boundary",
+        "pose_above",
+        "joint",
+        "pose_combo",
+        "pose_initial_joint"
+      ],
+      "description": "R3 metadata: the kind of state write, normalized across mechanisms."
+    },
+    "params_text": {
+      "type": "string",
+      "minLength": 1,
+      "description": "R3 metadata: human-readable parameters (init, x+3,y+5, lift12, tipX+45, setback1.0, cl6, in+x3). case_id uses an ID-safe encoding of the same values."
+    }
+  },
+  "$defs": {
+    "stateChange": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "target",
+            "velocity"
+          ],
+          "properties": {
+            "kind": {
+              "const": "restore_episode_initial_pose"
+            },
+            "target": {
+              "const": "episode_initial_pose"
+            },
+            "velocity": {
+              "const": "zero"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "offset_m",
+            "offset_frame",
+            "velocity"
+          ],
+          "properties": {
+            "kind": {
+              "const": "apply_episode_initial_offset"
+            },
+            "offset_m": {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "minItems": 3,
+              "maxItems": 3
+            },
+            "velocity": {
+              "const": "zero"
+            },
+            "offset_frame": {
+              "type": "string",
+              "enum": [
+                "task_frame",
+                "world"
+              ]
+            },
+            "orientation_axis_angle": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "axis",
+                "angle_rad"
+              ],
+              "properties": {
+                "axis": {
+                  "type": "array",
+                  "prefixItems": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "number"
+                    }
+                  ],
+                  "minItems": 3,
+                  "maxItems": 3
+                },
+                "angle_rad": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "target",
+            "checkpoint",
+            "capture_event",
+            "velocity"
+          ],
+          "properties": {
+            "kind": {
+              "const": "restore_captured_checkpoint_pose"
+            },
+            "target": {
+              "const": "captured_checkpoint_pose"
+            },
+            "checkpoint": {
+              "const": "pregrasp"
+            },
+            "capture_event": {
+              "const": "first_valid_precontact_approach"
+            },
+            "velocity": {
+              "const": "zero"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "joint_role",
+            "setback",
+            "position_tolerance"
+          ],
+          "properties": {
+            "kind": {
+              "const": "revert_articulation_goal"
+            },
+            "joint_role": {
+              "type": "string",
+              "minLength": 1
+            },
+            "setback": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "description": "Joint travel away from the completed position, in metres for slide joints and radians for hinge joints."
+            },
+            "position_tolerance": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "velocity": {
+              "const": "zero"
+            },
+            "functional_boundary": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "side",
+                "margin_rad"
+              ],
+              "properties": {
+                "side": {
+                  "enum": [
+                    "inside",
+                    "outside"
+                  ]
+                },
+                "margin_rad": {
+                  "type": "number",
+                  "exclusiveMinimum": 0,
+                  "maximum": 0.2
+                }
+              }
+            },
+            "joint_name": {
+              "type": "string",
+              "minLength": 1
+            },
+            "joint_type": {
+              "type": "string",
+              "enum": [
+                "hinge",
+                "slide"
+              ]
+            },
+            "joint_range_rad": {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "minItems": 2,
+              "maxItems": 2,
+              "description": "Installed joint range read from the LIBERO-plus task source."
+            },
+            "success_threshold_rad": {
+              "type": "number"
+            },
+            "episode_initial_joint_state": {
+              "type": "string",
+              "minLength": 1
+            },
+            "episode_initial_joint_source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "episode_initial_joint_range_rad": {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "minItems": 2,
+              "maxItems": 2
+            },
+            "joint_target_rad": {
+              "type": "number"
+            },
+            "joint_target_reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "target",
+            "clearance_m",
+            "velocity"
+          ],
+          "properties": {
+            "kind": {
+              "const": "restore_container_above_pose"
+            },
+            "target": {
+              "enum": [
+                "container_top_hover_pose",
+                "container_above"
+              ]
+            },
+            "clearance_m": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "clearance_max_m": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "above_container_top": {
+              "type": "boolean"
+            },
+            "edge_slide_m": {
+              "type": "number"
+            },
+            "velocity": {
+              "const": "zero"
+            },
+            "clearance_step_m": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "min_robot_clearance_m": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "reference_role",
+            "translation_m",
+            "offset_frame",
+            "velocity"
+          ],
+          "properties": {
+            "kind": {
+              "const": "translate_relation_pair"
+            },
+            "reference_role": {
+              "type": "string",
+              "minLength": 1
+            },
+            "translation_m": {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "minItems": 3,
+              "maxItems": 3
+            },
+            "offset_frame": {
+              "const": "world"
+            },
+            "velocity": {
+              "const": "zero"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "reference_role",
+            "translation_m",
+            "offset_frame",
+            "velocity"
+          ],
+          "properties": {
+            "kind": {
+              "const": "displace_reference_object"
+            },
+            "reference_role": {
+              "type": "string",
+              "minLength": 1
+            },
+            "translation_m": {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "minItems": 3,
+              "maxItems": 3
+            },
+            "offset_frame": {
+              "const": "world"
+            },
+            "velocity": {
+              "const": "zero"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "offset_m",
+            "offset_frame",
+            "velocity"
+          ],
+          "properties": {
+            "kind": {
+              "const": "displace_from_completed_pose"
+            },
+            "offset_m": {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "minItems": 3,
+              "maxItems": 3
+            },
+            "velocity": {
+              "const": "zero"
+            },
+            "offset_frame": {
+              "type": "string",
+              "enum": [
+                "task_frame",
+                "world"
+              ]
+            },
+            "lift_m": {
+              "type": "number",
+              "minimum": 0.0,
+              "maximum": 0.3,
+              "description": "Vertical lift applied before the rotation. A completion-pose probe that only rotates intersects the container walls, so the object is raised first; the lift is kept small enough that the object stays inside the goal region."
+            },
+            "orientation_axis_angle": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "axis",
+                "angle_rad"
+              ],
+              "properties": {
+                "axis": {
+                  "type": "array",
+                  "prefixItems": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "number"
+                    }
+                  ],
+                  "minItems": 3,
+                  "maxItems": 3
+                },
+                "angle_rad": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "boundary",
+            "velocity"
+          ],
+          "properties": {
+            "kind": {
+              "const": "displace_to_relation_boundary"
+            },
+            "velocity": {
+              "const": "zero"
+            },
+            "boundary": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "side",
+                "resolution_m",
+                "max_distance_m"
+              ],
+              "properties": {
+                "side": {
+                  "enum": [
+                    "inside",
+                    "outside"
+                  ]
+                },
+                "resolution_m": {
+                  "type": "number",
+                  "exclusiveMinimum": 0,
+                  "maximum": 0.05
+                },
+                "max_distance_m": {
+                  "type": "number",
+                  "exclusiveMinimum": 0,
+                  "maximum": 0.25
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "velocity",
+            "relations"
+          ],
+          "properties": {
+            "kind": {
+              "const": "restore_native_relation_set"
+            },
+            "velocity": {
+              "const": "zero"
+            },
+            "relations": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "uniqueItems": true,
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "predicate",
+                      "actor_role",
+                      "subgoal_id",
+                      "restore"
+                    ],
+                    "properties": {
+                      "predicate": {
+                        "type": "array",
+                        "minItems": 2,
+                        "maxItems": 3,
+                        "items": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "actor_role": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "subgoal_id": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "restore": {
+                        "const": "episode_initial_pose"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "predicate",
+                      "actor_role",
+                      "joint_name",
+                      "restore"
+                    ],
+                    "properties": {
+                      "predicate": {
+                        "type": "array",
+                        "minItems": 2,
+                        "maxItems": 2,
+                        "items": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "actor_role": {
+                        "const": "articulation_target"
+                      },
+                      "joint_name": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "restore": {
+                        "enum": [
+                          "episode_initial_joint_position",
+                          "explicit_joint_position"
+                        ],
+                        "description": "episode_initial_joint_position restores the episode-initial joint endpoint; explicit_joint_position targets joint_target_rad instead, which is required for pseudo-success tasks whose :init already satisfies the goal."
+                      },
+                      "joint_type": {
+                        "type": "string",
+                        "enum": [
+                          "hinge",
+                          "slide"
+                        ]
+                      },
+                      "joint_range_rad": {
+                        "type": "array",
+                        "prefixItems": [
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "number"
+                          }
+                        ],
+                        "minItems": 2,
+                        "maxItems": 2
+                      },
+                      "success_threshold_rad": {
+                        "type": "number"
+                      },
+                      "joint_target_rad": {
+                        "type": "number"
+                      },
+                      "joint_target_reason": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "allOf": [
+                      {
+                        "if": {
+                          "properties": {
+                            "restore": {
+                              "const": "explicit_joint_position"
+                            }
+                          },
+                          "required": [
+                            "restore"
+                          ]
+                        },
+                        "then": {
+                          "required": [
+                            "joint_target_rad"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "source_relation",
+            "velocity"
+          ],
+          "properties": {
+            "kind": {
+              "const": "move_to_relation_target"
+            },
+            "source_relation": {
+              "type": "string",
+              "minLength": 1
+            },
+            "height_offset_m": {
+              "type": "number"
+            },
+            "orientation": {
+              "enum": [
+                "preserve",
+                "upright"
+              ]
+            },
+            "velocity": {
+              "const": "zero"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "primary_offset_m",
+            "asymmetric_secondary_endpoint",
+            "asymmetric_secondary_delta_m",
+            "reference_role",
+            "velocity"
+          ],
+          "properties": {
+            "kind": {
+              "const": "displace_pair_from_completed_pose"
+            },
+            "primary_offset_m": {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "minItems": 3,
+              "maxItems": 3
+            },
+            "pair_common_lift_m": {
+              "type": "number",
+              "minimum": 0.0,
+              "maximum": 0.3
+            },
+            "asymmetric_secondary_endpoint": {
+              "type": "string",
+              "enum": [
+                "actor",
+                "reference"
+              ]
+            },
+            "asymmetric_secondary_delta_m": {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "minItems": 3,
+              "maxItems": 3
+            },
+            "reference_role": {
+              "type": "string",
+              "minLength": 1
+            },
+            "velocity": {
+              "const": "zero"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "target",
+            "reference_role",
+            "velocity"
+          ],
+          "properties": {
+            "kind": {
+              "const": "restore_reference_episode_initial_pose"
+            },
+            "target": {
+              "const": "episode_initial_pose"
+            },
+            "bodies": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "reference_role": {
+              "type": "string",
+              "minLength": 1
+            },
+            "velocity": {
+              "const": "zero"
+            },
+            "initial_offset_m": {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "minItems": 3,
+              "maxItems": 3
+            },
+            "offset_frame": {
+              "type": "string",
+              "enum": [
+                "task_frame",
+                "world"
+              ]
+            },
+            "orientation_axis_angle": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "axis",
+                "angle_rad"
+              ],
+              "properties": {
+                "axis": {
+                  "type": "array",
+                  "prefixItems": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "number"
+                    }
+                  ],
+                  "minItems": 3,
+                  "maxItems": 3
+                },
+                "angle_rad": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "target",
+            "reference_role",
+            "velocity"
+          ],
+          "properties": {
+            "kind": {
+              "const": "restore_pair_episode_initial_pose"
+            },
+            "target": {
+              "const": "episode_initial_pose"
+            },
+            "bodies": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "reference_role": {
+              "type": "string",
+              "minLength": 1
+            },
+            "velocity": {
+              "const": "zero"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "boundary",
+            "reference_role",
+            "velocity"
+          ],
+          "properties": {
+            "kind": {
+              "const": "displace_reference_to_relation_boundary"
+            },
+            "boundary": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "side",
+                "resolution_m",
+                "max_distance_m"
+              ],
+              "properties": {
+                "side": {
+                  "type": "string",
+                  "enum": [
+                    "inside",
+                    "outside"
+                  ]
+                },
+                "resolution_m": {
+                  "type": "number",
+                  "minimum": 0.001,
+                  "maximum": 0.05
+                },
+                "max_distance_m": {
+                  "type": "number",
+                  "minimum": 0.005,
+                  "maximum": 0.3
+                },
+                "search_directions": {
+                  "type": "string",
+                  "enum": [
+                    "horizontal_then_vertical",
+                    "vertical_only"
+                  ]
+                }
+              }
+            },
+            "bodies": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "reference_role": {
+              "type": "string",
+              "minLength": 1
+            },
+            "velocity": {
+              "const": "zero"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "primary_offset_m",
+            "reference_role",
+            "asymmetric_secondary_endpoint",
+            "asymmetric_secondary_delta_m",
+            "velocity"
+          ],
+          "properties": {
+            "kind": {
+              "const": "displace_pair_from_current_pose"
+            },
+            "primary_offset_m": {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "minItems": 3,
+              "maxItems": 3
+            },
+            "pair_common_lift_m": {
+              "type": "number",
+              "minimum": 0.0,
+              "maximum": 0.3
+            },
+            "asymmetric_secondary_endpoint": {
+              "type": "string",
+              "enum": [
+                "actor",
+                "reference"
+              ]
+            },
+            "asymmetric_secondary_delta_m": {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "minItems": 3,
+              "maxItems": 3
+            },
+            "reference_role": {
+              "type": "string",
+              "minLength": 1
+            },
+            "velocity": {
+              "const": "zero"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "velocity"
+          ],
+          "properties": {
+            "kind": {
+              "const": "multi_relation_target"
+            },
+            "components": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["stage", "state_kind", "params_text", "target_body"],
+                "properties": {
+                  "stage": {"type": "string", "enum": ["s1", "s2"]},
+                  "state_kind": {
+                    "type": "string",
+                    "enum": ["pose_initial", "pose_completed", "pose_current", "pose_boundary", "pose_above", "joint"]
+                  },
+                  "object_role": {"type": "string", "enum": ["goal", "other", "pair"]},
+                  "params_text": {"type": "string", "minLength": 1},
+                  "target_body": {"type": "string", "minLength": 1},
+                  "target_roles": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {"type": "string", "minLength": 1}
+                  },
+                  "joint_name": {"type": "string", "minLength": 1},
+                  "relation_id": {"type": "string", "minLength": 1},
+                  "above_anchor": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["kind", "body"],
+                    "properties": {
+                      "kind": {"const": "scene_object"},
+                      "body": {"type": "string", "minLength": 1},
+                      "region": {"type": "string", "minLength": 1},
+                      "clearance_m": {"type": "number", "minimum": 0.02, "maximum": 0.3},
+                      "xy_offset_m": {
+                        "type": "array",
+                        "minItems": 3,
+                        "maxItems": 3,
+                        "items": {"type": "number"}
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "target": {
+              "type": "string",
+              "enum": [
+                "live_completed",
+                "episode_initial",
+                "live_relation_boundary"
+              ]
+            },
+            "relations": {
+              "type": "array",
+              "minItems": 2,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "bodies": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "body_offsets_m": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "array",
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "minItems": 3,
+                "maxItems": 3
+              }
+            },
+            "boundary": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "side",
+                "resolution_m",
+                "max_distance_m"
+              ],
+              "properties": {
+                "side": {
+                  "type": "string",
+                  "enum": [
+                    "outside",
+                    "inside"
+                  ]
+                },
+                "resolution_m": {
+                  "type": "number",
+                  "minimum": 0.001,
+                  "maximum": 0.05
+                },
+                "max_distance_m": {
+                  "type": "number",
+                  "minimum": 0.005,
+                  "maximum": 0.3
+                }
+              }
+            },
+            "velocity": {
+              "const": "zero"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "boundary",
+            "reference_role",
+            "asymmetric_secondary_endpoint",
+            "asymmetric_secondary_delta_m",
+            "velocity"
+          ],
+          "properties": {
+            "kind": {
+              "const": "translate_pair_to_relation_boundary"
+            },
+            "boundary": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "side",
+                "resolution_m",
+                "max_distance_m"
+              ],
+              "properties": {
+                "side": {
+                  "type": "string",
+                  "enum": [
+                    "outside",
+                    "inside"
+                  ]
+                },
+                "resolution_m": {
+                  "type": "number",
+                  "minimum": 0.001,
+                  "maximum": 0.05
+                },
+                "max_distance_m": {
+                  "type": "number",
+                  "minimum": 0.005,
+                  "maximum": 0.3
+                }
+              }
+            },
+            "primary_offset_m": {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "minItems": 3,
+              "maxItems": 3
+            },
+            "pair_common_lift_m": {
+              "type": "number",
+              "minimum": 0.0,
+              "maximum": 0.3
+            },
+            "asymmetric_secondary_endpoint": {
+              "type": "string",
+              "enum": [
+                "actor",
+                "reference"
+              ]
+            },
+            "asymmetric_secondary_delta_m": {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "minItems": 3,
+              "maxItems": 3
+            },
+            "reference_role": {
+              "type": "string",
+              "minLength": 1
+            },
+            "velocity": {
+              "const": "zero"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "above_anchor",
+            "velocity"
+          ],
+          "properties": {
+            "kind": {
+              "const": "place_above_anchor"
+            },
+            "above_anchor": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "kind",
+                "body"
+              ],
+              "properties": {
+                "kind": {
+                  "const": "scene_object"
+                },
+                "body": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "region": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "clearance_m": {
+                  "type": "number",
+                  "minimum": 0.02,
+                  "maximum": 0.3
+                },
+                "clearance_max_m": {
+                  "type": "number",
+                  "minimum": 0.02,
+                  "maximum": 0.5
+                },
+                "clearance_step_m": {
+                  "type": "number",
+                  "minimum": 0.005,
+                  "maximum": 0.05
+                },
+                "xy_offset_m": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "minItems": 3,
+                  "maxItems": 3
+                },
+                "target_role": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            },
+            "velocity": {
+              "enum": [
+                "zero"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "anchor_body",
+            "target_bodies",
+            "clearance_m",
+            "velocity"
+          ],
+          "properties": {
+            "kind": {
+              "const": "place_pair_above_anchor"
+            },
+            "anchor_body": {
+              "type": "string",
+              "minLength": 1
+            },
+            "anchor_surface": {
+              "type": "string",
+              "minLength": 1
+            },
+            "target_bodies": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 2,
+              "maxItems": 2
+            },
+            "clearance_m": {
+              "type": "number",
+              "minimum": 0.02,
+              "maximum": 0.3
+            },
+            "preserved_relation": {
+              "type": "string"
+            },
+            "invalidated_relation": {
+              "type": "string"
+            },
+            "velocity": {
+              "enum": [
+                "zero"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "velocity",
+            "components"
+          ],
+          "properties": {
+            "kind": {
+              "const": "combo_s1_s2"
+            },
+            "velocity": {
+              "const": "zero"
+            },
+            "components": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "stage",
+                  "state_kind",
+                  "params_text"
+                ],
+                "properties": {
+                  "stage": {
+                    "type": "string",
+                    "enum": [
+                      "s1",
+                      "s2"
+                    ]
+                  },
+                  "state_kind": {
+                    "type": "string",
+                    "enum": [
+                      "pose_initial",
+                      "pose_completed",
+                      "pose_current",
+                      "pose_boundary",
+                      "pose_above",
+                      "joint"
+                    ]
+                  },
+                  "object_role": {
+                    "type": "string",
+                    "enum": [
+                      "goal",
+                      "other",
+                      "pair"
+                    ]
+                  },
+                  "params_text": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "target_roles": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "target_body": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "joint_name": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "relation_id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "above_anchor": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "kind",
+                      "body"
+                    ],
+                    "properties": {
+                      "kind": {
+                        "const": "scene_object"
+                      },
+                      "body": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "region": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "clearance_m": {
+                        "type": "number",
+                        "minimum": 0.02,
+                        "maximum": 0.3
+                      },
+                      "xy_offset_m": {
+                        "type": "array",
+                        "minItems": 3,
+                        "maxItems": 3,
+                        "items": {
+                          "type": "number"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "velocity",
+            "joint",
+            "body"
+          ],
+          "properties": {
+            "kind": {
+              "const": "mixed_joint_body"
+            },
+            "velocity": {
+              "const": "zero"
+            },
+            "joint": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "joint_name",
+                "target_rad"
+              ],
+              "properties": {
+                "joint_name": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "target_rad": {
+                  "type": "number"
+                },
+                "role": {
+                  "const": "articulation_target"
+                }
+              }
+            },
+            "body": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "target",
+                "target_role"
+              ],
+              "properties": {
+                "target": {
+                  "const": "episode_initial_pose"
+                },
+                "target_role": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "offset_m": {
+                  "type": "array",
+                  "minItems": 3,
+                  "maxItems": 3,
+                  "items": {
+                    "type": "number"
+                  }
+                },
+                "orientation": {
+                  "type": "string",
+                  "enum": [
+                    "preserve",
+                    "upright"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -20,9 +20,9 @@ from __future__ import annotations
 import csv
 import math
 import re
+from collections.abc import Iterable, Mapping, Sequence
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Iterable, Mapping, Sequence
 
 SUITE_DIRS: Mapping[str, str] = {
     "goal": "libero_goal",
@@ -143,7 +143,9 @@ class BCase:
         try:
             return LEVEL_SPECS[(self.level, self.param)]
         except KeyError as error:  # pragma: no cover - validation catches this first
-            raise KeyError(f"{self.case_id}: no level spec for {self.level}/{self.param}") from error
+            raise KeyError(
+                f"{self.case_id}: no level spec for {self.level}/{self.param}"
+            ) from error
 
     @property
     def parsed_predicates(self) -> tuple[tuple[str, ...], ...]:
@@ -154,10 +156,20 @@ class BCase:
         return self.level == "C0"
 
     def bddl_path(self, libero_root: str | Path) -> Path:
-        return _asset_root(libero_root) / "bddl_files" / SUITE_DIRS[self.suite] / f"{self.bddl_name}.bddl"
+        return (
+            _asset_root(libero_root)
+            / "bddl_files"
+            / SUITE_DIRS[self.suite]
+            / f"{self.bddl_name}.bddl"
+        )
 
     def init_path(self, libero_root: str | Path) -> Path:
-        return _asset_root(libero_root) / "init_files" / SUITE_DIRS[self.suite] / f"{self.bddl_name}.pruned_init"
+        return (
+            _asset_root(libero_root)
+            / "init_files"
+            / SUITE_DIRS[self.suite]
+            / f"{self.bddl_name}.pruned_init"
+        )
 
     def geometry(self, sim, pred_index: int = 0) -> dict:
         """Resolve the concrete level geometry (kept for report/debug use)."""
