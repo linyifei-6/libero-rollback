@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>人工审核报告模板样例（样例数据，非实验结论）</title>
+<style>
+:root{
+  --bg:#ffffff; --bg-soft:#f7f8fa; --card:#ffffff; --card-alt:#f4f6f8;
+  --ink:#1f2933; --ink-soft:#52606d; --muted:#7b8794; --line:#d9e2ec;
+  --accent:#2563eb; --accent-soft:#eff6ff;
+  --ok:#166534; --ok-bg:#ecfdf3; --ok-line:#bbf7d0;
+  --warn:#92400e; --warn-bg:#fffbeb; --warn-line:#fde68a;
+  --bad:#b42318; --bad-bg:#fef3f2; --bad-line:#fecdca;
+  --na:#4b5563; --na-bg:#f3f4f6; --na-line:#e5e7eb;
+  --radius:10px; --shadow:0 1px 2px rgba(16,24,40,.06),0 1px 3px rgba(16,24,40,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#ffffff;color:var(--ink);font:15px/1.62 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;font-size:12.5px}
+.layout{display:flex;align-items:flex-start;max-width:1680px;margin:0 auto}
+.sidebar{position:sticky;top:0;height:100vh;overflow-y:auto;flex:0 0 252px;background:var(--bg-soft);border-right:1px solid var(--line);padding:16px 12px 40px;font-size:13px}
+.sidebar-title{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 8px;font-weight:700}
+.sidebar nav{display:block}
+.sidebar details{margin:4px 0}
+.sidebar summary{cursor:pointer;font-weight:600;color:var(--ink);padding:3px 5px;border-radius:6px;list-style-position:inside}
+.sidebar a{display:block;white-space:normal;overflow-wrap:anywhere;color:var(--ink-soft);padding:3px 8px;border-radius:6px;line-height:1.45}
+.sidebar a:hover{background:var(--accent-soft);color:var(--accent);text-decoration:none}
+.sidebar .lvl2{padding-left:18px;font-size:12.5px}
+.main-col{flex:1;min-width:0;padding:26px 34px 70px}
+h1{font-size:26px;line-height:1.3;margin:0 0 8px}
+h2{font-size:20px;margin:34px 0 12px;padding-top:14px;border-top:1px solid var(--line);scroll-margin-top:16px}
+h3{font-size:16px;margin:22px 0 8px;scroll-margin-top:78px}
+h4{font-size:14px;margin:0 0 8px;color:var(--ink)}
+p{margin:6px 0}
+.subtitle{color:var(--ink-soft);margin:0 0 14px;font-size:14px}
+.meta-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:6px 18px;background:var(--bg-soft);border:1px solid var(--line);border-radius:var(--radius);padding:14px;margin:12px 0}
+.meta-grid dt{font-size:11.5px;color:var(--muted);letter-spacing:.02em}
+.meta-grid dd{margin:0 0 6px;font-weight:500;overflow-wrap:anywhere}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px;margin:12px 0}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:13px 14px}
+.kpi .kpi-label{font-size:12.5px;color:var(--ink-soft)}
+.kpi .kpi-value{font-size:24px;font-weight:750;margin:3px 0 2px;font-variant-numeric:tabular-nums}
+.kpi .kpi-sub{font-size:12px;color:var(--muted);overflow-wrap:anywhere}
+.badge{display:inline-block;padding:1px 8px;border-radius:999px;font-size:12px;border:1px solid var(--line);background:var(--bg-soft);color:var(--ink-soft);margin:1px 4px 1px 0;white-space:nowrap}
+.badge.ok{background:var(--ok-bg);border-color:var(--ok-line);color:var(--ok)}
+.badge.bad{background:var(--bad-bg);border-color:var(--bad-line);color:var(--bad)}
+.badge.warn{background:var(--warn-bg);border-color:var(--warn-line);color:var(--warn)}
+.badge.na{background:var(--na-bg);border-color:var(--na-line);color:var(--na)}
+table.dt{width:100%;border-collapse:collapse;font-size:13px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin:10px 0}
+.dt th,.dt td{padding:7px 9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.dt thead th{background:var(--card-alt);font-weight:650;font-size:12.5px;color:var(--ink-soft)}
+.dt tbody tr:nth-child(even){background:#fcfcfd}
+.dt tr:last-child td{border-bottom:0}
+.dt td.num,.dt th.num{text-align:right;font-variant-numeric:tabular-nums}
+.dt td.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;overflow-wrap:anywhere}
+.filters{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.97);border:1px solid var(--line);border-radius:var(--radius);padding:9px 12px;display:flex;flex-wrap:wrap;gap:7px 14px;align-items:center;box-shadow:var(--shadow);margin:12px 0}
+.filters label{font-size:12.5px;color:var(--ink-soft);display:inline-flex;gap:5px;align-items:center}
+.filters select,.filters input[type=search]{font:inherit;font-size:12.5px;padding:3px 6px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--ink)}
+.filters .chips{display:inline-flex;gap:8px;flex-wrap:wrap}
+.filters .chip{display:inline-flex;align-items:center;gap:4px;font-size:12.5px;color:var(--ink-soft)}
+.filter-count{font-size:12.5px;color:var(--accent);font-weight:650;margin-left:auto;white-space:nowrap}
+button{font:inherit;font-size:12.5px;padding:4px 11px;border-radius:6px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;line-height:1.5}
+button:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
+button:disabled{opacity:.45;cursor:not-allowed}
+button.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+button.primary:hover:not(:disabled){background:#1d4ed8;color:#fff}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:12px 0}
+.toolbar .muted{font-size:12.5px;color:var(--muted)}
+.case-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px;margin:14px 0;scroll-margin-top:14px}
+.case-card.reviewed{border-left:4px solid var(--accent);padding-left:13px}
+.case-card[hidden]{display:none}
+.case-head{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:flex-start}
+.case-title{font-size:15px;font-weight:700;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;overflow-wrap:anywhere}
+.case-badges{text-align:right}
+.instruction{font-size:14px;color:var(--ink-soft);margin:7px 0 10px}
+.case-subline{font-size:12px;color:var(--muted);margin:0 0 10px;overflow-wrap:anywhere}
+.case-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:12px}
+.panel{border:1px solid var(--line);border-radius:8px;padding:12px;background:var(--bg-soft);min-width:0}
+.panel table{width:100%;border-collapse:collapse;font-size:12.5px}
+.panel th,.panel td{padding:3px 4px;border-bottom:1px dashed var(--line);text-align:left;vertical-align:top}
+.panel th{color:var(--muted);font-weight:500;width:44%}
+.panel tr:last-child th,.panel tr:last-child td{border-bottom:0}
+.panel td.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:11.5px;overflow-wrap:anywhere}
+.panel .hint{font-size:11.5px;color:var(--muted);margin:8px 0 0}
+.video-panel video{width:100%;max-height:270px;background:#000;border-radius:6px;display:block}
+.video-missing{border:1px dashed var(--warn-line);background:var(--warn-bg);color:var(--warn);padding:16px 12px;border-radius:8px;font-size:12.5px;line-height:1.55}
+.video-buttons{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.video-meta{font-size:11.5px;color:var(--muted);margin-top:6px;overflow-wrap:anywhere}
+.review-panel{margin-top:12px;border-top:1px solid var(--line);padding-top:10px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px}
+.review-panel label{font-size:13.5px;display:inline-flex;align-items:center;gap:6px;cursor:pointer;font-weight:550}
+.review-panel input[type=checkbox]{width:16px;height:16px;accent-color:var(--accent)}
+.review-panel textarea{flex:1 1 340px;min-height:34px;max-height:140px;padding:6px 9px;border:1px solid var(--line);border-radius:6px;font:inherit;font-size:13px;background:#fff;color:var(--ink);resize:vertical}
+.review-state{font-size:12px;color:var(--muted)}
+.task-head{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline;margin:30px 0 6px;padding-bottom:6px;border-bottom:2px solid var(--line)}
+.task-head h3{margin:0}
+.task-meta{font-size:12.5px;color:var(--muted);overflow-wrap:anywhere}
+.task-group[hidden]{display:none}
+.pager{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:20px 0;padding:10px 0;border-top:1px solid var(--line)}
+.notice{border:1px solid var(--warn-line);background:var(--warn-bg);color:var(--warn);padding:10px 12px;border-radius:8px;font-size:13px;margin:10px 0}
+.note-box{border:1px solid var(--line);background:var(--bg-soft);border-radius:8px;padding:12px;font-size:13px}
+.note-box ul{margin:6px 0;padding-left:20px}
+pre.notes-text{white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px;margin:0;font-family:inherit}
+.section-intro{color:var(--ink-soft);font-size:13.5px;margin:-2px 0 10px}
+.formula{background:var(--card-alt);border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:13px;margin:8px 0}
+.formula code{font-size:12.5px}
+.legend{font-size:12.5px;color:var(--muted);margin:6px 0}
+.swatches{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0}
+.swatch{display:flex;gap:6px;align-items:center;font-size:12.5px;color:var(--ink-soft)}
+.swatch i{width:14px;height:14px;border-radius:3px;border:1px solid var(--line);display:inline-block}
+@media (max-width:1100px){
+  .layout{display:block}
+  .sidebar{position:static;height:auto;width:auto;border-right:0;border-bottom:1px solid var(--line)}
+  .main-col{padding:18px 16px 50px}
+}
+@media print{.sidebar,.filters,.toolbar,.pager{display:none}.main-col{padding:0}}
+</style>
+</head>
+<body>
+
+<div class="layout">
+  
+<aside class="sidebar"><div class="sidebar-title">样例导航</div><nav>
+<details open><summary>样例说明</summary>
+<a class="lvl2" href="#sample-banner">样例数据声明</a>
+<a class="lvl2" href="#sample-kpi">KPI 与口径（示例）</a>
+<a class="lvl2" href="#sample-anatomy">审核卡要素</a>
+</details>
+<details open><summary>3 个代表性 case</summary>
+<a class="lvl2" href="#case-b-goal-t000-c0">C0 no-op 对照</a>
+<a class="lvl2" href="#case-b-object-t000-g-l0">有效但未恢复</a>
+<a class="lvl2" href="#case-b-goal-t000-g-l0">有效且恢复</a>
+</details>
+<details open><summary>审核与导出</summary>
+<a class="lvl2" href="#sample-review">勾选 / 备注 / 导出 JSON</a>
+<a class="lvl2" href="#sample-checklist">验收清单</a>
+</details></nav>
+<p class="legend" style="margin-top:14px">白色主题 · 自包含 · file:// 可开<br>审核状态保存在 localStorage，可导出 JSON。</p>
+</aside>
+
+  <main class="main-col">
+    <div class="notice" id="sample-banner">
+      <b>⚠ 样例数据，非实验结论。</b>本页是模板样例：3 个 case 的字段值仅用于展示版式与交互，
+      不是任何一次真实实验的结果，也不得引用为实验证据。样例不附带视频文件，因此卡片显示“视频缺失”；
+      正式报告把视频放在 <code>videos/&lt;case_id&gt;.mp4</code> 后即可播放。
+    </div>
+    <header class="page-head">
+      <h1>人工审核报告模板样例 · 注入有效性 / 恢复有效性</h1>
+      <p class="subtitle">白色主题 · 自包含 · 左侧 sticky 导航 · 分类筛选 · 视频时间点跳转 · 两个人工审核勾选 + 备注。</p>
+      <dl class="meta-grid">
+        <dt>模板版本</dt><dd>review-report-v1.0</dd>
+        <dt>样例性质</dt><dd>样例数据，非实验结论</dd>
+        <dt>审核问题</dt><dd>① 注入是否真实有效　② 恢复是否真实来自策略自修复</dd>
+        <dt>正式生成器</dt><dd><code>scripts/build_review_report.py</code></dd>
+        <dt>正式报告规模</dt><dd>165 cases → index + goal-part1/2 + object-part1/2（每页 60）</dd>
+        <dt>打开方式</dt><dd>双击本文件（file://），无需服务器、无外链资源</dd>
+      </dl>
+    </header>
+    <h2 id="sample-kpi">KPI 与口径（示例数字）</h2>
+    <div class="kpi-grid"><div class="kpi"><div class="kpi-label">样例 case 数</div><div class="kpi-value">3</div><div class="kpi-sub">1 个 C0 对照 + 1 个未恢复 + 1 个已恢复</div></div><div class="kpi"><div class="kpi-label">注入有效（示例）</div><div class="kpi-value">3/3</div><div class="kpi-sub">C0 与 L0 均通过硬门控</div></div><div class="kpi"><div class="kpi-label">Recovery（示例）</div><div class="kpi-value">1/2 = 50.0%</div><div class="kpi-sub">分母 = 注入有效且非 C0</div></div><div class="kpi"><div class="kpi-label">N/A（示例）</div><div class="kpi-value">0</div><div class="kpi-sub">本样例没有触发未到达 case；真实报告会单列 N/A</div></div></div>
+    <div class="formula">Recovery 分母 = <b>注入有效且非 C0</b>；触发未到达与注入无效都不进分母，<b>N/A 不是 0%</b>。
+    正式报告里的每个数字都由 <code>evidence.json</code> 与 <code>cases.jsonl</code> 重算，页面与数据文件必须一致。</div>
+    <h2 id="sample-anatomy">审核卡要素（每张卡片固定 4 个区块）</h2>
+    <div class="note-box"><ul>
+      <li><b>① 注入有效性</b>：注入前关系真、注入后关系假（C0 保持真）、无穿模、零速度、已释放；<code>restorable</code> 只作辅助，不是模型恢复。</li>
+      <li><b>② 恢复有效性</b>：<code>relation_final / recovered / restored_at_step / notice_latency / repair_budget_steps</code>；C0 与未触发写 N/A。</li>
+      <li><b>③ 视频证据</b>：三个跳转按钮使用 <code>video.currentTime</code>；正式报告加载 <code>videos/&lt;case_id&gt;.mp4</code>，缺失时显式提示。</li>
+      <li><b>④ 人工审核</b>：“注入有效”“恢复有效”两个勾选 + 备注，实时保存到 localStorage，可导出 JSON。</li>
+    </ul></div>
+    <h2 id="sample-cards">3 个代表性 case 卡片</h2>
+    
+<article class="case-card" id="case-b-goal-t000-c0" data-case-id="b-goal-t000-c0"
+  data-suite="goal" data-level="C0" data-target="c0"
+  data-verdict="valid_control" data-injection-valid="1"
+  data-recovery-state="na"
+  data-steps="600" data-search="b-goal-t000-c0 Open the middle layer of the drawer open_the_middle_drawer_of_the_cabinet - c0 C0 ">
+  <div class="case-head">
+    <div>
+      <div class="case-title">b-goal-t000-c0</div>
+      <div class="case-subline">suite=goal · task_idx=0 · bddl=open_the_middle_drawer_of_the_cabinet · expected_relation_after=✓ 是</div>
+    </div>
+    <div class="case-badges"><span class="badge ok">C0 对照 · 终局成功</span> <span class="badge ">level C0</span> <span class="badge ">target c0</span> <span class="badge ">family -</span> <span class="badge ">semantics relation_holds_control</span></div>
+  </div>
+  <div class="instruction">指令：Open the middle layer of the drawer</div>
+  <div class="case-grid">
+    <div class="panel">
+      <h4>① 注入有效性（逐门控）</h4>
+      <table>
+        <thead><tr><th>门控 / 事实</th><th>结果</th><th>期望/说明</th></tr></thead>
+        <tbody><tr><th>注入前关系为真（GT）</th><td>✓ 通过</td><td class='mono'>应为 true</td></tr><tr><th>注入后关系为假（C0 保持为真）</th><td>✓ 通过</td><td class='mono'>C0 应为 true；L0/L1/L2 应为 false</td></tr><tr><th>无物体穿模（≤1 cm）</th><td>✓ 通过</td><td class='mono'>应为 true</td></tr><tr><th>注入后线/角速度归零</th><td>✓ 通过</td><td class='mono'>应为 true</td></tr><tr><th>注入前机器人已释放物体</th><td>✓ 通过</td><td class='mono'>应为 true</td></tr><tr><th>状态写回 oracle 可恢复关系（辅助，非硬门控）</th><td>✓ 通过</td><td class='mono'>辅助 oracle，不参与硬门控</td></tr><tr><th>pre 目标：原生 goal 保持为真（仅 pre case）</th><td>— 未记录</td><td class='mono'>N/A（非 pre）</td></tr><tr><th>穿透量 penetration_m</th><td class='mono'>0.000020 m</td><td>✓ 未穿模</td></tr><tr><th>注入后最大速度 max_velocity</th><td class='mono'>0</td><td>✓ 零速度</td></tr><tr><th>restore_probe（辅助 oracle）</th><td class='mono' colspan='2'>relation_true_after_state_write=✓ 是 · restored_truth=True · reapplied_truth=False</td></tr><tr><th>几何量 delta_translation_m</th><td class='mono' colspan='2'>0 m</td></tr><tr><th>几何量 delta_angle_rad</th><td class='mono' colspan='2'>0 rad</td></tr><tr><th>几何量 delta_joint_max</th><td class='mono' colspan='2'>0 rad</td></tr><tr><th>axis（世界系）</th><td class='mono' colspan='2'>0.0, 0.0, 1.0</td></tr></tbody>
+      </table>
+      <p class="hint">trigger_step=169 · injection_step=169 · wait=0。硬门控 = 注入前关系真 ∧ 注入后关系假（C0 保持真）∧ 无穿模 ∧ 零速度 ∧ 已释放。</p>
+    </div>
+    <div class="panel">
+      <h4>② 恢复有效性（是否策略自修复）</h4>
+      <table><tbody><tr><th>触发状态</th><td class='mono'><span class='badge ok'>C0 对照（no-op）</span></td></tr><tr><th>relation_before</th><td class='mono'>✓ 是</td></tr><tr><th>relation_after_injection</th><td class='mono'>✓ 是</td></tr><tr><th>relation_final</th><td class='mono'>✓ 是</td></tr><tr><th>recovered / success</th><td class='mono'>✓ 是 / ✓ 是</td></tr><tr><th>C0 说明</th><td class='mono'>C0 只延迟 10 步 + 强制继续、不动状态；终局成功说明“延迟/强制继续本身无害”。不计入 Recovery。</td></tr><tr><th>termination / steps</th><td class='mono'>step_limit / 600</td></tr></tbody></table>
+      <p class="hint">restorable oracle 只证明几何可写回，<b>不是策略恢复</b>；C0 与未触发 case 的 Recovery 为 N/A，不是 0%。</p>
+    </div>
+    <div class="panel video-panel">
+      <h4>③ 视频证据与时间点</h4>
+      <div class="video-missing">视频缺失：未找到 <code>videos/b-goal-t000-c0.mp4</code>。视频为本地审核产物（*.mp4 不入库）；请按 <code>videos/README.md</code> 的复制命令生成后再打开报告。</div>
+      <div class="video-buttons">
+        <button type="button" class="video-jump" data-jump="injection" data-time="8.4500">跳到注入</button>
+        <button type="button" class="video-jump" data-jump="restore" data-time="8.5000" data-step="170">跳到首次恢复</button>
+        <button type="button" class="video-jump" data-jump="end" data-time="30.0000">跳到结束</button>
+      </div>
+      <p class="hint">按钮通过 video.currentTime 跳转；恢复/结束时间点按 step 比例估算（视频时长 × step / steps）。</p>
+    </div>
+  </div>
+  <div class="review-panel">
+    <label><input type="checkbox" data-review="injection"> 注入有效</label>
+    <label><input type="checkbox" data-review="recovery"> 恢复有效</label>
+    <textarea data-review="note" rows="1" placeholder="审核备注（例如：注入帧可见物体被移走；恢复确由策略完成…）"></textarea>
+    <span class="review-state">未审核</span>
+  </div>
+  <script type="application/json" class="case-facts">{"case_id": "b-goal-t000-c0", "suite": "goal", "task_idx": 0, "bddl_name": "open_the_middle_drawer_of_the_cabinet", "instruction": "Open the middle layer of the drawer", "level": "C0", "param": null, "target": "c0", "family": "-", "semantics": "relation_holds_control", "expected_relation_after": true, "verdict": "valid_control", "trigger_reached": true, "trigger_step": 169, "injection_step": 169, "injection_wait_steps": 0, "trigger_skipped_reason": null, "injection_valid": true, "injection_gates": {"completed_relation_true_before_intervention": true, "all_revoked_false_after_intervention": true, "no_object_penetration": true, "zero_velocity_after_intervention": true, "object_released_before_intervention": true, "restorable": true, "goal_preserved_after_pre": null}, "penetration_m": 2e-05, "max_velocity": 0.0, "restorable": true, "restore_probe": {"restored_truth": [true], "relation_true_after_state_write": true, "reapplied_truth": [false]}, "geometry": {"delta_translation_m": 0.0, "delta_angle_rad": 0.0, "delta_joint_max": 0.0, "axis": [0.0, 0.0, 1.0]}, "recovery": {"relation_before": true, "relation_after_injection": true, "relation_final": true, "recovered": true, "restored_at_step": 170, "notice_latency": null, "repair_budget_steps": 731, "termination": "step_limit", "steps": 600, "success": true, "recovery_na": true}, "video": {"path": "videos/b-goal-t000-c0.mp4", "fps": 20, "injection_time_s": 8.45, "injection_frame": 169, "card_seconds": 1.0, "timing": "exact", "available": false, "exists_at_generation": false}}</script>
+</article>
+
+<article class="case-card" id="case-b-object-t000-g-l0" data-case-id="b-object-t000-g-l0"
+  data-suite="object" data-level="L0" data-target="g"
+  data-verdict="valid_not_recovered" data-injection-valid="1"
+  data-recovery-state="not_recovered"
+  data-steps="600" data-search="b-object-t000-g-l0 Pick the alphabet soup and place it in the basket pick_up_the_alphabet_soup_and_place_it_in_the_basket pose g L0 ">
+  <div class="case-head">
+    <div>
+      <div class="case-title">b-object-t000-g-l0</div>
+      <div class="case-subline">suite=object · task_idx=0 · bddl=pick_up_the_alphabet_soup_and_place_it_in_the_basket · expected_relation_after=✗ 否</div>
+    </div>
+    <div class="case-badges"><span class="badge bad">有效注入 · 未恢复</span> <span class="badge ">level L0</span> <span class="badge ">target g</span> <span class="badge ">family pose</span> <span class="badge ">semantics relation_then_resume</span></div>
+  </div>
+  <div class="instruction">指令：Pick the alphabet soup and place it in the basket</div>
+  <div class="case-grid">
+    <div class="panel">
+      <h4>① 注入有效性（逐门控）</h4>
+      <table>
+        <thead><tr><th>门控 / 事实</th><th>结果</th><th>期望/说明</th></tr></thead>
+        <tbody><tr><th>注入前关系为真（GT）</th><td>✓ 通过</td><td class='mono'>应为 true</td></tr><tr><th>注入后关系为假（C0 保持为真）</th><td>✓ 通过</td><td class='mono'>应为 false</td></tr><tr><th>无物体穿模（≤1 cm）</th><td>✓ 通过</td><td class='mono'>应为 true</td></tr><tr><th>注入后线/角速度归零</th><td>✓ 通过</td><td class='mono'>应为 true</td></tr><tr><th>注入前机器人已释放物体</th><td>✓ 通过</td><td class='mono'>应为 true</td></tr><tr><th>状态写回 oracle 可恢复关系（辅助，非硬门控）</th><td>✓ 通过</td><td class='mono'>辅助 oracle，不参与硬门控</td></tr><tr><th>pre 目标：原生 goal 保持为真（仅 pre case）</th><td>— 未记录</td><td class='mono'>N/A（非 pre）</td></tr><tr><th>穿透量 penetration_m</th><td class='mono'>0.000020 m</td><td>✓ 未穿模</td></tr><tr><th>注入后最大速度 max_velocity</th><td class='mono'>0</td><td>✓ 零速度</td></tr><tr><th>restore_probe（辅助 oracle）</th><td class='mono' colspan='2'>relation_true_after_state_write=✓ 是 · restored_truth=True · reapplied_truth=False</td></tr><tr><th>几何量 delta_translation_m</th><td class='mono' colspan='2'>0.49927 m</td></tr><tr><th>几何量 delta_angle_rad</th><td class='mono' colspan='2'>0.17193 rad</td></tr><tr><th>几何量 delta_joint_max</th><td class='mono' colspan='2'>0 rad</td></tr><tr><th>axis（世界系）</th><td class='mono' colspan='2'>0.0, 0.0, 1.0</td></tr></tbody>
+      </table>
+      <p class="hint">trigger_step=148 · injection_step=148 · wait=0。硬门控 = 注入前关系真 ∧ 注入后关系假（C0 保持真）∧ 无穿模 ∧ 零速度 ∧ 已释放。</p>
+    </div>
+    <div class="panel">
+      <h4>② 恢复有效性（是否策略自修复）</h4>
+      <table><tbody><tr><th>触发状态</th><td class='mono'><span class='badge ok'>触发到达</span></td></tr><tr><th>relation_before</th><td class='mono'>✓ 是</td></tr><tr><th>relation_after_injection</th><td class='mono'>✗ 否</td></tr><tr><th>relation_final</th><td class='mono'>✗ 否</td></tr><tr><th>recovered（终局恢复）</th><td class='mono'>✗ 否</td></tr><tr><th>restored_at_step</th><td class='mono'>未记录</td></tr><tr><th>notice_latency（步）</th><td class='mono'>28</td></tr><tr><th>repair_budget_steps</th><td class='mono'>752</td></tr><tr><th>termination / steps</th><td class='mono'>step_limit / 600</td></tr><tr><th>success / final_goal_truth</th><td class='mono'>✗ 否 / False</td></tr><tr><th>final_revoked_truth</th><td class='mono'>False</td></tr></tbody></table>
+      <p class="hint">restorable oracle 只证明几何可写回，<b>不是策略恢复</b>；C0 与未触发 case 的 Recovery 为 N/A，不是 0%。</p>
+    </div>
+    <div class="panel video-panel">
+      <h4>③ 视频证据与时间点</h4>
+      <div class="video-missing">视频缺失：未找到 <code>videos/b-object-t000-g-l0.mp4</code>。视频为本地审核产物（*.mp4 不入库）；请按 <code>videos/README.md</code> 的复制命令生成后再打开报告。</div>
+      <div class="video-buttons">
+        <button type="button" class="video-jump" data-jump="injection" data-time="7.4000">跳到注入</button>
+        <button type="button" class="video-jump" data-jump="restore" disabled>跳到首次恢复</button>
+        <button type="button" class="video-jump" data-jump="end" data-time="30.0000">跳到结束</button>
+      </div>
+      <p class="hint">按钮通过 video.currentTime 跳转；恢复/结束时间点按 step 比例估算（视频时长 × step / steps）。</p>
+    </div>
+  </div>
+  <div class="review-panel">
+    <label><input type="checkbox" data-review="injection"> 注入有效</label>
+    <label><input type="checkbox" data-review="recovery"> 恢复有效</label>
+    <textarea data-review="note" rows="1" placeholder="审核备注（例如：注入帧可见物体被移走；恢复确由策略完成…）"></textarea>
+    <span class="review-state">未审核</span>
+  </div>
+  <script type="application/json" class="case-facts">{"case_id": "b-object-t000-g-l0", "suite": "object", "task_idx": 0, "bddl_name": "pick_up_the_alphabet_soup_and_place_it_in_the_basket", "instruction": "Pick the alphabet soup and place it in the basket", "level": "L0", "param": null, "target": "g", "family": "pose", "semantics": "relation_then_resume", "expected_relation_after": false, "verdict": "valid_not_recovered", "trigger_reached": true, "trigger_step": 148, "injection_step": 148, "injection_wait_steps": 0, "trigger_skipped_reason": null, "injection_valid": true, "injection_gates": {"completed_relation_true_before_intervention": true, "all_revoked_false_after_intervention": true, "no_object_penetration": true, "zero_velocity_after_intervention": true, "object_released_before_intervention": true, "restorable": true, "goal_preserved_after_pre": null}, "penetration_m": 2e-05, "max_velocity": 0.0, "restorable": true, "restore_probe": {"restored_truth": [true], "relation_true_after_state_write": true, "reapplied_truth": [false]}, "geometry": {"delta_translation_m": 0.49927, "delta_angle_rad": 0.17193, "delta_joint_max": 0.0, "axis": [0.0, 0.0, 1.0]}, "recovery": {"relation_before": true, "relation_after_injection": false, "relation_final": false, "recovered": false, "restored_at_step": null, "notice_latency": 28, "repair_budget_steps": 752, "termination": "step_limit", "steps": 600, "success": false, "recovery_na": false}, "video": {"path": "videos/b-object-t000-g-l0.mp4", "fps": 20, "injection_time_s": 7.4, "injection_frame": 148, "card_seconds": 1.0, "timing": "exact", "available": false, "exists_at_generation": false}}</script>
+</article>
+
+<article class="case-card" id="case-b-goal-t000-g-l0" data-case-id="b-goal-t000-g-l0"
+  data-suite="goal" data-level="L0" data-target="g"
+  data-verdict="valid_recovered" data-injection-valid="1"
+  data-recovery-state="recovered"
+  data-steps="600" data-search="b-goal-t000-g-l0 Open the middle layer of the drawer open_the_middle_drawer_of_the_cabinet joint g L0 ">
+  <div class="case-head">
+    <div>
+      <div class="case-title">b-goal-t000-g-l0</div>
+      <div class="case-subline">suite=goal · task_idx=0 · bddl=open_the_middle_drawer_of_the_cabinet · expected_relation_after=✗ 否</div>
+    </div>
+    <div class="case-badges"><span class="badge ok">有效注入 · 策略自修复恢复</span> <span class="badge ">level L0</span> <span class="badge ">target g</span> <span class="badge ">family joint</span> <span class="badge ">semantics relation_then_resume</span></div>
+  </div>
+  <div class="instruction">指令：Open the middle layer of the drawer</div>
+  <div class="case-grid">
+    <div class="panel">
+      <h4>① 注入有效性（逐门控）</h4>
+      <table>
+        <thead><tr><th>门控 / 事实</th><th>结果</th><th>期望/说明</th></tr></thead>
+        <tbody><tr><th>注入前关系为真（GT）</th><td>✓ 通过</td><td class='mono'>应为 true</td></tr><tr><th>注入后关系为假（C0 保持为真）</th><td>✓ 通过</td><td class='mono'>应为 false</td></tr><tr><th>无物体穿模（≤1 cm）</th><td>✓ 通过</td><td class='mono'>应为 true</td></tr><tr><th>注入后线/角速度归零</th><td>✓ 通过</td><td class='mono'>应为 true</td></tr><tr><th>注入前机器人已释放物体</th><td>✓ 通过</td><td class='mono'>应为 true</td></tr><tr><th>状态写回 oracle 可恢复关系（辅助，非硬门控）</th><td>✓ 通过</td><td class='mono'>辅助 oracle，不参与硬门控</td></tr><tr><th>pre 目标：原生 goal 保持为真（仅 pre case）</th><td>— 未记录</td><td class='mono'>N/A（非 pre）</td></tr><tr><th>穿透量 penetration_m</th><td class='mono'>0.000020 m</td><td>✓ 未穿模</td></tr><tr><th>注入后最大速度 max_velocity</th><td class='mono'>0</td><td>✓ 零速度</td></tr><tr><th>restore_probe（辅助 oracle）</th><td class='mono' colspan='2'>relation_true_after_state_write=✓ 是 · restored_truth=True · reapplied_truth=False</td></tr><tr><th>几何量 delta_translation_m</th><td class='mono' colspan='2'>0 m</td></tr><tr><th>几何量 delta_angle_rad</th><td class='mono' colspan='2'>0 rad</td></tr><tr><th>几何量 delta_joint_max</th><td class='mono' colspan='2'>0 rad</td></tr><tr><th>axis（世界系）</th><td class='mono' colspan='2'>0.0, 0.0, 1.0</td></tr></tbody>
+      </table>
+      <p class="hint">trigger_step=231 · injection_step=231 · wait=0。硬门控 = 注入前关系真 ∧ 注入后关系假（C0 保持真）∧ 无穿模 ∧ 零速度 ∧ 已释放。</p>
+    </div>
+    <div class="panel">
+      <h4>② 恢复有效性（是否策略自修复）</h4>
+      <table><tbody><tr><th>触发状态</th><td class='mono'><span class='badge ok'>触发到达</span></td></tr><tr><th>relation_before</th><td class='mono'>✓ 是</td></tr><tr><th>relation_after_injection</th><td class='mono'>✗ 否</td></tr><tr><th>relation_final</th><td class='mono'>✓ 是</td></tr><tr><th>recovered（终局恢复）</th><td class='mono'>✓ 是</td></tr><tr><th>restored_at_step</th><td class='mono'>333</td></tr><tr><th>notice_latency（步）</th><td class='mono'>7</td></tr><tr><th>repair_budget_steps</th><td class='mono'>669</td></tr><tr><th>termination / steps</th><td class='mono'>step_limit / 600</td></tr><tr><th>success / final_goal_truth</th><td class='mono'>✓ 是 / True</td></tr><tr><th>final_revoked_truth</th><td class='mono'>True</td></tr></tbody></table>
+      <p class="hint">restorable oracle 只证明几何可写回，<b>不是策略恢复</b>；C0 与未触发 case 的 Recovery 为 N/A，不是 0%。</p>
+    </div>
+    <div class="panel video-panel">
+      <h4>③ 视频证据与时间点</h4>
+      <div class="video-missing">视频缺失：未找到 <code>videos/b-goal-t000-g-l0.mp4</code>。视频为本地审核产物（*.mp4 不入库）；请按 <code>videos/README.md</code> 的复制命令生成后再打开报告。</div>
+      <div class="video-buttons">
+        <button type="button" class="video-jump" data-jump="injection" data-time="11.5500">跳到注入</button>
+        <button type="button" class="video-jump" data-jump="restore" data-time="16.6500" data-step="333">跳到首次恢复</button>
+        <button type="button" class="video-jump" data-jump="end" data-time="30.0000">跳到结束</button>
+      </div>
+      <p class="hint">按钮通过 video.currentTime 跳转；恢复/结束时间点按 step 比例估算（视频时长 × step / steps）。</p>
+    </div>
+  </div>
+  <div class="review-panel">
+    <label><input type="checkbox" data-review="injection"> 注入有效</label>
+    <label><input type="checkbox" data-review="recovery"> 恢复有效</label>
+    <textarea data-review="note" rows="1" placeholder="审核备注（例如：注入帧可见物体被移走；恢复确由策略完成…）"></textarea>
+    <span class="review-state">未审核</span>
+  </div>
+  <script type="application/json" class="case-facts">{"case_id": "b-goal-t000-g-l0", "suite": "goal", "task_idx": 0, "bddl_name": "open_the_middle_drawer_of_the_cabinet", "instruction": "Open the middle layer of the drawer", "level": "L0", "param": null, "target": "g", "family": "joint", "semantics": "relation_then_resume", "expected_relation_after": false, "verdict": "valid_recovered", "trigger_reached": true, "trigger_step": 231, "injection_step": 231, "injection_wait_steps": 0, "trigger_skipped_reason": null, "injection_valid": true, "injection_gates": {"completed_relation_true_before_intervention": true, "all_revoked_false_after_intervention": true, "no_object_penetration": true, "zero_velocity_after_intervention": true, "object_released_before_intervention": true, "restorable": true, "goal_preserved_after_pre": null}, "penetration_m": 2e-05, "max_velocity": 0.0, "restorable": true, "restore_probe": {"restored_truth": [true], "relation_true_after_state_write": true, "reapplied_truth": [false]}, "geometry": {"delta_translation_m": 0.0, "delta_angle_rad": 0.0, "delta_joint_max": 0.0, "axis": [0.0, 0.0, 1.0]}, "recovery": {"relation_before": true, "relation_after_injection": false, "relation_final": true, "recovered": true, "restored_at_step": 333, "notice_latency": 7, "repair_budget_steps": 669, "termination": "step_limit", "steps": 600, "success": true, "recovery_na": false}, "video": {"path": "videos/b-goal-t000-g-l0.mp4", "fps": 20, "injection_time_s": 11.55, "injection_frame": 231, "card_seconds": 1.0, "timing": "exact", "available": false, "exists_at_generation": false}}</script>
+</article>
+    <h2 id="sample-review">审核勾选与导出（交互演示）</h2>
+    <div class="toolbar">
+      <button type="button" class="primary js-export-review">导出审核 JSON</button>
+      <span class="muted" id="review-count">已保存审核记录 0 条</span>
+      <span class="muted">勾选/备注自动写入 localStorage（键含报告 ID <code>sample-case-review</code>）；导出的 JSON 可归档。</span>
+    </div>
+    <h2 id="sample-checklist">验收清单（人工照着勾）</h2>
+    <div class="note-box"><ul>
+      <li>☐ 白色主题：背景 <code>#ffffff</code>，无深色背景、无外链资源；</li>
+      <li>☐ 每个 case 的注入门控 7 项与几何量可见、可机器读取（卡内 <code>case-facts</code> JSON）；</li>
+      <li>☐ 每个 case 的恢复证据字段齐全；C0 / 未触发明确写 N/A，不显示 0%；</li>
+      <li>☐ 视频三按钮存在；视频缺失有显式提示；</li>
+      <li>☐ 左栏 sticky 导航、锚点、筛选与计数正常；</li>
+      <li>☐ 两个审核勾选与备注可保存、可导出 JSON；</li>
+      <li>☐ 正式报告还须通过 §8 的完整验收清单（分页、索引、对账、sha256、无主机路径）。</li>
+    </ul></div>
+    <footer class="legend" style="margin-top:28px;border-top:1px solid var(--line);padding-top:10px">
+      review-report-v1.0 · 样例数据，非实验结论 · 本页自包含、无外链。
+    </footer>
+  </main>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var REPORT_ID = "sample-case-review";
+  var TEMPLATE_VERSION = "review-report-v1.0";
+  var LS_KEY = "libero-rollback-review:v1:" + REPORT_ID;
+
+  function loadAll(){
+    try { return JSON.parse(window.localStorage.getItem(LS_KEY) || "{}") || {}; }
+    catch (e) { return {}; }
+  }
+  function saveAll(state){
+    try { window.localStorage.setItem(LS_KEY, JSON.stringify(state)); return true; }
+    catch (e) { return false; }
+  }
+  function hasReview(entry){
+    return !!(entry && (entry.injection || entry.recovery || (entry.note && entry.note.length)));
+  }
+  function today(){
+    var d = new Date();
+    return d.toISOString();
+  }
+  function reviewEntry(card){
+    var state = loadAll();
+    return state[card.getAttribute("data-case-id")] || null;
+  }
+  function updateCard(card){
+    var entry = reviewEntry(card);
+    card.classList.toggle("reviewed", hasReview(entry));
+    var stateEl = card.querySelector(".review-state");
+    if (stateEl){
+      stateEl.textContent = hasReview(entry) ? "已记录审核（本地保存）" : "未审核";
+    }
+  }
+  function updateReviewCounts(){
+    var store = loadAll();
+    var cards = document.querySelectorAll(".case-card");
+    var out = document.getElementById("review-count");
+    if (!out) return;
+    if (cards.length){
+      var injected = 0, recovered = 0, reviewed = 0;
+      Array.prototype.forEach.call(cards, function(card){
+        var entry = store[card.getAttribute("data-case-id")] || {};
+        if (entry.injection) injected += 1;
+        if (entry.recovery) recovered += 1;
+        if (hasReview(entry)) reviewed += 1;
+      });
+      out.textContent = "本页已审核 " + reviewed + " / " + cards.length
+        + "（注入勾选 " + injected + "，恢复勾选 " + recovered + "）";
+    } else {
+      out.textContent = "已保存审核记录 " + Object.keys(store).length + " 条";
+    }
+    var marks = document.querySelectorAll("[data-review-mark]");
+    Array.prototype.forEach.call(marks, function(mark){
+      var entry = store[mark.getAttribute("data-review-mark")];
+      if (hasReview(entry)){
+        mark.textContent = "已审核";
+        mark.className = "badge ok";
+      } else {
+        mark.textContent = "未审核";
+        mark.className = "badge na";
+      }
+    });
+  }
+  function bindReview(){
+    var cards = document.querySelectorAll(".case-card");
+    Array.prototype.forEach.call(cards, function(card){
+      var caseId = card.getAttribute("data-case-id");
+      var state = loadAll()[caseId] || {};
+      Array.prototype.forEach.call(card.querySelectorAll("[data-review]"), function(el){
+        var field = el.getAttribute("data-review");
+        if (el.type === "checkbox") el.checked = !!state[field];
+        else el.value = state[field] || "";
+      });
+      function persist(){
+        var all = loadAll();
+        var entry = all[caseId] || {};
+        Array.prototype.forEach.call(card.querySelectorAll("[data-review]"), function(el){
+          var field = el.getAttribute("data-review");
+          entry[field] = (el.type === "checkbox") ? el.checked : el.value;
+        });
+        entry.updated_at = today();
+        if (hasReview(entry)) all[caseId] = entry;
+        else delete all[caseId];
+        saveAll(all);
+        updateCard(card);
+        updateReviewCounts();
+        if (typeof applyFilters === "function") applyFilters();
+      }
+      Array.prototype.forEach.call(card.querySelectorAll("[data-review]"), function(el){
+        el.addEventListener("change", persist);
+        if (el.tagName === "TEXTAREA") el.addEventListener("input", persist);
+      });
+      updateCard(card);
+    });
+    updateReviewCounts();
+  }
+  function bindExport(){
+    var buttons = document.querySelectorAll(".js-export-review");
+    Array.prototype.forEach.call(buttons, function(btn){
+      btn.addEventListener("click", function(){
+        var store = loadAll();
+        var payload = {
+          report_id: REPORT_ID,
+          template_version: TEMPLATE_VERSION,
+          exported_at: today(),
+          n_reviewed: Object.keys(store).length,
+          reviews: store
+        };
+        var blob = new Blob([JSON.stringify(payload, null, 2)], {type: "application/json"});
+        var a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = "review-" + REPORT_ID + ".json";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(function(){ URL.revokeObjectURL(a.href); }, 1500);
+      });
+    });
+  }
+  function bindVideoJumps(){
+    var buttons = document.querySelectorAll(".video-jump");
+    Array.prototype.forEach.call(buttons, function(btn){
+      btn.addEventListener("click", function(){
+        var card = btn.closest(".case-card");
+        if (!card) return;
+        var video = card.querySelector("video");
+        if (!video) return;
+        var sec = parseFloat(btn.getAttribute("data-time"));
+        if (!isFinite(sec) || sec < 0){
+          var step = parseFloat(btn.getAttribute("data-step"));
+          var steps = parseFloat(card.getAttribute("data-steps"));
+          if (isFinite(step) && isFinite(steps) && steps > 0 && isFinite(video.duration) && video.duration > 0){
+            sec = video.duration * step / steps;
+          }
+        }
+        if (!isFinite(sec) || sec < 0) return;
+        if (isFinite(video.duration) && video.duration > 0){
+          sec = Math.min(sec, Math.max(video.duration - 0.15, 0));
+        }
+        try { video.currentTime = sec; } catch (e) { return; }
+        var p = video.play();
+        if (p && p.catch) p.catch(function(){});
+      });
+    });
+  }
+  function applyFilters(){
+    var scope = document.querySelector("[data-filter-scope]");
+    var cards = document.querySelectorAll(".case-card");
+    var rows = document.querySelectorAll("tr.case-row");
+    if (!scope && !cards.length && !rows.length) return;
+    function val(name){
+      var el = scope ? scope.querySelector('[data-filter="' + name + '"]') : null;
+      return el ? String(el.value || "").trim() : "";
+    }
+    var kw = (val("kw") + "").toLowerCase();
+    var suites = val("suite");
+    var level = val("level");
+    var target = val("target");
+    var verdict = val("verdict");
+    var injection = val("injection");
+    var recovery = val("recovery");
+    var review = val("review");
+    var visible = 0;
+    var store = loadAll();
+    function matches(el){
+      if (suites && el.getAttribute("data-suite") !== suites) return false;
+      if (level && el.getAttribute("data-level") !== level) return false;
+      if (target && el.getAttribute("data-target") !== target) return false;
+      if (verdict && el.getAttribute("data-verdict") !== verdict) return false;
+      if (injection && el.getAttribute("data-injection-valid") !== injection) return false;
+      if (recovery && el.getAttribute("data-recovery-state") !== recovery) return false;
+      var caseId = el.getAttribute("data-case-id") || "";
+      if (review){
+        var entry = store[caseId] || {};
+        var reviewed = hasReview(entry);
+        if (review === "reviewed" && !reviewed) return false;
+        if (review === "pending" && reviewed) return false;
+      }
+      if (kw){
+        var hay = (caseId + " " + (el.getAttribute("data-search") || "")).toLowerCase();
+        if (hay.indexOf(kw) < 0) return false;
+      }
+      return true;
+    }
+    Array.prototype.forEach.call(cards, function(card){
+      var ok = matches(card);
+      card.hidden = !ok;
+      if (ok) visible += 1;
+    });
+    Array.prototype.forEach.call(rows, function(row){
+      var ok = matches(row);
+      row.hidden = !ok;
+      if (ok) visible += 1;
+    });
+    Array.prototype.forEach.call(document.querySelectorAll(".task-group"), function(group){
+      var any = false;
+      Array.prototype.forEach.call(group.querySelectorAll(".case-card"), function(card){
+        if (!card.hidden) any = true;
+      });
+      group.hidden = !any;
+    });
+    var counter = document.getElementById("filter-count");
+    if (counter){
+      var total = cards.length ? cards.length : rows.length;
+      counter.textContent = "显示 " + visible + " / " + total + " case";
+    }
+  }
+  function bindFilters(){
+    var scope = document.querySelector("[data-filter-scope]");
+    if (!scope) return;
+    Array.prototype.forEach.call(scope.querySelectorAll("[data-filter]"), function(el){
+      el.addEventListener("input", applyFilters);
+      el.addEventListener("change", applyFilters);
+    });
+    Array.prototype.forEach.call(document.querySelectorAll(".js-reset-filters"), function(btn){
+      btn.addEventListener("click", function(){
+        Array.prototype.forEach.call(scope.querySelectorAll("[data-filter]"), function(el){
+          if (el.type === "checkbox") el.checked = false;
+          else el.value = "";
+        });
+        applyFilters();
+      });
+    });
+    applyFilters();
+  }
+  function boot(){
+    bindReview();
+    bindExport();
+    bindVideoJumps();
+    bindFilters();
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
+  else boot();
+})();
+</script>
+</body>
+</html>
