@@ -1031,7 +1031,27 @@ class BInjector:
         if gripper_qpos is None:
             return True
         values = np.asarray(gripper_qpos, dtype=np.float64).ravel()
-        return bool(values.size >= 2 and float(np.max(values) - np.min(values)) > 0.01)
+        if values.size >= 2 and float(np.max(values) - np.min(values)) > 0.01:
+            return True
+        # A closed gripper may be holding s2 while s1 is already placed.  The
+        # old width-only check then falsely rejects a perfectly valid C later
+        # window (t193/t237).  s1 is released if its body is far from the EEF.
+        robots = getattr(self.problem, "robots", None)
+        if not robots:
+            return False
+        site_id = getattr(robots[0], "eef_site_id", None)
+        if site_id is None:
+            return False
+        eef = np.asarray(self.sim.data.site_xpos[site_id], dtype=np.float64)
+        for target in self.targets.values():
+            if target.body_id is None:
+                continue
+            position = np.asarray(
+                self.sim.data.body_xpos[target.body_id], dtype=np.float64
+            )
+            if float(np.linalg.norm(position - eef)) > 0.10:
+                return True
+        return False
 
     def _restorable_probe(
         self,

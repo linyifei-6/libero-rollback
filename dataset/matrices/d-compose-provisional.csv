@@ -1,0 +1,361 @@
+case_id,sub,suite,task_idx,struct_id,instruction,window,trigger_criterion,target,revoked_predicate,revoked_object,family,level,param,semantics,max_steps,repair_window,expected_relation_after,s2_must_stay_true
+d-compose-s0001-early-l0,compose,compose,,s0001,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0001-mid-l0,compose,compose,,s0001,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0001-later-l0,compose,compose,,s0001,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0002-early-l0,compose,compose,,s0002,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0002-mid-l0,compose,compose,,s0002,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0002-later-l0,compose,compose,,s0002,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0003-early-l0,compose,compose,,s0003,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0003-mid-l0,compose,compose,,s0003,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0003-later-l0,compose,compose,,s0003,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0004-early-l0,compose,compose,,s0004,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0004-mid-l0,compose,compose,,s0004,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0004-later-l0,compose,compose,,s0004,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0005-early-l0,compose,compose,,s0005,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0005-mid-l0,compose,compose,,s0005,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0005-later-l0,compose,compose,,s0005,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0006-early-l0,compose,compose,,s0006,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0006-mid-l0,compose,compose,,s0006,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0006-later-l0,compose,compose,,s0006,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0007-early-l0,compose,compose,,s0007,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0007-mid-l0,compose,compose,,s0007,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0007-later-l0,compose,compose,,s0007,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0008-early-l0,compose,compose,,s0008,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0008-mid-l0,compose,compose,,s0008,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0008-later-l0,compose,compose,,s0008,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0009-early-l0,compose,compose,,s0009,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0009-mid-l0,compose,compose,,s0009,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0009-later-l0,compose,compose,,s0009,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0010-early-l0,compose,compose,,s0010,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0010-mid-l0,compose,compose,,s0010,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0010-later-l0,compose,compose,,s0010,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0011-early-l0,compose,compose,,s0011,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0011-mid-l0,compose,compose,,s0011,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0011-later-l0,compose,compose,,s0011,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0012-early-l0,compose,compose,,s0012,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0012-mid-l0,compose,compose,,s0012,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0012-later-l0,compose,compose,,s0012,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0013-early-l0,compose,compose,,s0013,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0013-mid-l0,compose,compose,,s0013,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0013-later-l0,compose,compose,,s0013,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0014-early-l0,compose,compose,,s0014,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0014-mid-l0,compose,compose,,s0014,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0014-later-l0,compose,compose,,s0014,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0015-early-l0,compose,compose,,s0015,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0015-mid-l0,compose,compose,,s0015,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0015-later-l0,compose,compose,,s0015,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0016-early-l0,compose,compose,,s0016,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0016-mid-l0,compose,compose,,s0016,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0016-later-l0,compose,compose,,s0016,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0017-early-l0,compose,compose,,s0017,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0017-mid-l0,compose,compose,,s0017,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0017-later-l0,compose,compose,,s0017,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0018-early-l0,compose,compose,,s0018,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0018-mid-l0,compose,compose,,s0018,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0018-later-l0,compose,compose,,s0018,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0019-early-l0,compose,compose,,s0019,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0019-mid-l0,compose,compose,,s0019,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0019-later-l0,compose,compose,,s0019,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0020-early-l0,compose,compose,,s0020,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0020-mid-l0,compose,compose,,s0020,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0020-later-l0,compose,compose,,s0020,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0021-early-l0,compose,compose,,s0021,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0021-mid-l0,compose,compose,,s0021,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0021-later-l0,compose,compose,,s0021,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0022-early-l0,compose,compose,,s0022,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0022-mid-l0,compose,compose,,s0022,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0022-later-l0,compose,compose,,s0022,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0023-early-l0,compose,compose,,s0023,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0023-mid-l0,compose,compose,,s0023,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0023-later-l0,compose,compose,,s0023,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0024-early-l0,compose,compose,,s0024,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0024-mid-l0,compose,compose,,s0024,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0024-later-l0,compose,compose,,s0024,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0025-early-l0,compose,compose,,s0025,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0025-mid-l0,compose,compose,,s0025,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0025-later-l0,compose,compose,,s0025,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0026-early-l0,compose,compose,,s0026,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0026-mid-l0,compose,compose,,s0026,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0026-later-l0,compose,compose,,s0026,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0027-early-l0,compose,compose,,s0027,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0027-mid-l0,compose,compose,,s0027,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0027-later-l0,compose,compose,,s0027,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0028-early-l0,compose,compose,,s0028,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0028-mid-l0,compose,compose,,s0028,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0028-later-l0,compose,compose,,s0028,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0029-early-l0,compose,compose,,s0029,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0029-mid-l0,compose,compose,,s0029,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0029-later-l0,compose,compose,,s0029,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0030-early-l0,compose,compose,,s0030,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0030-mid-l0,compose,compose,,s0030,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0030-later-l0,compose,compose,,s0030,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0031-early-l0,compose,compose,,s0031,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0031-mid-l0,compose,compose,,s0031,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0031-later-l0,compose,compose,,s0031,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0032-early-l0,compose,compose,,s0032,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0032-mid-l0,compose,compose,,s0032,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0032-later-l0,compose,compose,,s0032,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0033-early-l0,compose,compose,,s0033,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0033-mid-l0,compose,compose,,s0033,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0033-later-l0,compose,compose,,s0033,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0034-early-l0,compose,compose,,s0034,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0034-mid-l0,compose,compose,,s0034,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0034-later-l0,compose,compose,,s0034,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0035-early-l0,compose,compose,,s0035,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0035-mid-l0,compose,compose,,s0035,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0035-later-l0,compose,compose,,s0035,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0036-early-l0,compose,compose,,s0036,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0036-mid-l0,compose,compose,,s0036,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0036-later-l0,compose,compose,,s0036,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0037-early-l0,compose,compose,,s0037,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0037-mid-l0,compose,compose,,s0037,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0037-later-l0,compose,compose,,s0037,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0038-early-l0,compose,compose,,s0038,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0038-mid-l0,compose,compose,,s0038,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0038-later-l0,compose,compose,,s0038,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0039-early-l0,compose,compose,,s0039,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0039-mid-l0,compose,compose,,s0039,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0039-later-l0,compose,compose,,s0039,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0040-early-l0,compose,compose,,s0040,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0040-mid-l0,compose,compose,,s0040,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0040-later-l0,compose,compose,,s0040,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0041-early-l0,compose,compose,,s0041,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0041-mid-l0,compose,compose,,s0041,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0041-later-l0,compose,compose,,s0041,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0042-early-l0,compose,compose,,s0042,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0042-mid-l0,compose,compose,,s0042,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0042-later-l0,compose,compose,,s0042,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0043-early-l0,compose,compose,,s0043,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0043-mid-l0,compose,compose,,s0043,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0043-later-l0,compose,compose,,s0043,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0044-early-l0,compose,compose,,s0044,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0044-mid-l0,compose,compose,,s0044,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0044-later-l0,compose,compose,,s0044,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0045-early-l0,compose,compose,,s0045,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0045-mid-l0,compose,compose,,s0045,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0045-later-l0,compose,compose,,s0045,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0046-early-l0,compose,compose,,s0046,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0046-mid-l0,compose,compose,,s0046,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0046-later-l0,compose,compose,,s0046,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0047-early-l0,compose,compose,,s0047,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0047-mid-l0,compose,compose,,s0047,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0047-later-l0,compose,compose,,s0047,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0048-early-l0,compose,compose,,s0048,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0048-mid-l0,compose,compose,,s0048,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0048-later-l0,compose,compose,,s0048,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0049-early-l0,compose,compose,,s0049,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0049-mid-l0,compose,compose,,s0049,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0049-later-l0,compose,compose,,s0049,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0050-early-l0,compose,compose,,s0050,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0050-mid-l0,compose,compose,,s0050,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0050-later-l0,compose,compose,,s0050,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0051-early-l0,compose,compose,,s0051,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0051-mid-l0,compose,compose,,s0051,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0051-later-l0,compose,compose,,s0051,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0052-early-l0,compose,compose,,s0052,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0052-mid-l0,compose,compose,,s0052,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0052-later-l0,compose,compose,,s0052,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0053-early-l0,compose,compose,,s0053,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0053-mid-l0,compose,compose,,s0053,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0053-later-l0,compose,compose,,s0053,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0054-early-l0,compose,compose,,s0054,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0054-mid-l0,compose,compose,,s0054,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0054-later-l0,compose,compose,,s0054,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0055-early-l0,compose,compose,,s0055,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0055-mid-l0,compose,compose,,s0055,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0055-later-l0,compose,compose,,s0055,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0056-early-l0,compose,compose,,s0056,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0056-mid-l0,compose,compose,,s0056,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0056-later-l0,compose,compose,,s0056,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0057-early-l0,compose,compose,,s0057,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0057-mid-l0,compose,compose,,s0057,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0057-later-l0,compose,compose,,s0057,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0058-early-l0,compose,compose,,s0058,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0058-mid-l0,compose,compose,,s0058,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0058-later-l0,compose,compose,,s0058,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0059-early-l0,compose,compose,,s0059,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0059-mid-l0,compose,compose,,s0059,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0059-later-l0,compose,compose,,s0059,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0060-early-l0,compose,compose,,s0060,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0060-mid-l0,compose,compose,,s0060,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0060-later-l0,compose,compose,,s0060,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0061-early-l0,compose,compose,,s0061,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0061-mid-l0,compose,compose,,s0061,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0061-later-l0,compose,compose,,s0061,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0062-early-l0,compose,compose,,s0062,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0062-mid-l0,compose,compose,,s0062,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0062-later-l0,compose,compose,,s0062,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0063-early-l0,compose,compose,,s0063,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0063-mid-l0,compose,compose,,s0063,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0063-later-l0,compose,compose,,s0063,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0064-early-l0,compose,compose,,s0064,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0064-mid-l0,compose,compose,,s0064,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0064-later-l0,compose,compose,,s0064,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0065-early-l0,compose,compose,,s0065,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0065-mid-l0,compose,compose,,s0065,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0065-later-l0,compose,compose,,s0065,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0066-early-l0,compose,compose,,s0066,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0066-mid-l0,compose,compose,,s0066,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0066-later-l0,compose,compose,,s0066,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0067-early-l0,compose,compose,,s0067,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0067-mid-l0,compose,compose,,s0067,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0067-later-l0,compose,compose,,s0067,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0068-early-l0,compose,compose,,s0068,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0068-mid-l0,compose,compose,,s0068,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0068-later-l0,compose,compose,,s0068,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0069-early-l0,compose,compose,,s0069,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0069-mid-l0,compose,compose,,s0069,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0069-later-l0,compose,compose,,s0069,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0070-early-l0,compose,compose,,s0070,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0070-mid-l0,compose,compose,,s0070,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0070-later-l0,compose,compose,,s0070,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0071-early-l0,compose,compose,,s0071,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0071-mid-l0,compose,compose,,s0071,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0071-later-l0,compose,compose,,s0071,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0072-early-l0,compose,compose,,s0072,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0072-mid-l0,compose,compose,,s0072,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0072-later-l0,compose,compose,,s0072,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0073-early-l0,compose,compose,,s0073,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0073-mid-l0,compose,compose,,s0073,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0073-later-l0,compose,compose,,s0073,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0074-early-l0,compose,compose,,s0074,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0074-mid-l0,compose,compose,,s0074,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0074-later-l0,compose,compose,,s0074,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0075-early-l0,compose,compose,,s0075,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0075-mid-l0,compose,compose,,s0075,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0075-later-l0,compose,compose,,s0075,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0076-early-l0,compose,compose,,s0076,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0076-mid-l0,compose,compose,,s0076,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0076-later-l0,compose,compose,,s0076,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0077-early-l0,compose,compose,,s0077,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0077-mid-l0,compose,compose,,s0077,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0077-later-l0,compose,compose,,s0077,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0078-early-l0,compose,compose,,s0078,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0078-mid-l0,compose,compose,,s0078,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0078-later-l0,compose,compose,,s0078,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0079-early-l0,compose,compose,,s0079,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0079-mid-l0,compose,compose,,s0079,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0079-later-l0,compose,compose,,s0079,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0080-early-l0,compose,compose,,s0080,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0080-mid-l0,compose,compose,,s0080,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0080-later-l0,compose,compose,,s0080,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0081-early-l0,compose,compose,,s0081,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0081-mid-l0,compose,compose,,s0081,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0081-later-l0,compose,compose,,s0081,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0082-early-l0,compose,compose,,s0082,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0082-mid-l0,compose,compose,,s0082,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0082-later-l0,compose,compose,,s0082,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0083-early-l0,compose,compose,,s0083,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0083-mid-l0,compose,compose,,s0083,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0083-later-l0,compose,compose,,s0083,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0084-early-l0,compose,compose,,s0084,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0084-mid-l0,compose,compose,,s0084,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0084-later-l0,compose,compose,,s0084,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0085-early-l0,compose,compose,,s0085,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0085-mid-l0,compose,compose,,s0085,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0085-later-l0,compose,compose,,s0085,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0086-early-l0,compose,compose,,s0086,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0086-mid-l0,compose,compose,,s0086,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0086-later-l0,compose,compose,,s0086,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0087-early-l0,compose,compose,,s0087,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0087-mid-l0,compose,compose,,s0087,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0087-later-l0,compose,compose,,s0087,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0088-early-l0,compose,compose,,s0088,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0088-mid-l0,compose,compose,,s0088,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0088-later-l0,compose,compose,,s0088,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0089-early-l0,compose,compose,,s0089,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0089-mid-l0,compose,compose,,s0089,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0089-later-l0,compose,compose,,s0089,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0090-early-l0,compose,compose,,s0090,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0090-mid-l0,compose,compose,,s0090,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0090-later-l0,compose,compose,,s0090,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0091-early-l0,compose,compose,,s0091,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0091-mid-l0,compose,compose,,s0091,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0091-later-l0,compose,compose,,s0091,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0092-early-l0,compose,compose,,s0092,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0092-mid-l0,compose,compose,,s0092,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0092-later-l0,compose,compose,,s0092,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0093-early-l0,compose,compose,,s0093,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0093-mid-l0,compose,compose,,s0093,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0093-later-l0,compose,compose,,s0093,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0094-early-l0,compose,compose,,s0094,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0094-mid-l0,compose,compose,,s0094,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0094-later-l0,compose,compose,,s0094,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0095-early-l0,compose,compose,,s0095,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0095-mid-l0,compose,compose,,s0095,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0095-later-l0,compose,compose,,s0095,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0096-early-l0,compose,compose,,s0096,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0096-mid-l0,compose,compose,,s0096,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0096-later-l0,compose,compose,,s0096,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0097-early-l0,compose,compose,,s0097,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0097-mid-l0,compose,compose,,s0097,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0097-later-l0,compose,compose,,s0097,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0098-early-l0,compose,compose,,s0098,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0098-mid-l0,compose,compose,,s0098,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0098-later-l0,compose,compose,,s0098,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0099-early-l0,compose,compose,,s0099,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0099-mid-l0,compose,compose,,s0099,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0099-later-l0,compose,compose,,s0099,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0100-early-l0,compose,compose,,s0100,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0100-mid-l0,compose,compose,,s0100,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0100-later-l0,compose,compose,,s0100,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0101-early-l0,compose,compose,,s0101,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0101-mid-l0,compose,compose,,s0101,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0101-later-l0,compose,compose,,s0101,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0102-early-l0,compose,compose,,s0102,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0102-mid-l0,compose,compose,,s0102,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0102-later-l0,compose,compose,,s0102,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0103-early-l0,compose,compose,,s0103,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0103-mid-l0,compose,compose,,s0103,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0103-later-l0,compose,compose,,s0103,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0104-early-l0,compose,compose,,s0104,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0104-mid-l0,compose,compose,,s0104,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0104-later-l0,compose,compose,,s0104,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0105-early-l0,compose,compose,,s0105,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0105-mid-l0,compose,compose,,s0105,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0105-later-l0,compose,compose,,s0105,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0106-early-l0,compose,compose,,s0106,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0106-mid-l0,compose,compose,,s0106,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0106-later-l0,compose,compose,,s0106,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0107-early-l0,compose,compose,,s0107,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0107-mid-l0,compose,compose,,s0107,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0107-later-l0,compose,compose,,s0107,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0108-early-l0,compose,compose,,s0108,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0108-mid-l0,compose,compose,,s0108,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0108-later-l0,compose,compose,,s0108,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0109-early-l0,compose,compose,,s0109,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0109-mid-l0,compose,compose,,s0109,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0109-later-l0,compose,compose,,s0109,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0110-early-l0,compose,compose,,s0110,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0110-mid-l0,compose,compose,,s0110,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0110-later-l0,compose,compose,,s0110,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0111-early-l0,compose,compose,,s0111,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0111-mid-l0,compose,compose,,s0111,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0111-later-l0,compose,compose,,s0111,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0112-early-l0,compose,compose,,s0112,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0112-mid-l0,compose,compose,,s0112,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0112-later-l0,compose,compose,,s0112,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0113-early-l0,compose,compose,,s0113,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0113-mid-l0,compose,compose,,s0113,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0113-later-l0,compose,compose,,s0113,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0114-early-l0,compose,compose,,s0114,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0114-mid-l0,compose,compose,,s0114,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0114-later-l0,compose,compose,,s0114,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0115-early-l0,compose,compose,,s0115,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0115-mid-l0,compose,compose,,s0115,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0115-later-l0,compose,compose,,s0115,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0116-early-l0,compose,compose,,s0116,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0116-mid-l0,compose,compose,,s0116,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0116-later-l0,compose,compose,,s0116,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0117-early-l0,compose,compose,,s0117,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0117-mid-l0,compose,compose,,s0117,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0117-later-l0,compose,compose,,s0117,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0118-early-l0,compose,compose,,s0118,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0118-mid-l0,compose,compose,,s0118,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0118-later-l0,compose,compose,,s0118,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0119-early-l0,compose,compose,,s0119,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0119-mid-l0,compose,compose,,s0119,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0119-later-l0,compose,compose,,s0119,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0120-early-l0,compose,compose,,s0120,<from C>,early,s1 first true,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0120-mid-l0,compose,compose,,s0120,<from C>,mid,s2 displacement > 5 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true
+d-compose-s0120-later-l0,compose,compose,,s0120,<from C>,later,distance to s2 goal < 8 cm,s1,<from C>,<from C>,pose,L0,,relation_then_resume,600,300,false,true

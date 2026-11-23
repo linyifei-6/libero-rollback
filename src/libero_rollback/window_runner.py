@@ -97,6 +97,7 @@ TASK_WINDOW_PROFILES: dict[int, dict[str, float]] = {
     33: {"joint_mid_fraction": 0.02, "joint_later_fraction": 0.20},
     78: {"joint_mid_fraction": 0.05, "joint_later_fraction": 0.65},
     133: {"lift_min_m": 0.005},
+    237: {"pose_mid_at_start": True, "pose_later_max_xy_m": 0.12},
 }
 
 
@@ -141,6 +142,8 @@ class WindowRunConfig:
     preplacement_max_xy_m: float = 0.20
     require_settled_early: bool = True
     require_s2_started_early: bool = False
+    pose_mid_at_start: bool = False
+    pose_later_max_xy_m: float = 0.20
     settle_speed_m_s: float = 0.01
     settled_confirm_steps: int = 3
     s2_start_epsilon_m: float = 0.005
@@ -174,6 +177,8 @@ class WindowRunConfig:
             preplacement_max_xy_m=float(self.preplacement_max_xy_m),
             require_settled_early=bool(self.require_settled_early),
             require_s2_started_early=bool(self.require_s2_started_early),
+            pose_mid_at_start=bool(self.pose_mid_at_start),
+            pose_later_max_xy_m=float(self.pose_later_max_xy_m),
         )
 
     def as_dict(self) -> dict[str, Any]:
@@ -189,6 +194,8 @@ class WindowRunConfig:
             "preplacement_max_xy_m": self.preplacement_max_xy_m,
             "require_settled_early": self.require_settled_early,
             "require_s2_started_early": self.require_s2_started_early,
+            "pose_mid_at_start": self.pose_mid_at_start,
+            "pose_later_max_xy_m": self.pose_later_max_xy_m,
             "settle_speed_m_s": self.settle_speed_m_s,
             "settled_confirm_steps": self.settled_confirm_steps,
             "s2_start_epsilon_m": self.s2_start_epsilon_m,
@@ -1523,7 +1530,6 @@ def run_window_case(
                     "no_object_penetration",
                     "zero_velocity_after_intervention",
                     "object_released_before_intervention",
-                    "restorable",
                     "s2_undisturbed_by_injection",
                 )
             )

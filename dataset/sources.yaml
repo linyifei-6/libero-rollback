@@ -1,0 +1,98 @@
+# LIBERO-Rollback dataset provenance (hand-maintained; see docs/SPEC.md §9).
+#
+# This file records where the frozen matrix rows came from.  Paths are always
+# repository-relative: dataset/ must not contain absolute host paths or runtime
+# references to the precursor repositories.  The imported data is frozen here;
+# re-importing it is a versioned data change, not a build step.
+schema_version: 1
+dataset_version: "2.0.0.dev0"
+created_on: "2026-11-18"
+
+upstream:
+  name: LIBERO
+  repo: https://github.com/Lifelong-Robot-Learning/LIBERO
+  commit: f78abd68ee283de9f9be3c8f7e2a9ad60246e95c
+  license: MIT
+  assets:
+    - path: libero/libero/bddl_files
+      files: 130
+    - path: libero/libero/init_files
+      files: 130
+  acquisition: >-
+    git archive HEAD libero/libero/bddl_files libero/libero/init_files from the
+    local checkout, because that checkout's worktree is dirty; only the clean
+    HEAD tree is used.  The absolute checkout location stays on the build host
+    and is intentionally not recorded inside dataset/.
+  note: >-
+    A-matrix rows reference these files relative to LIBERO_HOME; no LIBERO asset
+    file is copied into this repository.
+
+imports:
+  - target: dataset/matrices/b-matrix.csv
+    kind: imported
+    source_repo: libero-compose
+    source_path: dataset/case-matrices/b-matrix.csv
+    source_sha256: 2604e1b2c1d2a82832d4394e733d32912e0cf83ef136baef0c8c9b12f9273514
+    sha256: 82786b4cc3ac15528a3f795c5d61671747f58a9502bcfe4fc4da27b5b553383b
+    rows: 442
+    imported_on: "2026-11-18"
+    normalization: >-
+      line endings CRLF -> LF; content otherwise byte-identical
+      (repo .gitattributes pins eol=lf and docs/SPEC.md §1 requires LF)
+    note: >-
+      Frozen 442-row completion-boundary rollback matrix.  Task indices are the
+      source's LIBERO global task indices, not a 0-9 renumbering (see the data
+      card for this known spec/data discrepancy).
+
+  - target: dataset/matrices/d-native-matrix.csv
+    kind: derived_split
+    source_repo: libero-compose
+    source_path: dataset/case-matrices/d-matrix.csv
+    source_sha256: 82bc62faa657c2392153850ef317b31fe7e965eaa7e01cb57a06c6d56fdcb9b2
+    sha256: efcbc9ca96a587dac538facbaf4135b58c186e8f4d462b4554cc74116642782f
+    rows: 189
+    imported_on: "2026-11-18"
+    selector: "sub == native"
+    normalization: >-
+      rows selected verbatim from the source d-matrix by the sub column; line
+      endings CRLF -> LF
+    note: >-
+      D-native execution matrix: the 9 native multi-goal LIBERO-10 tasks with
+      early/mid/later windows plus 9 all_done no-op controls.
+
+  - target: dataset/matrices/d-compose-provisional.csv
+    kind: derived_split
+    source_repo: libero-compose
+    source_path: dataset/case-matrices/d-matrix.csv
+    source_sha256: 82bc62faa657c2392153850ef317b31fe7e965eaa7e01cb57a06c6d56fdcb9b2
+    sha256: 8a67ac2a54c52ecbdca0942e67c00d4ab6b5cdc52170850554c4b80c5271e364
+    rows: 360
+    imported_on: "2026-11-18"
+    selector: "sub == compose"
+    normalization: >-
+      rows selected verbatim from the source d-matrix by the sub column; line
+      endings CRLF -> LF
+    note: >-
+      LEGACY design placeholder retained for provenance only: instruction/
+      revoked_predicate/revoked_object are the literal placeholder "<from C>".
+      The canonical D-intact/D-rollback suite views supersede it; this file is
+      listed under manifest.legacy and is excluded from every executable split.
+
+generated:
+  - target: dataset/matrices/a-matrix.csv
+    generated_by: scripts/build_a_matrix.py
+    inputs:
+      - dataset/matrices/b-matrix.csv
+      - libero/libero/bddl_files
+      - libero/libero/init_files
+    rows: 40
+    note: >-
+      Instructions and goal arity are read verbatim from the upstream BDDL of
+      each B-matrix task key; init references are LIBERO_HOME-relative.  Rebuild
+      or compare with: python scripts/build_a_matrix.py --libero-home "$LIBERO_HOME" [--check].
+  - target: dataset/lite.yaml
+    generated_by: scripts/build_manifest.py
+    note: 30-case lite split, deterministic selection (docs/SPEC.md §10).
+  - target: dataset/manifest.yaml
+    generated_by: scripts/build_manifest.py
+    note: counts + per-file sha256 + evaluation splits (docs/SPEC.md §8).

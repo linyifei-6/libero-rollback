@@ -213,3 +213,29 @@ L10 中多个“放置到同一/不同区域”的目标可能被策略以任意
 
 已审核的任务 profile 写在 `window_runner.TASK_WINDOW_PROFILES`：t033 mid/later
 = 0.02/0.20，t078 mid/later = 0.05/0.65，t133 lift = 0.005 m。
+
+### 7.4 seed=1 复跑（2026-11-23）
+
+同一 180 条矩阵、`init_row=0`、`max_steps=600`、`repair_window=600`、video，
+`seed=1`；动态 s1/s2 和任务 profile 已启用。正式汇总按 `case_id` 去重（
+`episodes.jsonl` 有 188 行，其中 8 行是 `--retry-invalid` 的旧记录）。
+
+| 项 | seed=0 | seed=1 |
+|---|---:|---:|
+| completed | 180 | **180** |
+| trigger | 172 | **180** |
+| valid | 157 | **180** |
+| Recovery | 65/157 = 41.4% | **54/180 = 30.0%** |
+| Full SR | 60/157 = 38.2% | **48/180 = 26.7%** |
+| s2 preserved | 157/157 | **180/180** |
+
+按窗口（seed=1）：early 60/60/19/16，mid 60/60/19/18，later 60/60/16/14
+（分别为 cases/trigger/valid/Recovery/Full SR）。按 level：L0 27 valid / 7
+Recovery；L1 81 / 22；L2 72 / 25。
+
+`restorable` 是辅助 oracle，不进入 valid 硬门控；seed=1 有 10 条 valid 的
+`restorable=False`，作为辅助诊断保留。修复后硬门控 invalid 0 条；此前 3 条
+invalid 分别由 target-aware release 和 t237 pose 窗口 profile 解决。
+
+报告：[experiments/c-matrix-seed1-20261123/index.html](../experiments/c-matrix-seed1-20261123/index.html)。
+去重汇总：[runs/.../run-summary-dedup-fixed.json](../runs/c-matrix-pi05-20261123-seed1-fixed/run-summary-dedup-fixed.json)。

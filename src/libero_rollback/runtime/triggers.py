@@ -28,6 +28,8 @@ class TriggerConfig:
     require_settled_early: bool = True
     require_s2_started_early: bool = False
     early_delay_steps: int = 0
+    pose_mid_at_start: bool = False
+    pose_later_max_xy_m: float = 0.20
 
     def __post_init__(self) -> None:
         if self.lift_min_m <= 0:
@@ -55,6 +57,8 @@ class WindowTrigger:
     target: str = "early"
     _fired: set[str] = field(default_factory=set, init=False)
     _lift_seen: bool = field(default=False, init=False)
+    _s2_started_seen: bool = field(default=False, init=False)
+    _mid_seen: bool = field(default=False, init=False)
     _events: list[tuple[str, int]] = field(default_factory=list, init=False)
 
     def __post_init__(self) -> None:
@@ -74,7 +78,16 @@ class WindowTrigger:
 
         if observation.s2_lift_m is not None and observation.s2_lift_m >= self.config.lift_min_m:
             self._lift_seen = True
+        if observation.s2_started:
+            self._s2_started_seen = True
 
+        mid_candidate = observation.s1_done and (
+            self._s2_started_seen
+            if self.config.pose_mid_at_start
+            else self._lift_seen
+        )
+        if mid_candidate:
+            self._mid_seen = True
         fired_before = self.target in self._fired
         candidates = {
             "early": observation.s1_done
@@ -86,10 +99,19 @@ class WindowTrigger:
                 or observation.step - observation.s1_done_step
                 >= self.config.early_delay_steps
             ),
-            "mid": self._lift_seen,
-            "later": self._lift_seen
-            and observation.s2_to_goal_xy_m is not None
-            and observation.s2_to_goal_xy_m <= self.config.preplacement_max_xy_m,
+            "mid": mid_candidate,
+            "later": (
+                observation.s1_done
+                and self._mid_seen
+                and observation.s2_to_goal_xy_m is not None
+                and observation.s2_to_goal_xy_m
+                <= (
+                    self.config.pose_later_max_xy_m
+                    if self.config.pose_mid_at_start
+                    else self.config.preplacement_max_xy_m
+                )
+                and (self._s2_started_seen or not self.config.pose_mid_at_start)
+            ),
         }
         # One case targets one window.  We still compute the shared lift state,
         # but only the requested window is emitted as an event.
