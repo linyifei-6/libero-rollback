@@ -434,8 +434,25 @@ def load_cases_jsonl(path: Path) -> list[dict[str, Any]]:
     return cases
 
 
+def _case_summary_path(case_dir: Path) -> Path | None:
+    """Resolve one case summary in either flat or runner-native layout.
+
+    ``build_review_report`` historically consumed a flattened run
+    (``<suite>/<case>/summary.json``).  The current B runner writes
+    ``<suite>/<case>/seed-<n>/summary.json``; accept both so a run can be
+    reported without copying it.  If several seeds exist, the lowest seed is
+    used (the review bundle is one row per case).
+    """
+
+    direct = case_dir / "summary.json"
+    if direct.is_file():
+        return direct
+    seeded = sorted(case_dir.glob("seed-*/summary.json"))
+    return seeded[0] if seeded else None
+
+
 def build_cases_from_run(run_dir: Path) -> tuple[list[dict[str, Any]], list[str]]:
-    """Discover ``<run>/<suite>/<case_id>/summary.json`` and build bundle records."""
+    """Discover ``<run>/<suite>/<case_id>[/seed-<n>]/summary.json``."""
     if not run_dir.is_dir():
         raise SystemExit(f"--from-run is not a directory: {run_dir}")
     cases: list[dict[str, Any]] = []
@@ -443,8 +460,8 @@ def build_cases_from_run(run_dir: Path) -> tuple[list[dict[str, Any]], list[str]
     for suite_dir in sorted(child for child in run_dir.iterdir() if child.is_dir()):
         suite = suite_dir.name
         for case_dir in sorted(child for child in suite_dir.iterdir() if child.is_dir()):
-            summary_path = case_dir / "summary.json"
-            if not summary_path.is_file():
+            summary_path = _case_summary_path(case_dir)
+            if summary_path is None:
                 missing.append(f"{suite}/{case_dir.name}")
                 continue
             with summary_path.open("r", encoding="utf-8") as stream:
@@ -605,6 +622,7 @@ def build_aggregate(
     data_quality = build_data_quality(
         total=total,
         triggered=len(triggered),
+        injection_valid=len(injection_valid),
         not_triggered=len(not_triggered),
         reason_counts=reason_counts,
         restorable_passed=restorable["passed"],
@@ -687,6 +705,7 @@ def build_data_quality(
     *,
     total: int,
     triggered: int,
+    injection_valid: int,
     not_triggered: int,
     reason_counts: Mapping[str, int],
     restorable_passed: int,
@@ -711,7 +730,7 @@ def build_data_quality(
         f"原因分布：{json.dumps(dict(reason_counts), ensure_ascii=False)}。"
     )
     items.append(
-        f"注入硬门控：{triggered}/{triggered} 条有效（阈值：注入前关系真、注入后关系假 / C0 保持真、无穿模、零速度、已释放）；"
+        f"注入硬门控：{injection_valid}/{triggered} 条有效（阈值：注入前关系真、注入后关系假 / C0 保持真、无穿模、零速度、已释放）；"
         f"restorable oracle 通过 {restorable_passed}/{triggered}，它只证明“几何上能修”，不是策略恢复。"
     )
     items.append(

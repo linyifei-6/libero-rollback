@@ -4,22 +4,35 @@
 The checks are deliberately **self-contained** (stdlib + PyYAML): they can run on
 a CPU-only machine without MuJoCo, LIBERO or model weights.  When the package
 module ``libero_rollback.validation`` is importable it is also invoked (see
-``--package-validation``), but the inline checks remain the authoritative Phase-1
-gate so this script and ``tests/test_dataset.py`` never depend on a concurrent
+``--package-validation``), but the inline checks remain the authoritative gate
+so this script and ``tests/test_dataset.py`` never depend on a concurrent
 module implementation.
+
+Schema v3 (base-only test-suite matrices, 2026-11-21)
+-----------------------------------------------------
+Canonical matrices and executable counts::
+
+    a           dataset/matrices/a-matrix.csv                              40
+    b           dataset/matrices/libero-rollback/completion-rollback.csv   442
+    c           dataset/matrices/libero-rollback/in-execution-rollback.csv 180
+    d_intact    dataset/matrices/libero-compose/intact.csv                 176
+    d_rollback  dataset/matrices/libero-compose/rollback.csv               528
+
+The legacy ``b-matrix.csv`` / ``d-native-matrix.csv`` /
+``d-compose-provisional.csv`` files stay on disk untouched but are explicitly
+legacy: they are never part of an executable split and are not hashed here.
 
 What is checked
 ---------------
 * layout / encoding: every required file exists, UTF-8 without BOM, LF endings;
-* matrix contracts (``docs/SPEC.md`` §3–§4): exact column sets, row counts,
-  ``case_id`` naming, per-task C0 rules, level/param combinations, expected
-  relation direction, A↔B task-key pairing, D-native window coverage;
-* ``manifest.yaml`` (SPEC §8): schema version, dataset version, counts, per-file
-  sha256 and row counts, executable/provisional splits, variance selection;
-* ``lite.yaml`` (SPEC §10): 30 unique executable case ids with the required
-  A/B/D coverage, consistent with ``manifest.splits.lite``;
-* ``sources.yaml`` (SPEC §9): upstream pin, import sha256/row counts, A-matrix
-  generation provenance;
+* matrix contracts: exact column sets, row counts, ``case_id`` naming,
+  one C0 per B task, no C0 in C, valid n=2 D-intact structures, 3 windows per
+  D-rollback structure, compose asset hashes;
+* ``manifest.yaml`` (schema 3): counts, per-file sha256/rows for the five
+  canonical matrices, canonical splits, legacy annotation, no D provisional;
+* ``lite.yaml`` (schema 2): 30 unique executable ids, 10 A / 10 B / 5 C /
+  2 D-intact / 3 D-rollback, coverage block, consistent with manifest.lite;
+* ``sources.yaml``: upstream pin and legacy import sha256/row counts;
 * path hygiene: no absolute host paths and no runtime references to the
   precursor repositories inside ``dataset/``.
 
@@ -46,24 +59,30 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DATASET = REPO_ROOT / "dataset"
 
-MATRICES = ("a", "b", "d_native", "d_compose_provisional")
 MATRIX_PATHS = {
     "a": "dataset/matrices/a-matrix.csv",
+    "b": "dataset/matrices/libero-rollback/completion-rollback.csv",
+    "c": "dataset/matrices/libero-rollback/in-execution-rollback.csv",
+    "d_intact": "dataset/matrices/libero-compose/intact.csv",
+    "d_rollback": "dataset/matrices/libero-compose/rollback.csv",
+}
+EXPECTED_COUNTS = {"a": 40, "b": 442, "c": 180, "d_intact": 176, "d_rollback": 528}
+CORE_SPLIT = ["a", "b", "c", "d_intact", "d_rollback"]
+LEGACY_PATHS = {
     "b": "dataset/matrices/b-matrix.csv",
     "d_native": "dataset/matrices/d-native-matrix.csv",
     "d_compose_provisional": "dataset/matrices/d-compose-provisional.csv",
 }
-EXECUTABLE = ("a", "b", "d_native")
-EXPECTED_COUNTS = {"a": 40, "b": 442, "d_native": 189, "d_compose_provisional": 360, "c": 0}
-EXPECTED_BY_SUITE = {"goal": 85, "object": 80, "spatial": 80, "l10": 197}
-EXPECTED_B_BY_LEVEL = {"C0": 40, "L0": 60, "L1": 180, "L2": 162}
-EXPECTED_D_NATIVE_TASKS = 9
+LEGACY_COUNTS = {"b": 442, "d_native": 189, "d_compose_provisional": 360}
+LITE_GROUPS = {"a": 10, "b": 10, "c": 5, "d_intact": 2, "d_rollback": 3}
 LITE_COUNT = 30
 VARIANCE_CASES = 100
 VARIANCE_INIT_ROWS = [0, 1, 2, 3, 4]
 LIBERO_REPO = "https://github.com/Lifelong-Robot-Learning/LIBERO"
 LIBERO_COMMIT = "f78abd68ee283de9f9be3c8f7e2a9ad60246e95c"
 DATASET_VERSION_FALLBACK = "2.0.0.dev0"
+MANIFEST_SCHEMA_VERSION = 3
+LITE_SCHEMA_VERSION = 2
 
 SUITE_DIRS = {
     "goal": "libero_goal",
@@ -85,6 +104,9 @@ A_COLUMNS = (
 )
 B_COLUMNS = (
     "case_id",
+    "test_suite",
+    "dimension",
+    "arm",
     "suite",
     "task_idx",
     "bddl_name",
@@ -102,8 +124,11 @@ B_COLUMNS = (
     "expected_relation_after",
     "n_targets",
 )
-D_COLUMNS = (
+C_COLUMNS = (
     "case_id",
+    "test_suite",
+    "dimension",
+    "arm",
     "sub",
     "suite",
     "task_idx",
@@ -123,6 +148,73 @@ D_COLUMNS = (
     "expected_relation_after",
     "s2_must_stay_true",
 )
+D_INTACT_COLUMNS = (
+    "case_id",
+    "test_suite",
+    "dimension",
+    "arm",
+    "sub",
+    "suite",
+    "struct_id",
+    "source_suite",
+    "order",
+    "task_id",
+    "instruction",
+    "goal_atoms",
+    "n_atoms",
+    "family",
+    "level",
+    "param",
+    "semantics",
+    "max_steps",
+    "repair_window",
+    "expected_relation_after",
+    "bddl_name",
+    "init_source",
+    "bddl_sha256",
+    "pruned_init_sha256",
+    "valid",
+    "class",
+)
+D_ROLLBACK_COLUMNS = (
+    "case_id",
+    "test_suite",
+    "dimension",
+    "arm",
+    "sub",
+    "suite",
+    "struct_id",
+    "source_suite",
+    "order",
+    "task_id",
+    "instruction",
+    "window",
+    "trigger_criterion",
+    "target",
+    "revoked_predicate",
+    "revoked_object",
+    "family",
+    "level",
+    "param",
+    "semantics",
+    "max_steps",
+    "repair_window",
+    "expected_relation_after",
+    "s2_must_stay_true",
+    "bddl_name",
+    "init_source",
+    "bddl_sha256",
+    "pruned_init_sha256",
+    "valid",
+    "class",
+)
+EXPECTED_HEADERS = {
+    "a": A_COLUMNS,
+    "b": B_COLUMNS,
+    "c": C_COLUMNS,
+    "d_intact": D_INTACT_COLUMNS,
+    "d_rollback": D_ROLLBACK_COLUMNS,
+}
 
 LEVEL_PARAMS = {
     ("C0", ""),
@@ -137,11 +229,12 @@ LEVEL_PARAMS = {
 B_SUITES = frozenset(SUITE_DIRS)
 B_TARGETS = frozenset({"c0", "g", "s1", "s2", "both", "pre"})
 B_FAMILIES = frozenset({"pose", "joint", "mixed", "-"})
-D_WINDOWS = frozenset({"early", "mid", "later", "all_done_control"})
-PLACEHOLDER = "<from C>"
-#: Legacy trigger labels carried by the frozen D-native rows (see dataset/README.md).
-D_TRIGGER_LABELS = frozenset(
-    {"s1 first true", "s2 displacement > 5 cm", "distance to s2 goal < 8 cm", "no injection"}
+EXPECTED_BY_SUITE = {"goal": 85, "object": 80, "spatial": 80, "l10": 197}
+EXPECTED_B_BY_LEVEL = {"C0": 40, "L0": 60, "L1": 180, "L2": 162}
+C_WINDOWS = frozenset({"early", "mid", "later"})
+D_WINDOWS = frozenset({"early", "mid", "later"})
+C_TRIGGER_LABELS = frozenset(
+    {"s1 first true", "s2 displacement > 5 cm", "distance to s2 goal < 8 cm"}
 )
 D_COMPOSE_TRIGGERS = {
     "early": "s1 first true",
@@ -155,8 +248,11 @@ CASE_ID_PATTERNS = {
         r"^b-(goal|object|spatial|l10)-t\d{3}-"
         r"(c0|(g|s1|s2|both|pre)-(l0|l1-d(03|06|10)|l2-r(30|60|90)))$"
     ),
-    "d": re.compile(r"^d-l10-t\d{3}-(c0|(early|mid|later)-(l0|l1-d(03|06|10)|l2-r(30|60|90)))$"),
-    "d_compose": re.compile(r"^d-compose-s\d{4}-(early|mid|later)-l0$"),
+    "c": re.compile(
+        r"^d-l10-t\d{3}-(early|mid|later)-(l0|l1-d(03|06|10)|l2-r(30|60|90))$"
+    ),
+    "d_intact": re.compile(r"^compose-intact-[a-z0-9_]+$"),
+    "d_rollback": re.compile(r"^compose-rollback-[a-z0-9_]+-(early|mid|later)-l0$"),
 }
 
 # Generic path-shape patterns (built from shapes, not host-specific literals):
@@ -241,7 +337,7 @@ def level_key(row: dict[str, str]) -> tuple[str, str]:
 
 
 def expected_case_id(matrix: str, row: dict[str, str]) -> str | None:
-    """Derive the SPEC §4 case id from the row fields (None where not derivable)."""
+    """Derive the case id from the row fields (None where not derivable)."""
 
     if matrix == "a":
         return f"a-{row['suite']}-t{task_idx_of(row):03d}"
@@ -254,33 +350,62 @@ def expected_case_id(matrix: str, row: dict[str, str]) -> str | None:
         if param:
             suffix = f"{suffix}-{param}"
         return f"{base}-{row['target']}-{suffix}"
-    if matrix == "d_native":
+    if matrix == "c":
         base = f"d-l10-t{task_idx_of(row):03d}"
-        window = row["window"].strip()
-        if window == "all_done_control":
-            return f"{base}-c0"
         level, param = level_key(row)
         suffix = level.lower()
         if param:
             suffix = f"{suffix}-{param}"
-        return f"{base}-{window}-{suffix}"
-    if matrix == "d_compose":
+        return f"{base}-{row['window']}-{suffix}"
+    if matrix == "d_intact":
+        return f"compose-intact-{row['struct_id']}"
+    if matrix == "d_rollback":
         level, param = level_key(row)
         suffix = level.lower()
         if param:
             suffix = f"{suffix}-{param}"
-        return f"d-compose-{row['struct_id']}-{row['window']}-{suffix}"
+        return f"compose-rollback-{row['struct_id']}-{row['window']}-{suffix}"
     return None
 
 
-def matrix_case_pattern(matrix: str):
-    if matrix == "a":
-        return CASE_ID_PATTERNS["a"]
-    if matrix == "b":
-        return CASE_ID_PATTERNS["b"]
-    if matrix == "d_native":
-        return CASE_ID_PATTERNS["d"]
-    return CASE_ID_PATTERNS["d_compose"]
+def matrix_path(dataset: Path, matrix: str) -> Path:
+    return dataset.parent / MATRIX_PATHS[matrix]
+
+
+def load_case_rows(dataset: Path) -> dict[str, dict[str, str]]:
+    rows: dict[str, dict[str, str]] = {}
+    for matrix in MATRIX_PATHS:
+        path = matrix_path(dataset, matrix)
+        if not path.is_file():
+            continue
+        _header, matrix_rows = read_csv(path)
+        for row in matrix_rows:
+            case_id = str(row.get("case_id", "")).strip()
+            if case_id and case_id not in rows:
+                rows[case_id] = {"_matrix": matrix, **row}
+    return rows
+
+
+def coverage_of(groups: dict[str, list[str]], case_rows: dict[str, dict[str, str]]) -> dict:
+    def counts(values: list[str]) -> dict[str, int]:
+        result: dict[str, int] = {}
+        for value in values:
+            result[value] = result.get(value, 0) + 1
+        return dict(sorted(result.items()))
+
+    def rows(group: str) -> list[dict[str, str]]:
+        return [case_rows[case_id] for case_id in groups[group] if case_id in case_rows]
+
+    return {
+        "a_suites": counts([row["suite"] for row in rows("a")]),
+        "b_suites": counts([row["suite"] for row in rows("b")]),
+        "b_levels": counts([row["level"] for row in rows("b")]),
+        "c_windows": counts([row["window"] for row in rows("c")]),
+        "c_levels": counts([row["level"] for row in rows("c")]),
+        "d_intact_source_suites": counts([row["source_suite"] for row in rows("d_intact")]),
+        "d_rollback_windows": counts([row["window"] for row in rows("d_rollback")]),
+        "total": sum(len(entries) for entries in groups.values()),
+    }
 
 
 # ---------------------------------------------------------------------------
@@ -289,23 +414,28 @@ def matrix_case_pattern(matrix: str):
 
 
 def check_layout(report: Report, dataset: Path) -> None:
-    required = [
-        dataset / "matrices" / "a-matrix.csv",
-        dataset / "matrices" / "b-matrix.csv",
-        dataset / "matrices" / "d-native-matrix.csv",
-        dataset / "matrices" / "d-compose-provisional.csv",
-        dataset / "manifest.yaml",
-        dataset / "lite.yaml",
-        dataset / "sources.yaml",
-        dataset / "README.md",
-    ]
+    required = [matrix_path(dataset, matrix) for matrix in MATRIX_PATHS]
+    required.extend(
+        [
+            dataset / "manifest.yaml",
+            dataset / "lite.yaml",
+            dataset / "sources.yaml",
+            dataset / "README.md",
+        ]
+    )
     for path in required:
         if not path.is_file():
             report.error(f"missing required file: {path}")
+    compose_bddl = dataset / "compose" / "bddl"
+    if not compose_bddl.is_dir():
+        report.error(f"missing D-compose definition directory: {compose_bddl}")
+    for matrix, rel_path in LEGACY_PATHS.items():
+        if not (dataset.parent / rel_path).is_file():
+            report.warn(f"legacy provenance file is missing: {rel_path}")
     if (dataset / "matrices" / "c-matrix.csv").exists():
         report.error(
-            "dataset/matrices/c-matrix.csv exists but manifest.counts.c = 0; "
-            "the C suite is Phase 2 — do not add a partial C matrix"
+            "dataset/matrices/c-matrix.csv must not exist; the C suite is the "
+            "in-execution base view (dataset/matrices/libero-rollback/in-execution-rollback.csv)"
         )
 
 
@@ -336,21 +466,15 @@ def check_encoding(report: Report, dataset: Path) -> None:
 
 
 def check_matrix_headers(report: Report, dataset: Path) -> None:
-    expected = {
-        "a": A_COLUMNS,
-        "b": B_COLUMNS,
-        "d_native": D_COLUMNS,
-        "d_compose_provisional": D_COLUMNS,
-    }
     for matrix, rel_path in MATRIX_PATHS.items():
         path = dataset.parent / rel_path
         if not path.is_file():
             continue
         header, rows = read_csv(path)
-        if header != expected[matrix]:
+        if header != EXPECTED_HEADERS[matrix]:
             report.error(
                 f"{rel_path}: header mismatch; expected "
-                f"{list(expected[matrix])}, got {list(header)}"
+                f"{list(EXPECTED_HEADERS[matrix])}, got {list(header)}"
             )
         actual = len(rows)
         wanted = EXPECTED_COUNTS[matrix]
@@ -368,9 +492,9 @@ def _check_common_row(
     if case_id in seen:
         report.error(f"{rel_path}: duplicate case_id {case_id} (also used earlier)")
     seen.add(case_id)
-    pattern = matrix_case_pattern(matrix)
-    if pattern and not pattern.match(case_id):
-        report.error(f"{rel_path}: case_id {case_id!r} does not match SPEC §4 naming")
+    pattern = CASE_ID_PATTERNS[matrix]
+    if not pattern.match(case_id):
+        report.error(f"{rel_path}: case_id {case_id!r} does not match the naming scheme")
     derived = expected_case_id(matrix, row)
     if derived is not None and derived != case_id:
         report.error(
@@ -429,11 +553,11 @@ def check_a_matrix(report: Report, dataset: Path, seen: set[str]) -> None:
         if row.get("init_source") != expected_init:
             report.error(
                 f"{rel_path}: {case_id}: init_source must be {expected_init!r} "
-                f"(LIBERO_HOME-relative, SPEC §2.3)"
+                f"(LIBERO_HOME-relative)"
             )
 
 
-def check_b_matrix(report: Report, dataset: Path, seen: set[str]) -> tuple[dict, list[dict]]:
+def check_b_suite(report: Report, dataset: Path, seen: set[str]) -> tuple[dict, list[dict]]:
     rel_path = MATRIX_PATHS["b"]
     path = dataset.parent / rel_path
     if not path.is_file():
@@ -447,6 +571,14 @@ def check_b_matrix(report: Report, dataset: Path, seen: set[str]) -> tuple[dict,
         _check_common_row(report, "b", rel_path, row, seen)
         _check_level_param(report, rel_path, row)
         _check_expected_relation(report, rel_path, row)
+        if row.get("test_suite") != "libero-rollback" or row.get("dimension") != "completion":
+            report.error(
+                f"{rel_path}: {case_id}: expected test_suite=libero-rollback, "
+                "dimension=completion"
+            )
+        expected_arm = "control" if row.get("level") == "C0" else "rollback"
+        if row.get("arm") != expected_arm:
+            report.error(f"{rel_path}: {case_id}: arm must be {expected_arm!r}")
         suite = str(row.get("suite", "")).strip()
         if suite not in B_SUITES:
             report.error(f"{rel_path}: {case_id}: unknown suite {suite!r}")
@@ -456,8 +588,8 @@ def check_b_matrix(report: Report, dataset: Path, seen: set[str]) -> tuple[dict,
             report.error(f"{rel_path}: {case_id}: unknown family {row.get('family')!r}")
         if row.get("trigger") != "all_done":
             report.error(f"{rel_path}: {case_id}: B requires trigger=all_done")
-        if str(row.get("delay_steps")) != "10" or str(row.get("repair_window")) != "300":
-            report.error(f"{rel_path}: {case_id}: delay_steps must be 10 and repair_window 300")
+        if str(row.get("delay_steps")) != "10" or str(row.get("repair_window")) != "600":
+            report.error(f"{rel_path}: {case_id}: delay_steps must be 10 and repair_window 600")
         semantics = "relation_holds_control" if row.get("level") == "C0" else "relation_then_resume"
         if row.get("semantics") != semantics:
             report.error(f"{rel_path}: {case_id}: semantics must be {semantics!r}")
@@ -518,8 +650,10 @@ def check_b_matrix(report: Report, dataset: Path, seen: set[str]) -> tuple[dict,
     return by_task, rows
 
 
-def check_d_native_matrix(report: Report, dataset: Path, seen: set[str], b_by_task: dict) -> None:
-    rel_path = MATRIX_PATHS["d_native"]
+def check_c_suite(
+    report: Report, dataset: Path, seen: set[str], b_by_task: dict
+) -> None:
+    rel_path = MATRIX_PATHS["c"]
     path = dataset.parent / rel_path
     if not path.is_file():
         return
@@ -527,148 +661,205 @@ def check_d_native_matrix(report: Report, dataset: Path, seen: set[str], b_by_ta
     by_task: dict[int, list[dict[str, str]]] = {}
     for row in rows:
         case_id = row.get("case_id", "?")
-        _check_common_row(report, "d_native", rel_path, row, seen)
+        _check_common_row(report, "c", rel_path, row, seen)
         _check_level_param(report, rel_path, row)
         _check_expected_relation(report, rel_path, row)
+        if row.get("test_suite") != "libero-rollback" or row.get("dimension") != "in-execution":
+            report.error(
+                f"{rel_path}: {case_id}: expected test_suite=libero-rollback, "
+                "dimension=in-execution"
+            )
+        if row.get("arm") != "rollback":
+            report.error(f"{rel_path}: {case_id}: C arm must be 'rollback'")
         if row.get("sub") != "native" or row.get("suite") != "l10":
             report.error(f"{rel_path}: {case_id}: expected sub=native, suite=l10")
         window = row.get("window", "")
-        if window not in D_WINDOWS:
-            report.error(f"{rel_path}: {case_id}: unknown window {window!r}")
+        if window not in C_WINDOWS:
+            report.error(f"{rel_path}: {case_id}: C window {window!r} must be early/mid/later")
+        if row.get("level") == "C0":
+            report.error(f"{rel_path}: {case_id}: C must not contain a C0 control")
         if row.get("target") != "s1":
-            report.error(f"{rel_path}: {case_id}: D-native target must be 's1'")
-        if row.get("trigger_criterion") not in D_TRIGGER_LABELS:
+            report.error(f"{rel_path}: {case_id}: C target must be 's1'")
+        if row.get("trigger_criterion") not in C_TRIGGER_LABELS:
             report.error(
                 f"{rel_path}: {case_id}: unexpected trigger_criterion "
                 f"{row.get('trigger_criterion')!r}"
             )
-        if str(row.get("max_steps")) != "800" or str(row.get("repair_window")) != "300":
-            report.error(f"{rel_path}: {case_id}: D-native needs max_steps=800, repair_window=300")
+        if str(row.get("max_steps")) != "800" or str(row.get("repair_window")) != "600":
+            report.error(f"{rel_path}: {case_id}: C needs max_steps=800, repair_window=600")
         if row.get("s2_must_stay_true") not in {"true", "false"}:
             report.error(f"{rel_path}: {case_id}: s2_must_stay_true must be true/false")
-        if window == "all_done_control":
-            if row.get("level") != "C0" or row.get("semantics") != "relation_holds_control":
-                report.error(
-                    f"{rel_path}: {case_id}: all_done_control must be C0 relation_holds_control"
-                )
-        elif row.get("semantics") != "relation_then_resume":
-            report.error(
-                f"{rel_path}: {case_id}: D-native rollback semantics must be relation_then_resume"
-            )
+        if row.get("semantics") != "relation_then_resume":
+            report.error(f"{rel_path}: {case_id}: C semantics must be relation_then_resume")
         by_task.setdefault(task_idx_of(row), []).append(row)
-    if len(by_task) != EXPECTED_D_NATIVE_TASKS:
-        report.error(
-            f"{rel_path}: expected {EXPECTED_D_NATIVE_TASKS} native tasks, found {len(by_task)}"
-        )
+    if len(by_task) != 9:
+        report.error(f"{rel_path}: expected 9 native tasks, found {len(by_task)}")
     for task_idx, task_rows in by_task.items():
         if ("l10", task_idx) not in b_by_task:
             report.error(
-                f"{rel_path}: D-native task l10/t{task_idx:03d} has no B-matrix l10 task key"
+                f"{rel_path}: C task l10/t{task_idx:03d} has no B-matrix l10 task key"
             )
         windows = {row["window"] for row in task_rows}
-        missing = D_WINDOWS - windows
-        if missing:
-            report.error(f"{rel_path}: task l10/t{task_idx:03d} misses windows {sorted(missing)}")
-        controls = [row for row in task_rows if row["window"] == "all_done_control"]
-        if len(controls) != 1:
+        if windows != C_WINDOWS:
             report.error(
-                f"{rel_path}: task l10/t{task_idx:03d}: exactly one all_done_control required"
+                f"{rel_path}: task l10/t{task_idx:03d}: expected early/mid/later, "
+                f"got {sorted(windows)}"
             )
-        expected_levels = {row["level"] for row in task_rows if row["window"] != "all_done_control"}
-        for level in ("L0", "L1"):
-            if level not in expected_levels:
-                report.error(f"{rel_path}: task l10/t{task_idx:03d}: missing {level} family")
+        for window in C_WINDOWS:
+            expected = 4 if task_idx == 0 else 7
+            actual = sum(1 for row in task_rows if row["window"] == window)
+            if actual != expected:
+                report.error(
+                    f"{rel_path}: task l10/t{task_idx:03d}/{window}: expected {expected} cases, "
+                    f"found {actual}"
+                )
         b_instruction = None
         for b_row in b_by_task.get(("l10", task_idx), []):
             b_instruction = b_row["instruction"]
             break
-        if b_instruction is not None and row_instruction(task_rows) != b_instruction:
+        instructions = {row.get("instruction", "") for row in task_rows}
+        if b_instruction is not None and instructions != {b_instruction}:
             report.error(
                 f"{rel_path}: task l10/t{task_idx:03d}: instruction differs from the B l10 task"
             )
 
 
-def row_instruction(rows: list[dict[str, str]]) -> str | None:
-    values = {row.get("instruction", "") for row in rows}
-    return values.pop() if len(values) == 1 else None
+def _check_compose_assets(
+    report: Report, dataset: Path, rel_path: str, rows: list[dict[str, str]]
+) -> None:
+    root = dataset / "compose" / "bddl"
+    for row in rows:
+        case_id = row.get("case_id", "?")
+        task_id = str(row.get("task_id", "")).strip()
+        if not task_id:
+            report.error(f"{rel_path}: {case_id}: task_id is required for the asset check")
+            continue
+        bddl = root / f"{task_id}.bddl"
+        init = root / f"{task_id}.pruned_init"
+        if not bddl.is_file():
+            report.error(f"{rel_path}: {case_id}: missing D-compose BDDL {bddl.name}")
+            continue
+        if not init.is_file():
+            report.error(f"{rel_path}: {case_id}: missing D-compose init {init.name}")
+            continue
+        if sha256_file(bddl) != row.get("bddl_sha256"):
+            report.error(f"{rel_path}: {case_id}: bddl_sha256 does not match {bddl.name}")
+        if sha256_file(init) != row.get("pruned_init_sha256"):
+            report.error(f"{rel_path}: {case_id}: pruned_init_sha256 does not match {init.name}")
 
 
-def check_d_compose_matrix(report: Report, dataset: Path, seen: set[str]) -> None:
-    rel_path = MATRIX_PATHS["d_compose_provisional"]
+def check_d_intact(report: Report, dataset: Path, seen: set[str]) -> set[str]:
+    rel_path = MATRIX_PATHS["d_intact"]
     path = dataset.parent / rel_path
     if not path.is_file():
-        return
+        return set()
     _header, rows = read_csv(path)
+    structs: set[str] = set()
+    source_counts: dict[str, int] = {}
+    for row in rows:
+        case_id = row.get("case_id", "?")
+        _check_common_row(report, "d_intact", rel_path, row, seen)
+        if row.get("test_suite") != "compose" or row.get("dimension") != "intact":
+            report.error(f"{rel_path}: {case_id}: expected test_suite=compose, dimension=intact")
+        if row.get("arm") != "intact":
+            report.error(f"{rel_path}: {case_id}: D-intact arm must be 'intact'")
+        if row.get("sub") != "compose" or row.get("suite") != "compose":
+            report.error(f"{rel_path}: {case_id}: expected sub=compose, suite=compose")
+        if row.get("level") != "INTACT" or str(row.get("param", "")).strip():
+            report.error(f"{rel_path}: {case_id}: D-intact must be level INTACT without param")
+        if str(row.get("n_atoms")) != "2":
+            report.error(f"{rel_path}: {case_id}: D-intact must be an n=2 structure")
+        if not is_true(row.get("valid", "")):
+            report.error(f"{rel_path}: {case_id}: D-intact rows must be valid")
+        if not is_true(row.get("expected_relation_after", "")):
+            report.error(f"{rel_path}: {case_id}: D-intact must expect the relation to stay true")
+        if str(row.get("repair_window")) != "0" or str(row.get("max_steps")) != "600":
+            report.error(f"{rel_path}: {case_id}: D-intact needs repair_window=0, max_steps=600")
+        if row.get("semantics") != "relation_holds_intact":
+            report.error(f"{rel_path}: {case_id}: D-intact semantics must be relation_holds_intact")
+        if str(row.get("goal_atoms", "")).count("|") != 1:
+            report.error(f"{rel_path}: {case_id}: D-intact goal_atoms must hold exactly two atoms")
+        structs.add(str(row.get("struct_id", "")))
+        source = str(row.get("source_suite", ""))
+        source_counts[source] = source_counts.get(source, 0) + 1
+    if len(structs) != 176:
+        report.error(f"{rel_path}: expected 176 structures, found {len(structs)}")
+    if source_counts != {"LIBERO_GOAL": 76, "LIBERO_OBJECT": 100}:
+        report.error(
+            f"{rel_path}: source_suite counts {source_counts} != "
+            "LIBERO_GOAL 76 / LIBERO_OBJECT 100"
+        )
+    _check_compose_assets(report, dataset, rel_path, rows)
+    return structs
+
+
+def check_d_rollback(report: Report, dataset: Path, seen: set[str]) -> set[str]:
+    rel_path = MATRIX_PATHS["d_rollback"]
+    path = dataset.parent / rel_path
+    if not path.is_file():
+        return set()
+    _header, rows = read_csv(path)
+    structs: set[str] = set()
     by_struct: dict[str, list[dict[str, str]]] = {}
     for row in rows:
         case_id = row.get("case_id", "?")
-        _check_common_row(report, "d_compose", rel_path, row, seen)
-        _check_expected_relation(report, rel_path, row)
+        _check_common_row(report, "d_rollback", rel_path, row, seen)
+        if row.get("test_suite") != "compose" or row.get("dimension") != "in-execution":
+            report.error(
+                f"{rel_path}: {case_id}: expected test_suite=compose, dimension=in-execution"
+            )
+        if row.get("arm") != "rollback":
+            report.error(f"{rel_path}: {case_id}: D-rollback arm must be 'rollback'")
         if row.get("sub") != "compose" or row.get("suite") != "compose":
             report.error(f"{rel_path}: {case_id}: expected sub=compose, suite=compose")
-        if str(row.get("task_idx", "")).strip():
-            report.error(
-                f"{rel_path}: {case_id}: provisional D-compose rows must leave task_idx empty"
-            )
         if row.get("level") != "L0" or str(row.get("param", "")).strip():
-            report.error(
-                f"{rel_path}: {case_id}: provisional D-compose rows must be L0 without param"
-            )
-        if str(row.get("max_steps")) != "600" or str(row.get("repair_window")) != "300":
-            report.error(f"{rel_path}: {case_id}: D-compose needs max_steps=600, repair_window=300")
-        for field in ("instruction", "revoked_predicate", "revoked_object"):
-            if str(row.get(field, "")).strip() != PLACEHOLDER:
-                report.error(
-                    f"{rel_path}: {case_id}: {field} must stay the explicit placeholder "
-                    f"{PLACEHOLDER!r} until the C suite exists"
-                )
-        window = row.get("window", "")
-        if D_COMPOSE_TRIGGERS.get(window) != row.get("trigger_criterion"):
-            report.error(
-                f"{rel_path}: {case_id}: trigger_criterion {row.get('trigger_criterion')!r} "
-                f"does not match the frozen legacy label for window {window!r}"
-            )
+            report.error(f"{rel_path}: {case_id}: D-rollback must be level L0 without param")
+        if row.get("window") not in D_WINDOWS:
+            report.error(f"{rel_path}: {case_id}: D-rollback window must be early/mid/later")
+        if D_COMPOSE_TRIGGERS.get(str(row.get("window"))) != row.get("trigger_criterion"):
+            report.error(f"{rel_path}: {case_id}: trigger_criterion does not match the window")
         if row.get("target") != "s1":
-            report.error(f"{rel_path}: {case_id}: D-compose target must be 's1'")
-        by_struct.setdefault(row.get("struct_id", ""), []).append(row)
-    if len(by_struct) != 120:
-        report.error(f"{rel_path}: expected 120 provisional structures, found {len(by_struct)}")
+            report.error(f"{rel_path}: {case_id}: D-rollback target must be 's1'")
+        if not is_true(row.get("valid", "")):
+            report.error(f"{rel_path}: {case_id}: D-rollback rows must be valid")
+        if not is_true(row.get("s2_must_stay_true", "")):
+            report.error(f"{rel_path}: {case_id}: D-rollback requires s2_must_stay_true=true")
+        if not is_false(row.get("expected_relation_after", "")):
+            report.error(
+                f"{rel_path}: {case_id}: D-rollback must expect the relation to become false"
+            )
+        if str(row.get("repair_window")) != "600" or str(row.get("max_steps")) != "600":
+            report.error(
+                f"{rel_path}: {case_id}: D-rollback needs repair_window=600, "
+                "max_steps=600"
+            )
+        if row.get("semantics") != "relation_then_resume":
+            report.error(
+                f"{rel_path}: {case_id}: D-rollback semantics must be relation_then_resume"
+            )
+        struct_id = str(row.get("struct_id", ""))
+        structs.add(struct_id)
+        by_struct.setdefault(struct_id, []).append(row)
+    if len(structs) != 176:
+        report.error(f"{rel_path}: expected 176 structures, found {len(structs)}")
     for struct_id, struct_rows in by_struct.items():
-        if not re.fullmatch(r"s\d{4}", struct_id):
-            report.error(f"{rel_path}: bad struct_id {struct_id!r}")
         windows = sorted(row["window"] for row in struct_rows)
         if windows != ["early", "later", "mid"]:
             report.error(
                 f"{rel_path}: structure {struct_id}: expected early/mid/later, got {windows}"
             )
+    _check_compose_assets(report, dataset, rel_path, rows)
+    return structs
 
 
-# ---------------------------------------------------------------------------
-# Cross-matrix contracts
-# ---------------------------------------------------------------------------
-
-
-def check_cross_matrix(report: Report, dataset: Path) -> None:
-    a_path = dataset.parent / MATRIX_PATHS["a"]
-    b_path = dataset.parent / MATRIX_PATHS["b"]
-    if not (a_path.is_file() and b_path.is_file()):
-        return
-    _a_header, a_rows = read_csv(a_path)
-    _b_header, b_rows = read_csv(b_path)
-    b_tasks = {(row["suite"], task_idx_of(row)): row for row in b_rows}
-    a_tasks = {(row["suite"], task_idx_of(row)): row for row in a_rows}
-    if set(a_tasks) != set(b_tasks):
-        only_a = sorted(set(a_tasks) - set(b_tasks))
-        only_b = sorted(set(b_tasks) - set(a_tasks))
-        report.error(f"A↔B task keys differ: only in A={only_a}, only in B={only_b}")
-    for task_key in sorted(set(a_tasks) & set(b_tasks)):
-        a_row, b_row = a_tasks[task_key], b_tasks[task_key]
-        for field in ("bddl_name", "instruction"):
-            if a_row.get(field) != b_row.get(field):
-                report.error(
-                    f"A↔B pairing broken for {task_key}: A.{field}={a_row.get(field)!r} "
-                    f"but B.{field}={b_row.get(field)!r}"
-                )
+def check_cross_matrix(report: Report, dataset: Path, intact: set[str], rollback: set[str]) -> None:
+    if intact and rollback and intact != rollback:
+        only_intact = sorted(intact - rollback)[:5]
+        only_rollback = sorted(rollback - intact)[:5]
+        report.error(
+            "D-intact and D-rollback structure ids differ: "
+            f"only intact={only_intact}, only rollback={only_rollback}"
+        )
 
 
 # ---------------------------------------------------------------------------
@@ -683,18 +874,11 @@ def actual_row_counts(dataset: Path) -> dict[str, int]:
         if path.is_file():
             _header, rows = read_csv(path)
             counts[matrix] = len(rows)
-    counts["c"] = 0
     return counts
 
 
 def executable_case_ids(dataset: Path) -> set[str]:
-    ids: set[str] = set()
-    for matrix in EXECUTABLE:
-        path = dataset.parent / MATRIX_PATHS[matrix]
-        if path.is_file():
-            _header, rows = read_csv(path)
-            ids.update(row["case_id"] for row in rows)
-    return ids
+    return set(load_case_rows(dataset))
 
 
 def check_manifest(report: Report, dataset: Path) -> None:
@@ -709,9 +893,10 @@ def check_manifest(report: Report, dataset: Path) -> None:
     if not isinstance(manifest, dict):
         report.error("manifest.yaml: top-level must be a mapping")
         return
-    if manifest.get("schema_version") != 2:
+    if manifest.get("schema_version") != MANIFEST_SCHEMA_VERSION:
         report.error(
-            f"manifest.yaml: schema_version must be 2, got {manifest.get('schema_version')!r}"
+            f"manifest.yaml: schema_version must be {MANIFEST_SCHEMA_VERSION}, "
+            f"got {manifest.get('schema_version')!r}"
         )
     version = str(manifest.get("dataset_version", "")).strip()
     if not version:
@@ -740,6 +925,33 @@ def check_manifest(report: Report, dataset: Path) -> None:
             report.error(
                 f"manifest.yaml: count {matrix}={expected} but CSV has {actual.get(matrix, 0)} rows"
             )
+
+    legacy = manifest.get("legacy")
+    if not isinstance(legacy, dict):
+        report.error("manifest.yaml: legacy must be a mapping listing the retained CSVs")
+    else:
+        if legacy.get("counts") != LEGACY_COUNTS:
+            report.error(
+                f"manifest.yaml: legacy.counts {legacy.get('counts')} != {LEGACY_COUNTS}"
+            )
+        legacy_files = legacy.get("files")
+        if not isinstance(legacy_files, list) or set(map(str, legacy_files)) != set(
+            LEGACY_PATHS.values()
+        ):
+            report.error(
+                "manifest.yaml: legacy.files must list exactly "
+                f"{sorted(LEGACY_PATHS.values())}"
+            )
+        for rel_path in LEGACY_PATHS.values():
+            if not (dataset.parent / rel_path).is_file():
+                report.warn(f"manifest.yaml: legacy file is missing on disk: {rel_path}")
+
+    provisional = manifest.get("provisional")
+    if provisional:
+        report.error(
+            "manifest.yaml: provisional must be absent/empty; the D definitions are built "
+            "(legacy files belong under manifest.legacy)"
+        )
 
     files = manifest.get("files")
     if not isinstance(files, list) or not files:
@@ -770,40 +982,13 @@ def check_manifest(report: Report, dataset: Path) -> None:
             _header, rows = read_csv(file_path)
             if entry.get("rows") != len(rows):
                 report.error(f"manifest.yaml: {rel_path}: rows != {len(rows)}")
-    for matrix, rel_path in MATRIX_PATHS.items():
-        if rel_path not in listed:
-            report.error(f"manifest.yaml: missing required matrix entry {rel_path}")
-
-    provisional = manifest.get("provisional")
-    if not isinstance(provisional, list):
-        report.error("manifest.yaml: provisional must be a list")
-    else:
-        provisional_paths = set()
-        for entry in provisional:
-            if not isinstance(entry, dict) or "path" not in entry:
-                report.error(
-                    f"manifest.yaml: provisional entry must be a mapping with a path: {entry!r}"
-                )
-                continue
-            rel_path = str(entry["path"])
-            provisional_paths.add(rel_path)
-            file_path = dataset.parent / rel_path
-            if not file_path.is_file():
-                report.error(f"manifest.yaml: provisional path does not exist: {rel_path}")
-                continue
-            if entry.get("sha256") != sha256_file(file_path):
-                report.error(f"manifest.yaml: provisional {rel_path}: sha256 does not match")
-            _header, rows = read_csv(file_path)
-            if entry.get("rows") != len(rows):
-                report.error(f"manifest.yaml: provisional {rel_path}: rows != {len(rows)}")
-        if not provisional_paths:
-            report.error("manifest.yaml: provisional must list d-compose-provisional.csv")
-        for matrix in EXECUTABLE:
-            if MATRIX_PATHS[matrix] in provisional_paths:
-                report.error(
-                    f"manifest.yaml: executable matrix {MATRIX_PATHS[matrix]} "
-                    "must not be provisional"
-                )
+    expected_files = set(MATRIX_PATHS.values())
+    if set(listed) != expected_files:
+        report.error(
+            "manifest.yaml: files must list exactly the five canonical matrices; "
+            f"missing={sorted(expected_files - set(listed))}, "
+            f"unexpected={sorted(set(listed) - expected_files)}"
+        )
 
     splits = manifest.get("splits") or {}
     if not isinstance(splits, dict):
@@ -824,9 +1009,10 @@ def check_manifest(report: Report, dataset: Path) -> None:
             report.error("manifest.yaml: splits.lite contains duplicate case ids")
     else:
         report.error("manifest.yaml: splits.lite must be a list")
-    core = splits.get("core")
-    if core != ["a", "b", "d-native"]:
-        report.error(f"manifest.yaml: splits.core must be ['a','b','d-native'], got {core!r}")
+    if splits.get("core") != CORE_SPLIT:
+        report.error(
+            f"manifest.yaml: splits.core must be {CORE_SPLIT}, got {splits.get('core')!r}"
+        )
     variance = splits.get("variance")
     if not isinstance(variance, dict):
         report.error("manifest.yaml: splits.variance must be a mapping")
@@ -847,9 +1033,6 @@ def check_manifest(report: Report, dataset: Path) -> None:
                 report.error("manifest.yaml: splits.variance contains duplicate case ids")
         if variance.get("init_rows") != VARIANCE_INIT_ROWS:
             report.error(f"manifest.yaml: splits.variance.init_rows must be {VARIANCE_INIT_ROWS}")
-    c_entry = manifest.get("c") or {}
-    if not isinstance(c_entry, dict) or c_entry.get("status") != "not_built":
-        report.error("manifest.yaml: c.status must be 'not_built' in Phase 1")
 
 
 def check_lite(report: Report, dataset: Path) -> None:
@@ -864,8 +1047,11 @@ def check_lite(report: Report, dataset: Path) -> None:
     if not isinstance(payload, dict):
         report.error("lite.yaml: top-level must be a mapping with a 'cases' list")
         return
-    if payload.get("schema_version") != 1:
-        report.error(f"lite.yaml: schema_version must be 1, got {payload.get('schema_version')!r}")
+    if payload.get("schema_version") != LITE_SCHEMA_VERSION:
+        report.error(
+            f"lite.yaml: schema_version must be {LITE_SCHEMA_VERSION}, "
+            f"got {payload.get('schema_version')!r}"
+        )
     cases = payload.get("cases")
     if not isinstance(cases, list) or not all(isinstance(case_id, str) for case_id in cases):
         report.error("lite.yaml: cases must be a list of case-id strings")
@@ -874,33 +1060,43 @@ def check_lite(report: Report, dataset: Path) -> None:
         report.error(f"lite.yaml: expected {LITE_COUNT} cases, found {len(cases)}")
     if len(set(cases)) != len(cases):
         report.error("lite.yaml: duplicate case ids")
-    executable = executable_case_ids(dataset)
-    unknown = [case_id for case_id in cases if case_id not in executable]
+    case_rows = load_case_rows(dataset)
+    unknown = [case_id for case_id in cases if case_id not in case_rows]
     if unknown:
-        report.error(f"lite.yaml: ids not found in the executable matrices: {unknown[:10]}")
-    splits = payload.get("splits") or {}
-    if not isinstance(splits, dict) or set(splits) != {"a", "b", "d_native"}:
-        report.error("lite.yaml: splits must contain exactly a/b/d_native")
-    else:
-        union: list[str] = []
-        for key, wanted in (("a", 10), ("b", 10), ("d_native", 10)):
-            group = splits.get(key)
-            if not isinstance(group, list) or len(group) != wanted:
-                report.error(f"lite.yaml: splits.{key} must contain {wanted} case ids")
-                continue
-            union.extend(group)
-        if sorted(union) != sorted(cases):
-            report.error("lite.yaml: splits a/b/d_native union does not equal cases")
-    coverage = payload.get("coverage") or {}
-    a_suites = coverage.get("a_suites") or {}
-    if set(a_suites) != set(SUITE_DIRS) or any(not 2 <= int(n) <= 3 for n in a_suites.values()):
-        report.error("lite.yaml: coverage.a_suites must cover all four suites with 2-3 cases each")
-    if set(coverage.get("b_levels") or {}) != {"C0", "L0", "L1", "L2"}:
-        report.error("lite.yaml: coverage.b_levels must cover C0/L0/L1/L2")
-    if set(coverage.get("b_suites") or {}) != set(B_SUITES):
-        report.error("lite.yaml: coverage.b_suites must cover goal/object/spatial/l10")
-    if set(coverage.get("d_windows") or {}) != D_WINDOWS:
-        report.error("lite.yaml: coverage.d_windows must cover all_done_control/early/mid/later")
+        report.error(f"lite.yaml: ids not found in the canonical matrices: {unknown[:10]}")
+    splits = payload.get("splits")
+    if not isinstance(splits, dict) or set(splits) != set(LITE_GROUPS):
+        report.error(f"lite.yaml: splits must contain exactly {sorted(LITE_GROUPS)}")
+        return
+    union: list[str] = []
+    for key, wanted in LITE_GROUPS.items():
+        group = splits.get(key)
+        if not isinstance(group, list) or len(group) != wanted:
+            report.error(f"lite.yaml: splits.{key} must contain {wanted} case ids")
+            continue
+        union.extend(group)
+        for case_id in group:
+            row = case_rows.get(case_id)
+            if row is not None and row.get("_matrix") != key:
+                report.error(
+                    f"lite.yaml: case {case_id!r} is in splits.{key} but belongs to "
+                    f"matrix {row.get('_matrix')!r}"
+                )
+    if sorted(union) != sorted(cases):
+        report.error("lite.yaml: splits groups do not union to the cases list")
+    for case_id in splits.get("c", []):
+        row = case_rows.get(case_id, {})
+        if row.get("level") == "C0" or row.get("window") == "all_done_control":
+            report.error(f"lite.yaml: C case {case_id!r} must not be a C0/all_done control")
+    for case_id in splits.get("d_intact", []):
+        row = case_rows.get(case_id, {})
+        if not is_true(row.get("valid", "")) or str(row.get("n_atoms")) != "2":
+            report.error(f"lite.yaml: D-intact case {case_id!r} must be a valid n=2 structure")
+    expected_coverage = coverage_of({key: list(value) for key, value in splits.items()}, case_rows)
+    if payload.get("coverage") != expected_coverage:
+        report.error(
+            f"lite.yaml: coverage {payload.get('coverage')} != recomputed {expected_coverage}"
+        )
 
 
 def check_sources(report: Report, dataset: Path) -> None:
@@ -917,7 +1113,7 @@ def check_sources(report: Report, dataset: Path) -> None:
         return
     upstream = payload.get("upstream") or {}
     if upstream.get("repo") != LIBERO_REPO or upstream.get("commit") != LIBERO_COMMIT:
-        report.error("sources.yaml: upstream repo/commit must pin the LIBERO commit in SPEC §2.1")
+        report.error("sources.yaml: upstream repo/commit must pin the LIBERO commit")
     imports = payload.get("imports")
     if not isinstance(imports, list) or not imports:
         report.error("sources.yaml: imports must be a non-empty list")
@@ -945,8 +1141,8 @@ def check_sources(report: Report, dataset: Path) -> None:
         if not str(entry.get("source_path", "")).strip():
             report.error(f"sources.yaml: {rel_path}: source_path is required")
     for matrix in ("b", "d_native", "d_compose_provisional"):
-        if MATRIX_PATHS[matrix] not in targets:
-            report.error(f"sources.yaml: missing import entry for {MATRIX_PATHS[matrix]}")
+        if LEGACY_PATHS[matrix] not in targets:
+            report.error(f"sources.yaml: missing import entry for {LEGACY_PATHS[matrix]}")
     generated = payload.get("generated")
     if not isinstance(generated, list):
         report.error("sources.yaml: generated must be a list")
@@ -989,11 +1185,24 @@ def check_path_hygiene(report: Report, dataset: Path) -> None:
         else:
             lowered = text.lower()
             for token in PRECURSOR_TOKENS:
-                if token in lowered:
-                    report.error(
-                        f"{rel_path}: precursor-repository reference {token!r} is not allowed "
-                        "inside dataset/ (see SPEC §9.1/§10.2)"
-                    )
+                if token not in lowered:
+                    continue
+                # The dataset directory itself is named libero-compose for the
+                # D-compose suite; a path under dataset/matrices/libero-compose/
+                # is a data location, not a runtime reference to a precursor repo.
+                if token == "libero-compose":
+                    offending = [
+                        line
+                        for line in text.splitlines()
+                        if "libero-compose" in line.lower()
+                        and "dataset/matrices/libero-compose/" not in line.lower()
+                    ]
+                    if not offending:
+                        continue
+                report.error(
+                    f"{rel_path}: precursor-repository reference {token!r} is not allowed "
+                    "inside dataset/"
+                )
 
 
 # ---------------------------------------------------------------------------
@@ -1022,7 +1231,7 @@ def check_libero_assets(report: Report, dataset: Path, libero_home: Path) -> Non
         report.error(
             f"--libero-home: expected 130 bddl + 130 init files, found {bddl_count}/{init_count}"
         )
-    a_path = dataset.parent / MATRIX_PATHS["a"]
+    a_path = matrix_path(dataset, "a")
     if a_path.is_file():
         _header, a_rows = read_csv(a_path)
         for row in a_rows:
@@ -1041,7 +1250,7 @@ def check_libero_assets(report: Report, dataset: Path, libero_home: Path) -> Non
                 report.error(f"--libero-home: {bddl}: no (:language ...) declaration")
             elif match.group(1).strip() != row["instruction"]:
                 report.error(f"--libero-home: {bddl}: language != A-matrix instruction")
-    b_path = dataset.parent / MATRIX_PATHS["b"]
+    b_path = matrix_path(dataset, "b")
     if b_path.is_file():
         _header, b_rows = read_csv(b_path)
         seen_tasks: set[tuple[str, str]] = set()
@@ -1079,7 +1288,7 @@ def run_package_validation(report: Report, dataset: Path, *, enabled: bool, stri
         return
     try:
         from libero_rollback.validation import validate_dataset as package_validate
-    except Exception as error:  # noqa: BLE001 - module may be absent during M1 migration
+    except Exception as error:  # noqa: BLE001 - module may be absent during migration
         report.notes.append(
             "libero_rollback.validation not available "
             f"({type(error).__name__}: {error}); inline checks only"
@@ -1134,10 +1343,11 @@ def validate(
     seen: set[str] = set()
     report.check("matrix_headers", check_matrix_headers, dataset)
     report.check("a_matrix", check_a_matrix, dataset, seen)
-    b_by_task = report.check("b_matrix", check_b_matrix, dataset, seen)[0]
-    report.check("d_native_matrix", check_d_native_matrix, dataset, seen, b_by_task)
-    report.check("d_compose_matrix", check_d_compose_matrix, dataset, seen)
-    report.check("cross_matrix", check_cross_matrix, dataset)
+    b_by_task = report.check("b_suite", check_b_suite, dataset, seen)[0]
+    report.check("c_suite", check_c_suite, dataset, seen, b_by_task)
+    intact = report.check("d_intact", check_d_intact, dataset, seen)
+    rollback = report.check("d_rollback", check_d_rollback, dataset, seen)
+    report.check("cross_matrix", check_cross_matrix, dataset, intact, rollback)
     report.check("manifest", check_manifest, dataset)
     report.check("lite", check_lite, dataset)
     report.check("sources", check_sources, dataset)
@@ -1150,9 +1360,9 @@ def validate(
 
 def print_report(report: Report, dataset: Path, libero_home: Path | None) -> None:
     counts = actual_row_counts(dataset) if dataset.is_dir() else {}
-    summary = " ".join(f"{key}={counts.get(key, '?')}" for key in MATRICES)
+    summary = " ".join(f"{key}={counts.get(key, '?')}" for key in MATRIX_PATHS)
     print(f"[validate_dataset] dataset: {dataset}")
-    print(f"[validate_dataset] rows: {summary} c=0")
+    print(f"[validate_dataset] rows: {summary}")
     print(f"[validate_dataset] libero assets: {libero_home if libero_home else 'not checked'}")
     failed = [name for name, ok in report.checks.items() if not ok]
     print(

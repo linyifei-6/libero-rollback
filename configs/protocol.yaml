@@ -22,10 +22,10 @@ network: none            # file-based artefacts only; no ports / services
 # ---------------------------------------------------------------------------
 budgets:
   a: {max_steps: 600, repair_window: 0}
-  c: {max_steps: 600, repair_window: 0}            # C is Phase 2 (not built yet)
-  b: {max_steps: 600, repair_window: 300}
-  d_native: {max_steps: 800, repair_window: 300}
-  d_compose: {max_steps: 600, repair_window: 300}  # D-compose is Phase 2 (provisional)
+  c: {max_steps: 800, repair_window: 600}           # C = L10 in-execution (180)
+  b: {max_steps: 600, repair_window: 600}
+  d_native: {max_steps: 800, repair_window: 600}
+  d_compose: {max_steps: 600, repair_window: 600}    # D-rollback is provisional
 
 # ---------------------------------------------------------------------------
 # Trigger semantics (README §3.5)

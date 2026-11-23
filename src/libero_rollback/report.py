@@ -211,6 +211,13 @@ def build_aggregate(run_dir: str | Path, out_dir: str | Path | None = None) -> d
         "control": stats["control"],
         "trigger": stats["trigger"],
         "success": stats["success"],
+        "progress": stats["progress"],
+        "pp": stats["pp"],
+        "zero_progress": stats["zero_progress"],
+        "one_and_done": stats["one_and_done"],
+        "pending_preservation": stats["pending_preservation"],
+        "mean_pending_preservation": stats["mean_pending_preservation"],
+        "terminal_states": stats["terminal_states"],
         "by_verdict": stats["by_verdict"],
         "by_suite": stats["by_suite"],
         "by_level": stats["by_level"],
@@ -281,7 +288,25 @@ def render_markdown(aggregate: Mapping[str, Any]) -> str:
             if rate.get("ci")
             else f"| {label} | {value} | {_fmt_fraction(rate)} | - |"
         )
-    lines += ["", "## Cases", ""]
+    progress = aggregate.get("progress") or {}
+    lines += [
+        "",
+        "## Completion / rollback impact",
+        "",
+        "| metric | value |",
+        "|---|---:|",
+        f"| Progress (mean) | {progress.get('mean') if progress.get('mean') is not None else 'N/A'} |",
+        f"| Progress (median) | {progress.get('median') if progress.get('median') is not None else 'N/A'} |",
+        f"| PP (≥1 atom) | {_fmt_fraction(aggregate.get('pp') or {})} |",
+        f"| Zero-progress | {_fmt_fraction(aggregate.get('zero_progress') or {})} |",
+        f"| One-and-Done | {_fmt_fraction(aggregate.get('one_and_done') or {})} |",
+        f"| Pending preserved | {_fmt_fraction(aggregate.get('pending_preservation') or {})} |",
+        f"| Mean pending fraction | {aggregate.get('mean_pending_preservation') if aggregate.get('mean_pending_preservation') is not None else 'N/A'} |",
+        f"| Terminal states | {aggregate.get('terminal_states') or {}} |",
+        "",
+        "## Cases",
+        "",
+    ]
     lines.append(
         "| case | suite | level | target | trigger | valid | verdict | recovered | steps | video |"
     )

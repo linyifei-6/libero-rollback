@@ -52,6 +52,12 @@ def _default_matrix() -> Path:
     env_value = os.environ.get("LIBERO_ROLLBACK_MATRIX")
     if env_value:
         candidates.append(Path(env_value).expanduser())
+    candidates.append(
+        Path.cwd() / "dataset" / "matrices" / "libero-rollback" / "completion-rollback.csv"
+    )
+    candidates.append(
+        _repo_root() / "dataset" / "matrices" / "libero-rollback" / "completion-rollback.csv"
+    )
     candidates.append(Path.cwd() / "dataset" / "matrices" / "b-matrix.csv")
     candidates.append(_repo_root() / "dataset" / "matrices" / "b-matrix.csv")
     for candidate in candidates:
@@ -178,7 +184,9 @@ def _add_run_arguments(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--camera", type=int, default=256)
     parser.add_argument("--settle-steps", type=int, default=10)
     parser.add_argument("--max-trigger-wait", type=int, default=60)
-    parser.add_argument("--repair-window", type=int, default=300)
+    parser.add_argument("--repair-window", type=int, default=600)
+    parser.add_argument("--stop-on-recovery", action=argparse.BooleanOptionalAction, default=False)
+    parser.add_argument("--recovery-confirm-steps", type=int, default=1)
     parser.add_argument("--video", action=argparse.BooleanOptionalAction, default=True)
     parser.add_argument("--video-fps", type=int, default=20)
     parser.add_argument("--libero-home", default=None)
@@ -229,6 +237,8 @@ def cmd_run(args: argparse.Namespace) -> int:
         settle_steps=args.settle_steps,
         max_trigger_wait=args.max_trigger_wait,
         repair_window=args.repair_window,
+        stop_on_recovery=bool(args.stop_on_recovery),
+        recovery_confirm_steps=int(args.recovery_confirm_steps),
         video=args.video,
         video_fps=args.video_fps,
         policy=args.model,

@@ -464,3 +464,56 @@ def test_run_case_writes_error_summary(
     assert summary["status"] == "error"
     assert "init unreadable" in summary["error"]
     assert summary_path.is_file()
+
+class _RecoveringFakeInjector(_FakeInjector):
+    """Recovers one step after injection, so the opt-in early stop is testable."""
+
+    def inject(self, gripper_qpos=None):
+        result = super().inject(gripper_qpos)
+        self.injected_at = self.world.steps
+        return result
+
+    def revoked_truth(self):
+        if self.case.is_control:
+            return [True]
+        injected_at = getattr(self, "injected_at", None)
+        if injected_at is None:
+            return [True]
+        return [self.world.steps >= injected_at + 1]
+
+
+def test_run_case_stops_at_first_recovery_when_enabled(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    pytest.importorskip("numpy")
+    import libero_rollback.runtime.perturbation as perturbation
+
+    _install_fake_simulation(monkeypatch)
+    monkeypatch.setattr(perturbation, "BInjector", _RecoveringFakeInjector)
+    summary, summary_path = _run_fake_case(
+        tmp_path, "b-goal-t000-g-l0", stop_on_recovery=True
+    )
+    assert summary["status"] == "ok", summary.get("error")
+    assert summary["early_stopped"] is True
+    assert summary["stop_reason"] == "recovery"
+    assert summary["termination"] == "recovered"
+    assert summary["recovered"] is True
+    assert summary["steps"] == summary["injection_step"] + 1
+    assert summary["repair_steps_used"] == 1
+    assert summary["total_budget_steps"] == summary["injection_step"] + 300
+    assert summary_path.is_file()
+
+
+def test_run_case_control_never_stops_on_recovery(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    pytest.importorskip("numpy")
+    import libero_rollback.runtime.perturbation as perturbation
+
+    _install_fake_simulation(monkeypatch)
+    monkeypatch.setattr(perturbation, "BInjector", _RecoveringFakeInjector)
+    summary, _ = _run_fake_case(tmp_path, "b-goal-t000-c0", stop_on_recovery=True)
+    assert summary["status"] == "ok", summary.get("error")
+    assert summary["early_stopped"] is False
+    assert summary["termination"] == "step_limit"
+    assert summary["steps"] == summary["total_budget_steps"]

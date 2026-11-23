@@ -28,21 +28,27 @@ The benchmark ships as versioned CSV matrices plus LIBERO-native assets; it adds
 |---|---|---|---|
 | 规范 | 本 README + `docs/SPEC.md` | ✅ Phase 1 冻结 | `docs/SPEC.md` 是数据契约与模块接口的唯一权威 |
 | 数据 | A 矩阵 40 / B 矩阵 442 / D-native 189 | ✅ 已迁移 | A 由脚本生成，B/D-native 导入并冻结；逐文件 sha256 在 manifest |
+| 数据 | B-plus 矩阵 1,394（LIBERO-Plus O2 target-only） | ✅ 已生成并跑完 | 独立入口 `scripts/run_b_plus.py`；可执行 735（rollback 659 + c0 38 + l0 38） |
 | 数据 | D-compose 360（占位） | 🟡 暂存不执行 | 复用 C 的结构 id；C 未构建前不进任何 split |
 | 数据 | C 套件（160 结构） | ⬜ Phase 2 | 前序仓 512 ordered 不能直接充当；需按 40-task pool 重建 |
 | 数据 | `manifest.yaml` / `sources.yaml` / `lite.yaml` / 数据卡 | ✅ 已生成 | `build_manifest.py --check` 0 diff；`validate` PASS（1,031 case） |
 | 代码 | 静态层（矩阵 / schema / validation / evidence / metrics / report / CLI） | ✅ 已实现并测试 | 纯 stdlib + PyYAML/jsonschema；`libero-rollback validate` PASS |
-| 代码 | 运行层（B runner / 注入 / 视频 / 3 个模型适配器） | 🟡 移植完成，待真机验证 | 本机无 MuJoCo/权重；dry-run 与 fake-env 测试通过 |
+| 代码 | 运行层（B runner / 注入 / 视频 / 3 个模型适配器） | ✅ 真机验证（B / B-plus） | π0.5 与 SmolVLA 在 B-plus 全量 735 case 上跑通；逐 case trace/视频/summary 落盘 |
 | 代码 | D 轴 runner（窗口触发 + D-native 执行） | ⬜ Phase 2 | 需要 GT 窗口触发器与 D-native 执行链路 |
 | 代码 | C 套件生成器 + 覆盖证明 | ⬜ Phase 2 | 见 [§13 路线图](#13-路线图) |
 | 证据 | 证书 C1/C2/C5/C7/C8 | 🟡 部分 | C3 可解性 / C4 可复原性仍缺（脚本 oracle） |
 | 证据 | 历史实验迁移（A/B/C 三模型） | ✅ 已迁移 | `experiments/` 收录 v1 口径历史证据（非 v2 主表）+ `docs/experiment-report.md` 整体实验记录 |
 | 报告 | 人工审核报告（白色模板） | ✅ 已落地 | `docs/report-template/` + `scripts/build_review_report.py`；首份报告：B 矩阵 π0.5 Goal+Object 165 case 注入/恢复有效性审核 |
+| 报告 | B-plus 全量实验报告 | ✅ 已落地 | [docs/experiment-report-b-plus-smolvla.md](docs/experiment-report-b-plus-smolvla.md)：SmolVLA 735 case + π0.5 同批对照 |
 | 发布 | pip / HF dataset / datasheet / leaderboard | 🟡 本地部分 | 报告与 `leaderboard validate` 可用；发布流程 Phase 2 |
 
-> **Phase 1 迁移结果（2026-11-18）**：已落地 A/B/D-native 数据（1,031 个 case 中的 671 个可执行 case）、静态契约层、B 套件运行层（移植）、报告/CLI 与文档。`C` 与 `D-compose` 因前序仓从未构建 v2 结构而留到 Phase 2（**不做假数据**）。本机未跑真实仿真/真实模型，因此**本仓当前没有任何主表数字**：§2 的数字是前序仓 v1 证据，只用于动机；逐项状态与验收命令见 [`docs/implementation-status.md`](docs/implementation-status.md)。
+> **Phase 1 迁移结果（2026-11-18）**：已落地 A/B/D-native 数据（1,031 个 case 中的 671 个可执行 case）、静态契约层、B 套件运行层（移植）、报告/CLI 与文档。`C` 与 `D-compose` 因前序仓从未构建 v2 结构而留到 Phase 2（**不做假数据**）。
+>
+> **Phase 1 之后的真机运行（2026-11-20）**：B-plus（LIBERO-Plus O2 target-only）全量可执行部分 735 case 已在同一协议下跑完 **π0.5**（trigger 96.2%、O2 Recovery 84/557 = 15.1%）与 **SmolVLA 0.45B**（trigger 35.4%、O2 Recovery **0/215 = 0%**）；N/A、invalid 与 Recovery 三态分开统计。报告见 [docs/experiment-report-b-plus-smolvla.md](docs/experiment-report-b-plus-smolvla.md)，证据见 [experiments/b-plus-smolvla-20261120/](experiments/b-plus-smolvla-20261120/)。§2 的数字仍是前序仓 v1 证据，只用于动机；逐项状态与验收命令见 [`docs/implementation-status.md`](docs/implementation-status.md)。
 
 ---
+
+> **2026-11-21 设计口径**：主叙事改为 **base-only**；B = `b-matrix.csv`（442），C = 180，D = compose intact/rollback。B-plus 与 LIBERO-Plus 只保留为历史/可选资产，不进入 base 主表或静态测试。
 
 ## 1. 这是什么
 
@@ -110,35 +116,53 @@ The benchmark ships as versioned CSV matrices plus LIBERO-native assets; it adds
 | 方向 | 模型覆盖 | 关键读数（详细分母/协议见整体记录） |
 |---|---|---|
 | **A** LIBERO 单任务 + success-delay | 三模型 | 四套件 hit：π0.5 **37/40**、OpenVLA-OFT **33/40**、SmolVLA **19/40**；stable@100/hit：**58/64 / 33/33 / 19/21**；strict@100 仅 64–71% |
-| **B** 完成边界撤销 | **仅 π0.5** | v1 要求自修 **0/9**；单任务回滚 **1/9 = 11.1%**；B 矩阵 Goal+Object **23/137 = 16.8%**（Goal 30.9% vs Object 2.9%），C0 **20/20** |
+| **B** 完成后撤销（**维度 1**） | **仅 π0.5** | v1 要求自修 **0/9**；单任务回滚 **1/9 = 11.1%**；B 矩阵 Goal+Object **23/137 = 16.8%**（Goal 30.9% vs Object 2.9%），C0 **20/20** |
+| **D** 执行中撤销（**维度 2**） | 未迁移/未执行 | 数据已冻结（189 行），但 D runner / 窗口触发未实现，**无历史执行证据** |
 | **C** 组合无扰动 | 三模型 | π0.5 **2/49 = 4.1%**（GOAL）/ 12/300 = 4.0%（OBJECT）；SmolVLA **0/76**；OpenVLA-OFT **0/176**（PP 76–95%，后提到目标 0/100） |
 
-> **这些是 v1 历史证据，不是 v2.0 主表**：协议、分母、case 集与当前 SPEC 不同，且为单 seed / 单 init，不得与本仓主表混排（§10.3）。B 轴目前只有 π0.5，**“三模型 B 对照”不成立**。
+> **这些是 v1 历史证据，不是 v2.0 主表**：协议、分母、case 集与当前 SPEC 不同，且为单 seed / 单 init，不得与本仓主表混排（§10.3）。维度 1（B）目前只有 π0.5，**“三模型 B 对照”不成立**；维度 2（D）**没有历史执行数据**。
 > 首份**人工审核报告**（注入有效性 / 恢复有效性，逐 case 勾选 + 视频跳转）：[B 矩阵 π0.5 Goal+Object 165 case 审核报告](experiments/b-rollback/report-goal-object-20261118/index.html)；模板与生成方式见 [§9.5](#95-实验报告与审核模板)。
 
 ---
 
 ## 3. 测试设计
 
-### 3.1 两条主设计轴 + 一条排除轴
+### 3.1 两个 Rollback 维度 + 一个排除轴
 
-| 轴 | 因子 | 水平 | 承载套件 |
+> **2026-11-21 base-only（迁移中）**：只考虑 base 测试（非 Plus）；B = `b-matrix.csv` 442，C = `libero-rollback/in-execution-rollback.csv` 180（无 C0），D = `libero-compose`（intact 176 + rollback 528）。
+> 新叙事见 [`docs/rollback-narrative.md`](docs/rollback-narrative.md)；下面的两维表待替换，Plus 不进入 base 主表。
+
+**本仓的数据集组织只围绕两个 Rollback 维度**（完整定义见 [`docs/rollback-dimensions.md`](docs/rollback-dimensions.md)）：
+
+| Rollback 维度 | 套件 | 要回答的问题 |
+|---|---|---|
+| **维度 1 · 完成后撤销**（completion-boundary rollback） | **B** | 一个任务完成以后，它的**完成状态**（或其中某个**子任务**的完成状态）被外部撤销——策略能否**识别**并**恢复**？ |
+| **维度 2 · 执行中撤销**（in-execution rollback） | **D** | 在执行长程任务时，**前序已完成的子任务状态**被撤销，而后续子任务仍未完成——策略能否**识别**并**恢复**？ |
+
+A/C 不施加撤销：**A** 提供单任务能力上界（Retention 的参考），**C** 提供共时合取剂量阶梯（EGC 的载体，Phase 2）；它们是 Rollback 结论的**对照/参照**，不是新维度。
+
+各维度内部再用下列因子展开（注意这些是**因子名**，不要与套件字母 A/B/C/D 混淆）：
+
+| 因子轴 | 因子 | 水平 | 承载套件 |
 |---|---|---|---|
-| **A 共时** | 目标谓词数 n | 1 / 2 / 3（嵌套族 `g₁ ⊂ g₁∧g₂ ⊂ …`，同场景同物体池） | C（n 阶梯）、A（n=1/2 上界） |
-| **B 历时** | 达成状态的时间完整性 | `intact` / `revoke` / `control`（no-op）/ `probe`（关系仍为真，不得虚假修复） | B、D |
-| C 语言（排除项） | 同一 `goal_atoms` 的措辞 | `canonical` / `naive_concat` / `staged` / `paraphrase` | 全套件（`instruction_variant` 字段） |
+| 共时轴 | 目标谓词数 n | 1 / 2 / 3（嵌套族 `g₁ ⊂ g₁∧g₂ ⊂ …`，同场景同物体池） | C（n 阶梯）、A（n=1/2 上界） |
+| 历时轴 | 达成状态的时间完整性 | `intact` / `revoke` / `control`（no-op）/ `probe`（关系仍为真，不得虚假修复） | B、D |
+| 语言轴（排除项） | 同一 `goal_atoms` 的措辞 | `canonical` / `naive_concat` / `staged` / `paraphrase` | 全套件（`instruction_variant` 字段） |
 
-- 措辞变体是**同一任务的评测臂**，不重复计入任务数。
-- 两条官方指令的 naive 拼接只作**对照臂**，不作主指令。
+- 措辞变体是**同一任务的评测臂**，不重复计入任务数；两条官方指令的 naive 拼接只作**对照臂**，不作主指令。
 
-### 3.2 四个套件（A/B/C/D）
+### 3.2 图 1：两个 Rollback 维度与四个套件（A/B/C/D）
 
-| 套件 | 底盘 | 扰动 | 触发时机 | n | case 数 | 主指标 |
-|---|---|---|---|---:|---:|---|
-| **A** `single-intact` | 原始 LIBERO 4 套件 ×10 任务 | 无 | — | 1–2 | **40** | `SR` |
-| **B** `completion-boundary-rollback` | 同 A 的 40 任务（Goal 10 / Object 10 / Spatial 10 / LIBERO-10 10） | `C0/L0/L1/L2` | `all_done`（任务完成后 delay 10 步） | 1–2 | **442** | `Recovery`（条件） |
-| **C** `composition-intact` | 40 任务内同场景配对生成的组合结构 | 无 | — | 2（+40 条 n=3） | **160** | `SR` |
-| **D** `in-execution-rollback` | D-native：LIBERO-10 原生多目标（9 任务）<br>D-compose：C 的 120 个 n=2 结构 | `C0/L0/L1/L2` | `early` / `mid` / `later` | 2 | **549**（native 189 + compose 360） | `Recovery`（条件） |
+![图 1：两个 Rollback 维度与四个套件](docs/figures/rollback-dimensions.svg)
+
+**图 1 描述**：数据集只有两个 Rollback 维度——**维度 1（B）在完成后撤销完成状态**，**维度 2（D）在执行中撤销前序已完成子任务**；A/C 是无撤销对照，不产生 Rollback 结论。每个 case 的撤销都由同一个 `C0/L0/L1/L2` 扰动族实现，但两个维度的触发、分母与结论**不可混报**。
+
+| 角色 | 套件 | 测试什么（Rollback 问题） | 撤销时机 | 撤销对象 | 底盘 / case 数 | 主指标 |
+|---|---|---|---|---|---|---|
+| **Rollback 维度 1** | **B** `completion-boundary-rollback` | 任务完成以后，完成状态（或某个子任务的完成状态）被撤销——**能否识别并恢复**？ | `all_done` + delay 10（完成后、无 pending） | 已完成关系：`g`（整个任务）/ `s1`、`s2`（子任务）/ `both` / `pre` | 40 任务（Goal/Object/Spatial/L10 各 10）/ **442** | `Recovery`（条件） |
+| **Rollback 维度 2** | **D** `in-execution-rollback` | 执行长程任务时，前序已完成子任务被撤销、后序仍 pending——**能否识别并恢复**？ | `early` / `mid` / `later`（执行中） | 已完成的 `s1`（D 恒为 s1） | D-native 9 任务 + D-compose 120 结构 / **549**（native 189 + compose 360） | `Recovery`（条件） |
+| 对照（无撤销） | **A** `single-intact` | 单任务能力上界（Retention 的参考） | — | — | 原始 LIBERO 4 套件 ×10 / **40** | `SR` |
+| 对照/剂量（无撤销，Phase 2） | **C** `composition-intact` | 共时合取剂量阶梯（EGC 的载体） | — | — | 40-task pool 内同场景配对 / **160** | `SR` |
 | | | | | **合计** | **1,191** | |
 
 **B 的 case 分布**（`b-matrix.csv` 实计）：
@@ -150,9 +174,11 @@ The benchmark ships as versioned CSV matrices plus LIBERO-native assets; it adds
 | family | pose 350 / joint 24 / mixed 28 / C0 40 |
 | target | `g` 211 / `s1` 60 / `s2` 57 / `both` 70 / `pre` 4 / `c0` 40 |
 
-**D 的 case 分布**（`d-matrix.csv` 实计）：native 189（LIBERO-10 九个多目标任务：`early/mid/later` 三窗口 × `L0/L1/L2` 参数族 + 9 条 `all_done` no-op 对照）；compose 360（120 个 n=2 结构 × 3 窗口 × `L0`，level 曲线由 B 承担）。
+**D 的 case 分布（新套件）**：D-intact **176**（76 goal + 100 object valid n=2）；D-rollback **528**（176 × 3 窗口 × `L0`）；C 的 180 见 [`docs/c-matrix.md`](docs/c-matrix.md)。旧 native 189 / compose 360 只保留为历史 `d-matrix.csv`。
 
 > **A 的实测 `n_goals`**（BDDL `:goal` 展开）：31 条 n=1、8 条 n=2、1 条 n=3（LIBERO-10 的 n=2 任务与 GOAL t030 的 n=3）。因此 A 在套件表里写 `n=1–3`，报告时按 suite 分列：A(Obj/Goal/Spatial) 是 n=1 锚点，A(l10) 是 n=2 参照。
+
+> **两个维度的完整定义、不可混报规则与历史实验映射**见 [`docs/rollback-dimensions.md`](docs/rollback-dimensions.md)；两个维度内的比较对见 §3.3。
 
 > **为什么 D 不要求基础任务完成**：D 只要求“存在一个已完成的子任务，在模型去处理另一个子任务时被撤销”。触发条件由**单目标能力**保证（A 已证明其存在），因此 case 集不依赖“模型能否把整条任务做完”。
 
@@ -213,8 +239,8 @@ D 的窗口检测**只使用 GT 谓词与仿真状态**，复用环境已有事�
 | split | 内容 | 用途 |
 |---|---|---|
 | `lite` | 30 条（A/B/C/D 均衡抽样） | 冒烟 / CI / 论文复现，< 1 GPU-h |
-| `core` | A 40 + B 442 + C 160 + D 549 = **1,191** | 主表、leaderboard |
-| `variance` | 100 case × 5 init（0–4）= 500 episodes（40 A + 30 B + 30 D） | 估任务间异质性与 run-to-run 方差 |
+| `core` | A 40 + B 442 + C 180 + D-intact 176 + D-rollback 528 = **1,366** | 主表、leaderboard |
+| `variance` | 100 case × 5 init（0–4）= 500 episodes（40 A + 30 B + 15 C + 9 D-intact + 6 D-rollback） | 估任务间异质性与 run-to-run 方差 |
 | `restate` | B/D 子集的重述臂 ≈ 100 episodes | `Restate Δ` |
 | `full` | `core` + `variance` + `restate` ≈ 1,700 episodes | 全量发布 |
 | `negative` | `conflict / degenerate / infeasible` 与 `probe` | 负对照，**不进执行主表** |
@@ -224,6 +250,8 @@ D 的窗口检测**只使用 GT 谓词与仿真状态**，复用环境已有事�
 ---
 
 ## 4. 指标
+
+> **2026-11-21 评估体系重构**：主表只放 **`Recovery` + `Progress` + 配对 `ΔProgress`**（A 用 `SR`/`Progress`）；`PP`、`One-and-Done`、`Zero-Progress`、四类终局、latency 等进附录/分析。详见 [`docs/evaluation.md`](docs/evaluation.md)。repair_window 已提高到 600。
 
 ### 4.1 指标定义
 
@@ -330,7 +358,7 @@ D 额外要求：`s1_reachable`（基线下第一个子目标可达成）、`eve
 | 项 | 值 | 说明 |
 |---|---|---|
 | 成功判定 | 环境 `check_success()` + GT 谓词 trace | 禁止 VLM 判官 |
-| `max_steps` | A/C：600；B：600 活跃步 + **300 repair window**；D-native：800；D-compose：600 | 注入后追加修复窗口，不挤占总预算；逐 episode 记录 `repair_budget_steps` |
+| `max_steps` | A：600；B：600 + **600 repair window**；C：800 + 600；D-native：800 + 600；D-compose：600 + 600 | 注入后追加修复窗口，不挤占总预算；逐 episode 记录 `repair_budget_steps` |
 | `replan_steps` | 10 | 与 `delay_steps=10` 对齐，避免同一动作块内触发 |
 | `delay_steps` | 10（B） | 任务完成后延迟 |
 | `init_row` | 0（主表）；0–4（variance 子集） | 每个数字注明 init 数 |
@@ -415,11 +443,19 @@ libero-rollback/
 ├── experiments/                   # 迁移的三模型历史实验证据（v1 口径）
 │   ├── README.md / provenance.yaml
 │   ├── a-libero/ · b-rollback/ · c-compose/
-│   └── b-rollback/report-goal-object-20261118/  # 白色审核报告（videos 本地不入库）
+│   ├── b-rollback/report-goal-object-20261118/  # 白色审核报告（videos 本地不入库）
+│   └── b-rollback/report-spatial-20261118/      # Spatial 80 case 报告（恢复即停）
 ├── docs/
 │   ├── SPEC.md                    # 数据规范（唯一权威）
 │   ├── protocol.md                # 评测协议
 │   ├── datasheet.md               # 数据卡（8 张证书 + 已知限制）
+│   ├── b-matrix.md                # B 矩阵说明（base 442）
+│   ├── c-matrix.md                # C 矩阵说明（L10 三窗口，180）
+│   ├── d-matrix.md                # D 矩阵说明（compose intact/rollback）
+│   ├── evaluation.md              # 评估体系（Rollback Impact + 子任务完成度）
+│   ├── trigger-design.md          # C/D 窗口触发（GT events）
+│   ├── rollback-dimensions.md     # 两个 Rollback 维度与四个套件的定义（图 1）
+│   ├── figures/                   # 图 1 SVG（白色主题）
 │   ├── attribution.md             # 与前序仓的关系、来源与致谢
 │   ├── experiment-report.md       # 三模型 A/B/C 历史实验整体记录
 │   ├── cli-spec.md                # CLI 现状参考 + v3 维度开关草案（v3 未实现）
@@ -615,7 +651,7 @@ uv run python scripts/build_review_report.py --from-run runs/core-pi05 --out exp
 
 1. **B 含 LIBERO-10（n=2）子集**：B 的 40 任务中含 10 个原生多目标任务，使“n=1”与“n=2”在 B 内部混合。处理：按 suite 分列报告；B(l10) 与 D-native 的 `pending` 对照单独成表，不与 n=1 混算。
 2. **A 的四套件含 LIBERO-10**：A(Obj/Goal/Spatial) 是严格 n=1 锚点，A(l10) 是 n=2 参照；报告时分开。
-3. **B 的 `max_steps` 口径**：来源实现为 600 总步（注入越晚修复预算越短）；本仓 v2 改为“600 活跃步 + 300 修复窗口”，并记录 `repair_budget_steps`。两套口径不得混表。
+3. **B 的 `max_steps` 口径**：来源实现为 600 总步（注入越晚修复预算越短）；本仓 v2 改为“600 活跃步 + 600 修复窗口”（旧 300 结果标 repair300，不混表），并记录 `repair_budget_steps`。两套口径不得混表。
 4. **`both` 撤销不彻底**：LIBERO-10 部分任务有 3 个目标原子（含 `Turnon` 类隐含前置），`both` 撤销后可能仍有一个原子为真；必须在 `notes` 标注。
 5. **`valid` 是构造层判断**：不等于物理已验证；数据卡必须区分 “construction-level valid” 与 “physically verified”。
 6. **窗口触发率**：D 的触发率是实测值；某窗口在某模型上不可达时按 `N/A` 处理，并从主表剔除原因而非删 case。
@@ -641,6 +677,7 @@ uv run python scripts/build_review_report.py --from-run runs/core-pi05 --out exp
 - **视觉硬性要求**：白色背景（`#ffffff`）、浅灰卡片、深色文字；自包含 CSS/JS，禁止 CDN/外链资源；`file://` 双击可用。
 - **生成器**：[`scripts/build_review_report.py`](scripts/build_review_report.py)；输入 `cases.jsonl` 或 run 目录，输出 `index.html` + 分页 + `evidence.json` + `cases.jsonl` + `provenance.json`。
 - **首份真实报告**：[B 矩阵 π0.5 Goal+Object 165 case 审核报告](experiments/b-rollback/report-goal-object-20261118/index.html)（注入 157/157 有效；Recovery 23/137 = 16.8%；C0 20/20）。视频为本地审核产物（`*.mp4` gitignored），新 clone 打开会显式提示缺失，按报告内 `videos/README.md` 复制即可。
+- **Spatial 补跑报告（恢复即停）**：[B 矩阵 π0.5 Spatial 80 case 报告](experiments/b-rollback/report-spatial-20261118/index.html)（all_done 触发 80/80；注入有效 80/80；Recovery 22/70 = 31.4%；C0 10/10）。
 - **口径红线**：Recovery 分母 = 注入有效且非 C0；`N/A` 不显示 0%；`restorable` 不参与恢复指标；视频/截图缺失必须显式标注。
 
 ---

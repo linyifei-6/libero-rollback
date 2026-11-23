@@ -107,10 +107,11 @@ uv run python scripts/run_b_matrix.py --dry-run \
 
 | 项 | 值 |
 |---|---|
-| A / C `max_steps` | 600（A 主表 1 init；10-init 上界协议另行报告） |
-| B `max_steps` + `repair_window` | 600 活跃步 + 300 修复窗口 |
-| D-native | 800 + 300 |
-| D-compose（Phase 2） | 600 + 300 |
+| A `max_steps` | 600（A 主表 1 init；10-init 上界协议另行报告） |
+| B `max_steps` + `repair_window` | 600 活跃步 + 600 修复窗口 |
+| C（L10 in-execution） | 800 + 600 |
+| D-native | 800 + 600 |
+| D-compose（Phase 2） | 600 + 600 |
 | B trigger | `all_done`（全部 native goal 由 GT 判定为真）+ `delay_steps=10` |
 | D 窗口 | `early` / `mid` / `later`，**只用 GT 谓词与仿真状态**判定，禁止外部 runtime profile |
 | `replan_steps` | 10（与 B `delay_steps` 对齐，触发不落在同一动作块内） |

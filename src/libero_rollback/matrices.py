@@ -56,6 +56,7 @@ class LevelSpec:
     translation_m: float | None = None
     yaw_rad: float | None = None
     joint_ratio: float | None = None
+    o2_init: str | None = None
 
     @property
     def label(self) -> str:
@@ -133,6 +134,8 @@ class BCase:
     repair_window: int
     expected_relation_after: bool
     n_targets: int
+    # B-plus only: absolute path to the LIBERO-Plus O2 single-state init.
+    o2_init: str | None = None
 
     @property
     def task_key(self) -> tuple[str, int]:
@@ -140,6 +143,10 @@ class BCase:
 
     @property
     def level_spec(self) -> LevelSpec:
+        if self.level == "O2":
+            if not self.o2_init:
+                raise ValueError(f"{self.case_id}: O2 level needs o2_init")
+            return LevelSpec("O2", self.param, "o2", o2_init=self.o2_init)
         try:
             return LEVEL_SPECS[(self.level, self.param)]
         except KeyError as error:  # pragma: no cover - validation catches this first

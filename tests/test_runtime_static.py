@@ -305,3 +305,25 @@ def test_load_init_row_reports_missing_loader(
     init_file.write_bytes(b"not-a-real-checkpoint")
     with pytest.raises(RuntimeError, match="fallback interpreter"):
         load_init_row(init_file, 0)
+
+def test_l10_both_matches_two_native_goal_atoms() -> None:
+    """``t133`` has 3 goal atoms; ``both`` revokes the two ``On`` atoms.
+
+    The injector must reuse the native BDDL spelling (lower-case) rather than
+    re-parsing the CSV's capitalised predicate text.
+    """
+
+    from libero_rollback.matrices import parse_predicate
+    from libero_rollback.runtime.perturbation import BInjector
+
+    injector = BInjector.__new__(BInjector)
+    injector.revoked_atoms = [
+        parse_predicate("(On moka_pot_1 flat_stove_1_cook_region)"),
+        parse_predicate("(On moka_pot_2 flat_stove_1_cook_region)"),
+    ]
+    injector.goal_atoms = [
+        ("on", "moka_pot_1", "flat_stove_1_cook_region"),
+        ("on", "moka_pot_2", "flat_stove_1_cook_region"),
+        ("turnon", "flat_stove_1"),
+    ]
+    assert injector._match_goal_atoms() == [0, 1]

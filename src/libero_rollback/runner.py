@@ -63,7 +63,12 @@ class RunConfig:
     camera: int = 256
     settle_steps: int = 10
     max_trigger_wait: int = 60
-    repair_window: int = 300
+    repair_window: int = 600
+    settle_after_injection: int = 0
+    static_init: bool = False
+    static_targets: str | None = None
+    stop_on_recovery: bool = False
+    recovery_confirm_steps: int = 1
     video: bool = True
     video_fps: int = 20
     policy: str = "none"
@@ -81,6 +86,11 @@ class RunConfig:
             "settle_steps": self.settle_steps,
             "max_trigger_wait": self.max_trigger_wait,
             "repair_window": self.repair_window,
+            "settle_after_injection": self.settle_after_injection,
+            "static_init": self.static_init,
+            "static_targets": self.static_targets,
+            "stop_on_recovery": self.stop_on_recovery,
+            "recovery_confirm_steps": self.recovery_confirm_steps,
             "video": self.video,
             "video_fps": self.video_fps,
             "policy": self.policy,
@@ -167,7 +177,7 @@ def build_plan(
                 "level": case.level,
                 "param": case.param,
                 "delay_steps": case.delay_steps,
-                "repair_window": case.repair_window,
+                "repair_window": max(int(case.repair_window), int(config.repair_window)),
                 "expected_relation_after": case.expected_relation_after,
             }
             for case in cases
@@ -343,7 +353,10 @@ def run_case(
         )
         trace.flush()
 
-    repair_window = int(case.repair_window) if case.repair_window else config.repair_window
+    # Protocol floor: a rollback case gets at least 600 post-injection steps.
+    # The frozen matrix column remains a reference value; the run config can
+    # only raise it, never silently shorten it below the floor.
+    repair_window = max(int(case.repair_window or 0), int(config.repair_window))
     total_budget = int(config.max_steps)
     summary: dict[str, Any] = {
         "schema_version": SCHEMA_VERSION,
@@ -434,6 +447,18 @@ def run_case(
         if not goal_atoms:
             raise RuntimeError("empty native goal state")
         injector = BInjector(env, case, goal_atoms)
+        revoked_goal_indices = sorted(
+            {idx for idx in getattr(injector, "goal_atom_index", ()) if idx >= 0}
+        )
+        pending_goal_indices = [
+            idx for idx in range(len(goal_atoms)) if idx not in set(revoked_goal_indices)
+        ]
+        summary["revoked_goal_indices"] = revoked_goal_indices
+        summary["pending_goal_indices"] = pending_goal_indices
+        injector.static_init = config.static_init
+        if config.static_targets:
+            targets = json.loads(Path(config.static_targets).read_text(encoding="utf-8"))
+            injector.static_target = targets.get(case.case_id)
         for name, target in injector.targets.items():
             if target.body_id is None:
                 raise RuntimeError(f"cannot resolve revoked object body: {name}")
@@ -471,12 +496,61 @@ def run_case(
         pre_truths: list[bool] | None = None
         restored_at_step: int | None = None
         recovery_ever = False
+        recovery_streak = 0
+        early_stopped = False
         post_truths: list[list[bool]] = []
         notice_latency: int | None = None
         eef_baseline: float | None = None
         success_ever = False
         first_success_step: int | None = None
         stage_label = f"B {case.case_id} | {case.level}"
+        if config.static_init:
+            # Static baseline: apply the L0/L1 target pose at t=0, before the
+            # policy has ever seen the task.  No all_done trigger, no rollback.
+            injection = injector.inject(obs.get("robot0_gripper_qpos"))
+            injection["static_init"] = True
+            injection_step = 0
+            injected = True
+            pre_truths = list(injector.revoked_truth())
+            post_truths = []
+            if config.settle_after_injection:
+                for _ in range(max(0, int(config.settle_after_injection))):
+                    obs, _, done, _ = env.step(DUMMY_ACTION)
+                    steps += 1
+                injection = injector.revalidate(obs.get("robot0_gripper_qpos"))
+                injection["static_init"] = True
+            total_budget = steps + config.max_steps
+            summary["static_init"] = True
+            summary["injection"] = injection
+            summary["injection_step"] = 0
+            summary["total_budget_steps"] = total_budget
+            summary["settle_after_injection"] = int(config.settle_after_injection)
+            if recorder is not None:
+                injection_frame = recorder.frames
+                recorder.event_card(
+                    obs["agentview_image"],
+                    obs.get("robot0_eye_in_hand_image"),
+                    title=f"STATIC-INIT  {case.case_id}  @ t=0",
+                    lines=[
+                        (
+                            f"target={case.target} level={case.level}-{case.param or ''}",
+                            (255, 230, 120),
+                            recorder.font,
+                        ),
+                        (
+                            f"relation before={all(pre_truths)} "
+                            f"after={injection['relation_after']}",
+                            (235, 235, 240),
+                            recorder.font,
+                        ),
+                        (
+                            f"delta_translation={injection['geometry']['delta_translation_m']} m",
+                            (170, 200, 230),
+                            recorder.font_small,
+                        ),
+                    ],
+                    highlight=(110, 200, 255),
+                )
         while steps < total_budget:
             if policy is None:
                 action = np.zeros(7, dtype=np.float64)
@@ -506,6 +580,9 @@ def run_case(
                 if first_success_step is None:
                     first_success_step = steps
                 success_ever = True
+                if config.static_init:
+                    summary["static_stopped_on_success"] = True
+                    break
 
             should_inject = False
             if (
@@ -590,6 +667,39 @@ def run_case(
                     )
                 queue.clear()
                 obs = env.regenerate_obs_from_state(env.get_sim_state())
+                settle_steps = max(0, int(config.settle_after_injection))
+                if settle_steps:
+                    immediate = dict(injection)
+                    for settle_i in range(settle_steps):
+                        obs, _, done, _ = env.step(DUMMY_ACTION)
+                        steps += 1
+                        if recorder is not None:
+                            recorder.step(
+                                obs["agentview_image"],
+                                obs.get("robot0_eye_in_hand_image"),
+                                step=steps,
+                                stage=stage_label + " | settle",
+                                horizon_index=0,
+                                last_decision={
+                                    "line": f"post-injection settle {settle_i + 1}/{settle_steps}"
+                                },
+                                success=False,
+                                title=f"B matrix | {case.case_id}",
+                                policy_label=f"frozen {config.policy}",
+                                controller_label="physics settle",
+                            )
+                    injection = injector.revalidate(obs.get("robot0_gripper_qpos"))
+                    injection["immediate"] = immediate
+                    injection["settle_steps"] = settle_steps
+                    injection["post_settle"] = True
+                    total_budget = steps + repair_window
+                    summary["injection"] = injection
+                    summary["total_budget_steps"] = total_budget
+                    summary["settle_after_injection"] = settle_steps
+                    summary["injection_step"] = injection_step
+                    goal_truth = injector.goal_truth()
+                    revoked_truth = injector.revoked_truth()
+                    post_truths.append(list(revoked_truth))
                 emit(
                     {
                         "event": "injection",
@@ -649,8 +759,11 @@ def run_case(
                 post_truths.append(list(revoked_truth))
                 if all(revoked_truth):
                     recovery_ever = True
+                    recovery_streak += 1
                     if restored_at_step is None:
                         restored_at_step = steps
+                else:
+                    recovery_streak = 0
                 center = _target_center(injector)
                 if center is not None:
                     eef = np.asarray(obs["robot0_eef_pos"], dtype=np.float64)
@@ -659,6 +772,15 @@ def run_case(
                         eef_baseline = distance
                     elif notice_latency is None and distance < eef_baseline - 0.01:
                         notice_latency = steps - injection_step
+                if (
+                    config.stop_on_recovery
+                    and case.level != "C0"
+                    and recovery_streak >= max(1, int(config.recovery_confirm_steps))
+                ):
+                    early_stopped = True
+                    summary["stop_reason"] = "recovery"
+                    summary["termination"] = "recovered"
+                    break
 
             if steps % 5 == 0:
                 emit(
@@ -674,7 +796,49 @@ def run_case(
 
         final_goal = injector.goal_truth()
         final_revoked = injector.revoked_truth()
-        if injected:
+        final_pending = [final_goal[idx] for idx in pending_goal_indices]
+        revoked_ok = all(final_revoked) if revoked_goal_indices else True
+        pending_ok = all(final_pending) if final_pending else True
+        summary["final_pending_truth"] = final_pending
+        summary["atoms_completed"] = sum(1 for value in final_goal if value)
+        summary["subtask_progress"] = (
+            sum(1 for value in final_goal if value) / len(final_goal) if final_goal else None
+        )
+        summary["terminal_state"] = (
+            "both"
+            if revoked_ok and pending_ok
+            else "restore_only"
+            if revoked_ok
+            else "pending_only"
+            if pending_ok
+            else "neither"
+        )
+        if config.static_init:
+            summary["relation_before"] = bool(all(pre_truths or []))
+            summary["relation_after_injection"] = (
+                bool(injection["relation_after"]) if injection else None
+            )
+            summary["relation_final"] = bool(all(final_revoked))
+            summary["recovered"] = None
+            summary["recovery"] = None
+            summary["validity"] = {
+                "static_init": True,
+                "no_object_penetration": bool(injection and injection["no_penetration"]),
+                "zero_velocity_after_intervention": bool(
+                    injection and injection["zero_velocity"]
+                ),
+                "object_released_before_intervention": bool(
+                    injection and injection["object_released"]
+                ),
+            }
+            summary["case_valid"] = bool(
+                injection
+                and injection["no_penetration"]
+                and injection["zero_velocity"]
+                and injection["object_released"]
+            )
+            summary["termination"] = "static_success" if all(final_goal) else "static_step_limit"
+        elif injected:
             summary["relation_before"] = bool(all(pre_truths or []))
             summary["relation_after_injection"] = (
                 bool(injection["relation_after"]) if injection else None
@@ -749,10 +913,14 @@ def run_case(
             max_steps=config.max_steps,
             total_budget_steps=total_budget,
             repair_budget_steps=(
-                None if injection_step is None else total_budget - injection_step
+                None
+                if injection_step is None
+                else total_budget - injection_step - int(summary.get("settle_after_injection", 0))
             ),
             repair_steps_used=(
-                None if injection_step is None else steps - injection_step
+                None
+                if injection_step is None
+                else steps - injection_step - int(summary.get("settle_after_injection", 0))
             ),
             first_all_done_step=first_all_done,
             first_success_step=first_success_step,
@@ -762,6 +930,8 @@ def run_case(
             final_revoked_truth=final_revoked,
             termination=summary.get("termination")
             or ("step_limit" if steps >= total_budget else "done"),
+            early_stopped=early_stopped,
+            stop_reason=summary.get("stop_reason"),
             init_shape=list(init_shape),
             init_row=config.init_row,
             seed=config.seed,
@@ -882,6 +1052,7 @@ def aggregate_episodes(
         "valid": len(valid),
         "recoverable_valid": len(recoverable),
         "recovered": len(recovered),
+        "early_stopped": sum(1 for episode in recoverable if episode.get("early_stopped")),
         "recovery_rate": (
             None if not recoverable else round(len(recovered) / len(recoverable), 4)
         ),
@@ -902,6 +1073,7 @@ def aggregate_episodes(
         f"- valid: {summary['valid']}",
         f"- recovery: {summary['recovered']}/{summary['recoverable_valid']} "
         f"= {summary['recovery_rate']}",
+        f"- early stopped: {summary['early_stopped']}",
         f"- C0 controls: {summary['control_ok']}/{summary['controls']} "
         f"= {summary['control_rate']}",
         "",
@@ -935,6 +1107,7 @@ def run_matrix(
     resume: bool = True,
     retry_errors: bool = False,
     retry_invalid: bool = False,
+    script: str = "scripts/run_b_matrix.py",
 ) -> dict[str, Any]:
     """Run a batch of B cases and write the run-level artifacts.
 
@@ -962,7 +1135,7 @@ def run_matrix(
         "checkpoint": checkpoint_path,
         "config_name": config_name,
         "matrix": str(matrix.source),
-        "script": "scripts/run_b_matrix.py",
+        "script": script,
     }
     write_json(
         output / "run-manifest.json",

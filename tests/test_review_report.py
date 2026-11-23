@@ -578,3 +578,39 @@ def test_real_report_consistency() -> None:
     provenance = json.loads(_read(REAL_REPORT / "provenance.json"))
     assert provenance["case_count"] == 165
     assert provenance["source_run"] == "libero-compose:/runs/b-matrix/full-20261118"
+
+def test_from_run_accepts_runner_seed_layout(tmp_path: Path) -> None:
+    """The B runner writes ``<suite>/<case>/seed-0/summary.json``."""
+
+    run = tmp_path / "run"
+    case_dir = run / "l10" / "b-l10-t000-g-l0" / "seed-0"
+    case_dir.mkdir(parents=True)
+    summary = _case("b-l10-t000-g-l0", suite="l10", level="L0", target="g")
+    (case_dir / "summary.json").write_text(json.dumps(summary), encoding="utf-8")
+
+    out = tmp_path / "report-seed-layout"
+    result = subprocess.run(
+        [
+            sys.executable,
+            str(SCRIPT),
+            "--from-run",
+            str(run),
+            "--out",
+            str(out),
+            "--title",
+            "seed layout",
+            "--model",
+            "pi05",
+            "--source-run",
+            "local:/runs/seed-layout",
+            "--generated-at",
+            "2026-11-18T12:00:00+08:00",
+        ],
+        capture_output=True,
+        text=True,
+        timeout=120,
+    )
+    assert result.returncode == 0, result.stdout + result.stderr
+    evidence = json.loads(_read(out / "evidence.json"))
+    assert evidence["case_count"] == 1
+    assert evidence["cases"][0]["case_id"] == "b-l10-t000-g-l0"

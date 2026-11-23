@@ -36,11 +36,16 @@ REPORT = REPO_ROOT / "docs" / "experiment-report.md"
 SUITE_DIRS = {"a": "a-libero", "b": "b-rollback", "c": "c-compose"}
 
 # Task-6 delivers this report directory; it is referenced (not written) by task-5.
-ALLOWED_MISSING_LINK_PREFIXES = ("experiments/b-rollback/report-goal-object-20261118",)
-# report-goal-object-20261118/ is delivered by task-6 (review report + local-only
-# videos that are gitignored); it is out of this task's write scope, so the
-# hygiene/size checks below cover only the files migrated by task-5.
-OTHER_TASK_REPORT_PREFIX = "experiments/b-rollback/report-goal-object-20261118"
+REPORT_PREFIXES = (
+    "experiments/b-rollback/report-goal-object-20261118",
+    "experiments/b-rollback/report-spatial-20261118",
+)
+ALLOWED_MISSING_LINK_PREFIXES = REPORT_PREFIXES
+# The two report directories are delivered by separate migration tasks
+# (review report + spatial report; both contain large self-contained HTML/JSON
+# artifacts). They are outside task-5's write scope, so the hygiene/size checks
+# below cover only the files migrated by task-5.
+OTHER_TASK_REPORT_PREFIXES = REPORT_PREFIXES
 
 TEXT_SUFFIXES = {".md", ".json", ".jsonl", ".yaml", ".yml", ".txt", ".csv"}
 VIDEO_SUFFIXES = {".mp4", ".mov", ".avi", ".mkv", ".webm"}
@@ -69,7 +74,7 @@ def owned_files() -> list[Path]:
     for path in EXPERIMENTS.rglob("*"):
         if path.is_file():
             relative = path.relative_to(REPO_ROOT).as_posix()
-            if not relative.startswith(OTHER_TASK_REPORT_PREFIX):
+            if not relative.startswith(OTHER_TASK_REPORT_PREFIXES):
                 files.append(path)
     return files
 

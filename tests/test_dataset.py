@@ -1,11 +1,21 @@
-"""Integrity tests for the Phase-1 ``dataset/`` tree.
+"""Integrity tests for the schema-v3 ``dataset/`` tree.
 
 These tests need **no simulation, no GPU and no LIBERO checkout**: they only read
 the frozen CSVs/YAMLs and run the static scripts.  They are intentionally written
 against the files (not against ``scripts/validate_dataset.py`` internals) so a
-bug in the validator cannot hide a data defect, and a concurrent change to
-``libero_rollback.validation`` cannot break them (the CLI test passes
-``--no-package-validation``).
+bug in the validator cannot hide a data defect.
+
+Schema v3 (2026-11-21) is the base-only test-suite tree::
+
+    a           a-matrix.csv                              40
+    b           libero-rollback/completion-rollback.csv   442
+    c           libero-rollback/in-execution-rollback.csv 180
+    d_intact    libero-compose/intact.csv                 176
+    d_rollback  libero-compose/rollback.csv               528
+
+The legacy ``b-matrix.csv`` / ``d-native-matrix.csv`` /
+``d-compose-provisional.csv`` files stay on disk untouched but are never part
+of an executable split.
 
 Run with::
 
@@ -17,6 +27,7 @@ from __future__ import annotations
 import csv
 import hashlib
 import re
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -30,10 +41,34 @@ MATRICES = DATASET / "matrices"
 
 A_ROWS = 40
 B_ROWS = 442
-D_NATIVE_ROWS = 189
-D_COMPOSE_ROWS = 360
+C_ROWS = 180
+D_INTACT_ROWS = 176
+D_ROLLBACK_ROWS = 528
 LITE_ROWS = 30
 VARIANCE_CASES = 100
+LITE_GROUPS = {"a": 10, "b": 10, "c": 5, "d_intact": 2, "d_rollback": 3}
+
+A_PATH = MATRICES / "a-matrix.csv"
+B_PATH = MATRICES / "libero-rollback" / "completion-rollback.csv"
+C_PATH = MATRICES / "libero-rollback" / "in-execution-rollback.csv"
+D_INTACT_PATH = MATRICES / "libero-compose" / "intact.csv"
+D_ROLLBACK_PATH = MATRICES / "libero-compose" / "rollback.csv"
+
+LEGACY_B = MATRICES / "b-matrix.csv"
+LEGACY_D_NATIVE = MATRICES / "d-native-matrix.csv"
+LEGACY_D_COMPOSE = MATRICES / "d-compose-provisional.csv"
+CANONICAL_PATHS = (
+    "dataset/matrices/a-matrix.csv",
+    "dataset/matrices/libero-rollback/completion-rollback.csv",
+    "dataset/matrices/libero-rollback/in-execution-rollback.csv",
+    "dataset/matrices/libero-compose/intact.csv",
+    "dataset/matrices/libero-compose/rollback.csv",
+)
+LEGACY_PATHS = (
+    "dataset/matrices/b-matrix.csv",
+    "dataset/matrices/d-native-matrix.csv",
+    "dataset/matrices/d-compose-provisional.csv",
+)
 
 SUITE_DIRS = {
     "goal": "libero_goal",
@@ -55,6 +90,9 @@ A_COLUMNS = (
 )
 B_COLUMNS = (
     "case_id",
+    "test_suite",
+    "dimension",
+    "arm",
     "suite",
     "task_idx",
     "bddl_name",
@@ -72,8 +110,11 @@ B_COLUMNS = (
     "expected_relation_after",
     "n_targets",
 )
-D_COLUMNS = (
+C_COLUMNS = (
     "case_id",
+    "test_suite",
+    "dimension",
+    "arm",
     "sub",
     "suite",
     "task_idx",
@@ -93,6 +134,66 @@ D_COLUMNS = (
     "expected_relation_after",
     "s2_must_stay_true",
 )
+D_INTACT_COLUMNS = (
+    "case_id",
+    "test_suite",
+    "dimension",
+    "arm",
+    "sub",
+    "suite",
+    "struct_id",
+    "source_suite",
+    "order",
+    "task_id",
+    "instruction",
+    "goal_atoms",
+    "n_atoms",
+    "family",
+    "level",
+    "param",
+    "semantics",
+    "max_steps",
+    "repair_window",
+    "expected_relation_after",
+    "bddl_name",
+    "init_source",
+    "bddl_sha256",
+    "pruned_init_sha256",
+    "valid",
+    "class",
+)
+D_ROLLBACK_COLUMNS = (
+    "case_id",
+    "test_suite",
+    "dimension",
+    "arm",
+    "sub",
+    "suite",
+    "struct_id",
+    "source_suite",
+    "order",
+    "task_id",
+    "instruction",
+    "window",
+    "trigger_criterion",
+    "target",
+    "revoked_predicate",
+    "revoked_object",
+    "family",
+    "level",
+    "param",
+    "semantics",
+    "max_steps",
+    "repair_window",
+    "expected_relation_after",
+    "s2_must_stay_true",
+    "bddl_name",
+    "init_source",
+    "bddl_sha256",
+    "pruned_init_sha256",
+    "valid",
+    "class",
+)
 
 CASE_ID_RE = {
     "a": re.compile(r"^a-(goal|object|spatial|l10)-t\d{3}$"),
@@ -100,10 +201,11 @@ CASE_ID_RE = {
         r"^b-(goal|object|spatial|l10)-t\d{3}-"
         r"(c0|(g|s1|s2|both|pre)-(l0|l1-d(03|06|10)|l2-r(30|60|90)))$"
     ),
-    "d_native": re.compile(
-        r"^d-l10-t\d{3}-(c0|(early|mid|later)-(l0|l1-d(03|06|10)|l2-r(30|60|90)))$"
+    "c": re.compile(
+        r"^d-l10-t\d{3}-(early|mid|later)-(l0|l1-d(03|06|10)|l2-r(30|60|90))$"
     ),
-    "d_compose": re.compile(r"^d-compose-s\d{4}-(early|mid|later)-l0$"),
+    "d_intact": re.compile(r"^compose-intact-[a-z0-9_]+$"),
+    "d_rollback": re.compile(r"^compose-rollback-[a-z0-9_]+-(early|mid|later)-l0$"),
 }
 
 
@@ -132,22 +234,27 @@ def b_tasks(rows: list[dict[str, str]]) -> dict[tuple[str, int], list[dict[str, 
 
 @pytest.fixture(scope="module")
 def a_matrix() -> tuple[tuple[str, ...], list[dict[str, str]]]:
-    return read_csv(MATRICES / "a-matrix.csv")
+    return read_csv(A_PATH)
 
 
 @pytest.fixture(scope="module")
 def b_matrix() -> tuple[tuple[str, ...], list[dict[str, str]]]:
-    return read_csv(MATRICES / "b-matrix.csv")
+    return read_csv(B_PATH)
 
 
 @pytest.fixture(scope="module")
-def d_native_matrix() -> tuple[tuple[str, ...], list[dict[str, str]]]:
-    return read_csv(MATRICES / "d-native-matrix.csv")
+def c_matrix() -> tuple[tuple[str, ...], list[dict[str, str]]]:
+    return read_csv(C_PATH)
 
 
 @pytest.fixture(scope="module")
-def d_compose_matrix() -> tuple[tuple[str, ...], list[dict[str, str]]]:
-    return read_csv(MATRICES / "d-compose-provisional.csv")
+def d_intact_matrix() -> tuple[tuple[str, ...], list[dict[str, str]]]:
+    return read_csv(D_INTACT_PATH)
+
+
+@pytest.fixture(scope="module")
+def d_rollback_matrix() -> tuple[tuple[str, ...], list[dict[str, str]]]:
+    return read_csv(D_ROLLBACK_PATH)
 
 
 # ---------------------------------------------------------------------------
@@ -157,18 +264,16 @@ def d_compose_matrix() -> tuple[tuple[str, ...], list[dict[str, str]]]:
 
 def test_required_files_exist() -> None:
     for rel_path in (
-        "dataset/matrices/a-matrix.csv",
-        "dataset/matrices/b-matrix.csv",
-        "dataset/matrices/d-native-matrix.csv",
-        "dataset/matrices/d-compose-provisional.csv",
+        *CANONICAL_PATHS,
+        *LEGACY_PATHS,
         "dataset/manifest.yaml",
         "dataset/lite.yaml",
         "dataset/sources.yaml",
         "dataset/README.md",
     ):
         assert (REPO_ROOT / rel_path).is_file(), f"missing {rel_path}"
-    assert not (MATRICES / "c-matrix.csv").exists(), "C suite must stay unbuilt in Phase 1"
-    assert not (DATASET / "compose").exists(), "C assets must stay absent in Phase 1"
+    assert (DATASET / "compose" / "bddl").is_dir(), "D-compose definitions must be built"
+    assert not (MATRICES / "c-matrix.csv").exists(), "C is the in-execution suite view"
 
 
 def test_rows_are_utf8_lf_without_bom() -> None:
@@ -183,25 +288,30 @@ def test_rows_are_utf8_lf_without_bom() -> None:
             assert raw.endswith(b"\n"), f"{path}: CSV must end with LF"
 
 
-def test_matrix_headers_and_counts(a_matrix, b_matrix, d_native_matrix, d_compose_matrix) -> None:
+def test_matrix_headers_and_counts(
+    a_matrix, b_matrix, c_matrix, d_intact_matrix, d_rollback_matrix
+) -> None:
     assert a_matrix[0] == A_COLUMNS
     assert b_matrix[0] == B_COLUMNS
-    assert d_native_matrix[0] == D_COLUMNS
-    assert d_compose_matrix[0] == D_COLUMNS
+    assert c_matrix[0] == C_COLUMNS
+    assert d_intact_matrix[0] == D_INTACT_COLUMNS
+    assert d_rollback_matrix[0] == D_ROLLBACK_COLUMNS
     assert len(a_matrix[1]) == A_ROWS
     assert len(b_matrix[1]) == B_ROWS
-    assert len(d_native_matrix[1]) == D_NATIVE_ROWS
-    assert len(d_compose_matrix[1]) == D_COMPOSE_ROWS
+    assert len(c_matrix[1]) == C_ROWS
+    assert len(d_intact_matrix[1]) == D_INTACT_ROWS
+    assert len(d_rollback_matrix[1]) == D_ROLLBACK_ROWS
 
 
 def test_case_ids_unique_and_well_formed(
-    a_matrix, b_matrix, d_native_matrix, d_compose_matrix
+    a_matrix, b_matrix, c_matrix, d_intact_matrix, d_rollback_matrix
 ) -> None:
     groups = {
         "a": a_matrix[1],
         "b": b_matrix[1],
-        "d_native": d_native_matrix[1],
-        "d_compose": d_compose_matrix[1],
+        "c": c_matrix[1],
+        "d_intact": d_intact_matrix[1],
+        "d_rollback": d_rollback_matrix[1],
     }
     seen: set[str] = set()
     for matrix, rows in groups.items():
@@ -210,6 +320,21 @@ def test_case_ids_unique_and_well_formed(
             assert CASE_ID_RE[matrix].match(case_id), f"{matrix}: bad case id {case_id!r}"
             assert case_id not in seen, f"duplicate case id across matrices: {case_id}"
             seen.add(case_id)
+
+
+def test_legacy_files_are_retained_but_not_executable() -> None:
+    assert len(read_csv(LEGACY_B)[1]) == 442
+    assert len(read_csv(LEGACY_D_NATIVE)[1]) == 189
+    assert len(read_csv(LEGACY_D_COMPOSE)[1]) == 360
+    manifest = read_yaml(DATASET / "manifest.yaml")
+    assert set(manifest["legacy"]["files"]) == set(LEGACY_PATHS)
+    assert set(manifest["legacy"]["counts"].items()) == {
+        ("b", 442),
+        ("d_native", 189),
+        ("d_compose_provisional", 360),
+    }
+    executable = {entry["path"] for entry in manifest["files"]}
+    assert not (set(LEGACY_PATHS) & executable)
 
 
 # ---------------------------------------------------------------------------
@@ -241,7 +366,7 @@ def test_a_matrix_is_one_row_per_b_task(a_matrix, b_matrix) -> None:
 
 
 # ---------------------------------------------------------------------------
-# B matrix contracts
+# B (completion rollback) matrix contracts
 # ---------------------------------------------------------------------------
 
 
@@ -292,54 +417,158 @@ def test_b_level_param_combinations_are_valid(b_matrix) -> None:
         assert (row["level"], row["param"]) in valid, row["case_id"]
         assert row["trigger"] == "all_done"
         assert row["delay_steps"] == "10"
-        assert row["repair_window"] == "300"
+        assert row["repair_window"] == "600"
+        assert row["test_suite"] == "libero-rollback"
+        assert row["dimension"] == "completion"
+        assert row["arm"] == ("control" if row["level"] == "C0" else "rollback")
 
 
 # ---------------------------------------------------------------------------
-# D matrices
+# C (in-execution rollback) matrix contracts
 # ---------------------------------------------------------------------------
 
 
-def test_d_native_contract(d_native_matrix, b_matrix) -> None:
-    _header, rows = d_native_matrix
+def test_c_suite_contract(c_matrix, b_matrix) -> None:
+    _header, rows = c_matrix
     _b_header, b_rows = b_matrix
-    l10_keys = {(row["suite"], int(row["task_idx"])) for row in b_rows}
+    b_l10 = {
+        int(row["task_idx"]): row
+        for row in b_rows
+        if row["suite"] == "l10"
+    }
     tasks: dict[int, list[dict[str, str]]] = {}
     for row in rows:
+        assert row["test_suite"] == "libero-rollback"
+        assert row["dimension"] == "in-execution"
+        assert row["arm"] == "rollback"
         assert row["sub"] == "native"
         assert row["suite"] == "l10"
         assert row["target"] == "s1"
         assert row["max_steps"] == "800"
-        assert row["repair_window"] == "300"
-        assert row["window"] in {"early", "mid", "later", "all_done_control"}
+        assert row["repair_window"] == "600"
+        assert row["expected_relation_after"] == "false"
+        assert row["window"] in {"early", "mid", "later"}
+        assert row["window"] != "all_done_control"
+        assert row["level"] in {"L0", "L1", "L2"}
+        assert row["level"] != "C0"
+        assert row["trigger_criterion"] in {
+            "s1 first true",
+            "s2 displacement > 5 cm",
+            "distance to s2 goal < 8 cm",
+        }
+        assert row["instruction"] == b_l10[int(row["task_idx"])]["instruction"]
         tasks.setdefault(int(row["task_idx"]), []).append(row)
     assert len(tasks) == 9
+    assert {row["task_idx"] for row in rows} == {
+        "0",
+        "33",
+        "78",
+        "133",
+        "137",
+        "145",
+        "158",
+        "193",
+        "237",
+    }
     for task_idx, task_rows in tasks.items():
-        assert ("l10", task_idx) in l10_keys
-        windows = {row["window"] for row in task_rows}
-        assert {"early", "mid", "later"} <= windows, task_idx
-        controls = [row for row in task_rows if row["window"] == "all_done_control"]
-        assert len(controls) == 1
-        assert controls[0]["level"] == "C0"
-        assert controls[0]["expected_relation_after"] == "true"
+        assert {row["window"] for row in task_rows} == {"early", "mid", "later"}
+        for window in ("early", "mid", "later"):
+            expected = 4 if task_idx == 0 else 7
+            assert (
+                sum(1 for row in task_rows if row["window"] == window) == expected
+            ), (task_idx, window)
 
 
-def test_d_compose_is_an_explicit_placeholder(d_compose_matrix) -> None:
-    _header, rows = d_compose_matrix
-    structs: dict[str, list[dict[str, str]]] = {}
+def test_c_suite_is_the_legacy_native_rows_without_controls(c_matrix) -> None:
+    _header, legacy_rows = read_csv(LEGACY_D_NATIVE)
+    _header, rows = c_matrix
+    expected_ids = {
+        row["case_id"] for row in legacy_rows if row["window"] != "all_done_control"
+    }
+    assert {row["case_id"] for row in rows} == expected_ids
+    assert len(expected_ids) == 180
+
+
+# ---------------------------------------------------------------------------
+# D (compose) matrices
+# ---------------------------------------------------------------------------
+
+
+def test_d_intact_contract(d_intact_matrix) -> None:
+    _header, rows = d_intact_matrix
+    structs: set[str] = set()
     for row in rows:
+        assert row["test_suite"] == "compose"
+        assert row["dimension"] == "intact"
+        assert row["arm"] == "intact"
+        assert row["sub"] == "compose"
+        assert row["suite"] == "compose"
+        assert row["level"] == "INTACT"
+        assert row["param"] == ""
+        assert row["n_atoms"] == "2"
+        assert row["valid"] == "true"
+        assert row["repair_window"] == "0"
+        assert row["expected_relation_after"] == "true"
+        assert row["goal_atoms"].count("|") == 1
+        structs.add(row["struct_id"])
+    assert len(structs) == 176
+
+
+def test_d_rollback_contract(d_rollback_matrix) -> None:
+    _header, rows = d_rollback_matrix
+    structs: set[str] = set()
+    for row in rows:
+        assert row["test_suite"] == "compose"
+        assert row["dimension"] == "in-execution"
+        assert row["arm"] == "rollback"
         assert row["sub"] == "compose"
         assert row["suite"] == "compose"
         assert row["level"] == "L0"
         assert row["param"] == ""
+        assert row["window"] in {"early", "mid", "later"}
+        assert row["target"] == "s1"
+        assert row["repair_window"] == "600"
+        assert row["valid"] == "true"
         assert row["expected_relation_after"] == "false"
-        for field in ("instruction", "revoked_predicate", "revoked_object"):
-            assert row[field] == "<from C>", f"{row['case_id']}: {field} is not the placeholder"
-        structs.setdefault(row["struct_id"], []).append(row)
-    assert len(structs) == 120
-    for struct_id, struct_rows in structs.items():
-        assert sorted(row["window"] for row in struct_rows) == ["early", "later", "mid"]
-        assert CASE_ID_RE["d_compose"].match(struct_rows[0]["case_id"])
+        assert row["s2_must_stay_true"] == "true"
+        structs.add(row["struct_id"])
+    assert len(structs) == 176
+    counts: dict[tuple[str, str], int] = {}
+    for row in rows:
+        key = (row["struct_id"], row["window"])
+        counts[key] = counts.get(key, 0) + 1
+    assert len(counts) == 176 * 3
+    assert all(count == 1 for count in counts.values())
+
+
+def test_d_rollback_struct_ids_match_intact(d_intact_matrix, d_rollback_matrix) -> None:
+    assert {row["struct_id"] for row in d_intact_matrix[1]} == {
+        row["struct_id"] for row in d_rollback_matrix[1]
+    }
+
+
+def test_d_assets_exist_and_match_hashes(d_intact_matrix) -> None:
+    root = DATASET / "compose" / "bddl"
+    for row in d_intact_matrix[1]:
+        task_id = row["task_id"]
+        bddl = root / f"{task_id}.bddl"
+        init = root / f"{task_id}.pruned_init"
+        assert bddl.is_file(), bddl
+        assert init.is_file(), init
+        assert sha256_of(bddl) == row["bddl_sha256"]
+        assert sha256_of(init) == row["pruned_init_sha256"]
+
+
+def test_legacy_provisional_compose_is_not_executable() -> None:
+    _header, rows = read_csv(LEGACY_D_COMPOSE)
+    assert len(rows) == 360
+    assert {row["instruction"] for row in rows} == {"<from C>"}
+    manifest = read_yaml(DATASET / "manifest.yaml")
+    lite = read_yaml(DATASET / "lite.yaml")
+    assert "provisional" not in manifest or not manifest["provisional"]
+    legacy_ids = {row["case_id"] for row in rows}
+    assert not (legacy_ids & set(lite["cases"]))
+    assert "dataset/matrices/d-compose-provisional.csv" not in manifest["splits"]["core"]
 
 
 # ---------------------------------------------------------------------------
@@ -349,49 +578,40 @@ def test_d_compose_is_an_explicit_placeholder(d_compose_matrix) -> None:
 
 def test_manifest_schema_and_counts() -> None:
     manifest = read_yaml(DATASET / "manifest.yaml")
-    assert manifest["schema_version"] == 2
+    assert manifest["schema_version"] == 3
     assert manifest["generated_by"] == "scripts/build_manifest.py"
     assert manifest["dataset_version"]
     assert manifest["libero"]["commit"] == "f78abd68ee283de9f9be3c8f7e2a9ad60246e95c"
     assert manifest["counts"] == {
         "a": 40,
         "b": 442,
-        "d_native": 189,
-        "d_compose_provisional": 360,
-        "c": 0,
+        "c": 180,
+        "d_intact": 176,
+        "d_rollback": 528,
     }
-    assert manifest["c"]["status"] == "not_built"
+    assert "c" not in manifest, "the old C status block is superseded by counts.c"
+    assert "provisional" not in manifest or not manifest["provisional"]
 
 
 def test_manifest_sha256_and_rows_match_files() -> None:
     manifest = read_yaml(DATASET / "manifest.yaml")
     listed = {entry["path"] for entry in manifest["files"]}
-    expected = {
-        "dataset/matrices/a-matrix.csv",
-        "dataset/matrices/b-matrix.csv",
-        "dataset/matrices/d-native-matrix.csv",
-        "dataset/matrices/d-compose-provisional.csv",
-    }
-    assert set(listed) == expected
+    assert listed == set(CANONICAL_PATHS)
     for entry in manifest["files"]:
         path = REPO_ROOT / entry["path"]
         assert path.is_file(), entry["path"]
         assert sha256_of(path) == entry["sha256"], entry["path"]
         _header, rows = read_csv(path)
         assert len(rows) == entry["rows"], entry["path"]
-    assert [entry["path"] for entry in manifest["provisional"]] == [
-        "dataset/matrices/d-compose-provisional.csv"
-    ]
-    provisional = manifest["provisional"][0]
-    assert sha256_of(REPO_ROOT / provisional["path"]) == provisional["sha256"]
-    assert provisional["rows"] == D_COMPOSE_ROWS
+    for rel_path in LEGACY_PATHS:
+        assert (REPO_ROOT / rel_path).is_file(), rel_path
 
 
 def test_manifest_splits() -> None:
     manifest = read_yaml(DATASET / "manifest.yaml")
     lite_payload = read_yaml(DATASET / "lite.yaml")
     splits = manifest["splits"]
-    assert splits["core"] == ["a", "b", "d-native"]
+    assert splits["core"] == ["a", "b", "c", "d_intact", "d_rollback"]
     assert len(splits["lite"]) == LITE_ROWS
     assert set(splits["lite"]) == set(lite_payload["cases"])
     variance = splits["variance"]
@@ -399,33 +619,50 @@ def test_manifest_splits() -> None:
     assert len(variance["cases"]) == VARIANCE_CASES
     assert len(set(variance["cases"])) == VARIANCE_CASES
     executable: set[str] = set()
-    for name in ("a", "b", "d-native"):
-        path = MATRICES / f"{name}-matrix.csv"
-        _header, rows = read_csv(path)
+    for rel_path in CANONICAL_PATHS:
+        _header, rows = read_csv(REPO_ROOT / rel_path)
         executable.update(row["case_id"] for row in rows)
     assert set(variance["cases"]) <= executable
-    assert "dataset/matrices/d-compose-provisional.csv" not in splits.get("core", [])
+    for rel_path in LEGACY_PATHS:
+        assert rel_path not in splits["core"]
 
 
 def test_lite_split_covers_the_required_axes() -> None:
     lite = read_yaml(DATASET / "lite.yaml")
+    assert lite["schema_version"] == 2
     cases = lite["cases"]
     assert len(cases) == LITE_ROWS
     assert len(set(cases)) == LITE_ROWS
-    all_ids: set[str] = set()
-    for path in MATRICES.glob("*.csv"):
-        _header, rows = read_csv(path)
-        all_ids.update(row["case_id"] for row in rows)
-    assert set(cases) <= all_ids
-    provisional_ids = {
-        row["case_id"] for row in read_csv(MATRICES / "d-compose-provisional.csv")[1]
-    }
-    assert not (set(cases) & provisional_ids), "provisional cases must never be executable"
+    all_ids: dict[str, dict[str, str]] = {}
+    for rel_path in CANONICAL_PATHS:
+        _header, rows = read_csv(REPO_ROOT / rel_path)
+        for row in rows:
+            all_ids[row["case_id"]] = row
+    assert set(cases) <= set(all_ids)
+
+    groups = lite["splits"]
+    assert set(groups) == set(LITE_GROUPS)
+    assert {key: len(value) for key, value in groups.items()} == LITE_GROUPS
+    assert sorted(cases) == sorted(case_id for value in groups.values() for case_id in value)
+
+    for case_id in groups["c"]:
+        row = all_ids[case_id]
+        assert row["level"] != "C0"
+        assert row["window"] != "all_done_control"
+    for case_id in groups["d_intact"]:
+        row = all_ids[case_id]
+        assert row["valid"] == "true"
+        assert row["n_atoms"] == "2"
+    for case_id in groups["d_rollback"]:
+        assert all_ids[case_id]["window"] in {"early", "mid", "later"}
+
     coverage = lite["coverage"]
-    assert set(coverage["b_levels"]) == {"C0", "L0", "L1", "L2"}
+    assert coverage["total"] == 30
+    assert coverage["b_levels"] == {"C0": 4, "L0": 2, "L1": 2, "L2": 2}
     assert set(coverage["b_suites"]) == {"goal", "object", "spatial", "l10"}
-    assert set(coverage["d_windows"]) == {"early", "mid", "later", "all_done_control"}
-    assert set(coverage["a_suites"]) == {"goal", "object", "spatial", "l10"}
+    assert set(coverage["c_windows"]) == {"early", "mid", "later"}
+    assert set(coverage["c_levels"]) == {"L0", "L1", "L2"}
+    assert set(coverage["d_rollback_windows"]) == {"early", "mid", "later"}
     assert sum(coverage["a_suites"].values()) == 10
 
 
@@ -467,8 +704,12 @@ def test_dataset_has_no_absolute_host_paths() -> None:
             assert match is None, f"{path}: looks like an absolute host path: {match.group(0)!r}"
         if path.name != "sources.yaml":
             lowered = text.lower()
-            for token in ("libero_compose", "libero-compose", "libero_runtime", "libero-runtime"):
+            for token in ("libero_compose", "libero_runtime", "libero-runtime"):
                 assert token not in lowered, f"{path}: precursor reference {token!r}"
+            # The D-compose directory legitimately contains the phrase; only
+            # standalone (runtime/precursor) references are forbidden.
+            stripped = lowered.replace("dataset/matrices/libero-compose/", "")
+            assert "libero-compose" not in stripped, f"{path}: precursor reference"
 
 
 # ---------------------------------------------------------------------------
@@ -503,23 +744,17 @@ def test_build_manifest_check_is_reproducible() -> None:
 
 def test_validator_rejects_tampered_manifest(tmp_path) -> None:
     tampered_root = tmp_path / "repo"
-    (tampered_root / "dataset").mkdir(parents=True)
-    for name in (
-        "a-matrix.csv",
-        "b-matrix.csv",
-        "d-native-matrix.csv",
-        "d-compose-provisional.csv",
-    ):
-        target = tampered_root / "dataset" / "matrices" / name
-        target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_bytes((MATRICES / name).read_bytes())
-    for name in ("manifest.yaml", "lite.yaml", "sources.yaml", "README.md"):
-        (tampered_root / "dataset" / name).write_bytes((DATASET / name).read_bytes())
-    # Corrupt one manifest hash; the validator must refuse it.
+    shutil.copytree(DATASET, tampered_root / "dataset")
     manifest_path = tampered_root / "dataset" / "manifest.yaml"
     manifest_text = manifest_path.read_text(encoding="utf-8")
-    manifest_text = manifest_text.replace('sha256: "82786b4c', 'sha256: "00000000', 1)
-    manifest_path.write_text(manifest_text, encoding="utf-8")
+    tampered = re.sub(
+        r'sha256: "[0-9a-f]{64}"',
+        'sha256: "' + "0" * 64 + '"',
+        manifest_text,
+        count=1,
+    )
+    assert tampered != manifest_text
+    manifest_path.write_text(tampered, encoding="utf-8")
     result = run_script(
         "scripts/validate_dataset.py",
         "--dataset",

@@ -3,6 +3,7 @@
 > 版本：v2.0-draft ｜ 日期：2026-11-18 ｜ 上位文档：[README.md](../README.md)
 > 本文件是**数据契约与模块接口的唯一权威来源**；README 与本文件冲突时以本文件为准。
 > 状态标记：✅ 已完成并验证；🟡 迁移中；⬜ 未开始。
+> **2026-11-21 base-only 迁移注记**：`manifest` schema v3 计数为 `a=40 / b=442 / c=180 / d_intact=176 / d_rollback=528`；`files` 只列 5 个 canonical suite 矩阵，legacy `b/d-native/d-compose-provisional` 不进 files/splits。B 为 base `b-matrix.csv` 的视图，Plus 不进入主表；旧 A/B/C/D 套件表仍待迁移。
 
 ---
 
@@ -76,6 +77,8 @@ LIBERO_SUITE_DIRS = {
 
 ## 3. 矩阵 CSV 契约
 
+> 矩阵组织原则：本仓只有两个 Rollback 维度——**维度 1 完成后撤销（B）** 与 **维度 2 执行中撤销（D）**；A/C 是无撤销对照。完整定义见 [`docs/rollback-dimensions.md`](rollback-dimensions.md)。
+
 ### 3.1 通用规则
 
 1. `case_id` 全库唯一、发布后不可变；格式见 §4。
@@ -103,6 +106,7 @@ LIBERO_SUITE_DIRS = {
 列（17）：`case_id,suite,task_idx,bddl_name,instruction,target,revoked_objects,revoked_predicates,family,level,param,semantics,trigger,delay_steps,repair_window,expected_relation_after,n_targets`。
 
 - 语义定义见 README §3.4–3.5 与 `libero_rollback.matrices`；
+- 逐 task 的阅读说明（重点 l10）见 [`docs/b-matrix.md`](b-matrix.md)；
 - 校验由 `libero_rollback.matrices.load_b_matrix()` 强制（level/param 组合、C0 规则、谓词覆盖、每任务唯一 C0、同任务指令一致）。
 
 ### 3.4 D-native 矩阵（`d-native-matrix.csv`，189 行，导入 + 冻结）
@@ -110,10 +114,11 @@ LIBERO_SUITE_DIRS = {
 列（19）：`case_id,sub,suite,task_idx,struct_id,instruction,window,trigger_criterion,target,revoked_predicate,revoked_object,family,level,param,semantics,max_steps,repair_window,expected_relation_after,s2_must_stay_true`。
 
 - `sub == "native"`，`suite == "l10"`；`window ∈ {early,mid,later,all_done_control}`；
-- `target == "s1"`（`all_done_control` 除外，无撤销）；
+- `target == "s1"`（包括 `all_done_control`；C0 行只记录关系，不注入）；
 - `trigger_criterion` 是事件名（`enter_first_subgoal_completed` / `enter_next_subgoal_lift` / `enter_next_subgoal_preplacement` / `no injection`）；
-- `max_steps=800`（native），`repair_window=300`；
-- D 的触发检测**只使用 GT 谓词与仿真状态**，不得依赖任何外部 runtime profile。
+- `max_steps=800`（native），`repair_window=600`；
+- D 的触发检测**只使用 GT 谓词与仿真状态**，不得依赖任何外部 runtime profile；
+- 逐 case 的阅读说明（窗口、C0、配对）见 [`docs/d-matrix.md`](d-matrix.md)。
 
 ### 3.5 C 矩阵（⬜ 未提交）
 
@@ -143,9 +148,11 @@ c-<struct_id>
 | 项 | 值 |
 |---|---|
 | B trigger | `all_done`（全部 native goal 为真）+ `delay_steps=10` |
-| B budget | 600 活跃步 + 300 `repair_window`（注入后追加；逐 episode 记 `repair_budget_steps`） |
-| D-native budget | 800 + 300 |
-| A / C budget | 600 |
+| B budget | 600 活跃步 + 600 `repair_window`（注入后追加；逐 episode 记 `repair_budget_steps`） |
+| D-native budget | 800 + 600 |
+| C budget | 800 + 600 |
+| D-compose budget | 600 + 600 |
+| A budget | 600 |
 | `replan_steps` | 10 |
 | `init_row` | 0（主表）；0–4（variance 子集） |
 | `seed` | 0（主表） |

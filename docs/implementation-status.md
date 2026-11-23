@@ -1,5 +1,8 @@
 # 实现状态（Implementation Status）
 
+> **2026-11-21 base-only 迁移注记**：B = `b-matrix.csv`（442），C = `libero-rollback/in-execution-rollback.csv`（180，无 C0），D = `libero-compose`（intact 未建 + rollback 360 provisional）；Plus 不进入主表。
+> 新叙事见 [`rollback-narrative.md`](rollback-narrative.md)；本文件旧 B/D 口径待迁移。
+
 > 复核日期：2026-11-18 ｜ 复核人：task-4（docs-env）｜ 数据集版本 `2.0.0.dev0`（v2.0-draft）
 > 上位文档：[README.md](../README.md) · [docs/SPEC.md](SPEC.md) · [docs/protocol.md](protocol.md)
 > **本文件是当前仓库的事实快照**；README §0、§3.2、§3.7、§9.3 已在 M1 收尾（2026-11-18）同步为 Phase 1 实测状态，三处文档现在一致。
@@ -39,7 +42,7 @@
 | [README.md](../README.md) | ✅ | Phase 1 状态表、A 的 `n_goals` 实测、variance 规模、§9.3 数据债务均已同步 |
 | [docs/SPEC.md](SPEC.md) | ✅ | 数据契约与接口唯一权威（v2.0-draft） |
 | [docs/protocol.md](protocol.md) | ✅ | 本任务新增：S0–S5 阶段、预算/门控/产物/续跑/报告口径/禁止事项 |
-| [docs/cli-spec.md](cli-spec.md) | 🟡 | 本任务新增：现状 CLI 逐参数参考（实测）+ v3 维度开关（`success-delay`/`rollback`）+ l10 B/D 分离方案；**v3 尚未实现** |
+| [docs/cli-spec.md](cli-spec.md) | 🟡 | 本任务新增：现状 CLI 逐参数参考（实测）+ 六个能力开关（`--success-delay`/`--rollback`/`--compose`/`--window`/`--level`/`--target`） + 控制开关 `--controls`+ l10 B/D 分离方案；**v3 尚未实现** |
 | [docs/datasheet.md](datasheet.md) | ✅ | 本任务新增：套件/实测分布/来源/证书/数据债务/限制 |
 | [docs/attribution.md](attribution.md) | ✅ | 本任务新增：来源与 copy 映射、独立性约束、复核命令 |
 | [docs/implementation-status.md](implementation-status.md) | ✅ | 本文件 |
@@ -48,7 +51,7 @@
 
 | 组件 | 状态 | 验收命令 / 证据 |
 |---|---|---|
-| [configs/protocol.yaml](../configs/protocol.yaml) | ✅ | YAML 可解析；断言 `budgets.b=600+300`、`d_native=800+300`、`a/c=600`、`replan=10`、`delay=10`、`camera=256`、`settle=10`、`fps=20`、`core.total=1191` 全部通过（本次脚本断言） |
+| [configs/protocol.yaml](../configs/protocol.yaml) | ✅ | YAML 可解析；断言 `budgets.b=600+600`、`d_native=800+600`、`a=600`、`c=800+600`、`replan=10`、`delay=10`、`camera=256`、`settle=10`、`fps=20`、`core.total=1191` 全部通过（本次脚本断言） |
 | [configs/models.yaml](../configs/models.yaml) | ✅ | 5 个模型条目（pi05/pi0/pi0_fast/openvla_oft/smolvla）；`runner_policy_names=[pi05,smolvla,openvla_oft,none]`；pi0/pi0_fast 标 `runner_supported: false`（`load_policy()` 未接线） |
 | [configs/envs/README.md](../configs/envs/README.md) | ✅ | 每模型 env 锁的生成流程与 schema；锁文件本身 ⬜（Phase 2，需模型栈） |
 | [assets/libero.lock.yaml](../assets/libero.lock.yaml) | ✅ | 代码 pin（commit/clean 要求/suite 计数/sim stack draft）；`audit` 段如实记录 clean 与 sha256 未认证 |
@@ -308,12 +311,28 @@ exit=0
   - 重算自 165 个 `summary.json`：触发 all_done 157/165；注入硬门控 **157/157 有效、0 无效**；C0 **20/20**；**Recovery 23/137 = 16.8%**（goal 21/68 = 30.9%，object 2/69 = 2.9%）。
   - 与旧 `aggregate.json` 的 44 个可比字段全部一致；2 处差异写进报告对账节（源 `run-summary.json` 128 为中段快照；旧 SUMMARY 几何量混用量纲）。
   - 视频 165 个为本地审核产物（`*.mp4` gitignored，不入库），`videos/README.md` 给复制命令；新 clone 打开会显式提示视频缺失。
+- Spatial 报告：`experiments/b-rollback/report-spatial-20261118/`（pi05 · B 矩阵 Spatial 80 case；恢复即停）。
+  - 源报告重算：触发 80/80；注入有效 80/80；C0 10/10；Recovery 22/70 = 31.4%（L0 30.0% / L1 26.7% / L2 36.7%）。
+  - 迁移只归一化主机路径；源 run 的逐 case summary/trace/video 未迁入库。
 - 复核：`uv run pytest tests/test_review_report.py -q` → **14 passed**（含真实报告一致性）；`ruff check .` → 0 errors。
 
 ### 9.3 未完成 / 风险
 
-1. B 矩阵只跑了 Goal+Object（165/442），Spatial 80 + L10 197 未跑，**不能当 B 全量结论**。
+1. B 矩阵已跑 Goal+Object 165 + Spatial 80（恢复即停）；L10 197 未跑；本仓 l10 all_done smoke 仅 8 case（8/8 触发、7/8 有效、0/5 恢复），**不能当 B 全量结论**。
 2. 单 seed=0 / init_row=0；Wilson CI 仅为本次运行内条件比例。
 3. 源 run 根 `run-summary.json`（128）为早/中段快照，与 165 个 case 目录不一致；报告以 165 summary 为准并显式说明。
 4. `docs/cli-spec.md` 是 v3 CLI 设计草案（Part I 现状参考 + Part II/III 建议），**v3 未实现**，不作为契约。
 5. `docs/report-template` 样例由同一 renderer 生成，模板改动后需重跑生成器/样例（暂无 `--sample` 入口）。
+6. l10 smoke 的 `b-l10-t033-s2-l0` 在抽屉复位时与碗穿模 11.6 mm（门控阈值 10 mm），判 `injection_invalid`；这是真实门控结果，不是脚本错误。
+
+---
+
+## 10. 2026-11-19 数据集组织描述调整（两个 Rollback 维度）
+
+本次为**文档级调整**，不改数据、矩阵、runner 与任何实验数字：
+
+- 新增 [`docs/rollback-dimensions.md`](rollback-dimensions.md)：本仓数据集的两个 Rollback 维度——**维度 1 完成后撤销（B）**、**维度 2 执行中撤销（D）**，A/C 明确为无撤销对照；含触发/撤销对象/指标/不可混报规则/历史实验映射。
+- 新增图 1 [`docs/figures/rollback-dimensions.svg`](figures/rollback-dimensions.svg)（白色主题，自包含 SVG）。
+- README §2.4 / §3.1 / §3.2 的套件描述改为“两个 Rollback 维度 + 两个对照”（图 1）；`docs/b-matrix.md` §1.1、`docs/d-matrix.md` §1.1、`docs/datasheet.md` §2、`docs/SPEC.md` §3、`docs/experiment-report.md` §1 同步加“角色”列/说明。
+- 未改：`dataset/`、`src/`、`scripts/`、实验报告数字、报告模板。
+- 复核：`docs/figures/rollback-dimensions.svg` XML 可解析；仓库内相对链接扫描通过（历史 `source/` 副本除外）；`uv run pytest` 仍全绿（下一次完整回归时确认）。

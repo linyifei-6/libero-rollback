@@ -7,13 +7,25 @@ files.  ``scripts/validate_dataset.py`` (and CI) call this mode.
 
 What is generated
 -----------------
-* ``dataset/lite.yaml`` -- the 30-case smoke/reproduction split (``docs/SPEC.md``
-  §10): 10 A single-task anchors, 10 B rollback cases covering all four levels
-  and all four suites, 10 D-native cases covering ``early/mid/later`` plus an
-  ``all_done_control`` no-op control.  Selection is a pure function of the
-  matrices, so it is reproducible.
-* ``dataset/manifest.yaml`` -- counts, per-file sha256, the evaluation splits,
-  the provisional-file list and the upstream LIBERO pin (``docs/SPEC.md`` §8).
+* ``dataset/lite.yaml`` -- the 30-case smoke/reproduction split: 10 A
+  single-task anchors, 10 B completion-rollback cases, 5 C in-execution
+  rollback cases and 5 D compose cases (2 intact + 3 rollback).  Selection is
+  a pure function of the matrices, so it is reproducible.
+* ``dataset/manifest.yaml`` -- schema v3: counts, per-file sha256 for the five
+  canonical base matrices, the evaluation splits, an explicitly-legacy list and
+  the upstream LIBERO pin.
+
+Canonical matrices (base-only suite views, 2026-11-21)
+------------------------------------------------------
+``a``           ``dataset/matrices/a-matrix.csv``                             40
+``b``           ``dataset/matrices/libero-rollback/completion-rollback.csv``  442
+``c``           ``dataset/matrices/libero-rollback/in-execution-rollback.csv`` 180
+``d_intact``    ``dataset/matrices/libero-compose/intact.csv``                176
+``d_rollback``  ``dataset/matrices/libero-compose/rollback.csv``              528
+
+The legacy ``b-matrix.csv`` / ``d-native-matrix.csv`` /
+``d-compose-provisional.csv`` files stay on disk untouched but are no longer
+part of the executable split; they are listed under ``legacy`` for provenance.
 
 Usage::
 
@@ -41,32 +53,62 @@ PYPROJECT_PATH = REPO_ROOT / "pyproject.toml"
 LIBERO_REPO = "https://github.com/Lifelong-Robot-Learning/LIBERO"
 LIBERO_COMMIT = "f78abd68ee283de9f9be3c8f7e2a9ad60246e95c"
 
-#: The four matrices of the Phase-1 data tree.
-MATRIX_FILES = (
-    ("a", "dataset/matrices/a-matrix.csv", "a-matrix", 40),
-    ("b", "dataset/matrices/b-matrix.csv", "b-matrix", 442),
-    ("d_native", "dataset/matrices/d-native-matrix.csv", "d-native-matrix", 189),
-    (
-        "d_compose_provisional",
-        "dataset/matrices/d-compose-provisional.csv",
-        "d-compose-provisional",
-        360,
-    ),
+#: Manifest / lite document versions (schema v3: base-only suite matrices).
+SCHEMA_VERSION = 3
+LITE_SCHEMA_VERSION = 2
+LITE_TOTAL = 30
+
+#: The five canonical base matrices of the dataset tree: (key, path, rows).
+CANONICAL_FILES = (
+    ("a", "dataset/matrices/a-matrix.csv", 40),
+    ("b", "dataset/matrices/libero-rollback/completion-rollback.csv", 442),
+    ("c", "dataset/matrices/libero-rollback/in-execution-rollback.csv", 180),
+    ("d_intact", "dataset/matrices/libero-compose/intact.csv", 176),
+    ("d_rollback", "dataset/matrices/libero-compose/rollback.csv", 528),
 )
 
-#: Executable (non-provisional) matrices that form the Phase-1 ``core`` split.
-CORE_SPLIT = ["a", "b", "d-native"]
+#: Legacy frozen CSVs retained on disk for provenance only (never executed).
+LEGACY_FILES = (
+    ("b", "dataset/matrices/b-matrix.csv", 442),
+    ("d_native", "dataset/matrices/d-native-matrix.csv", 189),
+    ("d_compose_provisional", "dataset/matrices/d-compose-provisional.csv", 360),
+)
 
-#: Phase-1 ``variance`` selection: one case per structure, 5 init rows.
+#: Every canonical suite is executable in the ``core`` split.
+CORE_SPLIT = [key for key, _rel_path, _rows in CANONICAL_FILES]
+
+#: Phase-1 ``variance`` selection: 100 cases over the canonical matrices.
 VARIANCE_INIT_ROWS = [0, 1, 2, 3, 4]
 VARIANCE_CASES = 100
+VARIANCE_QUOTA = (
+    ("a", None),  # all A anchors
+    ("b", 30),
+    ("c", 15),
+    ("d_intact", 9),
+    ("d_rollback", 6),
+)
+
+#: Minimum columns each canonical matrix must carry for the selections below.
+REQUIRED_COLUMNS = {
+    "a": ("case_id", "suite", "task_idx"),
+    "b": ("case_id", "suite", "task_idx", "level", "param"),
+    "c": ("case_id", "suite", "task_idx", "window", "level", "param"),
+    "d_intact": ("case_id", "struct_id", "source_suite", "n_atoms", "valid"),
+    "d_rollback": ("case_id", "struct_id", "window", "level", "param"),
+}
 
 #: Deterministic ordering of suites / levels / windows used by the selections.
 A_SUITE_QUOTA = (("goal", 3), ("l10", 2), ("object", 3), ("spatial", 2))
 B_SUITES = ("goal", "l10", "object", "spatial")
 B_LEVELS = ("L0", "L1", "L2")
+C_LITE_PAIRS = (
+    ("early", "L0"),
+    ("mid", "L1"),
+    ("later", "L2"),
+    ("early", "L1"),
+    ("mid", "L2"),
+)
 D_WINDOWS = ("early", "mid", "later")
-D_LEVELS = ("L0", "L1", "L2")
 
 
 def _fail(message: str, *, code: int = 2) -> None:
@@ -123,14 +165,40 @@ def _window_rank(row: dict[str, str]) -> int:
     return order.get(row.get("window", ""), 99)
 
 
+def _stride(case_ids: list[str], count: int) -> list[str]:
+    """Pick ``count`` ids by uniform stride over an already sorted id list."""
+
+    if count >= len(case_ids):
+        return list(case_ids)
+    if count <= 0:
+        _fail(f"variance: invalid stride count {count}")
+    step = (len(case_ids) - 1) / (count - 1)
+    indices = sorted({round(index * step) for index in range(count)})
+    if len(indices) != count:
+        _fail("variance: stride selection produced duplicate case ids")
+    return [case_ids[index] for index in indices]
+
+
 def load_matrices() -> dict[str, list[dict[str, str]]]:
-    """Load and sanity-check every matrix mentioned in ``MATRIX_FILES``."""
+    """Load and sanity-check every canonical matrix mentioned in ``CANONICAL_FILES``."""
 
     rows: dict[str, list[dict[str, str]]] = {}
-    for key, rel_path, _stem, expected_rows in MATRIX_FILES:
+    seen: set[str] = set()
+    for key, rel_path, expected_rows in CANONICAL_FILES:
         matrix_rows = _read_rows(REPO_ROOT / rel_path)
         if len(matrix_rows) != expected_rows:
             _fail(f"{rel_path}: expected {expected_rows} rows, found {len(matrix_rows)}")
+        header = set(matrix_rows[0]) if matrix_rows else set()
+        missing = [column for column in REQUIRED_COLUMNS[key] if column not in header]
+        if missing:
+            _fail(f"{rel_path}: missing required columns {missing}")
+        for row in matrix_rows:
+            case_id = row.get("case_id")
+            if not case_id:
+                _fail(f"{rel_path}: row with empty case_id")
+            if case_id in seen:
+                _fail(f"{rel_path}: duplicate case_id {case_id!r}")
+            seen.add(case_id)
         rows[key] = matrix_rows
     return rows
 
@@ -195,49 +263,81 @@ def select_b_lite(b_rows: list[dict[str, str]]) -> list[str]:
     return chosen
 
 
-def select_d_lite(d_rows: list[dict[str, str]]) -> list[str]:
-    """10 D-native cases: one control + early/mid/later x (L0, L1, L2)."""
+def select_c_lite(c_rows: list[dict[str, str]]) -> list[str]:
+    """5 C cases: one per (window, level) pair, no C0 control."""
 
-    ordered = sorted(
-        d_rows,
-        key=lambda row: (
-            _window_rank(row),
-            _level_rank(row),
-            row.get("param") or "",
-            _task_idx(row),
-        ),
-    )
     chosen: list[str] = []
-    controls = [row for row in ordered if row["window"] == "all_done_control"]
-    if not controls:
-        _fail("lite: no D-native all_done_control case found")
-    chosen.append(controls[0]["case_id"])
-    for window in D_WINDOWS:
-        for level in D_LEVELS:
-            candidates = [
-                row
-                for row in ordered
-                if row["window"] == window
-                and row["level"] == level
-                and row["case_id"] not in chosen
-            ]
-            if not candidates:
-                _fail(f"lite: no D-native case with window={window!r} level={level!r}")
-            chosen.append(candidates[0]["case_id"])
-    if len(chosen) != 10:
-        _fail(f"lite: D selection produced {len(chosen)} cases, expected 10")
+    for window, level in C_LITE_PAIRS:
+        candidates = sorted(
+            (row for row in c_rows if row.get("window") == window and row.get("level") == level),
+            key=lambda row: (_task_idx(row), row.get("param") or "", row["case_id"]),
+        )
+        for row in candidates:
+            if row["case_id"] not in chosen:
+                chosen.append(row["case_id"])
+                break
+        else:
+            _fail(f"lite: no C case with window={window!r} level={level!r}")
+    if any(row.get("level") == "C0" for row in c_rows if row["case_id"] in chosen):
+        _fail("lite: C selection must not contain a C0 control")
+    if len(chosen) != len(C_LITE_PAIRS):
+        _fail(f"lite: C selection produced {len(chosen)} cases, expected 5")
     return chosen
+
+
+def select_d_lite(
+    intact_rows: list[dict[str, str]],
+    rollback_rows: list[dict[str, str]],
+) -> tuple[list[str], list[str]]:
+    """5 D cases: 2 valid n=2 intact structures + one rollback case per window."""
+
+    by_struct: dict[str, dict[str, str]] = {}
+    for row in sorted(intact_rows, key=lambda row: row["case_id"]):
+        by_struct.setdefault(row["struct_id"], row)
+    if len(by_struct) < 2:
+        _fail("lite: fewer than two D-intact structures")
+    intact_structs = _stride(sorted(by_struct), 2)
+    intact_cases = [by_struct[struct_id]["case_id"] for struct_id in intact_structs]
+    for struct_id in intact_structs:
+        row = by_struct[struct_id]
+        if row.get("valid") != "true" or row.get("n_atoms") != "2":
+            _fail(f"lite: D-intact {row['case_id']} is not a valid n=2 structure")
+
+    rollback_cases: list[str] = []
+    used_structs: set[str] = set()
+    for window in D_WINDOWS:
+        candidates = sorted(
+            (row for row in rollback_rows if row.get("window") == window),
+            key=lambda row: (row["struct_id"], row.get("param") or "", row["case_id"]),
+        )
+        if not candidates:
+            _fail(f"lite: no D-rollback case with window={window!r}")
+        pick = next(
+            (row for row in candidates if row["struct_id"] not in used_structs),
+            candidates[0],
+        )
+        used_structs.add(pick["struct_id"])
+        rollback_cases.append(pick["case_id"])
+    return intact_cases, rollback_cases
 
 
 def build_lite(rows: dict[str, list[dict[str, str]]]) -> dict:
     a_cases = select_a_lite(rows["a"])
     b_cases = select_b_lite(rows["b"])
-    d_cases = select_d_lite(rows["d_native"])
+    c_cases = select_c_lite(rows["c"])
+    d_intact_cases, d_rollback_cases = select_d_lite(rows["d_intact"], rows["d_rollback"])
+    cases = [*a_cases, *b_cases, *c_cases, *d_intact_cases, *d_rollback_cases]
+    if len(cases) != LITE_TOTAL:
+        _fail(f"lite: built {len(cases)} cases, expected {LITE_TOTAL}")
+    if len(set(cases)) != len(cases):
+        _fail("lite: selection contains duplicate case ids")
     return {
         "a": a_cases,
         "b": b_cases,
-        "d_native": d_cases,
-        "cases": [*a_cases, *b_cases, *d_cases],
+        "c": c_cases,
+        "d_intact": d_intact_cases,
+        "d_rollback": d_rollback_cases,
+        "cases": cases,
     }
 
 
@@ -258,40 +358,36 @@ def lite_coverage(
             by_id.setdefault(row["case_id"], row)
     a_rows = [by_id[case_id] for case_id in lite["a"]]
     b_rows = [by_id[case_id] for case_id in lite["b"]]
-    d_rows = [by_id[case_id] for case_id in lite["d_native"]]
+    c_rows = [by_id[case_id] for case_id in lite["c"]]
+    d_intact_rows = [by_id[case_id] for case_id in lite["d_intact"]]
+    d_rollback_rows = [by_id[case_id] for case_id in lite["d_rollback"]]
     return {
         "a_suites": _counts([row["suite"] for row in a_rows]),
         "b_suites": _counts([row["suite"] for row in b_rows]),
         "b_levels": _counts([row["level"] for row in b_rows]),
-        "d_windows": _counts([row["window"] for row in d_rows]),
-        "d_levels": _counts([row["level"] for row in d_rows]),
+        "c_windows": _counts([row["window"] for row in c_rows]),
+        "c_levels": _counts([row["level"] for row in c_rows]),
+        "d_intact_source_suites": _counts([row["source_suite"] for row in d_intact_rows]),
+        "d_rollback_windows": _counts([row["window"] for row in d_rollback_rows]),
         "total": len(lite["cases"]),
     }
 
 
 def build_variance(rows: dict[str, list[dict[str, str]]]) -> dict:
-    """Deterministic 100-case subset of the core split (one case per structure)."""
+    """Deterministic 100-case subset of the five canonical matrices."""
 
-    def _stride(case_ids: list[str], count: int) -> list[str]:
-        if count >= len(case_ids):
-            return list(case_ids)
-        step = (len(case_ids) - 1) / (count - 1)
-        indices = sorted({round(index * step) for index in range(count)})
-        if len(indices) != count:
-            _fail("variance: stride selection produced duplicate case ids")
-        return [case_ids[index] for index in indices]
-
-    a_cases = sorted(row["case_id"] for row in rows["a"])
-    b_cases = _stride(sorted(row["case_id"] for row in rows["b"]), 30)
-    d_cases = _stride(sorted(row["case_id"] for row in rows["d_native"]), 30)
-    cases = [*a_cases, *b_cases, *d_cases]
+    cases: list[str] = []
+    for key, quota in VARIANCE_QUOTA:
+        ids = sorted(row["case_id"] for row in rows[key])
+        selected = ids if quota is None else _stride(ids, quota)
+        cases.extend(selected)
     if len(cases) != VARIANCE_CASES:
         _fail(f"variance: built {len(cases)} cases, expected {VARIANCE_CASES}")
     return {
         "rule": (
-            "40 A anchors (all) + 30 B + 30 D-native cases picked by uniform "
-            "stride over the sorted case ids of each matrix; one case per "
-            "structure, evaluated on init rows 0-4"
+            "40 A anchors (all) + 30 B + 15 C + 9 D-intact + 6 D-rollback cases "
+            "picked by uniform stride over the sorted case ids of each canonical "
+            "matrix; one case per structure, evaluated on init rows 0-4"
         ),
         "init_rows": VARIANCE_INIT_ROWS,
         "cases": cases,
@@ -307,18 +403,21 @@ def render_lite(lite: dict, coverage: dict) -> str:
     lines: list[str] = [
         "# LIBERO-Rollback lite split -- generated by scripts/build_manifest.py; do not edit.",
         "# Selection rule: docs/SPEC.md §10 (deterministic, a pure function of the matrices).",
-        "schema_version: 1",
+        f"schema_version: {LITE_SCHEMA_VERSION}",
         "split: lite",
         "total: " + str(coverage["total"]),
         "rule: >-",
         "  A: 10 single-task anchors (goal/l10/object/spatial = 3/2/3/2).",
-        "  B: 10 rollback cases: one C0 control per suite plus two cases per",
-        "  perturbation level (L0/L1/L2), suite-cycled, deterministic order.",
-        "  D-native: 10 cases, one all_done_control plus early/mid/later x (L0, L1, L2),",
-        "  picked in deterministic (window, level, param, task_idx) order.",
+        "  B: 10 completion-rollback cases: one C0 control per suite plus two cases",
+        "  per perturbation level (L0/L1/L2), suite-cycled, deterministic order.",
+        "  C: 5 in-execution cases, one per (window, level) pair in the fixed order",
+        "  early-L0, mid-L1, later-L2, early-L1, mid-L2; no C0 control.",
+        "  D: 2 valid n=2 intact structures (uniform stride over sorted struct ids)",
+        "  plus one rollback case per window (early/mid/later), distinct structures",
+        "  where possible.",
         "splits:",
     ]
-    for key in ("a", "b", "d_native"):
+    for key in ("a", "b", "c", "d_intact", "d_rollback"):
         lines.append(f"  {key}:")
         lines.extend(f"    - {_q(case_id)}" for case_id in lite[key])
     lines.append("cases:")
@@ -346,17 +445,13 @@ def render_manifest(
     version: str,
 ) -> str:
     files: list[list[str]] = []
-    provisional_entry: list[str] = []
-    for key, rel_path, _stem, expected_rows in MATRIX_FILES:
-        entry = _file_entry(rel_path, _sha256(REPO_ROOT / rel_path), expected_rows)
-        files.append(entry)
-        if key == "d_compose_provisional":
-            provisional_entry = list(entry)
+    for _key, rel_path, expected_rows in CANONICAL_FILES:
+        files.append(_file_entry(rel_path, _sha256(REPO_ROOT / rel_path), expected_rows))
     lines: list[str] = [
         "# LIBERO-Rollback dataset manifest -- generated by "
         "scripts/build_manifest.py; do not edit.",
         "# Deterministic: rebuild with `python scripts/build_manifest.py --check`.",
-        "schema_version: 2",
+        f"schema_version: {SCHEMA_VERSION}",
         f"dataset_version: {_q(version)}",
         "generated_by: scripts/build_manifest.py",
         "libero:",
@@ -368,12 +463,25 @@ def render_manifest(
         f"    init_files: {_q('libero/libero/init_files')}",
         "counts:",
     ]
-    for key, _rel_path, _stem, expected_rows in MATRIX_FILES:
+    for key, _rel_path, expected_rows in CANONICAL_FILES:
         lines.append(f"  {key}: {expected_rows}")
-    lines.append("  c: 0")
     lines.append("files:")
     for entry in files:
         lines.extend(entry)
+    lines.append("legacy:")
+    lines.append(
+        "  note: "
+        + _q(
+            "Frozen pre-migration CSVs retained on disk for provenance only. They are "
+            "not hashed here, not executable and not part of any split; the canonical "
+            "base-only suite views above supersede them."
+        )
+    )
+    lines.append("  counts:")
+    for key, _rel_path, expected_rows in LEGACY_FILES:
+        lines.append(f"    {key}: {expected_rows}")
+    lines.append("  files:")
+    lines.extend(f"    - {_q(rel_path)}" for _key, rel_path, _rows in LEGACY_FILES)
     lines.append("splits:")
     lines.append("  lite:")
     lines.extend(f"    - {_q(case_id)}" for case_id in lite["cases"])
@@ -385,17 +493,6 @@ def render_manifest(
     lines.extend(f"      - {init_row}" for init_row in variance["init_rows"])
     lines.append("    cases:")
     lines.extend(f"      - {_q(case_id)}" for case_id in variance["cases"])
-    lines.append("provisional:")
-    lines.extend(provisional_entry)
-    lines.append("c:")
-    lines.append("  status: not_built")
-    lines.append(
-        "  note: "
-        + _q(
-            "C suite (120 n=2 structures + 40 n=3 structures) is Phase 2; the provisional "
-            "D-compose matrix stays out of every executable split until C ships."
-        )
-    )
     return "\n".join(lines) + "\n"
 
 
@@ -465,7 +562,7 @@ def main(argv: list[str] | None = None) -> int:
         return 0
     LITE_PATH.write_bytes(lite_text.encode("utf-8"))
     MANIFEST_PATH.write_bytes(manifest_text.encode("utf-8"))
-    print(f"[build_manifest] wrote {LITE_PATH} (30 cases) and {MANIFEST_PATH}")
+    print(f"[build_manifest] wrote {LITE_PATH} ({LITE_TOTAL} cases) and {MANIFEST_PATH}")
     print(
         "[build_manifest] manifest sha256 "
         + hashlib.sha256(manifest_text.encode("utf-8")).hexdigest()

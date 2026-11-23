@@ -22,17 +22,22 @@ Real run (inside the simulation environment, one model environment per policy)::
 from __future__ import annotations
 
 import argparse
+import os
 import sys
 import time
 from collections.abc import Sequence
 from pathlib import Path
+
+# JAX preallocates 75% of the GPU by default; pi05 only needs ~10 GB.
+# Keep the old parallel-with-SmolVLA budget unless the caller overrides it.
+os.environ.setdefault("XLA_PYTHON_CLIENT_MEM_FRACTION", "0.42")
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SRC_DIR = REPO_ROOT / "src"
 if str(SRC_DIR) not in sys.path:
     sys.path.insert(0, str(SRC_DIR))
 
-DEFAULT_MATRIX = REPO_ROOT / "dataset" / "matrices" / "b-matrix.csv"
+DEFAULT_MATRIX = REPO_ROOT / "dataset" / "matrices" / "libero-rollback" / "completion-rollback.csv"
 RULE = "-" * 78
 
 
@@ -55,6 +60,24 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument("--suites", nargs="*", default=None, help="subset: goal object spatial l10")
     parser.add_argument("--case-ids", nargs="*", default=None)
+    parser.add_argument(
+        "--levels",
+        nargs="*",
+        default=None,
+        help="subset of levels, e.g. L0 L1 (used by static-init runs)",
+    )
+    parser.add_argument(
+        "--static-init",
+        action="store_true",
+        help="apply the L0/L1 target pose at t=0 and run the policy without rollback",
+    )
+    parser.add_argument("--settle-after-injection", type=int, default=0)
+    parser.add_argument(
+        "--static-targets",
+        type=Path,
+        default=None,
+        help="JSON case_id -> exact target state captured from rollback",
+    )
     parser.add_argument("--max-tasks", type=int, default=0)
     parser.add_argument("--max-cases", type=int, default=0)
     parser.add_argument("--shard-index", type=int, default=0)
@@ -62,6 +85,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--init-row", type=int, default=0)
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--max-steps", type=int, default=600)
+    parser.add_argument("--repair-window", type=int, default=600)
     parser.add_argument("--delay-steps", type=int, default=10)
     parser.add_argument("--replan", type=int, default=10)
     parser.add_argument("--camera", type=int, default=256)
@@ -72,6 +96,14 @@ def build_parser() -> argparse.ArgumentParser:
         default=60,
         help="after all_done, wait at most N steps for every revoked relation to be true",
     )
+    parser.add_argument(
+        "--stop-on-recovery",
+        action=argparse.BooleanOptionalAction,
+        default=False,
+        help=("stop a non-C0 episode at the first confirmed recovery; "
+              "default keeps the full repair window"),
+    )
+    parser.add_argument("--recovery-confirm-steps", type=int, default=1)
     parser.add_argument("--video", action=argparse.BooleanOptionalAction, default=True)
     parser.add_argument("--video-fps", type=int, default=20)
     parser.add_argument(
@@ -138,6 +170,11 @@ def main(argv: Sequence[str] | None = None) -> int:
         shard_index=args.shard_index,
         shard_count=args.shard_count,
     )
+    if args.levels:
+        wanted = {level.upper() for level in args.levels}
+        cases = [case for case in cases if case.level.upper() in wanted]
+    if args.static_init:
+        args.stop_on_recovery = False
     print(RULE)
     print(f"B matrix: {matrix.summary()}")
     print(f"selected: {len(cases)} cases / {len({case.task_key for case in cases})} tasks")
@@ -151,7 +188,13 @@ def main(argv: Sequence[str] | None = None) -> int:
         replan=args.replan,
         camera=args.camera,
         settle_steps=args.settle_steps,
+        repair_window=args.repair_window,
         max_trigger_wait=args.max_trigger_wait,
+        settle_after_injection=int(args.settle_after_injection),
+        static_init=bool(args.static_init),
+        static_targets=str(args.static_targets) if args.static_targets else None,
+        stop_on_recovery=bool(args.stop_on_recovery),
+        recovery_confirm_steps=int(args.recovery_confirm_steps),
         video=bool(args.video),
         video_fps=args.video_fps,
         policy=args.policy,

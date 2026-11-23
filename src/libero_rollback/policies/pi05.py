@@ -19,6 +19,9 @@ import time
 from collections.abc import Mapping
 from typing import Any
 
+# Set before openpi/JAX is imported in Pi05Policy.__init__.
+os.environ.setdefault("XLA_PYTHON_CLIENT_MEM_FRACTION", "0.42")
+
 import numpy as np
 
 

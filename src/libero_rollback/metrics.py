@@ -249,6 +249,174 @@ def success_rate(episodes: Iterable[Episode]) -> Rate:
     return _rate(numerator, denominator)
 
 
+def _goal_truth(episode: Episode) -> list[bool] | None:
+    """Return the final native-goal truth vector, when the runner recorded it."""
+
+    summary = _summary_of(episode)
+    value = summary.get("final_goal_truth")
+    if isinstance(value, (list, tuple)) and value:
+        if all(isinstance(item, bool) for item in value):
+            return list(value)
+    return None
+
+
+def goal_progress(episode: Episode) -> float | None:
+    """Fraction of native goal atoms true at episode end (0–1)."""
+
+    truth = _goal_truth(episode)
+    if not truth:
+        return None
+    return sum(1 for value in truth if value) / len(truth)
+
+
+def atoms_completed(episode: Episode) -> int | None:
+    """Number of native goal atoms true at episode end."""
+
+    truth = _goal_truth(episode)
+    return None if truth is None else sum(1 for value in truth if value)
+
+
+def mean_goal_progress(episodes: Iterable[Episode]) -> float | None:
+    """Mean ``Progress`` over episodes that recorded a goal-truth vector."""
+
+    values = [value for value in (goal_progress(episode) for episode in episodes) if value is not None]
+    return sum(values) / len(values) if values else None
+
+
+def _median(values: Sequence[float]) -> float | None:
+    if not values:
+        return None
+    ordered = sorted(float(value) for value in values)
+    middle = len(ordered) // 2
+    if len(ordered) % 2:
+        return ordered[middle]
+    return (ordered[middle - 1] + ordered[middle]) / 2.0
+
+
+def _quartiles(values: Sequence[float]) -> tuple[float | None, float | None]:
+    if len(values) < 2:
+        return (None, None)
+    ordered = sorted(float(value) for value in values)
+
+    def quantile(q: float) -> float:
+        position = (len(ordered) - 1) * q
+        lower = int(position)
+        upper = min(lower + 1, len(ordered) - 1)
+        fraction = position - lower
+        return ordered[lower] * (1.0 - fraction) + ordered[upper] * fraction
+
+    return (quantile(0.25), quantile(0.75))
+
+
+def progress_summary(episodes: Iterable[Episode]) -> dict[str, Any]:
+    """Distribution of ``Progress`` (not only the mean)."""
+
+    values = [value for value in (goal_progress(episode) for episode in episodes) if value is not None]
+    if not values:
+        return {"n": 0, "mean": None, "median": None, "iqr": None}
+    q1, q3 = _quartiles(values)
+    return {
+        "n": len(values),
+        "mean": sum(values) / len(values),
+        "median": _median(values),
+        "iqr": None if q1 is None or q3 is None else [q1, q3],
+    }
+
+
+def partial_progress_rate(episodes: Iterable[Episode]) -> Rate:
+    """``PP = P(≥1 native goal atom true)`` over episodes with a truth vector."""
+
+    numerator = denominator = 0
+    for episode in episodes:
+        truth = _goal_truth(episode)
+        if truth is None:
+            continue
+        denominator += 1
+        if any(truth):
+            numerator += 1
+    return _rate(numerator, denominator)
+
+
+def zero_progress_rate(episodes: Iterable[Episode]) -> Rate:
+    """Share of episodes with no native goal atom true."""
+
+    numerator = denominator = 0
+    for episode in episodes:
+        truth = _goal_truth(episode)
+        if truth is None:
+            continue
+        denominator += 1
+        if not any(truth):
+            numerator += 1
+    return _rate(numerator, denominator)
+
+
+def one_and_done_rate(episodes: Iterable[Episode]) -> Rate:
+    """Among failures of n>=2 tasks, share with exactly one atom true.
+
+    This is the capacity=1 signature; a task with n=1 is not in the denominator
+    (there is no "one and done" ambiguity).
+    """
+
+    numerator = denominator = 0
+    for episode in episodes:
+        truth = _goal_truth(episode)
+        if truth is None or len(truth) < 2:
+            continue
+        if all(truth):
+            continue
+        denominator += 1
+        if sum(1 for value in truth if value) == 1:
+            numerator += 1
+    return _rate(numerator, denominator)
+
+
+def _pending_truth(episode: Episode) -> list[bool] | None:
+    summary = _summary_of(episode)
+    value = summary.get("final_pending_truth")
+    if isinstance(value, (list, tuple)):
+        if all(isinstance(item, bool) for item in value):
+            return list(value)
+    return None
+
+
+def pending_preservation_rate(episodes: Iterable[Episode]) -> Rate:
+    """Share of episodes whose non-revoked pending atoms all stay true."""
+
+    numerator = denominator = 0
+    for episode in episodes:
+        pending = _pending_truth(episode)
+        if pending is None or not pending:
+            continue
+        denominator += 1
+        if all(pending):
+            numerator += 1
+    return _rate(numerator, denominator)
+
+
+def mean_pending_preservation(episodes: Iterable[Episode]) -> float | None:
+    """Mean fraction of pending atoms preserved (C/D)."""
+
+    values: list[float] = []
+    for episode in episodes:
+        pending = _pending_truth(episode)
+        if pending:
+            values.append(sum(1 for value in pending if value) / len(pending))
+    return sum(values) / len(values) if values else None
+
+
+def terminal_state_counts(episodes: Iterable[Episode]) -> dict[str, int]:
+    """Count ``both`` / ``restore_only`` / ``pending_only`` / ``neither``."""
+
+    counts = {"both": 0, "restore_only": 0, "pending_only": 0, "neither": 0}
+    for episode in episodes:
+        summary = _summary_of(episode)
+        state = summary.get("terminal_state")
+        if isinstance(state, str) and state in counts:
+            counts[state] += 1
+    return counts
+
+
 # ---------------------------------------------------------------------------
 # aggregation
 # ---------------------------------------------------------------------------
@@ -266,6 +434,13 @@ def _group_summary(episodes: Sequence[Episode]) -> dict[str, Any]:
         "control": control_rate(episodes).as_dict(),
         "trigger": trigger_rate(episodes).as_dict(),
         "success": success_rate(episodes).as_dict(),
+        "progress": progress_summary(episodes),
+        "pp": partial_progress_rate(episodes).as_dict(),
+        "zero_progress": zero_progress_rate(episodes).as_dict(),
+        "one_and_done": one_and_done_rate(episodes).as_dict(),
+        "pending_preservation": pending_preservation_rate(episodes).as_dict(),
+        "mean_pending_preservation": mean_pending_preservation(episodes),
+        "terminal_states": terminal_state_counts(episodes),
     }
 
 

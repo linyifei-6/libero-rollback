@@ -1,5 +1,8 @@
 # 数据卡（Datasheet）
 
+> **2026-11-21 base-only 迁移注记**：B = `b-matrix.csv`（442），C = `libero-rollback/in-execution-rollback.csv`（180，无 C0），D = `libero-compose`（intact 176 + rollback 528）；Plus 不进入主表。
+> 新叙事见 [`rollback-narrative.md`](rollback-narrative.md)；本文件旧 B/D 口径待迁移。
+
 > 版本：`2.0.0.dev0`（v2.0-draft）｜ 日期：2026-11-18 ｜ 上位文档：[README.md](../README.md) · [docs/SPEC.md](SPEC.md) · [docs/protocol.md](protocol.md)
 > 本文件描述**当前仓库里的真实数据**；数字以 `dataset/matrices/*.csv` 与 [dataset/manifest.yaml](../dataset/manifest.yaml) 为准。未构建的数据不会写成已构建。
 
@@ -24,13 +27,15 @@
 
 ## 2. 四个套件（Phase 1 实际状态）
 
-| 套件 | 底盘 | 扰动 | 触发 | n | case 数 | 状态 |
-|---|---|---|---|---|---:|---|
-| **A** `single-intact` | 原始 LIBERO 4 套件 ×10 任务 | 无 | — | 1–3（实测，见 §4） | **40** | ✅ 已生成（`a-matrix.csv`） |
-| **B** `completion-boundary-rollback` | 同 A 的 40 任务 | `C0/L0/L1/L2` | `all_done` + delay 10 | 1–2 | **442** | ✅ 已导入冻结（`b-matrix.csv`） |
-| **D-native** `in-execution-rollback` | LIBERO-10 原生多目标（9 任务） | `C0/L0/L1/L2` | `early` / `mid` / `later` | 2 | **189** | ✅ 已导入冻结（`d-native-matrix.csv`） |
-| **D-compose**（Phase 2） | C 的 120 个 n=2 结构 | `L0` | 3 窗口 | 2 | 360（占位） | 🟡 仅 provisional，**不执行** |
-| **C** `composition-intact` | 40-task pool 内同场景配对 | 无 | — | 2（+40 条 n=3） | **0**（目标 160） | ⬜ Phase 2，尚未构建 |
+| 角色 | 套件 | 底盘 | 扰动 | 触发 | n | case 数 | 状态 |
+|---|---|---|---|---|---|---:|---|
+| **Rollback 维度 1** | **B** `completion-boundary-rollback` | 同 A 的 40 任务 | `C0/L0/L1/L2` | `all_done` + delay 10 | 1–2 | **442** | ✅ 已导入冻结（`b-matrix.csv`） |
+| **Rollback 维度 2** | **D-native** `in-execution-rollback` | LIBERO-10 原生多目标（9 任务） | `C0/L0/L1/L2` | `early` / `mid` / `later` | 2 | **189** | ✅ 已导入冻结（`d-native-matrix.csv`） |
+| 维度 2（占位） | **D-compose**（Phase 2） | C 的 120 个 n=2 结构 | `L0` | 3 窗口 | 2 | 360（占位） | 🟡 仅 provisional，**不执行** |
+| 对照（无撤销） | **A** `single-intact` | 原始 LIBERO 4 套件 ×10 任务 | 无 | — | 1–3（实测，见 §4） | **40** | ✅ 已生成（`a-matrix.csv`） |
+| 对照/剂量（无撤销，Phase 2） | **C** `composition-intact` | 40-task pool 内同场景配对 | 无 | — | 2（+40 条 n=3） | **0**（目标 160） | ⬜ Phase 2，尚未构建 |
+
+> 角色定义：两个 Rollback 维度 = **维度 1 完成后撤销（B）** 与 **维度 2 执行中撤销（D）**；A/C 是无撤销对照。完整定义与不可混报规则见 [docs/rollback-dimensions.md](rollback-dimensions.md)。
 
 **Phase 1 可执行 case 总数 = A 40 + B 442 + D-native 189 = 671**（README 的目标 `core` 是 1,191，其中 C 160 与 D-compose 360 待 Phase 2）。`lite` 30 条见 `dataset/lite.yaml`。
 
@@ -62,7 +67,7 @@
 | level | `C0` 9 / `L0` 27 / `L1` 81 / `L2` 72 |
 | family | pose 176 / joint 13 |
 | trigger_criterion | `enter_first_subgoal_completed` / `enter_next_subgoal_lift` / `enter_next_subgoal_preplacement` / `no injection`（C0） |
-| 预算 | `max_steps=800` + `repair_window=300` |
+| 预算 | `max_steps=800` + `repair_window=600` |
 
 **A（40 行）**：按 B 的 40 个任务键生成，指令与 `n_goals` 逐字读取上游 BDDL。实测 `n_goals` 分布：**31 条 n=1、8 条 n=2、1 条 n=3**（n=3 的是 `KITCHEN_SCENE8_put_both_moka_pots_on_the_stove`，见 §8 债务 9）。A 的 `max_steps=600`，每行只绑定 init row 0（10-init 上界协议另行报告）。
 
@@ -117,7 +122,7 @@
 
 1. **B 内混合 n=1 与 n=2**：B 的 40 任务含 10 个 LIBERO-10 原生多目标任务；报告必须按 suite 分列，B(l10) 与 D-native 的 pending 对照单独成表，不与 n=1 混算。
 2. **A 含 LIBERO-10**：A(Obj/Goal/Spatial) 是严格 n=1 锚点，A(l10) 是 n=2（及 1 条 n=3）参照；报告分开。
-3. **B 的 `max_steps` 口径变更**：来源实现为 600 总步；v2 为“600 活跃步 + 300 修复窗口”，逐 episode 记 `repair_budget_steps`。两套口径不得混表。
+3. **B 的 `max_steps` 口径变更**：来源实现为 600 总步；v2 为“600 活跃步 + 600 修复窗口”，逐 episode 记 `repair_budget_steps`。两套口径不得混表。
 4. **`both` 撤销不彻底**：部分 LIBERO-10 任务有 3 个目标原子（含 `Turnon` 类隐含前置），`both` 撤销后可能仍有一个原子为真；必须在 case `notes` / 数据卡标注。
 5. **`valid` 是构造层判断**：不等于物理验证；数据卡区分 “construction-level valid” 与 “physically verified”。
 6. **窗口触发率**：D 的触发率是实测值；某窗口不可达时按 `N/A` 处理并从主表剔除原因，**不删 case**。

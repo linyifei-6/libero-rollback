@@ -10,7 +10,15 @@ from libero_rollback.metrics import (
     control_rate,
     effective_goal_capacity,
     egc,
+    goal_progress,
+    mean_goal_progress,
+    mean_pending_preservation,
+    one_and_done_rate,
+    partial_progress_rate,
+    pending_preservation_rate,
+    progress_summary,
     recovery_rate,
+    zero_progress_rate,
     retention,
     success_rate,
     summarize,
@@ -181,3 +189,65 @@ def test_summarize_accepts_unpreclassified_v2_summaries() -> None:
     }
     report = summarize([summary])
     assert report["by_verdict"] == {classify_episode(summary): 1}
+
+
+def test_progress_and_subtask_degree() -> None:
+    episodes = [
+        episode("valid_recovered", final_goal_truth=[True, False]),
+        episode("valid_not_recovered", final_goal_truth=[False, False]),
+        episode("valid_recovered", final_goal_truth=[True, True, False]),
+    ]
+    assert goal_progress(episodes[0]) == pytest.approx(0.5)
+    assert mean_goal_progress(episodes) == pytest.approx((0.5 + 0.0 + 2 / 3) / 3)
+    summary = progress_summary(episodes)
+    assert summary["n"] == 3
+    assert summary["median"] == pytest.approx(0.5)
+    assert summary["iqr"] is not None
+
+
+def test_partial_zero_and_one_and_done_rates() -> None:
+    episodes = [
+        episode("valid_recovered", final_goal_truth=[True, True]),
+        episode("valid_not_recovered", final_goal_truth=[True, False]),
+        episode("valid_not_recovered", final_goal_truth=[False, False]),
+        episode("valid_not_recovered", final_goal_truth=[True]),
+    ]
+    pp = partial_progress_rate(episodes)
+    assert (pp.numerator, pp.denominator) == (3, 4)
+    zero = zero_progress_rate(episodes)
+    assert (zero.numerator, zero.denominator) == (1, 4)
+    # n>=2 failures: two calls (True,False), (False,False); one has exactly 1.
+    oad = one_and_done_rate(episodes)
+    assert (oad.numerator, oad.denominator) == (1, 2)
+
+
+def test_pending_preservation_and_terminal_states() -> None:
+    episodes = [
+        episode("valid_recovered", final_pending_truth=[True], terminal_state="both"),
+        episode("valid_not_recovered", final_pending_truth=[False], terminal_state="restore_only"),
+        episode("valid_not_recovered", final_pending_truth=[True], terminal_state="pending_only"),
+        episode("valid_not_recovered", final_pending_truth=[False], terminal_state="neither"),
+    ]
+    rate = pending_preservation_rate(episodes)
+    assert (rate.numerator, rate.denominator) == (2, 4)
+    assert mean_pending_preservation(episodes) == pytest.approx(0.5)
+    counts = progress_summary([])
+    assert counts["mean"] is None
+
+
+def test_terminal_state_counts_are_separate() -> None:
+    from libero_rollback.metrics import terminal_state_counts
+
+    episodes = [
+        episode("valid_recovered", terminal_state="both"),
+        episode("valid_recovered", terminal_state="both"),
+        episode("valid_not_recovered", terminal_state="restore_only"),
+        episode("valid_not_recovered", terminal_state="pending_only"),
+        episode("valid_not_recovered", terminal_state="neither"),
+    ]
+    assert terminal_state_counts(episodes) == {
+        "both": 2,
+        "restore_only": 1,
+        "pending_only": 1,
+        "neither": 1,
+    }

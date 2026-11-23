@@ -39,6 +39,20 @@ MJ_JNT_HINGE = 3
 EPS = 1e-8
 
 
+def _load_o2_state(path: str) -> np.ndarray:
+    """Read one LIBERO-Plus O2 single-state ``.pruned_init`` (torch.save zip)."""
+
+    import pickle
+    import zipfile
+
+    with zipfile.ZipFile(path) as archive:
+        members = [name for name in archive.namelist() if name.endswith("/data.pkl")]
+        if not members:
+            members = ["archive/data.pkl"]
+        payload = pickle.loads(archive.read(members[0]), encoding="latin1")
+    return np.asarray(payload, dtype=np.float64).reshape(-1)
+
+
 # ---------------------------------------------------------------------------
 # small math helpers
 # ---------------------------------------------------------------------------
@@ -269,6 +283,8 @@ class BInjector:
 
     def __init__(self, env, case: BCase, goal_atoms: Sequence[Sequence[Any]]):
         self.env = env
+        self.static_init = False
+        self.static_target: dict | None = None
         self.case = case
         self.sim = env.env.sim
         self.model = self.sim.model
@@ -299,6 +315,9 @@ class BInjector:
         self._initial: dict[str, TargetSnapshot] = {
             name: self.snapshot(name) for name in self.targets
         }
+        self._last_before: dict[str, Any] | None = None
+        self._last_applied: list[dict[str, Any]] = []
+        self._last_kind: str | None = None
 
     # -- construction -----------------------------------------------------
 
@@ -443,12 +462,22 @@ class BInjector:
             "snapshots": {name: snap.as_dict() for name, snap in self.snapshot_all().items()},
         }
         applied: list[dict[str, Any]] = []
-        if spec.kind == "c0":
+        if self.static_init and self.static_target:
+            applied = self._apply_static_target()
+        elif spec.kind == "c0":
             self._forward()
         elif spec.kind == "init":
             for name in self.targets:
                 self._restore_initial(name)
                 applied.append({"target": name, "mode": "init"})
+            self._forward()
+        elif spec.kind == "o2":
+            for name, target in self.targets.items():
+                if target.kind == "free":
+                    applied.append(self._apply_o2(name, spec))
+                else:
+                    self._restore_initial(name)
+                    applied.append({"target": name, "mode": "init_joint"})
             self._forward()
         elif spec.kind == "translation":
             # ``both`` (and mixed rows) apply the pose level to the object and
@@ -478,6 +507,32 @@ class BInjector:
 
         if pre_goal_state and spec.kind in ("init", "translation"):
             self._carry_pre_goal_objects(pre_goal_state)
+        self._last_before = before
+        self._last_applied = applied
+        self._last_kind = spec.kind
+        return self._make_result(before, applied, gripper_qpos, spec.kind)
+
+    def revalidate(self, gripper_qpos: Sequence[float] | None = None) -> dict[str, Any]:
+        """Re-evaluate gates after the caller has stepped physics to settle."""
+
+        if self._last_before is None or self._last_kind is None:
+            raise RuntimeError("revalidate() called before inject()")
+        return self._make_result(
+            self._last_before,
+            self._last_applied,
+            gripper_qpos,
+            self._last_kind,
+            post_settle=True,
+        )
+
+    def _make_result(
+        self,
+        before: dict[str, Any],
+        applied: list[dict[str, Any]],
+        gripper_qpos: Sequence[float] | None,
+        kind: str,
+        post_settle: bool = False,
+    ) -> dict[str, Any]:
         after = self.snapshot_all()
         geometry = self._geometry(
             before["snapshots"], {k: v.as_dict() for k, v in after.items()}
@@ -491,7 +546,8 @@ class BInjector:
             "case_id": self.case.case_id,
             "level": self.case.level,
             "param": self.case.param,
-            "kind": spec.kind,
+            "kind": kind,
+            "post_settle": post_settle,
             "goal_before": before["goal"],
             "revoked_before": before["revoked"],
             "goal_after": goal_after,
@@ -514,6 +570,54 @@ class BInjector:
             before["snapshots"], after
         )
         return result
+
+    def _apply_static_target(self) -> list[dict[str, Any]]:
+        """Write the exact target state captured from the rollback injection."""
+
+        applied: list[dict[str, Any]] = []
+        free_states = self.static_target.get("free") or {}
+        joint_states = self.static_target.get("joint") or {}
+        for name in sorted(set(free_states) | set(joint_states)):
+            target = self.targets.get(name)
+            if target is None:
+                continue
+            free = free_states.get(name)
+            if free and target.kind == "free" and target.free_joint is not None:
+                _set_free_qpos(
+                    self.sim,
+                    target.free_joint,
+                    free["position"],
+                    free.get("quat") or [0.0, 0.0, 0.0, 1.0],
+                )
+                applied.append(
+                    {
+                        "target": name,
+                        "mode": "static_exact_free",
+                        "position": list(free["position"]),
+                        "quat": list(free.get("quat") or [0.0, 0.0, 0.0, 1.0]),
+                    }
+                )
+            joint = joint_states.get(name)
+            if joint:
+                for joint_name, qpos in joint.items():
+                    joint_id = None
+                    for candidate in range(self.model.njnt):
+                        if str(self.model.joint_names[candidate]) == str(joint_name):
+                            joint_id = candidate
+                            break
+                    if joint_id is None:
+                        continue
+                    _set_joint_qpos(self.sim, joint_id, float(qpos))
+                    applied.append(
+                        {
+                            "target": name,
+                            "mode": "static_exact_joint",
+                            "joint": str(joint_name),
+                            "q_applied": float(qpos),
+                        }
+                    )
+        self._forward()
+        return applied
 
     def _restore_initial(self, name: str) -> None:
         initial = self._initial[name]
@@ -554,6 +658,33 @@ class BInjector:
             if score > best_score:
                 best, best_score = joint_id, score
         return best
+
+    def _apply_o2(self, name: str, spec: LevelSpec) -> dict[str, Any]:
+        target = self.targets[name]
+        if target.free_joint is None or not spec.o2_init:
+            return {"target": name, "mode": "o2", "error": "no free joint / o2 init"}
+        state = _load_o2_state(spec.o2_init)
+        address = int(self.model.jnt_qposadr[target.free_joint])
+        # LIBERO ``.pruned_init`` stores ``sim.get_state().flatten()``:
+        # [time, qpos, qvel].  ``set_init_state`` consumes that layout, so the
+        # qpos address in the live model is shifted by one in the file.
+        offset = 1
+        if offset + address + 7 > state.size:
+            return {
+                "target": name,
+                "mode": "o2",
+                "error": f"o2 init too short: {state.size} <= {offset + address + 7}",
+            }
+        position = state[offset + address : offset + address + 3]
+        quat = state[offset + address + 3 : offset + address + 7]
+        _set_free_qpos(self.sim, target.free_joint, position, quat)
+        return {
+            "target": name,
+            "mode": "o2",
+            "o2_init": spec.o2_init,
+            "position": [round(float(v), 6) for v in position],
+            "quat": [round(float(v), 6) for v in quat_normalize(quat)],
+        }
 
     def _apply_translation(self, name: str, spec: LevelSpec) -> dict[str, Any]:
         target = self.targets[name]
@@ -666,9 +797,37 @@ class BInjector:
             )
         self._forward()
         q_init = _joint_qpos(self.sim, active)
+        ratio = float(spec.joint_ratio if spec.joint_ratio is not None else 0.25)
+        if self.static_init:
+            # At t=0 the achieved span is zero, so the normal ratio target would
+            # be a no-op.  Use the joint's goal-side limit as the span instead.
+            low, high = _joint_range(self.model, active) or (q_init, q_init)
+            # Probe both limits and use the side where the revoked predicate is
+            # true (open vs close / turnon can be either sign per joint).
+            q_goal = high
+            for candidate in (high, low):
+                _set_joint_qpos(self.sim, active, candidate)
+                self._forward()
+                if all(self.revoked_truth()):
+                    q_goal = candidate
+                    break
+            span = q_goal - q_init
+            target_q = q_init + ratio * span
+            _set_joint_qpos(self.sim, active, target_q)
+            self._forward()
+            return {
+                "target": name,
+                "mode": "joint_ratio_static",
+                "joint": str(self.model.joint_names[active]),
+                "requested_ratio": round(ratio, 4),
+                "applied_ratio": round(ratio, 4),
+                "q_init": round(q_init, 6),
+                "q_injected": round(q_goal, 6),
+                "q_applied": round(target_q, 6),
+                "joint_range": [round(low, 6), round(high, 6)],
+            }
         # Recover the injected joint value from the last snapshot.
         injected = self._pre_injection_joint(name, active)
-        ratio = float(spec.joint_ratio if spec.joint_ratio is not None else 0.25)
         span = injected - q_init
         applied = ratio
         target_q = q_init + ratio * span
