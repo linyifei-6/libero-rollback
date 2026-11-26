@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITLE}}</title>
+<!--
+  标准实验报告模板 · experiment-report-v1.0 · HTML 版（自包含、无外部资源、白底）
+  ---------------------------------------------------------------------------
+  与 experiment-report.md 同结构、同 token、同口径；规范见 experiment-report.README.md。
+  替换规则：
+    * 占位符 = 双花括号之间写全大写名称；以 _TABLE / _BARS / _BULLETS / _NOTES / _CASES /
+                    _COMMANDS / _VERDICT / _WARNING 结尾的 token 允许是 HTML 片段。
+    * 表体 token 必须替换为**完整 <table>**（含 <thead>/<tbody>），模板只提供容器与表头规范。
+  硬性限制：禁止 CDN、外链样式表、外链脚本、外链字体、远程图片、深色主题。
+-->
+<style>
+:root{
+  --bg:#ffffff; --soft:#f7f8fa; --card:#ffffff; --alt:#f4f6f8;
+  --ink:#1f2933; --ink2:#52606d; --muted:#7b8794; --line:#d9e2ec;
+  --accent:#2563eb; --accent-soft:#eff6ff;
+  --ok:#166534; --ok-bg:#ecfdf3; --ok-line:#bbf7d0;
+  --warn:#92400e; --warn-bg:#fffbeb; --warn-line:#fde68a;
+  --bad:#b42318; --bad-bg:#fef3f2; --bad-line:#fecdca;
+  --na:#4b5563; --na-bg:#f3f4f6; --na-line:#e5e7eb;
+  --radius:10px; --shadow:0 1px 2px rgba(16,24,40,.06),0 1px 3px rgba(16,24,40,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:15px/1.62 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;font-size:12.5px}
+
+/* ---- 左侧 sticky 导航 + 内容区 ---- */
+.layout{display:grid;grid-template-columns:248px minmax(0,1fr)}
+.nav{position:sticky;top:0;height:100vh;overflow-y:auto;background:var(--soft);
+  border-right:1px solid var(--line);padding:16px 10px 48px}
+.nav .brand{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);
+  font-weight:750;padding:0 8px;margin-bottom:4px}
+.nav .docid{font-size:11px;color:var(--muted);padding:0 8px 12px;overflow-wrap:anywhere}
+.nav h2{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);
+  border:0;margin:16px 8px 6px;padding:0}
+.nav a{display:block;padding:4px 8px;border-radius:6px;font-size:13px;color:var(--ink2);
+  white-space:normal;overflow-wrap:anywhere}
+.nav a:hover{background:var(--accent-soft);text-decoration:none}
+.nav details{margin:0}
+.nav summary{cursor:pointer;font-size:12.5px;color:var(--ink2);padding:4px 8px;border-radius:6px;font-weight:600}
+.nav summary:hover{background:var(--accent-soft)}
+.wrap{max-width:1220px;margin:0 auto;padding:0 26px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr}
+  .nav{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line)}
+}
+
+/* ---- 页头 ---- */
+.hero{background:linear-gradient(180deg,#f8fbff 0%,#ffffff 100%);
+  border-bottom:1px solid var(--line);padding:32px 0 20px}
+.eyebrow{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);
+  font-weight:750;margin-bottom:6px}
+h1{font-size:27px;line-height:1.26;margin:0 0 8px}
+.subtitle{color:var(--ink2);margin:0 0 14px;font-size:14.5px;max-width:960px}
+.status-line{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:12.5px;color:var(--muted)}
+
+/* ---- 正文 ---- */
+main{padding:24px 0 64px}
+section{margin:30px 0}
+h2{font-size:20px;margin:0 0 12px;padding-top:12px;border-top:1px solid var(--line);scroll-margin-top:14px}
+section:first-of-type h2{border-top:0;padding-top:0}
+h3{font-size:15px;margin:20px 0 8px;scroll-margin-top:14px}
+h4{font-size:13.5px;margin:14px 0 6px;color:var(--ink2)}
+p{margin:6px 0}
+.muted{color:var(--muted)}
+.small{font-size:12px;color:var(--muted)}
+
+/* ---- 元数据 / KPI ---- */
+dl.meta,.meta{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:5px 18px;
+  background:var(--soft);border:1px solid var(--line);border-radius:var(--radius);padding:14px;margin:0}
+.meta div{min-width:0}
+.meta dt{font-size:11.5px;color:var(--muted);letter-spacing:.02em}
+.meta dd{margin:0 0 6px;font-weight:550;overflow-wrap:anywhere;font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:13px 14px}
+.kpi-label{font-size:12.5px;color:var(--ink2)}
+.kpi-value{font-size:25px;font-weight:780;margin:3px 0 2px;font-variant-numeric:tabular-nums}
+.kpi-sub{font-size:12px;color:var(--muted);overflow-wrap:anywhere}
+
+/* ---- 徽标 ---- */
+.badge{display:inline-block;padding:1px 8px;border-radius:999px;font-size:12px;
+  border:1px solid var(--line);background:var(--soft);color:var(--ink2);white-space:nowrap}
+.badge.ok{background:var(--ok-bg);border-color:var(--ok-line);color:var(--ok)}
+.badge.bad{background:var(--bad-bg);border-color:var(--bad-line);color:var(--bad)}
+.badge.warn{background:var(--warn-bg);border-color:var(--warn-line);color:var(--warn)}
+.badge.na{background:var(--na-bg);border-color:var(--na-line);color:var(--na)}
+
+/* ---- 表格 ---- */
+table.dt{width:100%;border-collapse:collapse;font-size:13px;background:var(--card);
+  border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin:0}
+.dt th,.dt td{padding:7px 9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.dt thead th{background:var(--alt);font-weight:650;font-size:12.5px;color:var(--ink2)}
+.dt tbody tr:nth-child(even){background:#fcfcfd}
+.dt tr:last-child td{border-bottom:0}
+.dt td.num,.dt th.num{text-align:right;font-variant-numeric:tabular-nums}
+.dt td.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;overflow-wrap:anywhere}
+.dt caption{caption-side:top;text-align:left;font-size:12px;color:var(--muted);padding:0 0 6px}
+
+/* ---- 条形 / 提示块 ---- */
+.two-col{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:start}
+@media (max-width:900px){.two-col{grid-template-columns:1fr}}
+.bars{background:var(--soft);border:1px solid var(--line);border-radius:var(--radius);padding:14px}
+.bar-row{display:grid;grid-template-columns:34px 1fr 52px;gap:10px;align-items:center;margin:9px 0;font-size:12.5px}
+.bar{height:9px;background:#e8eef5;border-radius:999px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent);border-radius:999px}
+.bar-row .num{text-align:right;color:var(--ink2);font-variant-numeric:tabular-nums}
+.note{background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+  border-radius:var(--radius);padding:12px 14px;margin:10px 0}
+.note.warn{border-left-color:var(--warn);background:var(--warn-bg);border-color:var(--warn-line)}
+.note.bad{border-left-color:var(--bad);background:var(--bad-bg);border-color:var(--bad-line)}
+.note h4{margin:0 0 4px}
+blockquote{margin:10px 0;padding:10px 14px;border-left:3px solid var(--accent-soft);
+  background:var(--soft);border-radius:0 var(--radius) var(--radius) 0;color:var(--ink2)}
+ul,ol{margin:6px 0 6px 20px;padding:0}
+li{margin:3px 0}
+pre{background:var(--alt);border:1px solid var(--line);border-radius:var(--radius);
+  padding:12px 14px;overflow-x:auto;font-size:12.5px;line-height:1.5}
+pre code{font-size:12.5px}
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:12px;padding:16px 0 36px}
+</style>
+</head>
+<body>
+<div class="layout">
+
+<nav class="nav" aria-label="目录">
+  <div class="brand">LIBERO-Rollback</div>
+  <div class="docid mono">{{REPORT_ID}}</div>
+
+  <details open>
+    <summary>摘要</summary>
+    <a href="#overview">0. 摘要</a>
+  </details>
+  <details open>
+    <summary>设计</summary>
+    <a href="#questions">1. 问题与预注册判据</a>
+    <a href="#design">2. 实验设计</a>
+    <a href="#matrix">2.1 用例集与矩阵</a>
+    <a href="#arms">2.2 实验臂与对照</a>
+    <a href="#protocol">2.3 触发与注入协议</a>
+    <a href="#params">2.4 运行参数</a>
+    <a href="#env">2.5 模型与环境</a>
+  </details>
+  <details open>
+    <summary>执行与口径</summary>
+    <a href="#coverage">3. 执行与覆盖</a>
+    <a href="#metrics">4. 指标定义与口径</a>
+  </details>
+  <details open>
+    <summary>结果</summary>
+    <a href="#results">5. 结果</a>
+    <a href="#r-overall">5.1 总体</a>
+    <a href="#r-suite">5.2 分 suite</a>
+    <a href="#r-level">5.3 分注入 level</a>
+    <a href="#r-control">5.4 控制臂 C0</a>
+    <a href="#r-verdict">5.5 verdict 分布</a>
+    <a href="#r-task">5.6 分 task</a>
+    <a href="#r-paired">5.7 配对对照</a>
+  </details>
+  <details open>
+    <summary>解释</summary>
+    <a href="#failures">6. 失败模式</a>
+    <a href="#discussion">7. 讨论</a>
+    <a href="#limits">8. 局限</a>
+    <a href="#conclusion">9. 结论</a>
+  </details>
+  <details open>
+    <summary>证据</summary>
+    <a href="#repro">10. 复现</a>
+    <a href="#evidence">11. 证据清单</a>
+    <a href="#changelog">12. 变更记录</a>
+  </details>
+</nav>
+
+<div>
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">{{MODEL}} · {{SCOPE}} · {{EXPERIMENT_KIND}}</div>
+    <h1>{{TITLE}}</h1>
+    <p class="subtitle">{{SUBTITLE}}</p>
+    <div class="status-line">
+      <span class="badge {{STATUS_CLASS}}">{{STATUS}}</span>
+      <span>报告 <span class="mono">{{REPORT_ID}}</span></span>
+      <span>·</span>
+      <span>模板 <span class="mono">{{TEMPLATE_VERSION}}</span></span>
+      <span>·</span>
+      <span>生成于 <b>{{GENERATED_AT}}</b></span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="overview">
+    <h2>0. 摘要</h2>
+    {{SUMMARY_BULLETS}}
+    <blockquote><b>一句话</b>：{{ONE_LINE_VERDICT}}</blockquote>
+    {{MISREADING_WARNING}}
+    <dl class="meta">
+      <div><dt>模型</dt><dd>{{MODEL}}</dd></div>
+      <div><dt>checkpoint</dt><dd class="mono">{{CHECKPOINT}}</dd></div>
+      <div><dt>矩阵</dt><dd class="mono">{{MATRIX_PATH}}</dd></div>
+      <div><dt>矩阵 sha256</dt><dd class="mono">{{MATRIX_SHA256}}</dd></div>
+      <div><dt>矩阵冻结日</dt><dd>{{MATRIX_FROZEN_AT}}</dd></div>
+      <div><dt>覆盖范围</dt><dd>{{SCOPE}}</dd></div>
+      <div><dt>实验类型</dt><dd>{{EXPERIMENT_KIND}}</dd></div>
+      <div><dt>运行目录</dt><dd class="mono">{{RUN_DIR}}</dd></div>
+      <div><dt>协议</dt><dd>{{PROTOCOL_ONE_LINE}}</dd></div>
+      <div><dt>报告性质</dt><dd>{{REPORT_KIND}}</dd></div>
+      <div><dt>证据等级</dt><dd>{{EVIDENCE_TIER}}</dd></div>
+      <div><dt>seed / init_row</dt><dd>{{SEED}} / {{INIT_ROW}}</dd></div>
+    </dl>
+  </section>
+
+  <section id="questions">
+    <h2>1. 实验问题与预注册判据</h2>
+    <p class="small">判据在跑之前固定；跑完再补判据等于没有判据。判据若有改动，必须写进第 12 节变更记录。</p>
+    {{RQ_TABLE}}
+  </section>
+
+  <section id="design">
+    <h2>2. 实验设计</h2>
+
+    <h3 id="matrix">2.1 用例集与矩阵</h3>
+    {{MATRIX_TABLE}}
+    {{MATRIX_NOTES}}
+
+    <h3 id="arms">2.2 实验臂与对照</h3>
+    <p class="small">每个 arm 必须写明是否进 Recovery 分母；C0 对照不进分母，只报 control_rate。</p>
+    {{ARM_TABLE}}
+
+    <h3 id="protocol">2.3 触发与注入协议</h3>
+    {{TRIGGER_SPEC}}
+
+    <h3 id="params">2.4 运行参数</h3>
+    {{RUN_PARAMS_TABLE}}
+
+    <h3 id="env">2.5 模型与环境</h3>
+    {{ENV_TABLE}}
+  </section>
+
+  <section id="coverage">
+    <h2>3. 执行与覆盖</h2>
+    <p class="small">应跑 / 完成 / 失败 / N/A 必须能对上用例总数；对不上就写清差在哪。</p>
+    {{COVERAGE_TABLE}}
+    {{COVERAGE_NOTES}}
+  </section>
+
+  <section id="metrics">
+    <h2>4. 指标定义与口径</h2>
+    {{METRIC_DEF_TABLE}}
+    <div class="note warn">
+      <h4>口径红线</h4>
+      <ol>
+        <li><b>Recovery 分母 = 注入有效且非 C0</b>；C0 对照、注入无效、触发未到达一律不进分母。</li>
+        <li><b>不可触发 = <code>N/A</code>，不是 0%</b>；N/A 单独计数，并进表格与结论。</li>
+        <li><b><code>restorable</code> oracle 只证明几何可修</b>，不等于策略自修复，不进恢复分子。</li>
+        <li>每个率给 <b>Wilson 95% CI</b> 与 <code>k/N</code>；分母为 0 时写 <code>N/A</code>，不得显示 0.0%。</li>
+        <li>数字只从 <code>aggregate.json</code> 取；页面 KPI、表格、正文、JSON 四处必须一致。</li>
+        <li>协议不同（<code>max_steps</code> / <code>repair_window</code> / <code>stop_on_recovery</code> / <code>replan</code>）的
+            suite <b>不可直接横比</b>；必须横比时写成"描述性合并"并标注协议差异。</li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="results">
+    <h2>5. 结果</h2>
+
+    <h3 id="r-overall">5.1 总体</h3>
+    {{KPI_TABLE}}
+
+    <h3 id="r-suite">5.2 分 suite</h3>
+    {{SUITE_TABLE}}
+
+    <h3 id="r-level">5.3 分注入 level（剂量-效应）</h3>
+    <div class="two-col">
+      <div>{{LEVEL_TABLE}}</div>
+      <div class="bars">{{LEVEL_BARS}}</div>
+    </div>
+
+    <h3 id="r-control">5.4 控制臂（C0）</h3>
+    {{CONTROL_TABLE}}
+
+    <h3 id="r-verdict">5.5 verdict 分布</h3>
+    {{VERDICT_TABLE}}
+
+    <h3 id="r-task">5.6 分 task（可选）</h3>
+    {{TASK_TABLE}}
+
+    <h3 id="r-paired">5.7 配对对照（可选）</h3>
+    <p class="small">配对单位与过滤规则（如"仅两边都 valid"）必须写明；不得把不同分母的数字直接相减。</p>
+    {{PAIRED_TABLE}}
+  </section>
+
+  <section id="failures">
+    <h2>6. 失败模式分析</h2>
+    <p class="small">
+      四类分开数：触发未达 <code>trigger_not_reached</code> / 注入无效 <code>injection_invalid</code> /
+      有效但未恢复 <code>valid_not_recovered</code> / 未完成 <code>incomplete</code>；
+      四类之和 = 总数 − 恢复数。
+    </p>
+    {{FAILURE_TABLE}}
+    {{FAILURE_CASES}}
+  </section>
+
+  <section id="discussion">
+    <h2>7. 讨论</h2>
+    {{DISCUSSION}}
+  </section>
+
+  <section id="limits">
+    <h2>8. 局限</h2>
+    {{LIMITATIONS}}
+  </section>
+
+  <section id="conclusion">
+    <h2>9. 结论</h2>
+    <p class="small">每条标注证据强度：强（多 seed / 大 N / 配对）、中、弱（单 seed、小 N、描述性）。</p>
+    {{CONCLUSIONS}}
+  </section>
+
+  <section id="repro">
+    <h2>10. 复现</h2>
+    <pre><code>{{REPRO_COMMANDS}}</code></pre>
+    {{REPRO_NOTES}}
+  </section>
+
+  <section id="evidence">
+    <h2>11. 证据清单</h2>
+    {{EVIDENCE_TABLE}}
+    {{PROVENANCE_NOTE}}
+  </section>
+
+  <section id="changelog">
+    <h2>12. 变更记录</h2>
+    {{CHANGELOG_TABLE}}
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    自包含 HTML（无 CDN、无外链字体、无外部脚本），白色主题；<code>file://</code> 双击可打开。
+    模板 <span class="mono">experiment-report-v1.0</span> ｜ 生成器 <span class="mono">libero-rollback report</span> ｜
+    数据源 <span class="mono">aggregate.json</span>。
+  </div>
+</footer>
+</div>
+</div>
+</body>
+</html>
