@@ -12,6 +12,12 @@
 # This file must never contain a machine-specific absolute path. Checkpoints
 # are NOT downloaded and are NOT part of the dataset; users obtain them under
 # the model's own license. See docs/protocol.md and configs/envs/README.md.
+#
+# `replan_steps` is the model's *native* query cadence, not a global protocol
+# constant: LIBERO-MAX queries each policy at its own interval (π0.5 Q=5,
+# OpenVLA-OFT Q=8, X-VLA Q=30, VLA-JEPA Q=7, LingBot Q=16, ...). The runner
+# resolves an unset `--replan` from this field so an action chunk is never
+# silently truncated; explicit CLI flags still win.
 
 schema_version: 1
 env_var_templates: configs/envs/<model>.lock   # per-model env lock, Phase 2
@@ -45,7 +51,7 @@ models:
     runner_supported: true
     action_horizon: 10
     image_size: 256
-    replan_steps: 10
+    replan_steps: 5          # native query cadence (LIBERO-MAX Q=5)
     env:
       XLA_FLAGS: "--xla_gpu_deterministic_ops"
     notes: >-
@@ -65,7 +71,7 @@ models:
     runner_supported: false
     action_horizon: 10
     image_size: 256
-    replan_steps: 10
+    replan_steps: 5          # native query cadence (LIBERO-MAX Q=5)
     env:
       XLA_FLAGS: "--xla_gpu_deterministic_ops"
     notes: >-
@@ -83,7 +89,7 @@ models:
     runner_supported: false
     action_horizon: 10
     image_size: 256
-    replan_steps: 10
+    replan_steps: 5          # native query cadence (LIBERO-MAX Q=5)
     env:
       XLA_FLAGS: "--xla_gpu_deterministic_ops"
     notes: >-
@@ -103,7 +109,7 @@ models:
     runner_supported: true
     action_horizon: 8
     image_size: 256
-    replan_steps: 10
+    replan_steps: 8          # native query cadence (LIBERO-MAX Q=8)
     preprocess:
       rotate_180: true
       resize: 224
@@ -121,6 +127,24 @@ models:
       before a leaderboard submission. The wrapped OFT policy performs its own
       observation preprocessing, so the adapter receives raw LIBERO observations.
 
+  vlajepa:
+    adapter: libero_rollback.policies.vlajepa
+    class: VlaJepaPolicy
+    family: starvla
+    python_env: VLAJEPA_PYTHON
+    checkpoint_env: VLAJEPA_CHECKPOINT
+    checkpoint_default: ""
+    checkpoint_name_hint: "VLA-JEPA-LIBERO"
+    runner_supported: true
+    action_horizon: 7
+    image_size: 224
+    replan_steps: 7          # native chunk (LIBERO-MAX Q=7)
+    notes: >-
+      Ported from LIBERO-MAX's reference adapter: 180-degree image rotation,
+      224x224 resize, actions unnormalised with the checkpoint's `franka`
+      statistics and the gripper binarised. Requires a VLA-JEPA checkout via
+      VLAJEPA_ROOT / --workspace; StarVLA is imported lazily.
+
   smolvla:
     adapter: libero_rollback.policies.smolvla
     class: SmolVlaPolicy
@@ -132,8 +156,230 @@ models:
     runner_supported: true
     action_horizon: 50
     image_size: 256
-    replan_steps: 10
+    replan_steps: 10         # no LIBERO-MAX reference; keep the protocol default
     notes: >-
       0.45B lightweight model used as the zero-progress control in README §2
       and §6.1. Chunk size is checkpoint-defined; the adapter reports the
       actual value in episode metadata.
+
+  xvla:
+    adapter: libero_rollback.policies.xvla
+    class: XvlaPolicy
+    family: lerobot
+    python_env: XVLA_PYTHON
+    checkpoint_env: XVLA_CHECKPOINT
+    checkpoint_default: ""
+    checkpoint_name_hint: "xvla-libero"
+    runner_supported: true
+    action_horizon: 30
+    image_size: 256
+    replan_steps: 30         # native 30-step flow-matching chunk
+    control_mode: absolute   # emits absolute OSC targets (xyz + axis-angle + grip)
+    notes: >-
+      lerobot/xvla-libero (0.88B, flow matching, 10 denoising steps). The
+      checkpoint emits ABSOLUTE end-effector targets, so the runner switches
+      the LIBERO controller to absolute mode after settling. Needs the
+      checkpoint's own policy_preprocessor/policy_postprocessor (bart-large
+      max_length=50 and soft-prompt domain_id=3) - see work/ckpt/xvla-eval-official.
+
+  xiaomi:
+    adapter: libero_rollback.policies.xiaomi
+    class: XiaomiPolicy
+    family: transformers
+    python_env: XIAOMI_PYTHON
+    checkpoint_env: XIAOMI_CHECKPOINT
+    checkpoint_default: ""
+    checkpoint_name_hint: "XiaomiRobotics/Xiaomi-Robotics-0-LIBERO"
+    runner_supported: true
+    action_horizon: 10
+    image_size: 256
+    replan_steps: 10
+    control_mode: relative
+    notes: >-
+      Xiaomi-Robotics-0 (MiBoT 4.72B, Qwen3-VL + DiT action head). Needs a py3.12
+      transformers stack with the checkpoint's own remote code and eager attention;
+      both camera views are rotated 180 deg, native chunk is 10, control is LIBERO's
+      default relative OSC.  python_env must point at /home/ubuntu/miniconda3/envs/cx/bin/python
+      with the "new lerobot" PYTHONPATH only if the LeRobot env is used; the runner
+      itself needs just torch/transformers.
+
+  vla_jepa_lerobot:
+    adapter: libero_rollback.policies.vla_jepa_lerobot
+    class: VlaJepaPolicy
+    family: lerobot07
+    replan_steps: 7
+    control_mode: relative
+    image_size: 256
+    notes: VLA-JEPA LeRobot port (2.77B); config points Qwen3-VL/V-JEPA2 at local copies.
+
+  molmoact2:
+    adapter: libero_rollback.policies.molmoact2
+    class: MolmoAct2Policy
+    family: lerobot07
+    replan_steps: 10
+    control_mode: relative
+    image_size: 256
+    notes: MolmoAct2 5.44B; needs work/ckpt/molmoact2-base small metadata dir (config-only load).
+
+  groot_lerobot:
+    adapter: libero_rollback.policies.groot_lerobot
+    class: GrootLiberoPolicy
+    family: lerobot07
+    replan_steps: 8         # NVIDIA N1.7-LIBERO replans after 8 of the 16 decoded steps
+    control_mode: relative
+    image_size: 256
+    notes: >-
+      GR00T N1.7 (3.14B) LeRobot export; processor_config owns normalisation.
+      One checkpoint per LIBERO suite (libero_spatial / libero_object /
+      libero_goal / libero_10); proprio is eef_pos + axis-angle + gripper_qpos
+      and the decoded action is the LIBERO OSC delta action.
+
+  fastwam:
+    adapter: libero_rollback.policies.fastwam
+    class: FastWamPolicy
+    family: lerobot07
+    replan_steps: 32
+    control_mode: relative
+    image_size: 256
+    notes: FastWAM 6.02B + Wan2.2 VAE/UMT5 under work/ckpt/wan22; cameras image/image2.
+
+  lightwam:
+    adapter: libero_rollback.policies.lightwam
+    class: LightWamPolicy
+    family: lightwam
+    python_env: LIGHTWAM_PYTHON
+    checkpoint_env: LIGHTWAM_CHECKPOINT
+    checkpoint_default: ""
+    checkpoint_name_hint: "lightwam_libero_spatial"
+    runner_supported: true
+    action_horizon: 32
+    image_size: 224
+    replan_steps: 10         # Light-WAM eval default (EVALUATION.replan_steps=10)
+    notes: >-
+      Released LIBERO checkpoints (l1ziang/lightwam-checkpoints). The adapter
+      mirrors experiments/libero/eval_libero_single.py: 180-degree image
+      rotation + 224 resize + horizontal camera concat, 8-D proprio, project
+      precomputed T5 prompt context (pad zeroed, all-ones mask), and the
+      gripper a*2-1 -> invert -> binarise chain. One checkpoint per suite.
+
+  cosmos:
+    adapter: libero_rollback.policies.cosmos
+    class: CosmosPolicy
+    family: cosmos
+    python_env: COSMOS_PYTHON
+    checkpoint_env: COSMOS_CHECKPOINT
+    checkpoint_default: ""
+    checkpoint_name_hint: "Cosmos-Policy-LIBERO-Predict2-2B"
+    runner_supported: true
+    action_horizon: 16
+    image_size: 224
+    replan_steps: 16         # native chunk of the released LIBERO checkpoint
+    env:
+      COSMOS_VAE_PTH: "/home/ubuntu/whj/work/ckpt/cosmos_policy/Wan2.1_VAE.pth"
+    notes: >-
+      nvidia/Cosmos-Policy-LIBERO-Predict2-2B (2B video diffusion policy).
+      Adapter mirrors the upstream LIBERO eval: both images flipped up-down,
+      9-D proprio [gripper_qpos, eef_pos, eef_quat], 224x224 resize + JPEG
+      compression inside get_action, actions unnormalised with
+      libero_dataset_statistics.json, 16-step chunk, 5 action denoising steps.
+      Requires a NVlabs/cosmos-policy checkout via COSMOS_POLICY_ROOT /
+      --workspace and its uv venv (torch 2.7.0+cu128).
+
+  dm05:
+    adapter: libero_rollback.policies.dm05_opendm
+    class: Dm05Policy
+    family: opendm
+    python_env: DM05_PYTHON
+    checkpoint_env: DM05_CHECKPOINT
+    checkpoint_default: ""
+    checkpoint_name_hint: "Dexmal/dm05-libero"
+    runner_supported: true
+    action_horizon: 10
+    image_size: 256
+    replan_steps: 10         # native LIBERO chunk (--model-config.chunk-size 10)
+    control_mode: relative   # raw LIBERO OSC delta commands (pos/rot/grip)
+    env:
+      PYTHONPATH: "/home/ubuntu/whj/work/third_party/opendm:/home/ubuntu/whj/work/pylibs/opendm_tf553:/home/ubuntu/whj/work/pylibs/opendm"
+    notes: >-
+      DM05-libero (DM0.5: Gemma3-4B + 680M action expert, 5.8B params, 11 GB
+      bf16). Adapter reuses opendm's deployment transforms: both camera views
+      rotated 180 deg then padded/resized to 448x448, 8-dim proprio
+      [eef_pos, axis-angle(eef_quat), gripper_qpos], checkpoint quantile
+      norm_stats, ChatTokenization prompt ("Robot: Franka" / speed 0.5 /
+      "Task: ..."), 10-step 7-dim LIBERO OSC chunk, 10 flow-matching steps.
+      `action_mode=absolute` in the LIBERO entry only means the JSONL carries
+      explicit 7-dim action vectors; those vectors are raw LIBERO OSC delta
+      commands (norm stats: pos +-0.9, rot +-0.34, grip +-1) and the official
+      dexbotic harness feeds them to the unmodified upstream LIBERO relative
+      controller, so control_mode is relative. Needs the opendm checkout + its
+      transformers 5.5.3 stack on PYTHONPATH and VLM/action attention forced
+      to sdpa (the checkpoint config asks for flex/flash attention).
+
+  himem:
+    adapter: libero_rollback.policies.himem_wam
+    class: HiMemWamPolicy
+    family: himem_wam
+    python_env: HIMEM_WAM_PYTHON
+    checkpoint_env: HIMEM_WAM_CHECKPOINT
+    checkpoint_default: ""
+    checkpoint_name_hint: "himem-wam_libero.pt"
+    runner_supported: true
+    action_horizon: 32
+    image_size: 256
+    replan_steps: 10         # HiMem-WAM EVALUATION.replan_steps=10
+    control_mode: relative   # delta EEF pose (6) + gripper, LIBERO default OSC
+    env:
+      HIMEM_WAM_ROOT: "/home/ubuntu/whj/work/third_party/HiMem-WAM"
+      HIMEM_WAM_ASSETS: "/home/ubuntu/whj/work/ckpt/fastwam"
+    notes: >-
+      HiMem-WAM LIBERO checkpoint (6.7B bf16: MoT video/action experts +
+      proprio encoder, step=30608). The Wan2.2 VAE and UMT5-XXL text encoder
+      come from the FastWAM mirror under HIMEM_WAM_ASSETS; their
+      hash_model_file() values match WAN22_MODEL_REGISTRY, so no conversion is
+      needed (model.vae_pretrained_path -> Wan2.2_VAE.safetensors). The text
+      encoder is attached by the adapter (load_text_encoder stays false) and
+      prompt contexts are cached; HIMEM_WAM_TEXT_ENCODER=cuda keeps the 11 GB
+      UMT5 on the GPU instead of the host. Preprocessing mirrors
+      experiments/libero/eval_libero_single.py: 180-degree flip on both views,
+      224x224 per camera concatenated to 224x448, 8-D proprio
+      [eef_pos, axis-angle(quat), gripper_qpos], checkpoint min/max stats, and
+      the gripper clipped/binarised in env convention. The releases'
+      configs/libero/eval.yaml declares `defaults: - train`, which Hydra
+      resolves to the missing libero/train; the adapter composes the same file
+      from a temporary symlink mirror instead of editing the checkout.
+
+  dit4dit:
+    adapter: libero_rollback.policies.dit4dit
+    class: Dit4ditPolicy
+    family: dit4dit
+    python_env: DIT4DIT_PYTHON
+    checkpoint_env: DIT4DIT_CHECKPOINT
+    checkpoint_default: ""
+    checkpoint_name_hint: "dit4dit_libero"
+    runner_supported: true
+    action_horizon: 8
+    image_size: 224
+    replan_steps: 8          # native chunk (future_action_window_size=7 -> 8)
+    control_mode: relative   # LIBERO OSC delta EEF pose (6) + gripper
+    env:
+      DIT4DIT_ROOT: "/home/ubuntu/whj/work/third_party/DiT4DiT"
+      DIT4DIT_TOKENIZER: "/home/ubuntu/whj/work/ckpt/qwen25-vl-7b-tokenizer"
+    notes: >-
+      Mondo-Robotics/DiT4DiT LIBERO (11.8B bf16: Cosmos-Predict2.5-2B DiT +
+      Qwen2.5-VL-7B text tower + Wan2.1 VAE + DiT-B flow-matching action head,
+      8-step chunk, 4 flow steps). The gated `nvidia/Cosmos-Predict2.5-2B`
+      diffusers directory is not needed: the adapter rebuilds the three heavy
+      components from the checkpoint's key/shape signature (the
+      `third_party/dit4dit_load_check.py` recipe), hands the assembled pipeline to
+      the unmodified repo loader, and loads all 1739/1739 tensors with
+      `load_state_dict(assign=True)` (bit-equal, VAE included — the Wan2.1 VAE
+      layout `is_residual=False` is what the checkpoint stores, so the "0.35 vs
+      0.43 upsamplers" mismatch never appears). Preprocessing mirrors
+      examples/LIBERO/eval_files: both views rotated 180 deg, resized to 224 and
+      concatenated to 224x448, 8-D proprio [eef_pos, axis-angle(quat),
+      gripper_qpos] with per-dim sin/cos (16), checkpoint `franka` min/max
+      un-normalisation, and the official `1 - 2*(open>0.5)` gripper mapping.
+      `DIT4DIT_TEXT_ENCODER=cpu` (default) keeps the 8.3B Qwen tower on the host
+      (prompt embeddings are cached per instruction, RAM + optional disk), which
+      brings the GPU footprint down to ~6 GB; set it to `cuda` when the card has
+      room for the whole 11.8B model.

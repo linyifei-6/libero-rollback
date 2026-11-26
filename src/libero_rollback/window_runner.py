@@ -112,6 +112,7 @@ CHECKPOINT_ENV = {
     "pi05": "PI05_CHECKPOINT",
     "smolvla": "SMOLVLA_CHECKPOINT",
     "openvla_oft": "OPENVLA_OFT_CHECKPOINT",
+    "dm05": "DM05_CHECKPOINT",
 }
 
 
@@ -146,6 +147,8 @@ class WindowRunConfig:
     pose_later_max_xy_m: float = 0.20
     settle_speed_m_s: float = 0.01
     settled_confirm_steps: int = 3
+    #: stop the episode as soon as the full goal set is true again after the injection
+    stop_on_success: bool = True
     s2_start_epsilon_m: float = 0.005
     #: Joint-``s2`` progress fractions (documented, never lift/XY).
     joint_mid_fraction: float = 0.10
@@ -1242,6 +1245,10 @@ def run_window_case(
                 success_ever = True
                 if first_success_step is None:
                     first_success_step = steps
+                if config.stop_on_success and injected:
+                    summary["stop_reason"] = "success_after_injection"
+                    summary["termination"] = "success_after_injection"
+                    break
 
             if not injected:
                 # t033 early: leave a short approach interval after s1 before
@@ -1550,7 +1557,11 @@ def run_window_case(
                 recovery=restored,
                 validity=validity,
                 case_valid=bool(case_valid),
-                termination="step_limit" if steps >= total_budget else "done",
+                termination=(
+                    summary.get("termination")
+                    if summary.get("stop_reason") == "success_after_injection"
+                    else ("step_limit" if steps >= total_budget else "done")
+                ),
             )
         else:
             skipped_reason = (

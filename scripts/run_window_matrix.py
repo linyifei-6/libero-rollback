@@ -110,6 +110,12 @@ def build_parser() -> argparse.ArgumentParser:
         help="override the matrix max_steps; 0 uses the row value (C 800 / D 600)",
     )
     parser.add_argument("--repair-window", type=int, default=600)
+    parser.add_argument(
+        "--stop-on-success-after-injection",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="after the injection, stop as soon as the full goal set is true again",
+    )
     parser.add_argument("--replan", type=int, default=10)
     parser.add_argument("--camera", type=int, default=256)
     parser.add_argument("--settle-steps", type=int, default=10)
@@ -248,6 +254,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         camera=args.camera,
         settle_steps=args.settle_steps,
         repair_window=args.repair_window,
+        stop_on_success=bool(args.stop_on_success_after_injection),
         lift_min_m=args.lift_min_m,
         preplacement_max_xy_m=args.preplacement_max_xy_m,
         require_settled_early=bool(args.require_settled_early),

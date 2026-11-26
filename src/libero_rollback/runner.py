@@ -48,6 +48,7 @@ CHECKPOINT_ENV: Mapping[str, str] = {
     "pi05": "PI05_CHECKPOINT",
     "smolvla": "SMOLVLA_CHECKPOINT",
     "openvla_oft": "OPENVLA_OFT_CHECKPOINT",
+    "dm05": "DM05_CHECKPOINT",
 }
 
 
@@ -440,6 +441,12 @@ def run_case(
                 raise RuntimeError(
                     "task succeeded during settling (init row must not be solved)"
                 )
+        # Models that emit absolute end-effector poses (e.g. X-VLA) declare
+        # ``control_mode = "absolute"``; the settle phase above stays in the
+        # LIBERO default (relative) so the dummy action is a no-op.
+        if getattr(policy, "control_mode", "relative") == "absolute":
+            for robot in env.robots:
+                robot.controller.use_delta = False
 
         problem = env.env
         goal_atoms = [
@@ -582,6 +589,10 @@ def run_case(
                 if first_success_step is None:
                     first_success_step = steps
                 success_ever = True
+                if config.stop_on_success and injected:
+                    summary["stop_reason"] = "success_after_injection"
+                    summary["termination"] = "success_after_injection"
+                    break
                 if config.static_init:
                     summary["static_stopped_on_success"] = True
                     break
@@ -1226,6 +1237,10 @@ def run_matrix(
     finally:
         stream.close()
         aggregate = aggregate_episodes(episodes, output, defaults)
+        # Protocol §7: every run carries a provenance record (never fails the run).
+        from .provenance import write_run_provenance
+
+        write_run_provenance(output, checkpoint=checkpoint_path, libero_home=libero_home)
     print(RULE)
     print(f"done: output={output}")
     print(RULE)

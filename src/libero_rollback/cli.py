@@ -180,12 +180,15 @@ def _add_run_arguments(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--max-steps", type=int, default=600)
     parser.add_argument("--delay-steps", type=int, default=10)
-    parser.add_argument("--replan", type=int, default=10)
+    parser.add_argument("--replan", type=int, default=None,
+                        help="query cadence; default = model's native cadence "
+                             "from configs/models.yaml (LIBERO-MAX convention)")
     parser.add_argument("--camera", type=int, default=256)
     parser.add_argument("--settle-steps", type=int, default=10)
     parser.add_argument("--max-trigger-wait", type=int, default=60)
     parser.add_argument("--repair-window", type=int, default=600)
     parser.add_argument("--stop-on-recovery", action=argparse.BooleanOptionalAction, default=False)
+    parser.add_argument("--stop-on-success-after-injection", action=argparse.BooleanOptionalAction, default=True)
     parser.add_argument("--recovery-confirm-steps", type=int, default=1)
     parser.add_argument("--video", action=argparse.BooleanOptionalAction, default=True)
     parser.add_argument("--video-fps", type=int, default=20)
@@ -227,6 +230,11 @@ def cmd_run(args: argparse.Namespace) -> int:
         print("error: the case selection is empty", file=sys.stderr)
         return EXIT_SETUP
 
+    if args.replan is None:
+        from .policies import native_replan
+
+        args.replan = native_replan(args.model) or 10
+
     config = RunConfig(
         init_row=args.init_row,
         seed=args.seed,
@@ -238,6 +246,7 @@ def cmd_run(args: argparse.Namespace) -> int:
         max_trigger_wait=args.max_trigger_wait,
         repair_window=args.repair_window,
         stop_on_recovery=bool(args.stop_on_recovery),
+        stop_on_success=bool(args.stop_on_success_after_injection),
         recovery_confirm_steps=int(args.recovery_confirm_steps),
         video=args.video,
         video_fps=args.video_fps,

@@ -87,7 +87,9 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--max-steps", type=int, default=600)
     parser.add_argument("--repair-window", type=int, default=600)
     parser.add_argument("--delay-steps", type=int, default=10)
-    parser.add_argument("--replan", type=int, default=10)
+    parser.add_argument("--replan", type=int, default=None,
+                        help="query cadence; default = model's native cadence "
+                             "from configs/models.yaml (LIBERO-MAX convention)")
     parser.add_argument("--camera", type=int, default=256)
     parser.add_argument("--settle-steps", type=int, default=10)
     parser.add_argument(
@@ -158,6 +160,11 @@ def main(argv: Sequence[str] | None = None) -> int:
         select_cases,
         write_plan,
     )
+
+    # LIBERO-MAX queries every policy at its own cadence; an explicit flag wins.
+    if args.replan is None:
+        args.replan = native_replan(args.policy) or 10
+        print(f"replan: {args.replan} (native cadence from configs/models.yaml)")
 
     matrix = load_b_matrix(args.matrix)
     output = _resolve_output(args.output).resolve()
