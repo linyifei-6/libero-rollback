@@ -245,7 +245,9 @@ def _resolve_checkpoint(model: str, value: str | None) -> str | None:
     if model == "pi05":
         return str(
             Path.home()
-            / ".cache"
+            / "workspace"
+            / "roboot"
+            / "model"
             / "openpi"
             / "openpi-assets"
             / "checkpoints"

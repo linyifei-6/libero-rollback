@@ -1474,8 +1474,15 @@ def run_window_case(
                     }
                 )
 
-        final_goal = [bool(value) for value in injector.goal_truth()]
-        final_revoked = [bool(value) for value in injector.revoked_truth()]
+        if injector is None:
+            final_goal = [
+                bool(problem._eval_predicate(atom))  # noqa: SLF001
+                for atom in goal_atoms
+            ]
+            final_revoked = [False] * len(goal_atoms)
+        else:
+            final_goal = [bool(value) for value in injector.goal_truth()]
+            final_revoked = [bool(value) for value in injector.revoked_truth()]
         final_pending = [final_goal[index] for index in pending_goal_indices]
         revoked_ok = all(final_revoked) if revoked_goal_indices else True
         pending_ok = all(final_pending) if final_pending else True

@@ -9,7 +9,7 @@ set -uo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PY="/home/tarowang/venvs/smolvla/bin/python"
 LIBERO_HOME="/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero"
-CHECKPOINT="/home/tarowang/workspace/roboot/libero-plus/models/smolvla_libero"
+CHECKPOINT="/home/tarowang/workspace/roboot/model/libero-plus/models/smolvla_libero"
 IDS="$REPO_ROOT/runs/b-plus-smolvla-c0-ids.txt"
 STAMP="${STAMP:-20261120}"
 LOG="$REPO_ROOT/runs/b-plus-smolvla-c0-probe-$STAMP.log"

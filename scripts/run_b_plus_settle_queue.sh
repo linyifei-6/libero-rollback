@@ -9,7 +9,7 @@ set -uo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PY="/home/tarowang/workspace/roboot/libero-plus/openpi/.venv/bin/python"
 LIBERO_HOME="/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero"
-CHECKPOINT="/home/tarowang/.cache/openpi/openpi-assets/checkpoints/pi05_libero"
+CHECKPOINT="/home/tarowang/workspace/roboot/model/openpi/openpi-assets/checkpoints/pi05_libero"
 IDS="$REPO_ROOT/runs/b-plus-object-invalid-ids.txt"
 LOG="$REPO_ROOT/runs/b-plus-settle-queue-20261119.log"
 

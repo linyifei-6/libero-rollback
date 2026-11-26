@@ -15,7 +15,7 @@ STAMP="${1:-20261120}"
 OUT="$REPO_ROOT/experiments/b-plus-smolvla-$STAMP"
 SUITES=(goal object spatial l10)
 SMOLVLA_PY="${SMOLVLA_PY:-/home/tarowang/venvs/smolvla/bin/python}"
-CHECKPOINT="${SMOLVLA_CHECKPOINT:-/home/tarowang/workspace/roboot/libero-plus/models/smolvla_libero}"
+CHECKPOINT="${SMOLVLA_CHECKPOINT:-/home/tarowang/workspace/roboot/model/libero-plus/models/smolvla_libero}"
 mkdir -p "$OUT"
 
 RUN_ARGS=()

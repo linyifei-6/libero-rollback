@@ -5,7 +5,7 @@ set -uo pipefail
 REPO_ROOT=/home/tarowang/workspace/roboot/libero-rollback-2
 PY=/home/tarowang/venvs/smolvla/bin/python
 LIBERO_HOME=/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero
-CHECKPOINT=/home/tarowang/workspace/roboot/libero-plus/models/smolvla_libero
+CHECKPOINT=/home/tarowang/workspace/roboot/model/libero-plus/models/smolvla_libero
 
 export MUJOCO_GL=osmesa
 export HF_HUB_OFFLINE=1

@@ -10,7 +10,7 @@ set -uo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PY="/home/tarowang/workspace/roboot/libero-plus/openpi/.venv/bin/python"
 LIBERO_HOME="/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero"
-CHECKPOINT="/home/tarowang/.cache/openpi/openpi-assets/checkpoints/pi05_libero"
+CHECKPOINT="/home/tarowang/workspace/roboot/model/openpi/openpi-assets/checkpoints/pi05_libero"
 LOG="$REPO_ROOT/runs/b-static-all-20261120.log"
 
 export MUJOCO_GL=osmesa

@@ -40,7 +40,7 @@ models:
     family: openpi
     python_env: PI05_PYTHON
     checkpoint_env: PI05_CHECKPOINT
-    checkpoint_default: "~/.cache/openpi/openpi-assets/checkpoints/pi05_libero"
+    checkpoint_default: "~/workspace/roboot/model/openpi/openpi-assets/checkpoints/pi05_libero"
     config_name: pi05_libero
     runner_supported: true
     action_horizon: 10
@@ -60,7 +60,7 @@ models:
     family: openpi
     python_env: PI0_PYTHON
     checkpoint_env: PI0_CHECKPOINT
-    checkpoint_default: "~/.cache/openpi/openpi-assets/checkpoints/pi0_libero"
+    checkpoint_default: "~/workspace/roboot/model/openpi/openpi-assets/checkpoints/pi0_libero"
     config_name: pi0_libero
     runner_supported: false
     action_horizon: 10
@@ -78,7 +78,7 @@ models:
     family: openpi
     python_env: PI0_FAST_PYTHON
     checkpoint_env: PI0_FAST_CHECKPOINT
-    checkpoint_default: "~/.cache/openpi/openpi-assets/checkpoints/pi0_fast_libero"
+    checkpoint_default: "~/workspace/roboot/model/openpi/openpi-assets/checkpoints/pi0_fast_libero"
     config_name: pi0_fast_libero
     runner_supported: false
     action_horizon: 10

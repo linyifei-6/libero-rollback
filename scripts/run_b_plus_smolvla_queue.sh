@@ -7,7 +7,7 @@
 # 600 + 300, delay 10, replan 10, camera 256, settle_steps 10,
 # settle_after_injection 10, stop-on-recovery, video 20 fps, seed 0,
 # init_row 0.  Only the policy interpreter / checkpoint differ:
-#   pi05   -> openpi/.venv + ~/.cache/openpi/.../pi05_libero
+#   pi05   -> openpi/.venv + ~/workspace/roboot/model/openpi/openpi-assets/checkpoints/pi05_libero
 #   smolvla-> ~/venvs/smolvla + libero-plus/models/smolvla_libero
 #
 # Order: Goal -> Object -> Spatial -> L10 (same order as the pi05 queue).
@@ -17,7 +17,7 @@ set -uo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PY="/home/tarowang/venvs/smolvla/bin/python"
 LIBERO_HOME="/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero"
-CHECKPOINT="/home/tarowang/workspace/roboot/libero-plus/models/smolvla_libero"
+CHECKPOINT="/home/tarowang/workspace/roboot/model/libero-plus/models/smolvla_libero"
 LOG="$REPO_ROOT/runs/b-plus-smolvla-queue-20261120.log"
 mkdir -p "$REPO_ROOT/runs"
 

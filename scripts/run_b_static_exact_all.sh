@@ -10,7 +10,7 @@ set -uo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PY="/home/tarowang/workspace/roboot/libero-plus/openpi/.venv/bin/python"
 LIBERO_HOME="/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero"
-CHECKPOINT="/home/tarowang/.cache/openpi/openpi-assets/checkpoints/pi05_libero"
+CHECKPOINT="/home/tarowang/workspace/roboot/model/openpi/openpi-assets/checkpoints/pi05_libero"
 TARGETS="$REPO_ROOT/runs/b-static-targets-20261120.json"
 LOG="$REPO_ROOT/runs/b-static-exact-20261121.log"
 

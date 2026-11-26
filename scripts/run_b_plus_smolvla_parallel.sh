@@ -6,7 +6,7 @@
 # budget 600 + 300, delay 10, replan 10, camera 256, settle_steps 10,
 # settle_after_injection 10, stop-on-recovery, video 20 fps, seed 0,
 # init_row 0.  Only the policy interpreter / checkpoint differ:
-#   pi05    -> openpi/.venv + ~/.cache/openpi/.../pi05_libero
+#   pi05    -> openpi/.venv + ~/workspace/roboot/model/openpi/openpi-assets/checkpoints/pi05_libero
 #   smolvla -> ~/venvs/smolvla + libero-plus/models/smolvla_libero
 #
 # The GPU has spare memory/utilisation while pi05 runs (pi05 is CPU/render
@@ -20,7 +20,7 @@ set -uo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PY="/home/tarowang/venvs/smolvla/bin/python"
 LIBERO_HOME="/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero"
-CHECKPOINT="/home/tarowang/workspace/roboot/libero-plus/models/smolvla_libero"
+CHECKPOINT="/home/tarowang/workspace/roboot/model/libero-plus/models/smolvla_libero"
 STAMP="${STAMP:-20261120}"
 LOG_DIR="$REPO_ROOT/runs/smolvla-logs-$STAMP"
 mkdir -p "$LOG_DIR" "$REPO_ROOT/runs"

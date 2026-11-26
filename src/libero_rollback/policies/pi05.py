@@ -47,6 +47,7 @@ class Pi05Policy:
         from openpi.training import config as train_config
 
         self._torch = torch
+        self.rng_reset = False
         self.checkpoint = str(checkpoint)
         self.config_name = config_name
         started = time.time()
@@ -68,12 +69,35 @@ class Pi05Policy:
         }
 
     def reset(self, seed: int) -> None:
-        """Reseed sampling; the runner calls this once per episode."""
+        """Reseed sampling; the runner calls this once per episode.
+
+        openpi keeps its own JAX PRNG key (``Policy._rng``) and advances it on
+        every ``infer()``: the sampler depends on *how many calls happened
+        before*, not on wall time.  Seeding torch alone therefore does nothing
+        for pi05, and two runs of the same case only match if the whole call
+        history matches.  Resetting ``_rng`` is what makes a seed mean
+        something -- and what lets paired probes start from the same sampler
+        state.  If openpi ever renames the attribute the reset degrades to the
+        old (unseeded) behaviour instead of crashing the run.
+        """
 
         torch = self._torch
         torch.manual_seed(int(seed))
         if torch.cuda.is_available():
             torch.cuda.manual_seed_all(int(seed))
+        self.rng_reset = False
+        try:
+            import jax
+
+            inner = getattr(self, "policy", None)
+            if inner is not None and hasattr(inner, "_rng"):
+                inner._rng = jax.random.key(int(seed))
+                self.rng_reset = True
+        except Exception:  # noqa: BLE001 - never fail an episode over seeding
+            self.rng_reset = False
+        if self.metadata is not None:
+            self.metadata["rng_reset"] = self.rng_reset
+            self.metadata["seed"] = int(seed)
 
     def predict(self, observation: Mapping[str, Any], instruction: str) -> np.ndarray:
         """Return one action chunk of shape ``(T, 7)``."""

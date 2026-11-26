@@ -4,7 +4,7 @@ set -uo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PY="/home/tarowang/workspace/roboot/libero-plus/openpi/.venv/bin/python"
 LIBERO_HOME="/home/tarowang/workspace/roboot/libero-plus/openpi/third_party/libero"
-CHECKPOINT="/home/tarowang/.cache/openpi/openpi-assets/checkpoints/pi05_libero"
+CHECKPOINT="/home/tarowang/workspace/roboot/model/openpi/openpi-assets/checkpoints/pi05_libero"
 LOG="$REPO_ROOT/runs/c-regression-20261122/run-rest.log"
 mkdir -p "$REPO_ROOT/runs/c-regression-20261122"
 export MUJOCO_GL=osmesa

@@ -560,7 +560,7 @@ uv run pytest && uv run ruff check .
 
 | model id | 解释器（示例） | checkpoint（只记录不下载） | 备注 |
 |---|---|---|---|
-| `pi05` / `pi0` / `pi0_fast` | `openpi/.venv/bin/python`（Py3.11, JAX） | `~/.cache/openpi/openpi-assets/checkpoints/{pi05,pi0,pi0_fast}_libero` | action chunk 10；需 `XLA_FLAGS=--xla_gpu_deterministic_ops` |
+| `pi05` / `pi0` / `pi0_fast` | `openpi/.venv/bin/python`（Py3.11, JAX） | `~/workspace/roboot/model/openpi/openpi-assets/checkpoints/{pi05,pi0,pi0_fast}_libero` | action chunk 10；需 `XLA_FLAGS=--xla_gpu_deterministic_ops` |
 | `openvla_oft` | `openvla-oft-env/bin/python`（Py3.10, torch 2.2.0） | `models/openvla-7b-oft-finetuned-libero-spatial-object-goal-10` | `center_crop=True`，`unnorm_key` 随 suite 变化，horizon 8 |
 | `smolvla` | 独立 LeRobot env（Py3.11+） | `models/smolvla_libero` | 0.45B 轻量模型，零进展对照 |
 
